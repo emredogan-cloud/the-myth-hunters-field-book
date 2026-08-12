@@ -16,8 +16,15 @@
 | Seri | "The Great Book of…" · **Field Book alt serisi** · Cilt 1 |
 | Depo | `emredogan-cloud/the-myth-hunters-field-book` |
 | Okur | 8–12 yaş · **Alıcı** ebeveyn/büyükanne/öğretmen/kütüphaneci |
-| Kaynak | [`AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html`](../AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html) § 11 · Kitap B |
+| Kaynak | `AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html` § 11 · Kitap B |
 | Portföy yeri | **Kitap B · ikinci** · huni tamamlayıcı |
+
+
+> **Pazar raporu bu depoda DEĞİLDİR.** `AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html`
+> kurucunun çalışma dizininde duran **özel bir strateji belgesidir** ve üç
+> public depoya kopyalanmaz. Bu belgede ona **künyeyle** atıf yapılır, bağ
+> verilmez: bir depoyu klonlayan kişi o dosyaya ulaşamaz ve kırık bir bağ
+> görmemelidir.
 
 ---
 

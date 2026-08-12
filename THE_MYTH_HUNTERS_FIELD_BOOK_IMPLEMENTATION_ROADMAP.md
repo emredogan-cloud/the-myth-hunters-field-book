@@ -28,7 +28,7 @@ Ve bu kitabın en büyük ticari avantajı ürünün kendisinde değil,
 **elimizde hazır duran okurda**: *The Great Book of World Myths*'in alıcısı
 ile bu kitabın alıcısı **aynı kişidir**.
 
-Kaynak: [`AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html`](../AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html) § 8 · WS-2 ve § 11 · Kitap B.
+Kaynak: `AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html` § 8 · WS-2 ve § 11 · Kitap B.
 
 | | |
 |---|---|
