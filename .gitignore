@@ -1,0 +1,82 @@
+# ─────────────────────────────────────────────────────────────────────────
+# THE MYTH HUNTER'S FIELD BOOK — .gitignore
+# ─────────────────────────────────────────────────────────────────────────
+#
+# Depo PUBLIC'tir. Ama "depo public" ile "manuscript public" AYNI ŞEY
+# DEĞİLDİR. Bu dosya o ayrımı kurar.
+#
+# PUBLIC kalan:  kod · CI · şema · doğrulayıcı · üretim aracı · belgeler ·
+#                araştırma künyeleri · DEVRALMA MANİFESTOSU · ölçüm raporları
+# PRIVATE kalan: aktivite prozası · CEVAP ANAHTARI · ham görsel ·
+#                çocuk testçi kayıtları · kimlik bilgisi
+#
+# ⚠ DİKKAT — buradaki her kalıp bir YOL kalıbıdır ve yeni bir ada konan
+# proza dosyasını YAKALAMAZ. Bu yüzden ikinci bir hat vardır:
+# `04_BUILD/validate_structure.py` → `check_manuscript_leak()` ve
+# `check_answer_leak()` takip edilen dosyaların İÇERİĞİNE bakar; aktivite
+# metni veya CEVAP ALANI görürse CI'ı kırmızı yakar.
+# Politikayı disipline değil mekanizmaya bağlarız: disiplin unutulur.
+#
+# Karar: DECISIONS.md § A1 (bootstrap varsayımı — kurucu onayı bekliyor)
+
+# ① KİTABIN PROZASI ───────────────────────────────────────────────────────
+02_MANUSCRIPT/*
+!02_MANUSCRIPT/.gitkeep
+!02_MANUSCRIPT/README.md
+
+01_SOURCE/book.json
+01_SOURCE/book-*.json
+01_SOURCE/edits.json
+
+# ①b CEVAP ANAHTARI — ÜRÜNÜN KENDİSİ
+# Bir aktivite kitabının cevapları public depoda duramaz: ürünü değersizleştirir.
+01_SOURCE/answers/
+01_SOURCE/**/answer_key*.json
+01_SOURCE/**/*answers*.json
+06_REPORTS/answer-*.json
+
+# ①c ÇOCUK TESTÇİ KAYITLARI — ham hâli asla depoya girmez.
+# Depoda yalnızca ANONİM özet durur (tester-01, yaş, sonuç).
+03_EDITORIAL/child_tests_raw/
+03_EDITORIAL/**/*_RAW.md
+
+# ② ÖZEL EDİTORYAL VE ARAŞTIRMA MALZEMESİ ─────────────────────────────────
+00_CONTEXT/private/
+06_REPORTS/editorial/
+**/*.private.md
+**/*_PRIVATE.md
+
+# ③ GÖRSEL VARLIKLAR ──────────────────────────────────────────────────────
+# ~150 görsel öğe × 3 format çok büyüktür ve ham çıktı yeniden üretilebilir
+# değildir (üreteç deterministik değil). Depoda yalnızca ÖLÇÜMLERİ durur.
+07_ASSETS/raw/*
+07_ASSETS/processed/**/*
+07_ASSETS/print/**/*
+07_ASSETS/kindle/**/*
+07_ASSETS/web/**/*
+!07_ASSETS/**/.gitkeep
+!07_ASSETS/**/README.md
+
+# ④ FONTLAR ───────────────────────────────────────────────────────────────
+07_ASSETS/fonts/*.ttf
+07_ASSETS/fonts/*.otf
+07_ASSETS/fonts/*.woff*
+!07_ASSETS/fonts/.gitkeep
+
+# ⑤ ÜRETİLMİŞ YAYIN DOSYALARI ─────────────────────────────────────────────
+# Hepsi kaynaktan yeniden üretilebilir. Denetlenecek NÜSHA
+# 06_REPORTS/tracked/ altındadır (K18: rapor depoda durur, ürün durmaz).
+08_OUTPUT/**/*
+!08_OUTPUT/**/.gitkeep
+
+09_ARCHIVE/*
+!09_ARCHIVE/.gitkeep
+
+# ⑥ SIRLAR VE YEREL ORTAM ─────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+04_BUILD/.venv/
+__pycache__/
+*.pyc
+.DS_Store

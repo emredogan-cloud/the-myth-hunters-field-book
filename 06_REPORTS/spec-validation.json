@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "gate": "phase0",
+  "checks": 24,
+  "errors": [],
+  "warnings": [
+    "activity_index.json yok — phase0'da beklenen (Faz 1 üretir)",
+    "envanter yok — matris denetlenemiyor"
+  ],
+  "facts": {
+    "royalty_paperback": 5.55,
+    "activities_total": 0
+  }
+}

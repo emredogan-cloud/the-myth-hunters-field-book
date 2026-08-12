@@ -1,0 +1,241 @@
+{
+  "$comment": [
+    "THE MYTH HUNTER'S FIELD BOOK — makine okunur proje yapılandırması.",
+    "Bütün doğrulama betiklerinin TEK doğruluk kaynağı. Betiklere gömülü",
+    "sabit değer YASAKTIR — validate_structure.py tarar.",
+    "",
+    "Kaynak: AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html § 11 · Kitap B",
+    "",
+    "⚠ BU PROJE THE-GREAT-BOOK-OF-WORLD-MYTHS'TEN VERİ DEVRALIR —",
+    "AMA ONA BAĞLI DEĞİLDİR. Devralma bir KOPYALAMA + KÖKEN KAYDIdır,",
+    "canlı bir bağımlılık değil. Ayrıntı: 00_CONTEXT/INHERITANCE_ARCHITECTURE.md"
+  ],
+
+  "project": {
+    "id": "myth-hunters-field-book",
+    "workingTitle": "The Myth Hunter's Field Book",
+    "title": "The Myth Hunter's Field Book",
+    "subtitleHypothesis": "A Screen-Free Quest Through 22 Cultures — 120 Puzzles, Maps, Codes and Challenges for Ages 8–12",
+    "series": "The Great Book of… · Field Book alt serisi",
+    "volume": 1,
+    "language": "en",
+    "documentLanguage": "tr",
+    "repository": "emredogan-cloud/the-myth-hunters-field-book",
+    "portfolioSlot": "Kitap B · ikinci · huni tamamlayıcı",
+    "sourceOfTruth": "AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html § 11 · Kitap B",
+    "isolatedFrom": ["CODEX_BESTIARIUM", "THE-GREAT-BOOK-OF-WORLD-GAMES", "CODEX-ENIGMATICA"],
+    "inheritsFrom": {
+      "project": "THE-GREAT-BOOK-OF-WORLD-MYTHS",
+      "relationship": "copy-with-provenance",
+      "$comment": [
+        "CANLI BAĞIMLILIK DEĞİL. World Myths deposunun kardeş dizinde",
+        "bulunması ZORUNLU DEĞİLDİR; bu proje onsuz da build alır ve test",
+        "edilir. Devralınan her kayıt IMPORT_MANIFEST.json'a sha256 ile",
+        "yazılır ve kökeni izlenebilir kalır."
+      ]
+    }
+  },
+
+  "founder": {
+    "author": "Emre Doğan",
+    "publisher": "Vâliçe Press",
+    "isbn": {
+      "strategy": "kdp-free",
+      "label": "KDP-provided free ISBN",
+      "paperback": null,
+      "$comment": "Sahte ISBN YASAKTIR; validate_structure depoda arar."
+    },
+    "aiDisclosure": {
+      "founderConfirmed": false,
+      "$comment": "KDP panelindeki AI beyanı SEÇİMİNİ kurucu yapar."
+    },
+    "authorBio": null,
+    "authorBio$comment": "null olduğu sürece Faz 6 kapısı KIRMIZIDIR (World Myths'te KDP yer tutucuyu reddetti).",
+    "childTesters": {
+      "founderConfirmed": false,
+      "minTesters": 2,
+      "$comment": [
+        "ÇOCUK SAHA TESTİ Faz 2'nin SERT BLOKLAYICISIDIR.",
+        "Ajan çocukla test yapamaz. Testçi bulunmazsa Faz 2 BLOKLANIR —",
+        "sahte test kaydı ÜRETİLMEZ."
+      ]
+    }
+  },
+
+  "audience": {
+    "$comment": "ALICI ≠ OKUR. Kapak çocuğa, alt başlık ebeveyne konuşur.",
+    "readerAgeMin": 8,
+    "readerAgeMax": 12,
+    "buyer": ["parent", "grandparent", "teacher", "school-librarian"],
+    "bisacPrimary": "JNF001000",
+    "bisacSecondary": ["JUV045000", "JNF025000"],
+    "gradeRange": "3-7"
+  },
+
+  "scope": {
+    "$comment": [
+      "⚠ BU SAYILAR HİPOTEZDİR. Faz 1 doğrular veya değiştirir.",
+      "scope.locked Faz 1 sonunda true olur."
+    ],
+    "locked": false,
+    "lockedAtPhase": "phase1",
+    "activities": 120,
+    "activityCandidateMin": 160,
+    "cultures": 22,
+    "regions": 6,
+    "activityTypesRequired": 5,
+    "manuscriptWordTarget": 22000,
+    "pageTarget": 144,
+    "pageTolerancePct": 6,
+    "activityTypes": [
+      {"id": "cipher",      "en": "Codes and ciphers",    "tr": "Şifre ve kod",        "perRegionMin": 3},
+      {"id": "map",         "en": "Maps and paths",       "tr": "Harita ve labirent",  "perRegionMin": 2},
+      {"id": "sort",        "en": "Sorting and matching", "tr": "Tasnif ve eşleştirme","perRegionMin": 4},
+      {"id": "observe",     "en": "Observation plates",   "tr": "Gözlem levhası",      "perRegionMin": 2},
+      {"id": "make",        "en": "Draw and write",       "tr": "Çiz ve yaz",          "perRegionMin": 2}
+    ],
+    "regionsHypothesis": [
+      {"id": "north-ice",   "en": "The Northern Ice",     "tr": "Kuzeyin Buzları"},
+      {"id": "great-rivers","en": "The Great Rivers",     "tr": "Büyük Nehirler"},
+      {"id": "mountain",    "en": "Mountain and Monsoon", "tr": "Dağ ve Muson"},
+      {"id": "east-seas",   "en": "The Eastern Seas",     "tr": "Doğu Denizleri"},
+      {"id": "islands",     "en": "Islands and Ocean",    "tr": "Adalar ve Okyanus"},
+      {"id": "sun-savanna", "en": "Sun and Savanna",      "tr": "Güneş ve Savan"}
+    ]
+  },
+
+  "inheritance": {
+    "$comment": [
+      "DEVRALMA MİMARİSİ — bu projenin en özgün yapısal parçası.",
+      "World Myths'in 22 kültürlük kilitli araştırma tabanı bu kitabın",
+      "maliyet avantajının TAMAMIDIR. Ama devralınan veri OTOMATİK OLARAK",
+      "GÜVENİLİR SAYILMAZ: farklı bir ürün, farklı bir kullanım, farklı",
+      "bir doğrulama eşiği.",
+      "",
+      "Bir hikâye anlatmak ile bir aktivite tasarlamak aynı iddia değildir.",
+      "'Bu mitte X olur' cümlesi anlatı için yeterlidir; ama o mitten bir",
+      "BULMACA türetiyorsanız, cevabın TEK ve DOĞRU olduğunu ayrıca",
+      "kanıtlamanız gerekir."
+    ],
+    "statuses": ["inherited-provisional", "inherited-verified", "new-researched"],
+    "lockRequiresStatus": ["inherited-verified", "new-researched"],
+    "$comment2": [
+      "inherited-provisional  → kopyalandı, HENÜZ bağımsız doğrulanmadı.",
+      "                         Aktivite bu veriye dayanarak LOCKED OLAMAZ.",
+      "inherited-verified     → bu projede bağımsız olarak yeniden doğrulandı.",
+      "new-researched         → World Myths'te olmayan, sıfırdan araştırıldı."
+    ],
+    "manifestPath": "01_SOURCE/inherited/IMPORT_MANIFEST.json",
+    "requireSha256": true,
+    "requireSourceRepo": true,
+    "revalidationRequiredFor": [
+      "cultural-claim-used-in-activity-answer",
+      "pronunciation",
+      "name-spelling-and-diacritics",
+      "any-claim-a-child-will-write-down"
+    ]
+  },
+
+  "safety": {
+    "$comment": [
+      "BU BİR ÇOCUK ÜRÜNÜDÜR. World Myths'in AGE_POLICY disiplini burada",
+      "AKTİVİTE biçimine uyarlanır: çocuk yalnızca okumuyor, YAZIYOR,",
+      "ÇİZİYOR ve ÇÖZÜYOR. Yanlış kalibre edilmiş bir görev, ebeveyn",
+      "yorumunda geri döner ve o yorum silinmez."
+    ],
+    "ageReviewRequired": true,
+    "parentReadingsRequired": 2,
+    "forbiddenActivityFrames": [
+      "kutsal ritüelin taklidi",
+      "yaşayan bir topluluğa ait kapalı bilginin 'çözülmesi'",
+      "gerçek kişi veya topluluğun karikatürleştirilmesi",
+      "şiddetin sahnelenmesini gerektiren görev",
+      "çocuğun evden dışarı çıkmasını gerektiren görev",
+      "kesici alet, ateş veya yiyecek gerektiren görev"
+    ],
+    "readabilityTargetGrade": [3, 5],
+    "sentenceAvgWordsMin": 9.0,
+    "sentenceAvgWordsMax": 14.0,
+    "instructionMaxSentenceWords": 18
+  },
+
+  "solvability": {
+    "$comment": [
+      "Her aktivitenin TEK ve DOĞRU bir cevabı olmalıdır — 'çiz/yaz'",
+      "tipindekiler hariç, ki onlar açıkça openEnded: true taşır.",
+      "Çift cevaplı bir bulmaca, çocuğun 'ben yanlış yaptım' diye",
+      "düşünmesine yol açar. Bu, kitabın pedagojik vaadini bozar."
+    ],
+    "deterministicAnswerRequired": true,
+    "openEndedTypeExempt": ["make"],
+    "hintLadderLevels": 2,
+    "hintMustNotContainAnswer": true,
+    "answerKeyRequired": true
+  },
+
+  "progression": {
+    "$comment": "Mühür sistemi kitabın tamamlanma güdüsüdür ve bütünlüğü mekanik olarak denetlenir.",
+    "sealsPerRegion": 1,
+    "finalQuestRequiresAllSeals": true,
+    "sealMustDeriveFromAnswersPresent": true,
+    "$comment2": "Bir mühür kodu, kitapta GERÇEKTEN bulunan cevaplardan türemelidir. qa_progression.py bunu denetler."
+  },
+
+  "production": {
+    "trimPaperback": {"w": 8.5, "h": 11.0, "trimClass": "large"},
+    "ink": "black",
+    "paper": "white",
+    "$comment": [
+      "TEK FORMAT: ciltsiz. Aktivite kitabı ÜZERİNE YAZILIR.",
+      "Kindle ÖNERİLMEZ — e-okuyucuda üzerine yazılamaz ve kötü yorum üretir.",
+      "Bu bir gelir kaybı değil, bir İTİBAR KORUMASIDIR.",
+      "Ciltli hediye sürümü Faz 6 sonrası, 6. ayda değerlendirilir (A5)."
+    ],
+    "kdpPrintCost": {
+      "$comment": "KDP resmî formülleri · 12 Ağustos 2026 · Amazon.com",
+      "paperbackLargeTrimBW": {"fixed": 1.00, "perPage": 0.017, "minPages": 110, "maxPages": 828},
+      "hardcoverLargeTrimBW": {"fixed": 5.65, "perPage": 0.017, "minPages": 110, "maxPages": 550},
+      "royaltyRateAtOrAbove999": 0.60,
+      "royaltyRateBelow999": 0.50
+    },
+    "editionsHypothesis": [
+      {"id": "paperback", "list": 14.99, "enabled": true,  "priority": 1},
+      {"id": "hardcover", "list": 24.99, "enabled": false, "priority": 9,
+       "$comment": "Faz 2 test sürümü — karar A5"},
+      {"id": "kindle",    "list": null,  "enabled": false, "priority": 9,
+       "$comment": "ÖNERİLMEZ — üzerine yazılan kitap e-okuyucuda çalışmaz"}
+    ],
+    "kdpSelect": false,
+    "priceTestPlan": {
+      "$comment": "Faz 6 sonrası, 30 gün, TEK değişken: 14,99 $ vs 12,99 $. Raf çapası 9,99 $.",
+      "variantA": 14.99,
+      "variantB": 12.99
+    }
+  },
+
+  "gates": {
+    "levels": ["phase0", "phase1", "phase2", "phase3", "phase4", "phase5", "release"],
+    "requirements": {
+      "phase0":  {"activitiesCandidate": 0,   "activitiesLocked": 0,   "activitiesWritten": 0},
+      "phase1":  {"activitiesCandidate": 160, "activitiesLocked": 0,   "activitiesWritten": 0},
+      "phase2":  {"activitiesCandidate": 160, "activitiesLocked": 20,  "activitiesWritten": 20},
+      "phase3":  {"activitiesCandidate": 160, "activitiesLocked": 80,  "activitiesWritten": 80},
+      "phase4":  {"activitiesCandidate": 160, "activitiesLocked": 120, "activitiesWritten": 120},
+      "phase5":  {"activitiesCandidate": 160, "activitiesLocked": 120, "activitiesWritten": 120},
+      "release": {"activitiesCandidate": 160, "activitiesLocked": 120, "activitiesWritten": 120}
+    }
+  },
+
+  "style": {
+    "$comment": "Ayrıntı: 00_CONTEXT/STYLE.md. World Myths'in ölçülen 11,7 kelime/cümle bandına akraba.",
+    "forbiddenPatterns": [
+      "sadece … değil, aynı zamanda",
+      "not only … but also",
+      "dive into",
+      "unlock the secrets",
+      "embark on a journey"
+    ],
+    "secondPersonRequired": true,
+    "$comment2": "Çocuğa doğrudan hitap: 'you'. Küçümseyen ton YASAK."
+  }
+}

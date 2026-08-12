@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "checks": 0,
+  "errors": [],
+  "warnings": [
+    "IMPORT_MANIFEST.json yok — Faz 1 teslimatı; devralma denetimi boş koşuyor",
+    "envanter veya manifest yok — kilit denetimi boş koşuyor"
+  ],
+  "facts": {
+    "records": 0
+  }
+}

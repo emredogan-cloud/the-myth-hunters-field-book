@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/emredogan-cloud/the-myth-hunters-field-book/01_SOURCE/activity.schema.json",
+  "title": "Field Book — aktivite kaydı",
+  "description": [
+    "Bir aktivitenin TEK doğruluk kaydı. Manuscript bu kayıttan üretilir.",
+    "Sayfa dili şu kalıplarla kurulur: 'Your mission: …' · 'Field note: …'",
+    "Talimatlar ikinci tekil şahıstadır: Draw the creature you find.",
+    "Solve the cipher and write your answer in the box below.",
+    "",
+    "⚠ answer alanı ÜRÜNÜN KENDİSİDİR ve public depoya giremez.",
+    "validate_structure.py § check_answer_leak bunu denetler."
+  ],
+  "type": "object",
+  "required": ["activityId", "title", "culture", "region", "type", "status",
+               "inheritanceStatus", "restrictionStatus"],
+  "additionalProperties": false,
+  "properties": {
+    "activityId": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,48}$"},
+    "title":      {"type": "string", "minLength": 2},
+
+    "culture": {"type": "string", "description": "22 kültürden biri — alt başlığı bu alan doğrular"},
+    "region":  {"type": "string", "description": "region_index.json'daki bir kimlik"},
+    "type": {
+      "type": "string",
+      "enum": ["cipher", "map", "sort", "observe", "make"],
+      "description": [
+        "cipher  → şifre ve kod (gerçek yazı sistemleri)",
+        "map     → harita ve labirent",
+        "sort    → tasnif ve eşleştirme (Codex tezinin çocuk hâli)",
+        "observe → gözlem levhası",
+        "make    → çiz ve yaz (TEK AÇIK UÇLU TİP)"
+      ]
+    },
+
+    "status": {
+      "type": "string",
+      "enum": ["candidate", "researched", "locked", "written", "dropped"]
+    },
+    "droppedReason": {"type": "string"},
+
+    "inheritanceStatus": {
+      "type": "string",
+      "enum": ["inherited-provisional", "inherited-verified", "new-researched"],
+      "description": [
+        "⭑ BU PROJENİN EN ÖNEMLİ ALANI ⭑",
+        "inherited-provisional → World Myths'ten kopyalandı, BAĞIMSIZ",
+        "                        DOĞRULANMADI. Bu kayda dayanan aktivite",
+        "                        LOCKED OLAMAZ.",
+        "inherited-verified    → bu projede yeniden doğrulandı",
+        "new-researched        → World Myths'te yok, sıfırdan araştırıldı"
+      ]
+    },
+    "inheritedRecords": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "IMPORT_MANIFEST.json'daki recordId listesi"
+    },
+
+    "restrictionStatus": {
+      "type": "string",
+      "enum": ["open", "attributed", "restricted", "excluded"],
+      "description": "restricted = yaşayan/kutsal gelenek; ÇOCUK OYUNUNA ÇEVRİLEMEZ"
+    },
+    "restrictionNote": {"type": "string"},
+
+    "difficulty": {"type": "integer", "minimum": 1, "maximum": 3,
+                   "description": "★ 1–3 · her bölümde kolay→zor sıralaması"},
+    "ageMin": {"type": "integer", "minimum": 8, "maximum": 12},
+
+    "prompt":       {"type": "string", "description": "Çocuğa görünen görev metni"},
+    "openEnded":    {"type": "boolean", "default": false,
+                     "description": "YALNIZCA type=make için true olabilir"},
+    "answer":       {"type": ["string", "null"],
+                     "description": "⚠ HASSAS — public depoya giremez"},
+    "answerNote":   {"type": "string"},
+    "hints": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {"type": "string"},
+      "description": "Kademeli ipucu. HİÇBİRİ cevabı içeremez (qa_answerkey denetler)."
+    },
+
+    "sealContribution": {"type": "string",
+      "description": "Bu aktivitenin cevabı bölge mührüne katkı veriyorsa, hangi karakter"},
+
+    "learningObjective": {"type": "string", "description": "Çocuk ne öğreniyor"},
+    "parentNote":        {"type": "string"},
+    "assetId":           {"type": "string", "description": "07_ASSETS içindeki görsel kimliği"},
+    "writingSpaceLines": {"type": "integer",
+      "description": "Kaç satırlık yazma alanı — Faz 5'te çocuk eline göre ölçülür"},
+
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ref", "type"],
+        "properties": {
+          "ref":     {"type": "string"},
+          "type":    {"type": "string", "enum": ["book", "journal", "museum", "ethnography", "archive", "inherited"]},
+          "locator": {"type": "string"}
+        }
+      }
+    },
+
+    "childTests": {
+      "type": "array",
+      "description": "Anonim kimlik ZORUNLU: tester-01 biçimi. Gerçek ad YASAK.",
+      "items": {
+        "type": "object",
+        "required": ["date", "tester", "age", "understoodUnaided", "result"],
+        "properties": {
+          "date":              {"type": "string", "format": "date"},
+          "tester":            {"type": "string", "pattern": "^tester-\\d{2}$"},
+          "age":               {"type": "integer", "minimum": 6, "maximum": 14},
+          "understoodUnaided": {"type": "boolean"},
+          "result":            {"type": "string", "enum": ["solved", "partial", "stuck"]},
+          "notes":             {"type": "string"}
+        }
+      }
+    }
+  }
+}
