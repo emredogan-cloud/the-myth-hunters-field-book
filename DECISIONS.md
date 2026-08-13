@@ -320,3 +320,87 @@ test materyali de olamaz.
 **Proje belgeleri (bu dosya dahil) Türkçedir ve öyle kalır.** Belge dili
 ile ürün dili aynı şey değildir; `project_config.json` ikisini ayrı
 alanlarda taşır (`language: en` · `documentLanguage: tr`).
+
+### K22 · Doğrulama KAYIT düzeyinde değil İDDİA düzeyinde yapılır
+
+Faz 1'in sözleşmesi `inheritanceStatus` üzerineydi ve **kayıt**
+düzeyindeydi. Faz 2 bunun yetersiz olduğunu gösterdi:
+
+> Bir kültür kaydının otuz alanı vardır ve bir aktivite onun ikisini
+> kullanır. *"culture-maya doğrulandı"* cümlesi **hangi alanın**
+> doğrulandığını söylemez.
+>
+> **Kaydı `inherited-verified` yapmak bir BEYANDIR.
+> İddiayı bir kaynağa bağlamak bir KANITTIR.**
+
+Şema **v2.1** `claimRefs` alanını aldı; `01_SOURCE/research/*-revalidation.json`
+her iddiayı tek tek taşıyor (hangi sayfada, nerede kullanılıyor, hangi
+kaynakla karşılaştırıldı, sonuç ne); `validate_research § ⑩` zinciri
+denetliyor ve **cevap üreten her iddia için ≥2 bağımsız kaynak** şart
+koşuyor.
+
+Bu sözleşme Faz 2'de **üç yanlış iddia** buldu — üçü de anlatı için
+yeterli, aktivite için yanlış cümlelerdi.
+
+### K23 · `.gate` teknik başarıyla yükselmez
+
+Faz 2'nin teknik pilotu geçti: 16 sayfa, on üç kapı yeşil, mühür uçtan
+uca doğrulandı. **`.gate` yine de `phase1`'de bırakıldı.**
+
+Gerekçe: `phase2` kapısının PASS ölçütü *"çocuk testinde ≥%80 yardımsız
+anlaşılma"* ve **0 testçi** var.
+
+```
+TEKNİK PİLOT            ✅ GEÇTİ
+DIŞ ÇOCUK DOĞRULAMASI   ⏳ BEKLİYOR
+        bu ikisi TOPLANMAZ
+```
+
+> **Kapıyı yükseltmek, yapılmamış bir testi geçmiş saymaktır.**
+
+Kapı yalnızca gerçek bir çocuk oturumundan sonra `phase2` olur. Aynı
+gerekçeyle `STYLE.md` **v1.2**'de kaldı: v2.0 numarası yol haritasında
+*"çocuk testiyle kalibre"* diye tanımlı ve o numara ilk gerçek oturuma
+ayrılmıştır.
+
+### K24 · Bir yanlış cevap çocuğu kitaptan kilitleyemez
+
+Kurucu talimatının § 23'ü: *"Bir hata GERİ BİLDİRİM olmalıdır, TOPLAM
+BAŞARISIZLIK değil."* Faz 2 bunu üç bağımsız mekanizmaya bağladı ve
+**mekanik olarak kanıtladı**:
+
+| Mekanizma | Ölçülen |
+|---|---|
+| **Hasar yarıçapı 1** — bir yuvayı tam bir aktivite besler | ✅ `qa_progression § ⑥` |
+| **Zincir yok** — hiçbir sayfa başka bir sayfanın cevabına bağlı değil | ✅ `qa_progression § ⑤` |
+| **Sözcük anlamlı** — yanlış harf sözcüğü bozar ve çocuk hangi sayfaya döneceğini bilir | ✅ `qa_progression § ⑦` |
+
+Ve ölçülen bir bonus: **37 mühür harfinin yalnızca 6'sı** (%16,2) final
+göreve taşınıyor. Bir bölgede yapılan hata, o harf çentik konumunda
+değilse final cevabı **hiç etkilemiyor**.
+
+`selftest § ⑬` her üçü için de kusur taşıyan kurgu koşturuyor.
+
+### K25 · Görsel metnin İHTİYACINDAN türer, tersi değil
+
+İç editoryal inceleme şunu gösterdi: on üç kapı yeşilken 16 sayfanın
+**11'i çözülemezdi**, ve sebeplerin çoğu görseldeydi.
+
+```
+"Colour them the way the key shows."   → sayfada anahtar YOK
+"Read the four cards beside the cord." → sayfada ip YOK
+"Put each one in the right column."    → sütun başlıkları YOK
+```
+
+Dördü de kusursuz İngilizce, dördü de okunabilirlik bandında, dördü de
+bir çocuğu durdurur.
+
+> **Bir talimat "the X" derse, levha X'i basmak ZORUNDADIR.**
+
+Manuscript şemasına `pagePrints` alanı eklendi: *sayfanın çözülebilmesi
+için levhanın basması gereken her şey*. Pilotun 16 sayfası için **67
+madde**. Alan iki iş birden yapıyor — bugün `qa_instruction § ⑨`'un
+girdisi, Faz 5'te görsel şartnamesinin kendisi.
+
+⚠ Şartnamelerin **metni** depoya girmez: içerikleri cevabın kendisidir
+(K10). `02_MANUSCRIPT/book.json` içinde durur.
