@@ -3,18 +3,18 @@
   "checks": 6,
   "errors": [],
   "warnings": [
-    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 1/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
+    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 3/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
   ],
   "facts": {
-    "regionsMeasured": 1,
+    "regionsMeasured": 3,
     "frontMatter": 8,
     "backMatter": 14,
     "structuralPerRegion": 2,
     "finalQuest": 5,
-    "activityPages": 104.5,
-    "regionsTotal": 116.5,
-    "modelRaw": 143.5,
-    "modelPages": 144,
+    "activityPages": 104.0,
+    "regionsTotal": 116.0,
+    "modelRaw": 143.0,
+    "modelPages": 143,
     "modelPagesSignatureAligned": 144,
     "regions": [
       {
@@ -50,9 +50,9 @@
       {
         "region": "monsoon",
         "quota": 24,
-        "avgPageWeight": 0.868,
-        "weightSource": "havuz",
-        "lockedActivities": 0,
+        "avgPageWeight": 0.865,
+        "weightSource": "ÖLÇÜLDÜ",
+        "lockedActivities": 24,
         "activityPages": 20.8,
         "structuralPages": 2,
         "totalPages": 22.8
@@ -60,12 +60,12 @@
       {
         "region": "great-ocean",
         "quota": 20,
-        "avgPageWeight": 0.885,
-        "weightSource": "havuz",
-        "lockedActivities": 0,
-        "activityPages": 17.7,
+        "avgPageWeight": 0.863,
+        "weightSource": "ÖLÇÜLDÜ",
+        "lockedActivities": 20,
+        "activityPages": 17.2,
         "structuralPages": 2,
-        "totalPages": 19.7
+        "totalPages": 19.2
       },
       {
         "region": "jaguar-condor",

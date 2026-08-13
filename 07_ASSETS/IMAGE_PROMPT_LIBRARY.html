@@ -4,20 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Görsel Prompt Kütüphanesi — The Myth Hunter's Field Book</title>
+<!-- ÜRETİLMİŞTİR — 04_BUILD/image_prompts.py · ELLE DÜZENLEMEYİN -->
 <style>
-  :root{
-    --ink:#1c1a17; --paper:#faf7f1; --rule:#d9d2c5; --muted:#6b6459;
-    --warn:#8a3324; --ok:#2f5d3a; --chip:#efe9dc;
-  }
+
+  :root{ --ink:#1c1a17; --paper:#faf7f1; --rule:#d9d2c5; --muted:#6b6459;
+         --warn:#8a3324; --ok:#2f5d3a; --chip:#efe9dc; }
   @media (prefers-color-scheme: dark){
     :root{ --ink:#ece7dd; --paper:#171614; --rule:#3a362f; --muted:#a09889;
-           --warn:#e0836f; --ok:#8fc79b; --chip:#26241f; }
-  }
+           --warn:#e0836f; --ok:#8fc79b; --chip:#26241f; } }
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--ink);
        font:16px/1.6 "Iowan Old Style",Georgia,"Times New Roman",serif;
        padding:2.5rem 1.25rem 6rem;}
-  .wrap{max-width:60rem;margin:0 auto}
+  .wrap{max-width:64rem;margin:0 auto}
   h1{font-size:1.9rem;line-height:1.2;margin:0 0 .4rem;letter-spacing:-.01em}
   .sub{color:var(--muted);margin:0 0 2rem;font-size:.95rem}
   h2{font-size:1.25rem;margin:2.75rem 0 .5rem;padding-bottom:.35rem;
@@ -28,13 +27,15 @@
         padding:.75rem 1rem;margin:1rem 0;font-size:.93rem}
   .stop{border-left-color:var(--warn)}
   .stop strong{color:var(--warn)}
-  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+  .chain{background:var(--chip);border:1px dashed var(--rule);border-radius:6px;
+         padding:.7rem 1rem;margin:1rem 0;font:14px/1.6 ui-monospace,Menlo,monospace}
+  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem}
   th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--rule);
         vertical-align:top}
-  th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  th{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
   .scroll{overflow-x:auto}
   .prompt{position:relative;background:var(--chip);border:1px solid var(--rule);
-          border-radius:6px;padding:.9rem 1rem;margin:.6rem 0 1.4rem;
+          border-radius:6px;padding:.9rem 2.5rem .9rem 1rem;margin:.6rem 0 1.4rem;
           font:13px/1.55 ui-monospace,"SF Mono",Menlo,Consolas,monospace;
           white-space:pre-wrap;word-break:break-word}
   .copy{position:absolute;top:.5rem;right:.5rem;border:1px solid var(--rule);
@@ -43,234 +44,199 @@
   .copy:hover{color:var(--ink)}
   .copy.done{color:var(--ok);border-color:var(--ok)}
   code{background:var(--chip);padding:.1rem .3rem;border-radius:3px;font-size:.86em}
-  ul{margin:.5rem 0 .5rem 1.1rem;padding:0}
-  li{margin:.3rem 0}
+  ol,ul{margin:.5rem 0 .5rem 1.2rem;padding:0}
+  li{margin:.35rem 0}
   .tag{display:inline-block;background:var(--chip);border:1px solid var(--rule);
-       border-radius:999px;padding:.1rem .55rem;font-size:.75rem;color:var(--muted);
+       border-radius:999px;padding:.1rem .55rem;font-size:.72rem;color:var(--muted);
        margin-right:.3rem}
+  .warnchip{color:var(--warn);border-color:var(--warn)}
+
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <h1>Görsel Prompt Kütüphanesi</h1>
-<p class="sub">The Myth Hunter's Field Book · <strong>Faz 1 iskeleti</strong> · 13 Ağustos 2026<br>
-Bu sürüm <em>sınıf</em> promptları taşır, nihai 150 varlığı değil. Varlık üretimi <strong>Faz 5</strong>'tir.</p>
-
+<p class="sub">The Myth Hunter's Field Book · <strong>Faz 3 · şartname katmanı</strong> · 13 Ağustos 2026<br>60 sayfa için görsel şartnamesi · <strong>0 üretilmiş varlık</strong>. Varlık üretimi <strong>Faz 5</strong>'tir.</p>
 <div class="note stop">
-<strong>BU BELGE FAZ 1'DE NİHAİ GÖRSEL ÜRETMEZ.</strong><br>
-Yol haritası görsel üretimini Faz 5'e koyar ve Faz 1'de pilot varlık istemez.
-Burada kurulan şey <em>sistemdir</em>: hangi görsel sınıfları var, her sınıf
-hangi kurallara uyar, kültür güvenliği prompt düzeyinde nasıl uygulanır.
-Faz 5 bu sınıfları 150 somut prompta açar.
+<strong>ŞARTNAME BİR VARLIK DEĞİLDİR.</strong><br>
+Bu belge 60 görselin <em>ne olması gerektiğini</em> söyler. Hiçbiri üretilmedi ve bu belge üretildiklerini iddia etmez. <code>BOOK_STATS.md</code> ikisini ayrı satırlarda sayar: <em>görsel şartnamesi</em> ve <em>görsel varlık</em>.
 </div>
-
-<h2>1 · Yedi görsel sınıfı</h2>
-<p>Şemadaki <code>visualClass</code> alanı bu yedi değerden birini alır.
-Her aktivite tam bir sınıfa bağlanır ve <code>asset_inventory.py</code> (Faz 5)
-eşleşmeyi <em>ölçümden önce</em> denetler.</p>
-
-<div class="scroll">
-<table>
-<tr><th>Sınıf</th><th>Nerede</th><th>Adet (tahmini)</th><th>Kritik kural</th></tr>
-<tr><td><code>cipher-key</code></td><td>şifre aktiviteleri</td><td>~41</td><td>Anahtar <strong>aynı açılımda</strong> olmalı — çocuk sayfa çevirmemeli</td></tr>
-<tr><td><code>observation-plate</code></td><td>gözlem aktiviteleri</td><td>~35</td><td>Etiketlenecek her parça <strong>ayırt edilebilir</strong> olmalı</td></tr>
-<tr><td><code>sorting-grid</code></td><td>tasnif aktiviteleri</td><td>~43</td><td>Eşleştirme çizgisi için <strong>boşluk</strong> bırakılmalı</td></tr>
-<tr><td><code>region-map</code></td><td>harita aktiviteleri</td><td>~24</td><td>8 yaş <strong>dörtten fazla</strong> nokta işaretleyemez</td></tr>
-<tr><td><code>writing-frame</code></td><td>çiz-ve-yaz</td><td>~25</td><td>Yazma alanı <strong>çocuk el yazısına</strong> göre ölçülür (Faz 5 kapısı)</td></tr>
-<tr><td><code>seal-stamp</code></td><td>bölge sonu + ön madde</td><td>7</td><td>Çentik <strong>okunaklı bir sayı</strong> göstermeli</td></tr>
-<tr><td><code>route-map</code></td><td>ön madde + bölge geçişleri</td><td>7</td><td><strong>Boş başlar</strong>; çocuk doldurur</td></tr>
-<tr><td><code>culture-vignette</code></td><td>bölge açılışları</td><td>22</td><td>Kültür başına bir vinyet · <strong>kişi karikatürü yok</strong></td></tr>
-</table>
-</div>
-
-<h2>2 · Bütün promptlarda geçen gövde</h2>
-<p>Her prompt bu gövdeyle başlar. Gövde <em>gravür dili</em>ni kurar ve
-World Myths'le raf akrabalığını sağlar (BRIEF § 6.4).</p>
-
-<div class="prompt" id="p-base"><button class="copy" data-t="p-base">kopyala</button>Black and white line engraving, 19th-century natural-history plate style.
-Clean hairline cross-hatching, no grey wash, no colour, no shading gradients.
-Pure white background. High contrast, printable at 300 dpi on uncoated paper.
-Even, open composition with generous empty space for a child to write in.
-No text, no letters, no numerals anywhere in the image.
-No people's faces. No modern objects. No logos, no watermarks, no signature.</div>
-
-<div class="note">
-<strong>"No text" neden mutlak:</strong> üretilen harfler neredeyse her zaman
-bozuk çıkar ve bu kitapta harf bir <em>süs değil bir cevaptır</em>. Bütün
-yazı ve rakamlar <strong>dizgide</strong> eklenir, görselde değil.
-</div>
-
-<h2>3 · Sınıf promptları</h2>
-
-<h3><span class="tag">cipher-key</span> Şifre anahtarı levhası</h3>
-<div class="prompt" id="p-cipher"><button class="copy" data-t="p-cipher">kopyala</button>[GÖVDE]
-+ An empty reference grid of 5 columns by 4 rows, drawn as thin ruled boxes
-with a wider left-hand column for the key symbols. Each cell is blank and
-large enough to hold one hand-drawn mark. A narrow decorative border of
-simple repeated notches frames the grid. The grid sits in the upper half
-of the plate; the lower half is empty ruled writing space.</div>
-
-<h3><span class="tag">observation-plate</span> Gözlem levhası</h3>
-<div class="prompt" id="p-obs"><button class="copy" data-t="p-obs">kopyala</button>[GÖVDE]
-+ A single specimen drawn centred as a natural-history plate: [NESNE].
-Six thin leader lines run from six distinct parts of the specimen outward
-to empty label boxes at the plate edge. The specimen is drawn accurately
-enough that each labelled part is clearly distinguishable from the others.</div>
-
-<h3><span class="tag">sorting-grid</span> Tasnif ızgarası</h3>
-<div class="prompt" id="p-sort"><button class="copy" data-t="p-sort">kopyala</button>[GÖVDE]
-+ Two vertical columns of four empty framed panels each, separated by a wide
-blank channel down the middle of the page for the reader to draw matching
-lines across. Each panel is an empty engraved cartouche with a simple ruled
-border. No content inside the panels.</div>
-
-<h3><span class="tag">region-map</span> Bölge haritası</h3>
-<div class="prompt" id="p-map"><button class="copy" data-t="p-map">kopyala</button>[GÖVDE]
-+ An antique engraved map of [BÖLGE COĞRAFYASI], showing coastline, rivers
-and relief hachures only. Exactly four small empty circles mark points to be
-labelled by the reader. A compass rose in one corner and a plain scale bar.
-Nothing is named on the map itself.</div>
-
-<h3><span class="tag">writing-frame</span> Çizim ve yazma çerçevesi</h3>
-<div class="prompt" id="p-write"><button class="copy" data-t="p-write">kopyala</button>[GÖVDE]
-+ A large empty rectangular drawing panel with a fine double-ruled engraved
-border, occupying the upper two thirds of the page. Below it, eight evenly
-spaced horizontal ruled writing lines with comfortable spacing for a
-child's handwriting. The panel interior is completely empty.</div>
-
-<h3><span class="tag">seal-stamp</span> Bölge mührü</h3>
-<div class="prompt" id="p-seal"><button class="copy" data-t="p-seal">kopyala</button>[GÖVDE]
-+ A circular engraved stamp emblem, [MÜHÜR MOTİFİ], drawn as an empty outline
-badge. The rim carries [N] evenly spaced notches cut into it, one of which is
-noticeably deeper than the others. The centre of the badge is completely
-empty so a reader can write inside it.</div>
-
-<h3><span class="tag">route-map</span> Rota haritası</h3>
-<div class="prompt" id="p-route"><button class="copy" data-t="p-route">kopyala</button>[GÖVDE]
-+ An antique engraved world map on an equal-area projection, coastlines and
-relief hachures only, no borders and no place names. Six small empty
-medallion frames are spaced around the margin, connected to the map by thin
-dotted lines. All medallions are empty.</div>
-
-<h3><span class="tag">culture-vignette</span> Kültür vinyeti</h3>
-<div class="prompt" id="p-vig"><button class="copy" data-t="p-vig">kopyala</button>[GÖVDE]
-+ A small engraved vignette of [MANZARA VEYA NESNE], drawn as a headpiece
-ornament about one third of the page width. Landscape, architecture, plant,
-animal or craft object only. No human figures. No ceremonial or ritual
-objects. No religious imagery.</div>
-
-<h2>4 · Kültür güvenliği — prompt düzeyinde</h2>
-<p><a href="../00_CONTEXT/CULTURE_POLICY.md">CULTURE_POLICY.md</a>'nin altı yasak
-çerçevesi burada <em>negatif prompt</em> hâline gelir. Bu satır <strong>her</strong>
-kültür vinyetine eklenir:</p>
-
-<div class="prompt" id="p-neg"><button class="copy" data-t="p-neg">kopyala</button>Negative: ceremonial regalia, ritual objects, altars, shrines, masks worn by
-people, tattooed faces, sacred symbols, deity figures, tribal stereotype,
-feathered headdress cliché, fantasy pastiche, mixed-culture ornament,
-invented script, invented symbols.</div>
-
-<div class="scroll">
-<table>
-<tr><th>Kademe</th><th>Kültür</th><th>Görsel kuralı</th></tr>
-<tr><td><strong>C</strong></td><td>İnuit · Māori · Hawaii · Hindu</td>
-    <td>Yalnızca <strong>manzara, hayvan, bitki ve kamuya açık yazı</strong>.
-        Tanrı figürü, tapınak planı, tā moko deseni, heiau, mele/oli
-        <strong>hiçbir biçimde</strong> üretilmez.</td></tr>
-<tr><td><strong>B</strong></td><td>Japon · Maya · Aztek · And · Yoruba</td>
-    <td>Nesne ve mimari serbest; <strong>tören sahnesi ve kehanet aracı yok</strong>.
-        Müze envanterinden çalışılır, hayalden değil.</td></tr>
-<tr><td><strong>A</strong></td><td>diğer 13 kültür</td>
-    <td>Gövde kuralları yeterli. Yaşayan gelenekte <strong>atıf</strong> künyede yazar.</td></tr>
-</table>
-</div>
-
 <div class="note stop">
-<strong>Uydurulmuş yazı yasaktır.</strong> Bir görsel "runik görünümlü" işaretler
-üretirse çocuk <em>yanlış bir alfabe öğrenir</em>. Bütün yazı dizgeleri
-<strong>dizgide, doğrulanmış tablolardan</strong> yerleştirilir —
-<a href="../01_SOURCE/culture_index.json">culture_index.json § writingSystem</a>.
+<strong>BU BELGE CEVAP TAŞIMAZ — VE TAŞIYAMAZ (karar K10).</strong><br>
+Her sayfanın basacağı şeylerin tam listesi (<code>pagePrints</code>) <em>cevabın kendisidir</em>: <em>“the chilli basket drawn empty”</em> bir şartnamedir <strong>ve aynı zamanda cevaptır</strong>. Bu yüzden promptlar <code>{PRINT_LIST}</code> yer tutucusuyla durur. Faz 5'te promptu üreten kişi yer tutucuyu <strong>elindeki manuscript'ten</strong> doldurur; public depo dolu hâlini hiçbir zaman görmez.
 </div>
+<h2>1 · Sözleşme: görsel metnin İHTİYACINDAN türer</h2>
+<p>Karar <strong>K25</strong>: <em>bir talimat “the X” derse, levha X'i basmak zorundadır.</em> Faz 2 bunu 16 sayfada ölçtü ve 11'inin çözülemez olduğunu buldu — sebeplerin çoğu görseldeydi. Zincir şudur ve tersi çalışmaz:</p>
+<div class="chain">talimat → <code>pagePrints</code> → <code>visualSpec</code> → prompt → varlık</div>
+<p>Görsel hiçbir zaman “bir şeyler çiz”den doğmaz. <code>qa_instruction § ⑨</code> göndermeyi, <code>qa_design § ⑤</code> şartnameyi denetler; ikisi de her koşuda çalışır.</p>
+<h2>2 · Envanter</h2>
+<p>60 şartname · 3 bölge · 9 düzen sınıfı.</p>
+<div class="scroll"><table>
+<tr><th>Bölge</th><th>Şartname</th><th>Üretilmiş</th></tr>
+<tr><td>Mountain and Monsoon <span class='tag'>monsoon</span></td><td>24</td><td><strong>0</strong></td></tr>
+<tr><td>The Great Ocean <span class='tag'>great-ocean</span></td><td>20</td><td><strong>0</strong></td></tr>
+<tr><td>Jaguar and Condor <span class='tag'>jaguar-condor</span></td><td>16</td><td><strong>0</strong></td></tr>
+<tr><td><strong>toplam</strong></td><td><strong>60</strong></td><td><strong>0</strong></td></tr>
+</table></div>
+<h2>3 · Ortak olumsuz kısıtlar</h2>
+<p>Her promptun sonuna <strong>değişmeden</strong> eklenir.</p>
+<div class="prompt" id="neg">NEGATIVE: no colour — the interior is printed black and white; no greyscale washes or gradients; line and solid black only; no photographic or realistic human faces; no text baked into the image except the labels listed in PRINT EXACTLY; no answer visible anywhere in the image; no decorative borders, frames, corner flourishes or drop shadows; no AI watermark, signature or logo; no modern branding, clothing or objects in a historical scene; no religious ritual shown as an action a reader could copy; no weapon in use, no wound, no blood, no body<button class="copy" data-t="neg">kopyala</button></div>
+<h2>4 · Tipografi politikası</h2>
+<div class="scroll"><table>
+<tr><td><strong>Görselde metin</strong></td><td>YALNIZCA PRINT EXACTLY listesindeki etiketler. Başka hiçbir şey.</td></tr>
+<tr><td><strong>Yazı tipi</strong></td><td>Görsele metin GÖMÜLMEZ. Etiketler dizgi katmanında basılır (Faz 5).</td></tr>
+<tr><td><strong>Neden</strong></td><td>Gömülü metin düzeltilemez, ölçeklenemez ve dil değişirse yeniden çizim ister.</td></tr>
+<tr><td><strong>Etiket yeri</strong></td><td>Şartnamedeki işaretçi konumları; görsel yalnızca YERİ ayırır.</td></tr>
+<tr><td><strong>Asgari punto</strong></td><td>Faz 5 ölçer. Bu belge yer ayırma kuralını taşır, punto değerini değil.</td></tr>
+</table></div>
+<h2>5 · Düzen şablonları</h2>
+<p>Şablonlar <strong>sınıf düzeyindedir</strong> ve sayfaya özel hiçbir şey taşımaz. Her sayfa kendi şablonunu § 6'daki satırından bulur.</p>
+<h3><code>data-table</code> <span class='tag'>1 sayfa</span></h3>
+<div class="prompt" id="t0">Black ink line drawing on white. A ruled TABLE with a clear head row, rows of the same height, and one empty column for the reader&#x27;s own working. Figures right-aligned. No decorative border.
 
-<h2>5 · <span class="tag">FAZ 2</span> Görsel artık metnin İHTİYACINDAN türüyor</h2>
+PRINT EXACTLY:
+{PRINT_LIST}<button class="copy" data-t="t0">kopyala</button></div>
+<h3><code>key-build</code> <span class='tag'>1 sayfa</span></h3>
+<div class="prompt" id="t1">Black ink line drawing on white, technical field-guide style, no shading. An assembly plate: a PARTS BANK of separate signs along the top, and below it empty ruled frames the size of a finished unit. Frames must be large enough for a child&#x27;s pencil to build inside them.
 
-<p>
-Faz 2'nin iç editoryal incelemesi bu kütüphanenin eksik varsayımını açığa
-çıkardı: bir görsel sınıfı <em>ne tür bir resim</em> olduğunu söyler,
-<strong>o resmin ne taşıması gerektiğini söylemez</strong>.
-</p>
+PRINT EXACTLY:
+{PRINT_LIST}<button class="copy" data-t="t1">kopyala</button></div>
+<h3><code>key-decode</code> <span class='tag'>18 sayfa</span></h3>
+<div class="prompt" id="t2">Black ink line drawing on white, technical field-guide style, no shading. A decoding plate for a children&#x27;s activity book. Left: a boxed KEY PANEL listing each sign beside its value, ruled and evenly spaced. Right: the items to be decoded, printed large with clear space beneath each one for a handwritten answer. The key and the items must sit on the SAME spread — a child must never turn a page to reach the key.
 
-<div class="note stop">
-<p><strong>On altı pilot sayfasının on biri çözülemezdi</strong> — ve
-sebeplerin çoğu görseldeydi:</p>
-<ul>
-<li><code>"Colour them the way the key shows."</code> → sayfada anahtar yok</li>
-<li><code>"Read the four cards beside the cord."</code> → sayfada ip yok</li>
-<li><code>"Put each one in the right column."</code> → sütun başlıkları yok</li>
-<li><code>"Write the words on the six lines."</code> → dört satır tanımlı</li>
-</ul>
-<p>
-Dördü de kusursuz İngilizce, dördü de okunabilirlik bandında, dördü de
-bir çocuğu durdurur. <strong>Bir talimat "the X" derse, levha X'i
-basmak ZORUNDADIR.</strong>
-</p>
-</div>
+PRINT EXACTLY:
+{PRINT_LIST}<button class="copy" data-t="t2">kopyala</button></div>
+<h3><code>make-frame</code> <span class='tag'>7 sayfa</span></h3>
+<div class="prompt" id="t3">Black ink line drawing on white. One large empty FRAME carrying the page&#x27;s constraint as part of the drawing (a rule line, a centre mark, a ruled guide), plus a small worked example in one corner at reduced size. The frame must be mostly empty: the child fills it.
 
-<p>
-Bu yüzden manuscript şemasına <code>pagePrints</code> alanı eklendi:
-<em>sayfanın çözülebilmesi için levhanın basması gereken her şey</em>.
-Pilotun 16 sayfası için <strong>67 madde</strong> yazıldı.
-</p>
+PRINT EXACTLY:
+{PRINT_LIST}<button class="copy" data-t="t3">kopyala</button></div>
+<h3><code>map-overlay</code> <span class='tag'>1 sayfa</span></h3>
+<div class="prompt" id="t4">Black ink line drawing on white. An outline map printed pale, and a separate outline shape printed beside it at the SAME scale, so the shape can be traced and laid over the map.
 
-<p>
-Alan iki iş birden yapıyor:
-</p>
+PRINT EXACTLY:
+{PRINT_LIST}<button class="copy" data-t="t4">kopyala</button></div>
+<h3><code>map-trace</code> <span class='tag'>8 sayfa</span></h3>
+<div class="prompt" id="t5">Black ink line drawing on white, outline map, no shading and no relief hatching. Coastlines and borders printed PALE so a child&#x27;s pencil line reads on top of them. A scale bar and a north arrow in one corner. No more than four points to mark.
 
-<ul>
-<li><strong>bugün</strong> — <code>qa_instruction § ⑨</code> girdisi:
-adımdaki her belirtili gönderme burada karşılanıyor mu</li>
-<li><strong>Faz 5</strong> — görsel şartnamesinin kendisi: sanatçıya
-"bir şeyler çiz" değil, <em>sayfa sayfa şart listesi</em> gidiyor</li>
-</ul>
+PRINT EXACTLY:
+{PRINT_LIST}<button class="copy" data-t="t5">kopyala</button></div>
+<h3><code>plate-compare</code> <span class='tag'>2 sayfa</span></h3>
+<div class="prompt" id="t6">Black ink line drawing on white, no shading. Two or more subjects drawn at the SAME scale and in the SAME pose, side by side, so that a difference in the drawing is a real difference and not an artefact of the drawing. Empty circles printed over the plate where a difference can be marked.
 
-<p class="sub">
-⚠ <strong>Şartnamelerin metni bu dosyada DEĞİLDİR ve olamaz.</strong>
-İçerikleri cevabın kendisidir (<em>"the chilli basket drawn empty"</em>,
-<em>"town name bank: …"</em>) ve karar <strong>K10</strong> cevapların
-public depoda durmasını yasaklar. Şartnameler
-<code>02_MANUSCRIPT/book.json § pagePrints</code> içinde durur ve o dosya
-depoya girmez. Faz 5 promptları oradan üretir.
-</p>
+PRINT EXACTLY:
+{PRINT_LIST}<button class="copy" data-t="t6">kopyala</button></div>
+<h3><code>plate-label</code> <span class='tag'>7 sayfa</span></h3>
+<div class="prompt" id="t7">Black ink line drawing on white, technical cutaway style, no shading. One subject drawn large and clearly, with numbered pointer lines running out to empty ruled label lines in the margin. Every part that must be labelled has to be visually DISTINCT from its neighbours.
 
-<h2>6 · Faz 5'e devredilen açık işler</h2>
-<ul>
-<li>150 somut prompt — sınıf × aktivite eşlemesinden <strong>ve artık
-<code>pagePrints</code> şartlarından</strong> türetilecek</li>
-<li>Yazma alanı ölçümü: 8 yaşındaki bir çocuğun el yazısı yetişkininkinden büyüktür ve bu <strong>bloklayıcı bir kapıdır</strong></li>
-<li><code>asset_inventory.py</code> — görsel ↔ aktivite eşleşmesi, <strong>ölçümden önce</strong> koşar (ders D6)</li>
-<li>Efektif çözünürlük ≥300 dpi denetimi</li>
-<li><strong>YENİ:</strong> üretilen her levha kendi <code>pagePrints</code>
-listesine karşı denetlenecek — eksik bir öğe, sayfayı çözülemez yapar</li>
-</ul>
+PRINT EXACTLY:
+{PRINT_LIST}<button class="copy" data-t="t7">kopyala</button></div>
+<h3><code>sort-cards</code> <span class='tag'>15 sayfa</span></h3>
+<div class="prompt" id="t8">Black ink line drawing on white, no shading. A set of rectangular CARDS scattered in a deliberately shuffled order, each card carrying one printed sentence and one empty square number box in its corner. Cards must not be arranged in any order that hints at the sequence.
 
-<p class="sub" style="margin-top:2.5rem">
-Kaynak sözleşmeler:
-<a href="../00_CONTEXT/CULTURE_POLICY.md">CULTURE_POLICY.md</a> ·
-<a href="../00_CONTEXT/AGE_POLICY.md">AGE_POLICY.md</a> ·
-<a href="../00_CONTEXT/ACTIVITY_TAXONOMY.md">ACTIVITY_TAXONOMY.md</a>
-</p>
-
+PRINT EXACTLY:
+{PRINT_LIST}<button class="copy" data-t="t8">kopyala</button></div>
+<h2>6 · Sayfa şartnameleri</h2>
+<p>Her satır bir varlıktır. <code>PRINT_LIST</code> sütunu bilerek <strong>boştur</strong>: içeriği manuscript'te durur ve depoya girmez.</p>
+<div class="scroll"><table>
+<tr><th>#</th><th>activity_id</th><th>asset_id</th><th>sınıf / düzen</th><th>yön · px · oran</th><th>dosya → hedef</th><th>durum</th></tr>
+<tr><td>1</td><td><code>chinese-pictograph-key</code><br><span class='tag'>monsoon</span></td><td><code>fig-chinese-pictograph-key</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-chinese-pictograph-key.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>2</td><td><code>turkic-yurt-plate</code><br><span class='tag'>monsoon</span></td><td><code>fig-turkic-yurt-plate</code></td><td>observation-plate<br><code>plate-label</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-turkic-yurt-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>3</td><td><code>vietnamese-dragon-boat-plate</code><br><span class='tag'>monsoon</span></td><td><code>fig-vietnamese-dragon-boat-plate</code></td><td>observation-plate<br><code>plate-label</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-vietnamese-dragon-boat-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>4</td><td><code>persian-script-direction</code><br><span class='tag'>monsoon</span></td><td><code>fig-persian-script-direction</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-persian-script-direction.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>5</td><td><code>chinese-strokes-plate</code><br><span class='tag'>monsoon</span></td><td><code>fig-chinese-strokes-plate</code></td><td>observation-plate<br><code>plate-label</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-chinese-strokes-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>6</td><td><code>vietnamese-tone-hunt</code><br><span class='tag'>monsoon</span></td><td><code>fig-vietnamese-tone-hunt</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-vietnamese-tone-hunt.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>7</td><td><code>chinese-five-colours-sort</code><br><span class='tag'>monsoon</span></td><td><code>fig-chinese-five-colours-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-chinese-five-colours-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>8</td><td><code>persian-joined-letters</code><br><span class='tag'>monsoon</span></td><td><code>fig-persian-joined-letters</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-persian-joined-letters.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>9</td><td><code>chinese-sky-patch-make</code><br><span class='tag'>monsoon</span></td><td><code>fig-chinese-sky-patch-make</code></td><td>writing-frame<br><code>make-frame</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-chinese-sky-patch-make.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>10</td><td><code>hindu-devanagari-key</code><br><span class='tag'>monsoon</span></td><td><code>fig-hindu-devanagari-key</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-hindu-devanagari-key.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>11</td><td><code>turkic-steppe-map</code><br><span class='tag'>monsoon</span></td><td><code>fig-turkic-steppe-map</code></td><td>region-map<br><code>map-trace</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-turkic-steppe-map.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>12</td><td><code>chinese-zodiac-plate</code><br><span class='tag'>monsoon</span></td><td><code>fig-chinese-zodiac-plate</code></td><td>observation-plate<br><code>plate-label</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-chinese-zodiac-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>13</td><td><code>persian-alborz-map</code><br><span class='tag'>monsoon</span></td><td><code>fig-persian-alborz-map</code></td><td>region-map<br><code>map-trace</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-persian-alborz-map.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>14</td><td><code>hindu-river-names-sort</code><br><span class='tag'>monsoon</span></td><td><code>fig-hindu-river-names-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-hindu-river-names-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>15</td><td><code>turkic-stone-mark-make</code><br><span class='tag'>monsoon</span></td><td><code>fig-turkic-stone-mark-make</code></td><td>writing-frame<br><code>make-frame</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-turkic-stone-mark-make.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>16</td><td><code>vietnamese-red-river-map</code><br><span class='tag'>monsoon</span></td><td><code>fig-vietnamese-red-river-map</code></td><td>region-map<br><code>map-trace</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-vietnamese-red-river-map.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>17</td><td><code>turkic-one-eyed-giants</code><br><span class='tag'>monsoon</span></td><td><code>fig-turkic-one-eyed-giants</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-turkic-one-eyed-giants.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>18</td><td><code>hindu-ganga-course-map</code><br><span class='tag'>monsoon</span></td><td><code>fig-hindu-ganga-course-map</code></td><td>region-map<br><code>map-trace</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-hindu-ganga-course-map.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>19</td><td><code>persian-garden-make</code><br><span class='tag'>monsoon</span></td><td><code>fig-persian-garden-make</code></td><td>writing-frame<br><code>make-frame</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-persian-garden-make.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>20</td><td><code>persian-great-birds-sort</code><br><span class='tag'>monsoon</span></td><td><code>fig-persian-great-birds-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-persian-great-birds-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>21</td><td><code>turkic-orkhon-direction</code><br><span class='tag'>monsoon</span></td><td><code>fig-turkic-orkhon-direction</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-turkic-orkhon-direction.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>22</td><td><code>chinese-compound-characters</code><br><span class='tag'>monsoon</span></td><td><code>fig-chinese-compound-characters</code></td><td>cipher-key<br><code>key-build</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-chinese-compound-characters.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>23</td><td><code>vietnamese-mountain-water-sort</code><br><span class='tag'>monsoon</span></td><td><code>fig-vietnamese-mountain-water-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-vietnamese-mountain-water-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>24</td><td><code>chinese-chase-the-sun</code><br><span class='tag'>monsoon</span></td><td><code>fig-chinese-chase-the-sun</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-chinese-chase-the-sun.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>25</td><td><code>japanese-kana-key</code><br><span class='tag'>great-ocean</span></td><td><code>fig-japanese-kana-key</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-japanese-kana-key.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>26</td><td><code>korean-animal-plate</code><br><span class='tag'>great-ocean</span></td><td><code>fig-korean-animal-plate</code></td><td>observation-plate<br><code>plate-compare</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-korean-animal-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>27</td><td><code>maori-bird-plate</code><br><span class='tag'>great-ocean</span></td><td><code>fig-maori-bird-plate</code></td><td>observation-plate<br><code>plate-compare</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maori-bird-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>28</td><td><code>hawaiian-place-name-make</code><br><span class='tag'>great-ocean</span></td><td><code>fig-hawaiian-place-name-make</code></td><td>writing-frame<br><code>make-frame</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-hawaiian-place-name-make.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>29</td><td><code>japanese-two-alphabets</code><br><span class='tag'>great-ocean</span></td><td><code>fig-japanese-two-alphabets</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-japanese-two-alphabets.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>30</td><td><code>korean-hangul-shapes</code><br><span class='tag'>great-ocean</span></td><td><code>fig-korean-hangul-shapes</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-korean-hangul-shapes.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>31</td><td><code>japanese-box-make</code><br><span class='tag'>great-ocean</span></td><td><code>fig-japanese-box-make</code></td><td>writing-frame<br><code>make-frame</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-japanese-box-make.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>32</td><td><code>maori-sky-earth-sort</code><br><span class='tag'>great-ocean</span></td><td><code>fig-maori-sky-earth-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maori-sky-earth-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>33</td><td><code>hawaiian-island-chain-map</code><br><span class='tag'>great-ocean</span></td><td><code>fig-hawaiian-island-chain-map</code></td><td>region-map<br><code>map-trace</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-hawaiian-island-chain-map.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>34</td><td><code>korean-founding-order</code><br><span class='tag'>great-ocean</span></td><td><code>fig-korean-founding-order</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-korean-founding-order.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>35</td><td><code>maori-macron-length</code><br><span class='tag'>great-ocean</span></td><td><code>fig-maori-macron-length</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maori-macron-length.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>36</td><td><code>korean-peninsula-map</code><br><span class='tag'>great-ocean</span></td><td><code>fig-korean-peninsula-map</code></td><td>region-map<br><code>map-trace</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-korean-peninsula-map.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>37</td><td><code>japanese-cave-sequence</code><br><span class='tag'>great-ocean</span></td><td><code>fig-japanese-cave-sequence</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-japanese-cave-sequence.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>38</td><td><code>korean-hangul-build</code><br><span class='tag'>great-ocean</span></td><td><code>fig-korean-hangul-build</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-korean-hangul-build.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>39</td><td><code>maori-fish-island-map</code><br><span class='tag'>great-ocean</span></td><td><code>fig-maori-fish-island-map</code></td><td>region-map<br><code>map-overlay</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maori-fish-island-map.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>40</td><td><code>japanese-eight-of-everything</code><br><span class='tag'>great-ocean</span></td><td><code>fig-japanese-eight-of-everything</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-japanese-eight-of-everything.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>41</td><td><code>korean-hangul-place-names</code><br><span class='tag'>great-ocean</span></td><td><code>fig-korean-hangul-place-names</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-korean-hangul-place-names.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>42</td><td><code>hawaiian-day-length-plate</code><br><span class='tag'>great-ocean</span></td><td><code>fig-hawaiian-day-length-plate</code></td><td>observation-plate<br><code>data-table</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-hawaiian-day-length-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>43</td><td><code>korean-river-crossing-sort</code><br><span class='tag'>great-ocean</span></td><td><code>fig-korean-river-crossing-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-korean-river-crossing-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>44</td><td><code>japanese-turtle-time-plate</code><br><span class='tag'>great-ocean</span></td><td><code>fig-japanese-turtle-time-plate</code></td><td>observation-plate<br><code>plate-label</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-japanese-turtle-time-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>45</td><td><code>maya-bar-dot-numbers</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-maya-bar-dot-numbers</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maya-bar-dot-numbers.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>46</td><td><code>maya-ballcourt-plate</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-maya-ballcourt-plate</code></td><td>observation-plate<br><code>plate-label</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maya-ballcourt-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>47</td><td><code>maya-number-make</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-maya-number-make</code></td><td>writing-frame<br><code>make-frame</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maya-number-make.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>48</td><td><code>aztec-chinampa-plate</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-aztec-chinampa-plate</code></td><td>observation-plate<br><code>plate-label</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-aztec-chinampa-plate.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>49</td><td><code>aztec-town-sign-make</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-aztec-town-sign-make</code></td><td>writing-frame<br><code>make-frame</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-aztec-town-sign-make.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>50</td><td><code>maya-number-add</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-maya-number-add</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maya-number-add.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>51</td><td><code>maya-ballcourt-sort</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-maya-ballcourt-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maya-ballcourt-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>52</td><td><code>aztec-place-glyphs</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-aztec-place-glyphs</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-aztec-place-glyphs.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>53</td><td><code>aztec-lake-city-map</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-aztec-lake-city-map</code></td><td>region-map<br><code>map-trace</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-aztec-lake-city-map.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>54</td><td><code>andean-khipu-knots</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-andean-khipu-knots</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-andean-khipu-knots.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>55</td><td><code>maya-maize-stages-sort</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-maya-maize-stages-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maya-maize-stages-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>56</td><td><code>andean-altitude-map</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-andean-altitude-map</code></td><td>region-map<br><code>map-trace</code></td><td>portrait · 1950×2550 · 13:17<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-andean-altitude-map.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>57</td><td><code>andean-flood-warning-sort</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-andean-flood-warning-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-andean-flood-warning-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>58</td><td><code>aztec-maize-journey-sort</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-aztec-maize-journey-sort</code></td><td>sorting-grid<br><code>sort-cards</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-aztec-maize-journey-sort.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>59</td><td><code>maya-place-glyphs</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-maya-place-glyphs</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-maya-place-glyphs.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+<tr><td>60</td><td><code>aztec-number-signs</code><br><span class='tag'>jaguar-condor</span></td><td><code>fig-aztec-number-signs</code></td><td>cipher-key<br><code>key-decode</code></td><td>landscape · 1950×1800 · 13:12<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-aztec-number-signs.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
+</table></div>
+<h2>7 · Kültür başına çizim kısıtları</h2>
+<p>Bunlar <code>01_SOURCE/culture_index.json § forbiddenForms</code> alanından gelir ve <strong>public</strong>tir. Bir promptun sonuna, o sayfanın kültürüne ait olanlar eklenir.</p>
+<div class="scroll"><table>
+<tr><th>Kültür</th><th>Kademe</th><th>Çizime giremeyecek olan</th></tr>
+<tr><td><strong>Persian</strong></td><td>A</td><td>· Zerdüşt ibadetinin (ateş tapınağı) taklidi<br>· Kaveh anlatısındaki infaz sahnelerinin çizdirilmesi</td></tr>
+<tr><td><strong>Turkic</strong></td><td>A</td><td>· Tepegöz&#x27;ün yamyamlık bölümünden görev türetilmesi<br>· çağdaş şamanlık uygulamasının taklidi</td></tr>
+<tr><td><strong>Hindu</strong></td><td>C</td><td>· Ganeşa&#x27;nın başının kesilmesi anlatısı (kayıt aktivite DIŞI)<br>· mantra, mudra veya puja uygulamasının taklidi<br>· tanrı adlarının bir şifrenin CEVABI yapılması<br>· yaşayan bir ibadetin &#x27;çözülecek bir sır&#x27; gibi sunulması</td></tr>
+<tr><td><strong>Vietnamese</strong></td><td>A</td><td>· atalar sunağı (bàn thờ) uygulamasının taklidi<br>· Hùng kralları anlatısının çağdaş siyasî iddiaya bağlanması</td></tr>
+<tr><td><strong>Chinese</strong></td><td>A</td><td>· atalar ibadetinin taklidi<br>· I Ching kehanetinin bir bulmacaya çevrilmesi<br>· karakterlerin &#x27;gizli semboller&#x27; diye sunulması — okunan bir yazıdır</td></tr>
+<tr><td><strong>Japanese</strong></td><td>B</td><td>· Şinto ritüelinin (harae, norito) taklidi<br>· Orochi&#x27;nin öldürülme sahnesinin çizdirilmesi<br>· tapınak uygulamasının bir &#x27;görev&#x27; hâline getirilmesi</td></tr>
+<tr><td><strong>Korean</strong></td><td>A</td><td>· gut (Muism töreni) veya mudang inisiyasyonunun taklidi<br>· jesa (aile atalar töreni) uygulamasının aktiviteye çevrilmesi</td></tr>
+<tr><td><strong>Māori</strong></td><td>C</td><td>· whakapapa (soy zinciri) bir bulmaca CEVABI olamaz<br>· tā moko (dövme) desenlerinin çocuğa çizdirilmesi<br>· haka veya karakia&#x27;nın taklidi<br>· iwi&#x27;ye özgü anlatı değişkelerinin &#x27;doğru cevap&#x27; diye sunulması</td></tr>
+<tr><td><strong>Hawaiian</strong></td><td>C</td><td>· mele veya oli (ezgi ve dua) metninin kullanılması<br>· hula&#x27;nın bir &#x27;hareket görevi&#x27; hâline getirilmesi<br>· Pele&#x27;ye yönelik yaşayan saygının bir bulmaca temasına çevrilmesi<br>· heiau (tapınak) planının bir labirente çevrilmesi</td></tr>
+<tr><td><strong>Maya</strong></td><td>B</td><td>· yeraltı sınavlarının (Xibalba) işkence sahnelerinin betimlenmesi<br>· çağdaş Maya töreninin veya günlük takviminin (cholq&#x27;ij) kehanet aracı olarak kullanılması<br>· &#x27;Maya kehaneti&#x27; klişesinin tekrarlanması</td></tr>
+<tr><td><strong>Aztec</strong></td><td>B</td><td>· insan kurbanı bölümünden görev türetilmesi<br>· tonalpohualli kehanet takviminin bir bulmacaya çevrilmesi<br>· yaşayan Nahua topluluklarının &#x27;yok olmuş&#x27; diye anlatılması</td></tr>
+<tr><td><strong>Andean</strong></td><td>B</td><td>· yaşayan tören takviminin veya dağ (apu) saygısının taklidi<br>· tek hikâyeden dört ayrı olay örgüsü aktivitesi türetilmesi — tekrar riski<br>· &#x27;İnka sırrı&#x27; klişesinin tekrarlanması</td></tr>
+</table></div>
+<h2>8 · Faz 5'e devir</h2>
+<ol>
+<li>Bir satır seç ve düzen şablonunu kopyala.</li>
+<li><code>{PRINT_LIST}</code> yer tutucusunu <strong>manuscript'teki</strong> <code>pagePrints</code> ile doldur. Bu adım depo dışında yapılır.</li>
+<li>Ortak olumsuz kısıtları (§ 3) ekle.</li>
+<li>O kültürün çizim kısıtlarını (§ 7) ekle.</li>
+<li>Üret, <code>07_ASSETS/processed/interior/</code> hedefine <code>asset_id.png</code> adıyla yaz.</li>
+<li><code>asset_inventory.py</code> koştur — envanter ÖLÇÜMDEN ÖNCE koşar, çünkü yanlış aktiviteye bağlanmış kusursuz bir görsel aktiviteyi çözülemez yapar.</li>
+</ol>
+<div class="note stop"><strong>AJAN GÖRSEL ÜRETMEZ.</strong><br>Faz 3 şartname üretir. Varlık üretimi yol haritasında Faz 5'tir ve kurucu talimatı olmadan başlamaz.</div>
 </div>
 <script>
-document.querySelectorAll(".copy").forEach(function(b){
-  b.addEventListener("click", function(){
-    var el = document.getElementById(b.dataset.t);
-    var txt = Array.prototype.filter.call(el.childNodes, function(n){
-      return n.nodeType === 3;
-    }).map(function(n){ return n.textContent; }).join("").trim();
-    navigator.clipboard.writeText(txt).then(function(){
-      b.textContent = "kopyalandı"; b.classList.add("done");
-      setTimeout(function(){ b.textContent = "kopyala"; b.classList.remove("done"); }, 1400);
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click', function(){
+    var box = document.getElementById(b.dataset.t);
+    var text = box.innerText.replace(/kopyala$/, '').trim();
+    navigator.clipboard.writeText(text).then(function(){
+      b.textContent = 'kopyalandı'; b.classList.add('done');
+      setTimeout(function(){ b.textContent = 'kopyala'; b.classList.remove('done'); }, 1600);
     });
   });
 });

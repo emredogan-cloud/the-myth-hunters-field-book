@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "checks": 19,
+  "errors": [],
+  "warnings": [
+    "ilişki tek bir maddede durmuyor — bir ÇIKARIM tasarımı olabilir, insan bakmalı: [\"andean-altitude-map → 'maize 2300-3500 m → quechua…'\", \"andean-altitude-map → 'potato 3500-4000 m → suni…'\", \"andean-altitude-map → 'llama 4000-4800 m → puna…'\", \"andean-altitude-map → 'pepper tree 500-2300 m → yunga…'\", \"japanese-two-alphabets → 'angular set: katakana…'\"]"
+  ],
+  "facts": {
+    "activities": 60,
+    "regionOpenings": 3,
+    "sealedPages": 19,
+    "layoutUse": {
+      "key-decode": 18,
+      "plate-label": 7,
+      "make-frame": 7,
+      "sort-cards": 15,
+      "map-trace": 8,
+      "key-build": 1,
+      "plate-compare": 2,
+      "map-overlay": 1,
+      "data-table": 1
+    },
+    "visualSpecs": 60,
+    "visualAssetsProduced": 0,
+    "requiredLabelsTotal": 317,
+    "layoutsPerRegion": {
+      "jaguar-condor": 5,
+      "monsoon": 6,
+      "great-ocean": 8
+    },
+    "matchingPagesChecked": 7,
+    "uncolocatedPairs": 5
+  }
+}

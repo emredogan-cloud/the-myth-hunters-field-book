@@ -190,7 +190,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "c5df9d3c0b638d3890722a00589a3b000fb52c963d3242724e96fadbe61577b7",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -204,9 +204,18 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "writingSystem",
+        "pictographInventory",
+        "strokeOrderRules",
+        "cosmologyScheme",
+        "colourDirectionMapping",
+        "calendarCycle",
+        "animalOrder",
+        "compoundCharacterFormation"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -346,7 +355,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "42bab22706d4d2fc6923b19177fd38d0426985bf2261be6aae295bb93c854646",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -360,9 +369,13 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "writingSystem",
+        "alphabetInventory",
+        "diacritics"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "C",
@@ -385,7 +398,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "dfca0d403eb79c315c9cac68899d55ae9ed8508f148f90655e55907178220ef9",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -399,9 +412,13 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "writingSystem",
+        "headline",
+        "riverSources"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "C",
@@ -502,7 +519,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "e706943fb6c0c9db45a37666b04fec56f6e10fcbec5c25a8ab62f0c73525b733",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -516,9 +533,13 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "writingSystem",
+        "syllabaryInventory",
+        "scriptDivisionOfLabour"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -541,7 +562,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "1be6619ebee8502507e6ad19a16a03a7aa1f3b6c96196a735f18574d9b847d84",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -555,9 +576,18 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "writingSystem",
+        "letterDesignPrinciple",
+        "dateOfCreation",
+        "syllableBlockStructure",
+        "alphabeticity",
+        "geography",
+        "highestPeak",
+        "riverCourses"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -580,7 +610,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "92f57d9ecf18f156fd1d6b6d3db0f6033e98baf3c24f9c7634bd9c7f3c593a2d",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -594,9 +624,16 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "localFauna",
+        "birdNames",
+        "extinctionStatus",
+        "writingSystem",
+        "orthography",
+        "vowelLength"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "C",
@@ -749,7 +786,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "aca8b22391e34f375f307f693ded571037345ba9e6a70d828fa48bba22c83525",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -763,9 +800,20 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "writingSystem",
+        "readingDirection",
+        "digitDirection",
+        "positionalForms",
+        "nonJoiningLetters",
+        "geography",
+        "climateContrast",
+        "highestPeak",
+        "gardenForm",
+        "etymology"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -788,7 +836,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "989cad29e884e2d0ce23922ae2c947640ee069b267bfcf9056f7a6b8bbdf7f32",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -802,9 +850,19 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "materialCulture",
+        "dwellingParts",
+        "portability",
+        "writingSystem",
+        "siteLocation",
+        "decipherment",
+        "readingDirection",
+        "scriptOrigin",
+        "letterformConstraint"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -827,7 +885,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "7b9113c6178701c985fc7b056e48c6b042cae9eb633fb6b2b4a844abc98832af",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -841,9 +899,16 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "writingSystem",
+        "toneMarks",
+        "orthography",
+        "materialCulture",
+        "boatParts",
+        "festivalContext"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -1304,7 +1369,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1326,9 +1391,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "plotSummary",
+        "aetiology",
+        "sourceText"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -1336,17 +1405,20 @@
       "fieldbookUsage": [
         "background",
         "field-note",
-        "glossary"
+        "glossary",
+        "answer-source"
       ],
       "culture": "chinese",
-      "upstreamAgeReview": "pending",
+      "upstreamAgeReview": "cleared",
       "contentFlags": [
         "death"
       ],
       "pronunciationCount": 2,
       "activityExcludedReason": null,
       "forbiddenLayer": null,
-      "note": "Yaş incelemesi kaynakta 'pending' — CEVAP ÜRETEMEZ, yeniden inceleme gerekir."
+      "note": "Yaş incelemesi kaynakta 'pending' — CEVAP ÜRETEMEZ, yeniden inceleme gerekir.",
+      "upstreamAgeReviewNote": "Faz 3 · sıralama dört kartla biter ve son kart şeftali ormanıdır; ölüm sayfada geçmez.",
+      "answerSourceGrantedNote": "Faz 3 · Shanhaijing metni iki bağımsız kaynakta doğrulandı; olay sırası ölüm sahnesi AÇILMADAN kuruluyor (CLM-CHIN-KUAFU § designConstraint)."
     },
     {
       "recordId": "story-chinese-nuwa-sky",
@@ -1360,7 +1432,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1382,9 +1454,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "plotSummary",
+        "fiveColouredStones"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -1993,7 +2068,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2015,9 +2090,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "dayLengthVariation",
+        "latitudeComparison"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "C",
@@ -2048,7 +2126,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2070,9 +2148,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "islandAgeOrder",
+        "hotspotMechanism"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "C",
@@ -2161,7 +2242,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2183,9 +2264,14 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "riverCourse",
+        "sourceGlacier",
+        "citiesOnCourse",
+        "delta"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "C",
@@ -2564,7 +2650,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2586,9 +2672,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "plotSummary",
+        "eventOrder"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -2622,7 +2711,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2644,9 +2733,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "numberConvention",
+        "plotDetail"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -2681,7 +2773,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2703,9 +2795,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "sourceTexts",
+        "textDates",
+        "transmission"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -2713,17 +2809,20 @@
       "fieldbookUsage": [
         "background",
         "field-note",
-        "glossary"
+        "glossary",
+        "answer-source"
       ],
       "culture": "japanese",
-      "upstreamAgeReview": "pending",
+      "upstreamAgeReview": "cleared",
       "contentFlags": [
         "grief"
       ],
       "pronunciationCount": 2,
       "activityExcludedReason": null,
       "forbiddenLayer": null,
-      "note": "Yaş incelemesi kaynakta 'pending' — CEVAP ÜRETEMEZ, yeniden inceleme gerekir."
+      "note": "Yaş incelemesi kaynakta 'pending' — CEVAP ÜRETEMEZ, yeniden inceleme gerekir.",
+      "upstreamAgeReviewNote": "Faz 3 · sayfa metin tarihlerini okutur; kutu açılmaz ve yaşlanma sahnesi yoktur.",
+      "answerSourceGrantedNote": "Faz 3 · cevap anlatının SAYILARINDAN değil, metinlerin TARİHLERİNDEN türüyor (CLM-JAPN-URASHIMA § correction)."
     },
     {
       "recordId": "story-korean-dangun",
@@ -2737,7 +2836,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2759,9 +2858,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "plotSummary",
+        "eventOrder",
+        "sourceText"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -2794,7 +2897,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2816,9 +2919,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "plotSummary",
+        "eventOrder",
+        "sourceText"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -2909,7 +3016,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2931,9 +3038,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "placeNames",
+        "officialStatus",
+        "landformMapping"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "C",
@@ -2966,7 +3077,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2988,9 +3099,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "plotSummary",
+        "eventOrder",
+        "variantRange"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "C",
@@ -3617,7 +3732,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -3639,9 +3754,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "plotSummary",
+        "crossCultureParallel"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -3649,10 +3767,11 @@
       "fieldbookUsage": [
         "background",
         "field-note",
-        "glossary"
+        "glossary",
+        "answer-source"
       ],
       "culture": "persian",
-      "upstreamAgeReview": "needs-review",
+      "upstreamAgeReview": "cleared",
       "contentFlags": [
         "abuse",
         "grief"
@@ -3660,7 +3779,9 @@
       "pronunciationCount": 5,
       "activityExcludedReason": null,
       "forbiddenLayer": null,
-      "note": "Yaş incelemesi kaynakta 'needs-review' — CEVAP ÜRETEMEZ, yeniden inceleme gerekir."
+      "note": "Yaş incelemesi kaynakta 'needs-review' — CEVAP ÜRETEMEZ, yeniden inceleme gerekir.",
+      "upstreamAgeReviewNote": "Faz 3 · bebeğin dağa bırakılması sayfaya girmez; field note yalnızca kuşun çocuğu büyüttüğünü söyler.",
+      "answerSourceGrantedNote": "Faz 3 · yalnızca kuş karşılaştırması cevap üretir; terk sahnesi sayfaya girmez (CLM-PERS-GREATBIRDS § designConstraint)."
     },
     {
       "recordId": "story-turkic-basat-tepegoz",
@@ -3674,7 +3795,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -3696,9 +3817,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "plotSummary",
+        "crossCultureParallel"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -3848,7 +3972,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -3870,9 +3994,16 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "plotSummary",
+        "aetiology",
+        "sourceText",
+        "deltaGeography",
+        "floodBehaviour",
+        "dykeSystem"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase3-agent · 01_SOURCE/research/{monsoon,great-ocean}-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",

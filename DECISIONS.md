@@ -7,7 +7,11 @@
 
 ## AÇIK KARARLAR — kurucudan yanıt bekleyen
 
-Durum tablosu · **13 Ağustos 2026 · Faz 2**
+Durum tablosu · **13 Ağustos 2026 · Faz 3**
+
+> ⚠ **A10 ERTELENDİ, KAPANMADI.** Kurucu Faz 3'ü A10 beklenmeden
+> başlattı (**K27**). Bu, testin yapıldığı anlamına **gelmez**.
+> `externalValidation` hâlâ `pending`, `.gate` hâlâ `phase1`.
 
 | # | Soru | Aciliyet | Ne zaman kapanmalı | Durum |
 |---|---|---|---|---|
@@ -17,8 +21,9 @@ Durum tablosu · **13 Ağustos 2026 · Faz 2**
 | ~~A8~~ | ~~148 sayfa kabul edilecek mi~~ | — | — | ✅ **KAPANDI → K19** |
 | **A4** | 168 adaydan 120'sinin nihai seçimi | **YÜKSEK** | Faz 3 başlarken | AÇIK · pilot 16'sını seçti |
 | ~~A7~~ | ~~≥2 çocuk testçi~~ | — | — | ✅ **KAPANDI → K26** · testçi bulundu |
-| **A10** | **YENİ** — gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · materyal hazır, **oturum YAPILMADI** |
-| **A9** | **YENİ** — fizikî prova siparişi ve değerlendirmesi | ORTA | Faz 5–6 | AÇIK · **KURUCUYA AİT** |
+| **A10** | gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **ERTELENDİ (K27)** · oturum **YAPILMADI** |
+| **A11** | **YENİ** — `gates.requirements.phase3` 80 mi 60 mı | ORTA | kapı `phase3`'e yükselirken | AÇIK · **çelişki ölçüldü (K28)** |
+| **A9** | fizikî prova siparişi ve değerlendirmesi | ORTA | Faz 5–6 | AÇIK · **KURUCUYA AİT** |
 | **A5** | Ciltli hediye sürümü v1.0'a girecek mi | DÜŞÜK | Faz 4 | AÇIK (varsayım: hayır) |
 | **A6** | Yazar biyografisi metni | ORTA | Faz 5 | AÇIK |
 
@@ -33,10 +38,14 @@ Faz 2 pilotu `jaguar-condor` bölgesinin **16'sını** 22 adaydan seçti ve
 bir pilot aktivitesi çocuk testinde düşerse yerine aynı bölge × aynı
 tipten biri geçer (PROGRESSION_ARCHITECTURE § 6).
 
-### A10 · Gerçek oturum — **YENİ · AÇIK**
+### A10 · Gerçek oturum — **AÇIK · KURUCU TARAFINDAN ERTELENDİ (K27)**
 
 A7 kapandı (testçi bulundu, K26) ve Türkçe materyal üretildi. Kalan tek
 şey **oturumun kendisidir** ve onu ajan yapamaz.
+
+**Faz 3, A10 beklenmeden başlatıldı** — kurucu talimatı. Ertelemenin
+kaydı **K27**'dir. Erteleme A10'u **kapatmaz**: aşağıdaki tablo Faz 2'de
+ne diyorsa bugün de aynısını diyor.
 
 | | |
 |---|---|
@@ -56,6 +65,28 @@ ama oturum yoksa, kapı bunu her koşuda söylüyor.
 
 Kimlikler anonimdir (`tester-01`) ve gerçek ad depoya **hiçbir koşulda**
 girmez — `validate_structure.py § check_child_privacy` denetler.
+
+### A11 · Faz 3 kapı eşiği — 80 mi 60 mı · **YENİ · AÇIK**
+
+İki belge farklı sayı söylüyor ve ikisi de kapsam otoritesi taşıyor:
+
+| Kaynak | Faz 3 kilitli aktivite |
+|---|---:|
+| `THE_MYTH_HUNTERS_FIELD_BOOK_IMPLEMENTATION_ROADMAP.md` § FAZ 3 | **60** (kümülatif) |
+| `project_config § gates.requirements.phase3` | **80** |
+
+Ajan **hiçbirini değiştirmedi**. Yol haritası *"tek doğruluk
+kaynağıdır"* ve kapsam sayıları `scope.locked` altında bir **kurucu
+kararıdır** (K8). 80 büyük olasılıkla bootstrap'ın "6 bölge × 20"
+varsayımından kalan bir artıktır — ama **büyük olasılıkla** bir
+doğrulama değildir.
+
+Bugün ısırmıyor: `.gate` `phase1` ve K27 gereği orada kalıyor. Kapı
+`phase3`'e yükseltilmek istendiğinde ısıracak.
+
+**Kurucudan istenen:** 60 mı 80 mi. Yol haritası kazanırsa config
+düzeltilir; config kazanırsa Faz 3 kapsamı 80'e çıkar ve bu **bir
+bölge daha** demektir.
 
 ### A9 · Fizikî prova — KURUCUYA AİT · **YENİ**
 
@@ -471,3 +502,126 @@ kapısını taşıyordu ama kapı **açıldığında** ne olacağı yazılmamı�
 Türkçe materyal ayrı bir kaynak olarak **yazıldı**
 (`01_SOURCE/pilot_tr/source-tr.json`), çevrilmedi. `selftest § ⑪b` üç
 yolu da kanıtlıyor: onaysız **ret**, kaynaksız **ret**, ikisi varsa üretim.
+
+---
+
+## FAZ 3 KARARLARI — 13 Ağustos 2026
+
+### K27 · Faz 3, A10 beklenmeden başlatıldı — **AŞMA KAYITLIDIR, GİZLİ DEĞİLDİR**
+
+**Kurucu talimatı:** *"Test aşamasını atlayıp tasarım (Faz 3) aşamasına
+geç."*
+
+Bu meşru bir kurucu kararıdır ve uygulandı. Ama iki şey **birbirine
+karıştırılamaz** ve bu karar tam olarak o ayrımı korumak için var:
+
+```
+FAZ 3 BAŞLATMA YETKİSİ    ✅ VERİLDİ      (kurucu)
+A10 ÇOCUK OTURUMU         ❌ YAPILMADI    (0 oturum)
+
+Birincisi ikincisini KAPATMAZ.
+```
+
+| | |
+|---|---|
+| Aşmayı veren | kurucu · 13 Ağustos 2026 |
+| Yetkilendirilen | **Faz 3** — tasarım, ölçekleme, üretim |
+| Ertelenen blokaj | **A10** — gerçek çocuk oturumu |
+| A10 durumu | **AÇIK · YAPILMADI** — değişmedi |
+| `externalValidation` | ⏳ **`pending`** — değişmedi |
+| `.gate` | **`phase1`** — **YÜKSELTİLMEDİ** |
+| `STYLE.md` | **v1.2** — v2.0 hâlâ ilk gerçek oturuma ayrılmış |
+
+#### Neden `.gate` yükseltilmedi
+
+Kurucu talimatı § 4 bunu ayrıca şart koşuyor: kapı **depo temiz görünsün
+diye** yükseltilmez. `phase2` kapısının PASS ölçütü *"çocuk testinde
+≥%80 yardımsız anlaşılma"* ve **0 oturum** var. K23 bu gerekçeyle
+yazıldı ve **hâlâ geçerlidir**.
+
+> **Bir aşma, bir sonucu üretmez. Yalnızca bir SIRAYI değiştirir.**
+
+#### Aşma bir KİLİDE çevrildi
+
+Bir aşmanın gerçek tehlikesi karar değil, kararın **unutulmasıdır**:
+altı ay sonra depoyu açan bir ajan Faz 3 içeriğini görür ve Faz 2'nin
+kapandığını **sanar**. Bu yüzden aşma yalnızca yazılmadı, **kodlandı**:
+
+`project_config § founder.phaseOverride` + `validate_spec § ⑤`
+
+| Kilit | Ne yapar |
+|---|---|
+| `.gate ≤ gateCeiling` | kapı aşmayla **yükseltilemez** |
+| `externalValidation ≠ passed` | aşma bir testi **geçmiş saydıramaz** |
+| `deferredBlockerStatus ≠ closed` | A10 **kapanmış görünemez** |
+| `documentedIn` taraması | belgede **anılmayan** aşma kırmızı yanar |
+
+Sonuncusu bir liste denetimi değildir: kapı o dosyaları **açar** ve
+içlerinde `K27` ya da `A10` geçtiğini arar. Belgeden düşen bir aşma,
+CI'ı kırmızı yakar.
+
+`selftest § ⑭` dört kilidin dördünü de kusurlu kurguyla sınar.
+
+#### Bu kararın ÜRETMEDİĞİ cümleler
+
+- ~~"kitap çocuklarla test edildi"~~
+- ~~"Faz 2 kapandı"~~
+- ~~"A10 karşılandı"~~
+- ~~"dış doğrulama geçti"~~
+
+Kurucu gerçek bir oturum bildirdiğinde A10 normal yoldan kapanır ve
+`externalValidation` o zaman değişir — **aşmayla değil, veriyle**.
+
+### K28 · Faz 3 bölgeleri YÜKLE seçilir — `monsoon` + `great-ocean`
+
+Yol haritası Faz 3'ü *"Bölge bloğu I — üç bölge · 60 aktivite (pilot
+dâhil)"* diye tanımlıyor. Kurucu talimatı § 11 sırayı **ölçüme**
+bağlıyor: *"measurable production burden and research readiness"*, ve
+§ 9 `monsoon`'un **erken** planlanmasını şart koşuyor.
+
+`region_difficulty.py` yükü zaten ölçmüştü (K20). Sıralama:
+
+| Bölge | YÜK | Kota | Durum |
+|---|---:|---:|---|
+| ~~jaguar-condor~~ | 82,17 | 16 | ✅ Faz 2 pilotu |
+| **monsoon** | **87,68** | **24** | ⭑ Faz 3 |
+| **great-ocean** | **75,50** | **20** | ⭑ Faz 3 |
+| north-ice | 58,50 | 24 | Faz 4 |
+| middle-sea | 52,00 | 20 | Faz 4 |
+| sun-savanna | 29,70 | 16 | Faz 4 |
+
+**Yazılmamış iki en ağır bölge Faz 3'e alındı.** `monsoon` en yüksek
+toplam yükü taşıyor (5 kültür) ve Faz 2 raporu onu açıkça *"sona
+bırakılamaz"* diye işaretlemişti.
+
+#### Ve sayı KENDİLİĞİNDEN oturuyor
+
+A3 kotaları (K18) bölgeler arasında eşit değildir, yani "üç bölge"
+otomatik olarak 60 etmez. Bu seçimde ediyor:
+
+```
+jaguar-condor 16  +  monsoon 24  +  great-ocean 20  =  60   ✅ yol haritası Faz 3
+north-ice     24  +  middle-sea 20  +  sun-savanna 16  =  60   ✅ yol haritası Faz 4
+                                                        ───
+                                                        120
+```
+
+Yol haritasının *"Faz 3 → 60 kümülatif"* ve *"Faz 4 → 60 yeni,
+kümülatif 120"* cümleleri, **yük sıralamasıyla birebir uyuşuyor**.
+Sayı uydurulmadı; iki bağımsız kısıt aynı bölünmeyi verdi.
+
+**Faz 3'te yazılacak yeni sayfa: 44.**
+
+#### Ölçülen bir çelişki — kurucuya not
+
+`project_config § gates.requirements.phase3` **80** kilitli aktivite
+istiyor. Yol haritası **60** diyor. İkisi aynı anda doğru olamaz.
+
+Sayı **değiştirilmedi**: yol haritası *"tek doğruluk kaynağıdır"* ve
+kapsam sayıları bir **kurucu kararıdır** (K8 · `scope.locked`). 80
+büyük olasılıkla bootstrap'ın "6 bölge × 20" varsayımından kalma bir
+artıktır ama bunu ajan **varsayamaz**.
+
+Bugün ısırmıyor — `.gate` `phase1` ve orada kalıyor (K27). Kapıyı
+`phase3`'e yükseltmek istendiğinde **ısıracak** ve o an bir karar
+gerekecek. Açık kalem: **A11**.

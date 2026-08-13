@@ -2,16 +2,38 @@
 """
 VERİ BÜTÜNLÜĞÜ VE KAPSAM KAPISI — The Myth Hunter's Field Book
 ================================================================================
-Dört soru:
+Beş soru:
 
   ① project_config.json kendi içinde tutarlı mı
   ② activity_index.json şemaya uyuyor mu, kimlikler tekil mi
   ③ 6 bölge × 5 aktivite tipi matrisinin her hücresi dolu mu
   ④ .gate seviyesinin GEREKTİRDİĞİ kapsam sağlanmış mı
+  ⑤ KURUCU FAZ AŞMASI görünür ve KİLİTLİ mi                  ⭑FAZ 3⭑
 
 ③ bu projeye özgüdür: "Kuzeyin Buzları bölgesinde 4 tasnif aktivitesi
 bulamıyorum" sorununu 90. aktivitede öğrenmek pahalıdır. Matris Faz 1'de
 kurulur ve her fazda denetlenir.
+
+⑤ FAZ 3'TE DOĞDU — VE BİR AŞMAYI KİLİDE ÇEVİRİR:
+
+Kurucu Faz 3'ü, Faz 2'nin çocuk oturumu (A10) yapılmadan başlattı. Bu
+meşru bir kurucu kararıdır. Tehlikeli olan karar değil, kararın SESSİZ
+kalmasıdır: altı ay sonra depoyu açan bir ajan, Faz 3 içeriğini görüp
+Faz 2'nin kapandığını SANAR.
+
+    Bir aşma kaydı, aşmayı meşrulaştırmak için değil,
+    aşmanın UNUTULMASINI engellemek için vardır.
+
+Bu yüzden aşma bloğu bir kaçış kapısı değil bir KİLİTTİR. Aşma etkinken:
+
+    · `.gate` `gateCeiling`'i AŞAMAZ            → kapı sahte yükselmez
+    · `externalValidation` 'passed' OLAMAZ      → test geçmiş sayılmaz
+    · ertelenen blokaj AÇIK kalmalıdır          → A10 kapanmış görünmez
+    · aşma, belgelerde ANILMIŞ olmalıdır        → sessiz kalamaz
+
+Dördüncüsü kritiktir: `documentedIn` yalnızca bir liste değildir, kapı o
+dosyaları AÇAR ve içlerinde aşmanın gerçekten anıldığını arar. Bir
+belgeye yazılmamış bir aşma, yapılmamış bir aşma gibi davranır.
 
 TASARIM: yalnızca Python standart kütüphanesi (karar K7).
 
@@ -254,6 +276,71 @@ def check_gate_scope(cfg, gate, rep):
                   "kültür sayısı alt başlığı doğruluyor (≥ %d)" % cfg["scope"]["cultures"])
 
 
+def check_phase_override(cfg, gate, rep):
+    """⑤ KURUCU FAZ AŞMASI — görünür mü, kilitli mi.
+
+    Aşma yoksa denetim boş koşar: bu kapı bir aşmayı ZORUNLU kılmaz,
+    yalnızca var olanı görünür ve zararsız tutar."""
+    print("\n── kurucu faz aşması ──")
+    ov = cfg.get("founder", {}).get("phaseOverride")
+    if not ov or not ov.get("active"):
+        print("  ⊘ etkin bir kurucu aşması yok — boş koştu")
+        rep.facts["phaseOverrideActive"] = False
+        return
+
+    rep.facts["phaseOverrideActive"] = True
+    rep.facts["phaseOverrideAuthorises"] = ov.get("authorisedPhase")
+    rep.facts["phaseOverrideDefers"] = ov.get("deferredBlocker")
+
+    for field in ("authorisedPhase", "gateCeiling", "deferredBlocker",
+                  "reason", "declaredAt", "declaredBy", "decision"):
+        rep.check(bool(ov.get(field)), "aşma kaydı '%s' alanını taşıyor" % field)
+
+    # ① Kapı tavanı: aşma, kapıyı yükseltmek için KULLANILAMAZ.
+    ceiling = ov.get("gateCeiling")
+    if ceiling in VALID_GATES and gate in VALID_GATES:
+        rep.check(VALID_GATES.index(gate) <= VALID_GATES.index(ceiling),
+                  "kapı aşma tavanını aşmıyor (.gate=%s ≤ tavan=%s)"
+                  % (gate, ceiling))
+    else:
+        rep.fail("aşma tavanı geçersiz bir kapı seviyesi: %s" % ceiling)
+
+    # ② Ertelenen blokaj KAPANMIŞ GÖRÜNEMEZ.
+    rep.check(ov.get("deferredBlockerStatus") != "closed",
+              "ertelenen blokaj (%s) açık kalıyor" % ov.get("deferredBlocker"))
+
+    # ③ Dış doğrulama 'passed' olamaz. Aşma bir testi geçmiş saymaz.
+    #    qa_language § ⑤ testçi SAYISINA bakar; bu denetim AŞMAYA bakar.
+    #    İkisi farklı yoldan aynı yalanı engelliyor ve bu bir tekrar değil:
+    #    testçi bulunmuş olabilir (K26) ve oturum yine yapılmamış olabilir.
+    ext = cfg.get("founder", {}).get("childTesters", {}).get("externalValidation")
+    rep.check(ext != "passed",
+              "aşma etkinken dış doğrulama 'passed' değil (%s)" % ext)
+
+    # ④ Aşma BELGELERDE anılmalı. Yazılmamış bir aşma, sessiz bir aşmadır.
+    decision = str(ov.get("decision") or "")
+    blocker = str(ov.get("deferredBlocker") or "")
+    silent = []
+    for rel in ov.get("documentedIn", []):
+        path = os.path.join(ROOT, rel)
+        if not os.path.isfile(path):
+            # Henüz yazılmamış bir rapor bir ihlal DEĞİLDİR; eksikliği
+            # söylenir ve faz sonunda kapanır.
+            rep.warn("aşma belgesi henüz yok: %s" % rel)
+            continue
+        try:
+            with open(path, encoding="utf-8") as fh:
+                body = fh.read(400000)
+        except OSError:
+            rep.warn("aşma belgesi okunamadı: %s" % rel)
+            continue
+        if decision not in body and blocker not in body:
+            silent.append(rel)
+    rep.check(not silent,
+              "aşma bütün belgelerde anılıyor"
+              + ("" if not silent else " — SESSİZ: %s" % silent))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -283,6 +370,7 @@ def main():
     check_activities(cfg, acts, regions, gate, rep)
     check_matrix(cfg, acts, rep)
     check_gate_scope(cfg, gate, rep)
+    check_phase_override(cfg, gate, rep)
 
     print("\n" + "=" * 74)
     if rep.warnings:

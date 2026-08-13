@@ -1,22 +1,23 @@
 {
   "status": "pass",
-  "checks": 16,
+  "checks": 17,
   "errors": [],
   "warnings": [
     "20 aday kapalı katmanlı bir hikâyeye dayanıyor — proza yazılırken o katman AÇILAMAZ (Faz 2)"
   ],
   "facts": {
-    "proseMerged": 16,
+    "proseMerged": 60,
     "activitiesScanned": 168,
     "safetyDistribution": {
       "safe": 162,
       "safe-with-adult": 6
     },
     "frameHitsReviewed": 0,
-    "stepsPresent": 16,
+    "stepsPresent": 60,
     "safeWithAdultRatio": 0.036,
     "safeRatio": 0.964,
-    "attributionChecked": 16,
+    "attributionChecked": 60,
+    "tierCPagesChecked": 10,
     "activitiesOnLayeredStories": 20
   }
 }

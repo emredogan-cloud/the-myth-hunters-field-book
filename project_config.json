@@ -84,6 +84,52 @@
       "confirmedAt": "2026-08-13",
       "confirmedBy": "kurucu beyanı"
     },
+    "phaseOverride": {
+      "$comment": [
+        "⭑ KURUCU FAZ AŞMA KAYDI — KARAR K27 · 13 Ağustos 2026 ⭑",
+        "",
+        "Kurucu talimatı: «Test aşamasını atlayıp tasarım (Faz 3) aşamasına",
+        "geç.» Bu AÇIK bir kurucu aşmasıdır ve gizlenmez.",
+        "",
+        "NE AÇAR:  Faz 3 tasarım/üretim işi A10 beklenmeden BAŞLAYABİLİR.",
+        "NE AÇMAZ: A10 hâlâ AÇIK. Çocuk oturumu YAPILMADI.",
+        "          externalValidation hâlâ 'pending'.",
+        "          .gate hâlâ 'phase1' ve bu koşuda YÜKSELTİLMEZ.",
+        "",
+        "Kurucu talimatı § 4 bunu ayrıca şart koşuyor: kapı depo temiz",
+        "görünsün diye sahte yükseltilmez. Aşma GÖRÜNÜR olmalıdır.",
+        "",
+        "validate_spec § ⑤ bu bloğu mekanik olarak denetler: aşma etkinken",
+        "  · .gate gateCeiling'i AŞAMAZ",
+        "  · externalValidation 'passed' OLAMAZ",
+        "  · aşma belgelerde ANILMIŞ olmalıdır",
+        "Yani bu blok bir kaçış kapısı değil, bir KİLİTTİR: aşma kaydı",
+        "yapılmamış bir testi geçmiş saymak için KULLANILAMAZ.",
+        "",
+        "status yalnızca KURUCU beyanıyla değişir."
+      ],
+      "active": true,
+      "authorisedPhase": "phase3",
+      "gateCeiling": "phase1",
+      "deferredBlocker": "A10",
+      "deferredBlockerStatus": "open-not-performed",
+      "reason": "A10 çocuk oturumu kurucu tarafından bilinçli olarak ertelendi",
+      "declaredAt": "2026-08-13",
+      "declaredBy": "kurucu talimatı · Faz 3 § 3",
+      "decision": "K27",
+      "doesNotImply": [
+        "çocuk testi yapıldı",
+        "kitap çocuk-doğrulandı",
+        "Faz 2 PASS ölçütü sağlandı",
+        "kapı phase2'ye yükselebilir"
+      ],
+      "documentedIn": [
+        "DECISIONS.md",
+        "PROJECT_CONTEXT.md",
+        "ROADMAP_PROGRESS.md",
+        "06_REPORTS/PHASE_3_REPORT.md"
+      ]
+    },
     "physicalProof": {
       "founderOwned": true,
       "status": "founder-action-pending",
@@ -421,6 +467,79 @@
     "hintLadderLevels": 2,
     "hintMustNotContainAnswer": true,
     "answerKeyRequired": true
+  },
+  "design": {
+    "$comment": [
+      "TASARIM DİZGESİ — Faz 3 · 00_CONTEXT/DESIGN_SYSTEM.md · qa_design.py",
+      "",
+      "SABİT   → on modül ve yerleri     (belge § 1 · değişmez)",
+      "SEÇMELİ → on düzen, tipe bağlı    (aşağıdaki layouts · kapalı liste)",
+      "SERBEST → levhanın içeriği        (pagePrints · sayfaya özel)",
+      "",
+      "minLayoutsPerRegion bu bloğun en önemli sayısıdır. qa_matrix her",
+      "bölgede beş TİPİN dağılımını denetliyor ama tip ile DÜZEN aynı şey",
+      "değildir: beş tip de dolu olduğu hâlde bütün sayfalar aynı levha",
+      "biçimini kullanabilir ve altı bölge tek şablon gibi okunabilir.",
+      "Kurucu talimatı § 15 bunu yasaklıyor.",
+      "",
+      "Düzen listesi KAPALIDIR. Yeni bir düzen eklemek bilinçli bir",
+      "karardır ve DESIGN_SYSTEM.md § 2 ile birlikte değişir."
+    ],
+    "layouts": {
+      "key-decode": ["cipher"],
+      "key-build": ["cipher"],
+      "sort-cards": ["sort"],
+      "sort-columns": ["sort"],
+      "plate-label": ["observe"],
+      "plate-compare": ["observe"],
+      "data-table": ["observe"],
+      "map-trace": ["map"],
+      "map-overlay": ["map"],
+      "make-frame": ["make"]
+    },
+    "minLayoutsPerRegion": 3,
+    "openingWordsMin": 120,
+    "openingWordsMax": 170,
+    "assetDestination": "07_ASSETS/processed/interior/"
+  },
+  "echo": {
+    "$comment": [
+      "TEKRAR VE KÜLTÜREL DÜZLEŞME EŞİKLERİ — Faz 3 · qa_echo.py",
+      "",
+      "Faz 2 raporu bu kapıyı adıyla istedi: tek hikâyeli kültürler",
+      "(Zulu · And) tekrar gibi okunuyor mu.",
+      "",
+      "⭑ allowedRefrains BİR MUAFİYET LİSTESİ DEĞİLDİR ⭑",
+      "",
+      "Bu kitap KASITLI tekrar üzerine kurulur ve bu bir tasarımdır:",
+      "çocuk mühür kuralını bir kez öğrenir, altı kez kullanır (STYLE",
+      "§ 2.1). Kalıbı cezalandıran bir kapı, kitabın öğrettiği alışkanlığı",
+      "bozar. Bu yüzden yapısal nakaratlar burada AÇIKÇA beyan edilir —",
+      "yani bir KARAR olurlar, bir kaza değil.",
+      "",
+      "Ve beyan sınırsız değildir: maxRefrainShare her nakaratın kaç",
+      "sayfayı kaplayabileceğini söyler. Bir kalıp sayfaların %60'ından",
+      "çoğunu kaplarsa o artık bir kalıp değil bir ŞABLONDUR.",
+      "",
+      "Beyan edilmemiş ama üç sayfada BİREBİR yinelenen bir adım da",
+      "kırmızı yanar: sessiz nakarat, kararı olmayan bir kalıptır."
+    ],
+    "openerTokens": 4,
+    "openerMaxPages": 3,
+    "missionTokens": 3,
+    "missionMaxPages": 4,
+    "fieldNoteJaccardMax": 0.55,
+    "singleSourceJaccardMax": 0.4,
+    "undeclaredStepMax": 3,
+    "maxRefrainShare": 0.6,
+    "allowedRefrains": [
+      "into the star box",
+      "number them from first to last",
+      "draw a line from each",
+      "write each label on the line beside its part",
+      "read the four cards",
+      "read the five cards"
+    ]
   },
   "progression": {
     "$comment": "Mühür sistemi kitabın tamamlanma güdüsüdür ve bütünlüğü mekanik olarak denetlenir.",

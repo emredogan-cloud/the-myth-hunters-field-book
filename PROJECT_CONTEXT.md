@@ -3,7 +3,12 @@
 > **Projeye yeni giren her ajanın ve her insanın okuyacağı ilk belgedir.**
 > Hafızası olmayan bir ajan buradan başlar.
 >
-> Son güncelleme: **13 Ağustos 2026** · Faz: **1 TAMAM** · Kapı: `phase1`
+> Son güncelleme: **13 Ağustos 2026** · Faz: **3 SÜRÜYOR** · Kapı: `phase1`
+>
+> ⚠ **Kapı ile faz AYRIŞMIŞTIR ve bu bilinçlidir.** Kurucu Faz 3'ü, Faz
+> 2'nin çocuk oturumu (**A10**) yapılmadan başlattı — karar **K27**.
+> Aşma kayıtlıdır, gizli değildir ve `validate_spec § ⑤` tarafından
+> mekanik olarak kilitlenmiştir.
 
 ---
 
@@ -60,32 +65,35 @@ Fırsat skoru **6,0/10** — üçünün en düşüğü, **ve bu bilinçlidir**.
 
 | | |
 |---|---|
-| Faz | **2 · TEKNİK PİLOT TAMAM** — çocuk doğrulaması **BEKLİYOR** |
+| Faz | **3 · SÜRÜYOR** — kurucu aşmasıyla (K27) |
 | Kapı (`.gate`) | `phase1` — **bilerek yükseltilmedi** |
 | Aday aktivite | **168** / ≥160 ✅ |
-| Kilitli / yazılmış | **16** / 120 — `jaguar-condor` bölgesinin tamamı |
-| Devralınan kayıt | **76**; **7'si Faz 2'de yeniden doğrulandı** |
-| Doğrulanmış iddia | **13** · 10 teyit · **3 DÜZELTME** |
-| Kültür · bölge | **22** · **6** ✅ |
-| Sayfa modeli | **144** ölçüldü (hedef 148 ±%6) ✅ · 1/6 bölge gerçek |
-| Kapı öz-testi | **106 denetim yeşil** |
-| Çocuk testi | ⏳ **0 testçi · DIŞ DOĞRULAMA BEKLİYOR** |
-| **Sonraki adım** | **KURUCU: A7 (çocuk testçi)** → sonra Faz 3 |
+| Kilitli / yazılmış | **60** / 120 — `jaguar-condor` · `monsoon` · `great-ocean` |
+| Devralınan kayıt | **76**; **31'i yeniden doğrulandı** (Faz 2: 7) |
+| Doğrulanmış iddia | **55** · 49 teyit · **6 DÜZELTME** |
+| Kültür · bölge | **22** · **6** ✅ · yazılmış bölge **3/6** |
+| Sayfa modeli | **144** ölçüldü (hedef 148 ±%6) ✅ · **3/6 bölge gerçek** |
+| Görsel şartnamesi | **60** · üretilmiş varlık **0** |
+| Kapı öz-testi | **145 denetim yeşil** |
+| Çocuk testi | ⏳ **2 testçi · 0 OTURUM · DIŞ DOĞRULAMA BEKLİYOR** |
+| **Sonraki adım** | Faz 3 raporu → **DUR**. Faz 4 kurucu talimatı ister. |
 
-⚠ **FAZ 2 TAM OLARAK KAPANMADI ve kapanamaz.**
+⚠ **FAZ 2 HÂLÂ KAPANMADI — VE FAZ 3 ONU KAPATMAZ.**
 
-Teknik pilot geçti: 16 sayfa yazıldı, 13 kapı yeşil, mühür uçtan uca
-doğrulandı. Ama Faz 2'nin PASS ölçütü *"çocuk testinde ≥%80 yardımsız
-anlaşılma"* der ve **0 testçi** var.
+Kurucu Faz 3'ü A10 beklenmeden başlattı (**K27**). Bu bir **sıra**
+kararıdır, bir **sonuç** değil:
 
 ```
-TEKNİK PİLOT           ✅ GEÇTİ
-DIŞ ÇOCUK DOĞRULAMASI  ⏳ BEKLİYOR   ← bu ikisi TOPLANMAZ
+TEKNİK ÜRETİM          ✅ SÜRÜYOR   60 sayfa · 3 bölge
+DIŞ ÇOCUK DOĞRULAMASI  ⏳ BEKLİYOR  0 oturum
+                       ← bu ikisi TOPLANMAZ
 ```
 
-`.gate` bu yüzden `phase1`'de bırakıldı: kapıyı yükseltmek, yapılmamış
-bir testi geçmiş saymak olurdu.
+`.gate` bu yüzden `phase1`'de duruyor ve aşma kaydı onu **oraya
+kilitliyor**: `validate_spec § ⑤` aşma etkinken kapının yükselmesine
+izin vermiyor. Yani aşma, kapıyı açmak için **kullanılamaz**.
 
+Faz 3 raporu: [`06_REPORTS/PHASE_3_REPORT.md`](06_REPORTS/PHASE_3_REPORT.md)
 Faz 2 raporu: [`06_REPORTS/PHASE_2_REPORT.md`](06_REPORTS/PHASE_2_REPORT.md)
 Faz 1 raporu: [`06_REPORTS/PHASE_1_REPORT.md`](06_REPORTS/PHASE_1_REPORT.md)
 
@@ -173,7 +181,8 @@ Tam yol haritası:
 | [`00_CONTEXT/ACTIVITY_TAXONOMY.md`](00_CONTEXT/ACTIVITY_TAXONOMY.md) | Beş tip · on öğrenme boyutu | Faz 2'de kalibre |
 | [`00_CONTEXT/PROGRESSION_ARCHITECTURE.md`](00_CONTEXT/PROGRESSION_ARCHITECTURE.md) | **Kitap neden bitirilir** · mühür mekaniği | kurucu onayıyla (A3) |
 | [`00_CONTEXT/SOURCING_STANDARD.md`](00_CONTEXT/SOURCING_STANDARD.md) | Kaynak ve kısıt taraması | kurucu onayıyla |
-| [`00_CONTEXT/STYLE.md`](00_CONTEXT/STYLE.md) | Ses, sayfa dili, **üç register bandı** | Faz 2'de yeniden kalibre |
+| [`00_CONTEXT/STYLE.md`](00_CONTEXT/STYLE.md) | Ses, **sayfa dili kalıplarının tek sahibi**, üç register bandı | Faz 2'de yeniden kalibre |
+| [`00_CONTEXT/DESIGN_SYSTEM.md`](00_CONTEXT/DESIGN_SYSTEM.md) | **On modül · on düzen** · yapı tutarlılığı ⇄ kültürel çeşitlilik | Faz 3'te donduruldu |
 | [`00_CONTEXT/LESSONS_FROM_CODEX.md`](00_CONTEXT/LESSONS_FROM_CODEX.md) | Taşınan disiplin | sabit |
 | [`DECISIONS.md`](DECISIONS.md) | Kararlar + **AÇIK KARARLAR** | her faz |
 | [`CHANGELOG.md`](CHANGELOG.md) | Ne değişti, neden | her faz |
@@ -207,8 +216,10 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 | ~~A2~~ | ~~Devralma politikası onayı~~ | — | ✅ **kapandı → K12** |
 | ~~A3~~ | ~~6 bölge ve mühür mimarisi onayı~~ | — | ✅ **kapandı → K18** |
 | ~~A8~~ | ~~148 sayfa kabul mü~~ | — | ✅ **kapandı → K19** |
-| **A4** | 168 adaydan 120'sinin nihai seçimi | kurucu | Faz 3 başlarken · pilot 16'sını seçti |
-| **A7** | **≥2 çocuk testçi** | kurucu | **AÇIK · paket hazır, test koşmadı** |
+| **A4** | 168 adaydan 120'sinin nihai seçimi | kurucu | Faz 3 **60'ını** seçti · 60 kaldı |
+| ~~A7~~ | ~~≥2 çocuk testçi~~ | — | ✅ **kapandı → K26** |
+| **A10** | **gerçek çocuk oturumu** | kurucu | **AÇIK · K27 ile ERTELENDİ, kapanmadı** |
+| **A11** | `gates.requirements.phase3` 80 mi 60 mı | kurucu | **YENİ** · çelişki ölçüldü (K28) |
 | **A9** | **fizikî prova** | kurucu | Faz 5–6 · **kurucuya ait** |
 | A5 | Ciltli hediye sürümü | kurucu | Faz 4 |
 | A6 | Yazar biyografisi metni | kurucu | Faz 5 |
@@ -220,19 +231,22 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 
 ## 11 · Sonraki izinli eylem
 
-> **KURUCU ONAYI BEKLENİYOR — A7.**
+> **FAZ 3 SÜRÜYOR — kurucu aşmasıyla (K27).**
 >
-> Faz 2'nin teknik pilotu tamamlandı ve CI yeşil. **Faz 3 başlatılmadı.**
+> Faz 3, A10 (gerçek çocuk oturumu) **beklenmeden** başlatıldı. Bu bir
+> kurucu kararıdır ve `project_config § founder.phaseOverride` içinde
+> makine okunur biçimde durur.
 >
-> Bekleyen tek şey:
-> **A7 — en az iki çocuk testçi.** Test paketi hazır
-> ([`03_EDITORIAL/CHILD_TEST_PROTOCOL.md`](03_EDITORIAL/CHILD_TEST_PROTOCOL.md)),
-> kayıt defteri açık ve **boş**. Testçi bulunamazsa dış doğrulama
-> beklemede kalır ve **sahte test kaydı üretilmez**.
+> ```
+> FAZ 3 YETKİSİ        ✅ VERİLDİ     (kurucu · K27)
+> A10 ÇOCUK OTURUMU    ❌ YAPILMADI   (0 oturum)
+> .gate                    phase1     (YÜKSELTİLMEDİ)
+> ```
 >
-> Testçiler Türkçe konuşuyorsa tester-facing materyal geçici olarak
-> Türkçe üretilebilir (K21) — `child_test_pack.py --lang tr`, ki o betik
-> kurucu onayı gelene kadar üretmeyi **reddeder**.
+> **Aşma bir sonucu üretmez, bir sırayı değiştirir.** Kitap çocuk
+> doğrulamasından geçmiş **değildir** ve hiçbir belge öyle demez.
 >
-> Onay geldiğinde ilk iş: `faz/2-pilot` dalını açmak ve **en zor bölgeyi**
-> seçmek — kolay bölgeyle kalibre edilen bir şablon zor bölgede kırılır.
+> Faz 3 kapsamı — yol haritası Faz 3 + ölçülen yük sıralaması (K28):
+> `monsoon` (24) ve `great-ocean` (20) → kümülatif **60 aktivite**.
+>
+> **Faz 4 kurucu talimatı olmadan BAŞLAMAZ.**

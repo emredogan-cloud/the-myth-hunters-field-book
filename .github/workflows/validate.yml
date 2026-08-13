@@ -130,7 +130,7 @@ jobs:
       - name: metin kapıları (Faz 2'de doğar)
         run: |
           RAN=0
-          for g in qa_age qa_solvable qa_instruction qa_readability qa_language qa_length qa_voice qa_echo qa_drift qa_crossref qa_progression qa_answerkey; do
+          for g in qa_age qa_solvable qa_instruction qa_readability qa_language qa_length qa_voice qa_echo qa_design qa_drift qa_crossref qa_progression qa_answerkey; do
             if [ -f "04_BUILD/$g.py" ]; then
               echo "▸ $g"
               python3 "04_BUILD/$g.py" --verbose --json "06_REPORTS/${g//_/-}.json" || exit 1

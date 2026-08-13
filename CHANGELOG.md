@@ -5,6 +5,93 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [0.3.0] — 2026-08-13 · Faz 3 · iki bölge, iki kapı, bir tasarım dizgesi
+
+**Faz 3, A10 çocuk oturumu yapılmadan kurucu talimatıyla başlatıldı.**
+Aşma gizlenmedi: kayda geçti (**K27**) ve mekanik bir kilide çevrildi.
+
+```
+FAZ 3 YETKİSİ       ✅ VERİLDİ     (kurucu)
+A10 ÇOCUK OTURUMU   ❌ YAPILMADI   (0 oturum · değişmedi)
+.gate                   phase1     (YÜKSELTİLMEDİ)
+```
+
+### Kararlar
+
+- **K27** · Faz 3 aşması — `project_config § founder.phaseOverride` +
+  `validate_spec § ⑤`. Dört kilit: kapı tavanı aşılamaz,
+  `externalValidation` 'passed' olamaz, blokaj kapanamaz, aşma
+  belgelerden düşemez.
+- **K28** · Faz 3 bölgeleri **ölçülmüş yükle** seçildi: `monsoon` (87,68)
+  ve `great-ocean` (75,50) — yazılmamış iki en ağır bölge.
+- **A11 (yeni)** · `gates.requirements.phase3` **80** diyor, yol haritası
+  **60**. Ajan hiçbirini değiştirmedi; kurucu kararı.
+
+### Eklendi
+
+- **`02_MANUSCRIPT/book.json` v3.0** — 16 → **60 sayfa** · üç bölge
+  (jaguar-condor 16 · monsoon 24 · great-ocean 20). `regionOpening`
+  tekil alanı **çoğula** çevrildi.
+- **`01_SOURCE/research/monsoon-revalidation.json`** — 24 iddia
+- **`01_SOURCE/research/great-ocean-revalidation.json`** — 18 iddia
+- **`04_BUILD/qa_echo.py`** — tekrar ve kültürel düzleşme · 6 denetim
+- **`04_BUILD/qa_design.py`** — tasarım dizgesi ve görsel şartnamesi · 7 denetim
+- **`04_BUILD/image_prompts.py`** — prompt kütüphanesi **üretilir** (K17)
+- **`00_CONTEXT/DESIGN_SYSTEM.md` v1.0** — 10 modül + 10 düzen, donduruldu
+- 60 sayfa için **görsel şartnamesi** · 317 zorunlu etiket ·
+  **0 üretilmiş varlık**
+
+### Araştırma — 42 yeni iddia, üç düzeltme, bir düşen sayfa
+
+24 devralma kaydı `inherited-provisional` → `inherited-verified`
+(7 → **31** / 76). Üç iddia **cevap eşiğini geçemedi** ve sayfalar
+yeniden tasarlandı:
+
+| Sayfa | Neydi | Ne oldu |
+|---|---|---|
+| `hindu-river-names-sort` | *"hepsi buzda başlar"* ve sıradağ eşleştirmesi | Sutlej **gölden** doğar; eşleştirme **çift cevaplıydı** → adlandırılmış kaynak |
+| `vietnamese-mountain-water-sort` | *"yarışmanın dört turu"* | iki bağımsız kaynakta **yok** → nedensel omurga |
+| `japanese-turtle-time-plate` | anlatının sayıları (3 yıl / 300 yıl) | değişkeye göre **değişiyor** → metin tarihleri 713 · 720 · 759 |
+| `korean-sky-rope-plate` | hangi kardeş güneşi aldı | doğrulanamadı → **kitaptan düştü**, yerine `korean-hangul-build` |
+
+### Kapıların kendi kusurları — üçü gerçekti
+
+- **`qa_age § ⑨` doğru imlâyı cezalandırıyordu.** Sayfada **Māori**
+  yazılıyken kapı *"atıfsız"* diyordu ve kapıyı susturmanın en kolay
+  yolu **makronu düşürmekti**. `validate_research § ⑧` tam tersini şart
+  koşuyor: iki kapı birbirine ters çalışıyordu.
+- **`selftest` kurgusu elle bakım istiyordu** — tek bir doğrulama dosyası
+  adı gömülüydü; dizin artık taranıyor.
+- **`update_docs` bölge açılışını kelime sayımından düşürüyordu**
+  (alan adı yanlış, alan tekildi): 1.015 → **1.175**.
+- Faz 1'den kalan mühür yuvaları seçilmemiş adaylarda duruyordu.
+- **`DESIGN_SYSTEM.md` sayfa kalıplarını ikinci kez basıyordu** —
+  sızıntı kapısı yakaladı ve haklıydı.
+
+### Ölçüldü
+
+| | Faz 2 | **Faz 3** |
+|---|---:|---:|
+| Yazılmış sayfa | 16 | **60** |
+| Ölçülmüş bölge | 1 / 6 | **3 / 6** |
+| Sayfa modeli | 144 | **144** (hedef 148 · sapma −%2,7) |
+| Ort. sayfa ağırlığı | 0,844 | 0,844 · 0,865 · 0,863 |
+| Kapı öz-testi | 114 | **145** |
+| Doğrulanmış devralma | 7 / 76 | **31 / 76** |
+
+**Faz 2'nin kelime tahmini DOĞRULANDI.** Faz 2 açığın *"sayfa
+mobilyasında"* olduğunu tahmin etmişti; mobilya artık yazıldı ve
+prozanın **%75'i kadar**: 3.958 proza + 2.968 mobilya. Kelime hedefi
+(22.000) yine de yüksek görünüyor ve **fiyat modelini etkilemiyor** —
+sayfa modeli `pageWeight`ten türüyor, kelimeden değil.
+
+### DEĞİŞMEYEN
+
+`.gate` `phase1` · A10 **açık** · `externalValidation` `pending` ·
+`STYLE.md` v1.2 · altı bölge · 37 yuva · 148 hedefi · A9 kurucuya ait.
+
+---
+
 ## [0.2.1] — 2026-08-13 · A7 onayı · Türkçe testçi paketi
 
 **Kurucu A7'yi onayladı: en az iki Türkçe konuşan çocuk testçi bulundu.**

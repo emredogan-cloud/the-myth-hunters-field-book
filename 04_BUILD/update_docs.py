@@ -91,8 +91,31 @@ def collect() -> dict:
                         + list(a.get("steps") or [])
                         + list(a.get("hints") or []))
         words += len(re.findall(r"[A-Za-z'\u02bb\u2019-]+", blob))
-    opening = (book.get("regionOpening") or {}).get("text", "")
-    words += len(re.findall(r"[A-Za-z'\u02bb\u2019-]+", opening))
+    # \u26a0 FAZ 3'TE D\u00dcZELT\u0130LD\u0130 \u2014 bu sat\u0131r iki kez yanl\u0131\u015ft\u0131 ve ikisi de sessizdi.
+    #
+    #   \u2460 Alan ad\u0131 `text` diye okunuyordu; manuscript'te ad\u0131 `openingText`.
+    #      Yani b\u00f6lge a\u00e7\u0131l\u0131\u015f\u0131n\u0131n 146 kelimesi H\u0130\u00c7 SAYILMADI ve Faz 2'nin
+    #      "1.015 kelime" \u00f6l\u00e7\u00fcm\u00fc ger\u00e7ekte 1.161 idi.
+    #   \u2461 Alan TEK\u0130LD\u0130. Faz 3 iki b\u00f6lge daha yaz\u0131yor; tekil bir alan
+    #      ikinci a\u00e7\u0131l\u0131\u015f\u0131 sessizce yutard\u0131.
+    #
+    # Bir \u00f6l\u00e7\u00fcm beti\u011finin en tehlikeli kusuru, \u00f6l\u00e7t\u00fc\u011f\u00fcn\u00fc SANMASIDIR:
+    # bo\u015f d\u00f6nen bir alan s\u0131f\u0131r ekler ve hi\u00e7bir kap\u0131 k\u0131rm\u0131z\u0131 yanmaz.
+    openings = book.get("regionOpenings")
+    if openings is None:
+        legacy = book.get("regionOpening")
+        openings = [legacy] if legacy else []
+    for op in openings:
+        blob = " ".join([(op or {}).get("openingText", ""),
+                         (op or {}).get("terrainLine", "")])
+        words += len(re.findall(r"[A-Za-z'\u02bb\u2019-]+", blob))
+
+    # G\u00f6rsel \u015eARTNAMES\u0130 \u2260 g\u00f6rsel VARLI\u011eI. \u0130kisi ayr\u0131 say\u0131l\u0131r ve ayr\u0131
+    # raporlan\u0131r: \u015fartname Faz 3'te do\u011far, varl\u0131k Faz 5'te \u00fcretilir.
+    # Birini di\u011ferinin yerine saymak, olmayan bir varl\u0131\u011f\u0131 var g\u00f6stermek olur.
+    visual_specs = sum(1 for a in book.get("activities", []) if a.get("visualSpec"))
+    page_prints = sum(len(a.get("pagePrints") or [])
+                      for a in book.get("activities", []))
 
     status = collections.Counter(a.get("status") for a in acts)
     inh = collections.Counter(r.get("status") for r in recs)
@@ -104,6 +127,10 @@ def collect() -> dict:
         "status": status, "inh": inh,
         "verifiedRatio": (verified / len(recs)) if recs else 0.0,
         "words": words,
+        "visualSpecs": visual_specs,
+        "pagePrints": page_prints,
+        "regionsWritten": len({a.get("region") for a in live
+                               if a.get("status") == "written" and a.get("region")}),
         "cultureCount": len({a.get("culture") for a in live if a.get("culture")}),
         "typeByRegion": {
             r["id"]: collections.Counter(a["type"] for a in live
@@ -206,14 +233,44 @@ def render_progress(d: dict) -> str:
     cur = ORDER.index(d["gate"]) if d["gate"] in ORDER else 0
     scope = d["cfg"].get("scope", {})
 
+    ov = d["cfg"].get("founder", {}).get("phaseOverride") or {}
+    active = bool(ov.get("active"))
+    auth = ov.get("authorisedPhase")
+    auth_i = ORDER.index(auth) if auth in ORDER else -1
+
     L = ["# ROADMAP PROGRESS — The Myth Hunter's Field Book", "", BANNER, "",
-         "> Kapı: `%s`" % d["gate"], "", "---", "", "## Faz durumu", "",
-         "| Faz | Ad | Durum | Kapı | Dal | Etiket |", "|---|---|---|---|---|---|"]
+         "> Kapı: `%s`" % d["gate"], ""]
+
+    # ⭑ AŞMA GİZLENMEZ ⭑ Kapı ile yetkilendirilen faz AYRIŞTIĞINDA bu blok
+    # basılır. Basılmaması, aşmanın unutulması demektir (K27).
+    if active:
+        L += ["> ### ⚠ KURUCU FAZ AŞMASI ETKİN — `%s`" % ov.get("decision", "?"),
+              ">",
+              "> Yetkilendirilen faz: **%s** · kapı tavanı: **`%s`**"
+              % (auth, ov.get("gateCeiling")),
+              ">",
+              "> Ertelenen blokaj: **%s** — %s"
+              % (ov.get("deferredBlocker"), ov.get("deferredBlockerStatus")),
+              ">",
+              "> Bu aşma bir SIRAYI değiştirir, bir SONUCU üretmez:",
+              "> **%s hâlâ açıktır ve çocuk oturumu YAPILMAMIŞTIR.**"
+              % ov.get("deferredBlocker"),
+              "> `.gate` bu yüzden `%s`'de tutulur." % ov.get("gateCeiling"),
+              ""]
+
+    L += ["---", "", "## Faz durumu", "",
+          "| Faz | Ad | Durum | Kapı | Dal | Etiket |", "|---|---|---|---|---|---|"]
     for i, (num, name, g, branch, tag) in enumerate(PHASES):
         if i < cur:
             st = "✅ **TAMAM**"
         elif i == cur:
             st = "✅ **TAMAM**" if g == d["gate"] else "▶ sürüyor"
+        elif active and i == auth_i:
+            # Aşmayla yetkilendirilen faz "beklemede" GÖRÜNEMEZ; ama
+            # "TAMAM" da değildir. Üçüncü bir durum gerekiyordu.
+            st = "▶ **AŞMAYLA SÜRÜYOR (%s)**" % ov.get("decision", "aşma")
+        elif active and cur < i < auth_i:
+            st = "⏸ **AŞILDI — kapanmadı (%s)**" % ov.get("deferredBlocker", "")
         elif i == cur + 1:
             st = "⏸ **SIRADA**"
         else:
@@ -228,14 +285,25 @@ def render_progress(d: dict) -> str:
           "| Yazılmış aktivite | **%d** | %d |" % (d["status"]["written"], scope.get("activities", 120)),
           "| Devralınan kayıt | **%d** | — |" % len(d["records"]),
           "| Kültür | **%d** | %d |" % (d["cultureCount"], scope.get("cultures", 22)),
-          "| Bölge | **%d** | %d |" % (len(d["regions"]), scope.get("regions", 6)),
-          "| Görsel öğe | **0** | ~150 |",
+          "| Bölge (tanımlı) | **%d** | %d |" % (len(d["regions"]), scope.get("regions", 6)),
+          "| **Bölge (yazılmış)** | **%d** | %d |" % (d["regionsWritten"], scope.get("regions", 6)),
+          "| Sayfa basım maddesi (`pagePrints`) | **%d** | — |" % d["pagePrints"],
+          "| Görsel şartnamesi | **%d** | ~150 |" % d["visualSpecs"],
+          "| Görsel varlık (üretilmiş) | **0** | ~150 |",
           "| Kelime | **%s** | ~%s |"
           % (f"{d['words']:,}".replace(",", "."),
              f"{scope.get('manuscriptWordTarget', 22000):,}".replace(",", ".")),
           "", "---", "", "## Sonraki izinli eylem", ""]
 
-    if cur + 1 < len(PHASES):
+    if active and auth_i > cur:
+        nxt = PHASES[auth_i]
+        L += ["> **Faz %s — %s** · kurucu aşmasıyla YETKİLİ (%s)"
+              % (nxt[0], nxt[1], ov.get("decision", "")), ">",
+              "> Dal: `%s` · Etiket: %s" % (nxt[3], nxt[4]), ">",
+              "> ⚠ Kapı `%s`'de kalır. **%s kapanmadı.**"
+              % (ov.get("gateCeiling"), ov.get("deferredBlocker")), ">",
+              "> Bir sonraki fazı kurucu talimatı olmadan **BAŞLATMA**."]
+    elif cur + 1 < len(PHASES):
         nxt = PHASES[cur + 1]
         L += ["> **Faz %s — %s**" % (nxt[0], nxt[1]), ">",
               "> Dal: `%s` · Kapı: `%s` · Etiket: %s" % (nxt[3], nxt[2], nxt[4]), ">",

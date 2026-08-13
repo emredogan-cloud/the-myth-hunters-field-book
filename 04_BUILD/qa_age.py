@@ -20,7 +20,8 @@ Dokuz denetim:
   ⑥ YASAK ÇERÇEVE    — altı yasak çerçevenin anahtar sözcük taraması
   ⑦ ZORLUK           — ★★★ oranı %30'u aşamaz; ★ iki adımdan uzun olamaz
   ⑧ DENETİM YÜKÜ     — safe-with-adult oranı %10'u aşamaz
-  ⑨ ATIF             — atıf zorunluysa kültür adı ÇOCUĞUN GÖRDÜĞÜ metinde mi ⭑
+  ⑨ ATIF             — atıf zorunluysa kültür adı FIELD NOTE'ta mı ⭑
+  ⑩ KADEME C         — Kademe C sayfası ebeveyn notu taşıyor mu ⭑FAZ 3⭑
 
 ⑧ NEDEN VAR: ebeveyn bu kitapta MEŞGULİYET satın alıyor. Yarısı yetişkin
 eşliği isteyen bir aktivite kitabı, ebeveyne iş çıkarır ve vaadi bozar.
@@ -43,6 +44,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
 CONFIG = os.path.join(ROOT, "project_config.json")
+CULTURE_INDEX = os.path.join(ROOT, "01_SOURCE", "culture_index.json")
 ACTIVITY_INDEX = os.path.join(ROOT, "01_SOURCE", "activity_index.json")
 REGION_INDEX = os.path.join(ROOT, "01_SOURCE", "region_index.json")
 MANIFEST = os.path.join(ROOT, "01_SOURCE", "inherited", "IMPORT_MANIFEST.json")
@@ -335,6 +337,24 @@ def check_supervision_load(acts, dist, rep):
 # Kademe A/B/C fark etmez: attributionRequired olan her sayfada kültürün
 # adı ÇOCUĞUN GÖRDÜĞÜ metinde geçmelidir. Bir kültürün adı birden çok
 # meşru biçimde yazılabilir; liste onları taşır.
+#
+# ⚠ FAZ 3'TE DÜZELTİLDİ — KAPI DOĞRU İMLÂYI CEZALANDIRIYORDU.
+#
+# Liste yalnızca diakritiksiz biçimleri taşıyordu ve denetim düz alt-dize
+# araması yapıyor. Sonuç: doğru yazılmış **Māori** sayfada geçtiği hâlde
+# kapı 'atıfsız' diyordu, çünkü "māori" içinde "maori" alt-dizesi YOKTUR.
+#
+# Bu kusurun tehlikeli tarafı yanlış pozitif olması değil, ÖNERDİĞİ
+# ÇÖZÜMDÜR: kapıyı yeşile çevirmenin en kolay yolu sayfada makronu
+# düşürüp "Maori" yazmaktı. Yani kapı, kendisini susturmak isteyen bir
+# yazarı bir halkın adını YANLIŞ yazmaya iter.
+#
+#     Bir kapı, doğru olanı yapmayı pahalı hâle getiriyorsa,
+#     düzeltilmesi gereken kapıdır.
+#
+# `validate_research § ⑧` zaten diakritiklerin korunmasını ŞART KOŞUYOR;
+# iki kapı birbirine ters çalışıyordu. Liste artık diakritikli biçimi de
+# taşıyor ve `selftest § ⑤b` doğru yazılmış bir adın GEÇTİĞİNİ kanıtlıyor.
 CULTURE_NAMES = {
     "maya": ["maya", "k'iche", "kiche", "popol vuh"],
     "aztec": ["aztec", "nahuatl", "mexica", "tenochtitlan"],
@@ -350,14 +370,14 @@ CULTURE_NAMES = {
     "akan": ["akan", "ashanti", "asante", "ghana"],
     "zulu": ["zulu", "isizulu"],
     "persian": ["persian", "iran", "shahnameh"],
-    "turkic": ["turkic", "turkish", "altai", "orkhon"],
+    "turkic": ["turkic", "turkish", "altai", "orkhon", "dede korkut"],
     "hindu": ["hindu", "sanskrit", "india", "devanagari"],
-    "vietnamese": ["vietnamese", "vietnam"],
+    "vietnamese": ["vietnamese", "vietnam", "việt"],
     "chinese": ["chinese", "china"],
     "japanese": ["japanese", "japan"],
     "korean": ["korean", "korea", "hangul"],
-    "maori": ["maori", "aotearoa", "new zealand"],
-    "hawaiian": ["hawaiian", "hawai"],
+    "maori": ["maori", "māori", "aotearoa", "new zealand"],
+    "hawaiian": ["hawaiian", "hawai"],   # "hawai" makronsuz da, Hawaiʻi de yakalar
 }
 
 
@@ -393,9 +413,14 @@ def check_attribution(acts, rep):
         if not (a.get("prompt") or a.get("fieldNote")):
             continue
         checked += 1
-        seen = " ".join([a.get("prompt", ""), a.get("fieldNote", "")]
-                        + list(a.get("steps") or [])
-                        + list(a.get("hints") or [])).lower()
+        # ⚠ FAZ 3'TE SIKILAŞTIRILDI — ad FIELD NOTE'ta aranıyor.
+        #
+        # Faz 2 hâli bütün çocuk-görünür metne bakıyordu ve görev
+        # satırında geçen bir ad denetimi geçiriyordu. İç inceleme on iki
+        # sayfada bunu buldu: ad vardı ama bir BİLGİYE bağlı değildi.
+        # DESIGN_SYSTEM § 5 yeri field note olarak donduruyor — orası adın
+        # bir bilgiye bağlandığı yerdir; başlıktaki ad bir etikettir.
+        seen = (a.get("fieldNote", "") or "").lower()
         names = CULTURE_NAMES.get(a.get("culture"), [a.get("culture", "")])
         if not any(n in seen for n in names if n):
             missing.append("%s (%s)" % (a["activityId"], a.get("culture")))
@@ -404,6 +429,44 @@ def check_attribution(acts, rep):
               "atıf gereken her yazılmış sayfada kültür adı geçiyor (%d sayfa)"
               % checked
               + ("" if not missing else " — ATIFSIZ: %s" % missing[:6]))
+
+
+def check_tier_c(acts, cultures, rep):
+    """⑩ KADEME C — HER AKTİVİTE ATIF **VE** EBEVEYN NOTU TAŞIR.
+
+    ⭑ BU DENETİM BİR ÖLÜ KURALDAN DOĞDU ⭑
+
+    `CULTURE_POLICY § 3` bunu Faz 1'den beri yazıyordu:
+
+        Kademe C — biçim kısıtlı … Her aktivite atıf VE ebeveyn notu taşır.
+
+    Hiçbir kapı denetlemiyordu. Faz 1 ve 2'de ısırmazdı bile — o fazlarda
+    yazılmış bir Kademe C sayfası YOKTU. Faz 3 dokuz tane yazdı ve
+    dokuzu da notsuz çıktı; kuralı bir iç inceleme buldu, kapı değil.
+
+        Denetlenmeyen bir politika bir politika değil bir NİYETTİR.
+
+    ⚠ Bu not bir GÜVENLİK notu değildir ve sayfayı `safe-with-adult`
+    yapmaz. Kademe C'nin ebeveyn notu KÜLTÜREL bir nottur: yetişkine
+    anlatının tek biçimi olmadığını ve yaşayan bir geleneğe dokunulduğunu
+    söyler. `§ ③` güvenlik notunu ayrı denetler; ikisi karıştırılmaz.
+    """
+    print("\n── ⑩ Kademe C ebeveyn notu ──")
+    tier = {c["id"]: c.get("eligibilityTier") for c in cultures}
+    missing, checked = [], 0
+    for a in acts:
+        if tier.get(a.get("culture")) != "C":
+            continue
+        # Yalnızca prozası YAZILMIŞ sayfalar denetlenir.
+        if not (a.get("prompt") or a.get("fieldNote")):
+            continue
+        checked += 1
+        if not (a.get("parentNote") or "").strip():
+            missing.append("%s (%s)" % (a["activityId"], a.get("culture")))
+    rep.facts["tierCPagesChecked"] = checked
+    rep.check(not missing,
+              "Kademe C sayfalarının hepsi ebeveyn notu taşıyor (%d sayfa)" % checked
+              + ("" if not missing else " — NOTSUZ: %s" % missing[:6]))
 
 
 def check_content_flags(acts, manifest, rep):
@@ -454,6 +517,8 @@ def main() -> int:
 
     acts_doc = load(ACTIVITY_INDEX, rep, required=False)
     reg_doc = load(REGION_INDEX, rep, required=False)
+    cul_doc = load(CULTURE_INDEX, rep, required=False)
+    cultures = (cul_doc or {}).get("cultures", []) if cul_doc else []
     manifest = load(MANIFEST, rep, required=False)
 
     if acts_doc is None:
@@ -497,6 +562,8 @@ def main() -> int:
         check_difficulty(cfg, acts, regions, rep)
     check_supervision_load(acts, dist, rep)
     check_attribution(acts, rep)
+    if cultures:
+        check_tier_c(acts, cultures, rep)
     check_content_flags(acts, manifest, rep)
 
     print("\n" + "=" * 74)
