@@ -40,6 +40,19 @@
 03_EDITORIAL/child_tests_raw/
 03_EDITORIAL/**/*_RAW.md
 
+# ①d TÜRKÇE TESTÇİ MATERYALİ — GEÇİCİ, TİCARİ DEĞİL, DEPO DIŞI
+#
+# Kurucu A7'yi onayladı (13 Ağustos 2026) ve Türkçe tester-facing paket
+# üretildi. O paket İKİ ayrı gerekçeyle depoya giremez:
+#
+#   ① SAYFA PROZASI taşır  → K11 · manuscript public depoda durmaz
+#   ② CEVAP taşır          → K10 · cevap anahtarı ürünün kendisidir
+#
+# Ve bir üçüncüsü: Türkçe TİCARİ DİL DEĞİLDİR (K21). Depoda duran Türkçe
+# bir sayfa, bir gün nihai çıktıya karışabilecek bir sayfadır.
+# qa_language.py ayrıca içerik taramasıyla ikinci hattı kurar.
+01_SOURCE/pilot_tr/
+
 # ② ÖZEL EDİTORYAL VE ARAŞTIRMA MALZEMESİ ─────────────────────────────────
 00_CONTEXT/private/
 06_REPORTS/editorial/

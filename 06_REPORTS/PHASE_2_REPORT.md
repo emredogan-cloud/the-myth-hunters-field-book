@@ -31,15 +31,20 @@
 | Zincirleme bağımlılık | 0 | **0** | ✅ |
 | Dil ayrımı | ticari %100 İngilizce | **127/127 dize** | ✅ |
 | Sayfa modeli | 148 ±%6 | **144** (1/6 bölge gerçek) | ✅ |
-| Kapı öz-testi | yeşil | **111 denetim** | ✅ |
+| Kapı öz-testi | yeşil | **114 denetim** | ✅ |
 | **İç editoryal inceleme** | koşsun | **61 bulgu · 14 bloklayıcı** | ⚠ *bulundu ve düzeltildi* |
-| **Çocuk saha testi** | ≥2 testçi · ≥%80 | **0 testçi** | ⏳ **BEKLİYOR** |
+| Çocuk testçi (A7) | ≥2 | **2 · kurucu onayladı** | ✅ |
+| Türkçe test materyali | testçi varsa üret | **16 sayfa üretildi** | ✅ |
+| **Çocuk saha oturumu** | ≥1 oturum · ≥%80 | **0 oturum** | ⏳ **BEKLİYOR** |
 
 ```
 TEKNİK PİLOT            ✅ GEÇTİ
-DIŞ ÇOCUK DOĞRULAMASI   ⏳ BEKLİYOR
+TESTÇİ BULUNDU          ✅ 2 (A7 → K26)
+TÜRKÇE MATERYAL         ✅ 16 sayfa
+DIŞ ÇOCUK DOĞRULAMASI   ⏳ BEKLİYOR — OTURUM YAPILMADI
 
-Bu ikisi TOPLANMAZ ve biri diğerinin yerine geçmez.
+Bunlar TOPLANMAZ ve hiçbiri diğerinin yerine geçmez.
+PAKET ÜRETMEK, TEST YAPMAK DEĞİLDİR.
 ```
 
 ---
@@ -125,20 +130,78 @@ Bu satır kurucu tamamlandığını bildirene kadar değişmez.
 
 ---
 
-## 5 · A7 — çocuk testçi durumu
+## 5 · A7 KAPANDI — testçi bulundu, Türkçe materyal üretildi
+
+**Kurucu 13 Ağustos 2026'da onayladı → `DECISIONS.md § K26`.**
 
 | | |
 |---|---|
 | Gereken | ≥2 |
-| **Mevcut** | **0** |
-| Test paketi | ✅ **hazır** |
-| Yapılan oturum | **0** |
-| Dış doğrulama | ⏳ **BEKLİYOR** |
+| **Mevcut** | **2** · kurucu beyanı |
+| `founderConfirmed` | **true** |
+| Türkçe materyal | ✅ **16 sayfa** · `01_SOURCE/pilot_tr/` |
+| **Yapılan oturum** | **0** |
+| `externalValidation` | ⏳ **`pending`** |
 
-`03_EDITORIAL/CHILD_TEST_LOG.md` **boştur** ve boş olması bir **beyandır**:
-o satırların altında uydurulmuş bir oturum yok.
+Onay `child_test_pack.py`'nin reddetme kapısını **açtı** ve Türkçe
+tester-facing paket üretildi: 16 sayfa, veli notu ve boş kayıt formu.
+Paket **cevap taşımaz**.
 
-Ve bu, disipline değil **mekanizmaya** bağlandı — § 12'ye bakınız.
+> ### Onayın açmadığı şey: PAKET ÜRETMEK, TEST YAPMAK DEĞİLDİR.
+
+`03_EDITORIAL/CHILD_TEST_LOG.md` **hâlâ boştur** ve boş olması bir
+**beyandır**. `qa_language § ⑤` artık bunu her koşuda uyarıyla
+hatırlatıyor: testçi onaylı, materyal üretilmiş, **oturum yok**.
+
+Kalan iş yeni bir açık karar olarak kaydedildi: **A10 — gerçek oturumun
+koşturulması**, ve onu ajan yapamaz.
+
+### 5.1 · Türkçe mühür sözcüğü KATMAN — ve neden CONDOR değil
+
+Ticari bölge mührü **CONDOR**'dur ve öyle kalır. Türkçe sayfalarda
+yıldızlı sözcükler Türkçedir (*kakao · ahuejote · nochtli · hamur ·
+patates · tane*) ve harfleri CONDOR'u kurmaz. Zorlamanın iki yolu vardı:
+
+| Şık | Sonuç |
+|---|---|
+| Türkçe sayfaya İngilizce sözcük koymak | **dilleri karıştırır** — K21 ihlali |
+| Mührü anlamsız bir harf dizisi yapmak | **testin kendisini yok eder** |
+
+İkincisi kritik: mühür mekaniğinin en önemli özelliği sözcüğün **anlamlı**
+olmasıdır — çocuk sözcüğü kurunca doğru çözdüğünü kendi anlar. Anlamsız
+bir dizi bunu yapamaz, **ve tam da bu özellik test edilmek isteniyor**.
+
+```
+kakao[1] = K    hamur[3]   = M
+ahuejote[1] = A patates[2] = A
+nochtli[5] = T  tane[3]    = N        →  KATMAN
+```
+
+Tematik olarak da doğru: chinampa **katman katman** kurulur, And kuşakları
+da birer katmandır. Ticari CONDOR mührü etkilenmez — `qa_progression`
+yalnızca `book.json`'u okur.
+
+### 5.2 · İzolasyon üç hatta bağlandı
+
+| Hat | Ne yapar |
+|---|---|
+| `.gitignore § ①d` | `01_SOURCE/pilot_tr/` depoya **girmez** |
+| `qa_language § ④` | TEST-ONLY materyal test dizini dışında görülürse **kırmızı** |
+| `child_test_pack.py` | onay **veya** kaynak yoksa üretmeyi **reddeder** (çıkış 3) |
+
+Üçüncü hat bir kusur da düzeltti: betiğin ilk hâli reddetme kapısını
+taşıyordu ama kapı **açıldığında** ne olacağı yazılmamıştı — İngilizce
+prozayı basıp üstüne `tr` etiketi yapıştıracaktı.
+
+> **Bir dosyanın adında `tr` yazması, içindekini Türkçe yapmaz.**
+
+Türkçe materyal ayrı bir kaynak olarak **yazıldı**, çevrilmedi.
+`selftest § ⑪b` üç yolu da kanıtlıyor.
+
+`qa_language § ④` ayrıca gerçek bir izolasyon açığı yakaladı: Türkçe
+kaynak ilk yerleşimde `02_MANUSCRIPT/` altındaydı — **kanonik
+manuscript'in yanında**, yani tam da K21'in uyardığı karışıklık. Bütün
+Türkçe malzeme `01_SOURCE/pilot_tr/` altına taşındı.
 
 ---
 
@@ -868,10 +931,11 @@ duruyor — basılı bir cevabı değiştirmek sessizce yapılacak bir şey değ
 
 | | |
 |---|---|
-| Testçi | **0** |
-| Yapılan oturum | **0** |
-| Üretilen sahte kayıt | **0** |
+| Testçi | ✅ **2** — kurucu onayladı (A7 → K26) |
 | Test paketi | ✅ **hazır** |
+| Türkçe materyal | ✅ **16 sayfa üretildi** |
+| **Yapılan oturum** | **0** |
+| Üretilen sahte kayıt | **0** |
 | Dış doğrulama | ⏳ **BEKLİYOR — PASS DEĞİL** |
 
 ### Hazırlanan paket
@@ -882,6 +946,8 @@ duruyor — basılı bir cevabı değiştirmek sessizce yapılacak bir şey değ
 | `03_EDITORIAL/CHILD_TEST_LOG.md` | **boş** kayıt defteri |
 | `04_BUILD/child_test_pack.py` | testçi sayfası + veli notu + boş form üreteci · **cevapsız** |
 | `03_EDITORIAL/child_tests_raw/` | ham kayıt dizini · **depo dışı** |
+| `01_SOURCE/pilot_tr/source-tr.json` | **Türkçe kaynak** · 16 sayfa · depo dışı |
+| `01_SOURCE/pilot_tr/tester-pack-tr.txt` | **üretilen paket** · cevapsız · depo dışı |
 
 Veli talimatının çekirdeği tek cümle: **sayfayı açıklamayın.** Bir
 yetişkin *"ne demek istediğini"* açıklarsa test **geçersizdir** — çünkü
@@ -971,7 +1037,7 @@ kelime sayısını yükseltecek.
 | **`region_difficulty.py`** | ✅ | *ölçüm, kapı değil* |
 | **`child_test_pack.py`** | ✅ | *araç, kapı değil* |
 
-### Kapıların kendi testi: 70 → **111 denetim**
+### Kapıların kendi testi: 70 → **114 denetim**
 
 `selftest.py` on dört bölüme çıktı. Faz 2'de eklenen ⑤b ve ⑩–⑬, yeni kapıların
 **her dalı** için tam bir kusur taşıyan kurgu koşturuyor:
@@ -989,6 +1055,8 @@ kelime sayısını yükseltecek.
   yanlış çentik · **zincirleme bağımlılık** · kurtarılamayacak kısa sözcük
 - **cevabı söyleyen field note** · **sayfada basılı olmayan gönderme** ·
   **görsel şartnamesiz sayfa** · **atıfsız sayfa**
+- **onay yokken Türkçe materyal** · **kaynak yokken Türkçe materyal**
+  (İngilizce proza `tr` etiketiyle basılamaz)
 
 Her yeni kapı için **kusur fikstürü + selftest + CI entegrasyonu**
 üçlüsü tamamlandı; kurucu talimatı § 27 bunu şart koşuyordu.
@@ -1036,7 +1104,7 @@ Her yeni kapı için **kusur fikstürü + selftest + CI entegrasyonu**
 
 | # | Ne | Kimden | Blokladığı |
 |---|---|---|---|
-| **A7** | **≥2 çocuk testçi** | kurucu | **Faz 2'nin kapanması** |
+| **A10** | **gerçek oturumun koşturulması** | kurucu | **Faz 2'nin kapanması** |
 | A4 | 120'nin nihai seçimi | kurucu | Faz 3 (pilot 16'sını seçti) |
 | A9 | fizikî prova | kurucu | Faz 5–6 |
 | A5 | ciltli hediye sürümü | kurucu | Faz 4 |
@@ -1048,7 +1116,7 @@ Her yeni kapı için **kusur fikstürü + selftest + CI entegrasyonu**
 
 | Risk | Ölçü | Azaltma |
 |---|---|---|
-| **Çocuk testi yapılmadı** | 0/2 testçi | Paket hazır; **sahte kayıt üretilmedi** |
+| **Çocuk oturumu yapılmadı** | 0 oturum · 2 testçi hazır | Türkçe materyal üretildi; **sahte kayıt üretilmedi** |
 | Kelime modeli %61 altında | 71 vs 183 /sayfa | Faz 3'te iki bölge daha ölçülünce eğim görülür |
 | `monsoon` en yüksek yükü taşıyor | 87,68 | Faz 3 planlamasına not edildi; **sona bırakılamaz** |
 | 5 bölge hâlâ havuz tahmininde | 1/6 ölçüldü | Her bölge kilitlendikçe model kendini düzeltiyor |
@@ -1072,13 +1140,17 @@ Her yeni kapı için **kusur fikstürü + selftest + CI entegrasyonu**
 - [x] Mühür ve **kurtarma** mekanik olarak kanıtlandı
 - [x] Çocuk test paketi hazır
 - [x] `selftest` yeşil (106) · CI yeşil
-- [ ] **A7 — çocuk saha testi** ⏳ **BEKLİYOR**
-- [ ] `.gate` → `phase2` — **A7 kapanmadan yükseltilmez**
+- [x] **A7 — ≥2 çocuk testçi** ✅ kurucu onayladı (K26)
+- [x] Türkçe tester-facing materyal üretildi (16 sayfa · izole)
+- [ ] **A10 — gerçek oturum koşturuldu** ⏳ **BEKLİYOR**
+- [ ] `.gate` → `phase2` — **A10 kapanmadan yükseltilmez**
 
 ### Faz 3'ün ilk üç işi
 
-1. **Çocuk testi koşarsa** bulguları uygula, `STYLE.md`'yi **v2.0** yap,
-   `.gate`'i `phase2`'ye yükselt.
+1. **Oturum koşulunca** bulguları uygula, `STYLE.md`'yi **v2.0** yap,
+   `.gate`'i `phase2`'ye yükselt. Türkçe bulgular İngilizce sürüme
+   **yeniden yazılarak** taşınır — makine çevirisiyle değil (K21) — ve
+   İngilizce sürüm kapılardan **bağımsız olarak** geçer.
 2. `monsoon`'u erken planla — en yüksek toplam yükü o taşıyor ve beş
    kültürü var.
 3. `qa_echo` kapısını doğur: tek hikâyeli kültürler (Zulu · And) tekrar
@@ -1118,5 +1190,7 @@ Son satır bu fazın **cevaplayamadığı** tek soru ve bu bir kusur değil bir
 > testi ister ve o test yapılmadı. Kapıyı yükseltmek, yapılmamış bir
 > testi geçmiş saymak olurdu.
 >
-> Bekleyen: **A7** — en az iki çocuk testçi. Paket hazır, defter açık ve
-> **boş**. Testçi bulunamazsa boş kalır: **sahte test kaydı üretilmez.**
+> **A7 kapandı:** iki testçi bulundu ve Türkçe materyal üretildi.
+>
+> Bekleyen: **A10** — gerçek oturum. Defter açık ve **boş**, ve oturum
+> yapılana kadar boş kalır: **sahte test kaydı üretilmez.**

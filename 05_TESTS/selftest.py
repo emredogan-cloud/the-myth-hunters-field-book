@@ -892,6 +892,7 @@ QA_SOLVABLE = os.path.join(BUILD, "qa_solvable.py")
 QA_INSTRUCTION = os.path.join(BUILD, "qa_instruction.py")
 QA_LANGUAGE = os.path.join(BUILD, "qa_language.py")
 QA_PROGRESSION = os.path.join(BUILD, "qa_progression.py")
+CHILD_PACK = os.path.join(BUILD, "child_test_pack.py")
 
 # Sentetik pilot: iki mühür besleyen sayfa + bir açık uçlu sayfa.
 # Yıldızlı sözcükler MUT ve OKAY; harfleri M ve O — sentetik bölge
@@ -1142,6 +1143,71 @@ def part11_instruction(rep: Report, tmp: str, base: dict) -> None:
     rep.check(code != 0, "GÖRSEL ŞARTNAMESİZ SAYFA YAKALANIR", out)
 
 
+def part11b_test_pack(rep: Report, tmp: str, base: dict) -> None:
+    """⭑ SAHTE TEST MATERYALİ ÜRETİLEBİLİYOR MU ⭑
+
+    `child_test_pack.py` bir kapı değil bir araçtır — ama taşıdığı REDDETME
+    bir güvenlik mekanizmasıdır ve test edilmeden kullanılamaz (D7).
+
+        Sahte test materyali, sahte test kaydının bir adım öncesidir.
+
+    İki ayrı reddetme yolu var ve ikisi de kanıtlanmalı:
+      ① kurucu onayı yokken       → testçi yoksa materyal de olamaz
+      ② kaynak dosyası yokken     → yazılmamış bir çeviri üretilmiş sayılamaz
+
+    ② özellikle önemli: betiğin ilk hâli reddetme kapısını taşıyordu ama
+    kapı AÇILDIĞINDA ne olacağı yazılmamıştı — İngilizce prozayı basıp
+    üstüne 'tr' etiketi yapıştıracaktı.
+    """
+    print("\n⑪b TEST PAKETİ reddetme yolları ısırıyor mu")
+    import shutil
+
+    def run_pack(confirmed: bool, with_source: bool) -> tuple[int, str]:
+        _RUN_SEQ[0] += 1
+        root = os.path.join(tmp, "pack-%03d" % _RUN_SEQ[0])
+        for d in ("01_SOURCE/pilot_tr", "02_MANUSCRIPT", "04_BUILD"):
+            os.makedirs(os.path.join(root, *d.split("/")), exist_ok=True)
+        cfg = copy.deepcopy(base["project_config.json"])
+        cfg.setdefault("founder", {}).setdefault("childTesters", {})
+        cfg["founder"]["childTesters"]["founderConfirmed"] = confirmed
+        cfg["founder"]["childTesters"]["availableTesters"] = 2 if confirmed else 0
+        cfg.setdefault("language", {}).setdefault("commercial", "en")
+        cfg["language"].setdefault("testOnly", ["tr"])
+        with open(os.path.join(root, "project_config.json"), "w",
+                  encoding="utf-8") as fh:
+            json.dump(cfg, fh, ensure_ascii=False)
+        with open(os.path.join(root, "01_SOURCE", "activity_index.json"), "w",
+                  encoding="utf-8") as fh:
+            json.dump(base["01_SOURCE/activity_index.json"], fh, ensure_ascii=False)
+        with open(os.path.join(root, "02_MANUSCRIPT", "book.json"), "w",
+                  encoding="utf-8") as fh:
+            json.dump(BOOK_FIXTURE, fh, ensure_ascii=False)
+        if with_source:
+            with open(os.path.join(root, "01_SOURCE", "pilot_tr",
+                                   "source-tr.json"), "w", encoding="utf-8") as fh:
+                json.dump({"meta": {"language": "tr"},
+                           "activities": [{"activityId": "x",
+                                           "prompt": "Görevin: oku.",
+                                           "steps": ["Say."],
+                                           "writingSpaceLines": 2}]},
+                          fh, ensure_ascii=False)
+        dest = os.path.join(root, "04_BUILD", "child_test_pack.py")
+        shutil.copy2(CHILD_PACK, dest)
+        out = subprocess.run([sys.executable, dest, "--lang", "tr"],
+                             capture_output=True, text=True, timeout=120)
+        return out.returncode, out.stdout + out.stderr
+
+    code, out = run_pack(confirmed=False, with_source=True)
+    rep.check(code == 3, "⭑ ONAY YOKKEN TÜRKÇE MATERYAL REDDEDİLİR", out)
+
+    code, out = run_pack(confirmed=True, with_source=False)
+    rep.check(code == 3, "⭑ KAYNAK YOKKEN TÜRKÇE MATERYAL REDDEDİLİR "
+                         "(İngilizce proza 'tr' etiketiyle BASILMAZ)", out)
+
+    code, out = run_pack(confirmed=True, with_source=True)
+    rep.check(code == 0, "onay + kaynak varken paket ÜRETİLİR", out)
+
+
 def part12_language(rep: Report, tmp: str, base: dict) -> None:
     print("\n⑫ DİL AYRIMI kapısı ısırıyor mu")
 
@@ -1358,6 +1424,8 @@ def main() -> int:
                 part10_solvable(rep, tmp, base2)
             if os.path.isfile(QA_INSTRUCTION):
                 part11_instruction(rep, tmp, base2)
+            if os.path.isfile(CHILD_PACK):
+                part11b_test_pack(rep, tmp, base2)
             if os.path.isfile(QA_LANGUAGE):
                 part12_language(rep, tmp, base2)
             if os.path.isfile(QA_PROGRESSION):

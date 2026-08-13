@@ -54,9 +54,9 @@
     "authorBio": null,
     "authorBio$comment": "null olduğu sürece Faz 6 kapısı KIRMIZIDIR (World Myths'te KDP yer tutucuyu reddetti).",
     "childTesters": {
-      "founderConfirmed": false,
+      "founderConfirmed": true,
       "minTesters": 2,
-      "availableTesters": 0,
+      "availableTesters": 2,
       "externalValidation": "pending",
       "packagePrepared": true,
       "testLanguageAllowed": [
@@ -64,19 +64,25 @@
       ],
       "$comment": [
         "ÇOCUK SAHA TESTİ Faz 2'nin SERT BLOKLAYICISIDIR.",
-        "Ajan çocukla test yapamaz. Testçi bulunmazsa Faz 2 BLOKLANIR —",
-        "sahte test kaydı ÜRETİLMEZ.",
         "",
-        "FAZ 2 DURUMU (13 Ağustos 2026): availableTesters = 0.",
-        "Test paketi HAZIR (03_EDITORIAL/CHILD_TEST_PROTOCOL.md) ama",
-        "KOŞTURULMADI. externalValidation 'pending' kalır ve bu alan",
-        "'passed' olamaz — yalnızca GERÇEK bir oturum onu değiştirir.",
+        "⭑ A7 KURUCU TARAFINDAN ONAYLANDI · 13 Ağustos 2026 ⭑",
+        "founderConfirmed: true · availableTesters: 2",
         "",
-        "testLanguageAllowed: gerçek Türkçe konuşan testçi bulunursa",
-        "tester-facing materyal GEÇİCİ olarak Türkçe olabilir (K21).",
-        "child_test_pack.py founderConfirmed=false iken Türkçe materyal",
-        "üretmeyi REDDEDER: testçi yoksa test materyali de olamaz."
-      ]
+        "Bu onay ŞUNU AÇAR: Türkçe tester-facing materyal üretilebilir",
+        "(child_test_pack.py artık --lang tr çağrısını reddetmiyor).",
+        "",
+        "Bu onay ŞUNU AÇMAZ: externalValidation hâlâ 'pending'.",
+        "PAKET ÜRETMEK, TEST YAPMAK DEĞİLDİR. Bu alan yalnızca GERÇEK bir",
+        "oturum yapıldığında ve CHILD_TEST_LOG.md'ye kaydedildiğinde değişir.",
+        "qa_language § ⑤ testçi sayısı eşiğin altındayken 'passed' yazılmasını",
+        "zaten engelliyor; artık eşik sağlandı ama OTURUM YOK.",
+        "",
+        "testLanguageAllowed: testçiler Türkçe konuşuyor → materyal GEÇİCİ",
+        "olarak Türkçe (K21). Ticari kitap İNGİLİZCE kalır ve Türkçe pilotun",
+        "geçmesi İngilizce sürümün geçtiği anlamına GELMEZ."
+      ],
+      "confirmedAt": "2026-08-13",
+      "confirmedBy": "kurucu beyanı"
     },
     "physicalProof": {
       "founderOwned": true,
@@ -107,7 +113,14 @@
       "ve İngilizce sürüm kapılardan BAĞIMSIZ olarak geçer.",
       "",
       "qa_language.py bu ayrımı mekanik olarak korur: ticari katmanda",
-      "Türkçe imza görürse CI KIRMIZI yanar."
+      "Türkçe imza görürse CI KIRMIZI yanar.",
+      "",
+      "testOnlyPaths (Faz 2 · A7 onayı sonrası): tester-facing materyal",
+      "01_SOURCE/pilot_tr/ altında, ham oturum kayıtları ise",
+      "03_EDITORIAL/child_tests_raw/ altında durur. İKİSİ DE .gitignore",
+      "kapsamındadır: biri sayfa prozası ve CEVAP taşır, diğeri çocuk",
+      "verisi. Kurucu yolu 01_SOURCE/pilot_tr/ olarak istedi; dizin",
+      "oraya kuruldu ve depo dışına alındı."
     ],
     "commercial": "en",
     "document": "tr",
@@ -139,7 +152,7 @@
       "terrainLine",
       "heading"
     ],
-    "testOnlyPath": "03_EDITORIAL/child_tests_raw/",
+    "testOnlyPath": "01_SOURCE/pilot_tr/",
     "turkishPilotMayNeverEnter": [
       "manuscript",
       "epub",
@@ -149,6 +162,10 @@
       "aplus",
       "metadata",
       "kdp-package"
+    ],
+    "testOnlyPaths": [
+      "01_SOURCE/pilot_tr/",
+      "03_EDITORIAL/child_tests_raw/"
     ]
   },
   "audience": {

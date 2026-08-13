@@ -5,6 +5,59 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [0.2.1] — 2026-08-13 · A7 onayı · Türkçe testçi paketi
+
+**Kurucu A7'yi onayladı: en az iki Türkçe konuşan çocuk testçi bulundu.**
+Türkçe tester-facing materyal üretildi. **Oturum hâlâ yapılmadı.**
+
+### Karar
+
+- **A7 → K26** · `founderConfirmed: true` · `availableTesters: 2`
+- **A10 (yeni)** · gerçek oturumun koşturulması — **açık**, kurucuya ait
+
+```
+TESTÇİ BULUNDU     ✅   MATERYAL ÜRETİLDİ  ✅
+OTURUM YAPILDI     ❌   → externalValidation hâlâ 'pending'
+```
+
+### Eklendi
+
+- **`01_SOURCE/pilot_tr/source-tr.json`** — 16 sayfanın Türkçe kaynağı
+  (çeviri değil, **ayrı yazılmış** materyal) · **depo dışı**
+- **`01_SOURCE/pilot_tr/tester-pack-tr.txt`** — üretilen paket: veli notu,
+  16 sayfa, boş kayıt formu · **cevap taşımaz** · **depo dışı**
+- `.gitignore § ①d` — `01_SOURCE/pilot_tr/` depodan dışlandı
+- `selftest.py` **111 → 114 denetim** — paketin üç yolu da kanıtlandı
+
+### Türkçe mühür sözcüğü: KATMAN
+
+Ticari mühür **CONDOR** kalır. Türkçe yıldızlı sözcüklerin harfleri onu
+kurmaz ve zorlamak ya dilleri karıştırır ya da mührü anlamsız bir harf
+dizisine indirger. İkincisi **testin kendisini yok ederdi**: mühür
+mekaniğinin test edilecek özelliği tam da sözcüğün **anlamlı** olmasıdır.
+
+```
+kakao[1]=K · ahuejote[1]=A · nochtli[5]=T
+hamur[3]=M · patates[2]=A  · tane[3]=N     →  KATMAN
+```
+
+### Düzeltildi
+
+- **`child_test_pack.py` Türkçe basamıyordu.** Reddetme kapısı çalışıyordu
+  ama kapı **açıldığında** ne olacağı yazılmamıştı: İngilizce prozayı
+  basıp üstüne `tr` etiketi yapıştıracaktı. Artık ayrı kaynak okuyor ve
+  kaynak yoksa **reddediyor** (çıkış 3)
+- **Türkçe kaynak yanlış yerdeydi** — `02_MANUSCRIPT/` altında, kanonik
+  manuscript'in yanında. `qa_language § ④` yakaladı; bütün Türkçe malzeme
+  `01_SOURCE/pilot_tr/` altına alındı
+- `qa_language § ⑤` artık **onay ≠ oturum** uyarısı basıyor
+
+### Değişmeyen
+
+- `externalValidation: "pending"` · `CHILD_TEST_LOG.md` **0 oturum**
+- `.gate` **`phase1`** · `STYLE.md` **v1.2**
+- Ticari dil **İngilizce**; CONDOR mührü ve `book.json` **dokunulmadı**
+
 ## [0.2.0] — 2026-08-13 · Faz 2 · Pilot: Jaguar and Condor + kapı seti
 
 **16 sayfa yazıldı ve kilitlendi.** Bir bölgenin tamamı, üç kontrollü

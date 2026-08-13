@@ -183,8 +183,11 @@ def check_commercial_layer(cfg, rep):
 def check_test_isolation(cfg, rep):
     print("\n── ④ test materyali izolasyonu ──")
     lang = cfg.get("language", {})
-    test_path = lang.get("testOnlyPath", "03_EDITORIAL/child_tests_raw/")
-    rep.facts["testOnlyPath"] = test_path
+    # Faz 2 · A7 onayı sonrası İKİ test yolu var: materyal ve ham kayıt.
+    paths = lang.get("testOnlyPaths") or [lang.get(
+        "testOnlyPath", "03_EDITORIAL/child_tests_raw/")]
+    paths = [p.rstrip("/") for p in paths]
+    rep.facts["testOnlyPaths"] = paths
 
     # Test materyali YALNIZCA kendi dizininde durabilir. Başka bir yerde
     # 'TEST-ONLY' etiketi taşıyan bir dosya, duvarın delindiği anlamına gelir.
@@ -196,7 +199,8 @@ def check_test_isolation(cfg, rep):
                 continue
             full = os.path.join(base, fn)
             rel = os.path.relpath(full, ROOT)
-            if rel.replace(os.sep, "/").startswith(test_path.rstrip("/")):
+            rel_p = rel.replace(os.sep, "/")
+            if any(rel_p.startswith(tp) for tp in paths):
                 continue
             try:
                 with open(full, encoding="utf-8") as fh:
@@ -218,12 +222,15 @@ def check_tester_gate(cfg, rep):
     rep.facts["childTestersConfirmed"] = confirmed
     rep.facts["childTestersAvailable"] = available
 
-    test_dir = os.path.join(ROOT, cfg.get("language", {}).get(
-        "testOnlyPath", "03_EDITORIAL/child_tests_raw/"))
+    lang = cfg.get("language", {})
+    dirs = lang.get("testOnlyPaths") or [lang.get(
+        "testOnlyPath", "03_EDITORIAL/child_tests_raw/")]
     present = []
-    if os.path.isdir(test_dir):
-        present = [f for f in os.listdir(test_dir)
-                   if not f.startswith(".") and f != "README.md"]
+    for d in dirs:
+        full = os.path.join(ROOT, d)
+        if os.path.isdir(full):
+            present += [f for f in os.listdir(full)
+                        if not f.startswith(".") and f != "README.md"]
     rep.facts["testMaterialFiles"] = len(present)
 
     # Testçi yoksa test materyali de olamaz. Bir sayfa varsa, bir test
@@ -244,6 +251,14 @@ def check_tester_gate(cfg, rep):
     if not confirmed:
         rep.warn("çocuk testçi YOK — dış doğrulama BEKLİYOR, PASS DEĞİL "
                  "(karar A7). Bu bir kusur değil, kabul edilmiş bir bloktur.")
+    elif ext != "passed":
+        # ⭑ ONAY ≠ OTURUM ⭑ Testçi bulundu ve materyal üretildi. Test
+        # KOŞTURULANA kadar dış doğrulama hâlâ BEKLİYOR.
+        rep.warn("testçi onaylandı (%d) ve materyal üretildi (%d dosya) — "
+                 "ama dış doğrulama hâlâ '%s'. PAKET ÜRETMEK TEST YAPMAK "
+                 "DEĞİLDİR; bu alan yalnızca GERÇEK bir oturum "
+                 "CHILD_TEST_LOG.md'ye kaydedildiğinde değişir."
+                 % (available, len(present), ext))
 
 
 def main() -> int:

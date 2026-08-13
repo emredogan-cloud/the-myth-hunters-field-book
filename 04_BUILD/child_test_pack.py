@@ -20,6 +20,18 @@ bakar ve `false` iken `--lang tr` çağrısını çıkış kodu 3 ile reddeder.
 İngilizce paket her zaman üretilebilir: o ticari metnin kendisidir ve
 zaten yazılmıştır — üretmek yeni bir iddia doğurmaz.
 
+⚠ TÜRKÇE PAKET BİR ÇEVİRİ DEĞİL, AYRI BİR KAYNAKTIR.
+
+Bu betiğin ilk hâli `--lang tr` çağrısını reddediyordu ve reddetme doğru
+çalışıyordu. Ama reddin ARDINDAKİ yol yazılmamıştı: kapı açılsaydı betik
+İngilizce prozayı basıp üstüne "tr" etiketi yapıştıracaktı.
+
+    Bir dosyanın adında 'tr' yazması, içindekini Türkçe yapmaz.
+
+Türkçe materyal `02_MANUSCRIPT/pilot_tr.json` içinde AYRI bir kaynak
+olarak yazılır ve betik onu okur. Dosya yoksa `--lang tr` çağrısı
+reddedilir: yazılmamış bir çeviri, üretilmiş sayılamaz.
+
 KULLANIM
 
     child_test_pack.py                     → İngilizce paket, ekrana
@@ -49,6 +61,12 @@ ROOT = os.path.dirname(HERE)
 CONFIG = os.path.join(ROOT, "project_config.json")
 ACTIVITY_INDEX = os.path.join(ROOT, "01_SOURCE", "activity_index.json")
 BOOK = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
+# ⚠ TÜRKÇE KAYNAK MANUSCRIPT DİZİNİNDE DURMAZ.
+# İlk yerleşim onu 02_MANUSCRIPT altına koymuştu ve qa_language § ④ bunu
+# yakaladı: Türkçe materyal TİCARİ DEĞİLDİR ve kanonik manuscript'in
+# yanında durması tam da K21'in uyardığı karışıklıktır.
+# Bütün Türkçe test malzemesi TEK bir yerde: 01_SOURCE/pilot_tr/
+BOOK_TR = os.path.join(ROOT, "01_SOURCE", "pilot_tr", "source-tr.json")
 
 PARENT_BRIEF_EN = """\
 FIELD TEST — NOTE FOR THE ADULT
@@ -69,6 +87,54 @@ Time: 20-30 minutes, at most four pages.
 
 We do not collect names, schools, addresses, dates of birth, photographs
 or recordings. The record holds an anonymous code, an age and a result.
+"""
+
+PARENT_BRIEF_TR = """\
+SAHA TESTİ — YETİŞKİNE NOT
+
+Sınadığımız şey SAYFA, çocuk değil. Not yok, geçme notu yok.
+
+Ricamız:
+  · Sayfayı AÇIKLAMAYIN. Çocuk "bu ne demek?" derse
+    "sende nasıl duruyorsa öyle" deyin ve bekleyin.
+  · Cevabı söylemeyin, ima etmeyin, başınızı sallamayın.
+  · Çocuk istediği an bırakabilir. TAKILDIĞI YER bizim için en
+    değerli bilgidir; tamamlanmış bir sayfadan daha değerlidir.
+  · Yardım etmek zorunda kaldıysanız LÜTFEN YAZIN. Kaydı geçersiz
+    yapmaz; tam tersine kullanılabilir kılar.
+
+Süre: 20-30 dakika, en çok dört sayfa.
+
+Ad, soyad, okul, adres, doğum tarihi, fotoğraf veya ses KAYDETMİYORUZ.
+Kayıtta yalnızca anonim bir kod, yaş ve sonuç durur.
+"""
+
+RECORD_FORM_TR = """\
+OTURUM KAYDI  (anonim)
+
+  testçi kodu ....... tester-__          (asla gerçek ad değil)
+  yaş ............... __
+  tarih ............. ____-__-__
+
+  sayfa ............. ______________________________
+  başlangıç ......... __:__      bitiş ... __:__
+  yardımsız anladı .. evet / hayır
+  sonuç ............. çözdü / kısmen / takıldı
+  kullanılan ipucu .. 0 / 1 / 2
+  zorluk hissi ...... çok kolay / uygun / çok zor
+  hâli .............. sıkıldı / keyif aldı / gerildi / nötr
+
+  çocuğun durduğu ya da iki kez okuduğu yer:
+  ______________________________________________________________
+
+  çocuğun yanlış anladığı şey:
+  ______________________________________________________________
+
+  yetişkinin söylediği bir şey varsa (aynen yazın):
+  ______________________________________________________________
+
+  çocuğun kendi cümleleri:
+  ______________________________________________________________
 """
 
 RECORD_FORM = """\
@@ -122,38 +188,50 @@ def merged(index_doc, book_doc):
     return out
 
 
-def render_page(a: dict) -> str:
+L10N = {
+    "en": {"page": "PAGE", "write": "Write your answer here:",
+           "seal": "SEAL BOX -- write the word, then carry letter",
+           "stuck": "Stuck? Turn to the hint page.", "adult": "ADULT:"},
+    "tr": {"page": "SAYFA", "write": "Cevabını buraya yaz:",
+           "seal": "MÜHÜR KUTUSU -- sözcüğü yaz, sonra şu harfi taşı:",
+           "stuck": "Takıldın mı? İpucu sayfasına bak.", "adult": "YETİŞKİN:"},
+}
+
+
+def render_page(a: dict, lang: str = "en") -> str:
     """Testçi sayfası. CEVAP TAŞIMAZ."""
+    t = L10N.get(lang, L10N["en"])
     lines = []
     lines.append("=" * 66)
-    lines.append("  PAGE %s   %s" % (a.get("pageOrder", "?"),
-                                     "*" * int(a.get("difficulty") or 1)))
+    lines.append("  %s %s   %s" % (t["page"], a.get("pageOrder", "?"),
+                                   "*" * int(a.get("difficulty") or 1)))
     lines.append("=" * 66)
     lines.append("")
     lines.append(a.get("prompt", ""))
     lines.append("")
     if a.get("fieldNote"):
-        lines.append("Field note: " + a["fieldNote"])
+        lines.append(("Saha notu: " if lang == "tr" else "Field note: ")
+                     + a["fieldNote"])
         lines.append("")
     for i, s in enumerate(a.get("steps") or [], 1):
         lines.append("  %d. %s" % (i, s))
     lines.append("")
     n = int(a.get("writingSpaceLines") or 0)
     if n:
-        lines.append("  Write your answer here:")
+        lines.append("  " + t["write"])
         for _ in range(n):
             lines.append("  " + "_" * 56)
         lines.append("")
     if a.get("sealSlot"):
-        lines.append("  [*%d]  SEAL BOX -- write the word, then carry letter %s"
-                     % (a["sealSlot"], a.get("sealStarIndex", "?")))
+        lines.append("  [*%d]  %s %s"
+                     % (a["sealSlot"], t["seal"], a.get("sealStarIndex", "?")))
         lines.append("        " + "_" * 40)
         lines.append("")
     if a.get("hints"):
-        lines.append("  Stuck? Turn to the hint page.")
+        lines.append("  " + t["stuck"])
         lines.append("")
     if a.get("parentNote"):
-        lines.append("  ADULT: " + a["parentNote"])
+        lines.append("  " + t["adult"] + " " + a["parentNote"])
         lines.append("")
     return "\n".join(lines)
 
@@ -207,13 +285,33 @@ def main() -> int:
             return 3
 
     index_doc = load(ACTIVITY_INDEX, required=False)
-    book_doc = load(BOOK, required=False)
+
+    # Dil BAŞKAYSA kaynak da başkadır. İngilizce prozayı 'tr' etiketiyle
+    # basmak bir çeviri değil bir YALANDIR.
+    if args.lang == commercial:
+        book_doc = load(BOOK, required=False)
+        src = "02_MANUSCRIPT/book.json"
+    else:
+        book_doc = load(BOOK_TR, required=False)
+        src = "01_SOURCE/pilot_tr/source-tr.json"
+        if not book_doc:
+            print("\n  ⛔ REDDEDİLDİ — '%s' KAYNAĞI YOK" % args.lang)
+            print()
+            print("     Beklenen dosya: %s" % src)
+            print()
+            print("     Bu betik ticari prozayı başka bir dilin etiketiyle")
+            print("     BASMAZ. Bir dosyanın adında '%s' yazması," % args.lang)
+            print("     içindekini %s yapmaz." % args.lang)
+            print("=" * 74)
+            return 3
+
     if not book_doc:
         print("\n  ⊘ manuscript bu makinede yok — üretilecek sayfa yok")
         print("=" * 74)
         return 0
 
     acts = merged(index_doc, book_doc)
+    print("\n  kaynak: %s" % src)
     if args.activities:
         want = {x.strip() for x in args.activities.split(",") if x.strip()}
         acts = [a for a in acts if a.get("activityId") in want]
@@ -221,9 +319,16 @@ def main() -> int:
         print("\n  ⊘ seçilen sayfa yok")
         return 2
 
-    pages = "\n".join(render_page(a) for a in acts)
-    body = (PARENT_BRIEF_EN + "\n" + "=" * 66 + "\n\n"
-            + pages + "\n" + "=" * 66 + "\n\n" + RECORD_FORM)
+    pages = "\n".join(render_page(a, args.lang) for a in acts)
+    brief = PARENT_BRIEF_TR if args.lang == "tr" else PARENT_BRIEF_EN
+    form = RECORD_FORM_TR if args.lang == "tr" else RECORD_FORM
+    banner = ""
+    if args.lang != commercial:
+        banner = ("TEST-ONLY / TURKISH PILOT\n"
+                  "Bu materyal TİCARİ DEĞİLDİR ve nihai kitaba GİRMEZ.\n"
+                  "Ticari dil: %s\n\n" % commercial.upper())
+    body = (banner + brief + "\n" + "=" * 66 + "\n\n"
+            + pages + "\n" + "=" * 66 + "\n\n" + form)
 
     if args.out:
         os.makedirs(args.out, exist_ok=True)

@@ -16,7 +16,8 @@ Durum tablosu · **13 Ağustos 2026 · Faz 2**
 | ~~A3~~ | ~~6 bölge ve mühür mimarisi onayı~~ | — | — | ✅ **KAPANDI → K18** |
 | ~~A8~~ | ~~148 sayfa kabul edilecek mi~~ | — | — | ✅ **KAPANDI → K19** |
 | **A4** | 168 adaydan 120'sinin nihai seçimi | **YÜKSEK** | Faz 3 başlarken | AÇIK · pilot 16'sını seçti |
-| **A7** | **≥2 çocuk testçi kim** | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **0 testçi** · **DIŞ DOĞRULAMA BEKLİYOR** |
+| ~~A7~~ | ~~≥2 çocuk testçi~~ | — | — | ✅ **KAPANDI → K26** · testçi bulundu |
+| **A10** | **YENİ** — gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · materyal hazır, **oturum YAPILMADI** |
 | **A9** | **YENİ** — fizikî prova siparişi ve değerlendirmesi | ORTA | Faz 5–6 | AÇIK · **KURUCUYA AİT** |
 | **A5** | Ciltli hediye sürümü v1.0'a girecek mi | DÜŞÜK | Faz 4 | AÇIK (varsayım: hayır) |
 | **A6** | Yazar biyografisi metni | ORTA | Faz 5 | AÇIK |
@@ -32,27 +33,29 @@ Faz 2 pilotu `jaguar-condor` bölgesinin **16'sını** 22 adaydan seçti ve
 bir pilot aktivitesi çocuk testinde düşerse yerine aynı bölge × aynı
 tipten biri geçer (PROGRESSION_ARCHITECTURE § 6).
 
-### A7 · Çocuk testçiler — Faz 2'nin sert bloklayıcısı · **AÇIK**
+### A10 · Gerçek oturum — **YENİ · AÇIK**
 
-**13 Ağustos 2026 itibarıyla mevcut testçi sayısı: 0.**
-
-Ajan çocukla test yapamaz. Test paketi Faz 2'de **hazırlandı ve koşmaya
-hazırdır** ([`03_EDITORIAL/CHILD_TEST_PROTOCOL.md`](03_EDITORIAL/CHILD_TEST_PROTOCOL.md)),
-ama koşturulmadı ve **sahte kayıt üretilmedi**.
+A7 kapandı (testçi bulundu, K26) ve Türkçe materyal üretildi. Kalan tek
+şey **oturumun kendisidir** ve onu ajan yapamaz.
 
 | | |
 |---|---|
+| Testçi | ✅ **2** (kurucu beyanı) |
 | Test paketi | ✅ hazır |
-| Testçi | ❌ 0 |
+| Türkçe materyal | ✅ **üretildi** · 16 sayfa |
+| **Yapılan oturum** | ❌ **0** |
 | `CHILD_TEST_LOG.md` | ✅ var · **0 oturum** |
-| Faz 2 çocuk kapısı | ⏳ **DIŞ DOĞRULAMA BEKLİYOR** — PASS **değil** |
+| `externalValidation` | ⏳ **`pending`** |
+
+> ### PAKET ÜRETMEK, TEST YAPMAK DEĞİLDİR.
+
+`externalValidation` yalnızca **gerçek bir oturum**
+`CHILD_TEST_LOG.md`'ye kaydedildiğinde değişir. `qa_language § ⑤` artık
+bunu ayrıca **uyarıyla** hatırlatıyor: testçi onaylı ve materyal üretilmiş
+ama oturum yoksa, kapı bunu her koşuda söylüyor.
 
 Kimlikler anonimdir (`tester-01`) ve gerçek ad depoya **hiçbir koşulda**
 girmez — `validate_structure.py § check_child_privacy` denetler.
-
-Kurucu Türkçe konuşan testçi sağlarsa tester-facing materyal geçici
-olarak **Türkçe** üretilebilir (K21). O materyal ticari değildir ve
-`qa_language.py` onun nihai çıktıya sızmasını mekanik olarak engeller.
 
 ### A9 · Fizikî prova — KURUCUYA AİT · **YENİ**
 
@@ -404,3 +407,67 @@ girdisi, Faz 5'te görsel şartnamesinin kendisi.
 
 ⚠ Şartnamelerin **metni** depoya girmez: içerikleri cevabın kendisidir
 (K10). `02_MANUSCRIPT/book.json` içinde durur.
+
+### K26 · A7 kapandı — testçi bulundu, Türkçe materyal üretildi
+
+**13 Ağustos 2026 · kurucu beyanı: en az iki Türkçe konuşan çocuk testçi
+bulundu.** `founder.childTesters.founderConfirmed` **true**,
+`availableTesters` **2**.
+
+Bu onay `child_test_pack.py`'nin reddetme kapısını açtı ve Türkçe
+tester-facing materyal üretildi: **16 sayfa**, veli notu ve boş kayıt
+formu → `01_SOURCE/pilot_tr/`.
+
+**Onayın AÇMADIĞI şey:** `externalValidation` hâlâ `pending`.
+
+```
+TESTÇİ BULUNDU        ✅   → materyal üretilebilir
+MATERYAL ÜRETİLDİ     ✅   → oturum koşturulabilir
+OTURUM YAPILDI        ❌   → dış doğrulama BEKLİYOR
+```
+
+#### Türkçe mühür sözcüğü KATMAN — ve neden CONDOR değil
+
+Ticari bölge mührü **CONDOR**'dur ve öyle kalır. Ama Türkçe sayfalarda
+yıldızlı sözcükler Türkçedir (*kakao · ahuejote · nochtli · hamur ·
+patates · tane*) ve harfleri CONDOR'u kurmaz.
+
+Zorlamanın iki yolu vardı ve ikisi de kötüydü:
+
+| Şık | Sonuç |
+|---|---|
+| Türkçe sayfaya İngilizce sözcük koymak | **dilleri karıştırır** — K21 ihlali |
+| Mührü anlamsız bir harf dizisi yapmak | **testin kendisini yok eder** |
+
+İkincisi kritiktir: mühür mekaniğinin en önemli özelliği sözcüğün
+**anlamlı** olmasıdır — çocuk sözcüğü kurunca doğru çözdüğünü **kendi
+anlar**. Anlamsız bir dizi bunu yapamaz, ve tam da bu özellik test
+edilmek isteniyor.
+
+Bu yüzden Türkçe pilot kendi mühür sözcüğünü taşır: **KATMAN**. Tematik
+olarak da doğru — chinampa katman katman kurulur, And kuşakları da birer
+katmandır.
+
+> **Test edilen şey sözcük değil MEKANİKTİR:**
+> yıldızlı kutu → sayılan harf → yuva → anlamlı sözcük → kendini doğrulama
+
+Ticari CONDOR mührü etkilenmez: `qa_progression` yalnızca `book.json`'u
+okur ve Türkçe kaynağı hiç görmez.
+
+#### İzolasyon — üç hat
+
+| Hat | Ne yapar |
+|---|---|
+| `.gitignore § ①d` | `01_SOURCE/pilot_tr/` depoya **girmez** |
+| `qa_language § ④` | TEST-ONLY etiketli materyal test dizini dışında görülürse **kırmızı** |
+| `child_test_pack.py` | onay **veya** kaynak yoksa üretmeyi **reddeder** (çıkış 3) |
+
+Üçüncü hat Faz 2'de bir kusur da düzeltti: betiğin ilk hâli reddetme
+kapısını taşıyordu ama kapı **açıldığında** ne olacağı yazılmamıştı —
+İngilizce prozayı basıp üstüne `tr` etiketi yapıştıracaktı.
+
+> **Bir dosyanın adında `tr` yazması, içindekini Türkçe yapmaz.**
+
+Türkçe materyal ayrı bir kaynak olarak **yazıldı**
+(`01_SOURCE/pilot_tr/source-tr.json`), çevrilmedi. `selftest § ⑪b` üç
+yolu da kanıtlıyor: onaysız **ret**, kaynaksız **ret**, ikisi varsa üretim.
