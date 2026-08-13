@@ -170,6 +170,10 @@ run "KAPILARIN KENDİ TESTİ"     $PY 05_TESTS/selftest.py
   run "KDP metadata paketi"     $PY 04_BUILD/metadata.py --check
 
 # ── ÜRETİLEN BELGELER BAYAT MI ─────────────────────────────────────────────
+# Görsel prompt kütüphanesi de ÜRETİLİR (K17): elle yazılan bir varlık
+# listesi, bir sayfa değişince sessizce yalan söylemeye başlar.
+[ -f 04_BUILD/image_prompts.py ] && \
+  run "görsel kütüphanesi güncel" $PY 04_BUILD/image_prompts.py --check
 [ -f 04_BUILD/update_docs.py ] && \
   run "üretilen belgeler güncel" $PY 04_BUILD/update_docs.py --check
 

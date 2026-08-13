@@ -45,16 +45,22 @@ kullanmasını şart koşar — yani bir bölge tek bir şablona çökemez.
 
 ## 1 · On modül — **SABİT**
 
+> ⚠ **Sayfa kalıplarının tek sahibi [`STYLE.md § 2`](STYLE.md)'dir.**
+> Bu belge modüllerin **yerini** ve **zorunluluğunu** dondurur, sözcük
+> kalıplarını yeniden basmaz. Kalıbı iki belgede tutmak, iki belgeyi er
+> geç iki farklı şey söyletir — ve `validate_structure § ③` bu ikinci
+> kopyayı zaten bir sızıntı olarak yakalıyor.
+
 Her aktivite sayfası bu modüllerden kurulur. Sıra da sabittir: çocuk
 gözünü bir kez eğitir, 120 sayfa boyunca aynı yerlere bakar.
 
 | # | Modül | Zorunlu | Ne taşır | Kapı |
 |---|---|---|---|---|
-| ① | **görev satırı** | ✅ her sayfa | `Your mission: …` tek cümle | `qa_instruction § ⑤` |
+| ① | **görev satırı** | ✅ her sayfa | tek cümle · kalıp: `STYLE § 2` | `qa_instruction § ⑤` |
 | ② | **zorluk işareti** | ✅ her sayfa | ★ · ★★ · ★★★, görev satırının sağında | `qa_age § ⑦` |
 | ③ | **levha** | ✅ her sayfa | `pagePrints`in bastığı her şey | `qa_instruction § ⑨` |
 | ④ | **adımlar** | ✅ her sayfa | numaralı, ≤4, ★ için ≤2 | `qa_instruction § ③` |
-| ⑤ | **field note** | ✅ her sayfa | `Field note:` 15–35 kelime | `qa_readability § ⑥` |
+| ⑤ | **field note** | ✅ her sayfa | 15–35 kelime · kalıp: `STYLE § 2` | `qa_readability § ⑥` |
 | ⑥ | **kültürel atıf** | ✅ atıf gerektiğinde | kültürün adı, field note içinde | `qa_age § ⑨` |
 | ⑦ | **yazma alanı** | ✅ yazdıran sayfada | `writingSpaceLines` satır | `qa_instruction § ⑧` |
 | ⑧ | **yıldızlı kutu** | mühür sayfasında | harf kareleri + `★n → seal slot n` | `qa_design § ②` |
@@ -65,7 +71,7 @@ gözünü bir kez eğitir, 120 sayfa boyunca aynı yerlere bakar.
 
 ```
 ┌──────────────────────────────────────────────┐
-│ ① Your mission: …                    ② ★★    │
+│ ① görev satırı                       ② ★★    │
 ├──────────────────────────────────────────────┤
 │                                              │
 │                 ③ LEVHA                      │
@@ -76,7 +82,7 @@ gözünü bir kez eğitir, 120 sayfa boyunca aynı yerlere bakar.
 ├──────────────────────────────────────────────┤
 │ ⑦ yazma alanı                                │
 ├──────────────────────────────────────────────┤
-│ ⑤ Field note: …            ⑥ (kültür adı)    │
+│ ⑤ field note               ⑥ (kültür adı)    │
 ├──────────────────────────────────────────────┤
 │ ⑨ ipucu şeridi (yalnız ★★★)  ⑩ ebeveyn notu  │
 └──────────────────────────────────────────────┘
