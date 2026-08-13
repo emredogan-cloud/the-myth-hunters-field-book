@@ -1,7 +1,7 @@
 # FAZ 3 RAPORU — ölçek, tasarım dizgesi ve bir aşmanın kilitlenmesi
 
 > **The Myth Hunter's Field Book** · Faz 3 · 13 Ağustos 2026
-> Dal `faz/3-blok-1` · Kapı **`phase1`'de KALDI** · Etiket `v0.3.0`
+> Dal `faz/3-blok-1` → `main` (PR #1) · Kapı **`phase1`'de KALDI** · Etiket `v0.3.0`
 >
 > Faz 2 mimarinin gerçek içerik taşıdığını bir bölgede kanıtladı.
 > Bu fazın sorusu başkaydı:
@@ -1058,10 +1058,12 @@ Her yeni kapı için **kusur fikstürü + selftest + CI entegrasyonu**
 
 | | |
 |---|---|
-| Dal | `faz/3-blok-1` |
-| Faz 2 dalı | `main`'e merge edilmişti · **v0.2.0** · silinmiş |
-| Açık PR (faz başında) | **0** |
-| CI (`main`, faz başında) | ✅ success |
+| Faz 3 dalı | `faz/3-blok-1` → **`main`'e merge edildi** (PR #1) |
+| Etiket | **v0.3.0** |
+| Dal (silme) | merge sonrası **silindi** (yerel + uzak) |
+| Açık PR | **0** |
+| Uzak dal | yalnızca `main` |
+| CI (`main`, faz sonunda) | ✅ **success** |
 | `.gate` | **`phase1`** — değişmedi |
 | Depoda **olmayan** | `book.json` · `seal_key.json` · `pilot_tr/` · ham test kayıtları |
 | Depoda **olan** | kod · şema · kapılar · **iki yeni doğrulama künyesi** · ölçüm raporları · **görsel kütüphanesi** |
