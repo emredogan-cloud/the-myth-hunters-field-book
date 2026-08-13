@@ -3,9 +3,7 @@
   "gate": "phase1",
   "checks": 44,
   "errors": [],
-  "warnings": [
-    "aşma belgesi henüz yok: 06_REPORTS/PHASE_3_REPORT.md"
-  ],
+  "warnings": [],
   "facts": {
     "royalty_paperback": 5.48,
     "activities_total": 168,
