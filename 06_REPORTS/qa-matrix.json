@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "checks": 22,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "activitiesLive": 168,
+    "matrixCells": 30,
+    "matrixHoles": 0,
+    "culturesDeclared": 22,
+    "culturesPresent": 22,
+    "quotaTotal": 120,
+    "quotaByRegion": {
+      "north-ice": 24,
+      "middle-sea": 20,
+      "sun-savanna": 16,
+      "monsoon": 24,
+      "great-ocean": 20,
+      "jaguar-condor": 16
+    },
+    "sealSlotsTotal": 37,
+    "openEnded": 25,
+    "openEndedRatio": 0.149
+  }
+}

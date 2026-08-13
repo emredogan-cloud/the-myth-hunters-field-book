@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "checks": 20,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "records": 76,
+    "activities": 168,
+    "activitiesWithStory": 63,
+    "activitiesCultureOnly": 105,
+    "inheritanceStatus": {
+      "inherited-provisional": 168
+    },
+    "answerSourceEligibleRecords": 39,
+    "usableStoriesListed": 52
+  }
+}

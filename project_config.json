@@ -74,10 +74,13 @@
 
   "scope": {
     "$comment": [
-      "⚠ BU SAYILAR HİPOTEZDİR. Faz 1 doğrular veya değiştirir.",
-      "scope.locked Faz 1 sonunda true olur."
+      "FAZ 1 BU SAYILARI DOĞRULADI VE KİLİTLEDİ (13 Ağustos 2026).",
+      "120 aktivite · 22 kültür · 6 bölge · 5 tip · 144 sayfa.",
+      "Sayfa modeli ölçüldü: 06_REPORTS/page-budget.json.",
+      "Değişiklik artık bir KURUCU KARARI gerektirir — alt başlıktaki",
+      "120 ve 22 doğrulanabilir vaatlerdir."
     ],
-    "locked": false,
+    "locked": true,
     "lockedAtPhase": "phase1",
     "activities": 120,
     "activityCandidateMin": 160,
@@ -95,12 +98,25 @@
       {"id": "make",        "en": "Draw and write",       "tr": "Çiz ve yaz",          "perRegionMin": 2}
     ],
     "regionsHypothesis": [
-      {"id": "north-ice",   "en": "The Northern Ice",     "tr": "Kuzeyin Buzları"},
-      {"id": "great-rivers","en": "The Great Rivers",     "tr": "Büyük Nehirler"},
-      {"id": "mountain",    "en": "Mountain and Monsoon", "tr": "Dağ ve Muson"},
-      {"id": "east-seas",   "en": "The Eastern Seas",     "tr": "Doğu Denizleri"},
-      {"id": "islands",     "en": "Islands and Ocean",    "tr": "Adalar ve Okyanus"},
-      {"id": "sun-savanna", "en": "Sun and Savanna",      "tr": "Güneş ve Savan"}
+      {"id": "north-ice",     "en": "The Northern Ice",     "tr": "Kuzeyin Buzları",  "order": 1, "activityQuota": 24},
+      {"id": "middle-sea",    "en": "The Middle Sea",       "tr": "Ortadaki Deniz",   "order": 2, "activityQuota": 20},
+      {"id": "sun-savanna",   "en": "Sun and Savanna",      "tr": "Güneş ve Savan",   "order": 3, "activityQuota": 16},
+      {"id": "monsoon",       "en": "Mountain and Monsoon", "tr": "Dağ ve Muson",     "order": 4, "activityQuota": 24},
+      {"id": "great-ocean",   "en": "The Great Ocean",      "tr": "Büyük Okyanus",    "order": 5, "activityQuota": 20},
+      {"id": "jaguar-condor", "en": "Jaguar and Condor",    "tr": "Jaguar ve Kondor", "order": 6, "activityQuota": 16}
+    ],
+    "$comment_regions": [
+      "FAZ 1'DE KİLİTLENDİ. Bootstrap'ın altı bölgesi 22 kültüre",
+      "dengesiz oturuyordu (Okyanusya'ya iki kültür düşüyor, Amerikalara",
+      "hiç bölge kalmıyordu). Bölgeler ARAZİYE göre yeniden kuruldu:",
+      "bir saha defteri iklimi izler, siyasî sınırları değil.",
+      "",
+      "activityQuota bölgeler arasında EŞİT DEĞİLDİR ve bu bilinçlidir:",
+      "kota, o bölgenin kullanılabilir devralınmış hikâye arzıyla",
+      "orantılıdır. Eşit dağıtım, beş hikâyeli bir bölgeden yirmi",
+      "aktivite çıkarmayı zorlar ve bu TEKRAR üretir.",
+      "",
+      "Kültür eşlemesi ve mühür mimarisi: 01_SOURCE/region_index.json"
     ]
   },
 
@@ -156,7 +172,38 @@
     "readabilityTargetGrade": [3, 5],
     "sentenceAvgWordsMin": 9.0,
     "sentenceAvgWordsMax": 14.0,
-    "instructionMaxSentenceWords": 18
+    "instructionMaxSentenceWords": 18,
+
+    "$comment_registers": [
+      "FAZ 1 PİLOT ÖLÇÜMÜYLE KALİBRE EDİLDİ (13 Ağustos 2026).",
+      "",
+      "Bootstrap tek bir okunabilirlik bandı taşıyordu (9–14 kelime,",
+      "3.–5. sınıf) ve o bant World Myths'in ANLATI prozasından geldi.",
+      "Pilot ölçümü bandın bu kitapta YANLIŞ olduğunu gösterdi: beş",
+      "aktivitenin harmanlanmış ortalaması 8,28 kelime ve FK 2,95 çıktı —",
+      "yani 'bandın altında'. Ama bu bir kusur DEĞİLDİ.",
+      "",
+      "Ayrıştırınca sebep göründü — sayfada İKİ AYRI REGİSTER var:",
+      "  talimat    : 6,96 kelime/cümle · FK 2,03",
+      "  field note : 10,36 kelime/cümle · FK 4,70",
+      "  ipucu      :  9,38 kelime/cümle · FK 2,86",
+      "",
+      "Bir TALİMAT bir anlatı cümlesi değildir. 'Read the age printed",
+      "beside each island.' yedi kelimedir ve sekiz yaşındaki için DOĞRU",
+      "uzunluktur. Onu dokuz kelimeye uzatmak metni kötüleştirirdi.",
+      "",
+      "Karar: bant metne değil, REGİSTERE bağlanır. Ve bir değişmez",
+      "eklenir — talimat, tanıttığı içerikten DAHA ZOR OLAMAZ."
+    ],
+    "readabilityRegisters": {
+      "instruction": {"avgWordsMin": 5.0, "avgWordsMax": 11.0,
+                      "maxSentenceWords": 18, "fkGradeMax": 4.0},
+      "fieldNote":   {"avgWordsMin": 9.0, "avgWordsMax": 14.0,
+                      "fkGradeMin": 3.0, "fkGradeMax": 5.9,
+                      "wordsMin": 15, "wordsMax": 35},
+      "hint":        {"fkGradeMax": 4.5}
+    },
+    "readabilityInvariant": "fk(instruction) < fk(fieldNote)"
   },
 
   "solvability": {

@@ -68,6 +68,15 @@ jobs:
           else
             echo "::notice::validate_research.py henüz yok — Faz 1 teslimatı"
           fi
+      - name: BÖLGE × TİP MATRİSİ
+        # Bir matris hücresi boşsa o bölge o tipte aktivite ÜRETEMEZ ve
+        # bunu 90. aktivitede öğrenmek pahalıdır.
+        run: |
+          if [ -f 04_BUILD/qa_matrix.py ]; then
+            python3 04_BUILD/qa_matrix.py --verbose --json 06_REPORTS/qa-matrix.json
+          else
+            echo "::notice::qa_matrix.py henüz yok — Faz 1 teslimatı"
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:

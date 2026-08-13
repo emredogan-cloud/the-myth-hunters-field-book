@@ -1,7 +1,11 @@
 # STYLE — The Myth Hunter's Field Book
 
-> Sürüm **1.0 · bootstrap**. Faz 2'de **ölçümle** kalibre edilir ve v2.0 olur.
+> Sürüm **1.1 · Faz 1 pilot kalibrasyonu** · 13 Ağustos 2026.
+> Faz 2'de **çocuk testiyle** yeniden kalibre edilir ve v2.0 olur.
 > `project_config.json § style` ve `§ safety` ile senkron kalmalıdır.
+>
+> v1.0 → v1.1'de değişen tek şey § 3'tür: tek okunabilirlik bandı,
+> **üç ayrı register bandına** ayrıldı. Gerekçe ölçümdür, tercih değil.
 
 ---
 
@@ -33,15 +37,39 @@ Talimatlar emir kipinde ve ikinci tekil şahıstadır:
 
 ---
 
-## 3 · Ölçülen bantlar
+## 3 · Ölçülen bantlar — **register register**
 
-| Ölçüt | Hedef | Kapı |
+> ### Bir talimat bir anlatı cümlesi değildir.
+
+Bootstrap tek bir bant taşıyordu (9–14 kelime · 3.–5. sınıf) ve o bant
+World Myths'in **anlatı** prozasından devralınmıştı. Faz 1 pilotu bandın
+bu kitapta yanlış olduğunu **ölçtü**: beş aktivitenin harmanı 8,28
+kelime/cümle ve FK 2,95 çıktı — "bandın altında".
+
+Kusur metinde değil ölçümdeydi. Sayfada **üç ayrı register** var:
+
+| Register | Ölçülen (pilot) | Bant | Kapı |
+|---|---:|---|---|
+| **Talimat** (`Your mission:` + adımlar) | 6,96 kelime · FK 2,03 | 5–11 kelime · FK ≤ 4,0 | `qa_readability` |
+| **Field note** (kültürel bilgi) | 10,36 kelime · FK 4,70 | 9–14 kelime · FK 3,0–5,9 | `qa_readability` |
+| **İpucu** | 9,38 kelime · FK 2,86 | FK ≤ 4,5 | `qa_readability` |
+
+### Ve bir değişmez
+
+```
+fk(talimat)  <  fk(field note)
+```
+
+**Bir talimat, tanıttığı içerikten daha zor olamaz.** Olursa çocuk görevi
+değil cümleyi çözmeye çalışır. Pilotta 2,03 < 4,70 — geçti.
+
+| Diğer ölçüt | Hedef | Kapı |
 |---|---|---|
-| Talimat cümlesi azami | **18 kelime** | `qa_instruction` |
-| Cümle ortalaması | 9,0–14,0 kelime | `qa_readability` |
-| Okuma seviyesi | 3.–5. sınıf | `qa_readability` |
-| Field note | ~25 kelime | `qa_length` |
-| Bölge açılışı | ~150 kelime | `qa_length` |
+| Talimat cümlesi azami | **18 kelime** (pilotta en uzun 11) | `qa_readability` · `qa_age` |
+| Adım sayısı | ≤4; ★ için ≤2 | `qa_age` |
+| Field note boyu | 15–35 kelime (~25) | `qa_readability` |
+| Üç heceli sözcük oranı | ≤ %20 (pilotta %3,9) | `qa_readability` |
+| Bölge açılışı | ~150 kelime | `qa_length` (Faz 2) |
 | ★★★ oranı (bölüm içi) | ≤ %30 | `qa_age` |
 
 ---

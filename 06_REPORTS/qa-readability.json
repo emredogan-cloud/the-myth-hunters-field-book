@@ -1,0 +1,88 @@
+{
+  "status": "pass",
+  "checks": 11,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "words": 356,
+    "sentences": 43,
+    "avgSentenceWords": 8.28,
+    "fkGrade": 2.95,
+    "longWordRatio": 0.039,
+    "perActivity": [
+      {
+        "activityId": "irish-ogham-key",
+        "words": 78,
+        "sentences": 9,
+        "avgSentenceWords": 8.67,
+        "fkGrade": 3.07,
+        "longWordRatio": 0.026,
+        "fieldNoteWords": 21,
+        "steps": 3
+      },
+      {
+        "activityId": "hawaii-island-chain-map",
+        "words": 72,
+        "sentences": 9,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 3.43,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 24,
+        "steps": 3
+      },
+      {
+        "activityId": "turkic-one-eyed-giants",
+        "words": 77,
+        "sentences": 9,
+        "avgSentenceWords": 8.56,
+        "fkGrade": 2.92,
+        "longWordRatio": 0.052,
+        "fieldNoteWords": 23,
+        "steps": 3
+      },
+      {
+        "activityId": "meso-seal-cylinder-plate",
+        "words": 67,
+        "sentences": 8,
+        "avgSentenceWords": 8.38,
+        "fkGrade": 3.35,
+        "longWordRatio": 0.075,
+        "fieldNoteWords": 22,
+        "steps": 2
+      },
+      {
+        "activityId": "greek-labyrinth-make",
+        "words": 62,
+        "sentences": 8,
+        "avgSentenceWords": 7.75,
+        "fkGrade": 1.9,
+        "longWordRatio": 0.048,
+        "fieldNoteWords": 24,
+        "steps": 3
+      }
+    ],
+    "registers": {
+      "instruction": {
+        "words": 167,
+        "sentences": 24,
+        "avgSentenceWords": 6.96,
+        "fkGrade": 2.03,
+        "maxSentenceWords": 11
+      },
+      "fieldNote": {
+        "words": 114,
+        "sentences": 11,
+        "avgSentenceWords": 10.36,
+        "fkGrade": 4.7,
+        "maxSentenceWords": 14
+      },
+      "hint": {
+        "words": 75,
+        "sentences": 8,
+        "avgSentenceWords": 9.38,
+        "fkGrade": 2.86,
+        "maxSentenceWords": 12
+      }
+    }
+  }
+}

@@ -1,12 +1,13 @@
 {
   "status": "pass",
-  "checks": 0,
+  "checks": 9,
   "errors": [],
-  "warnings": [
-    "IMPORT_MANIFEST.json yok — Faz 1 teslimatı; devralma denetimi boş koşuyor",
-    "envanter veya manifest yok — kilit denetimi boş koşuyor"
-  ],
+  "warnings": [],
   "facts": {
-    "records": 0
+    "records": 76,
+    "status_inherited-provisional": 76,
+    "status_inherited-verified": 0,
+    "status_new-researched": 0,
+    "verified_ratio": 0.0
   }
 }

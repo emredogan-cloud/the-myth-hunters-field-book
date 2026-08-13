@@ -63,6 +63,25 @@ REQUIRED_FILES = [
     "04_BUILD/validate_inheritance.py",
     "05_TESTS/selftest.py",
     ".github/workflows/validate.yml",
+
+    # ── FAZ 1 TESLİMATLARI ────────────────────────────────────────────────
+    # Bir teslimat üretildikten sonra ZORUNLU olur. Aksi hâlde bir yeniden
+    # düzenleme sırasında sessizce kaybolur ve kimse fark etmez.
+    "00_CONTEXT/CULTURE_POLICY.md",
+    "00_CONTEXT/ACTIVITY_TAXONOMY.md",
+    "00_CONTEXT/PROGRESSION_ARCHITECTURE.md",
+    "01_SOURCE/activity_index.json",
+    "01_SOURCE/culture_index.json",
+    "01_SOURCE/region_index.json",
+    "01_SOURCE/inherited/IMPORT_MANIFEST.json",
+    "04_BUILD/validate_research.py",
+    "04_BUILD/qa_matrix.py",
+    "04_BUILD/qa_age.py",
+    "04_BUILD/qa_readability.py",
+    "04_BUILD/page_budget.py",
+    "04_BUILD/import_from_world_myths.py",
+    "07_ASSETS/IMAGE_PROMPT_LIBRARY.html",
+    "06_REPORTS/PHASE_1_REPORT.md",
 ]
 
 REQUIRED_DIRS = [
@@ -103,9 +122,14 @@ LEAK_SCAN_EXT = (".md", ".json", ".txt", ".html")
 # Bu yüzden listeye "ihtimale karşı" dosya eklenmez. Bir dosya ancak kural
 # dilini GERÇEKTEN taşıdığı için buraya girer.
 # (World Myths K14 · Bestiarium D28: ölü kural sessizce yanlış güven verir.)
+#
+# ⚠ `01_SOURCE/activity.schema.json` BURADAN ÇIKARILDI (Faz 1).
+# Şema v2 sayfa dili örneklerini artık taşımıyor — kalıplar STYLE.md § 2'ye
+# taşındı ve şema onlara ATIF yapıyor. Muafiyet o anda ÖLDÜ ve
+# `selftest § ④` onu ilk koşuda yakaladı. Kural işledi: listeye "ihtimale
+# karşı" dosya konmaz, gereksiz kalan çıkarılır.
 LEAK_SCAN_SKIP = {
     "00_CONTEXT/STYLE.md",
-    "01_SOURCE/activity.schema.json",
 }
 
 # ⑤ CEVAP ANAHTARI KORUMASI — bu projeye özgü -----------------------------

@@ -2,31 +2,50 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/emredogan-cloud/the-myth-hunters-field-book/01_SOURCE/activity.schema.json",
   "title": "Field Book — aktivite kaydı",
+  "version": "2.0",
   "description": [
     "Bir aktivitenin TEK doğruluk kaydı. Manuscript bu kayıttan üretilir.",
-    "Sayfa dili şu kalıplarla kurulur: 'Your mission: …' · 'Field note: …'",
-    "Talimatlar ikinci tekil şahıstadır: Draw the creature you find.",
-    "Solve the cipher and write your answer in the box below.",
+    "Sürüm 2.0 · Faz 1 · 13 Ağustos 2026",
     "",
-    "⚠ answer alanı ÜRÜNÜN KENDİSİDİR ve public depoya giremez.",
-    "validate_structure.py § check_answer_leak bunu denetler."
+    "SÜRÜM 2.0'DA EKLENENLER: objective · steps · materials · safetyClass ·",
+    "durationMinutes · learningDimensions · sourceStory · revalidationPlan ·",
+    "sealSlot · pageWeight · editorialStatus · culturalContext",
+    "",
+    "İKİ KATMAN AYRIMI — bu şemanın en önemli kuralı:",
+    "",
+    "  TASARIM KATMANI (public)  → objective · steps · materials ·",
+    "     learningObjective · safetyClass · sourceStory. Bunlar aktivitenin",
+    "     NE OLDUĞUNU söyler ve depoda durur.",
+    "",
+    "  PROZA KATMANI (private)   → prompt · answer · hints · answerNote.",
+    "     Bunlar çocuğun GÖRDÜĞÜ metindir; 02_MANUSCRIPT altında durur ve",
+    "     depoya girmez. Sayfa dili kalıpları: 00_CONTEXT/STYLE.md § 2.",
+    "",
+    "⚠ 01_SOURCE/activity_index.json YALNIZCA tasarım katmanını taşır.",
+    "validate_structure.py § check_answer_leak ve § check_manuscript_leak",
+    "bu ayrımı mekanik olarak korur: proza takip edilen bir dosyaya",
+    "sızarsa CI kırmızı yanar."
   ],
   "type": "object",
   "required": ["activityId", "title", "culture", "region", "type", "status",
                "inheritanceStatus", "restrictionStatus"],
   "additionalProperties": false,
+
   "properties": {
     "activityId": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,48}$"},
-    "title":      {"type": "string", "minLength": 2},
+    "title":      {"type": "string", "minLength": 2,
+                   "description": "Çalışma başlığı — sayfa başlığı değil"},
 
-    "culture": {"type": "string", "description": "22 kültürden biri — alt başlığı bu alan doğrular"},
+    "culture": {"type": "string",
+                "description": "22 kültürden biri — alt başlığı bu alan doğrular"},
     "region":  {"type": "string", "description": "region_index.json'daki bir kimlik"},
+
     "type": {
       "type": "string",
       "enum": ["cipher", "map", "sort", "observe", "make"],
       "description": [
-        "cipher  → şifre ve kod (gerçek yazı sistemleri)",
-        "map     → harita ve labirent",
+        "cipher  → şifre ve kod (GERÇEK yazı sistemleri · asla süs)",
+        "map     → harita, rota ve labirent",
         "sort    → tasnif ve eşleştirme (Codex tezinin çocuk hâli)",
         "observe → gözlem levhası",
         "make    → çiz ve yaz (TEK AÇIK UÇLU TİP)"
@@ -38,6 +57,12 @@
       "enum": ["candidate", "researched", "locked", "written", "dropped"]
     },
     "droppedReason": {"type": "string"},
+    "editorialStatus": {
+      "type": "string",
+      "enum": ["drafted", "design-reviewed", "culture-screened",
+               "safety-classified", "child-tested", "line-edited", "final"],
+      "description": "Editoryal hat üzerindeki konum — status'tan AYRI bir eksen"
+    },
 
     "inheritanceStatus": {
       "type": "string",
@@ -56,6 +81,23 @@
       "items": {"type": "string"},
       "description": "IMPORT_MANIFEST.json'daki recordId listesi"
     },
+    "revalidationPlan": {
+      "type": "string",
+      "description": [
+        "inheritanceStatus == inherited-provisional iken ZORUNLU.",
+        "Bu kaydın hangi iddiasının, hangi kaynak sınıfıyla yeniden",
+        "doğrulanacağını söyler. 'Sonra bakarız' bir plan değildir."
+      ]
+    },
+    "sourceStory": {
+      "type": "string",
+      "description": "Bu aktivitenin türediği hikâye kaydı (story-… recordId)"
+    },
+    "crossCultureRefs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "sort tipinde karşılaştırılan diğer kültür kimlikleri"
+    },
 
     "restrictionStatus": {
       "type": "string",
@@ -63,16 +105,66 @@
       "description": "restricted = yaşayan/kutsal gelenek; ÇOCUK OYUNUNA ÇEVRİLEMEZ"
     },
     "restrictionNote": {"type": "string"},
+    "attributionRequired": {"type": "boolean", "default": false},
+    "culturalContext": {
+      "type": "string",
+      "description": "Aktivitenin dayandığı kültürel çerçeve — sayfada ~25 kelimeye iner"
+    },
 
     "difficulty": {"type": "integer", "minimum": 1, "maximum": 3,
                    "description": "★ 1–3 · her bölümde kolay→zor sıralaması"},
     "ageMin": {"type": "integer", "minimum": 8, "maximum": 12},
+    "ageMax": {"type": "integer", "minimum": 8, "maximum": 12},
+    "durationMinutes": {"type": "integer", "minimum": 3, "maximum": 45,
+                        "description": "Tek oturumda bitmelidir — 45 dk üstü tasarım kusurudur"},
 
-    "prompt":       {"type": "string", "description": "Çocuğa görünen görev metni"},
+    "objective": {
+      "type": "string",
+      "description": "Çocuğun ne başaracağı — TEK cümle, tasarım katmanı"
+    },
+    "setup": {
+      "type": "string",
+      "description": "Başlamadan önce ne gerekir; çoğu aktivitede boştur"
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {"type": "string"},
+      "description": "Adım sayısı 4'ü aşamaz; ★ için 2'yi (AGE_POLICY § 7)"
+    },
+
+    "materials": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["book", "pencil", "coloured-pencils", "eraser",
+                 "ruler", "mirror", "string", "paper-strip", "coin",
+                 "torch", "window-view", "read-aloud-partner"]
+      },
+      "description": [
+        "AGE_POLICY § 3.1 beyaz listesi. Listede olmayan malzeme ŞEMADAN",
+        "geçemez — kapı kapalı yönde arızalanır. TX kademesi (makas, ateş,",
+        "yiyecek, sıvı, küçük parça, mıknatıs, balon, dış mekân) burada",
+        "HİÇ TANIMLI DEĞİLDİR: bir aktivite onları isteyemez."
+      ]
+    },
+    "safetyClass": {
+      "type": "string",
+      "enum": ["safe", "safe-with-adult", "do-not-use"],
+      "description": "AGE_POLICY § 3.2 karar ağacından HESAPLANIR; elle yazılmaz"
+    },
+    "safetyNotes": {"type": "string"},
+
+    "prompt":       {"type": "string",
+                     "description": "⚠ PROZA KATMANI — çocuğa görünen görev metni"},
     "openEnded":    {"type": "boolean", "default": false,
                      "description": "YALNIZCA type=make için true olabilir"},
     "answer":       {"type": ["string", "null"],
                      "description": "⚠ HASSAS — public depoya giremez"},
+    "expectedResult": {"type": "string",
+                       "description": "openEnded aktivitelerde başarı ölçütü"},
     "answerNote":   {"type": "string"},
     "hints": {
       "type": "array",
@@ -81,14 +173,51 @@
       "description": "Kademeli ipucu. HİÇBİRİ cevabı içeremez (qa_answerkey denetler)."
     },
 
+    "sealSlot": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 8,
+      "description": [
+        "Bu aktivite bölge mührünün KAÇINCI harfini besliyor.",
+        "Harfin KENDİSİ burada DEĞİLDİR (K10) — 01_SOURCE/answers/ altında.",
+        "openEnded bir aktivite sealSlot taşıyamaz: cevabı tek değildir."
+      ]
+    },
     "sealContribution": {"type": "string",
-      "description": "Bu aktivitenin cevabı bölge mührüne katkı veriyorsa, hangi karakter"},
+      "description": "⚠ HASSAS — mühre giden harf; yalnızca manuscript katmanında"},
 
     "learningObjective": {"type": "string", "description": "Çocuk ne öğreniyor"},
-    "parentNote":        {"type": "string"},
-    "assetId":           {"type": "string", "description": "07_ASSETS içindeki görsel kimliği"},
-    "writingSpaceLines": {"type": "integer",
+    "learningDimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["observation", "geography", "storytelling",
+                 "comparative-mythology", "vocabulary", "memory",
+                 "pattern-recognition", "cultural-comparison",
+                 "historical-reasoning", "creative-interpretation"]
+      },
+      "description": "En az bir boyut ZORUNLU — boyutsuz aktivite dekoratiftir (K4)"
+    },
+    "parentNote": {"type": "string",
+                   "description": "safetyClass == safe-with-adult iken ZORUNLU"},
+
+    "assetId": {"type": "string", "description": "07_ASSETS içindeki görsel kimliği"},
+    "visualClass": {
+      "type": "string",
+      "enum": ["region-map", "route-map", "seal-stamp", "cipher-key",
+               "observation-plate", "sorting-grid", "culture-vignette",
+               "diagram", "writing-frame", "none"],
+      "description": "Görsel sınıfı — IMAGE_PROMPT_LIBRARY.html bu sınıflara göre kurulur"
+    },
+    "writingSpaceLines": {"type": "integer", "minimum": 0, "maximum": 24,
       "description": "Kaç satırlık yazma alanı — Faz 5'te çocuk eline göre ölçülür"},
+    "pageWeight": {
+      "type": "number",
+      "minimum": 0.25,
+      "maximum": 2.0,
+      "description": "Sayfa bütçesindeki ağırlık; 1.0 = tam sayfa. page_budget.py toplar"
+    },
 
     "sources": {
       "type": "array",
@@ -119,5 +248,21 @@
         }
       }
     }
-  }
+  },
+
+  "$rules": [
+    "Aşağıdaki koşullar JSON Schema ile ifade edilemez; validate_spec.py,",
+    "qa_matrix.py ve qa_age.py tarafından denetlenir:",
+    "",
+    "R1  openEnded == true  →  type == 'make'",
+    "R2  openEnded == true  →  sealSlot YOK",
+    "R3  status ∈ {locked, written}  →  inheritanceStatus ≠ inherited-provisional",
+    "R4  inheritanceStatus == inherited-provisional  →  revalidationPlan ZORUNLU",
+    "R5  safetyClass == 'safe-with-adult'  →  parentNote ZORUNLU",
+    "R6  safetyClass == 'do-not-use'  →  status == 'dropped'",
+    "R7  restrictionStatus ∈ {restricted, excluded}  →  status == 'dropped'",
+    "R8  attributionRequired == true  →  culturalContext ZORUNLU",
+    "R9  difficulty == 1  →  len(steps) ≤ 2",
+    "R10 sealSlot taşıyan aktivite  →  status ≠ 'dropped'"
+  ]
 }

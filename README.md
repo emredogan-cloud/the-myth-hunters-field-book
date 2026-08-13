@@ -32,13 +32,17 @@ ikinci bir hat vardır: CI takip edilen dosyaların **içeriğine** bakar.
 
 | | |
 |---|---|
-| Faz | **0 · Bootstrap** |
-| Kapı (`.gate`) | `phase0` |
-| Aday aktivite | 0 / ≥160 |
-| Kilitli aktivite | 0 / 120 |
+| Faz | **1 · TAMAM** — devralma mimarisi, taksonomi, yaş çerçevesi |
+| Kapı (`.gate`) | `phase1` |
+| Aday aktivite | **168** / ≥160 |
+| Kilitli aktivite | 0 / 120 — *Faz 1'de aktivite yazılmaz* |
 | Yazılmış aktivite | 0 / 120 |
+| Devralınan kayıt | **76** · hepsi sha256'lı |
+| Kültür · bölge | **22** · **6** |
 | Görsel öğe | 0 / ~150 |
-| **Sonraki adım** | **Faz 1 — kurucu onayı bekliyor** |
+| **Sonraki adım** | **Faz 2 — kurucu onayı bekliyor (A3, A7)** |
+
+Faz 1 raporu: [`06_REPORTS/PHASE_1_REPORT.md`](06_REPORTS/PHASE_1_REPORT.md)
 
 Ölçülmüş güncel durum: [`BOOK_STATS.md`](BOOK_STATS.md) ·
 [`ROADMAP_PROGRESS.md`](ROADMAP_PROGRESS.md)

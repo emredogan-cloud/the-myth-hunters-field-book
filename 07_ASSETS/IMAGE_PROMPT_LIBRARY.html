@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Görsel Prompt Kütüphanesi — The Myth Hunter's Field Book</title>
+<style>
+  :root{
+    --ink:#1c1a17; --paper:#faf7f1; --rule:#d9d2c5; --muted:#6b6459;
+    --warn:#8a3324; --ok:#2f5d3a; --chip:#efe9dc;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#ece7dd; --paper:#171614; --rule:#3a362f; --muted:#a09889;
+           --warn:#e0836f; --ok:#8fc79b; --chip:#26241f; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font:16px/1.6 "Iowan Old Style",Georgia,"Times New Roman",serif;
+       padding:2.5rem 1.25rem 6rem;}
+  .wrap{max-width:60rem;margin:0 auto}
+  h1{font-size:1.9rem;line-height:1.2;margin:0 0 .4rem;letter-spacing:-.01em}
+  .sub{color:var(--muted);margin:0 0 2rem;font-size:.95rem}
+  h2{font-size:1.25rem;margin:2.75rem 0 .5rem;padding-bottom:.35rem;
+     border-bottom:2px solid var(--rule)}
+  h3{font-size:1rem;margin:1.75rem 0 .35rem}
+  p{margin:.6rem 0}
+  .note{background:var(--chip);border-left:3px solid var(--rule);
+        padding:.75rem 1rem;margin:1rem 0;font-size:.93rem}
+  .stop{border-left-color:var(--warn)}
+  .stop strong{color:var(--warn)}
+  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+  th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--rule);
+        vertical-align:top}
+  th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .scroll{overflow-x:auto}
+  .prompt{position:relative;background:var(--chip);border:1px solid var(--rule);
+          border-radius:6px;padding:.9rem 1rem;margin:.6rem 0 1.4rem;
+          font:13px/1.55 ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+          white-space:pre-wrap;word-break:break-word}
+  .copy{position:absolute;top:.5rem;right:.5rem;border:1px solid var(--rule);
+        background:var(--paper);color:var(--muted);border-radius:4px;
+        font:11px/1 ui-monospace,monospace;padding:.35rem .55rem;cursor:pointer}
+  .copy:hover{color:var(--ink)}
+  .copy.done{color:var(--ok);border-color:var(--ok)}
+  code{background:var(--chip);padding:.1rem .3rem;border-radius:3px;font-size:.86em}
+  ul{margin:.5rem 0 .5rem 1.1rem;padding:0}
+  li{margin:.3rem 0}
+  .tag{display:inline-block;background:var(--chip);border:1px solid var(--rule);
+       border-radius:999px;padding:.1rem .55rem;font-size:.75rem;color:var(--muted);
+       margin-right:.3rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Görsel Prompt Kütüphanesi</h1>
+<p class="sub">The Myth Hunter's Field Book · <strong>Faz 1 iskeleti</strong> · 13 Ağustos 2026<br>
+Bu sürüm <em>sınıf</em> promptları taşır, nihai 150 varlığı değil. Varlık üretimi <strong>Faz 5</strong>'tir.</p>
+
+<div class="note stop">
+<strong>BU BELGE FAZ 1'DE NİHAİ GÖRSEL ÜRETMEZ.</strong><br>
+Yol haritası görsel üretimini Faz 5'e koyar ve Faz 1'de pilot varlık istemez.
+Burada kurulan şey <em>sistemdir</em>: hangi görsel sınıfları var, her sınıf
+hangi kurallara uyar, kültür güvenliği prompt düzeyinde nasıl uygulanır.
+Faz 5 bu sınıfları 150 somut prompta açar.
+</div>
+
+<h2>1 · Yedi görsel sınıfı</h2>
+<p>Şemadaki <code>visualClass</code> alanı bu yedi değerden birini alır.
+Her aktivite tam bir sınıfa bağlanır ve <code>asset_inventory.py</code> (Faz 5)
+eşleşmeyi <em>ölçümden önce</em> denetler.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Sınıf</th><th>Nerede</th><th>Adet (tahmini)</th><th>Kritik kural</th></tr>
+<tr><td><code>cipher-key</code></td><td>şifre aktiviteleri</td><td>~41</td><td>Anahtar <strong>aynı açılımda</strong> olmalı — çocuk sayfa çevirmemeli</td></tr>
+<tr><td><code>observation-plate</code></td><td>gözlem aktiviteleri</td><td>~35</td><td>Etiketlenecek her parça <strong>ayırt edilebilir</strong> olmalı</td></tr>
+<tr><td><code>sorting-grid</code></td><td>tasnif aktiviteleri</td><td>~43</td><td>Eşleştirme çizgisi için <strong>boşluk</strong> bırakılmalı</td></tr>
+<tr><td><code>region-map</code></td><td>harita aktiviteleri</td><td>~24</td><td>8 yaş <strong>dörtten fazla</strong> nokta işaretleyemez</td></tr>
+<tr><td><code>writing-frame</code></td><td>çiz-ve-yaz</td><td>~25</td><td>Yazma alanı <strong>çocuk el yazısına</strong> göre ölçülür (Faz 5 kapısı)</td></tr>
+<tr><td><code>seal-stamp</code></td><td>bölge sonu + ön madde</td><td>7</td><td>Çentik <strong>okunaklı bir sayı</strong> göstermeli</td></tr>
+<tr><td><code>route-map</code></td><td>ön madde + bölge geçişleri</td><td>7</td><td><strong>Boş başlar</strong>; çocuk doldurur</td></tr>
+<tr><td><code>culture-vignette</code></td><td>bölge açılışları</td><td>22</td><td>Kültür başına bir vinyet · <strong>kişi karikatürü yok</strong></td></tr>
+</table>
+</div>
+
+<h2>2 · Bütün promptlarda geçen gövde</h2>
+<p>Her prompt bu gövdeyle başlar. Gövde <em>gravür dili</em>ni kurar ve
+World Myths'le raf akrabalığını sağlar (BRIEF § 6.4).</p>
+
+<div class="prompt" id="p-base"><button class="copy" data-t="p-base">kopyala</button>Black and white line engraving, 19th-century natural-history plate style.
+Clean hairline cross-hatching, no grey wash, no colour, no shading gradients.
+Pure white background. High contrast, printable at 300 dpi on uncoated paper.
+Even, open composition with generous empty space for a child to write in.
+No text, no letters, no numerals anywhere in the image.
+No people's faces. No modern objects. No logos, no watermarks, no signature.</div>
+
+<div class="note">
+<strong>"No text" neden mutlak:</strong> üretilen harfler neredeyse her zaman
+bozuk çıkar ve bu kitapta harf bir <em>süs değil bir cevaptır</em>. Bütün
+yazı ve rakamlar <strong>dizgide</strong> eklenir, görselde değil.
+</div>
+
+<h2>3 · Sınıf promptları</h2>
+
+<h3><span class="tag">cipher-key</span> Şifre anahtarı levhası</h3>
+<div class="prompt" id="p-cipher"><button class="copy" data-t="p-cipher">kopyala</button>[GÖVDE]
++ An empty reference grid of 5 columns by 4 rows, drawn as thin ruled boxes
+with a wider left-hand column for the key symbols. Each cell is blank and
+large enough to hold one hand-drawn mark. A narrow decorative border of
+simple repeated notches frames the grid. The grid sits in the upper half
+of the plate; the lower half is empty ruled writing space.</div>
+
+<h3><span class="tag">observation-plate</span> Gözlem levhası</h3>
+<div class="prompt" id="p-obs"><button class="copy" data-t="p-obs">kopyala</button>[GÖVDE]
++ A single specimen drawn centred as a natural-history plate: [NESNE].
+Six thin leader lines run from six distinct parts of the specimen outward
+to empty label boxes at the plate edge. The specimen is drawn accurately
+enough that each labelled part is clearly distinguishable from the others.</div>
+
+<h3><span class="tag">sorting-grid</span> Tasnif ızgarası</h3>
+<div class="prompt" id="p-sort"><button class="copy" data-t="p-sort">kopyala</button>[GÖVDE]
++ Two vertical columns of four empty framed panels each, separated by a wide
+blank channel down the middle of the page for the reader to draw matching
+lines across. Each panel is an empty engraved cartouche with a simple ruled
+border. No content inside the panels.</div>
+
+<h3><span class="tag">region-map</span> Bölge haritası</h3>
+<div class="prompt" id="p-map"><button class="copy" data-t="p-map">kopyala</button>[GÖVDE]
++ An antique engraved map of [BÖLGE COĞRAFYASI], showing coastline, rivers
+and relief hachures only. Exactly four small empty circles mark points to be
+labelled by the reader. A compass rose in one corner and a plain scale bar.
+Nothing is named on the map itself.</div>
+
+<h3><span class="tag">writing-frame</span> Çizim ve yazma çerçevesi</h3>
+<div class="prompt" id="p-write"><button class="copy" data-t="p-write">kopyala</button>[GÖVDE]
++ A large empty rectangular drawing panel with a fine double-ruled engraved
+border, occupying the upper two thirds of the page. Below it, eight evenly
+spaced horizontal ruled writing lines with comfortable spacing for a
+child's handwriting. The panel interior is completely empty.</div>
+
+<h3><span class="tag">seal-stamp</span> Bölge mührü</h3>
+<div class="prompt" id="p-seal"><button class="copy" data-t="p-seal">kopyala</button>[GÖVDE]
++ A circular engraved stamp emblem, [MÜHÜR MOTİFİ], drawn as an empty outline
+badge. The rim carries [N] evenly spaced notches cut into it, one of which is
+noticeably deeper than the others. The centre of the badge is completely
+empty so a reader can write inside it.</div>
+
+<h3><span class="tag">route-map</span> Rota haritası</h3>
+<div class="prompt" id="p-route"><button class="copy" data-t="p-route">kopyala</button>[GÖVDE]
++ An antique engraved world map on an equal-area projection, coastlines and
+relief hachures only, no borders and no place names. Six small empty
+medallion frames are spaced around the margin, connected to the map by thin
+dotted lines. All medallions are empty.</div>
+
+<h3><span class="tag">culture-vignette</span> Kültür vinyeti</h3>
+<div class="prompt" id="p-vig"><button class="copy" data-t="p-vig">kopyala</button>[GÖVDE]
++ A small engraved vignette of [MANZARA VEYA NESNE], drawn as a headpiece
+ornament about one third of the page width. Landscape, architecture, plant,
+animal or craft object only. No human figures. No ceremonial or ritual
+objects. No religious imagery.</div>
+
+<h2>4 · Kültür güvenliği — prompt düzeyinde</h2>
+<p><a href="../00_CONTEXT/CULTURE_POLICY.md">CULTURE_POLICY.md</a>'nin altı yasak
+çerçevesi burada <em>negatif prompt</em> hâline gelir. Bu satır <strong>her</strong>
+kültür vinyetine eklenir:</p>
+
+<div class="prompt" id="p-neg"><button class="copy" data-t="p-neg">kopyala</button>Negative: ceremonial regalia, ritual objects, altars, shrines, masks worn by
+people, tattooed faces, sacred symbols, deity figures, tribal stereotype,
+feathered headdress cliché, fantasy pastiche, mixed-culture ornament,
+invented script, invented symbols.</div>
+
+<div class="scroll">
+<table>
+<tr><th>Kademe</th><th>Kültür</th><th>Görsel kuralı</th></tr>
+<tr><td><strong>C</strong></td><td>İnuit · Māori · Hawaii · Hindu</td>
+    <td>Yalnızca <strong>manzara, hayvan, bitki ve kamuya açık yazı</strong>.
+        Tanrı figürü, tapınak planı, tā moko deseni, heiau, mele/oli
+        <strong>hiçbir biçimde</strong> üretilmez.</td></tr>
+<tr><td><strong>B</strong></td><td>Japon · Maya · Aztek · And · Yoruba</td>
+    <td>Nesne ve mimari serbest; <strong>tören sahnesi ve kehanet aracı yok</strong>.
+        Müze envanterinden çalışılır, hayalden değil.</td></tr>
+<tr><td><strong>A</strong></td><td>diğer 13 kültür</td>
+    <td>Gövde kuralları yeterli. Yaşayan gelenekte <strong>atıf</strong> künyede yazar.</td></tr>
+</table>
+</div>
+
+<div class="note stop">
+<strong>Uydurulmuş yazı yasaktır.</strong> Bir görsel "runik görünümlü" işaretler
+üretirse çocuk <em>yanlış bir alfabe öğrenir</em>. Bütün yazı dizgeleri
+<strong>dizgide, doğrulanmış tablolardan</strong> yerleştirilir —
+<a href="../01_SOURCE/culture_index.json">culture_index.json § writingSystem</a>.
+</div>
+
+<h2>5 · Faz 5'e devredilen açık işler</h2>
+<ul>
+<li>150 somut prompt — sınıf × aktivite eşlemesinden türetilecek</li>
+<li>Yazma alanı ölçümü: 8 yaşındaki bir çocuğun el yazısı yetişkininkinden büyüktür ve bu <strong>bloklayıcı bir kapıdır</strong></li>
+<li><code>asset_inventory.py</code> — görsel ↔ aktivite eşleşmesi, <strong>ölçümden önce</strong> koşar (ders D6)</li>
+<li>Efektif çözünürlük ≥300 dpi denetimi</li>
+</ul>
+
+<p class="sub" style="margin-top:2.5rem">
+Kaynak sözleşmeler:
+<a href="../00_CONTEXT/CULTURE_POLICY.md">CULTURE_POLICY.md</a> ·
+<a href="../00_CONTEXT/AGE_POLICY.md">AGE_POLICY.md</a> ·
+<a href="../00_CONTEXT/ACTIVITY_TAXONOMY.md">ACTIVITY_TAXONOMY.md</a>
+</p>
+
+</div>
+<script>
+document.querySelectorAll(".copy").forEach(function(b){
+  b.addEventListener("click", function(){
+    var el = document.getElementById(b.dataset.t);
+    var txt = Array.prototype.filter.call(el.childNodes, function(n){
+      return n.nodeType === 3;
+    }).map(function(n){ return n.textContent; }).join("").trim();
+    navigator.clipboard.writeText(txt).then(function(){
+      b.textContent = "kopyalandı"; b.classList.add("done");
+      setTimeout(function(){ b.textContent = "kopyala"; b.classList.remove("done"); }, 1400);
+    });
+  });
+});
+</script>
+</body>
+</html>

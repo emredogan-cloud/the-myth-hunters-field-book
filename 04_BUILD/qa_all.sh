@@ -85,7 +85,11 @@ run "depo ve belge bütünlüğü"   $PY 04_BUILD/validate_structure.py \
 
 # DEVRALMA KİLİDİ — bu projenin bel kemiği. Doğrulanmamış devralmaya
 # dayanan bir aktivite LOCKED olamaz.
-run "DEVRALMA BÜTÜNLÜĞÜ"        $PY 04_BUILD/validate_inheritance.py \
+#
+# --cross-check: kaynak depo BU MAKİNEDE varsa sha256'ları karşılaştırır ve
+# sürüklenmeyi bildirir; yoksa ATLAR ve kırmızı yanmaz (karar K6). Bayrağı
+# burada vermek, sürüklenmeyi kurucu makinesinde her koşuda görünür kılar.
+run "DEVRALMA BÜTÜNLÜĞÜ"        $PY 04_BUILD/validate_inheritance.py --cross-check \
                                    --json 06_REPORTS/inheritance.json
 
 # ── KAPILARIN KENDİ TESTİ — en önemlisi ────────────────────────────────────

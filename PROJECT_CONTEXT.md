@@ -3,7 +3,7 @@
 > **Projeye yeni giren her ajanın ve her insanın okuyacağı ilk belgedir.**
 > Hafızası olmayan bir ajan buradan başlar.
 >
-> Son güncelleme: **12 Ağustos 2026** · Faz: **0 · Bootstrap** · Kapı: `phase0`
+> Son güncelleme: **13 Ağustos 2026** · Faz: **1 TAMAM** · Kapı: `phase1`
 
 ---
 
@@ -60,14 +60,32 @@ Fırsat skoru **6,0/10** — üçünün en düşüğü, **ve bu bilinçlidir**.
 
 | | |
 |---|---|
-| Faz | **0 · Bootstrap** — altyapı kuruldu, Faz 1 **başlamadı** |
-| Kapı (`.gate`) | `phase0` |
-| Aday aktivite | 0 / ≥160 |
-| Kilitli / yazılmış | 0 / 120 |
-| Devralınan kayıt | 0 |
-| **Sonraki adım** | **KURUCU ONAYI** → sonra Faz 1 |
+| Faz | **1 · TAMAM** — mimari kuruldu, Faz 2 **başlamadı** |
+| Kapı (`.gate`) | `phase1` |
+| Aday aktivite | **168** / ≥160 ✅ |
+| Kilitli / yazılmış | **0** / 120 — *Faz 1'de aktivite yazılmaz* |
+| Devralınan kayıt | **76** (22 kültür + 54 hikâye), hepsi sha256'lı |
+| Kültür · bölge | **22** · **6** ✅ |
+| Sayfa modeli | **148** (hedef 144 ±%6) ✅ |
+| Kapı öz-testi | **70 denetim yeşil** |
+| **Sonraki adım** | **KURUCU ONAYI (A3, A7)** → sonra Faz 2 |
 
-⚠ **Faz 1 BAŞLAMADI ve kurucu onayı olmadan başlamaz.**
+⚠ **Faz 2 BAŞLAMADI ve kurucu onayı olmadan başlamaz.**
+Faz 1 raporu: [`06_REPORTS/PHASE_1_REPORT.md`](06_REPORTS/PHASE_1_REPORT.md)
+
+### Faz 1'in kurduğu altı katman
+
+```
+① DEVRALMA      IMPORT_MANIFEST.json ····· 76 kayıt · sha256'lı
+② KÜLTÜR        culture_index.json ······· 22 kültür · A/B/C kademesi
+③ BÖLGE+MÜHÜR   region_index.json ········ 6 bölge · 37 mühür yuvası
+④ AKTİVİTE      activity_index.json ······ 168 aday · 30 hücre dolu
+⑤ GÜVENLİK      AGE_POLICY § 3 ··········· safetyClass HESAPLANIR
+⑥ SAYFA         page-budget.json ········· 148 sayfa · 5,48 $ telif
+```
+
+Her katmanın kendi kapısı var ve her kapı `selftest.py` tarafından
+sınanıyor. **Hiçbir katman bir insana güvenmiyor.**
 
 ---
 
@@ -134,9 +152,12 @@ Tam yol haritası:
 | [`THE_MYTH_HUNTERS_FIELD_BOOK_IMPLEMENTATION_ROADMAP.md`](THE_MYTH_HUNTERS_FIELD_BOOK_IMPLEMENTATION_ROADMAP.md) | **Tek doğruluk kaynağı** | kurucu onayıyla |
 | [`BRIEF.md`](BRIEF.md) | Ürün, kitle, ticari model | kurucu |
 | [`00_CONTEXT/INHERITANCE_ARCHITECTURE.md`](00_CONTEXT/INHERITANCE_ARCHITECTURE.md) | **Devralma sözleşmesi** | kurucu onayıyla |
-| [`00_CONTEXT/AGE_POLICY.md`](00_CONTEXT/AGE_POLICY.md) | Yaş uygunluğu · 6 yasak çerçeve | kurucu onayıyla |
+| [`00_CONTEXT/AGE_POLICY.md`](00_CONTEXT/AGE_POLICY.md) | Yaş uygunluğu · 6 yasak çerçeve · **güvenlik sınıfı ağacı** | kurucu onayıyla |
+| [`00_CONTEXT/CULTURE_POLICY.md`](00_CONTEXT/CULTURE_POLICY.md) | **Hangi kültür hangi biçimde aktiviteye girer** | kurucu onayıyla |
+| [`00_CONTEXT/ACTIVITY_TAXONOMY.md`](00_CONTEXT/ACTIVITY_TAXONOMY.md) | Beş tip · on öğrenme boyutu | Faz 2'de kalibre |
+| [`00_CONTEXT/PROGRESSION_ARCHITECTURE.md`](00_CONTEXT/PROGRESSION_ARCHITECTURE.md) | **Kitap neden bitirilir** · mühür mekaniği | kurucu onayıyla (A3) |
 | [`00_CONTEXT/SOURCING_STANDARD.md`](00_CONTEXT/SOURCING_STANDARD.md) | Kaynak ve kısıt taraması | kurucu onayıyla |
-| [`00_CONTEXT/STYLE.md`](00_CONTEXT/STYLE.md) | Ses, sayfa dili, yasak kalıp | Faz 2'de kalibre |
+| [`00_CONTEXT/STYLE.md`](00_CONTEXT/STYLE.md) | Ses, sayfa dili, **üç register bandı** | Faz 2'de yeniden kalibre |
 | [`00_CONTEXT/LESSONS_FROM_CODEX.md`](00_CONTEXT/LESSONS_FROM_CODEX.md) | Taşınan disiplin | sabit |
 | [`DECISIONS.md`](DECISIONS.md) | Kararlar + **AÇIK KARARLAR** | her faz |
 | [`CHANGELOG.md`](CHANGELOG.md) | Ne değişti, neden | her faz |
@@ -166,13 +187,14 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 
 | # | Ne | Kimden | Ne zaman |
 |---|---|---|---|
-| A1 | Manuscript public depoda mı duracak? | kurucu | **Faz 1 başlamadan** |
-| A2 | **Devralma politikası onayı** | kurucu | **Faz 1 başlamadan** |
-| A3 | 6 bölge ve mühür mimarisi | kurucu | Faz 1 sonu |
-| A4 | 120 aktivitenin nihai listesi | kurucu | Faz 1 sonu |
+| ~~A1~~ | ~~Manuscript public depoda mı duracak?~~ | — | ✅ **kapandı → K11** |
+| ~~A2~~ | ~~Devralma politikası onayı~~ | — | ✅ **kapandı → K12** |
+| **A3** | **6 bölge ve mühür mimarisi onayı** | kurucu | **şimdi** |
+| **A4** | 168 adaydan 120'sinin nihai seçimi | kurucu | Faz 2 başlarken |
+| **A8** | 148 sayfa kabul mü, 4 sayfa kısılsın mı | kurucu | Faz 2 |
+| **A7** | **≥2 çocuk testçi** | kurucu | **Faz 2 SERT BLOKLAYICI** |
 | A5 | Ciltli hediye sürümü | kurucu | Faz 4 |
 | A6 | Yazar biyografisi metni | kurucu | Faz 5 |
-| A7 | **≥2 çocuk testçi** | kurucu | **Faz 2 bloklayıcısı** |
 | — | İki ebeveyn okuması | kurucu | Faz 5 |
 | — | ~150 görselin üretilmesi | kurucu | Faz 5 |
 | — | KDP paneli işlemleri | kurucu | Faz 6 sonrası |
@@ -183,6 +205,12 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 
 > **KURUCU ONAYI BEKLENİYOR.**
 >
-> Bootstrap tamamlandı. Faz 1 **başlatılmadı**.
-> İzin verildiğinde ilk iş: `faz/1-devralma` dalını açmak ve
-> `IMPORT_MANIFEST.json`'u üretmek — envanter ondan türer.
+> Faz 1 tamamlandı ve CI yeşil. Faz 2 **başlatılmadı**.
+>
+> Bekleyen iki karar:
+> 1. **A3** — altı bölge ve mühür mimarisi onayı ([`DECISIONS.md § A3`](DECISIONS.md))
+> 2. **A7** — ≥2 çocuk testçi. **Faz 2'nin sert bloklayıcısıdır**; testçi
+>    bulunamazsa Faz 2 bloklanır ve **sahte test kaydı üretilmez**
+>
+> Onay geldiğinde ilk iş: `faz/2-pilot` dalını açmak ve **en zor bölgeyi**
+> seçmek — kolay bölgeyle kalibre edilen bir şablon zor bölgede kırılır.

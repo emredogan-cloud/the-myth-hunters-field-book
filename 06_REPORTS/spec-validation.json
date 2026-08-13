@@ -1,14 +1,21 @@
 {
   "status": "pass",
-  "gate": "phase0",
-  "checks": 24,
+  "gate": "phase1",
+  "checks": 33,
   "errors": [],
-  "warnings": [
-    "activity_index.json yok — phase0'da beklenen (Faz 1 üretir)",
-    "envanter yok — matris denetlenemiyor"
-  ],
+  "warnings": [],
   "facts": {
     "royalty_paperback": 5.55,
-    "activities_total": 0
+    "activities_total": 168,
+    "cultures_total": 22,
+    "activities_candidate": 168,
+    "activities_researched": 0,
+    "activities_locked": 0,
+    "activities_written": 0,
+    "activities_dropped": 0,
+    "inherit_inherited-provisional": 168,
+    "inherit_inherited-verified": 0,
+    "inherit_new-researched": 0,
+    "matrix_holes": 0
   }
 }

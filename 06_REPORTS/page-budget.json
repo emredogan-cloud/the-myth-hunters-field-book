@@ -1,0 +1,75 @@
+{
+  "status": "pass",
+  "checks": 6,
+  "errors": [],
+  "warnings": [
+    "ciltsiz telifi hipotezden -0.07 $ sapıyor (5.48 $ vs 5.55 $) — BRIEF § 7 güncellenmeli VEYA sayfa modeli kısılmalı; bu bir KURUCU kararıdır"
+  ],
+  "facts": {
+    "frontMatter": 8,
+    "backMatter": 14,
+    "structuralPerRegion": 2,
+    "finalQuest": 5,
+    "activityPages": 105.0,
+    "regionsTotal": 117.0,
+    "modelRaw": 144.0,
+    "modelPages": 145,
+    "modelPagesSignatureAligned": 148,
+    "regions": [
+      {
+        "region": "north-ice",
+        "quota": 24,
+        "avgPageWeight": 0.875,
+        "activityPages": 21.0,
+        "structuralPages": 2,
+        "totalPages": 23.0
+      },
+      {
+        "region": "middle-sea",
+        "quota": 20,
+        "avgPageWeight": 0.875,
+        "activityPages": 17.5,
+        "structuralPages": 2,
+        "totalPages": 19.5
+      },
+      {
+        "region": "sun-savanna",
+        "quota": 16,
+        "avgPageWeight": 0.875,
+        "activityPages": 14.0,
+        "structuralPages": 2,
+        "totalPages": 16.0
+      },
+      {
+        "region": "monsoon",
+        "quota": 24,
+        "avgPageWeight": 0.868,
+        "activityPages": 20.8,
+        "structuralPages": 2,
+        "totalPages": 22.8
+      },
+      {
+        "region": "great-ocean",
+        "quota": 20,
+        "avgPageWeight": 0.885,
+        "activityPages": 17.7,
+        "structuralPages": 2,
+        "totalPages": 19.7
+      },
+      {
+        "region": "jaguar-condor",
+        "quota": 16,
+        "avgPageWeight": 0.875,
+        "activityPages": 14.0,
+        "structuralPages": 2,
+        "totalPages": 16.0
+      }
+    ],
+    "pageTarget": 144,
+    "pageDeltaPct": 2.78,
+    "royalty_paperback": 5.48,
+    "printCost_paperback": 3.52,
+    "breakevenAcos_paperback": 36.5,
+    "royaltyDriftVsBrief": -0.07
+  }
+}

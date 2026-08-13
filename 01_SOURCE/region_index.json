@@ -1,0 +1,209 @@
+{
+  "$comment": [
+    "BÖLGE VE MÜHÜR DİZİNİ — The Myth Hunter's Field Book",
+    "",
+    "Altı bölge, altı mühür, tek bir saha görevi. Bölgeler KITAYA göre",
+    "değil ARAZİYE göre kurulur: bir saha defteri iklimi ve coğrafyayı",
+    "izler, siyasî sınırları değil. Çocuk haritada bir rota görür.",
+    "",
+    "⚠ MÜHÜR SÖZCÜKLERİ VE FİNAL CEVAP BU DOSYADA YOKTUR.",
+    "Cevaplar ürünün kendisidir ve public depoya giremez (karar K10).",
+    "Bu dosya yalnızca YAPIYI taşır: kaç harf, kaç aktivite besler, hangi",
+    "yuvaya. Sözcüklerin kendisi 01_SOURCE/answers/seal_key.json içinde",
+    "durur ve o dizin .gitignore § ①b ile dışlanmıştır.",
+    "",
+    "qa_matrix.py yapıyı denetler (her yuva tam bir kez dolu mu).",
+    "qa_progression.py (Faz 3) sözcükleri denetler — anahtar dosyası",
+    "yoksa ATLAR, kırmızı yanmaz."
+  ],
+
+  "meta": {
+    "regions": 6,
+    "activityTotal": 120,
+    "candidateTotal": 168,
+    "sealsPerRegion": 1,
+    "finalQuest": "the-cartographers-seal",
+    "sealKeyFile": "01_SOURCE/answers/seal_key.json",
+    "sealKeyTracked": false,
+    "routeIsOrdered": true,
+    "$comment": [
+      "routeIsOrdered: bölgeler bir SIRA taşır. Kitap bir gezidir;",
+      "çocuk kuzeyden başlar, doğuya döner, okyanusu geçer ve biter.",
+      "Sıra rastgele değildir: zorluk merdiveni de bu sırayla yükselir."
+    ]
+  },
+
+  "regions": [
+    {
+      "id": "north-ice",
+      "order": 1,
+      "en": "The Northern Ice",
+      "tr": "Kuzeyin Buzları",
+      "terrain": "buz, kar, kuzey denizleri ve turbalıklar",
+      "cultures": ["inuit", "norse", "finnish", "irish"],
+      "activityQuota": 24,
+      "candidateQuota": 34,
+      "difficultyProfile": {"1": 10, "2": 10, "3": 4},
+      "sealId": "seal-north-ice",
+      "sealLetterCount": 5,
+      "sealStampMotif": "buz kristali çerçevesi içinde çentikli bir daire",
+      "openingAngle": "Kuzeyde hikâyeler soğuğu açıklar: neden karanlık, neden buz, neden dönüş",
+      "crossCultureHook": "aynı denizin dört ayrı adı",
+      "mapFeatures": ["Grönland ve Nunavut kıyısı", "İskandinav fiyortları",
+                      "Karelya gölleri", "İrlanda kıyı taşları"]
+    },
+    {
+      "id": "middle-sea",
+      "order": 2,
+      "en": "The Middle Sea",
+      "tr": "Ortadaki Deniz",
+      "terrain": "Akdeniz kıyıları, Nil ve Fırat–Dicle ovaları",
+      "cultures": ["greek", "egyptian", "mesopotamian"],
+      "activityQuota": 20,
+      "candidateQuota": 28,
+      "difficultyProfile": {"1": 8, "2": 8, "3": 4},
+      "sealId": "seal-middle-sea",
+      "sealLetterCount": 6,
+      "sealStampMotif": "kartuş biçiminde oval çerçeve, kenarında çentik",
+      "openingAngle": "Yazının doğduğu üç yer yan yana: çentik, kama, harf",
+      "crossCultureHook": "üç ayrı yazı dizgesi, tek bir deniz",
+      "mapFeatures": ["Girit ve Ege adaları", "Nil deltası", "Fırat–Dicle arası"]
+    },
+    {
+      "id": "sun-savanna",
+      "order": 3,
+      "en": "Sun and Savanna",
+      "tr": "Güneş ve Savan",
+      "terrain": "Sahra altı savan, orman kıyısı ve yayla",
+      "cultures": ["yoruba", "akan", "zulu"],
+      "activityQuota": 16,
+      "candidateQuota": 24,
+      "difficultyProfile": {"1": 6, "2": 7, "3": 3},
+      "sealId": "seal-sun-savanna",
+      "sealLetterCount": 7,
+      "sealStampMotif": "yedi çentikli güneş diski",
+      "openingAngle": "Bu bölgede hikâyeler taşınır: kim söyledi, kim duydu, ne değişti",
+      "crossCultureHook": "gecikmiş, bozulmuş veya kazanılmış bir haber",
+      "mapFeatures": ["Nijer deltası", "Gine körfezi kıyısı", "Drakensberg eteği"],
+      "note": "⚠ 'Afrika mitolojisi' diye bir bölüm YOKTUR. Üç kültür kendi adıyla anılır."
+    },
+    {
+      "id": "monsoon",
+      "order": 4,
+      "en": "Mountain and Monsoon",
+      "tr": "Dağ ve Muson",
+      "terrain": "İran yaylası, Altaylar, Himalaya ve muson havzaları",
+      "cultures": ["persian", "turkic", "hindu", "vietnamese", "chinese"],
+      "activityQuota": 24,
+      "candidateQuota": 34,
+      "difficultyProfile": {"1": 9, "2": 10, "3": 5},
+      "sealId": "seal-monsoon",
+      "sealLetterCount": 7,
+      "sealStampMotif": "yedi çentikli dağ silueti, altında yağmur çizgileri",
+      "openingAngle": "Dağ suyu tutar, muson suyu getirir: hikâyeler suyun kimde olduğunu tartışır",
+      "crossCultureHook": "dağ ile su arasındaki pazarlık",
+      "mapFeatures": ["Elburz ve Demavend", "Altay bozkırı", "Ganj havzası",
+                      "Kızıl Nehir deltası", "Sarı Nehir kıvrımı"]
+    },
+    {
+      "id": "great-ocean",
+      "order": 5,
+      "en": "The Great Ocean",
+      "tr": "Büyük Okyanus",
+      "terrain": "Pasifik: doğu Asya kıyıları ve Polinezya takımadaları",
+      "cultures": ["japanese", "korean", "maori", "hawaiian"],
+      "activityQuota": 20,
+      "candidateQuota": 26,
+      "difficultyProfile": {"1": 7, "2": 8, "3": 5},
+      "sealId": "seal-great-ocean",
+      "sealLetterCount": 6,
+      "sealStampMotif": "dalga halkası içinde altı çentik",
+      "openingAngle": "Dünyanın en büyük okyanusu bir engel değil bir yoldu",
+      "crossCultureHook": "adayı bulan, çeken veya yaratan el",
+      "mapFeatures": ["Japon takımadası", "Kore yarımadası", "Aotearoa iki ada",
+                      "Hawai'i zinciri"]
+    },
+    {
+      "id": "jaguar-condor",
+      "order": 6,
+      "en": "Jaguar and Condor",
+      "tr": "Jaguar ve Kondor",
+      "terrain": "Mezoamerika ormanı ve And yaylası",
+      "cultures": ["maya", "aztec", "andean"],
+      "activityQuota": 16,
+      "candidateQuota": 22,
+      "difficultyProfile": {"1": 5, "2": 7, "3": 4},
+      "sealId": "seal-jaguar-condor",
+      "sealLetterCount": 6,
+      "sealStampMotif": "altı çentikli basamaklı piramit kenarı",
+      "openingAngle": "Sayıyı yazmanın üç yolu: nokta, düğüm ve resim",
+      "crossCultureHook": "mısır, sayı ve takvim",
+      "mapFeatures": ["Yucatán ovası", "Meksika vadisi", "And yaylası ve Titicaca"]
+    }
+  ],
+
+  "sealMechanic": {
+    "$comment": [
+      "MÜHÜR SİSTEMİ KİTABIN TAMAMLANMA GÜDÜSÜDÜR. Bir çocuk mührü",
+      "çözemezse kitabı bitiremez ve ebeveyn bunu yoruma yazar.",
+      "Bu yüzden mekanik BASİT ve KENDİ KENDİNİ DOĞRULAYAN olmalıdır."
+    ],
+    "howItWorks": [
+      "① Bölge içindeki bazı aktiviteler bir MÜHÜR YUVASI taşır (sealSlot).",
+      "② Aktivitenin cevabından tek bir harf o yuvaya gider.",
+      "③ Bölgenin son sayfasında yuvalar sırayla bir sözcük kurar.",
+      "④ Çocuk sözcüğü mühür kutusuna yazar — bölge tamamlanır.",
+      "⑤ Mührün kenarındaki ÇENTİK bir sayı gösterir: o sıradaki harf",
+      "   final göreve taşınır.",
+      "⑥ Altı çentik harfi final görevde tek bir sözcük kurar."
+    ],
+    "selfVerifying": [
+      "Sözcük ANLAMLI olduğu için çocuk doğru çözdüğünü KENDİ ANLAR.",
+      "Yanlış bir harf sözcüğü bozar ve çocuk hangi aktiviteye döneceğini bilir.",
+      "Bu, cevap anahtarına bakmadan düzeltme imkânı verir — pes etme riskini düşürür."
+    ],
+    "rules": {
+      "slotsMustBeContiguous": true,
+      "oneActivityPerSlot": true,
+      "slotSourceMustBeDeterministic": true,
+      "openEndedCannotFeedSeal": true,
+      "sealMustDeriveFromAnswersPresent": true,
+      "$comment": [
+        "openEndedCannotFeedSeal: 'çiz/yaz' tipi bir aktivite mühre harf",
+        "veremez — cevabı tek değildir. qa_matrix.py bunu denetler.",
+        "slotSourceMustBeDeterministic: mühür harfi üreten aktivite",
+        "openEnded olamaz ve inherited-provisional bir kayda dayanamaz."
+      ]
+    }
+  },
+
+  "finalQuest": {
+    "id": "the-cartographers-seal",
+    "en": "The Cartographer's Seal",
+    "tr": "Haritacının Mührü",
+    "pages": 5,
+    "requiresAllSeals": true,
+    "letterCount": 6,
+    "$comment": [
+      "Final görev kitabın entelektüel doruğudur: çocuk 22 kültürü ayrı",
+      "ayrı değil, BİRBİRİNE BAKARAK anlar. Altı çentik harfi tek bir",
+      "sözcük kurar ve o sözcük kitabın tezidir.",
+      "",
+      "Sözcük 01_SOURCE/answers/seal_key.json içindedir ve depoya girmez."
+    ],
+    "closingArtefacts": [
+      "büyük tasnif tablosu — 22 kültürün ortak motifleri (çocuk doldurur)",
+      "saha araştırmacısı sertifikası",
+      "World Myths köprü sayfası"
+    ]
+  },
+
+  "progressionArc": {
+    "$comment": "BAŞLANGIÇ → YOLCULUK → İLERLEME → KEŞİF → TAMAMLANMA",
+    "beginning": "Görev emri · araç listesi · boş rota haritası · boş mühür sayfası",
+    "journey": "Altı bölge sırayla · her bölge bir açılış ve bir arazi",
+    "progression": "Her bölge sonunda bir mühür kazanılır ve rota haritasına işlenir",
+    "discovery": "Bölgeler arası tasnif aktiviteleri aynı motifi başka kültürde gösterir",
+    "completion": "Final görev · tasnif tablosu · sertifika"
+  }
+}
