@@ -651,18 +651,18 @@ kapı ölçütün ≥8 kelime olmasını şart koşuyor.
 
 | Register | Faz 1 (5 sayfa) | **Faz 2 (16 sayfa)** | Bant |
 |---|---:|---:|---|
-| Talimat | 6,96 · FK 2,03 | **6,42 · FK 0,75** | 5–11 · ≤4,0 ✅ |
-| Field note | 10,36 · FK 4,70 | **11,45 · FK 4,02** | 9–14 · 3,0–5,9 ✅ |
-| İpucu | 9,38 · FK 2,86 | **7,34 · FK 1,63** | ≤4,5 ✅ |
-| **Değişmez** | 2,03 < 4,70 | **0,75 < 4,02** | fk(talimat) < fk(note) ✅ |
+| Talimat | 6,96 · FK 2,03 | **6,64 · FK 1,28** | 5–11 · ≤4,0 ✅ |
+| Field note | 10,36 · FK 4,70 | **10,94 · FK 3,87** | 9–14 · 3,0–5,9 ✅ |
+| İpucu | 9,38 · FK 2,86 | **7,50 · FK 3,27** | ≤4,5 ✅ · yalnızca ★★★ |
+| **Değişmez** | 2,03 < 4,70 | **1,28 < 3,87** | fk(talimat) < fk(note) ✅ |
 
 | Ölçüt | Faz 2 | Bant |
 |---|---:|---|
-| En uzun talimat cümlesi | 11 | ≤18 ✅ |
-| Adım sayısı | ort 2,69 · azami 3 | ≤4 · ★ için ≤2 ✅ |
-| Field note boyu | 20–27 · ort 23,6 | 15–35 ✅ |
-| Üç heceli sözcük oranı | **%2,0** | ≤%20 ✅ |
-| Bölge açılışı | **145 kelime** | ~150 ✅ |
+| En uzun talimat cümlesi | 12 | ≤18 ✅ |
+| Adım sayısı | ort 2,81 · azami 4 | ≤4 · ★ için ≤2 ✅ |
+| Field note boyu | 20–29 · ort 23,2 | 15–35 ✅ |
+| Üç heceli sözcük oranı | **%2,1** | ≤%20 ✅ |
+| Bölge açılışı | **146 kelime** | ~150 ✅ |
 
 ### 17.2 · Ölçüm **İngilizce metin üzerinde** yapıldı
 
@@ -684,7 +684,7 @@ Yani düzeltilecek bir dil karışıklığı **bulunmadı**; ayrım zaten mimar�
 
 ### 17.3 · Talimat registerinin tabanı yok — ve olmayacak
 
-Talimat FK'sı 2,03'ten **0,75**'e indi. Bant yalnızca bir tavan taşıyor ve
+Talimat FK'sı 2,03'ten **1,28**'e indi. Bant yalnızca bir tavan taşıyor ve
 bir taban **eklenmeyecek**:
 
 > *"Count the dots beside each basket."* yedi kelimedir, hepsi tek
@@ -929,8 +929,12 @@ Uyarı artık yönü ve **ölçüm kapsamını** söylüyor.
 
 | | Model | Ölçülen |
 |---|---:|---:|
-| Kelime / sayfa | ~183 | **~71** |
-| 16 sayfa toplamı | ~2.930 | **1.136** |
+| Kelime / sayfa | ~183 | **~63** |
+| 16 sayfa + açılış | ~2.930 | **1.015** |
+
+*(İpucu politikası düzeltildikten sonra — 16 sayfanın 12'sinden ipuçları
+kaldırıldı, çünkü `ACTIVITY_TAXONOMY § 5` onları yalnızca ★★★ için
+tanımlıyor. Kelime sayısı bu yüzden de düştü.)*
 
 Sapma **büyük** ve raporlanıyor. Sebep büyük olasılıkla eksik ölçüm:
 manuscript şu an yalnızca **talimat metnini** taşıyor. Sayfa mobilyası —
