@@ -17,7 +17,7 @@ sahiptir ve ikisi de doğru çalıştığı KANITLANMADAN kullanılamaz:
 sayılırsa, World Myths'in anlatı için yeterli olan bir iddiası burada bir
 BULMACA CEVABI hâline gelir ve yanlışsa çocuk kendini suçlar.
 
-Dokuz bölüm:
+On dört bölüm:
   ①  temiz kurgu BÜTÜN kapılardan geçer          (yanlış pozitif yok)
   ②  her kusurlu kurgu İLGİLİ kapıda yakalanır   (körlük yok)
   ③  kapı seviyeleri gerçekten kilitliyor        (kapsam kapıları)
@@ -27,6 +27,10 @@ Dokuz bölüm:
   ⑦  ARAŞTIRMA ZİNCİRİ kapısı ısırıyor mu        (Faz 1'de doğdu)
   ⑧  SAYFA BÜTÇESİ kapısı ısırıyor mu            (Faz 1'de doğdu)
   ⑨  OKUNABİLİRLİK kapısı ısırıyor mu            (Faz 1'de doğdu)
+  ⑩–⑬ TEK CEVAP · TALİMAT · DİL · MÜHÜR          (Faz 2'de doğdu)
+  ⑭  KURUCU FAZ AŞMASI bir KİLİT mi              (Faz 3'te doğdu)
+  ⑮  TEKRAR (qa_echo) kapısı ısırıyor mu         (Faz 3'te doğdu)
+  ⑯  TASARIM DİZGESİ kapısı ısırıyor mu          (Faz 3'te doğdu)
 
 ④ doğrudan Bestiarium'un üç ölü kuralına ve World Myths'in K14 kararına
 cevaptır: takip edilmeyen bir dosya için yazılmış muafiyet ÖLÜ MUAFİYETTİR
@@ -279,10 +283,22 @@ def part2_flaws_caught(rep: Report, tmp: str) -> None:
               "DEVRALMA SÖZLEŞMESİNİN GEVŞETİLMESİ YAKALANIR", out)
 
 
+def without_override(cfg: dict) -> dict:
+    """Kurucu faz aşmasını SÖKÜLMÜŞ bir config.
+
+    ③ kapı seviyelerini sınar, aşmayı değil. Gerçek config'te etkin bir
+    aşma varken (K27 · tavan `phase1`) `phase2`/`phase4` kurguları aşma
+    tavanına takılır ve ③ yanlış sebeple kırmızı yanar — yani test
+    ölçtüğünü sandığı şeyi ölçmez. Aşmanın kendi testi ⑭'tür."""
+    c = copy.deepcopy(cfg)
+    c.get("founder", {}).pop("phaseOverride", None)
+    return c
+
+
 def part3_gates_lock(rep: Report, tmp: str) -> None:
     print("\n③ kapı seviyeleri gerçekten kilitliyor")
 
-    cfg = clean_config()
+    cfg = without_override(clean_config())
 
     # phase0: envanter yokken geçmeli (Faz 1 henüz üretmedi)
     code, out = run_spec_with(cfg, None, "phase0", tmp)
@@ -1366,6 +1382,105 @@ def part13_progression(rep: Report, tmp: str, base: dict) -> None:
               out)
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 3 · ⑭ KURUCU FAZ AŞMASI BİR KİLİT MİDİR
+#
+# Bir aşma kaydı iki şeyden biri olabilir:
+#
+#     KİLİT   → aşmayı görünür tutar ve yan etkilerini engeller
+#     KAÇIŞ   → "kurucu izin verdi" diyerek her kapıyı açar
+#
+# İkincisi bu projeyi bitirir: bir kez "kurucu izin verdi" bir gerekçe
+# olarak kabul edilirse, çocuk testi de öyle atlanır.
+#
+# Bu bölüm aşmanın bir KİLİT olduğunu kanıtlar: aşma etkinken kapı
+# yükselemez, dış doğrulama 'passed' olamaz, blokaj kapanamaz ve aşma
+# belgeden düşemez.
+# ═══════════════════════════════════════════════════════════════════════════
+def run_spec_override(cfg: dict, gate: str, docs: dict, tmp: str) -> tuple[int, str]:
+    """validate_spec'i kurgu kök + kurgu BELGELERLE koşturur.
+
+    `run_spec_with` belge yazmaz; aşma denetiminin dördüncü kilidi
+    (belgede anılıyor mu) belge olmadan sınanamaz."""
+    import shutil
+    _RUN_SEQ[0] += 1
+    root = os.path.join(tmp, "ovr-%03d" % _RUN_SEQ[0])
+    for d in ("01_SOURCE", "04_BUILD", "06_REPORTS"):
+        os.makedirs(os.path.join(root, d), exist_ok=True)
+    with open(os.path.join(root, "project_config.json"), "w", encoding="utf-8") as fh:
+        json.dump(cfg, fh, ensure_ascii=False)
+    with open(os.path.join(root, "01_SOURCE", "activity_index.json"),
+              "w", encoding="utf-8") as fh:
+        json.dump(clean_games(cfg), fh, ensure_ascii=False)
+    with open(os.path.join(root, ".gate"), "w", encoding="utf-8") as fh:
+        fh.write(gate)
+    for rel, body in docs.items():
+        p = os.path.join(root, *rel.split("/"))
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "w", encoding="utf-8") as fh:
+            fh.write(body)
+    dest = os.path.join(root, "04_BUILD", "validate_spec.py")
+    shutil.copy2(VALIDATE_SPEC, dest)
+    out = subprocess.run([sys.executable, dest, "--gate", gate],
+                         capture_output=True, text=True, timeout=120)
+    return out.returncode, out.stdout + out.stderr
+
+
+def part14_phase_override(rep: Report, tmp: str) -> None:
+    print("\n⑭ KURUCU FAZ AŞMASI bir kilit mi (kaçış kapısı değil)")
+
+    base = clean_config()
+    if not (base.get("founder", {}).get("phaseOverride") or {}).get("active"):
+        print("  ⊘ etkin aşma yok — bölüm atlandı")
+        return
+
+    ov = base["founder"]["phaseOverride"]
+    good_docs = {rel: "aşma kaydı: %s · ertelenen blokaj: %s\n"
+                      % (ov["decision"], ov["deferredBlocker"])
+                 for rel in ov.get("documentedIn", [])}
+
+    # temiz aşma: tavanda duran kapı + anılmış belgeler → GEÇER
+    code, out = run_spec_override(base, ov["gateCeiling"], good_docs, tmp)
+    rep.check(code == 0, "temiz aşma kaydı GEÇER", out)
+
+    # (a) kapı tavanı — aşma kapıyı yükseltmek için KULLANILAMAZ
+    order = ["phase0", "phase1", "phase2", "phase3", "phase4", "phase5", "release"]
+    higher = order[min(order.index(ov["gateCeiling"]) + 1, len(order) - 1)]
+    code, out = run_spec_override(base, higher, good_docs, tmp)
+    rep.check(code != 0, "⭑ AŞMAYLA KAPI YÜKSELTME YAKALANIR (%s > %s)"
+              % (higher, ov["gateCeiling"]), out)
+
+    # (b) dış doğrulama 'passed' — aşma bir testi geçmiş saydıramaz
+    d = copy.deepcopy(base)
+    d["founder"]["childTesters"]["externalValidation"] = "passed"
+    code, out = run_spec_override(d, ov["gateCeiling"], good_docs, tmp)
+    rep.check(code != 0, "⭑ AŞMA ETKİNKEN 'passed' BEYANI YAKALANIR", out)
+
+    # (c) ertelenen blokaj kapanmış GÖRÜNEMEZ
+    d = copy.deepcopy(base)
+    d["founder"]["phaseOverride"]["deferredBlockerStatus"] = "closed"
+    code, out = run_spec_override(d, ov["gateCeiling"], good_docs, tmp)
+    rep.check(code != 0, "⭑ ERTELENEN BLOKAJIN KAPATILMASI YAKALANIR", out)
+
+    # (d) SESSİZ AŞMA — belgeden düşen bir aşma, unutulan bir aşmadır
+    silent = dict(good_docs)
+    first = next(iter(silent))
+    silent[first] = "bu belge aşmadan hiç söz etmiyor\n"
+    code, out = run_spec_override(base, ov["gateCeiling"], silent, tmp)
+    rep.check(code != 0, "⭑ BELGEDE ANILMAYAN AŞMA YAKALANIR (%s)" % first, out)
+
+    # (e) eksik alan — gerekçesiz bir aşma bir aşma değildir
+    d = copy.deepcopy(base)
+    d["founder"]["phaseOverride"]["reason"] = ""
+    code, out = run_spec_override(d, ov["gateCeiling"], good_docs, tmp)
+    rep.check(code != 0, "GEREKÇESİZ AŞMA YAKALANIR", out)
+
+    # (f) aşma kapatılınca denetim boş koşar ve kapı normale döner
+    d = without_override(base)
+    code, out = run_spec_override(d, "phase1", {}, tmp)
+    rep.check(code == 0, "aşma yokken denetim boş koşar", out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -1434,6 +1549,9 @@ def main() -> int:
                 part5b_attribution(rep, tmp, base2)
         else:
             print("\n⑩–⑬ Faz 2 kapıları henüz doğmadı — ATLANDI")
+
+        # ⑭ Faz 3 · kurucu faz aşması bir KİLİT mi
+        part14_phase_override(rep, tmp)
 
     part4_no_dead_exemptions(rep)
 

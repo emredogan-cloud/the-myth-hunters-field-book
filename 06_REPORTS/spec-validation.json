@@ -1,9 +1,11 @@
 {
   "status": "pass",
   "gate": "phase1",
-  "checks": 33,
+  "checks": 44,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "aşma belgesi henüz yok: 06_REPORTS/PHASE_3_REPORT.md"
+  ],
   "facts": {
     "royalty_paperback": 5.48,
     "activities_total": 168,
@@ -16,6 +18,9 @@
     "inherit_inherited-provisional": 152,
     "inherit_inherited-verified": 16,
     "inherit_new-researched": 0,
-    "matrix_holes": 0
+    "matrix_holes": 0,
+    "phaseOverrideActive": true,
+    "phaseOverrideAuthorises": "phase3",
+    "phaseOverrideDefers": "A10"
   }
 }

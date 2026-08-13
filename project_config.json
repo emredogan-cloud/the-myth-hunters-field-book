@@ -84,6 +84,52 @@
       "confirmedAt": "2026-08-13",
       "confirmedBy": "kurucu beyanı"
     },
+    "phaseOverride": {
+      "$comment": [
+        "⭑ KURUCU FAZ AŞMA KAYDI — KARAR K27 · 13 Ağustos 2026 ⭑",
+        "",
+        "Kurucu talimatı: «Test aşamasını atlayıp tasarım (Faz 3) aşamasına",
+        "geç.» Bu AÇIK bir kurucu aşmasıdır ve gizlenmez.",
+        "",
+        "NE AÇAR:  Faz 3 tasarım/üretim işi A10 beklenmeden BAŞLAYABİLİR.",
+        "NE AÇMAZ: A10 hâlâ AÇIK. Çocuk oturumu YAPILMADI.",
+        "          externalValidation hâlâ 'pending'.",
+        "          .gate hâlâ 'phase1' ve bu koşuda YÜKSELTİLMEZ.",
+        "",
+        "Kurucu talimatı § 4 bunu ayrıca şart koşuyor: kapı depo temiz",
+        "görünsün diye sahte yükseltilmez. Aşma GÖRÜNÜR olmalıdır.",
+        "",
+        "validate_spec § ⑤ bu bloğu mekanik olarak denetler: aşma etkinken",
+        "  · .gate gateCeiling'i AŞAMAZ",
+        "  · externalValidation 'passed' OLAMAZ",
+        "  · aşma belgelerde ANILMIŞ olmalıdır",
+        "Yani bu blok bir kaçış kapısı değil, bir KİLİTTİR: aşma kaydı",
+        "yapılmamış bir testi geçmiş saymak için KULLANILAMAZ.",
+        "",
+        "status yalnızca KURUCU beyanıyla değişir."
+      ],
+      "active": true,
+      "authorisedPhase": "phase3",
+      "gateCeiling": "phase1",
+      "deferredBlocker": "A10",
+      "deferredBlockerStatus": "open-not-performed",
+      "reason": "A10 çocuk oturumu kurucu tarafından bilinçli olarak ertelendi",
+      "declaredAt": "2026-08-13",
+      "declaredBy": "kurucu talimatı · Faz 3 § 3",
+      "decision": "K27",
+      "doesNotImply": [
+        "çocuk testi yapıldı",
+        "kitap çocuk-doğrulandı",
+        "Faz 2 PASS ölçütü sağlandı",
+        "kapı phase2'ye yükselebilir"
+      ],
+      "documentedIn": [
+        "DECISIONS.md",
+        "PROJECT_CONTEXT.md",
+        "ROADMAP_PROGRESS.md",
+        "06_REPORTS/PHASE_3_REPORT.md"
+      ]
+    },
     "physicalProof": {
       "founderOwned": true,
       "status": "founder-action-pending",

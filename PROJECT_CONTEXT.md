@@ -3,7 +3,12 @@
 > **Projeye yeni giren her ajanın ve her insanın okuyacağı ilk belgedir.**
 > Hafızası olmayan bir ajan buradan başlar.
 >
-> Son güncelleme: **13 Ağustos 2026** · Faz: **1 TAMAM** · Kapı: `phase1`
+> Son güncelleme: **13 Ağustos 2026** · Faz: **3 SÜRÜYOR** · Kapı: `phase1`
+>
+> ⚠ **Kapı ile faz AYRIŞMIŞTIR ve bu bilinçlidir.** Kurucu Faz 3'ü, Faz
+> 2'nin çocuk oturumu (**A10**) yapılmadan başlattı — karar **K27**.
+> Aşma kayıtlıdır, gizli değildir ve `validate_spec § ⑤` tarafından
+> mekanik olarak kilitlenmiştir.
 
 ---
 
@@ -220,19 +225,22 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 
 ## 11 · Sonraki izinli eylem
 
-> **KURUCU ONAYI BEKLENİYOR — A7.**
+> **FAZ 3 SÜRÜYOR — kurucu aşmasıyla (K27).**
 >
-> Faz 2'nin teknik pilotu tamamlandı ve CI yeşil. **Faz 3 başlatılmadı.**
+> Faz 3, A10 (gerçek çocuk oturumu) **beklenmeden** başlatıldı. Bu bir
+> kurucu kararıdır ve `project_config § founder.phaseOverride` içinde
+> makine okunur biçimde durur.
 >
-> Bekleyen tek şey:
-> **A7 — en az iki çocuk testçi.** Test paketi hazır
-> ([`03_EDITORIAL/CHILD_TEST_PROTOCOL.md`](03_EDITORIAL/CHILD_TEST_PROTOCOL.md)),
-> kayıt defteri açık ve **boş**. Testçi bulunamazsa dış doğrulama
-> beklemede kalır ve **sahte test kaydı üretilmez**.
+> ```
+> FAZ 3 YETKİSİ        ✅ VERİLDİ     (kurucu · K27)
+> A10 ÇOCUK OTURUMU    ❌ YAPILMADI   (0 oturum)
+> .gate                    phase1     (YÜKSELTİLMEDİ)
+> ```
 >
-> Testçiler Türkçe konuşuyorsa tester-facing materyal geçici olarak
-> Türkçe üretilebilir (K21) — `child_test_pack.py --lang tr`, ki o betik
-> kurucu onayı gelene kadar üretmeyi **reddeder**.
+> **Aşma bir sonucu üretmez, bir sırayı değiştirir.** Kitap çocuk
+> doğrulamasından geçmiş **değildir** ve hiçbir belge öyle demez.
 >
-> Onay geldiğinde ilk iş: `faz/2-pilot` dalını açmak ve **en zor bölgeyi**
-> seçmek — kolay bölgeyle kalibre edilen bir şablon zor bölgede kırılır.
+> Faz 3 kapsamı — yol haritası Faz 3 + ölçülen yük sıralaması (K28):
+> `monsoon` (24) ve `great-ocean` (20) → kümülatif **60 aktivite**.
+>
+> **Faz 4 kurucu talimatı olmadan BAŞLAMAZ.**
