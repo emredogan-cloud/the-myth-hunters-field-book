@@ -1012,10 +1012,23 @@ Her yeni kapı için **kusur fikstürü + selftest + CI entegrasyonu**
 |---|---|
 | Faz 1 | `main`'e merge edildi · **v0.1.0** etiketlendi |
 | Faz 1 dalı | `faz/1-devralma` **silindi** (yerel + uzak) |
-| Faz 2 dalı | `faz/2-pilot` |
+| Faz 2 dalı | `faz/2-pilot` → **`main`'e merge edildi** · **v0.2.0** |
+| Faz 2 dalı (silme) | merge sonrası **silindi** (yerel + uzak) |
 | Açık PR | **0** |
-| Depoda **olmayan** | `book.json` · `seal_key.json` · ham test kayıtları |
+| CI (`faz/2-pilot`) | ✅ **success** |
+| CI (`main`) | ✅ **success** |
+| Depoda **olmayan** | `book.json` · `seal_key.json` · ham test kayıtları · Faz 1 mimari pilotu |
 | Depoda **olan** | kod · şema · kapılar · **doğrulama künyeleri** · ölçüm raporları |
+
+**Depo sınırı iki kez sınandı ve iki kez tuttu:**
+
+- `pagePrints` şartnameleri cevabın kendisini taşıyor (*"the chilli
+  basket drawn empty"*) ve bu yüzden görsel kütüphanesine **metin olarak
+  girmedi** — yalnızca sözleşmesi anlatıldı.
+- Bir **kaynak künyesindeki ISBN** (Salomon–Urioste çevirisinin) sahte
+  ISBN kapısını kırmızı yaktı. Kapı bizim ISBN'imizle bir **alıntının**
+  ISBN'ini ayırt edemiyor ve **kapalı yönde arızalanıyor** — bu doğru.
+  Künye yayıncı + yıl + sayfa biçimine çevrildi; akademik olarak tamdır.
 
 ---
 
