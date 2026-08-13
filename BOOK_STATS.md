@@ -9,8 +9,8 @@
 | | Ölçülen | Hedef |
 |---|---:|---:|
 | Aday aktivite | **168** | ≥160 |
-| Kilitli aktivite | **0** | 120 |
-| Yazılmış aktivite | **0** | 120 |
+| Kilitli aktivite | **16** | 120 |
+| Yazılmış aktivite | **16** | 120 |
 | Düşürülmüş aday | **0** | — |
 | Kültür | **22** | 22 |
 | Bölge | **6** | 6 |
@@ -30,31 +30,33 @@
 
 | Durum | Kayıt |
 |---|---:|
-| `inherited-provisional` | 76 |
-| `inherited-verified` | 0 |
+| `inherited-provisional` | 69 |
+| `inherited-verified` | 7 |
 | `new-researched` | 0 |
 | **Toplam** | **76** |
-| **Doğrulanmış oran** | **%0.0** (Faz 1 ölçütü: doğrulanmış VEYA planlı) |
+| **Doğrulanmış oran** | **%9.2** (Faz 1 ölçütü: doğrulanmış VEYA planlı) |
 
-> Faz 1'de doğrulanmış oran **%0'dır ve bu beklenendir**: bütün
-> kayıtlar `inherited-provisional` durumda ve her aday kendi
-> `revalidationPlan`ını taşıyor. Doğrulama Faz 2'de yapılır.
+> Doğrulama KAYIT düzeyinde değil KULLANIM düzeyinde ilerler:
+> bir kayıt, ondan CEVAP ÜRETEN bir sayfa yazıldığında
+> doğrulanır. Bu yüzden oran aktivite üretimiyle birlikte
+> yükselir ve Faz 2 sonunda %100 OLMASI BEKLENMEZ.
+> Alan düzeyindeki kanıt: `01_SOURCE/research/*-revalidation.json`
 
 ## 4. Sayfa ve fiyat modeli
 
 | | |
 |---|---:|
-| Aktivite sayfası (ölçülen ağırlıktan) | 105.0 |
+| Aktivite sayfası (ölçülen ağırlıktan) | 104.5 |
 | Ön madde | 8 |
 | Bölge başına yapı sayfası | 2 |
 | Final görev | 5 |
 | Arka madde | 14 |
-| **Model (forma hizalı)** | **148** |
-| Yol haritası hedefi | 144 |
-| Sapma | %+2.8 |
-| Ciltsiz baskı maliyeti | 3.52 $ |
-| **Ciltsiz telif** | **5.48 $** |
-| Başabaş ACOS | %36.5 |
+| **Model (forma hizalı)** | **144** |
+| Yol haritası hedefi | 148 |
+| Sapma | %-2.7 |
+| Ciltsiz baskı maliyeti | 3.45 $ |
+| **Ciltsiz telif** | **5.55 $** |
+| Başabaş ACOS | %37.0 |
 
 ## 5. Bölge × tip matrisi
 

@@ -3,23 +3,26 @@
   "checks": 6,
   "errors": [],
   "warnings": [
-    "ciltsiz telifi hipotezden -0.07 $ sapıyor (5.48 $ vs 5.55 $) — BRIEF § 7 güncellenmeli VEYA sayfa modeli kısılmalı; bu bir KURUCU kararıdır"
+    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 1/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
   ],
   "facts": {
+    "regionsMeasured": 1,
     "frontMatter": 8,
     "backMatter": 14,
     "structuralPerRegion": 2,
     "finalQuest": 5,
-    "activityPages": 105.0,
-    "regionsTotal": 117.0,
-    "modelRaw": 144.0,
-    "modelPages": 145,
-    "modelPagesSignatureAligned": 148,
+    "activityPages": 104.5,
+    "regionsTotal": 116.5,
+    "modelRaw": 143.5,
+    "modelPages": 144,
+    "modelPagesSignatureAligned": 144,
     "regions": [
       {
         "region": "north-ice",
         "quota": 24,
         "avgPageWeight": 0.875,
+        "weightSource": "havuz",
+        "lockedActivities": 0,
         "activityPages": 21.0,
         "structuralPages": 2,
         "totalPages": 23.0
@@ -28,6 +31,8 @@
         "region": "middle-sea",
         "quota": 20,
         "avgPageWeight": 0.875,
+        "weightSource": "havuz",
+        "lockedActivities": 0,
         "activityPages": 17.5,
         "structuralPages": 2,
         "totalPages": 19.5
@@ -36,6 +41,8 @@
         "region": "sun-savanna",
         "quota": 16,
         "avgPageWeight": 0.875,
+        "weightSource": "havuz",
+        "lockedActivities": 0,
         "activityPages": 14.0,
         "structuralPages": 2,
         "totalPages": 16.0
@@ -44,6 +51,8 @@
         "region": "monsoon",
         "quota": 24,
         "avgPageWeight": 0.868,
+        "weightSource": "havuz",
+        "lockedActivities": 0,
         "activityPages": 20.8,
         "structuralPages": 2,
         "totalPages": 22.8
@@ -52,6 +61,8 @@
         "region": "great-ocean",
         "quota": 20,
         "avgPageWeight": 0.885,
+        "weightSource": "havuz",
+        "lockedActivities": 0,
         "activityPages": 17.7,
         "structuralPages": 2,
         "totalPages": 19.7
@@ -59,17 +70,20 @@
       {
         "region": "jaguar-condor",
         "quota": 16,
-        "avgPageWeight": 0.875,
-        "activityPages": 14.0,
+        "avgPageWeight": 0.844,
+        "weightSource": "ÖLÇÜLDÜ",
+        "lockedActivities": 16,
+        "activityPages": 13.5,
         "structuralPages": 2,
-        "totalPages": 16.0
+        "totalPages": 15.5
       }
     ],
-    "pageTarget": 144,
-    "pageDeltaPct": 2.78,
-    "royalty_paperback": 5.48,
-    "printCost_paperback": 3.52,
-    "breakevenAcos_paperback": 36.5,
-    "royaltyDriftVsBrief": -0.07
+    "pageTarget": 148,
+    "pageDeltaPct": -2.7,
+    "royalty_paperback": 5.55,
+    "printCost_paperback": 3.45,
+    "breakevenAcos_paperback": 37.0,
+    "royaltyBaseline": 5.48,
+    "royaltyDriftVsBaseline": 0.07
   }
 }

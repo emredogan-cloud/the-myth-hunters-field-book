@@ -23,6 +23,7 @@ import argparse
 import collections
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -32,6 +33,7 @@ CONFIG = os.path.join(ROOT, "project_config.json")
 ACTS = os.path.join(ROOT, "01_SOURCE", "activity_index.json")
 REGIONS = os.path.join(ROOT, "01_SOURCE", "region_index.json")
 CULTURES = os.path.join(ROOT, "01_SOURCE", "culture_index.json")
+BOOK = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
 MANIFEST = os.path.join(ROOT, "01_SOURCE", "inherited", "IMPORT_MANIFEST.json")
 PAGE_REPORT = os.path.join(ROOT, "06_REPORTS", "page-budget.json")
 
@@ -79,6 +81,19 @@ def collect() -> dict:
     page = jload(PAGE_REPORT, {}) or {}
     facts = page.get("facts", {})
 
+    # Kelime sayısı ÖLÇÜLÜR. Manuscript depoda durmaz; yoksa 0 kalır ve
+    # bu bir kusur değil, kabul edilmiş düzendir (K11).
+    book = jload(BOOK, {"activities": []}) or {"activities": []}
+    words = 0
+    for a in book.get("activities", []):
+        blob = " ".join([a.get("prompt", ""), a.get("fieldNote", ""),
+                         a.get("expectedResult", "")]
+                        + list(a.get("steps") or [])
+                        + list(a.get("hints") or []))
+        words += len(re.findall(r"[A-Za-z'\u02bb\u2019-]+", blob))
+    opening = (book.get("regionOpening") or {}).get("text", "")
+    words += len(re.findall(r"[A-Za-z'\u02bb\u2019-]+", opening))
+
     status = collections.Counter(a.get("status") for a in acts)
     inh = collections.Counter(r.get("status") for r in recs)
     verified = inh["inherited-verified"] + inh["new-researched"]
@@ -88,6 +103,7 @@ def collect() -> dict:
         "cultures": cultures, "records": recs, "facts": facts,
         "status": status, "inh": inh,
         "verifiedRatio": (verified / len(recs)) if recs else 0.0,
+        "words": words,
         "cultureCount": len({a.get("culture") for a in live if a.get("culture")}),
         "typeByRegion": {
             r["id"]: collections.Counter(a["type"] for a in live
@@ -138,9 +154,11 @@ def render_book_stats(d: dict) -> str:
           "| **Doğrulanmış oran** | **%%%.1f** (Faz 1 ölçütü: doğrulanmış VEYA planlı) |"
           % (100 * d["verifiedRatio"]),
           "",
-          "> Faz 1'de doğrulanmış oran **%0'dır ve bu beklenendir**: bütün",
-          "> kayıtlar `inherited-provisional` durumda ve her aday kendi",
-          "> `revalidationPlan`ını taşıyor. Doğrulama Faz 2'de yapılır.",
+          "> Doğrulama KAYIT düzeyinde değil KULLANIM düzeyinde ilerler:",
+          "> bir kayıt, ondan CEVAP ÜRETEN bir sayfa yazıldığında",
+          "> doğrulanır. Bu yüzden oran aktivite üretimiyle birlikte",
+          "> yükselir ve Faz 2 sonunda %100 OLMASI BEKLENMEZ.",
+          "> Alan düzeyindeki kanıt: `01_SOURCE/research/*-revalidation.json`",
           ""]
 
     L += ["## 4. Sayfa ve fiyat modeli", ""]
@@ -212,7 +230,9 @@ def render_progress(d: dict) -> str:
           "| Kültür | **%d** | %d |" % (d["cultureCount"], scope.get("cultures", 22)),
           "| Bölge | **%d** | %d |" % (len(d["regions"]), scope.get("regions", 6)),
           "| Görsel öğe | **0** | ~150 |",
-          "| Kelime | **0** | ~%s |" % f"{scope.get('manuscriptWordTarget', 22000):,}".replace(",", "."),
+          "| Kelime | **%s** | ~%s |"
+          % (f"{d['words']:,}".replace(",", "."),
+             f"{scope.get('manuscriptWordTarget', 22000):,}".replace(",", ".")),
           "", "---", "", "## Sonraki izinli eylem", ""]
 
     if cur + 1 < len(PHASES):

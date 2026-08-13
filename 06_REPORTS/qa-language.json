@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "checks": 7,
+  "errors": [],
+  "warnings": [
+    "çocuk testçi YOK — dış doğrulama BEKLİYOR, PASS DEĞİL (karar A7). Bu bir kusur değil, kabul edilmiş bir bloktur."
+  ],
+  "facts": {
+    "commercialFields": 15,
+    "commercialStringsScanned": 105,
+    "testOnlyPath": "03_EDITORIAL/child_tests_raw/",
+    "childTestersConfirmed": false,
+    "childTestersAvailable": 0,
+    "testMaterialFiles": 0
+  }
+}

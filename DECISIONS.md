@@ -7,65 +7,69 @@
 
 ## AÇIK KARARLAR — kurucudan yanıt bekleyen
 
-Durum tablosu · **13 Ağustos 2026 · Faz 1 sonu**
+Durum tablosu · **13 Ağustos 2026 · Faz 2**
 
 | # | Soru | Aciliyet | Ne zaman kapanmalı | Durum |
 |---|---|---|---|---|
 | ~~A1~~ | ~~Manuscript public depoda mı duracak?~~ | — | — | ✅ **KAPANDI → K11** |
 | ~~A2~~ | ~~Devralma politikası onayı~~ | — | — | ✅ **KAPANDI → K12** |
-| **A3** | **6 bölge ve mühür mimarisi onayı** | **YÜKSEK** | **şimdi** | AÇIK · Faz 1 önerisi hazır |
-| **A4** | 168 adaydan 120'sinin nihai seçimi | **YÜKSEK** | Faz 2 başlarken | AÇIK |
-| **A8** | **YENİ** — 148 sayfa kabul edilip BRIEF § 7 mi güncellenecek | ORTA | Faz 2 | AÇIK |
-| **A7** | **≥2 çocuk testçi kim** | **YÜKSEK** | **Faz 2 başlamadan** | AÇIK · **SERT BLOKLAYICI** |
+| ~~A3~~ | ~~6 bölge ve mühür mimarisi onayı~~ | — | — | ✅ **KAPANDI → K18** |
+| ~~A8~~ | ~~148 sayfa kabul edilecek mi~~ | — | — | ✅ **KAPANDI → K19** |
+| **A4** | 168 adaydan 120'sinin nihai seçimi | **YÜKSEK** | Faz 3 başlarken | AÇIK · pilot 16'sını seçti |
+| **A7** | **≥2 çocuk testçi kim** | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **0 testçi** · **DIŞ DOĞRULAMA BEKLİYOR** |
+| **A9** | **YENİ** — fizikî prova siparişi ve değerlendirmesi | ORTA | Faz 5–6 | AÇIK · **KURUCUYA AİT** |
 | **A5** | Ciltli hediye sürümü v1.0'a girecek mi | DÜŞÜK | Faz 4 | AÇIK (varsayım: hayır) |
 | **A6** | Yazar biyografisi metni | ORTA | Faz 5 | AÇIK |
 
 ---
 
-### A3 · Bölge ve mühür mimarisi — Faz 1'in önerisi
+### A4 · 120 aktivitenin nihai listesi — kısmen ilerledi
 
-**Bootstrap'ın altı bölgesi 22 kültüre oturmuyordu.** Okyanusya'ya iki
-kültür düşüyor, Amerikalara **hiç bölge kalmıyordu**. Faz 1 bölgeleri
-kıtaya göre değil **araziye** göre yeniden kurdu:
+Faz 2 pilotu `jaguar-condor` bölgesinin **16'sını** 22 adaydan seçti ve
+`locked` yaptı. Kalan beş bölgenin seçimi Faz 3–4'e ait.
 
-| # | Bölge | Kültür | Aktivite | Mühür |
-|---|---|---:|---:|---:|
-| 1 | The Northern Ice | 4 | 24 | 5 harf |
-| 2 | The Middle Sea | 3 | 20 | 6 harf |
-| 3 | Sun and Savanna | 3 | 16 | 7 harf |
-| 4 | Mountain and Monsoon | 5 | 24 | 7 harf |
-| 5 | The Great Ocean | 4 | 20 | 6 harf |
-| 6 | Jaguar and Condor | 3 | 16 | 6 harf |
+**Düşürülen altı aday havuzda kalır** ve `status: candidate` durumundadır:
+bir pilot aktivitesi çocuk testinde düşerse yerine aynı bölge × aynı
+tipten biri geçer (PROGRESSION_ARCHITECTURE § 6).
 
-Kotalar **bilinçli olarak eşit değildir**: her bölge kendi kullanılabilir
-hikâye arzıyla orantılı pay alır. Ayrıntı ve mühür mekaniği:
-[`00_CONTEXT/PROGRESSION_ARCHITECTURE.md`](00_CONTEXT/PROGRESSION_ARCHITECTURE.md)
+### A7 · Çocuk testçiler — Faz 2'nin sert bloklayıcısı · **AÇIK**
 
-**Kurucu onayı bekleniyor.** Onaylanırsa mimari Faz 2'de dondurulur;
-değişiklik sonrasında bir karar kaydı gerektirir.
+**13 Ağustos 2026 itibarıyla mevcut testçi sayısı: 0.**
 
-### A8 · 148 sayfa mı, 144 sayfa mı — YENİ
+Ajan çocukla test yapamaz. Test paketi Faz 2'de **hazırlandı ve koşmaya
+hazırdır** ([`03_EDITORIAL/CHILD_TEST_PROTOCOL.md`](03_EDITORIAL/CHILD_TEST_PROTOCOL.md)),
+ama koşturulmadı ve **sahte kayıt üretilmedi**.
 
-Faz 1'in ölçtüğü sayfa modeli **148** (forma hizalı). Hedef 144'tü.
-148 tolerans bandının içinde (**+%2,8**, sınır %6) ama BRIEF § 7'nin
-telif hipotezinden **0,07 $** sapıyor.
-
-| Şık | Sonuç |
+| | |
 |---|---|
-| **(a)** 148'i kabul et | BRIEF § 7 güncellenir: telif **5,48 $**, başabaş ACOS %36,5 |
-| (b) 4 sayfa kıs | Final görev 5→4 **veya** arka madde 14→13. Kapsam daralır |
-
-**Faz 1'in önerisi: (a).** Gerekçe: 4 sayfa kısmak, final görevi veya
-cevap anahtarını sıkıştırmak demektir ve ikisi de ürünün işlevidir.
-0,07 $ bir modelleme farkıdır; sıkışmış bir cevap anahtarı bir **yorum**.
-
-### A7 · Çocuk testçiler — Faz 2'nin sert bloklayıcısı
-
-Ajan çocukla test yapamaz. Testçi bulunamazsa **Faz 2 bloklanır**.
-Bu kabul edilen bir bloktur: **sahte test kaydı üretilmez.**
+| Test paketi | ✅ hazır |
+| Testçi | ❌ 0 |
+| `CHILD_TEST_LOG.md` | ✅ var · **0 oturum** |
+| Faz 2 çocuk kapısı | ⏳ **DIŞ DOĞRULAMA BEKLİYOR** — PASS **değil** |
 
 Kimlikler anonimdir (`tester-01`) ve gerçek ad depoya **hiçbir koşulda**
 girmez — `validate_structure.py § check_child_privacy` denetler.
+
+Kurucu Türkçe konuşan testçi sağlarsa tester-facing materyal geçici
+olarak **Türkçe** üretilebilir (K21). O materyal ticari değildir ve
+`qa_language.py` onun nihai çıktıya sızmasını mekanik olarak engeller.
+
+### A9 · Fizikî prova — KURUCUYA AİT · **YENİ**
+
+Fizikî prova (POD baskı örneği) siparişi, teslim alınması ve
+değerlendirilmesi **kurucunun işidir**. Ajan:
+
+- prova **sipariş etmez**
+- prova yapıldığını **iddia etmez**
+- prova geri bildirimi **uydurmaz**
+- POD doğrulaması **uydurmaz**
+
+Ajan prova gerektirmeyen bütün teknik işi sürdürür ve yol haritasının
+istediği yerde prova hazır dosyalarını, kontrol listesini ve kurucu devir
+bilgisini üretir.
+
+**Durum: KURUCU EYLEMİ / BEKLİYOR.** Kurucu tamamlandığını bildirene
+kadar bu satır değişmez.
 
 ---
 
@@ -190,10 +194,129 @@ daha zor olamaz.
 
 Ölçüm ve bantlar: [`00_CONTEXT/STYLE.md § 3`](00_CONTEXT/STYLE.md)
 
-### K17 · Üretilen belgeler elle yazılmaz
+### K17 · Üretilen belgeler elle yazılmaz — *(K18–K25 için § FAZ 2 KARARLARI)*
 `BOOK_STATS.md` ve `ROADMAP_PROGRESS.md` `04_BUILD/update_docs.py`
 tarafından **üretilir** ve `--check` bayrağıyla bayatlıkları denetlenir.
 
 Gerekçe: elle yazılan bir sayı bir süre sonra sessizce yanlış olur ve
 kimse fark etmez — çünkü onu kimse denetlemez. İki belge de bootstrap'ta
 zaten *"hiçbiri elle yazılmayacaktır"* diye söz vermişti.
+
+---
+
+## FAZ 2 KARARLARI — 13 Ağustos 2026
+
+### K18 · Altı bölge ve 37 mühür yuvası KİLİTLİ (A3 kapandı)
+
+**Kurucu onayladı.** Faz 1'in araziye göre kurduğu altı bölge ve 37 yuvalık
+mühür mimarisi artık **dondurulmuştur**:
+
+```
+1. The Northern Ice      4 kültür · 24 aktivite · 5 harf
+2. The Middle Sea        3 kültür · 20 aktivite · 6 harf
+3. Sun and Savanna       3 kültür · 16 aktivite · 7 harf
+4. Mountain and Monsoon  5 kültür · 24 aktivite · 7 harf
+5. The Great Ocean       4 kültür · 20 aktivite · 6 harf
+6. Jaguar and Condor     3 kültür · 16 aktivite · 6 harf
+                                    ─────────────────────
+                                    120 aktivite · 37 yuva
+```
+
+Bootstrap'ın bölge modeline **dönülmez**. Mühür mekaniği
+(`sealSlot` → tek harf → bölge sözcüğü → çentik → final sözcük) Faz 1
+biçiminde kalır.
+
+Değişiklik bundan sonra **yeni bir kurucu kararı** gerektirir ve
+`qa_matrix.py § ④` ile `qa_progression.py` mimariyi her koşuda denetler.
+
+### K19 · 148 sayfa kabul edildi, telif düşüşü bilinerek üstlenildi (A8 kapandı)
+
+**Kurucu (a) şıkkını seçti.** Planlama hedefi artık **148 sayfadır**.
+
+| | Bootstrap hipotezi | Kabul edilen model |
+|---|---:|---:|
+| Sayfa | 144 | **148** |
+| Baskı maliyeti | 3,45 $ | **3,52 $** |
+| Ciltsiz telif | 5,55 $ | **5,48 $** |
+| Başabaş ACOS | %37,0 | **%36,5** |
+
+`project_config.json § scope.pageTarget` **148**'e çekildi ve
+`BRIEF.md § 7` güncellendi — böylece iki belge aynı sayıyı söylüyor ve
+`page_budget.py`'nin sapma uyarısı **sustu**.
+
+> **Uyarının susması bir kayıp değil bir kazançtır.** Faz 1'de o uyarı
+> gerçek bir açık kararı gösteriyordu. Karar kapandı; uyarı da kapanmalı.
+> Kalıcı bir uyarı bir süre sonra **görülmez** olur ve kapı körleşir.
+
+Karar **yeniden açılmaz.** 0,07 $ geri kazanmak için içerik kısılmaz.
+Sayfa modeli gerçek içerikle **ölçülmeye devam eder**; anlamlı bir sapma
+çıkarsa raporlanır, sessizce yutulmaz.
+
+### K20 · Pilot bölgesi HESAPLANIR, seçilmez
+
+Faz 1 raporu en zor bölge için iki aday önerdi: `sun-savanna` **veya**
+`jaguar-condor`. Faz 2 bunu bir sezgi olarak bırakmadı ve
+`04_BUILD/region_difficulty.py` ile **ölçtü** — çünkü bu projede
+`safetyClass` hesaplanıyorsa (K14) pilot bölgesi de hesaplanabilir.
+
+Yedi eksen, ikisi bölgeye ait: yazı dizgesi yabancılığı · kademe ağırlığı ·
+yasak biçim sayısı · yaşayan gelenek · hikâye arzı · mühür yükü ·
+yetkisiz kaynak riski.
+
+**Ölçüm iki şeyi düzeltti.**
+
+**① Tek skor büyüklüğü zorluk sanıyordu.** İlk koşu `monsoon`'u birinci
+gösterdi — ama `monsoon`'un beş kültürü var ve toplanan her eksen kültür
+sayısıyla mekanik olarak büyüyor. İki skor ayrıldı:
+
+```
+burden    = toplam üretim yükü       →  monsoon 87,68 (en yüksek)
+intensity = kültür başına sertlik    →  jaguar-condor 31,17 (en yüksek)
+```
+
+Pilot **yoğunlukla** seçilir; yol haritasının ölçütü *"kısıt taraması en
+YOĞUN, şifre sistemi en YABANCI"* der ve yoğunluk bir orandır.
+
+**② `sun-savanna` en zor değil, EN KOLAY bölge.** Yoğunluk 14,37 ile
+altıncı sırada. Sebep ölçülebilir: üç yazı dizgesinin **üçü de Latin
+harflidir** (Akan gün-adları · Yoruba imlâsı · isiZulu şıklamaları), yani
+yabancılık 15 üzerinden **1**. Faz 1 "üç yaşayan gelenek" ile "yabancı
+şifre dizgesi"ni aynı şey sanmıştı; değiller.
+
+**Seçilen pilot: `jaguar-condor`** — yoğunluk 31,17, ikinciyle fark 8,55.
+Üç kültürün üçü de Kademe B (kutsal katman cevap olamaz) ve üç yazı
+dizgesinin **üçü de alfabetik değil**: Maya çubuk-nokta, Nahuatl yer adı
+glifleri, khipu düğümü. Çocuğun tanıdığı hiçbir işaret yok.
+
+> `monsoon` pilot değildir ama **sona bırakılamaz**: en yüksek toplam yükü
+> o taşıyor ve yük kültür sayısıyla birlikte geliyor. Üretim planlaması
+> bunu Faz 3'te dikkate alır.
+
+### K21 · Ticari dil İNGİLİZCE; Türkçe yalnızca geçici TEST dilidir
+
+Kurucu talimatı açık: nihai ticari ürünün **tamamı İngilizcedir** —
+manuscript, talimatlar, field note'lar, ipuçları, mühür metinleri, arka
+madde, kapak, A+ içerik, metadata, KDP paketi.
+
+Türkçe **yalnızca** gerçek Türkçe konuşan çocuk testçiler bulunduğunda,
+**geçici tester-facing materyal** için kullanılabilir. O materyal:
+
+- ticari değildir
+- kanonik manuscript değildir
+- nihai çıktıya **giremez**
+- makine çevirisiyle İngilizceye dönüştürülmez
+
+Test bulguları İngilizce ticari sürüme **yeniden yazılarak** taşınır ve
+İngilizce sürüm ilgili kapılardan **bağımsız olarak** geçmek zorundadır.
+
+> **Türkçe pilotun geçmesi İngilizce sürümün geçtiği anlamına GELMEZ.**
+
+Bu kural disipline değil **mekanizmaya** bağlandı: `04_BUILD/qa_language.py`
+ticari katmanda Türkçe imza arar ve bulursa CI'ı kırmızı yakar.
+`04_BUILD/child_test_pack.py` ise `founder.childTesters.founderConfirmed`
+`false` iken Türkçe materyal üretmeyi **reddeder** — yani testçi yokken
+test materyali de olamaz.
+
+**Proje belgeleri (bu dosya dahil) Türkçedir ve öyle kalır.** Belge dili
+ile ürün dili aynı şey değildir; `project_config.json` ikisini ayrı
+alanlarda taşır (`language: en` · `documentLanguage: tr`).

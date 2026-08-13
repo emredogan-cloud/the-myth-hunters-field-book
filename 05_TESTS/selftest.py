@@ -367,6 +367,11 @@ REAL = {
     "01_SOURCE/region_index.json": os.path.join(SRC, "region_index.json"),
     "01_SOURCE/inherited/IMPORT_MANIFEST.json":
         os.path.join(SRC, "inherited", "IMPORT_MANIFEST.json"),
+    # Faz 2: iddia zinciri (validate_research § ⑩) bu dosyayı OKUR.
+    # Kopyalanmazsa kilitli aktivitelerin claimRef'leri boşa düşer ve
+    # "temiz veri geçer" testi yanlış yere kırmızı yanar.
+    "01_SOURCE/research/jaguar-condor-revalidation.json":
+        os.path.join(SRC, "research", "jaguar-condor-revalidation.json"),
 }
 
 
@@ -550,6 +555,24 @@ def part5_age_gate(rep: Report, tmp: str, base: dict) -> None:
     leaked = sorted(schema_mats & qa_age.TX)
     rep.check(not leaked, "şema hiçbir TX malzemesini tanımlamıyor"
               + ("" if not leaked else " — SIZINTI: %s" % leaked))
+
+
+def part5b_attribution(rep: Report, tmp: str, base: dict) -> None:
+    """⭑ ATIF DENETİMİ — iç editoryal inceleme 16 sayfanın 11'inde ihlal buldu."""
+    print("\n⑤b ATIF denetimi ısırıyor mu")
+
+    ok = copy.deepcopy(BOOK_FIXTURE)
+    code, out = run_text_gate(QA_AGE, base, tmp, ok)
+    rep.check(code == 0, "kültür adı geçen sentetik proza GEÇER", out)
+
+    # Kültür adı çocuğun gördüğü metinden ÇIKARILIRSA
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["prompt"] = "Your mission: read the six numbers on the plate."
+    d["activities"][0]["fieldNote"] = (
+        "These numbers use three signs. A dot is one, a bar is five, "
+        "and a shell means none at all.")
+    code, out = run_text_gate(QA_AGE, base, tmp, d)
+    rep.check(code != 0, "⭑ ATIFSIZ SAYFA YAKALANIR (kültür adı yok)", out)
 
 
 def part6_matrix_gate(rep: Report, tmp: str, base: dict) -> None:
@@ -853,6 +876,430 @@ def part9_readability(rep: Report, tmp: str) -> None:
     rep.check(code != 0, "AŞIRI UZUN FIELD NOTE YAKALANIR", out)
 
 
+
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 2 KAPILARI · ⑩–⑬
+#
+# Her yeni kapı için TAM BİR KUSUR TAŞIYAN kurgu koşturulur ve kapının o
+# kusuru yakaladığı KANITLANIR. Gerekçe World Myths'in D7 dersi:
+#
+#     Bir kapı, doğru çalıştığı KANITLANMADAN kullanılamaz.
+#
+# Bu bölümlerin kurgusu gerçek dizinler + SENTETİK bir manuscript'tir.
+# Gerçek manuscript depoda yoktur ve testler ona BAĞLI OLAMAZ.
+# ═══════════════════════════════════════════════════════════════════════════
+QA_SOLVABLE = os.path.join(BUILD, "qa_solvable.py")
+QA_INSTRUCTION = os.path.join(BUILD, "qa_instruction.py")
+QA_LANGUAGE = os.path.join(BUILD, "qa_language.py")
+QA_PROGRESSION = os.path.join(BUILD, "qa_progression.py")
+
+# Sentetik pilot: iki mühür besleyen sayfa + bir açık uçlu sayfa.
+# Yıldızlı sözcükler MUT ve OKAY; harfleri M ve O — sentetik bölge
+# sözcüğü "MO" DEĞİL, sentetik anahtar aşağıda kurulur.
+BOOK_FIXTURE = {
+    "meta": {"kind": "selftest", "language": "en"},
+    "activities": [
+        {
+            "activityId": "maya-bar-dot-numbers",
+            "prompt": "Your mission: read the six numbers on the market plate.",
+            "fieldNote": "The Maya wrote numbers with three signs. A dot is one, "
+                         "a bar is five, and a shell means none at all.",
+            "steps": ["Count the dots and bars beside each basket.",
+                      "Write the name on the shell basket in the star box."],
+            "answer": "cacao 12 · maize 15 · chilli 0",
+            "hints": ["One sign is not a dot and not a bar.",
+                      "The shell basket has nothing in it."],
+            "sealSlot": 1, "sealStarWord": "chilli", "sealStarIndex": 1,
+            "sealContribution": "C", "writingSpaceLines": 4,
+            "pagePrints": ["key panel: dot = 1, bar = 5, shell = 0",
+                           "baskets labelled cacao, maize, chilli",
+                           "star box with six letter squares"],
+        },
+        {
+            "activityId": "aztec-chinampa-plate",
+            "prompt": "Your mission: label the lake garden and find what holds it.",
+            "fieldNote": "These Aztec lake gardens do not float, though people often "
+                         "say they do. Willow trees called ahuejote grow along every edge.",
+            "steps": ["Write the four labels from the word bank.",
+                      "Write the name of the tree in the star box."],
+            "answer": "posts · woven fence · lake mud · ahuejote willow",
+            "hints": ["Look at the edges, not the middle.",
+                      "Only one label names a living thing."],
+            "sealSlot": 2, "sealStarWord": "ahuejote", "sealStarIndex": 6,
+            "sealContribution": "O", "writingSpaceLines": 4,
+            "pagePrints": ["cutaway of one plot with posts and a woven fence",
+                           "word bank with ahuejote as a single-word entry",
+                           "four label lines"],
+        },
+        {
+            "activityId": "maya-number-make",
+            "prompt": "Your mission: write your own age in dots and bars.",
+            "fieldNote": "The Maya wrote numbers with dots and bars. Writing a number "
+                         "you already know is the fastest way to learn them.",
+            "steps": ["Draw your age with dots and bars.",
+                      "Draw the number of doors in your home below it."],
+            "openEnded": True,
+            "expectedResult": "Each number is drawn with four or fewer dots above "
+                              "each bar, and the bars are stacked flat.",
+            "hints": ["Four dots is the most you will ever need.",
+                      "Bars lie flat, one above the other."],
+            "writingSpaceLines": 8,
+            "pagePrints": ["key panel: dot = 1, bar = 5",
+                           "two ruled frames"],
+        },
+    ],
+}
+
+
+def run_text_gate(script: str, data: dict, tmp: str,
+                  book: dict | None, key: dict | None = None) -> tuple[int, str]:
+    """Kurgu kök + sentetik manuscript (+ istenirse sentetik mühür anahtarı)."""
+    import shutil
+    _RUN_SEQ[0] += 1
+    root = os.path.join(tmp, "text-%03d" % _RUN_SEQ[0])
+    for d in ("01_SOURCE/inherited", "01_SOURCE/answers", "02_MANUSCRIPT",
+              "03_EDITORIAL", "04_BUILD", "06_REPORTS"):
+        os.makedirs(os.path.join(root, *d.split("/")), exist_ok=True)
+    for rel, obj in data.items():
+        p = os.path.join(root, *rel.split("/"))
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "w", encoding="utf-8") as fh:
+            json.dump(obj, fh, ensure_ascii=False)
+    if book is not None:
+        with open(os.path.join(root, "02_MANUSCRIPT", "book.json"),
+                  "w", encoding="utf-8") as fh:
+            json.dump(book, fh, ensure_ascii=False)
+    if key is not None:
+        with open(os.path.join(root, "01_SOURCE", "answers", "seal_key.json"),
+                  "w", encoding="utf-8") as fh:
+            json.dump(key, fh, ensure_ascii=False)
+    with open(os.path.join(root, ".gate"), "w", encoding="utf-8") as fh:
+        fh.write("phase1")
+    dest = os.path.join(root, "04_BUILD", os.path.basename(script))
+    shutil.copy2(script, dest)
+    out = subprocess.run([sys.executable, dest], capture_output=True,
+                         text=True, timeout=120)
+    return out.returncode, out.stdout + out.stderr
+
+
+def part10_solvable(rep: Report, tmp: str, base: dict) -> None:
+    print("\n⑩ TEK CEVAPLILIK kapısı ısırıyor mu")
+
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, BOOK_FIXTURE)
+    rep.check(code == 0, "temiz sentetik pilot GEÇER", out)
+
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, None)
+    rep.check(code == 0, "manuscript yokken kapı boş koşar", out)
+
+    # (a) cevapsız bir sayfa
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["answer"] = ""
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "⭑ CEVAPSIZ SAYFA YAKALANIR", out)
+
+    # (b) çift cevap: "or"
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["answer"] = "cacao 12 or maize 15"
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "⭑ ÇİFT CEVAPLI SAYFA YAKALANIR", out)
+
+    # (c) "answers may vary" — kaçış kapısının en yaygın hâli
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["answer"] = "answers may vary between readers"
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "'answers may vary' YAKALANIR", out)
+
+    # (d) açık uçlu ama ölçütsüz
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][2].pop("expectedResult")
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "ÖLÇÜTSÜZ AÇIK UÇLU SAYFA YAKALANIR", out)
+
+    # (e) muğlak ölçüt — "be creative" bir ölçüt değildir
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][2]["expectedResult"] = "Anything creative works."
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "MUĞLAK ÖLÇÜT YAKALANIR", out)
+
+    # (f) ipucu cevabı söylüyor
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][1]["hints"] = ["The answer is ahuejote willow."]
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "⭑ CEVABI SIZDIRAN İPUCU YAKALANIR", out)
+
+    # (g) mühür harfi elle DEĞİŞTİRİLMİŞ — hesapla uyuşmuyor
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["sealContribution"] = "Z"
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "⭑ ELLE YAZILMIŞ MÜHÜR HARFİ YAKALANIR", out)
+
+    # (h) yıldız sayısı sözcüğün dışında
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["sealStarIndex"] = 99
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "SÖZCÜK DIŞI YILDIZ SAYISI YAKALANIR", out)
+
+    # (i) yıldızlı sözcük sayfada basılı değil
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["sealStarWord"] = "kumquat"
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "SAYFADA BASILI OLMAYAN YILDIZ SÖZCÜĞÜ YAKALANIR", out)
+
+    # (k) ⭑ FIELD NOTE CEVABI SÖYLÜYOR ⭑
+    #     İç editoryal inceleme bunu pilotun BEŞ sayfasında buldu.
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][1]["fieldNote"] = (
+        "These lake gardens rest on posts in the lake bed, inside a woven "
+        "fence, and the ahuejote willow holds them where they are.")
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "⭑ CEVABI SÖYLEYEN FIELD NOTE YAKALANIR", out)
+
+    # (j) açık uçlu bir sayfa mühür besliyor
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][2]["sealSlot"] = 3
+    d["activities"][2]["sealStarWord"] = "dots"
+    d["activities"][2]["sealStarIndex"] = 1
+    code, out = run_text_gate(QA_SOLVABLE, base, tmp, d)
+    rep.check(code != 0, "⭑ AÇIK UÇLU SAYFA MÜHÜR BESLEYEMEZ", out)
+
+
+def part11_instruction(rep: Report, tmp: str, base: dict) -> None:
+    print("\n⑪ TALİMAT NETLİĞİ kapısı ısırıyor mu")
+
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, BOOK_FIXTURE)
+    rep.check(code == 0, "temiz sentetik pilot GEÇER", out)
+
+    # (a) adım bir fiille başlamıyor — bir BEYAN, talimat değil
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["steps"][0] = "Two baskets are empty in this row."
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "⭑ TALİMAT DEĞİL BEYAN OLAN ADIM YAKALANIR", out)
+
+    # (b) görev satırı kalıbı bozuk
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["prompt"] = "Read the six numbers on the plate."
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "GÖREV SATIRI KALIBI DIŞI SAYFA YAKALANIR", out)
+
+    # (c) ⭑ EDİLGEN SÜRÜKLENME — talimat çocuğa seslenmeyi bırakıyor
+    #     Bu kurgu bir kapı kusurunu da kayda geçirir: denetimin İLK hâli
+    #     "metinde 'you' var mı" diye soruyordu ve 'Your mission:' kalıbı
+    #     yüzünden HİÇBİR KOŞULDA yanamıyordu. Ölü kapı burada öldü.
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["prompt"] = "Your mission: the numbers must be read."
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "⭑ EDİLGEN TALİMAT YAKALANIR", out)
+
+    # (c2) üçüncü şahıs: "the reader counts…"
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["steps"][0] = "Count what the reader sees in each basket."
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "ÜÇÜNCÜ ŞAHIS HİTABI YAKALANIR", out)
+
+    # (d) bir adım iki iş birden istiyor
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["steps"][1] = ("Write the name in the star box and then "
+                                      "count the bars again.")
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "⭑ İKİ İŞİ TEK ADIMA SIKIŞTIRAN ADIM YAKALANIR", out)
+
+    # (e) öncülsüz zamir
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["steps"][1] = "Them you write in the star box."
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "ÖNCÜLSÜZ ZAMİRLE BAŞLAYAN ADIM YAKALANIR", out)
+
+    # (f) yazdırıyor ama yazacak yer yok
+    #     ⚠ Alanı SİLMEK yetmez: kapı tasarım katmanıyla birleştirir ve
+    #     activity_index.json onu geri getirir. Sıfır AÇIKÇA yazılmalı —
+    #     ve bu, birleştirmenin gerçekten çalıştığının da kanıtıdır.
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["writingSpaceLines"] = 0
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "⭑ YAZMA ALANI OLMAYAN YAZDIRAN SAYFA YAKALANIR", out)
+
+    # (g) ★ sayfası iki adımı aşıyor  (gerçek envanterde ★1)
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["steps"] = ["Count the dots beside each basket.",
+                                   "Write the name in the star box.",
+                                   "Check your work once more."]
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "★ SAYFASINDA ÜÇÜNCÜ ADIM YAKALANIR", out)
+
+
+    # (h) ⭑ SAYFADA OLMAYAN BİR ŞEYE GÖNDERME ⭑
+    #     "Colour them the way the key shows" — sayfada anahtar YOK.
+    #     Bütün biçim kapıları bu cümleyi GEÇİRİR; çocuk yine de takılır.
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["steps"][1] = "Copy the colours from the wall chart."
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "⭑ SAYFADA BASILI OLMAYAN GÖNDERME YAKALANIR", out)
+
+    # (i) pagePrints hiç yoksa — görsel şartname olmadan sayfa denetlenemez
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0].pop("pagePrints")
+    code, out = run_text_gate(QA_INSTRUCTION, base, tmp, d)
+    rep.check(code != 0, "GÖRSEL ŞARTNAMESİZ SAYFA YAKALANIR", out)
+
+
+def part12_language(rep: Report, tmp: str, base: dict) -> None:
+    print("\n⑫ DİL AYRIMI kapısı ısırıyor mu")
+
+    code, out = run_text_gate(QA_LANGUAGE, base, tmp, BOOK_FIXTURE)
+    rep.check(code == 0, "İngilizce sentetik pilot GEÇER", out)
+
+    # (a) ⭑ EN ÖNEMLİ KURGU ⭑ — Türkçe talimat ticari katmana sızmış
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["prompt"] = "Göreviniz: levhadaki altı sayıyı okuyun."
+    code, out = run_text_gate(QA_LANGUAGE, base, tmp, d)
+    rep.check(code != 0, "⭑ TÜRKÇE TALİMAT TİCARİ KATMANDA YAKALANIR", out)
+
+    # (b) Türkçe field note
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][1]["fieldNote"] = ("Bu göller üzerindeki bahçeler yüzmez. "
+                                       "Söğüt kökleri onları yerinde tutar.")
+    code, out = run_text_gate(QA_LANGUAGE, base, tmp, d)
+    rep.check(code != 0, "TÜRKÇE FIELD NOTE YAKALANIR", out)
+
+    # (c) Türkçe ipucu
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["hints"] = ["Kenarlara bak, ortaya değil."]
+    code, out = run_text_gate(QA_LANGUAGE, base, tmp, d)
+    rep.check(code != 0, "TÜRKÇE İPUCU YAKALANIR", out)
+
+    # (d) KÜLTÜREL AD YANLIŞLIKLA SUÇLANMAMALI — kapı ters yönde de doğru
+    #     çalışmalı: Tenochtitlán ve Huarochirí Türkçe DEĞİLDİR.
+    d = copy.deepcopy(BOOK_FIXTURE)
+    d["activities"][0]["fieldNote"] = (
+        "The city of Tenochtitlán sat on a lake. The Huarochirí account and "
+        "Tonacatépetl both keep their own spelling on the page.")
+    code, out = run_text_gate(QA_LANGUAGE, base, tmp, d)
+    rep.check(code == 0, "⭑ KÜLTÜREL DİAKRİTİK TÜRKÇE SANILMAZ", out)
+
+    # (e) ticari dil ile test dili aynı yapılırsa
+    d = copy.deepcopy(base)
+    cfg = copy.deepcopy(d["project_config.json"])
+    cfg["language"]["testOnly"] = ["en"]
+    cfg["language"]["commercial"] = "en"
+    d["project_config.json"] = cfg
+    code, out = run_text_gate(QA_LANGUAGE, d, tmp, BOOK_FIXTURE)
+    rep.check(code != 0, "⭑ TİCARİ DİL = TEST DİLİ GEVŞETMESİ YAKALANIR", out)
+
+    # (f) testçi yokken 'passed' beyanı
+    d = copy.deepcopy(base)
+    cfg = copy.deepcopy(d["project_config.json"])
+    cfg["founder"]["childTesters"]["externalValidation"] = "passed"
+    cfg["founder"]["childTesters"]["availableTesters"] = 0
+    d["project_config.json"] = cfg
+    code, out = run_text_gate(QA_LANGUAGE, d, tmp, BOOK_FIXTURE)
+    rep.check(code != 0, "⭑ TESTÇİ YOKKEN 'PASSED' BEYANI YAKALANIR", out)
+
+
+SEAL_KEY_FIXTURE = {
+    "version": "selftest",
+    "seals": [
+        {"sealId": "seal-jaguar-condor", "region": "jaguar-condor",
+         "word": "CONDOR", "letterCount": 6,
+         "notchPosition": 3, "notchLetter": "N"},
+    ],
+    "finalQuest": {"id": "the-cartographers-seal", "word": "N", "letterCount": 1},
+}
+
+
+def part13_progression(rep: Report, tmp: str, base: dict) -> None:
+    print("\n⑬ MÜHÜR VE KURTARMA kapısı ısırıyor mu")
+
+    # Sentetik anahtar yalnızca TEK bölge taşır; diğer bölgeler yazılmamış
+    # sayılır ve final sözcük tek harftir. Gerçek anahtar depoda YOKTUR.
+    one_region = copy.deepcopy(base)
+    idx = one_region["01_SOURCE/activity_index.json"]
+    reg = one_region["01_SOURCE/region_index.json"]
+    reg["regions"] = [r for r in reg["regions"] if r["id"] == "jaguar-condor"]
+    idx["activities"] = [a for a in idx["activities"]
+                         if a.get("region") == "jaguar-condor"]
+
+    book = {"meta": {"language": "en"}, "activities": []}
+    for a in idx["activities"]:
+        if not a.get("sealSlot"):
+            continue
+        book["activities"].append({"activityId": a["activityId"]})
+    # Yıldızlı sözcükleri CONDOR'u kuracak biçimde ver.
+    letters = "CONDOR"
+    for e in book["activities"]:
+        slot = next(a["sealSlot"] for a in idx["activities"]
+                    if a["activityId"] == e["activityId"])
+        e["sealStarWord"] = letters[slot - 1].lower() + "word"
+        e["sealStarIndex"] = 1
+        e["sealContribution"] = letters[slot - 1]
+
+    code, out = run_text_gate(QA_PROGRESSION, one_region, tmp, book,
+                              SEAL_KEY_FIXTURE)
+    rep.check(code == 0, "temiz mühür kurgusu GEÇER", out)
+
+    # (a) anahtar yokken kapı ATLAR, kırmızı yanmaz (K10)
+    code, out = run_text_gate(QA_PROGRESSION, one_region, tmp, book, None)
+    rep.check(code == 0, "cevap anahtarı yokken kapı atlar", out)
+
+    # (b) ⭑ BOŞ YUVA — çocuk bölgeyi bitiremez
+    d = copy.deepcopy(one_region)
+    for a in d["01_SOURCE/activity_index.json"]["activities"]:
+        if a.get("sealSlot") == 4:
+            a.pop("sealSlot")
+            break
+    code, out = run_text_gate(QA_PROGRESSION, d, tmp, book, SEAL_KEY_FIXTURE)
+    rep.check(code != 0, "⭑ BOŞ MÜHÜR YUVASI YAKALANIR", out)
+
+    # (c) ⭑ HASAR YARIÇAPI — bir aktivite iki yuva besliyor
+    #     Tek bir hata İKİ harfi bozar ve çocuk hangi sayfaya döneceğini
+    #     bulamaz. Bu, "felâket kapısı yok" ölçütünün ihlalidir.
+    d = copy.deepcopy(one_region)
+    acts = d["01_SOURCE/activity_index.json"]["activities"]
+    donor = next(a for a in acts if a.get("sealSlot") == 6)
+    taker = next(a for a in acts if a.get("sealSlot") == 5)
+    donor.pop("sealSlot")
+    taker["sealSlot"] = 5
+    dup = copy.deepcopy(taker)
+    dup["activityId"] = taker["activityId"]
+    acts.append({**taker, "sealSlot": 6})
+    code, out = run_text_gate(QA_PROGRESSION, d, tmp, book, SEAL_KEY_FIXTURE)
+    rep.check(code != 0, "⭑ TEK AKTİVİTE İKİ YUVA BESLEYEMEZ (hasar yarıçapı 2)",
+              out)
+
+    # (d) türetilen harf bölge sözcüğüyle uyuşmuyor
+    d = copy.deepcopy(book)
+    d["activities"][0]["sealStarWord"] = "zebra"
+    d["activities"][0]["sealStarIndex"] = 1
+    code, out = run_text_gate(QA_PROGRESSION, one_region, tmp, d,
+                              SEAL_KEY_FIXTURE)
+    rep.check(code != 0, "⭑ YANLIŞ TÜRETİLEN MÜHÜR HARFİ YAKALANIR", out)
+
+    # (e) çentik harfi sözcükle uyuşmuyor
+    k = copy.deepcopy(SEAL_KEY_FIXTURE)
+    k["seals"][0]["notchLetter"] = "Z"
+    code, out = run_text_gate(QA_PROGRESSION, one_region, tmp, book, k)
+    rep.check(code != 0, "YANLIŞ ÇENTİK HARFİ YAKALANIR", out)
+
+    # (f) ⭑ ZİNCİRLEME SAYFA — tek hata çocuğu kilitler
+    d = copy.deepcopy(book)
+    d["activities"][1]["prompt"] = ("Your mission: use your answer from page 1 "
+                                    "to label the garden.")
+    d["activities"][1]["steps"] = ["Write the four labels from the word bank."]
+    code, out = run_text_gate(QA_PROGRESSION, one_region, tmp, d,
+                              SEAL_KEY_FIXTURE)
+    rep.check(code != 0, "⭑ ZİNCİRLEME BAĞIMLILIK YAKALANIR "
+                         "(bir hata kitabı kilitleyemez)", out)
+
+    # (g) tek hatadan kurtarılamayacak kadar kısa mühür sözcüğü
+    k = copy.deepcopy(SEAL_KEY_FIXTURE)
+    k["seals"][0]["word"] = "CON"
+    k["seals"][0]["letterCount"] = 3
+    k["seals"][0]["notchPosition"] = 3
+    k["seals"][0]["notchLetter"] = "N"
+    code, out = run_text_gate(QA_PROGRESSION, one_region, tmp, book, k)
+    rep.check(code != 0, "KURTARILAMAYACAK KADAR KISA MÜHÜR SÖZCÜĞÜ YAKALANIR",
+              out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -896,6 +1343,29 @@ def main() -> int:
                 part8_page_budget(rep, tmp, base)
         if os.path.isfile(QA_READABILITY):
             part9_readability(rep, tmp)
+
+        # ⑩–⑬ Faz 2 kapıları. Kapı VARSA test edilmek ZORUNDADIR:
+        # test edilmemiş bir kapı yok sayılır (D7).
+        p2 = [("qa_solvable.py", QA_SOLVABLE), ("qa_instruction.py", QA_INSTRUCTION),
+              ("qa_language.py", QA_LANGUAGE), ("qa_progression.py", QA_PROGRESSION)]
+        p2_present = [n for n, p in p2 if os.path.isfile(p)]
+        if p2_present and not real_data_available():
+            rep.check(False, "Faz 2 kapıları var ama dizinler yok — "
+                             "TEST EDİLEMEYEN KAPI: %s" % p2_present)
+        elif p2_present:
+            base2 = with_config(load_real())
+            if os.path.isfile(QA_SOLVABLE):
+                part10_solvable(rep, tmp, base2)
+            if os.path.isfile(QA_INSTRUCTION):
+                part11_instruction(rep, tmp, base2)
+            if os.path.isfile(QA_LANGUAGE):
+                part12_language(rep, tmp, base2)
+            if os.path.isfile(QA_PROGRESSION):
+                part13_progression(rep, tmp, base2)
+            if os.path.isfile(QA_AGE):
+                part5b_attribution(rep, tmp, base2)
+        else:
+            print("\n⑩–⑬ Faz 2 kapıları henüz doğmadı — ATLANDI")
 
     part4_no_dead_exemptions(rep)
 

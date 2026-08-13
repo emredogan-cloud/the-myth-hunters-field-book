@@ -5,6 +5,120 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [0.2.0] — 2026-08-13 · Faz 2 · Pilot: Jaguar and Condor + kapı seti
+
+**16 sayfa yazıldı ve kilitlendi.** Bir bölgenin tamamı, üç kontrollü
+partide. Kapı **`phase1`'de KALDI** — gerekçe § *Değişmeyen* altında.
+
+### Karar — kurucu
+
+- **A3 → K18** · altı bölge ve **37 mühür yuvası KİLİTLENDİ**
+- **A8 → K19** · **148 sayfa kabul edildi**, telif 5,55 $ → **5,48 $**.
+  `pageTarget` 144 → 148, `BRIEF § 7` aynı sayılara güncellendi ve
+  `page_budget.py`'nin kalıcı uyarısı **sustu**
+- **A9 (yeni)** · fizikî prova **kurucuya aittir** — ajan sipariş etmez,
+  yapıldığını iddia etmez, geri bildirim uydurmaz
+- **A7** · **0 çocuk testçi**. Paket hazır, test **koşturulmadı**,
+  dış doğrulama **BEKLİYOR** — PASS değil
+
+### Eklendi — kapılar
+
+- **`qa_solvable.py`** — tek cevaplılık · ipucu sızıntısı ·
+  **mühür harfinin yeniden hesaplanması**
+- **`qa_instruction.py`** — emir kipi · adım birliği · edilgen sürüklenme ·
+  yazma alanı
+- **`qa_language.py`** — ticari katman İngilizce mi · **testçi yokken
+  test materyali üretilmiş mi**
+- **`qa_progression.py`** — yuva bütünlüğü · harf türevi · çentik ·
+  **hasar yarıçapı** · **zincirleme bağımlılık**
+- **`region_difficulty.py`** — pilot bölgesi HESAPLANIR (ölçüm, kapı değil)
+- **`child_test_pack.py`** — testçi paketi üreteci; **testçi onayı yokken
+  Türkçe materyal üretmeyi REDDEDER** (çıkış 3)
+- **`validate_research.py § ⑩`** — **iddia zinciri**: kilitli bir sayfanın
+  her iddiası bir kanıt kaydına bağlı mı
+- **`qa_matrix.py § ⑧`** — **seçilebilirlik**: zorluk × kota × tip
+  BİRLİKTE sağlanabiliyor mu
+- `selftest.py` **70 → 111 denetim**; her yeni kapının her dalı için
+  kusur taşıyan kurgu
+
+### Eklendi — içerik ve kanıt
+
+- **`02_MANUSCRIPT/book.json`** — 16 sayfa + bölge açılışı · **depo dışı**
+- **`01_SOURCE/research/jaguar-condor-revalidation.json`** — **13 iddia**,
+  her biri kaynağı ve erişim tarihiyle künyeli · **depoda durur**
+- **`03_EDITORIAL/CHILD_TEST_PROTOCOL.md`** · **`CHILD_TEST_LOG.md`**
+  (0 oturum) · **`AGE_REVIEW_LOG.md`**
+- `activity.schema.json` **v2.0 → v2.1** — `claimRefs` alanı
+
+### Düzeltildi — İÇ EDİTORYAL İNCELEME (61 bulgu · 14 bloklayıcı)
+
+Bağımsız bir alt-ajan 16 sayfayı sekiz yaşındaki bir çocuk gibi harfi
+harfine okudu. **On üç kapı yeşilken 16 sayfanın 11'i çözülemezdi.**
+
+- **Mühür kuralı çocuğa HİÇ basılmıyordu** — `$comment` ve `meta` içinde
+  duruyordu; çocuk altı kutuya altı sözcük yazıp CONDOR'u hiç kurmazdı.
+  Artık bölge açılışında ve her yıldızlı kutunun yanında basılı
+- **`aztec-number-signs` çarpmayı hiç söylemiyordu** — "Add the three
+  counts" 1+2+1 = **4** veriyordu; doğru cevap 8820
+- **Beş field note görevin cevabını veriyordu** — çocuk düşünmüyor,
+  kopyalıyordu
+- **Atıf 16 sayfanın 11'inde yoktu** — tasarım katmanı
+  `attributionRequired: true` diyordu ama kültür adı sayfada geçmiyordu
+- **"the key" sayfada olmayan bir anahtarı gösteriyordu** — beş sayfada
+  benzer gönderme kusuru
+- `tetl + nochtli` birleştirilemiyordu ("tetlnochtli"); adım eşleştirmeye
+  çevrildi
+- Üç yıldız talimatı **iki farklı sözcüğe** uyuyordu ve her biri farklı
+  bir mühür harfi üretiyordu
+- 16 sayfanın hepsinde ipucu vardı; `ACTIVITY_TAXONOMY § 5` yalnızca
+  ★★★ için ipucu tanımlıyor → 4 sayfaya indirildi
+
+### Eklendi — incelemeden doğan üç kapı
+
+- **`qa_instruction § ⑨`** — belirtili gönderme sayfada basılı mı;
+  yeni **`pagePrints`** alanı (16 sayfa · 67 madde) hem kapı girdisi hem
+  **Faz 5 görsel şartnamesi**
+- **`qa_solvable § ⑧`** — field note cevabı söylüyor mu
+- **`qa_age § ⑨`** — atıf zorunluysa kültür adı **sayfada** geçiyor mu
+- `selftest.py` **106 → 111 denetim**
+
+### Düzeltildi — kapıların bulduğu altı kusur
+
+1. **Seçilebilirlik boşluğu** — `jaguar-condor`'un zorluk profili, kültür
+   kotaları ve tip asgarileri **ayrı ayrı** sağlanıyordu ama kesişimleri
+   **boştu**: geçerli hiçbir 16'lık kitap seçimi yoktu. İki aday
+   editoryal gerekçeyle taşındı; `qa_matrix § ⑧` doğdu
+2. **Amblem glifi kent adı sanılıyordu** — bir amblem glifi bir
+   **krallığı** adlandırır, harabelerin bugünkü adını değil
+3. **400 işareti 'tüy' deniyordu** — *tzontli* **saç** demektir; kaynaklar
+   işareti "tüy ya da saç" diye tarif ediyor
+4. **Top oyununun kuralları 'bilinmiyor' sayılıyordu** — Aztek oyununun
+   kuralları 16. yüzyılda **görgü tanığıyla yazıldı**; bilinmeyen şey
+   yedi yüz yıl önceki Maya oyununun aynı olup olmadığı
+5. **Kehanet adımı bir sıralama görevinin içindeydi** — Oxomoco ve
+   Cipactonal'ın fal adımı çocuğa görünen diziden çıkarıldı
+6. **`qa_instruction § ②` ölü doğmuştu** — "metinde 'you' var mı" diye
+   soruyordu ve `Your mission:` kalıbı yüzünden **hiçbir koşulda**
+   yanamıyordu. Edilgen/kişisiz tarayıcıya çevrildi
+
+### Değişti
+
+- `page_budget.py` telif dayanağını artık **config'ten okuyor**, gömmüyor;
+  sapma uyarısı **yön duyarlı** (model ucuzladığında "kıs" demiyor)
+- `page_budget.py` bir bölgenin seçimi kilitlendiğinde **havuz ortalaması
+  yerine gerçek seçimi** ölçüyor
+- `STYLE.md` **v1.1 → v1.2** — mühür kuralı ve talimat tabanı eklendi.
+  **v2.0 DEĞİL**: o numara ilk gerçek çocuk oturumuna ayrıldı
+- Faz 1 mimari pilotu `09_ARCHIVE`'a alındı — Faz 2 ölçümü karışmasın
+
+### Değişmeyen — ve neden
+
+- **`.gate` `phase1`'de KALDI.** `phase2` kapısı 20 yazılmış aktivite ve
+  **geçen bir çocuk testi** ister. 16 sayfa yazıldı ve çocuk testi
+  yapılamadı. Kapıyı yükseltmek, yapılmamış bir testi geçmiş saymaktır
+- Devralınan 69 kayıt hâlâ `inherited-provisional` — doğrulama **kullanıma
+  göre** ilerler, toptan değil
+
 ## [0.1.0] — 2026-08-13 · Faz 1 · Devralma mimarisi, taksonomi, yaş çerçevesi
 
 **Kitap yazılmadı.** Bu fazın işi, üretim başlamadan önce mimarinin

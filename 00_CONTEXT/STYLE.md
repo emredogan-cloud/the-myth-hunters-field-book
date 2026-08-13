@@ -1,11 +1,23 @@
 # STYLE — The Myth Hunter's Field Book
 
-> Sürüm **1.1 · Faz 1 pilot kalibrasyonu** · 13 Ağustos 2026.
-> Faz 2'de **çocuk testiyle** yeniden kalibre edilir ve v2.0 olur.
+> Sürüm **1.2 · Faz 2 pilot ölçümü** · 13 Ağustos 2026.
 > `project_config.json § style` ve `§ safety` ile senkron kalmalıdır.
 >
-> v1.0 → v1.1'de değişen tek şey § 3'tür: tek okunabilirlik bandı,
-> **üç ayrı register bandına** ayrıldı. Gerekçe ölçümdür, tercih değil.
+> v1.1 → v1.2'de bantlar **DEĞİŞMEDİ**. Değişen şey, bantların artık 5
+> değil **16 gerçek sayfayla** ölçülmüş olması ve iki yeni kuralın
+> (§ 2.1 mühür kuralı · § 3.1 talimat tabanı) eklenmesidir.
+>
+> ---
+>
+> ### ⚠ BU BELGE v2.0 DEĞİLDİR VE OLAMAZ
+>
+> Yol haritası Faz 2 teslimatını *"`STYLE.md` v2.0 — **ölçümle** kalibre"*
+> diye tanımlıyor ve o ölçümün adı **çocuk testidir**.
+>
+> **Çocuk testi yapılmadı** (karar A7 · 0 testçi). Bu belgeyi v2.0
+> numaralamak, yapılmamış bir testin sonucunu ima etmek olurdu.
+>
+> v2.0 numarası **ilk gerçek çocuk oturumuna ayrılmıştır**.
 
 ---
 
@@ -35,6 +47,36 @@ Write your answer …    → yazma alanı yönlendirmesi
 Talimatlar emir kipinde ve ikinci tekil şahıstadır:
 *Solve the cipher.* · *Draw the creature.* · *Match each name to its culture.*
 
+`qa_instruction.py § ①` adımın **tanınmış bir emir fiiliyle** başlamasını
+şart koşar. Liste kapalıdır; yeni bir fiil eklemek bilinçli bir karardır.
+
+---
+
+## 2.1 · Mühür kuralı — **çocuk bunu bir kez öğrenir, altı kez kullanır**
+
+Faz 2 mühür harfinin sayfaya nasıl bağlandığını dondurdu:
+
+```
+Mühür taşıyan her sayfada YILDIZLI bir kutu vardır.
+Yıldızın içindeki küçük sayı, o kutuya yazılan sözcüğün
+KAÇINCI harfinin mühre gideceğini söyler.
+```
+
+**Yıldızlı kutuya yazılan sözcük sayfada BASILIDIR** — bir etiket, bir
+sözcük bankası girdisi veya anahtarın bir satırı. Çocuk onu **kopyalar,
+üretmez**.
+
+Üç şeyi birden çözdüğü için böyle:
+
+| Sorun | Nasıl çözülüyor |
+|---|---|
+| Yanlış yazım | Sözcük basılı; çocuk harf uydurmuyor |
+| Diakritik kazası | Aynı gerekçe — kopyalanan şey doğrudur |
+| Sayısal cevaptan harf çıkarma | Cevap sayı olsa bile yıldızlı kutu **sözcük** ister |
+
+`qa_solvable.py § ⑦` harfi **yeniden hesaplar** ve elle yazılmış bir
+`sealContribution` ile ayrıldığı an kırmızı yanar.
+
 ---
 
 ## 3 · Ölçülen bantlar — **register register**
@@ -48,11 +90,19 @@ kelime/cümle ve FK 2,95 çıktı — "bandın altında".
 
 Kusur metinde değil ölçümdeydi. Sayfada **üç ayrı register** var:
 
-| Register | Ölçülen (pilot) | Bant | Kapı |
-|---|---:|---|---|
-| **Talimat** (`Your mission:` + adımlar) | 6,96 kelime · FK 2,03 | 5–11 kelime · FK ≤ 4,0 | `qa_readability` |
-| **Field note** (kültürel bilgi) | 10,36 kelime · FK 4,70 | 9–14 kelime · FK 3,0–5,9 | `qa_readability` |
-| **İpucu** | 9,38 kelime · FK 2,86 | FK ≤ 4,5 | `qa_readability` |
+| Register | Faz 1 (5 sayfa) | **Faz 2 (16 sayfa)** | Bant | Kapı |
+|---|---:|---:|---|---|
+| **Talimat** (`Your mission:` + adımlar) | 6,96 · FK 2,03 | **6,42 · FK 0,75** | 5–11 kelime · FK ≤ 4,0 | `qa_readability` |
+| **Field note** (kültürel bilgi) | 10,36 · FK 4,70 | **11,45 · FK 4,02** | 9–14 kelime · FK 3,0–5,9 | `qa_readability` |
+| **İpucu** | 9,38 · FK 2,86 | **7,34 · FK 1,63** | FK ≤ 4,5 | `qa_readability` |
+
+Üç register de bantta. Ama iki hareket var ve ikisi de **kasıtlıdır**:
+
+- **Field note yukarı çıktı** (4,70 → 4,02'ye düştü ama kelime 10,36 →
+  11,45'e çıktı). Kültürel bilgi kutuları daha uzun, daha somut cümlelerle
+  yazıldı ve daha az soyut sözcük kullandı.
+- **Talimat aşağı indi** (2,03 → 0,75). Adımlar tek işleme indirildi ve
+  çok heceli sözcükler talimattan **field note'a taşındı**.
 
 ### Ve bir değişmez
 
@@ -61,16 +111,39 @@ fk(talimat)  <  fk(field note)
 ```
 
 **Bir talimat, tanıttığı içerikten daha zor olamaz.** Olursa çocuk görevi
-değil cümleyi çözmeye çalışır. Pilotta 2,03 < 4,70 — geçti.
+değil cümleyi çözmeye çalışır. Faz 1'de 2,03 < 4,70; Faz 2'de
+**0,75 < 4,02** — arada üç sınıflık bir boşluk var ve bu boşluk kasıtlıdır.
 
-| Diğer ölçüt | Hedef | Kapı |
-|---|---|---|
-| Talimat cümlesi azami | **18 kelime** (pilotta en uzun 11) | `qa_readability` · `qa_age` |
-| Adım sayısı | ≤4; ★ için ≤2 | `qa_age` |
-| Field note boyu | 15–35 kelime (~25) | `qa_readability` |
-| Üç heceli sözcük oranı | ≤ %20 (pilotta %3,9) | `qa_readability` |
-| Bölge açılışı | ~150 kelime | `qa_length` (Faz 2) |
-| ★★★ oranı (bölüm içi) | ≤ %30 | `qa_age` |
+---
+
+## 3.1 · Talimat registerinin TABANI yoktur — ve bu bilinçli
+
+Faz 2 talimat FK'sı **0,75**'e indi. Bant yalnızca bir tavan taşıyor
+(≤ 4,0) ve bir taban **eklenmeyecek**.
+
+Gerekçe: bir talimatın kolaylığının alt sınırı yoktur.
+
+> *"Count the dots beside each basket."*
+
+Yedi kelime, hepsi tek heceli, FK ölçeğinde neredeyse sıfır. Ve sekiz
+yaşındaki için **doğru cümle budur**. Onu zorlaştırmak metni kötüleştirir.
+
+Ölçülmesi gereken şey talimatın kolaylığı değil, talimat ile içerik
+**arasındaki mesafedir** — onu da değişmez ölçüyor.
+
+> **Bir metriğe taban koymak, metriği hedefe çevirir.**
+> Bu kitapta hedef metrik değil, çocuğun görevi anlamasıdır.
+
+| Diğer ölçüt | Hedef | Faz 2 ölçümü | Kapı |
+|---|---|---:|---|
+| Talimat cümlesi azami | **18 kelime** | **11** | `qa_readability` · `qa_instruction` |
+| Adım sayısı | ≤4; ★ için ≤2 | ort **2,69** · azami 3 | `qa_instruction` · `qa_age` |
+| Field note boyu | 15–35 kelime (~25) | **20–27** · ort 23,6 | `qa_readability` |
+| Üç heceli sözcük oranı | ≤ %20 | **%2,0** | `qa_readability` |
+| Bölge açılışı | ~150 kelime | **145** | ölçüldü |
+| ★★★ oranı (bölüm içi) | ≤ %30 | **%25,0** | `qa_age` |
+| Adım tek işlem mi | zorunlu | 16/16 | `qa_instruction § ⑥` |
+| Yazma alanı var mı | zorunlu | 16/16 | `qa_instruction § ⑧` |
 
 ---
 

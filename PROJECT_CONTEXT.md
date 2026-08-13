@@ -60,17 +60,33 @@ Fırsat skoru **6,0/10** — üçünün en düşüğü, **ve bu bilinçlidir**.
 
 | | |
 |---|---|
-| Faz | **1 · TAMAM** — mimari kuruldu, Faz 2 **başlamadı** |
-| Kapı (`.gate`) | `phase1` |
+| Faz | **2 · TEKNİK PİLOT TAMAM** — çocuk doğrulaması **BEKLİYOR** |
+| Kapı (`.gate`) | `phase1` — **bilerek yükseltilmedi** |
 | Aday aktivite | **168** / ≥160 ✅ |
-| Kilitli / yazılmış | **0** / 120 — *Faz 1'de aktivite yazılmaz* |
-| Devralınan kayıt | **76** (22 kültür + 54 hikâye), hepsi sha256'lı |
+| Kilitli / yazılmış | **16** / 120 — `jaguar-condor` bölgesinin tamamı |
+| Devralınan kayıt | **76**; **7'si Faz 2'de yeniden doğrulandı** |
+| Doğrulanmış iddia | **13** · 10 teyit · **3 DÜZELTME** |
 | Kültür · bölge | **22** · **6** ✅ |
-| Sayfa modeli | **148** (hedef 144 ±%6) ✅ |
-| Kapı öz-testi | **70 denetim yeşil** |
-| **Sonraki adım** | **KURUCU ONAYI (A3, A7)** → sonra Faz 2 |
+| Sayfa modeli | **144** ölçüldü (hedef 148 ±%6) ✅ · 1/6 bölge gerçek |
+| Kapı öz-testi | **106 denetim yeşil** |
+| Çocuk testi | ⏳ **0 testçi · DIŞ DOĞRULAMA BEKLİYOR** |
+| **Sonraki adım** | **KURUCU: A7 (çocuk testçi)** → sonra Faz 3 |
 
-⚠ **Faz 2 BAŞLAMADI ve kurucu onayı olmadan başlamaz.**
+⚠ **FAZ 2 TAM OLARAK KAPANMADI ve kapanamaz.**
+
+Teknik pilot geçti: 16 sayfa yazıldı, 13 kapı yeşil, mühür uçtan uca
+doğrulandı. Ama Faz 2'nin PASS ölçütü *"çocuk testinde ≥%80 yardımsız
+anlaşılma"* der ve **0 testçi** var.
+
+```
+TEKNİK PİLOT           ✅ GEÇTİ
+DIŞ ÇOCUK DOĞRULAMASI  ⏳ BEKLİYOR   ← bu ikisi TOPLANMAZ
+```
+
+`.gate` bu yüzden `phase1`'de bırakıldı: kapıyı yükseltmek, yapılmamış
+bir testi geçmiş saymak olurdu.
+
+Faz 2 raporu: [`06_REPORTS/PHASE_2_REPORT.md`](06_REPORTS/PHASE_2_REPORT.md)
 Faz 1 raporu: [`06_REPORTS/PHASE_1_REPORT.md`](06_REPORTS/PHASE_1_REPORT.md)
 
 ### Faz 1'in kurduğu altı katman
@@ -189,10 +205,11 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 |---|---|---|---|
 | ~~A1~~ | ~~Manuscript public depoda mı duracak?~~ | — | ✅ **kapandı → K11** |
 | ~~A2~~ | ~~Devralma politikası onayı~~ | — | ✅ **kapandı → K12** |
-| **A3** | **6 bölge ve mühür mimarisi onayı** | kurucu | **şimdi** |
-| **A4** | 168 adaydan 120'sinin nihai seçimi | kurucu | Faz 2 başlarken |
-| **A8** | 148 sayfa kabul mü, 4 sayfa kısılsın mı | kurucu | Faz 2 |
-| **A7** | **≥2 çocuk testçi** | kurucu | **Faz 2 SERT BLOKLAYICI** |
+| ~~A3~~ | ~~6 bölge ve mühür mimarisi onayı~~ | — | ✅ **kapandı → K18** |
+| ~~A8~~ | ~~148 sayfa kabul mü~~ | — | ✅ **kapandı → K19** |
+| **A4** | 168 adaydan 120'sinin nihai seçimi | kurucu | Faz 3 başlarken · pilot 16'sını seçti |
+| **A7** | **≥2 çocuk testçi** | kurucu | **AÇIK · paket hazır, test koşmadı** |
+| **A9** | **fizikî prova** | kurucu | Faz 5–6 · **kurucuya ait** |
 | A5 | Ciltli hediye sürümü | kurucu | Faz 4 |
 | A6 | Yazar biyografisi metni | kurucu | Faz 5 |
 | — | İki ebeveyn okuması | kurucu | Faz 5 |
@@ -203,14 +220,19 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 
 ## 11 · Sonraki izinli eylem
 
-> **KURUCU ONAYI BEKLENİYOR.**
+> **KURUCU ONAYI BEKLENİYOR — A7.**
 >
-> Faz 1 tamamlandı ve CI yeşil. Faz 2 **başlatılmadı**.
+> Faz 2'nin teknik pilotu tamamlandı ve CI yeşil. **Faz 3 başlatılmadı.**
 >
-> Bekleyen iki karar:
-> 1. **A3** — altı bölge ve mühür mimarisi onayı ([`DECISIONS.md § A3`](DECISIONS.md))
-> 2. **A7** — ≥2 çocuk testçi. **Faz 2'nin sert bloklayıcısıdır**; testçi
->    bulunamazsa Faz 2 bloklanır ve **sahte test kaydı üretilmez**
+> Bekleyen tek şey:
+> **A7 — en az iki çocuk testçi.** Test paketi hazır
+> ([`03_EDITORIAL/CHILD_TEST_PROTOCOL.md`](03_EDITORIAL/CHILD_TEST_PROTOCOL.md)),
+> kayıt defteri açık ve **boş**. Testçi bulunamazsa dış doğrulama
+> beklemede kalır ve **sahte test kaydı üretilmez**.
+>
+> Testçiler Türkçe konuşuyorsa tester-facing materyal geçici olarak
+> Türkçe üretilebilir (K21) — `child_test_pack.py --lang tr`, ki o betik
+> kurucu onayı gelene kadar üretmeyi **reddeder**.
 >
 > Onay geldiğinde ilk iş: `faz/2-pilot` dalını açmak ve **en zor bölgeyi**
 > seçmek — kolay bölgeyle kalibre edilen bir şablon zor bölgede kırılır.

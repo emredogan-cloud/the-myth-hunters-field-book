@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checks": 22,
+  "checks": 23,
   "errors": [],
   "warnings": [],
   "facts": {
@@ -20,6 +20,7 @@
     },
     "sealSlotsTotal": 37,
     "openEnded": 25,
-    "openEndedRatio": 0.149
+    "openEndedRatio": 0.149,
+    "regionsSelectable": 6
   }
 }

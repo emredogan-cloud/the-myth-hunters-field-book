@@ -10,7 +10,7 @@
     "",
     "Sözleşme: 00_CONTEXT/INHERITANCE_ARCHITECTURE.md"
   ],
-  "manifestVersion": "1.0",
+  "manifestVersion": "1.1",
   "sourceProject": "THE-GREAT-BOOK-OF-WORLD-MYTHS",
   "sourceRepo": "emredogan-cloud/the-great-book-of-world-myths",
   "sourceRoot": "../THE-GREAT-BOOK-OF-WORLD-MYTHS",
@@ -19,7 +19,7 @@
   "generatedBy": "04_BUILD/import_from_world_myths.py",
   "counts": {
     "culture": 22,
-    "status_inherited-provisional": 76,
+    "status_inherited-provisional": 69,
     "tier_A": 47,
     "tier_B": 16,
     "tier_C": 13,
@@ -27,7 +27,10 @@
     "total": 76,
     "answerSourceEligible": 39,
     "activityExcluded": 2,
-    "forbiddenLayerFlagged": 20
+    "forbiddenLayerFlagged": 20,
+    "status_inherited-verified": 7,
+    "status_new-researched": 0,
+    "revalidatedAtPhase2": 7
   },
   "records": [
     {
@@ -79,8 +82,8 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "8ee09773e40048cae27327a0cbab70142131a764d67576eb634699e3d3c4e0e2",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
-      "reviewStatus": "screened",
+      "status": "inherited-verified",
+      "reviewStatus": "revalidated",
       "inheritedFields": [
         "id",
         "name",
@@ -93,9 +96,16 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "altitudeBands",
+        "mapPoint",
+        "notationValues",
+        "readingDirection",
+        "regionNames",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase2-agent",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -106,7 +116,12 @@
         "glossary",
         "map"
       ],
-      "note": "Kültür künyesi ve kısıt değerlendirmesi devralındı. Ad yazımı ve harita noktası çocuğun deftere yazacağı şeye dönüşürse yeniden doğrulama ZORUNLUDUR."
+      "note": "Kültür künyesi ve kısıt değerlendirmesi devralındı. Ad yazımı ve harita noktası çocuğun deftere yazacağı şeye dönüşürse yeniden doğrulama ZORUNLUDUR.",
+      "revalidationRecord": "01_SOURCE/research/jaguar-condor-revalidation.json",
+      "revalidationClaims": [
+        "CLM-ANDEAN-ALTITUDE",
+        "CLM-ANDEAN-KHIPU"
+      ]
     },
     {
       "recordId": "culture-aztec",
@@ -118,8 +133,8 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "249a7f12cc331f51c6446d80752119cbf9e6f773f026aa013f0b5363286634a3",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
-      "reviewStatus": "screened",
+      "status": "inherited-verified",
+      "reviewStatus": "revalidated",
       "inheritedFields": [
         "id",
         "name",
@@ -132,9 +147,20 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "agricultureTechnique",
+        "cityLayout",
+        "mapPoint",
+        "nameSpelling",
+        "notationValues",
+        "placeGlyphElements",
+        "placeNames",
+        "plantNames",
+        "signNames",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase2-agent",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -145,7 +171,14 @@
         "glossary",
         "map"
       ],
-      "note": "Kültür künyesi ve kısıt değerlendirmesi devralındı. Ad yazımı ve harita noktası çocuğun deftere yazacağı şeye dönüşürse yeniden doğrulama ZORUNLUDUR."
+      "note": "Kültür künyesi ve kısıt değerlendirmesi devralındı. Ad yazımı ve harita noktası çocuğun deftere yazacağı şeye dönüşürse yeniden doğrulama ZORUNLUDUR.",
+      "revalidationRecord": "01_SOURCE/research/jaguar-condor-revalidation.json",
+      "revalidationClaims": [
+        "CLM-AZTEC-CAUSEWAY",
+        "CLM-AZTEC-CHINAMPA",
+        "CLM-AZTEC-NUMSIGN",
+        "CLM-AZTEC-PLACEGLYPH"
+      ]
     },
     {
       "recordId": "culture-chinese",
@@ -586,8 +619,8 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "eb062f8ea6fd3900258e99c56cf03506061d69c4f7a08b87e3dec8232b23b811",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
-      "reviewStatus": "screened",
+      "status": "inherited-verified",
+      "reviewStatus": "revalidated",
       "inheritedFields": [
         "id",
         "name",
@@ -600,9 +633,16 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "ballcourtArchitecture",
+        "ballgameEvidence",
+        "emblemGlyphSemantics",
+        "notationValues",
+        "readingDirection",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase2-agent",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -613,7 +653,13 @@
         "glossary",
         "map"
       ],
-      "note": "Kültür künyesi ve kısıt değerlendirmesi devralındı. Ad yazımı ve harita noktası çocuğun deftere yazacağı şeye dönüşürse yeniden doğrulama ZORUNLUDUR."
+      "note": "Kültür künyesi ve kısıt değerlendirmesi devralındı. Ad yazımı ve harita noktası çocuğun deftere yazacağı şeye dönüşürse yeniden doğrulama ZORUNLUDUR.",
+      "revalidationRecord": "01_SOURCE/research/jaguar-condor-revalidation.json",
+      "revalidationClaims": [
+        "CLM-MAYA-BALLCOURT",
+        "CLM-MAYA-EMBLEM",
+        "CLM-MAYA-NUM"
+      ]
     },
     {
       "recordId": "culture-mesopotamian",
@@ -1012,8 +1058,8 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
-      "reviewStatus": "screened",
+      "status": "inherited-verified",
+      "reviewStatus": "revalidated",
       "inheritedFields": [
         "id",
         "title",
@@ -1034,9 +1080,14 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "canonicalVersion",
+        "placeNames",
+        "sequence",
+        "sourceLocator"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase2-agent",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -1055,7 +1106,11 @@
       "pronunciationCount": 6,
       "activityExcludedReason": null,
       "forbiddenLayer": "yaşayan tören takvimi aktiviteye çevrilemez",
-      "note": "Anlatı katmanı devralındı. Telaffuz ve ad yazımı yeniden doğrulanmadan cevap üretemez."
+      "note": "Anlatı katmanı devralındı. Telaffuz ve ad yazımı yeniden doğrulanmadan cevap üretemez.",
+      "revalidationRecord": "01_SOURCE/research/jaguar-condor-revalidation.json",
+      "revalidationClaims": [
+        "CLM-ANDEAN-FLOOD"
+      ]
     },
     {
       "recordId": "story-aztec-fifth-sun",
@@ -1128,8 +1183,8 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
-      "reviewStatus": "screened",
+      "status": "inherited-verified",
+      "reviewStatus": "revalidated",
       "inheritedFields": [
         "id",
         "title",
@@ -1150,9 +1205,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "canonicalVersion",
+        "placeNames",
+        "sequence"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase2-agent",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -1169,7 +1228,11 @@
       "pronunciationCount": 3,
       "activityExcludedReason": null,
       "forbiddenLayer": null,
-      "note": "Anlatı katmanı devralındı. Telaffuz ve ad yazımı yeniden doğrulanmadan cevap üretemez."
+      "note": "Anlatı katmanı devralındı. Telaffuz ve ad yazımı yeniden doğrulanmadan cevap üretemez.",
+      "revalidationRecord": "01_SOURCE/research/jaguar-condor-revalidation.json",
+      "revalidationClaims": [
+        "CLM-AZTEC-MAIZE"
+      ]
     },
     {
       "recordId": "story-chinese-houyi-change",
@@ -2961,8 +3024,8 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
-      "reviewStatus": "screened",
+      "status": "inherited-verified",
+      "reviewStatus": "revalidated",
       "inheritedFields": [
         "id",
         "title",
@@ -2983,9 +3046,11 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "culturalNote"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase2-agent",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -3007,7 +3072,11 @@
       "pronunciationCount": 6,
       "activityExcludedReason": null,
       "forbiddenLayer": "yeraltı işkence sınavlarının betimlenmesi",
-      "note": "Anlatı katmanı devralındı. Telaffuz ve ad yazımı yeniden doğrulanmadan cevap üretemez."
+      "note": "Anlatı katmanı devralındı. Telaffuz ve ad yazımı yeniden doğrulanmadan cevap üretemez.",
+      "revalidationRecord": "01_SOURCE/research/jaguar-condor-revalidation.json",
+      "revalidationClaims": [
+        "CLM-MAYA-HEROTWINS-CONTEXT"
+      ]
     },
     {
       "recordId": "story-maya-hurakan-storm",
@@ -3077,8 +3146,8 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
-      "reviewStatus": "screened",
+      "status": "inherited-verified",
+      "reviewStatus": "revalidated",
       "inheritedFields": [
         "id",
         "title",
@@ -3099,9 +3168,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "canonicalVersion",
+        "sequence"
+      ],
+      "revalidatedAt": "2026-08-13",
+      "revalidatedBy": "phase2-agent",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -3121,7 +3193,11 @@
       "pronunciationCount": 4,
       "activityExcludedReason": null,
       "forbiddenLayer": null,
-      "note": "Anlatı katmanı devralındı. Telaffuz ve ad yazımı yeniden doğrulanmadan cevap üretemez."
+      "note": "Anlatı katmanı devralındı. Telaffuz ve ad yazımı yeniden doğrulanmadan cevap üretemez.",
+      "revalidationRecord": "01_SOURCE/research/jaguar-condor-revalidation.json",
+      "revalidationClaims": [
+        "CLM-MAYA-POPOLVUH"
+      ]
     },
     {
       "recordId": "story-meso-etana-eagle",

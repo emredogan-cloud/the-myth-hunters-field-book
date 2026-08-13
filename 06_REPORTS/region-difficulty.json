@@ -1,0 +1,146 @@
+{
+  "status": "measured",
+  "selectionRule": "highest intensityScore",
+  "pilotRegion": "jaguar-condor",
+  "runnerUp": "great-ocean",
+  "intensityMargin": 8.55,
+  "heaviestBurden": "monsoon",
+  "rows": [
+    {
+      "region": "jaguar-condor",
+      "en": "Jaguar and Condor",
+      "order": 6,
+      "cultures": [
+        "maya",
+        "aztec",
+        "andean"
+      ],
+      "candidates": 22,
+      "quota": 16,
+      "tierWeight": 6,
+      "forbiddenForms": 9,
+      "livingTraditions": 2,
+      "writingForeignness": 15,
+      "usableStories": 6,
+      "supplyPressure": 2.67,
+      "sealLetters": 6,
+      "unauthorisedStoryCandidates": 1,
+      "burdenScore": 82.17,
+      "intensityScore": 31.17
+    },
+    {
+      "region": "great-ocean",
+      "en": "The Great Ocean",
+      "order": 5,
+      "cultures": [
+        "japanese",
+        "korean",
+        "maori",
+        "hawaiian"
+      ],
+      "candidates": 26,
+      "quota": 20,
+      "tierWeight": 8,
+      "forbiddenForms": 13,
+      "livingTraditions": 4,
+      "writingForeignness": 8,
+      "usableStories": 10,
+      "supplyPressure": 2.0,
+      "sealLetters": 6,
+      "unauthorisedStoryCandidates": 3,
+      "burdenScore": 75.5,
+      "intensityScore": 22.62
+    },
+    {
+      "region": "monsoon",
+      "en": "Mountain and Monsoon",
+      "order": 4,
+      "cultures": [
+        "persian",
+        "turkic",
+        "hindu",
+        "vietnamese",
+        "chinese"
+      ],
+      "candidates": 34,
+      "quota": 24,
+      "tierWeight": 3,
+      "forbiddenForms": 13,
+      "livingTraditions": 5,
+      "writingForeignness": 15,
+      "usableStories": 11,
+      "supplyPressure": 2.18,
+      "sealLetters": 7,
+      "unauthorisedStoryCandidates": 5,
+      "burdenScore": 87.68,
+      "intensityScore": 22.08
+    },
+    {
+      "region": "middle-sea",
+      "en": "The Middle Sea",
+      "order": 2,
+      "cultures": [
+        "greek",
+        "egyptian",
+        "mesopotamian"
+      ],
+      "candidates": 28,
+      "quota": 20,
+      "tierWeight": 0,
+      "forbiddenForms": 7,
+      "livingTraditions": 0,
+      "writingForeignness": 12,
+      "usableStories": 8,
+      "supplyPressure": 2.5,
+      "sealLetters": 6,
+      "unauthorisedStoryCandidates": 0,
+      "burdenScore": 52.0,
+      "intensityScore": 21.0
+    },
+    {
+      "region": "north-ice",
+      "en": "The Northern Ice",
+      "order": 1,
+      "cultures": [
+        "inuit",
+        "norse",
+        "finnish",
+        "irish"
+      ],
+      "candidates": 34,
+      "quota": 24,
+      "tierWeight": 3,
+      "forbiddenForms": 9,
+      "livingTraditions": 1,
+      "writingForeignness": 9,
+      "usableStories": 12,
+      "supplyPressure": 2.0,
+      "sealLetters": 5,
+      "unauthorisedStoryCandidates": 5,
+      "burdenScore": 58.5,
+      "intensityScore": 18.0
+    },
+    {
+      "region": "sun-savanna",
+      "en": "Sun and Savanna",
+      "order": 3,
+      "cultures": [
+        "yoruba",
+        "akan",
+        "zulu"
+      ],
+      "candidates": 24,
+      "quota": 16,
+      "tierWeight": 2,
+      "forbiddenForms": 8,
+      "livingTraditions": 3,
+      "writingForeignness": 1,
+      "usableStories": 5,
+      "supplyPressure": 3.2,
+      "sealLetters": 7,
+      "unauthorisedStoryCandidates": 0,
+      "burdenScore": 29.7,
+      "intensityScore": 14.37
+    }
+  ]
+}

@@ -10,7 +10,7 @@ World Myths'te risk OKUNAN şiddetti. Burada risk YAPILAN görevdir:
 çocuk artık yalnızca okumuyor — yazıyor, çiziyor, çözüyor. Deftere
 yazdığı kalıyor.
 
-Sekiz denetim:
+Dokuz denetim:
 
   ① GÜVENLİK SINIFI  — safetyClass malzemeden HESAPLANIR ve beyanla karşılaştırılır
   ② KAPALI ARIZA     — tanınmayan malzeme `safe` DEĞİL, `do-not-use`tur
@@ -20,6 +20,7 @@ Sekiz denetim:
   ⑥ YASAK ÇERÇEVE    — altı yasak çerçevenin anahtar sözcük taraması
   ⑦ ZORLUK           — ★★★ oranı %30'u aşamaz; ★ iki adımdan uzun olamaz
   ⑧ DENETİM YÜKÜ     — safe-with-adult oranı %10'u aşamaz
+  ⑨ ATIF             — atıf zorunluysa kültür adı ÇOCUĞUN GÖRDÜĞÜ metinde mi ⭑
 
 ⑧ NEDEN VAR: ebeveyn bu kitapta MEŞGULİYET satın alıyor. Yarısı yetişkin
 eşliği isteyen bir aktivite kitabı, ebeveyne iş çıkarır ve vaadi bozar.
@@ -330,6 +331,81 @@ def check_supervision_load(acts, dist, rep):
               "safe oranı hedefin üstünde (%.1f%% ≥ 90%%)" % (safe_ratio * 100))
 
 
+# ── AGE_POLICY § 4 · CULTURE_POLICY § 3 · kültür adı eşleyicileri ──────────
+# Kademe A/B/C fark etmez: attributionRequired olan her sayfada kültürün
+# adı ÇOCUĞUN GÖRDÜĞÜ metinde geçmelidir. Bir kültürün adı birden çok
+# meşru biçimde yazılabilir; liste onları taşır.
+CULTURE_NAMES = {
+    "maya": ["maya", "k'iche", "kiche", "popol vuh"],
+    "aztec": ["aztec", "nahuatl", "mexica", "tenochtitlan"],
+    "andean": ["andean", "andes", "quechua", "inca", "inka", "huarochiri"],
+    "inuit": ["inuit", "inuktitut", "nunavut"],
+    "norse": ["norse", "viking", "icelandic"],
+    "finnish": ["finnish", "finland", "kalevala"],
+    "irish": ["irish", "ireland", "ogham"],
+    "greek": ["greek", "greece"],
+    "egyptian": ["egyptian", "egypt", "nile"],
+    "mesopotamian": ["mesopotamian", "sumerian", "babylonian", "akkadian"],
+    "yoruba": ["yoruba"],
+    "akan": ["akan", "ashanti", "asante", "ghana"],
+    "zulu": ["zulu", "isizulu"],
+    "persian": ["persian", "iran", "shahnameh"],
+    "turkic": ["turkic", "turkish", "altai", "orkhon"],
+    "hindu": ["hindu", "sanskrit", "india", "devanagari"],
+    "vietnamese": ["vietnamese", "vietnam"],
+    "chinese": ["chinese", "china"],
+    "japanese": ["japanese", "japan"],
+    "korean": ["korean", "korea", "hangul"],
+    "maori": ["maori", "aotearoa", "new zealand"],
+    "hawaiian": ["hawaiian", "hawai"],
+}
+
+
+def check_attribution(acts, rep):
+    """⑨ ATIF — kültür adı SAYFADA geçiyor mu.
+
+    ⭑ BU DENETİM İÇ EDİTORYAL İNCELEMEDEN DOĞDU ve pilotun 16 sayfasının
+    11'inde ihlal buldu. ⭑
+
+    `CULTURE_POLICY § 3` Kademe A, B ve C için de aynı şeyi söylüyor:
+    *"Atıf zorunlu; kültürün adı sayfada geçer."* Tasarım katmanında
+    `attributionRequired: true` yazıyordu ve 16 sayfanın 16'sı onu
+    taşıyordu — ama ÇOCUĞUN GÖRDÜĞÜ metinde kültür adı yalnızca beş
+    sayfada geçiyordu.
+
+        "A khipu counts in tens."   → kimin khipusu?
+        "In this account a llama…"  → hangi anlatı?
+
+    Adı olmayan bir nesne bir merak nesnesidir; adı olan bir nesne bir
+    HALKIN İŞİDİR. Bu kitabın tezi tam olarak ikincisidir.
+
+    ⚠ Faz 1'de `validate_research § ⑦` yalnızca `culturalContext` alanının
+    DOLU olmasını denetliyordu. Dolu bir tasarım alanı, sayfada basılı bir
+    ad demek DEĞİLDİR."""
+    print("\n── ⑨ atıf ──")
+    missing = []
+    checked = 0
+    for a in acts:
+        if not a.get("attributionRequired"):
+            continue
+        # Yalnızca prozası YAZILMIŞ sayfalar denetlenir: tasarım katmanında
+        # çocuk-görünür metin henüz yoktur ve yokluğu bir ihlal değildir.
+        if not (a.get("prompt") or a.get("fieldNote")):
+            continue
+        checked += 1
+        seen = " ".join([a.get("prompt", ""), a.get("fieldNote", "")]
+                        + list(a.get("steps") or [])
+                        + list(a.get("hints") or [])).lower()
+        names = CULTURE_NAMES.get(a.get("culture"), [a.get("culture", "")])
+        if not any(n in seen for n in names if n):
+            missing.append("%s (%s)" % (a["activityId"], a.get("culture")))
+    rep.facts["attributionChecked"] = checked
+    rep.check(not missing,
+              "atıf gereken her yazılmış sayfada kültür adı geçiyor (%d sayfa)"
+              % checked
+              + ("" if not missing else " — ATIFSIZ: %s" % missing[:6]))
+
+
 def check_content_flags(acts, manifest, rep):
     print("\n── kaynak işaretleri ve kapalı katmanlar ──")
     if manifest is None:
@@ -420,6 +496,7 @@ def main() -> int:
     if regions:
         check_difficulty(cfg, acts, regions, rep)
     check_supervision_load(acts, dist, rep)
+    check_attribution(acts, rep)
     check_content_flags(acts, manifest, rep)
 
     print("\n" + "=" * 74)

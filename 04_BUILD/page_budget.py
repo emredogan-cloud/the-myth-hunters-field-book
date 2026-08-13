@@ -114,27 +114,49 @@ def build_model(cfg, acts, regions, rep):
 
     region_rows = []
     activity_pages_total = 0.0
+    measured_regions = 0
     for r in regions:
         quota = r.get("activityQuota", 0)
         pool = [a for a in acts if a.get("region") == r["id"]
                 and a.get("status") != "dropped"]
-        if not pool:
+
+        # ⭑ FAZ 2 · GERÇEK SEÇİM MODELDEN ÜSTÜNDÜR ⭑
+        #
+        # Model, o bölgenin BÜTÜN adaylarının ortalamasını alıyordu — çünkü
+        # Faz 1'de hangi 16'sının kitaba gireceği bilinmiyordu. Bir bölgenin
+        # seçimi KİLİTLENDİĞİNDE tahmin etmeye gerek kalmaz: ölç.
+        #
+        # Fark küçük görünür ama yönü önemlidir. Havuz, kitaba girmeyecek
+        # adayları da sayar ve onların ağırlıkları farklıdır.
+        locked = [a for a in pool if a.get("status") in ("locked", "written")]
+        if len(locked) >= quota:
+            chosen = sorted(locked, key=lambda a: a.get("activityId"))[:quota]
+            avg = sum(a.get("pageWeight", 1.0) for a in chosen) / len(chosen)
+            source = "ÖLÇÜLDÜ"
+            measured_regions += 1
+        elif not pool:
             rep.warn("%s bölgesinde aday yok — model bu bölge için tahmin kullanıyor"
                      % r["id"])
             avg = 0.875
+            source = "tahmin"
         else:
             avg = sum(a.get("pageWeight", 1.0) for a in pool) / len(pool)
+            source = "havuz"
+
         pages = quota * avg
         activity_pages_total += pages
         region_rows.append({
             "region": r["id"], "quota": quota,
             "avgPageWeight": round(avg, 3),
+            "weightSource": source,
+            "lockedActivities": len(locked),
             "activityPages": round(pages, 1),
             "structuralPages": structural_per_region,
             "totalPages": round(pages + structural_per_region, 1),
         })
-        print("  %-14s kota=%2d ort=%.3f  aktivite=%5.1f + yapı=%d"
-              % (r["id"], quota, avg, pages, structural_per_region))
+        print("  %-14s kota=%2d ort=%.3f (%-7s) aktivite=%5.1f + yapı=%d"
+              % (r["id"], quota, avg, source, pages, structural_per_region))
+    rep.facts["regionsMeasured"] = measured_regions
 
     regions_total = activity_pages_total + structural_per_region * len(regions)
     print("  bölgeler toplamı             %5.1f" % regions_total)
@@ -214,21 +236,49 @@ def check_royalty(cfg, pages, rep):
               % (ed["id"], ed["list"], cost, royalty, acos * 100))
         rep.check(royalty > 0, "%s telifi pozitif (%.2f $)" % (ed["id"], royalty))
 
-    # BRIEF § 7 hipotezi: ciltsiz telif 5,55 $. Model ondan saparsa
-    # ticari belge güncellenmelidir — sessiz sapma yasaktır.
-    hyp = 5.55
+    # BRIEF § 7 dayanağı config'ten OKUNUR, buraya gömülmez.
+    #
+    # ⚠ Faz 2'de düzeltildi: bu sayı (5,55 $) betiğe gömülüydü ve kurucu
+    # kararı A8→K19 kapandığında BRIEF ile birlikte İKİ YERDE birden
+    # değiştirilmesi gerekiyordu. İki yerde duran bir sayı er geç iki
+    # farklı şey söyler. Tek doğruluk kaynağı project_config.json'dur.
+    base = prod.get("royaltyBaseline", {})
+    hyp = base.get("paperback")
+    warn_at = base.get("driftWarnAt", 0.05)
+    fail_at = base.get("driftFailAt", 0.25)
     got = rep.facts.get("royalty_paperback")
-    if got is not None:
+    if got is not None and hyp is not None:
         drift = abs(got - hyp)
-        rep.facts["royaltyDriftVsBrief"] = round(got - hyp, 2)
-        rep.check(drift <= 0.25,
-                  "ciltsiz telifi BRIEF hipoteziyle uyumlu (%.2f $ ≈ %.2f $)"
+        rep.facts["royaltyBaseline"] = hyp
+        rep.facts["royaltyDriftVsBaseline"] = round(got - hyp, 2)
+        rep.check(drift <= fail_at,
+                  "ciltsiz telifi kabul edilen dayanakla uyumlu (%.2f $ ≈ %.2f $)"
                   % (got, hyp))
-        # Sessiz sapma yasaktır: model hipotezden ayrıldığı anda GÖRÜNÜR olur.
-        if drift > 0.05:
-            rep.warn("ciltsiz telifi hipotezden %+.2f $ sapıyor (%.2f $ vs %.2f $) — "
-                     "BRIEF § 7 güncellenmeli VEYA sayfa modeli kısılmalı; "
-                     "bu bir KURUCU kararıdır" % (got - hyp, got, hyp))
+        # Sessiz sapma yasaktır: model dayanaktan ayrıldığı anda GÖRÜNÜR olur.
+        #
+        # ⚠ SAPMANIN YÖNÜ ÖNEMLİDİR ve ilk hâl bunu ayırt etmiyordu.
+        # Model UCUZLADIĞINDA "BRIEF güncellenmeli VEYA sayfa kısılmalı"
+        # demek anlamsızdır — kısacak bir şey yoktur, model zaten küçüldü.
+        # Bir uyarı yanlış eylemi öneriyorsa, o uyarı bir gürültüdür.
+        if drift > warn_at:
+            measured = rep.facts.get("regionsMeasured", 0)
+            total_regions = len(rep.facts.get("regions", []) or [])
+            coverage = ("%d/%d bölge GERÇEK içerikle ölçüldü"
+                        % (measured, total_regions))
+            if got > hyp:
+                rep.warn("ciltsiz telifi dayanaktan %+.2f $ YÜKSEK "
+                         "(%.2f $ vs %.2f $) — sayfa modeli KÜÇÜLDÜ. %s. "
+                         "Bir bölgeden bütün kitaba genelleme YAPILMAZ; "
+                         "kalan bölgeler ölçülünce dayanak gözden geçirilir. "
+                         "Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
+                         % (got - hyp, got, hyp, coverage))
+            else:
+                rep.warn("ciltsiz telifi dayanaktan %+.2f $ DÜŞÜK "
+                         "(%.2f $ vs %.2f $) — sayfa modeli BÜYÜDÜ. %s. "
+                         "BRIEF § 7 ve project_config § royaltyBaseline "
+                         "güncellenmeli VEYA kapsam kısılmalı; bu bir "
+                         "KURUCU kararıdır."
+                         % (got - hyp, got, hyp, coverage))
 
 
 def main() -> int:

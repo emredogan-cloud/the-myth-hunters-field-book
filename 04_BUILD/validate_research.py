@@ -12,7 +12,7 @@ Her aktivite şu zinciri sonuna kadar çözebilmelidir:
 
 Zincirin bir halkası kopuksa aktivite bir tasarım değil bir TAHMİNDİR.
 
-Dokuz denetim:
+On denetim:
 
   ① KÜLTÜR ZİNCİRİ   — her aktivitenin kültürü dizinde ve manifestte var mı
   ② HİKÂYE ZİNCİRİ   — sourceStory manifestte var mı, aktivite dışı mı
@@ -23,6 +23,31 @@ Dokuz denetim:
   ⑦ GEREKÇE          — her adayın öğrenme gerekçesi ve boyutu var mı
   ⑧ DİAKRİTİK        — kültür adları ve yazı dizgeleri bozulmuş mu (mojibake)
   ⑨ HİKÂYE ENVANTERİ — culture_index'in usableStories listesi manifestle uyuşuyor mu
+  ⑩ İDDİA ZİNCİRİ    — locked bir aktivitenin iddiası KANITA bağlı mı  ⭑FAZ 2⭑
+
+⑩ NEDEN VAR — KAYIT DOĞRULAMAK İLE İDDİA DOĞRULAMAK AYNI ŞEY DEĞİL:
+
+`inheritanceStatus` bir KAYIT özelliğidir. Ama bir kültür kaydının otuz
+alanı vardır ve bir aktivite onun yalnızca ikisini kullanır. "culture-maya
+doğrulandı" cümlesi HANGİ ALANIN doğrulandığını söylemez.
+
+Faz 1'in sözleşmesi burada duruyordu ve yeterli görünüyordu. Değildi:
+
+    Kaydı 'inherited-verified' yapmak bir BEYANDIR.
+    İddiayı bir kaynağa bağlamak bir KANITTIR.
+
+⑩ farkı kapatır. `01_SOURCE/research/*-revalidation.json` her iddiayı
+tek tek taşır: hangi aktivitenin neresinde kullanılıyor, hangi kaynakla
+karşılaştırıldı, sonuç ne çıktı. Kapı şunları denetler:
+
+    · locked/written bir aktivite claimRefs taşımalı
+    · her claimRef bir doğrulama kaydında BULUNMALI
+    · cevap veya mühür besleyen bir iddia ≥2 BAĞIMSIZ kaynak taşımalı
+    · 'rejected' bir iddia hiçbir aktivitede kullanılamaz
+    · iddianın dayandığı devralma kaydı doğrulanmış olmalı
+
+Faz 2 pilotunda bu kapı üç 'corrected' iddia üretti — üçü de anlatı için
+yeterli, AKTİVİTE için yanlış olan cümlelerdi.
 
 ⑥ NEDEN VAR: bir mühür harfi yanlışsa çocuk BÜTÜN BÖLGEYİ çözemez ve
 kitabı bırakır. Mühür besleyen bir aday, kaynakta yaş incelemesi kapanmamış
@@ -52,6 +77,7 @@ CONFIG = os.path.join(ROOT, "project_config.json")
 ACTIVITY_INDEX = os.path.join(ROOT, "01_SOURCE", "activity_index.json")
 CULTURE_INDEX = os.path.join(ROOT, "01_SOURCE", "culture_index.json")
 MANIFEST = os.path.join(ROOT, "01_SOURCE", "inherited", "IMPORT_MANIFEST.json")
+RESEARCH_DIR = os.path.join(ROOT, "01_SOURCE", "research")
 
 # Bu kültürlerin kimliğini diakritik taşır. Kaybolursa imlâ yanlış öğretilir.
 DIACRITIC_WITNESS = {
@@ -301,6 +327,110 @@ def check_story_inventory(cultures, records, rep):
     rep.facts["usableStoriesListed"] = len(listed)
 
 
+def load_claims(rep):
+    """Bütün yeniden doğrulama kayıtlarını tek bir iddia sözlüğünde topla."""
+    claims, files = {}, []
+    if not os.path.isdir(RESEARCH_DIR):
+        return claims, files
+    for name in sorted(os.listdir(RESEARCH_DIR)):
+        if not name.endswith("-revalidation.json"):
+            continue
+        path = os.path.join(RESEARCH_DIR, name)
+        doc = load(path, rep, required=False)
+        if doc is None:
+            continue
+        files.append(name)
+        for c in doc.get("claims", []):
+            cid = c.get("claimId")
+            if cid in claims:
+                rep.check(False, "iddia kimliği iki kez tanımlı: %s" % cid)
+            claims[cid] = c
+    return claims, files
+
+
+def check_claim_chain(acts, claims, files, records, rep):
+    print("\n── ⑩ iddia zinciri ──")
+    locked = [a for a in acts if a.get("status") in ("locked", "written")]
+    rep.facts["claimRecords"] = len(claims)
+    rep.facts["revalidationFiles"] = files
+    rep.facts["lockedActivities"] = len(locked)
+
+    if not locked:
+        print("  ⊘ kilitli aktivite yok — iddia zinciri boş koşuyor")
+        return
+
+    # (a) kilitli her aktivite iddiaya bağlı olmalı  (şema R11)
+    naked = [a["activityId"] for a in locked if not a.get("claimRefs")]
+    rep.check(not naked, "kilitli her aktivite bir doğrulanmış iddiaya bağlı"
+              + ("" if not naked else " — İDDİASIZ: %s" % naked[:5]))
+
+    # (b) her claimRef gerçekten var mı  (şema R12)
+    dangling = ["%s → %s" % (a["activityId"], cid)
+                for a in locked for cid in (a.get("claimRefs") or [])
+                if cid not in claims]
+    rep.check(not dangling, "hiçbir iddia referansı boşa düşmüyor"
+              + ("" if not dangling else " — BOŞTA: %s" % dangling[:5]))
+
+    # (c) reddedilmiş bir iddia kullanılamaz
+    used_rejected = ["%s → %s" % (a["activityId"], cid)
+                     for a in locked for cid in (a.get("claimRefs") or [])
+                     if claims.get(cid, {}).get("verdict") == "rejected"]
+    rep.check(not used_rejected, "reddedilmiş iddiaya dayanan aktivite yok"
+              + ("" if not used_rejected else " — İHLAL: %s" % used_rejected[:5]))
+
+    # (d) cevap/mühür besleyen iddia ≥2 BAĞIMSIZ kaynak  (şema R13)
+    #     SOURCING_STANDARD § 3: eşik KULLANIMA göre değişir. Arka plan bir
+    #     kaynakla yeter; çocuğun deftere YAZACAĞI şey yetmez.
+    thin = []
+    for cid, c in claims.items():
+        used = set(c.get("usedIn") or [])
+        if not used & {"answer-source", "seal-source"}:
+            continue
+        srcs = c.get("sources") or []
+        if len(srcs) < 2:
+            thin.append("%s (%d kaynak)" % (cid, len(srcs)))
+        elif len({s.get("ref") for s in srcs}) < 2:
+            thin.append("%s (kaynaklar bağımsız değil)" % cid)
+    rep.check(not thin,
+              "cevap üreten her iddia ≥2 bağımsız kaynak taşıyor"
+              + ("" if not thin else " — ZAYIF: %s" % thin[:5]))
+
+    # (e) iddianın dayandığı devralma kaydı doğrulanmış olmalı
+    unverified = []
+    for cid, c in claims.items():
+        rid = c.get("inheritedRecord")
+        if not rid:
+            continue
+        rec = records.get(rid)
+        if rec is None:
+            unverified.append("%s → %s manifestte yok" % (cid, rid))
+        elif rec.get("status") == "inherited-provisional":
+            unverified.append("%s → %s hâlâ provisional" % (cid, rid))
+    rep.check(not unverified,
+              "her iddianın devralma kaydı doğrulanmış"
+              + ("" if not unverified else " — DOĞRULANMAMIŞ: %s" % unverified[:5]))
+
+    # (f) mühür besleyen aktivite mühür yetkili bir iddiaya dayanmalı
+    #     Yanlış bir mühür harfi çocuğun BÜTÜN BÖLGEYİ çözememesine yol açar.
+    sealed_bad = []
+    for a in locked:
+        if not a.get("sealSlot"):
+            continue
+        refs = a.get("claimRefs") or []
+        if not any("seal-source" in (claims.get(c, {}).get("usedIn") or [])
+                   for c in refs):
+            sealed_bad.append(a["activityId"])
+    rep.check(not sealed_bad,
+              "mühür besleyen her aktivite mühür yetkili bir iddiaya dayanıyor"
+              + ("" if not sealed_bad else " — YETKİSİZ: %s" % sealed_bad[:5]))
+
+    verdicts = {}
+    for c in claims.values():
+        verdicts[c.get("verdict")] = verdicts.get(c.get("verdict"), 0) + 1
+    rep.facts["claimVerdicts"] = verdicts
+    print("  · %d iddia · %s" % (len(claims), verdicts))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -351,6 +481,8 @@ def main() -> int:
     check_rationale(acts, rep)
     check_diacritics(cultures, acts, rep)
     check_story_inventory(cultures, records, rep)
+    claims, files = load_claims(rep)
+    check_claim_chain(acts, claims, files, records, rep)
 
     print("\n" + "=" * 74)
     if rep.warnings:

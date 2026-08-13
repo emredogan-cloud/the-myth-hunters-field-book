@@ -10,7 +10,6 @@
     "AMA ONA BAĞLI DEĞİLDİR. Devralma bir KOPYALAMA + KÖKEN KAYDIdır,",
     "canlı bir bağımlılık değil. Ayrıntı: 00_CONTEXT/INHERITANCE_ARCHITECTURE.md"
   ],
-
   "project": {
     "id": "myth-hunters-field-book",
     "workingTitle": "The Myth Hunter's Field Book",
@@ -23,7 +22,11 @@
     "repository": "emredogan-cloud/the-myth-hunters-field-book",
     "portfolioSlot": "Kitap B · ikinci · huni tamamlayıcı",
     "sourceOfTruth": "AMAZON-KDP-2026-MARKET-OPPORTUNITY-REPORT.html § 11 · Kitap B",
-    "isolatedFrom": ["CODEX_BESTIARIUM", "THE-GREAT-BOOK-OF-WORLD-GAMES", "CODEX-ENIGMATICA"],
+    "isolatedFrom": [
+      "CODEX_BESTIARIUM",
+      "THE-GREAT-BOOK-OF-WORLD-GAMES",
+      "CODEX-ENIGMATICA"
+    ],
     "inheritsFrom": {
       "project": "THE-GREAT-BOOK-OF-WORLD-MYTHS",
       "relationship": "copy-with-provenance",
@@ -35,7 +38,6 @@
       ]
     }
   },
-
   "founder": {
     "author": "Emre Doğan",
     "publisher": "Vâliçe Press",
@@ -54,31 +56,133 @@
     "childTesters": {
       "founderConfirmed": false,
       "minTesters": 2,
+      "availableTesters": 0,
+      "externalValidation": "pending",
+      "packagePrepared": true,
+      "testLanguageAllowed": [
+        "tr"
+      ],
       "$comment": [
         "ÇOCUK SAHA TESTİ Faz 2'nin SERT BLOKLAYICISIDIR.",
         "Ajan çocukla test yapamaz. Testçi bulunmazsa Faz 2 BLOKLANIR —",
-        "sahte test kaydı ÜRETİLMEZ."
+        "sahte test kaydı ÜRETİLMEZ.",
+        "",
+        "FAZ 2 DURUMU (13 Ağustos 2026): availableTesters = 0.",
+        "Test paketi HAZIR (03_EDITORIAL/CHILD_TEST_PROTOCOL.md) ama",
+        "KOŞTURULMADI. externalValidation 'pending' kalır ve bu alan",
+        "'passed' olamaz — yalnızca GERÇEK bir oturum onu değiştirir.",
+        "",
+        "testLanguageAllowed: gerçek Türkçe konuşan testçi bulunursa",
+        "tester-facing materyal GEÇİCİ olarak Türkçe olabilir (K21).",
+        "child_test_pack.py founderConfirmed=false iken Türkçe materyal",
+        "üretmeyi REDDEDER: testçi yoksa test materyali de olamaz."
+      ]
+    },
+    "physicalProof": {
+      "founderOwned": true,
+      "status": "founder-action-pending",
+      "$comment": [
+        "KARAR A9 — FİZİKÎ PROVA KURUCUYA AİTTİR.",
+        "Ajan prova SİPARİŞ ETMEZ, yapıldığını İDDİA ETMEZ, geri bildirim",
+        "veya POD doğrulaması UYDURMAZ. Prova gerektirmeyen bütün teknik",
+        "iş sürer; prova hazır dosyaları ve kontrol listesi üretilir.",
+        "status yalnızca KURUCU beyanıyla değişir."
       ]
     }
   },
-
+  "language": {
+    "$comment": [
+      "KARAR K21 — TİCARİ DİL İLE TEST DİLİ AYRI ŞEYLERDİR.",
+      "",
+      "commercial: nihai ürünün TAMAMI. Manuscript, talimat, field note,",
+      "ipucu, mühür metni, arka madde, kapak, A+ içerik, metadata, KDP.",
+      "",
+      "document: proje belgelerinin dili. Bir mühendislik tercihidir ve",
+      "ürüne DEĞMEZ; kurucu Türkçe okur, kitap İngilizce satılır.",
+      "",
+      "testOnly: gerçek çocuk testçiler bulunduğunda üretilebilecek",
+      "GEÇİCİ tester-facing materyalin dili. Ticari değildir, kanonik",
+      "değildir, nihai çıktıya GİREMEZ ve makine çevirisiyle İngilizceye",
+      "dönüştürülmez. Bulgular İngilizce sürüme YENİDEN YAZILARAK taşınır",
+      "ve İngilizce sürüm kapılardan BAĞIMSIZ olarak geçer.",
+      "",
+      "qa_language.py bu ayrımı mekanik olarak korur: ticari katmanda",
+      "Türkçe imza görürse CI KIRMIZI yanar."
+    ],
+    "commercial": "en",
+    "document": "tr",
+    "testOnly": [
+      "tr"
+    ],
+    "commercialLayers": [
+      "02_MANUSCRIPT/book.json",
+      "02_MANUSCRIPT/pilot/pilot.json",
+      "08_OUTPUT",
+      "03_COVER",
+      "03_APLUS",
+      "06_REPORTS/tracked/metadata.json"
+    ],
+    "commercialFields": [
+      "prompt",
+      "fieldNote",
+      "steps",
+      "hints",
+      "expectedResult",
+      "answer",
+      "answerNote",
+      "sealInstruction",
+      "parentNote",
+      "safetyNotes",
+      "certificateText",
+      "glossaryEntry",
+      "openingText",
+      "terrainLine",
+      "heading"
+    ],
+    "testOnlyPath": "03_EDITORIAL/child_tests_raw/",
+    "turkishPilotMayNeverEnter": [
+      "manuscript",
+      "epub",
+      "paperback",
+      "hardcover",
+      "cover",
+      "aplus",
+      "metadata",
+      "kdp-package"
+    ]
+  },
   "audience": {
     "$comment": "ALICI ≠ OKUR. Kapak çocuğa, alt başlık ebeveyne konuşur.",
     "readerAgeMin": 8,
     "readerAgeMax": 12,
-    "buyer": ["parent", "grandparent", "teacher", "school-librarian"],
+    "buyer": [
+      "parent",
+      "grandparent",
+      "teacher",
+      "school-librarian"
+    ],
     "bisacPrimary": "JNF001000",
-    "bisacSecondary": ["JUV045000", "JNF025000"],
+    "bisacSecondary": [
+      "JUV045000",
+      "JNF025000"
+    ],
     "gradeRange": "3-7"
   },
-
   "scope": {
     "$comment": [
       "FAZ 1 BU SAYILARI DOĞRULADI VE KİLİTLEDİ (13 Ağustos 2026).",
-      "120 aktivite · 22 kültür · 6 bölge · 5 tip · 144 sayfa.",
+      "120 aktivite · 22 kültür · 6 bölge · 5 tip.",
       "Sayfa modeli ölçüldü: 06_REPORTS/page-budget.json.",
       "Değişiklik artık bir KURUCU KARARI gerektirir — alt başlıktaki",
-      "120 ve 22 doğrulanabilir vaatlerdir."
+      "120 ve 22 doğrulanabilir vaatlerdir.",
+      "",
+      "⭑ FAZ 2 / KARAR A8 → K19: pageTarget 144 → 148 ⭑",
+      "Faz 1 sayfa modelini ölçtü: 144 ham → 148 forma hizalı (×4).",
+      "Kurucu 148'i telif düşüşüyle BİRLİKTE kabul etti:",
+      "  baskı 3,45 $ → 3,52 $ · ciltsiz telif 5,55 $ → 5,48 $",
+      "BRIEF § 7 aynı sayılara güncellendi; iki belge artık aynı şeyi",
+      "söylüyor ve page_budget.py'nin sapma uyarısı SUSTU.",
+      "Karar YENİDEN AÇILMAZ: 0,07 $ için içerik kısılmaz."
     ],
     "locked": true,
     "lockedAtPhase": "phase1",
@@ -88,22 +192,85 @@
     "regions": 6,
     "activityTypesRequired": 5,
     "manuscriptWordTarget": 22000,
-    "pageTarget": 144,
+    "pageTarget": 148,
+    "pageTargetDecision": "A8 → K19 · kurucu · 13 Ağustos 2026",
+    "pageTargetBootstrapHypothesis": 144,
     "pageTolerancePct": 6,
     "activityTypes": [
-      {"id": "cipher",      "en": "Codes and ciphers",    "tr": "Şifre ve kod",        "perRegionMin": 3},
-      {"id": "map",         "en": "Maps and paths",       "tr": "Harita ve labirent",  "perRegionMin": 2},
-      {"id": "sort",        "en": "Sorting and matching", "tr": "Tasnif ve eşleştirme","perRegionMin": 4},
-      {"id": "observe",     "en": "Observation plates",   "tr": "Gözlem levhası",      "perRegionMin": 2},
-      {"id": "make",        "en": "Draw and write",       "tr": "Çiz ve yaz",          "perRegionMin": 2}
+      {
+        "id": "cipher",
+        "en": "Codes and ciphers",
+        "tr": "Şifre ve kod",
+        "perRegionMin": 3
+      },
+      {
+        "id": "map",
+        "en": "Maps and paths",
+        "tr": "Harita ve labirent",
+        "perRegionMin": 2
+      },
+      {
+        "id": "sort",
+        "en": "Sorting and matching",
+        "tr": "Tasnif ve eşleştirme",
+        "perRegionMin": 4
+      },
+      {
+        "id": "observe",
+        "en": "Observation plates",
+        "tr": "Gözlem levhası",
+        "perRegionMin": 2
+      },
+      {
+        "id": "make",
+        "en": "Draw and write",
+        "tr": "Çiz ve yaz",
+        "perRegionMin": 2
+      }
     ],
     "regionsHypothesis": [
-      {"id": "north-ice",     "en": "The Northern Ice",     "tr": "Kuzeyin Buzları",  "order": 1, "activityQuota": 24},
-      {"id": "middle-sea",    "en": "The Middle Sea",       "tr": "Ortadaki Deniz",   "order": 2, "activityQuota": 20},
-      {"id": "sun-savanna",   "en": "Sun and Savanna",      "tr": "Güneş ve Savan",   "order": 3, "activityQuota": 16},
-      {"id": "monsoon",       "en": "Mountain and Monsoon", "tr": "Dağ ve Muson",     "order": 4, "activityQuota": 24},
-      {"id": "great-ocean",   "en": "The Great Ocean",      "tr": "Büyük Okyanus",    "order": 5, "activityQuota": 20},
-      {"id": "jaguar-condor", "en": "Jaguar and Condor",    "tr": "Jaguar ve Kondor", "order": 6, "activityQuota": 16}
+      {
+        "id": "north-ice",
+        "en": "The Northern Ice",
+        "tr": "Kuzeyin Buzları",
+        "order": 1,
+        "activityQuota": 24
+      },
+      {
+        "id": "middle-sea",
+        "en": "The Middle Sea",
+        "tr": "Ortadaki Deniz",
+        "order": 2,
+        "activityQuota": 20
+      },
+      {
+        "id": "sun-savanna",
+        "en": "Sun and Savanna",
+        "tr": "Güneş ve Savan",
+        "order": 3,
+        "activityQuota": 16
+      },
+      {
+        "id": "monsoon",
+        "en": "Mountain and Monsoon",
+        "tr": "Dağ ve Muson",
+        "order": 4,
+        "activityQuota": 24
+      },
+      {
+        "id": "great-ocean",
+        "en": "The Great Ocean",
+        "tr": "Büyük Okyanus",
+        "order": 5,
+        "activityQuota": 20
+      },
+      {
+        "id": "jaguar-condor",
+        "en": "Jaguar and Condor",
+        "tr": "Jaguar ve Kondor",
+        "order": 6,
+        "activityQuota": 16
+      }
     ],
     "$comment_regions": [
       "FAZ 1'DE KİLİTLENDİ. Bootstrap'ın altı bölgesi 22 kültüre",
@@ -119,7 +286,6 @@
       "Kültür eşlemesi ve mühür mimarisi: 01_SOURCE/region_index.json"
     ]
   },
-
   "inheritance": {
     "$comment": [
       "DEVRALMA MİMARİSİ — bu projenin en özgün yapısal parçası.",
@@ -133,8 +299,15 @@
       "BULMACA türetiyorsanız, cevabın TEK ve DOĞRU olduğunu ayrıca",
       "kanıtlamanız gerekir."
     ],
-    "statuses": ["inherited-provisional", "inherited-verified", "new-researched"],
-    "lockRequiresStatus": ["inherited-verified", "new-researched"],
+    "statuses": [
+      "inherited-provisional",
+      "inherited-verified",
+      "new-researched"
+    ],
+    "lockRequiresStatus": [
+      "inherited-verified",
+      "new-researched"
+    ],
     "$comment2": [
       "inherited-provisional  → kopyalandı, HENÜZ bağımsız doğrulanmadı.",
       "                         Aktivite bu veriye dayanarak LOCKED OLAMAZ.",
@@ -151,7 +324,6 @@
       "any-claim-a-child-will-write-down"
     ]
   },
-
   "safety": {
     "$comment": [
       "BU BİR ÇOCUK ÜRÜNÜDÜR. World Myths'in AGE_POLICY disiplini burada",
@@ -169,11 +341,13 @@
       "çocuğun evden dışarı çıkmasını gerektiren görev",
       "kesici alet, ateş veya yiyecek gerektiren görev"
     ],
-    "readabilityTargetGrade": [3, 5],
+    "readabilityTargetGrade": [
+      3,
+      5
+    ],
     "sentenceAvgWordsMin": 9.0,
     "sentenceAvgWordsMax": 14.0,
     "instructionMaxSentenceWords": 18,
-
     "$comment_registers": [
       "FAZ 1 PİLOT ÖLÇÜMÜYLE KALİBRE EDİLDİ (13 Ağustos 2026).",
       "",
@@ -196,16 +370,26 @@
       "eklenir — talimat, tanıttığı içerikten DAHA ZOR OLAMAZ."
     ],
     "readabilityRegisters": {
-      "instruction": {"avgWordsMin": 5.0, "avgWordsMax": 11.0,
-                      "maxSentenceWords": 18, "fkGradeMax": 4.0},
-      "fieldNote":   {"avgWordsMin": 9.0, "avgWordsMax": 14.0,
-                      "fkGradeMin": 3.0, "fkGradeMax": 5.9,
-                      "wordsMin": 15, "wordsMax": 35},
-      "hint":        {"fkGradeMax": 4.5}
+      "instruction": {
+        "avgWordsMin": 5.0,
+        "avgWordsMax": 11.0,
+        "maxSentenceWords": 18,
+        "fkGradeMax": 4.0
+      },
+      "fieldNote": {
+        "avgWordsMin": 9.0,
+        "avgWordsMax": 14.0,
+        "fkGradeMin": 3.0,
+        "fkGradeMax": 5.9,
+        "wordsMin": 15,
+        "wordsMax": 35
+      },
+      "hint": {
+        "fkGradeMax": 4.5
+      }
     },
     "readabilityInvariant": "fk(instruction) < fk(fieldNote)"
   },
-
   "solvability": {
     "$comment": [
       "Her aktivitenin TEK ve DOĞRU bir cevabı olmalıdır — 'çiz/yaz'",
@@ -214,12 +398,13 @@
       "düşünmesine yol açar. Bu, kitabın pedagojik vaadini bozar."
     ],
     "deterministicAnswerRequired": true,
-    "openEndedTypeExempt": ["make"],
+    "openEndedTypeExempt": [
+      "make"
+    ],
     "hintLadderLevels": 2,
     "hintMustNotContainAnswer": true,
     "answerKeyRequired": true
   },
-
   "progression": {
     "$comment": "Mühür sistemi kitabın tamamlanma güdüsüdür ve bütünlüğü mekanik olarak denetlenir.",
     "sealsPerRegion": 1,
@@ -227,9 +412,12 @@
     "sealMustDeriveFromAnswersPresent": true,
     "$comment2": "Bir mühür kodu, kitapta GERÇEKTEN bulunan cevaplardan türemelidir. qa_progression.py bunu denetler."
   },
-
   "production": {
-    "trimPaperback": {"w": 8.5, "h": 11.0, "trimClass": "large"},
+    "trimPaperback": {
+      "w": 8.5,
+      "h": 11.0,
+      "trimClass": "large"
+    },
     "ink": "black",
     "paper": "white",
     "$comment": [
@@ -240,17 +428,60 @@
     ],
     "kdpPrintCost": {
       "$comment": "KDP resmî formülleri · 12 Ağustos 2026 · Amazon.com",
-      "paperbackLargeTrimBW": {"fixed": 1.00, "perPage": 0.017, "minPages": 110, "maxPages": 828},
-      "hardcoverLargeTrimBW": {"fixed": 5.65, "perPage": 0.017, "minPages": 110, "maxPages": 550},
-      "royaltyRateAtOrAbove999": 0.60,
-      "royaltyRateBelow999": 0.50
+      "paperbackLargeTrimBW": {
+        "fixed": 1.0,
+        "perPage": 0.017,
+        "minPages": 110,
+        "maxPages": 828
+      },
+      "hardcoverLargeTrimBW": {
+        "fixed": 5.65,
+        "perPage": 0.017,
+        "minPages": 110,
+        "maxPages": 550
+      },
+      "royaltyRateAtOrAbove999": 0.6,
+      "royaltyRateBelow999": 0.5
+    },
+    "royaltyBaseline": {
+      "$comment": [
+        "TEK DOĞRULUK KAYNAĞI — page_budget.py bu sayıyı OKUR, gömmez.",
+        "",
+        "Faz 1'de 5,55 $ page_budget.py içine GÖMÜLÜYDÜ ve kurucu kararı",
+        "A8 kapandığında iki yerde birden değiştirilmesi gerekiyordu.",
+        "İki yerde duran bir sayı er geç iki farklı şey söyler (D17).",
+        "",
+        "paperback: kurucunun K19 ile kabul ettiği ÖLÇÜLMÜŞ değer.",
+        "bootstrapHypothesis: kayıt için tutulan eski hipotez; kod onu",
+        "kullanmaz, yalnızca rapor karşılaştırması için durur."
+      ],
+      "paperback": 5.48,
+      "bootstrapHypothesis": 5.55,
+      "driftWarnAt": 0.05,
+      "driftFailAt": 0.25,
+      "decision": "A8 → K19 · kurucu · 13 Ağustos 2026"
     },
     "editionsHypothesis": [
-      {"id": "paperback", "list": 14.99, "enabled": true,  "priority": 1},
-      {"id": "hardcover", "list": 24.99, "enabled": false, "priority": 9,
-       "$comment": "Faz 2 test sürümü — karar A5"},
-      {"id": "kindle",    "list": null,  "enabled": false, "priority": 9,
-       "$comment": "ÖNERİLMEZ — üzerine yazılan kitap e-okuyucuda çalışmaz"}
+      {
+        "id": "paperback",
+        "list": 14.99,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "id": "hardcover",
+        "list": 24.99,
+        "enabled": false,
+        "priority": 9,
+        "$comment": "Faz 2 test sürümü — karar A5"
+      },
+      {
+        "id": "kindle",
+        "list": null,
+        "enabled": false,
+        "priority": 9,
+        "$comment": "ÖNERİLMEZ — üzerine yazılan kitap e-okuyucuda çalışmaz"
+      }
     ],
     "kdpSelect": false,
     "priceTestPlan": {
@@ -259,20 +490,54 @@
       "variantB": 12.99
     }
   },
-
   "gates": {
-    "levels": ["phase0", "phase1", "phase2", "phase3", "phase4", "phase5", "release"],
+    "levels": [
+      "phase0",
+      "phase1",
+      "phase2",
+      "phase3",
+      "phase4",
+      "phase5",
+      "release"
+    ],
     "requirements": {
-      "phase0":  {"activitiesCandidate": 0,   "activitiesLocked": 0,   "activitiesWritten": 0},
-      "phase1":  {"activitiesCandidate": 160, "activitiesLocked": 0,   "activitiesWritten": 0},
-      "phase2":  {"activitiesCandidate": 160, "activitiesLocked": 20,  "activitiesWritten": 20},
-      "phase3":  {"activitiesCandidate": 160, "activitiesLocked": 80,  "activitiesWritten": 80},
-      "phase4":  {"activitiesCandidate": 160, "activitiesLocked": 120, "activitiesWritten": 120},
-      "phase5":  {"activitiesCandidate": 160, "activitiesLocked": 120, "activitiesWritten": 120},
-      "release": {"activitiesCandidate": 160, "activitiesLocked": 120, "activitiesWritten": 120}
+      "phase0": {
+        "activitiesCandidate": 0,
+        "activitiesLocked": 0,
+        "activitiesWritten": 0
+      },
+      "phase1": {
+        "activitiesCandidate": 160,
+        "activitiesLocked": 0,
+        "activitiesWritten": 0
+      },
+      "phase2": {
+        "activitiesCandidate": 160,
+        "activitiesLocked": 20,
+        "activitiesWritten": 20
+      },
+      "phase3": {
+        "activitiesCandidate": 160,
+        "activitiesLocked": 80,
+        "activitiesWritten": 80
+      },
+      "phase4": {
+        "activitiesCandidate": 160,
+        "activitiesLocked": 120,
+        "activitiesWritten": 120
+      },
+      "phase5": {
+        "activitiesCandidate": 160,
+        "activitiesLocked": 120,
+        "activitiesWritten": 120
+      },
+      "release": {
+        "activitiesCandidate": 160,
+        "activitiesLocked": 120,
+        "activitiesWritten": 120
+      }
     }
   },
-
   "style": {
     "$comment": "Ayrıntı: 00_CONTEXT/STYLE.md. World Myths'in ölçülen 11,7 kelime/cümle bandına akraba.",
     "forbiddenPatterns": [

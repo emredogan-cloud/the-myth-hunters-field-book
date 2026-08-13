@@ -16,6 +16,7 @@ Yedi denetim:
   ⑤ TEKRAR        — yinelenen kimlik, başlık veya amaç var mı
   ⑥ AÇIK UÇLULUK  — openEnded yalnızca 'make' tipinde ve mühür beslemiyor mu
   ⑦ TERİMLER      — bölge, kültür ve kayıt kimlikleri dizinlerle uyuşuyor mu
+  ⑧ SEÇİLEBİLİRLİK — ③ + ② + ① BİRLİKTE sağlanabiliyor mu  ⭑FAZ 2⭑
 
 ③ NEDEN VAR: 120'lik kitap her bölgede belli sayıda ★, ★★ ve ★★★ ister.
 Havuz o profili besleyemiyorsa zorluk merdiveni Faz 3'te çöker ve
@@ -26,6 +27,32 @@ bölgede tam olarak bu açığı buldu.
 bölgeyi bitiremez; iki aktivite aynı yuvayı beslerse harf çakışır.
 ⚠ Bu kapı mühür SÖZCÜKLERİNİ görmez ve görmemelidir — cevaplar depoda
 durmaz (K10). Yalnızca YAPIYI denetler.
+
+⑧ NEDEN VAR — VE BU DENETİM BİR KUSURDAN DOĞDU:
+
+Faz 2 pilotu `jaguar-condor` bölgesinden 16 aktivite seçmeye çalıştı ve
+GEÇERLİ HİÇBİR SEÇİM BULAMADI. Oysa ①, ② ve ③ üçü de YEŞİLDİ.
+
+    zorluk profili   ✓ havuz besliyor
+    kültür kotaları  ✓ havuz besliyor
+    tip asgarileri   ✓ havuz besliyor
+    ───────────────────────────────────
+    üçü BİRDEN       ✗ kesişim BOŞ
+
+Sebep: ★1 havuzunda tam 5 aday vardı ve profil tam 5 istiyordu — beşi de
+zorunluydu. Üçü `observe` idi. Asgarisi 2 olan bir tip üçe çıkınca
+`sort`, `make` ve `map` aç kaldı ve 16'lık seçim imkânsızlaştı.
+
+    Ayrı ayrı sağlanan üç kısıt, birlikte sağlanamayabilir.
+
+Bir kapı kısıtları tek tek denetlerse, imkânsız bir kitabı YEŞİL
+gösterir — ve bunu 90. aktivitede öğrenmek pahalıdır. Bu tam olarak
+③'ün var oluş gerekçesinin bir üst katıdır.
+
+⑧ mühür taşıyan adayları ZORUNLU sayar (yuva bir bölge özelliğidir,
+taşınabilir ama boş bırakılamaz) ve kalanlardan geçerli bir seçim olup
+olmadığını arar. Arama kaba kuvvet DEĞİLDİR: kültür kültür DP yapılır ve
+tip sayaçları asgaride doyurulur, yoksa 34 adaylı bir bölge patlar.
 
 TASARIM: yalnızca Python standart kütüphanesi (karar K7).
 
@@ -277,6 +304,130 @@ def check_open_ended(cfg, acts, rep):
               "açık uçlu oranı %%25'i aşmıyor (%.1f%%)" % (ratio * 100))
 
 
+# ── ⑧ SEÇİLEBİLİRLİK ───────────────────────────────────────────────────────
+def _culture_options(pool, quota, type_ids, caps):
+    """Bir kültürden `quota` kadar aday seçmenin ULAŞILABİLİR durumları.
+
+    Durum = (zorluk vektörü, tip vektörü). Tip sayaçları `caps` ile
+    doyurulur: asgarinin üstünü ayırt etmenin bir faydası yok ve doyurmak
+    durum uzayını sonlu tutuyor.
+
+    Mühür taşıyan adaylar ZORUNLUDUR ve önce yerleştirilir.
+    """
+    forced = [a for a in pool if a.get("sealSlot")]
+    optional = [a for a in pool if not a.get("sealSlot")]
+    if len(forced) > quota:
+        return None                      # yuva sayısı kotayı aşıyor — imkânsız
+
+    def blank():
+        return (0, 0, 0), tuple(0 for _ in type_ids)
+
+    def add(state, a):
+        d, t = state
+        lvl = a.get("difficulty")
+        if lvl not in (1, 2, 3):
+            return None
+        d = list(d)
+        d[lvl - 1] += 1
+        ti = type_ids.index(a["type"]) if a.get("type") in type_ids else None
+        t = list(t)
+        if ti is not None:
+            t[ti] = min(t[ti] + 1, caps[ti])
+        return tuple(d), tuple(t)
+
+    base = blank()
+    for a in forced:
+        base = add(base, a)
+        if base is None:
+            return None
+
+    # kalan seçimler — DP, durum kümesiyle
+    remaining = quota - len(forced)
+    states = {base}
+    for i, a in enumerate(optional):
+        left = len(optional) - i - 1
+        nxt = set(states)
+        for st in states:
+            taken = sum(st[0]) - sum(base[0])
+            if taken >= remaining:
+                continue
+            if taken + 1 + left < remaining:
+                continue
+            s2 = add(st, a)
+            if s2 is not None:
+                nxt.add(s2)
+        states = nxt
+    return {st for st in states if sum(st[0]) == quota}
+
+
+def check_selectable(cfg, acts, regions, cultures, rep):
+    print("\n── ⑧ seçilebilirlik (profil × kota × tip BİRLİKTE) ──")
+    types = cfg["scope"]["activityTypes"]
+    type_ids = [t["id"] for t in types]
+    caps = tuple(t.get("perRegionMin", 0) for t in types)
+    cmap = {c["id"]: c for c in cultures}
+
+    impossible = []
+    for r in regions:
+        prof = {int(k): v for k, v in (r.get("difficultyProfile") or {}).items()}
+        if not prof:
+            continue
+        want_d = (prof.get(1, 0), prof.get(2, 0), prof.get(3, 0))
+        cids = [c for c in r.get("cultures", []) if c in cmap]
+        if not cids:
+            continue
+
+        # Her kültür için ulaşılabilir durumlar, sonra kültürler arası birleşim.
+        combined = {((0, 0, 0), tuple(0 for _ in type_ids))}
+        dead = None
+        for cid in cids:
+            quota = cmap[cid].get("activityQuota", 0)
+            pool = [a for a in acts if a.get("culture") == cid
+                    and a.get("region") == r["id"]]
+            opts = _culture_options(pool, quota, type_ids, caps)
+            if not opts:
+                dead = "%s kültüründen %d aday seçilemiyor" % (cid, quota)
+                break
+            merged = set()
+            for base in combined:
+                for o in opts:
+                    d = tuple(base[0][i] + o[0][i] for i in range(3))
+                    if any(d[i] > want_d[i] for i in range(3)):
+                        continue          # profil aşıldı — bu dal ölü
+                    t = tuple(min(base[1][i] + o[1][i], caps[i])
+                              for i in range(len(type_ids)))
+                    merged.add((d, t))
+            combined = merged
+            if not combined:
+                dead = "%s kültüründen sonra profil tutmuyor" % cid
+                break
+
+        if dead:
+            impossible.append("%s: %s" % (r["id"], dead))
+            continue
+
+        ok = [s for s in combined
+              if s[0] == want_d and all(s[1][i] >= caps[i] for i in range(len(caps)))]
+        if not ok:
+            # Neyin düştüğünü söyle — "imkânsız" tek başına bir kusur raporu değil.
+            prof_ok = [s for s in combined if s[0] == want_d]
+            if not prof_ok:
+                why = "kültür kotaları zorluk profilini kuramıyor"
+            else:
+                miss = set()
+                for s in prof_ok:
+                    for i, t in enumerate(type_ids):
+                        if s[1][i] < caps[i]:
+                            miss.add("%s<%d" % (t, caps[i]))
+                why = "profil kuruluyor ama tip asgarisi düşüyor: %s" % sorted(miss)
+            impossible.append("%s: %s" % (r["id"], why))
+
+    rep.facts["regionsSelectable"] = len(regions) - len(impossible)
+    rep.check(not impossible,
+              "her bölgeden geçerli bir kitap seçimi kurulabiliyor"
+              + ("" if not impossible else " — İMKÂNSIZ: %s" % impossible[:6]))
+
+
 # ── ⑦ TERİMLER ─────────────────────────────────────────────────────────────
 def check_terminology(acts, regions, cultures, rep):
     print("\n── ⑦ terim tutarlılığı ──")
@@ -366,6 +517,7 @@ def main() -> int:
     check_duplicates(acts, rep)
     check_open_ended(cfg, acts, rep)
     check_terminology(acts, regions, cultures, rep)
+    check_selectable(cfg, acts, regions, cultures, rep)
 
     print("\n" + "=" * 74)
     if rep.warnings:

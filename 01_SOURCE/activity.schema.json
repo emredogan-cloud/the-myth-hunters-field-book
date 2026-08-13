@@ -2,10 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/emredogan-cloud/the-myth-hunters-field-book/01_SOURCE/activity.schema.json",
   "title": "Field Book — aktivite kaydı",
-  "version": "2.0",
+  "version": "2.1",
   "description": [
     "Bir aktivitenin TEK doğruluk kaydı. Manuscript bu kayıttan üretilir.",
-    "Sürüm 2.0 · Faz 1 · 13 Ağustos 2026",
+    "Sürüm 2.1 · Faz 2 · 13 Ağustos 2026",
+    "",
+    "SÜRÜM 2.1'DE EKLENEN: claimRefs — doğrulamayı KAYIT düzeyinden",
+    "İDDİA düzeyine indirir. Bir kültür kaydının 'doğrulandı' olması,",
+    "o aktivitenin kullandığı ALANIN doğrulandığı anlamına gelmiyordu.",
     "",
     "SÜRÜM 2.0'DA EKLENENLER: objective · steps · materials · safetyClass ·",
     "durationMinutes · learningDimensions · sourceStory · revalidationPlan ·",
@@ -87,6 +91,27 @@
         "inheritanceStatus == inherited-provisional iken ZORUNLU.",
         "Bu kaydın hangi iddiasının, hangi kaynak sınıfıyla yeniden",
         "doğrulanacağını söyler. 'Sonra bakarız' bir plan değildir."
+      ]
+    },
+    "claimRefs": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^CLM-[A-Z0-9-]{3,40}$"},
+      "description": [
+        "⭑ SÜRÜM 2.1 · FAZ 2 ⭑",
+        "",
+        "Bu aktivitenin dayandığı YENİDEN DOĞRULANMIŞ iddiaların kimlikleri.",
+        "Kayıtlar 01_SOURCE/research/*-revalidation.json içindedir.",
+        "",
+        "NEDEN AYRI BİR ALAN: `inheritanceStatus` KAYIT düzeyindedir ve bir",
+        "kültür kaydının otuz alanı vardır. 'culture-maya doğrulandı' cümlesi",
+        "hangi ALANIN doğrulandığını söylemez — ve bir aktivite o kaydın",
+        "yalnızca iki alanını kullanır.",
+        "",
+        "claimRefs doğrulamayı KAYIT düzeyinden İDDİA düzeyine indirir:",
+        "artık 'bu aktivitenin kullandığı iddia doğrulandı mı' sorusu",
+        "mekanik olarak cevaplanabilir. validate_research § ⑩ denetler.",
+        "",
+        "status ∈ {locked, written} iken ZORUNLUDUR."
       ]
     },
     "sourceStory": {
@@ -263,6 +288,9 @@
     "R7  restrictionStatus ∈ {restricted, excluded}  →  status == 'dropped'",
     "R8  attributionRequired == true  →  culturalContext ZORUNLU",
     "R9  difficulty == 1  →  len(steps) ≤ 2",
-    "R10 sealSlot taşıyan aktivite  →  status ≠ 'dropped'"
+    "R10 sealSlot taşıyan aktivite  →  status ≠ 'dropped'",
+    "R11 status ∈ {locked, written}  →  claimRefs DOLU  (v2.1 · Faz 2)",
+    "R12 claimRefs'in her üyesi bir revalidation kaydında BULUNMALI",
+    "R13 cevap veya mühür besleyen bir iddia  →  ≥2 BAĞIMSIZ kaynak"
   ]
 }

@@ -15,10 +15,43 @@
     "veya çocuk testi bir adayı düşürdüğünde yerine aynı bölge × aynı",
     "tipten bir başkası geçer ve kapsam sarsılmaz."
   ],
+  "$phase2Note": [
+    "FAZ 2 · ZORLUK DÜZELTMESİ — jaguar-condor pilotu sırasında bulundu.",
+    "",
+    "KUSUR: bölgenin zorluk profili {★1:5, ★2:7, ★3:4}, kültür kotaları",
+    "{maya 7, aztec 6, andean 3} ve tip asgarileri {cipher 3, map 2, sort 4,",
+    "observe 2, make 2} AYRI AYRI sağlanabiliyordu ama KESİŞİMLERİ BOŞTU:",
+    "geçerli hiçbir 16'lık kitap seçimi yoktu (8008 kombinasyonun 60'ı",
+    "profil+kotayı geçiyor, HİÇBİRİ tip asgarisini geçmiyordu).",
+    "",
+    "SEBEP: ★1 havuzunda tam 5 aday vardı ve profil tam 5 istiyordu —",
+    "yani beşi de ZORUNLUYDU. Üçü 'observe' tipindeydi. Bu, asgarisi 2",
+    "olan bir tipi üçe çıkarırken sort/make/map'i aç bırakıyordu.",
+    "",
+    "DÜZELTME — iki aday, EDİTORYAL gerekçeyle taşındı. Sayı tutsun diye",
+    "değil: ikisi de merdivendeki yanlış basamaktaydı (ACTIVITY_TAXONOMY § 5,",
+    "'zorluk sabit bir özellik değil bir tasarım koludur').",
+    "",
+    "  andean-condor-plate   ★1 → ★2   (yaş 8–10 → 9–12)",
+    "    'etiketle VE her birinin ne işe yaradığını söyle' iki işlemdir ve",
+    "    ikincisi bir ÇIKARIMDIR. Karşılaştırma: aztec-chinampa-plate ★1",
+    "    kalır çünkü o 'etiketle ve neyin tuttuğunu İŞARETLE' der —",
+    "    işaretleme çıkarım değildir. AGE_POLICY § 6: ★ tek adımlıdır.",
+    "",
+    "  aztec-town-sign-make  ★2 → ★1   (yaş 9–12 → 8–12)",
+    "    kısıt ÇOCUĞA VERİLİYOR ('iki tepe yeri'), tek bir çizim işi kalıyor.",
+    "    maya-glyph-make ★2 KALIR çünkü orada çocuk önce kendi kasabasını",
+    "    neyin ayırdığına KARAR VERİR, sonra çizer — kısıtı kendi bulur.",
+    "    Kısıtı bulmak, verilmiş bir kısıtla çizmekten zordur.",
+    "",
+    "KAPI DÜZELTMESİ: qa_matrix.py § ⑧ eklendi. Kapı artık üç kısıtı",
+    "AYRI AYRI değil BİRLİKTE denetliyor: 'geçerli en az bir kitap seçimi",
+    "var mı'. Ayrı ayrı yeşil yanan üç kısıt, kesişimi boş bırakabiliyordu."
+  ],
   "meta": {
-    "version": "1.0",
+    "version": "1.1",
     "generatedAt": "2026-08-13",
-    "phase": "phase1",
+    "phase": "phase2",
     "candidateTotal": 168,
     "bookTotal": 120,
     "schema": "01_SOURCE/activity.schema.json",
@@ -5511,9 +5544,9 @@
       "culture": "andean",
       "region": "jaguar-condor",
       "type": "map",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches four animals and crops to the altitude band each belongs to.",
@@ -5539,7 +5572,10 @@
       "inheritedRecords": [
         "culture-andean"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir."
+      "claimRefs": [
+        "CLM-ANDEAN-ALTITUDE"
+      ],
+      "sealSlot": 5
     },
     {
       "activityId": "andean-condor-plate",
@@ -5553,10 +5589,10 @@
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader labels four condor features and says what each one is for.",
-      "difficulty": 1,
-      "ageMin": 8,
-      "ageMax": 10,
-      "durationMinutes": 8,
+      "difficulty": 2,
+      "ageMin": 9,
+      "ageMax": 12,
+      "durationMinutes": 12,
       "materials": [
         "book",
         "pencil",
@@ -5583,9 +5619,9 @@
       "culture": "andean",
       "region": "jaguar-condor",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the four stages of the warning and marks where the people went.",
@@ -5612,9 +5648,10 @@
         "culture-andean",
         "story-andean-llama-flood"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
       "sourceStory": "story-andean-llama-flood",
-      "sealSlot": 6
+      "claimRefs": [
+        "CLM-ANDEAN-FLOOD"
+      ]
     },
     {
       "activityId": "andean-khipu-knots",
@@ -5622,9 +5659,9 @@
       "culture": "andean",
       "region": "jaguar-condor",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader reads four khipu numbers from knot positions on a cord.",
@@ -5651,9 +5688,10 @@
       "inheritedRecords": [
         "culture-andean"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 5,
-      "parentNote": "A short length of string lets the child tie the knots they are reading. An adult cuts and hands over the string; loose string is put away afterwards."
+      "parentNote": "A short length of string lets the child tie the knots they are reading. An adult cuts and hands over the string; loose string is put away afterwards.",
+      "claimRefs": [
+        "CLM-ANDEAN-KHIPU"
+      ]
     },
     {
       "activityId": "aztec-chinampa-plate",
@@ -5661,9 +5699,9 @@
       "culture": "aztec",
       "region": "jaguar-condor",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader labels four parts of a chinampa and marks what holds it in place.",
@@ -5690,7 +5728,10 @@
       "inheritedRecords": [
         "culture-aztec"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "claimRefs": [
+        "CLM-AZTEC-CHINAMPA"
+      ],
+      "sealSlot": 2
     },
     {
       "activityId": "aztec-codex-plate",
@@ -5773,9 +5814,9 @@
       "culture": "aztec",
       "region": "jaguar-condor",
       "type": "map",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader marks the causeways that joined the island city to the shore.",
@@ -5801,8 +5842,9 @@
       "inheritedRecords": [
         "culture-aztec"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
-      "sealSlot": 4
+      "claimRefs": [
+        "CLM-AZTEC-CAUSEWAY"
+      ]
     },
     {
       "activityId": "aztec-maize-journey-sort",
@@ -5810,9 +5852,9 @@
       "culture": "aztec",
       "region": "jaguar-condor",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the stages by which maize was brought to people.",
@@ -5839,21 +5881,24 @@
         "culture-aztec",
         "story-aztec-quetzalcoatl-maize"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-aztec-quetzalcoatl-maize"
+      "sourceStory": "story-aztec-quetzalcoatl-maize",
+      "claimRefs": [
+        "CLM-AZTEC-MAIZE"
+      ],
+      "sealSlot": 6
     },
     {
       "activityId": "aztec-number-signs",
-      "title": "Flag, Feather, Bag",
+      "title": "Banner, Tzontli, Bag",
       "culture": "aztec",
       "region": "jaguar-condor",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
-      "objective": "Reader reads four numbers written with flags, feathers and bags.",
+      "objective": "Reader reads four numbers written with banners, tzontli signs and bags.",
       "difficulty": 3,
       "ageMin": 10,
       "ageMax": 12,
@@ -5863,7 +5908,7 @@
         "pencil"
       ],
       "safetyClass": "safe",
-      "learningObjective": "A flag is twenty, a feather four hundred, a bag eight thousand.",
+      "learningObjective": "A banner is twenty, a tzontli sign four hundred, a bag eight thousand.",
       "learningDimensions": [
         "pattern-recognition",
         "memory"
@@ -5876,7 +5921,9 @@
       "inheritedRecords": [
         "culture-aztec"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "claimRefs": [
+        "CLM-AZTEC-NUMSIGN"
+      ]
     },
     {
       "activityId": "aztec-place-glyphs",
@@ -5884,9 +5931,9 @@
       "culture": "aztec",
       "region": "jaguar-condor",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader reads four town names built from picture signs.",
@@ -5912,7 +5959,9 @@
       "inheritedRecords": [
         "culture-aztec"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-AZTEC-PLACEGLYPH"
+      ],
       "sealSlot": 3
     },
     {
@@ -5921,16 +5970,16 @@
       "culture": "aztec",
       "region": "jaguar-condor",
       "type": "make",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader designs the sign for a town whose name means place of two hills.",
-      "difficulty": 2,
-      "ageMin": 9,
+      "difficulty": 1,
+      "ageMin": 8,
       "ageMax": 12,
-      "durationMinutes": 15,
+      "durationMinutes": 12,
       "materials": [
         "book",
         "pencil",
@@ -5950,7 +5999,9 @@
       "inheritedRecords": [
         "culture-aztec"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "claimRefs": [
+        "CLM-AZTEC-PLACEGLYPH"
+      ]
     },
     {
       "activityId": "maya-ballcourt-plate",
@@ -5958,9 +6009,9 @@
       "culture": "maya",
       "region": "jaguar-condor",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader labels six parts of a ball court using a word bank.",
@@ -5987,20 +6038,22 @@
       "inheritedRecords": [
         "culture-maya"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "claimRefs": [
+        "CLM-MAYA-BALLCOURT"
+      ]
     },
     {
       "activityId": "maya-ballcourt-sort",
-      "title": "Known and Not Known",
+      "title": "Written Down, Worked Out, Unknown",
       "culture": "maya",
       "region": "jaguar-condor",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
-      "objective": "Reader sorts four statements about the ball game into known and not known.",
+      "objective": "Reader sorts four statements about the ball game by how each one is known.",
       "difficulty": 2,
       "ageMin": 9,
       "ageMax": 12,
@@ -6010,7 +6063,7 @@
         "pencil"
       ],
       "safetyClass": "safe",
-      "learningObjective": "Some things about the game are certain and some are still guesses.",
+      "learningObjective": "Some of this was written down by an eyewitness and some is still unknown.",
       "learningDimensions": [
         "historical-reasoning",
         "observation"
@@ -6024,8 +6077,11 @@
         "culture-maya",
         "story-maya-hero-twins"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-maya-hero-twins"
+      "sourceStory": "story-maya-hero-twins",
+      "claimRefs": [
+        "CLM-MAYA-BALLCOURT",
+        "CLM-MAYA-HEROTWINS-CONTEXT"
+      ]
     },
     {
       "activityId": "maya-bar-dot-numbers",
@@ -6033,9 +6089,9 @@
       "culture": "maya",
       "region": "jaguar-condor",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader reads six numbers written with dots, bars and a shell.",
@@ -6061,7 +6117,9 @@
       "inheritedRecords": [
         "culture-maya"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-MAYA-NUM"
+      ],
       "sealSlot": 1
     },
     {
@@ -6143,9 +6201,9 @@
       "culture": "maya",
       "region": "jaguar-condor",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the four attempts and matches each to what it was made from.",
@@ -6172,8 +6230,11 @@
         "culture-maya",
         "story-maya-maize-people"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-maya-maize-people"
+      "sourceStory": "story-maya-maize-people",
+      "claimRefs": [
+        "CLM-MAYA-POPOLVUH"
+      ],
+      "sealSlot": 4
     },
     {
       "activityId": "maya-number-add",
@@ -6181,9 +6242,9 @@
       "culture": "maya",
       "region": "jaguar-condor",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader adds four pairs of numbers and writes the answers in bar-and-dot.",
@@ -6209,8 +6270,9 @@
       "inheritedRecords": [
         "culture-maya"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 2
+      "claimRefs": [
+        "CLM-MAYA-NUM"
+      ]
     },
     {
       "activityId": "maya-number-make",
@@ -6218,9 +6280,9 @@
       "culture": "maya",
       "region": "jaguar-condor",
       "type": "make",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader writes their age and birth year in bar-and-dot and draws them large.",
@@ -6247,20 +6309,22 @@
       "inheritedRecords": [
         "culture-maya"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "claimRefs": [
+        "CLM-MAYA-NUM"
+      ]
     },
     {
       "activityId": "maya-place-glyphs",
-      "title": "Reading a City Name",
+      "title": "The Name Inside the Title",
       "culture": "maya",
       "region": "jaguar-condor",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "drafted",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
-      "objective": "Reader matches four recorded place glyphs to four cities on the map.",
+      "objective": "Reader reads the three parts of an emblem glyph and names the kingdom in each.",
       "difficulty": 3,
       "ageMin": 10,
       "ageMax": 12,
@@ -6270,7 +6334,7 @@
         "pencil"
       ],
       "safetyClass": "safe",
-      "learningObjective": "Maya cities signed their monuments with a glyph for the city itself.",
+      "learningObjective": "An emblem glyph names a kingdom and its royal line, not a set of ruins.",
       "learningDimensions": [
         "pattern-recognition",
         "geography"
@@ -6283,7 +6347,9 @@
       "inheritedRecords": [
         "culture-maya"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "claimRefs": [
+        "CLM-MAYA-EMBLEM"
+      ]
     },
     {
       "activityId": "maya-storm-signs-plate",

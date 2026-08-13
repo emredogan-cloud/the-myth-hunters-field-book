@@ -87,13 +87,28 @@ araştırmayı World Myths'te zaten yaptık.
 
 ## 7 · Ticari model (rapor § 16)
 
-> ⚠ Telifler **hipotezdir** ve 144 sayfalık modele dayanır.
+> ✅ **A8 KAPANDI · 13 Ağustos 2026 · kurucu kararı → `DECISIONS.md § K19`.**
+> Telifler artık hipotez değil **ölçülmüş modeldir** ve **148 sayfalık**
+> modele dayanır. Faz 1 sayfa modelini ölçtü (144 ham → 148 forma hizalı)
+> ve kurucu 148'i **telif düşüşüyle birlikte** kabul etti.
 
 | Sürüm | Trim | Liste | Baskı | Telif | Başabaş ACOS |
 |---|---|---:|---:|---:|---:|
-| **Ciltsiz** | 8,5×11 | 14,99 $ | 3,45 $ | **5,55 $** | %37,0 |
-| Ciltli (A5) | 8,25×11 | 24,99 $ | 8,10 $ | 6,90 $ | %27,6 |
+| **Ciltsiz** | 8,5×11 | 14,99 $ | 3,52 $ | **5,48 $** | %36,5 |
+| Ciltli (A5) | 8,25×11 | 24,99 $ | 8,17 $ | 6,83 $ | %27,3 |
 | Kindle | — | **önerilmez** | — | — | — |
+
+<details>
+<summary>Bootstrap hipotezi (144 sayfa) — kayıt için</summary>
+
+| Sürüm | Baskı | Telif | Başabaş ACOS |
+|---|---:|---:|---:|
+| Ciltsiz | 3,45 $ | 5,55 $ | %37,0 |
+
+Fark: baskı **+0,07 $**, telif **−0,07 $**, başabaş ACOS **−0,5 puan**.
+Kurucu bu farkı kabul etti; alternatif final görevi veya cevap anahtarını
+kısmaktı ve ikisi de **ürünün işlevidir**.
+</details>
 
 **Kindle neden yok:** üzerine yazılan bir kitap e-okuyucuda çalışmaz ve
 kötü yorum üretir. Bu bir gelir kaybı değil, **itibar korumasıdır**.
@@ -106,14 +121,19 @@ planlıdır (14,99 $ vs 12,99 $, **tek değişken**).
 
 ## 8 · Gerçek ekonomi: read-through
 
-Bu ürünün tek başına marjı dardır (5,55 $). Gerçek işi **World Myths'i
+Bu ürünün tek başına marjı dardır (5,48 $). Gerçek işi **World Myths'i
 tetiklemektir**:
 
 ```
-Field Book (5,55 $)  →  World Myths ciltsiz (6,39 $)  →  ciltli (7,74 $)
+Field Book (5,48 $)  →  World Myths ciltsiz (6,39 $)  →  ciltli (7,74 $)
 ```
 
-Read-through %20 olursa efektif telif ≈ 5,55 + (0,20 × 6,39) = **6,83 $**.
+Read-through %20 olursa efektif telif ≈ 5,48 + (0,20 × 6,39) = **6,76 $**.
+
+> Dört sayfanın maliyeti read-through'un **yanında ölçülür**: 0,07 $ kayıp,
+> tek bir read-through satışının (6,39 $) **%1,1'idir**. Kısılacak dört
+> sayfa ise final görevden veya cevap anahtarından gelecekti — yani
+> read-through'u besleyen tamamlanma duygusundan.
 
 > ⚠ Read-through oranı **ölçülmeden bilinemez** ve bu yol haritası onu
 > kanıtlayamaz — yalnızca test edilebilir hâle getirir.

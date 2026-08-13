@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "checks": 11,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "activities": 16,
+    "pagesAddressingReader": 16,
+    "instructionMaxWords": 18,
+    "writingLinesTotal": 75,
+    "writingLinesMax": 8,
+    "pagesWithPrintSpec": 16
+  }
+}

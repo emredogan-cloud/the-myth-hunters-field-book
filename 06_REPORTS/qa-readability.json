@@ -4,84 +4,194 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 356,
-    "sentences": 43,
-    "avgSentenceWords": 8.28,
-    "fkGrade": 2.95,
-    "longWordRatio": 0.039,
+    "words": 983,
+    "sentences": 125,
+    "avgSentenceWords": 7.86,
+    "fkGrade": 2.21,
+    "longWordRatio": 0.021,
     "perActivity": [
       {
-        "activityId": "irish-ogham-key",
-        "words": 78,
-        "sentences": 9,
+        "activityId": "maya-bar-dot-numbers",
+        "words": 52,
+        "sentences": 6,
         "avgSentenceWords": 8.67,
-        "fkGrade": 3.07,
-        "longWordRatio": 0.026,
-        "fieldNoteWords": 21,
-        "steps": 3
-      },
-      {
-        "activityId": "hawaii-island-chain-map",
-        "words": 72,
-        "sentences": 9,
-        "avgSentenceWords": 8.0,
-        "fkGrade": 3.43,
+        "fkGrade": 1.63,
         "longWordRatio": 0.0,
-        "fieldNoteWords": 24,
-        "steps": 3
-      },
-      {
-        "activityId": "turkic-one-eyed-giants",
-        "words": 77,
-        "sentences": 9,
-        "avgSentenceWords": 8.56,
-        "fkGrade": 2.92,
-        "longWordRatio": 0.052,
-        "fieldNoteWords": 23,
-        "steps": 3
-      },
-      {
-        "activityId": "meso-seal-cylinder-plate",
-        "words": 67,
-        "sentences": 8,
-        "avgSentenceWords": 8.38,
-        "fkGrade": 3.35,
-        "longWordRatio": 0.075,
         "fieldNoteWords": 22,
         "steps": 2
       },
       {
-        "activityId": "greek-labyrinth-make",
+        "activityId": "maya-ballcourt-plate",
+        "words": 54,
+        "sentences": 6,
+        "avgSentenceWords": 9.0,
+        "fkGrade": 1.69,
+        "longWordRatio": 0.019,
+        "fieldNoteWords": 27,
+        "steps": 2
+      },
+      {
+        "activityId": "maya-number-make",
+        "words": 52,
+        "sentences": 6,
+        "avgSentenceWords": 8.67,
+        "fkGrade": 1.18,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 26,
+        "steps": 2
+      },
+      {
+        "activityId": "aztec-chinampa-plate",
+        "words": 50,
+        "sentences": 6,
+        "avgSentenceWords": 8.33,
+        "fkGrade": 4.18,
+        "longWordRatio": 0.06,
+        "fieldNoteWords": 21,
+        "steps": 2
+      },
+      {
+        "activityId": "aztec-town-sign-make",
+        "words": 51,
+        "sentences": 6,
+        "avgSentenceWords": 8.5,
+        "fkGrade": 3.0,
+        "longWordRatio": 0.02,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "maya-number-add",
+        "words": 54,
+        "sentences": 7,
+        "avgSentenceWords": 7.71,
+        "fkGrade": 2.71,
+        "longWordRatio": 0.056,
+        "fieldNoteWords": 20,
+        "steps": 3
+      },
+      {
+        "activityId": "maya-ballcourt-sort",
         "words": 62,
-        "sentences": 8,
-        "avgSentenceWords": 7.75,
-        "fkGrade": 1.9,
-        "longWordRatio": 0.048,
+        "sentences": 9,
+        "avgSentenceWords": 6.89,
+        "fkGrade": 1.56,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 29,
+        "steps": 3
+      },
+      {
+        "activityId": "aztec-place-glyphs",
+        "words": 65,
+        "sentences": 7,
+        "avgSentenceWords": 9.29,
+        "fkGrade": 2.74,
+        "longWordRatio": 0.031,
+        "fieldNoteWords": 22,
+        "steps": 3
+      },
+      {
+        "activityId": "aztec-lake-city-map",
+        "words": 61,
+        "sentences": 7,
+        "avgSentenceWords": 8.71,
+        "fkGrade": 2.7,
+        "longWordRatio": 0.016,
         "fieldNoteWords": 24,
         "steps": 3
+      },
+      {
+        "activityId": "andean-khipu-knots",
+        "words": 73,
+        "sentences": 10,
+        "avgSentenceWords": 7.3,
+        "fkGrade": 0.84,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 25,
+        "steps": 4
+      },
+      {
+        "activityId": "maya-maize-stages-sort",
+        "words": 54,
+        "sentences": 7,
+        "avgSentenceWords": 7.71,
+        "fkGrade": 2.28,
+        "longWordRatio": 0.056,
+        "fieldNoteWords": 21,
+        "steps": 3
+      },
+      {
+        "activityId": "andean-altitude-map",
+        "words": 61,
+        "sentences": 8,
+        "avgSentenceWords": 7.62,
+        "fkGrade": 2.28,
+        "longWordRatio": 0.033,
+        "fieldNoteWords": 23,
+        "steps": 3
+      },
+      {
+        "activityId": "andean-flood-warning-sort",
+        "words": 69,
+        "sentences": 9,
+        "avgSentenceWords": 7.67,
+        "fkGrade": 3.13,
+        "longWordRatio": 0.058,
+        "fieldNoteWords": 22,
+        "steps": 3
+      },
+      {
+        "activityId": "aztec-maize-journey-sort",
+        "words": 72,
+        "sentences": 9,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 3.59,
+        "longWordRatio": 0.014,
+        "fieldNoteWords": 21,
+        "steps": 3
+      },
+      {
+        "activityId": "maya-place-glyphs",
+        "words": 70,
+        "sentences": 9,
+        "avgSentenceWords": 7.78,
+        "fkGrade": 1.6,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 20,
+        "steps": 3
+      },
+      {
+        "activityId": "aztec-number-signs",
+        "words": 83,
+        "sentences": 13,
+        "avgSentenceWords": 6.38,
+        "fkGrade": 1.26,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 25,
+        "steps": 4
       }
     ],
     "registers": {
       "instruction": {
-        "words": 167,
-        "sentences": 24,
-        "avgSentenceWords": 6.96,
-        "fkGrade": 2.03,
-        "maxSentenceWords": 11
+        "words": 551,
+        "sentences": 83,
+        "avgSentenceWords": 6.64,
+        "fkGrade": 1.28,
+        "maxSentenceWords": 12
       },
       "fieldNote": {
-        "words": 114,
-        "sentences": 11,
-        "avgSentenceWords": 10.36,
-        "fkGrade": 4.7,
-        "maxSentenceWords": 14
+        "words": 372,
+        "sentences": 34,
+        "avgSentenceWords": 10.94,
+        "fkGrade": 3.87,
+        "maxSentenceWords": 18
       },
       "hint": {
-        "words": 75,
+        "words": 60,
         "sentences": 8,
-        "avgSentenceWords": 9.38,
-        "fkGrade": 2.86,
-        "maxSentenceWords": 12
+        "avgSentenceWords": 7.5,
+        "fkGrade": 3.27,
+        "maxSentenceWords": 9
       }
     }
   }

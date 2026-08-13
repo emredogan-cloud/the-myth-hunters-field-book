@@ -1,0 +1,638 @@
+{
+  "$comment": [
+    "YENİDEN DOĞRULAMA KAYITLARI — Jaguar and Condor pilotu · Faz 2",
+    "",
+    "⭑ BU DOSYA DEPODA DURUR VE DURMALIDIR ⭑",
+    "İçinde CEVAP yoktur. İçinde İDDİA ve İDDİANIN KAYNAĞI vardır.",
+    "Karar K11: araştırma künyeleri public kalır; cevap anahtarı kalmaz.",
+    "",
+    "NEDEN VAR",
+    "",
+    "Devralma sözleşmesi (K9) şunu der: inherited-provisional bir kayda",
+    "dayanan aktivite LOCKED OLAMAZ. Ama 'doğrulandı' demek tek başına bir",
+    "doğrulama değildir — bir BEYANDIR. Bu dosya beyanı KANITA bağlar:",
+    "hangi iddia, hangi aktivitenin neresinde kullanılıyor, hangi kaynakla",
+    "karşılaştırıldı, sonuç ne çıktı.",
+    "",
+    "Kademe kuralı (SOURCING_STANDARD § 3):",
+    "  arka plan / kültürel çerçeve      → 1 kaynak yeterli",
+    "  BİR AKTİVİTENİN CEVABINI ÜRETEN   → ≥2 BAĞIMSIZ kaynak",
+    "  telaffuz · ad yazımı · diakritik   → ≥2 BAĞIMSIZ kaynak",
+    "",
+    "validate_research.py § ⑩ bu dosyayı aktivitelerle çapraz denetler:",
+    "locked bir aktivitenin her claimRef'i burada olmalı, cevap üreten her",
+    "iddia ≥2 kaynak taşımalı ve verdict 'rejected' olmamalıdır.",
+    "",
+    "VERDICT NE DEMEK",
+    "  confirmed → devralınan iddia doğrulandı, değişmedi",
+    "  corrected → devralınan iddia YANLIŞ ya da EKSİKTİ, düzeltildi",
+    "  rejected  → doğrulanamadı; iddia aktiviteden ÇIKARILIR",
+    "",
+    "Üç 'corrected' bu fazın en yararlı çıktısıdır: üçü de Faz 1'de",
+    "anlatı için yeterli, AKTİVİTE için yanlış olan cümlelerdi.",
+    "",
+    "⚠ KAYNAK SAYILMAYAN: wiki maddeleri (SOURCING_STANDARD § 2). Aşağıdaki",
+    "künyelerin hiçbiri bir wiki maddesine dayanmıyor; arama sonuçlarında",
+    "çıkan wiki bağları KULLANILMADI.",
+    "",
+    "⚠ KÜNYELERDE ISBN RAKAMI TAŞINMAZ — ve bu bilinçlidir.",
+    "validate_structure.py sahte ISBN arar ve bir KAYNAĞIN ISBN'i ile",
+    "BİZİM kitabımızın ISBN'ini ayırt edemez. Kapı kapalı yönde",
+    "arızalanıyor ve bu doğru: uydurulmuş bir ISBN'in maliyeti, bir",
+    "künyede eksik kalan rakamın maliyetinden çok daha yüksek.",
+    "Yayıncı + yıl + sayfa zaten tam bir akademik künyedir."
+  ],
+  "meta": {
+    "region": "jaguar-condor",
+    "phase": "phase2",
+    "revalidatedAt": "2026-08-13",
+    "revalidatedBy": "phase2-agent",
+    "method": [
+      "Her iddia, o iddiayı KULLANAN aktiviteden geriye doğru izlendi.",
+      "Cevap üreten iddialar için en az iki BAĞIMSIZ kaynak arandı.",
+      "Kaynaklar erişim tarihiyle künyelendi; erişilemeyen bir kaynak",
+      "KÜNYEYE YAZILMADI — okunmamış bir kaynağı kaydetmek uydurmadır."
+    ],
+    "claimCount": 13,
+    "confirmed": 10,
+    "corrected": 3,
+    "rejected": 0
+  },
+  "claims": [
+    {
+      "claimId": "CLM-MAYA-NUM",
+      "statement": "Maya numerals use three signs: a dot for one, a bar for five, and a shell for zero. Numbers 0-19 combine dots above bars. Above 19 the system is positional and vigesimal, written vertically with the lowest place at the bottom.",
+      "inheritedRecord": "culture-maya",
+      "revalidatedFields": [
+        "writingSystem",
+        "notationValues",
+        "readingDirection"
+      ],
+      "usedBy": [
+        "maya-bar-dot-numbers",
+        "maya-number-add",
+        "maya-number-make"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Pitts, Mark — Maya Numbers & The Maya Calendar (FAMSI, Foundation for the Advancement of Mesoamerican Studies)",
+          "type": "archive",
+          "locator": "famsi.org/research/pitts/MayaGlyphsBook2.pdf",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Penn Museum, Expedition Magazine — Maya 'Long Count' Numbers",
+          "type": "museum",
+          "locator": "penn.museum/sites/expedition/maya-long-count-numbers/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Davies, Diane (archaeologist) — Maya Maths, Educational Resources on the Maya",
+          "type": "ethnography",
+          "locator": "mayaarchaeologist.co.uk/school-resources/maya-world/mayamaths/",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "PİLOT 0-19 BANDINDA KALIR VE BU BİR TASARIM KİLİDİDİR.",
+        "Yirminin üstünde Maya konumsal dizgesi TAKVİMDE ikinci basamağı",
+        "20 değil 18 sayar (Uzun Sayım). Bu istisna sekiz yaşındaki bir",
+        "çocuk için bir tuzaktır ve pilot ona HİÇ girmez: bütün sayılar",
+        "0-19 arasındadır, yani cevap tek ve tartışmasızdır.",
+        "Konumsal dizge field note'ta ANLATILIR, göreve SOKULMAZ."
+      ]
+    },
+    {
+      "claimId": "CLM-MAYA-EMBLEM",
+      "statement": "A Classic Maya emblem glyph is a title, not a city label. It reads k'uhul + main sign + ajaw, roughly 'holy [X] lord'. The main sign names a kingdom or royal line, not the modern name of the ruins. Tikal's main sign reads Mutal/Mutul; Calakmul's is the snake sign, Kaanul.",
+      "inheritedRecord": "culture-maya",
+      "revalidatedFields": [
+        "writingSystem",
+        "emblemGlyphSemantics"
+      ],
+      "usedBy": [
+        "maya-place-glyphs"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "corrected",
+      "correction": [
+        "FAZ 1 İDDİASI: 'Maya cities signed their monuments with a glyph",
+        "for the city itself.' — learningObjective alanı.",
+        "",
+        "BU YANLIŞTI. Amblem glifi bir KENT ETİKETİ değil bir UNVANDIR ve",
+        "ana işareti bir KRALLIĞI adlandırır. Aynı amblem birden çok yerde",
+        "görünebilir (Mutal hem Tikal'de hem Dos Pilas/Aguateca'da), çünkü",
+        "taşınan şey hanedandır, yer değil.",
+        "",
+        "NEDEN ÖNEMLİ: bir anlatı cildinde 'Tikal'in glifi' demek zararsız",
+        "bir kısaltmadır. Burada aynı cümle bir EŞLEŞTİRME GÖREVİNİN cevabı",
+        "olur ve çocuk yanlış bir şeyi deftere yazar. Devralma mimarisinin",
+        "tarif ettiği kusurun tam örneği (INHERITANCE_ARCHITECTURE § 2).",
+        "",
+        "DÜZELTME: aktivite artık glifin ÜÇ PARÇASINI okutuyor ve field",
+        "note 'bu bir krallığın adıdır, harabelerin bugünkü adı değil'",
+        "diyor. Aynı adın iki yerde çıkması bir kusur değil, DERSİN KENDİSİ."
+      ],
+      "sources": [
+        {
+          "ref": "Stuart, David — Deciphering the Tikal Emblem Glyph (Maya Decipherment, epigraphic research blog)",
+          "type": "journal",
+          "locator": "mayadecipherment.com/2013/11/08/deciphering-the-tikal-emblem-glyph/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Estudios de Cultura Maya — Politics in the Western Maya Region (II): Emblem Glyphs (hakemli)",
+          "type": "journal",
+          "locator": "scielo.org.mx S0185-25742012000100002",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Ibero-Amerikanisches Institut — Emblem Glyphs in Classic Maya Inscriptions",
+          "type": "journal",
+          "locator": "publications.iai.spk-berlin.de EI_09_123_158.pdf",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-MAYA-BALLCOURT",
+      "statement": "Mesoamerican ball courts have a long central alley with sloping side walls; later courts take an I-shape with end zones. The ball was solid rubber and heavy. Players struck it with the hip and upper leg, not with hands or feet. Sixteenth-century Spanish eyewitnesses recorded the Aztec game's rules; the rules of the far older Classic Maya game are not recorded and are inferred.",
+      "inheritedRecord": "culture-maya",
+      "revalidatedFields": [
+        "ballcourtArchitecture",
+        "ballgameEvidence"
+      ],
+      "usedBy": [
+        "maya-ballcourt-plate",
+        "maya-ballcourt-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "corrected",
+      "correction": [
+        "FAZ 1 TASARIMI 'oyunun kuralları bilinmiyor'u BİLİNMEYEN tarafına",
+        "koyuyordu. Bu FAZLA KABA ve yanlış tarafa düşüyor.",
+        "",
+        "Penn Museum kaydı açık: 16. yüzyılda Diego Durán AZTEK oyununu",
+        "gözüyle görüp yazdı — sayı nasıl alınır, top nereye değerse faul",
+        "olur, hepsi kayıtlı. Yani 'kurallar bilinmiyor' YANLIŞTIR.",
+        "",
+        "DOĞRU AYRIM ZAMANDADIR:",
+        "  BİLİNİYOR      → Aztek oyununun kuralları (görgü tanığı kaydı)",
+        "  BİLİNİYOR      → sahanın biçimi, topun maddesi, kalçayla vuruş",
+        "  BİLİNMİYOR     → yedi yüz yıl ÖNCEKİ Klasik Maya oyununun",
+        "                   kurallarının aynı olup olmadığı",
+        "",
+        "Bu düzeltme aktiviteyi ZAYIFLATMIYOR, KESKİNLEŞTİRİYOR: çocuk",
+        "'bilinmiyor' ile 'başka bir yerden ve başka bir yüzyıldan biliniyor'",
+        "arasındaki farkı öğreniyor. ACTIVITY_TAXONOMY § 2.3'ün",
+        "'bilginin sınırı da bilgidir' alt biçiminin tam karşılığı."
+      ],
+      "sources": [
+        {
+          "ref": "Penn Museum, Expedition Magazine — The Rubber Ball Game (Durán'ın 16. yy kaydına dayanıyor)",
+          "type": "museum",
+          "locator": "penn.museum/sites/expedition/the-rubber-ball-game/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Penn Museum, Expedition Magazine — Maya Hieroglyphs (saha ve mimarî bağlamı)",
+          "type": "museum",
+          "locator": "penn.museum/sites/expedition/maya-hieroglyphs/",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-MAYA-POPOLVUH",
+      "statement": "The Popol Vuh gives four attempts at making people, in this order: animals; a being of mud and earth; people of wood; and finally people made from maize dough.",
+      "inheritedRecord": "story-maya-maize-people",
+      "revalidatedFields": [
+        "canonicalVersion",
+        "sequence"
+      ],
+      "usedBy": [
+        "maya-maize-stages-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "EBSCO Research Starters — Analysis: Creation Story of the Maya, from the Popol Vuh",
+          "type": "archive",
+          "locator": "ebsco.com/research-starters/religion-and-philosophy/analysis-creation-story-maya-popol-vuh",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "University of Texas at Austin (Plan II) — Mayan Creation Myth",
+          "type": "archive",
+          "locator": "laits.utexas.edu/doherty/plan2/wren.html",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "restrictionCheck": [
+        "Yaratılış anlatısı YAŞAYAN Maya topluluklarının kültürel mirasıdır.",
+        "Görev SIRALAMA ister; anlatıyı yeniden canlandırmaz, tanrı adı",
+        "çözdürmez, tören taklit ettirmez. Kademe B kuralı korunuyor:",
+        "kutsal katman bir bulmacanın CEVABI yapılmadı — sıralanan şey",
+        "MALZEMEDİR (hayvan · çamur · odun · mısır), tanrı değil."
+      ]
+    },
+    {
+      "claimId": "CLM-MAYA-HEROTWINS-CONTEXT",
+      "statement": "The Popol Vuh's Hero Twins play the ball game, which is why ball courts appear in the account. This is used only as background context, not to produce any answer.",
+      "inheritedRecord": "story-maya-hero-twins",
+      "revalidatedFields": [
+        "culturalNote"
+      ],
+      "usedBy": [
+        "maya-ballcourt-sort"
+      ],
+      "usedIn": [
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "EBSCO Research Starters — The Maya Creation Myth",
+          "type": "archive",
+          "locator": "ebsco.com/research-starters/religion-and-philosophy/maya-creation-myth",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "restrictionCheck": [
+        "⚠ story-maya-hero-twins KAPALI KATMAN taşır: Xibalba sınavlarının",
+        "işkence sahneleri (IMPORT_MANIFEST § forbiddenLayer).",
+        "O katman bu aktivitede AÇILMIYOR ve açılamaz: aktivite yalnızca",
+        "sahanın MİMARÎSİNE ve oyunun maddî kanıtına bakıyor.",
+        "Bu iddia CEVAP ÜRETMİYOR — bu yüzden tek kaynak yeterlidir."
+      ]
+    },
+    {
+      "claimId": "CLM-AZTEC-NUMSIGN",
+      "statement": "Nahuatl number signs: a banner (pantli) is 20, a tzontli sign is 400, and a bag (xiquipilli) is 8000. The word tzontli means hair, and the sign is drawn as a tuft of hair or a feathery plume; sources describe it both ways.",
+      "inheritedRecord": "culture-aztec",
+      "revalidatedFields": [
+        "writingSystem",
+        "notationValues",
+        "signNames"
+      ],
+      "usedBy": [
+        "aztec-number-signs"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "corrected",
+      "correction": [
+        "FAZ 1 İDDİASI: 'A flag is twenty, a feather four hundred, a bag",
+        "eight thousand.' — ve başlık: 'Flag, Feather, Bag'.",
+        "",
+        "400 işareti tek bir şey DEĞİL. Nahuatl sözcük tzontli ve anlamı",
+        "'saç'. Kaynaklar işareti 'tüy (ya da saç)' diye tarif ediyor ve",
+        "gerekçeyi de veriyor: 'saçlar ya da bir tüyün lifleri kadar çok'.",
+        "",
+        "Yani çocuğa 'bu bir tüydür' demek iddiayı SADELEŞTİRMİYOR,",
+        "YANLIŞLIYOR — ve sözcüğün kendisini (saç) görünmez kılıyor.",
+        "",
+        "DÜZELTME: başlık ve öğrenme hedefi işareti kendi adıyla anıyor",
+        "(tzontli) ve field note belirsizliği çocuk diliyle SÖYLÜYOR.",
+        "STYLE.md § 6: 'Belirsizlik gizlenmez.'",
+        "",
+        "CEVAP DETERMİNİZMİ ETKİLENMİYOR: çocuk işareti SAYIYA çeviriyor,",
+        "resmi adlandırmıyor. 400 her hâlükârda 400."
+      ],
+      "sources": [
+        {
+          "ref": "Wood, Stephanie (ed.) — Visual Lexicon of Aztec Hieroglyphs, Wired Humanities, University of Oregon",
+          "type": "archive",
+          "locator": "aztecglyphs.wired-humanities.org/content/xiquipilli-mdz42r",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Mexicolore — Basic Aztec facts: AZTEC NUMBERS",
+          "type": "ethnography",
+          "locator": "mexicolore.co.uk/aztecs/kids/aztec-numbers",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-AZTEC-PLACEGLYPH",
+      "statement": "A Nahuatl place sign is built from the words inside the place name, drawn. Tenochtitlan is a stone (tetl) with a prickly pear cactus (nochtli) growing from it. Other common elements are tepetl, a hill, and atl, water.",
+      "inheritedRecord": "culture-aztec",
+      "revalidatedFields": [
+        "writingSystem",
+        "placeGlyphElements",
+        "nameSpelling"
+      ],
+      "usedBy": [
+        "aztec-place-glyphs",
+        "aztec-town-sign-make"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Wood, Stephanie (ed.) — Visual Lexicon of Aztec Hieroglyphs, entry Tenochtitlan (Mdz2r)",
+          "type": "archive",
+          "locator": "aztecglyphs.wired-humanities.org/content/tenochtitlan-mdz2r",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "University of Arizona Special Collections — Codex Mendoza, folio 2r",
+          "type": "archive",
+          "locator": "speccolldev.library.arizona.edu/codex-mendoza-p-2r",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Smarthistory — Frontispiece of the Codex Mendoza",
+          "type": "archive",
+          "locator": "smarthistory.org/frontispiece-of-the-codex-mendoza/",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-AZTEC-CAUSEWAY",
+      "statement": "Tenochtitlan stood on an island and was joined to the lake shore by three raised causeways: north to Tepeyac, west to Tlacopan (Tacuba) and south to Iztapalapa. There was no causeway to the east; the eastern side was reached by canoe.",
+      "inheritedRecord": "culture-aztec",
+      "revalidatedFields": [
+        "mapPoint",
+        "cityLayout",
+        "placeNames"
+      ],
+      "usedBy": [
+        "aztec-lake-city-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "INAH (Instituto Nacional de Antropología e Historia) — Templo Mayor, zona arqueológica",
+          "type": "museum",
+          "locator": "lugares.inah.gob.mx/en/node/4463",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Mexico City: History (Aztec period)",
+          "type": "book",
+          "locator": "britannica.com/place/Mexico-City/History",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "Cevap ÜÇ yolu işaretlemek VE doğuyu boş bırakmaktır. Boş bırakılan",
+        "yön, cevabın kendisi kadar önemlidir: çocuk 'burada niye yok?'",
+        "diye sorar ve field note cevaplar — kentin doğusuna kayıkla",
+        "gidilirdi. Bir harita aktivitesinde EKSİK OLAN da bir veridir."
+      ]
+    },
+    {
+      "claimId": "CLM-AZTEC-CHINAMPA",
+      "statement": "A chinampa is built in shallow lake water: posts are driven into the bed, a fence of woven reeds and branches holds the plot, and it is filled with lake mud and water plants until it stands a little above the water. Ahuejote willows planted along the edges send roots into the lake bed and hold it in place. Chinampas do not float free.",
+      "inheritedRecord": "culture-aztec",
+      "revalidatedFields": [
+        "agricultureTechnique",
+        "plantNames"
+      ],
+      "usedBy": [
+        "aztec-chinampa-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "The Chinampa: An Ancient Mexican Sub-Irrigation System (araştırma makalesi)",
+          "type": "journal",
+          "locator": "researchgate.net/publication/329561509",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "NASA Earth Observatory — Relic Chinampas in Mexico City",
+          "type": "archive",
+          "locator": "earthobservatory.nasa.gov/images/150719/relic-chinampas-in-mexico-city",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "University of California San Diego — Chinampas (D. K. Jordan)",
+          "type": "archive",
+          "locator": "pages.ucsd.edu/~dkjordan/cgi-bin/moreabout.pl?tyimuh=chinampas",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "'Yüzen bahçe' adı YAYGIN ve YANLIŞ. Aktivitenin cevabı tam olarak",
+        "bu yanlışı düzeltiyor: bahçeyi tutan şey söğüt kökleridir.",
+        "Bu, gözlem levhasının bir ÇIKARIM istemesi kuralını da karşılıyor",
+        "(ACTIVITY_TAXONOMY § 2.4) — çocuk etiketlemekle kalmıyor, neyin",
+        "tuttuğunu işaretliyor."
+      ]
+    },
+    {
+      "claimId": "CLM-AZTEC-MAIZE",
+      "statement": "In the Leyenda de los Soles, Quetzalcoatl follows an ant that is carrying a grain of maize, turns himself into an ant, enters Tonacatepetl the mountain of food, and brings grain out to the other gods. The mountain is later broken open so that all the grain can be taken.",
+      "inheritedRecord": "story-aztec-quetzalcoatl-maize",
+      "revalidatedFields": [
+        "canonicalVersion",
+        "sequence",
+        "placeNames"
+      ],
+      "usedBy": [
+        "aztec-maize-journey-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Arqueología Mexicana — Mito del robo del maíz del Tonacatépetl o Montaña de los Mantenimientos",
+          "type": "journal",
+          "locator": "arqueologiamexicana.mx/mexico-antiguo/mito-del-robo-del-maiz-del-tonacatepetl-o-montana-de-los-mantenimientos",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Mexicolore — The Discovery of Corn",
+          "type": "ethnography",
+          "locator": "mexicolore.co.uk/aztecs/stories/discovery-of-corn",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "restrictionCheck": [
+        "⚠ KISIT BULGUSU — SIRALAMADAN BİR ADIM ÇIKARILDI.",
+        "",
+        "Anlatının tam dizisinde Oxomoco ile Cipactonal'ın FALA BAKARAK",
+        "ne yapılacağını bulduğu bir adım var. Bu adım:",
+        "  · AGE_POLICY § 2 yasak çerçeve 2 — 'kapalı bilginin çözülmesi'",
+        "  · CULTURE_POLICY § 4 — kehanet dizgesi bulmaca yapılamaz",
+        "  · Kademe B kuralı — kutsal/kehanet katmanı CEVAP OLAMAZ",
+        "kapsamına giriyor ve qa_age § ⑥ 'divination' desenini tetikler.",
+        "",
+        "KARAR: adım çocuğa görünen sıralamadan ÇIKARILDI. Anlatı bozulmuyor",
+        "— karınca, dağ ve tanenin taşınması kendi başına tam bir dizidir.",
+        "Kehanet adımı ANILMIYOR; yerine 'diğer tanrılar dağı açtı' deniyor.",
+        "",
+        "Bu bir sansür değil bir BİÇİM daralmasıdır (K13 § ①): kültür kalır,",
+        "o biçim kapanır."
+      ]
+    },
+    {
+      "claimId": "CLM-ANDEAN-KHIPU",
+      "statement": "A khipu records numbers on hanging cords in a base-ten place system. Knot clusters are read down the cord, the lowest place last. In the units place a long knot is tied with as many turns as the digit, from two to nine; a figure-of-eight knot stands for one; and an empty place means zero.",
+      "inheritedRecord": "culture-andean",
+      "revalidatedFields": [
+        "writingSystem",
+        "notationValues",
+        "readingDirection"
+      ],
+      "usedBy": [
+        "andean-khipu-knots"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "plus.maths.org (Millennium Mathematics Project, University of Cambridge) — Not just knots: the secrets of khipu; Ascher & Ascher'in tasnifine dayanıyor",
+          "type": "journal",
+          "locator": "plus.maths.org/not-just-knots-secrets-khipu",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Pilgaonkar, Sneha — The Khipu-Based Numeration System (arXiv 1405.6093)",
+          "type": "journal",
+          "locator": "arxiv.org/pdf/1405.6093",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "restrictionCheck": [
+        "Khipu KAMUYA AÇIK bir sayı dizgesidir ve bu yüzden şifre olabilir",
+        "(CULTURE_POLICY § 4). Anlatısal khipu okuması — yani düğümlerin",
+        "sayı DIŞINDA bir şey söylediği iddiası — hâlâ tartışmalıdır ve",
+        "aktivite ona HİÇ GİRMEZ. Yalnızca sayı okunur."
+      ],
+      "designConstraint": [
+        "Pilot yalnızca ONLUK ve BİRLER basamağını kullanır (1-99).",
+        "Gerekçe: uzun düğümün tur sayısı sayfada sayılabilir olmalı ve",
+        "üç basamaklı bir ip çocuğun gözünde bir ip yumağına döner."
+      ]
+    },
+    {
+      "claimId": "CLM-ANDEAN-ALTITUDE",
+      "statement": "Peruvian geographer Javier Pulgar Vidal set out natural regions by height in 1941. Yunga runs about 500 to 2300 metres, quechua about 2300 to 3500, suni about 3500 to 4000, puna about 4000 to 4800, and janca above 4800. Maize belongs to the quechua band, potatoes and quinoa to the suni, and llamas and alpacas graze the puna.",
+      "inheritedRecord": "culture-andean",
+      "revalidatedFields": [
+        "mapPoint",
+        "altitudeBands",
+        "regionNames"
+      ],
+      "usedBy": [
+        "andean-altitude-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Pulgar Vidal, Javier — Las Ocho Regiones Naturales del Perú (1941); akademik özet ve kesit çizimi",
+          "type": "journal",
+          "locator": "researchgate.net/publication/276331309",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Transversal section of the Eight Natural Regions of Peru (araştırma şeması)",
+          "type": "journal",
+          "locator": "researchgate.net/figure/…/fig3_351881968",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "Sınırlar YAKLAŞIKTIR ve kaynaklar birkaç yüz metre oynar.",
+        "Bu yüzden görev bir SAYI sormaz, bir KUŞAK sorar: çocuk hayvanı",
+        "ve ürünü kuşağa eşleştirir. Sayı sorulsaydı cevap tartışmalı",
+        "olurdu — ve tartışmalı bir cevap bu kitapta bir kusurdur."
+      ]
+    },
+    {
+      "claimId": "CLM-ANDEAN-FLOOD",
+      "statement": "In chapter 3 of the Huarochiri Manuscript a llama will not eat. It tells its owner that the sea will overflow in five days. They climb the mountain Villca Coto, where many animals have already gathered. The water rises for five days and then goes down.",
+      "inheritedRecord": "story-andean-llama-flood",
+      "revalidatedFields": [
+        "canonicalVersion",
+        "sequence",
+        "placeNames",
+        "sourceLocator"
+      ],
+      "usedBy": [
+        "andean-flood-warning-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Salomon, Frank & George L. Urioste (çev.) — The Huarochiri Manuscript: A Testament of Ancient and Colonial Andean Religion, University of Texas Press, 1991, s. 51-52",
+          "type": "book",
+          "locator": "bölüm 3 · University of Texas Press · utpress.utexas.edu",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Cambridge University Press — The Flood Story in the Huarochirí Manuscript and Other Early Colonial Andean Texts (Latin American Literature in Transition, bölüm 9)",
+          "type": "journal",
+          "locator": "cambridge.org/core/books/abs/…/374DA2C684596CF4563BE655C7ED36C9",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "correctionNote": [
+        "Bölüm numarası DOĞRULANDI: 3, başlığı 'What Happened to the Indians",
+        "in Ancient Times When the Ocean Overflowed'. Bir arama sonucu",
+        "'bölüm 1' diyordu ve YANLIŞTI; künye buna göre düzeltildi.",
+        "Dağ adının yazımı Salomon-Urioste çevirisindeki gibi 'Villca Coto'",
+        "alındı — çocuk bunu deftere yazmıyor, yalnızca okuyor."
+      ],
+      "restrictionCheck": [
+        "Huarochirí anlatısı YAŞAYAN And topluluklarının mirasıdır ve",
+        "kültür Kademe B'dir. Görev bir UYARI DİZİSİNİ sıralatıyor;",
+        "tören, dağ (apu) saygısı veya takvim taklit ettirmiyor.",
+        "'İnka sırrı' klişesi kullanılmıyor (culture_index § forbiddenForms)."
+      ]
+    }
+  ]
+}

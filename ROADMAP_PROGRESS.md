@@ -25,13 +25,13 @@
 | | Ölçülen | Hedef |
 |---|---:|---:|
 | Aday aktivite | **168** | ≥160 |
-| Kilitli aktivite | **0** | 120 |
-| Yazılmış aktivite | **0** | 120 |
+| Kilitli aktivite | **16** | 120 |
+| Yazılmış aktivite | **16** | 120 |
 | Devralınan kayıt | **76** | — |
 | Kültür | **22** | 22 |
 | Bölge | **6** | 6 |
 | Görsel öğe | **0** | ~150 |
-| Kelime | **0** | ~22.000 |
+| Kelime | **1.015** | ~22.000 |
 
 ---
 

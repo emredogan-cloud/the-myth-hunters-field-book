@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "checks": 9,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "activities": 16,
+    "openEnded": 2,
+    "openEndedRatio": 0.125,
+    "sealedPages": 6
+  }
+}

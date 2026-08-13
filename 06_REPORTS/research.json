@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checks": 20,
+  "checks": 26,
   "errors": [],
   "warnings": [],
   "facts": {
@@ -9,9 +9,19 @@
     "activitiesWithStory": 63,
     "activitiesCultureOnly": 105,
     "inheritanceStatus": {
-      "inherited-provisional": 168
+      "inherited-provisional": 152,
+      "inherited-verified": 16
     },
     "answerSourceEligibleRecords": 39,
-    "usableStoriesListed": 52
+    "usableStoriesListed": 52,
+    "claimRecords": 13,
+    "revalidationFiles": [
+      "jaguar-condor-revalidation.json"
+    ],
+    "lockedActivities": 16,
+    "claimVerdicts": {
+      "confirmed": 10,
+      "corrected": 3
+    }
   }
 }

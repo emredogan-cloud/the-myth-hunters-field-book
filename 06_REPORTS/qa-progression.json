@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "checks": 7,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "sealSlotsTotal": 37,
+    "damageRadius": 1,
+    "chainedPages": 0,
+    "regionsWithWrittenSeals": 1,
+    "sealLettersTotal": 37,
+    "lettersReachingFinal": 6,
+    "finalPropagationPct": 16.2
+  }
+}

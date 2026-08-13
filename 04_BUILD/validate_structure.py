@@ -82,6 +82,21 @@ REQUIRED_FILES = [
     "04_BUILD/import_from_world_myths.py",
     "07_ASSETS/IMAGE_PROMPT_LIBRARY.html",
     "06_REPORTS/PHASE_1_REPORT.md",
+
+    # ── FAZ 2 TESLİMATLARI ────────────────────────────────────────────────
+    # Aynı gerekçe: üretilen bir teslimat ZORUNLU olur, yoksa bir yeniden
+    # düzenlemede sessizce kaybolur ve kimse fark etmez.
+    "04_BUILD/qa_solvable.py",
+    "04_BUILD/qa_instruction.py",
+    "04_BUILD/qa_language.py",
+    "04_BUILD/qa_progression.py",
+    "04_BUILD/region_difficulty.py",
+    "04_BUILD/child_test_pack.py",
+    "01_SOURCE/research/jaguar-condor-revalidation.json",
+    "03_EDITORIAL/CHILD_TEST_PROTOCOL.md",
+    "03_EDITORIAL/CHILD_TEST_LOG.md",
+    "03_EDITORIAL/AGE_REVIEW_LOG.md",
+    "06_REPORTS/PHASE_2_REPORT.md",
 ]
 
 REQUIRED_DIRS = [

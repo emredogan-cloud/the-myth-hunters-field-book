@@ -5,16 +5,16 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "royalty_paperback": 5.55,
+    "royalty_paperback": 5.48,
     "activities_total": 168,
     "cultures_total": 22,
-    "activities_candidate": 168,
+    "activities_candidate": 152,
     "activities_researched": 0,
     "activities_locked": 0,
-    "activities_written": 0,
+    "activities_written": 16,
     "activities_dropped": 0,
-    "inherit_inherited-provisional": 168,
-    "inherit_inherited-verified": 0,
+    "inherit_inherited-provisional": 152,
+    "inherit_inherited-verified": 16,
     "inherit_new-researched": 0,
     "matrix_holes": 0
   }

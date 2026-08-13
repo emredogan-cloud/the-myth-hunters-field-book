@@ -32,16 +32,22 @@ ikinci bir hat vardır: CI takip edilen dosyaların **içeriğine** bakar.
 
 | | |
 |---|---|
-| Faz | **1 · TAMAM** — devralma mimarisi, taksonomi, yaş çerçevesi |
-| Kapı (`.gate`) | `phase1` |
+| Faz | **2 · TEKNİK PİLOT TAMAM** · çocuk doğrulaması **BEKLİYOR** |
+| Kapı (`.gate`) | `phase1` — **bilerek yükseltilmedi** |
 | Aday aktivite | **168** / ≥160 |
-| Kilitli aktivite | 0 / 120 — *Faz 1'de aktivite yazılmaz* |
-| Yazılmış aktivite | 0 / 120 |
-| Devralınan kayıt | **76** · hepsi sha256'lı |
+| Kilitli aktivite | **16** / 120 — `jaguar-condor` bölgesinin tamamı |
+| Yazılmış aktivite | **16** / 120 |
+| Devralınan kayıt | **76** · hepsi sha256'lı · **7'si yeniden doğrulandı** |
 | Kültür · bölge | **22** · **6** |
 | Görsel öğe | 0 / ~150 |
-| **Sonraki adım** | **Faz 2 — kurucu onayı bekliyor (A3, A7)** |
+| Kapı öz-testi | **106 denetim** |
+| **Sonraki adım** | **KURUCU: A7 — en az iki çocuk testçi** |
 
+> ⚠ **Faz 2 tam olarak kapanmadı.** Teknik pilot geçti; Faz 2'nin PASS
+> ölçütü *çocuk testinde ≥%80 yardımsız anlaşılma* ve **0 testçi** var.
+> `.gate` bu yüzden `phase1`'de: yapılmamış bir test geçmiş sayılamaz.
+
+Faz 2 raporu: [`06_REPORTS/PHASE_2_REPORT.md`](06_REPORTS/PHASE_2_REPORT.md)
 Faz 1 raporu: [`06_REPORTS/PHASE_1_REPORT.md`](06_REPORTS/PHASE_1_REPORT.md)
 
 Ölçülmüş güncel durum: [`BOOK_STATS.md`](BOOK_STATS.md) ·

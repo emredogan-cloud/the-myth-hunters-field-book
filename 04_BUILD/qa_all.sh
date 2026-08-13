@@ -118,6 +118,10 @@ run "KAPILARIN KENDİ TESTİ"     $PY 05_TESTS/selftest.py
 [ -f 04_BUILD/qa_readability.py ] && \
   run "okunabilirlik (8–12)"    $PY 04_BUILD/qa_readability.py \
                                    --json 06_REPORTS/qa-readability.json
+# DİL AYRIMI — ticari dil İNGİLİZCE, Türkçe yalnızca geçici test dili (K21).
+[ -f 04_BUILD/qa_language.py ] && \
+  run "DİL AYRIMI"              $PY 04_BUILD/qa_language.py \
+                                   --json 06_REPORTS/qa-language.json
 [ -f 04_BUILD/qa_length.py ] && \
   run "kelime bandı"            $PY 04_BUILD/qa_length.py \
                                    --json 06_REPORTS/qa-length.json
