@@ -192,12 +192,65 @@ invented script, invented symbols.</div>
 <a href="../01_SOURCE/culture_index.json">culture_index.json § writingSystem</a>.
 </div>
 
-<h2>5 · Faz 5'e devredilen açık işler</h2>
+<h2>5 · <span class="tag">FAZ 2</span> Görsel artık metnin İHTİYACINDAN türüyor</h2>
+
+<p>
+Faz 2'nin iç editoryal incelemesi bu kütüphanenin eksik varsayımını açığa
+çıkardı: bir görsel sınıfı <em>ne tür bir resim</em> olduğunu söyler,
+<strong>o resmin ne taşıması gerektiğini söylemez</strong>.
+</p>
+
+<div class="note stop">
+<p><strong>On altı pilot sayfasının on biri çözülemezdi</strong> — ve
+sebeplerin çoğu görseldeydi:</p>
 <ul>
-<li>150 somut prompt — sınıf × aktivite eşlemesinden türetilecek</li>
+<li><code>"Colour them the way the key shows."</code> → sayfada anahtar yok</li>
+<li><code>"Read the four cards beside the cord."</code> → sayfada ip yok</li>
+<li><code>"Put each one in the right column."</code> → sütun başlıkları yok</li>
+<li><code>"Write the words on the six lines."</code> → dört satır tanımlı</li>
+</ul>
+<p>
+Dördü de kusursuz İngilizce, dördü de okunabilirlik bandında, dördü de
+bir çocuğu durdurur. <strong>Bir talimat "the X" derse, levha X'i
+basmak ZORUNDADIR.</strong>
+</p>
+</div>
+
+<p>
+Bu yüzden manuscript şemasına <code>pagePrints</code> alanı eklendi:
+<em>sayfanın çözülebilmesi için levhanın basması gereken her şey</em>.
+Pilotun 16 sayfası için <strong>67 madde</strong> yazıldı.
+</p>
+
+<p>
+Alan iki iş birden yapıyor:
+</p>
+
+<ul>
+<li><strong>bugün</strong> — <code>qa_instruction § ⑨</code> girdisi:
+adımdaki her belirtili gönderme burada karşılanıyor mu</li>
+<li><strong>Faz 5</strong> — görsel şartnamesinin kendisi: sanatçıya
+"bir şeyler çiz" değil, <em>sayfa sayfa şart listesi</em> gidiyor</li>
+</ul>
+
+<p class="sub">
+⚠ <strong>Şartnamelerin metni bu dosyada DEĞİLDİR ve olamaz.</strong>
+İçerikleri cevabın kendisidir (<em>"the chilli basket drawn empty"</em>,
+<em>"town name bank: …"</em>) ve karar <strong>K10</strong> cevapların
+public depoda durmasını yasaklar. Şartnameler
+<code>02_MANUSCRIPT/book.json § pagePrints</code> içinde durur ve o dosya
+depoya girmez. Faz 5 promptları oradan üretir.
+</p>
+
+<h2>6 · Faz 5'e devredilen açık işler</h2>
+<ul>
+<li>150 somut prompt — sınıf × aktivite eşlemesinden <strong>ve artık
+<code>pagePrints</code> şartlarından</strong> türetilecek</li>
 <li>Yazma alanı ölçümü: 8 yaşındaki bir çocuğun el yazısı yetişkininkinden büyüktür ve bu <strong>bloklayıcı bir kapıdır</strong></li>
 <li><code>asset_inventory.py</code> — görsel ↔ aktivite eşleşmesi, <strong>ölçümden önce</strong> koşar (ders D6)</li>
 <li>Efektif çözünürlük ≥300 dpi denetimi</li>
+<li><strong>YENİ:</strong> üretilen her levha kendi <code>pagePrints</code>
+listesine karşı denetlenecek — eksik bir öğe, sayfayı çözülemez yapar</li>
 </ul>
 
 <p class="sub" style="margin-top:2.5rem">
