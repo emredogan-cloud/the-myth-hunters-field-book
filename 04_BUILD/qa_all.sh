@@ -131,6 +131,9 @@ run "KAPILARIN KENDİ TESTİ"     $PY 05_TESTS/selftest.py
 [ -f 04_BUILD/qa_echo.py ] && \
   run "tekrar taraması"         $PY 04_BUILD/qa_echo.py \
                                    --json 06_REPORTS/qa-echo.json
+[ -f 04_BUILD/qa_design.py ] && \
+  run "TASARIM DİZGESİ"          $PY 04_BUILD/qa_design.py \
+                                   --json 06_REPORTS/qa-design.json
 [ -f 04_BUILD/qa_drift.py ] && \
   run "üslup sürüklenmesi"      $PY 04_BUILD/qa_drift.py \
                                    --json 06_REPORTS/qa-drift.json

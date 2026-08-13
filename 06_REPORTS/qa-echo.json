@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "checks": 7,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "activities": 60,
+    "maskedTerms": 162,
+    "openerShapes": 57,
+    "missionShapes": 52,
+    "fieldNoteJaccardMax": 0.333,
+    "singleSourceCultures": [
+      "andean (1 hikâye → 3 sayfa)"
+    ],
+    "refrainsDeclared": 6,
+    "refrainCounts": {
+      "into the star box": 18,
+      "number them from first to last": 8,
+      "draw a line from each": 8,
+      "write each label on the line beside its part": 2,
+      "read the four cards": 7,
+      "read the five cards": 2
+    }
+  }
+}

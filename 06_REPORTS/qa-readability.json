@@ -4,9 +4,9 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 3748,
+    "words": 3745,
     "sentences": 450,
-    "avgSentenceWords": 8.33,
+    "avgSentenceWords": 8.32,
     "fkGrade": 2.91,
     "longWordRatio": 0.035,
     "perActivity": [
@@ -502,11 +502,11 @@
       },
       {
         "activityId": "korean-founding-order",
-        "words": 54,
+        "words": 51,
         "sentences": 7,
-        "avgSentenceWords": 7.71,
-        "fkGrade": 3.59,
-        "longWordRatio": 0.056,
+        "avgSentenceWords": 7.29,
+        "fkGrade": 3.91,
+        "longWordRatio": 0.059,
         "fieldNoteWords": 21,
         "steps": 3
       },
@@ -613,10 +613,10 @@
     ],
     "registers": {
       "instruction": {
-        "words": 1992,
+        "words": 1989,
         "sentences": 294,
-        "avgSentenceWords": 6.78,
-        "fkGrade": 1.91,
+        "avgSentenceWords": 6.77,
+        "fkGrade": 1.92,
         "maxSentenceWords": 13
       },
       "fieldNote": {

@@ -1495,6 +1495,321 @@ def part14_phase_override(rep: Report, tmp: str) -> None:
     rep.check(code == 0, "aşma yokken denetim boş koşar", out)
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 3 · ⑮ TEKRAR VE KÜLTÜREL DÜZLEŞME (qa_echo)
+#
+# Bu kapının iki ayrı yoldan yanlış olma ihtimali var ve ikisi de test
+# edilmek zorunda:
+#
+#   ① kusuru KAÇIRIR   → altı bölge tek sesle okunur ve kimse görmez
+#   ② kusursuzu SUÇLAR → yazar kültür adını silmeye başlar
+#
+# İkincisi daha tehlikelidir çünkü kapıyı susturmanın yolu ATIFI
+# ZAYIFLATMAKTIR ve `qa_age § ⑨` tam tersini şart koşuyor. (h) maddesi
+# bunu ayrıca kanıtlıyor: kültür adını ve yazı dizgesi terimini her
+# sayfada tekrarlayan bir kurgu GEÇMEK ZORUNDADIR.
+# ═══════════════════════════════════════════════════════════════════════════
+QA_ECHO = os.path.join(BUILD, "qa_echo.py")
+
+_ECHO_IDS = ["maya-bar-dot-numbers", "maya-ballcourt-plate", "maya-number-add",
+             "aztec-chinampa-plate", "aztec-place-glyphs", "aztec-lake-city-map"]
+_ECHO_NOTES = [
+    "The Maya wrote numbers with three signs. A dot is one, a bar is five, and a shell means none.",
+    "A ball court is cut into the ground between two stone walls. Players used their hips.",
+    "Adding in this system needs a swap. Five loose dots become one bar and the count moves up.",
+    "These Aztec lake gardens do not float, though people often say they do. Willows edge every plot.",
+    "A place sign is built from small pictures. Read the pictures and the name comes out of them.",
+    "Water decided where this city could grow. Causeways carried people over the lake in four directions.",
+]
+_ECHO_PROMPTS = [
+    "Your mission: read the six numbers on the market plate.",
+    "Your mission: label the parts of a ball court.",
+    "Your mission: add two Maya numbers together.",
+    "Your mission: find what holds a lake garden in place.",
+    "Your mission: work out three place signs.",
+    "Your mission: trace four causeways across the lake.",
+]
+_ECHO_STEPS = [
+    ["Count the dots beside each basket.", "Write each total on its line."],
+    ["Write each label on the line beside its part.", "Mark the sloping wall."],
+    ["Swap five loose dots for one bar.", "Write the new total on the line."],
+    ["Write the four labels from the word bank.", "Mark what holds the plot."],
+    ["Read each small picture in the sign.", "Write the name on the line."],
+    ["Trace each causeway to the shore.", "Mark where the water is fresh."],
+]
+
+
+def echo_fixture(n: int = 6) -> dict:
+    return {"meta": {"kind": "selftest-echo", "language": "en"},
+            "activities": [{"activityId": _ECHO_IDS[i],
+                            "prompt": _ECHO_PROMPTS[i],
+                            "fieldNote": _ECHO_NOTES[i],
+                            "steps": list(_ECHO_STEPS[i]),
+                            "answer": "field %d" % i,
+                            "writingSpaceLines": 4,
+                            "pagePrints": ["a plate"]} for i in range(n)]}
+
+
+def part15_echo(rep: Report, tmp: str, base: dict) -> None:
+    print("\n⑮ TEKRAR VE KÜLTÜREL DÜZLEŞME kapısı ısırıyor mu")
+
+    code, out = run_text_gate(QA_ECHO, base, tmp, echo_fixture())
+    rep.check(code == 0, "temiz sentetik kurgu GEÇER", out)
+
+    code, out = run_text_gate(QA_ECHO, base, tmp, None)
+    rep.check(code == 0, "manuscript yokken kapı boş koşar", out)
+
+    # (a) AÇILIŞ KALIBI — dört sayfa, iki kültür, aynı iskelet
+    d = echo_fixture()
+    for i in range(4):
+        d["activities"][i]["fieldNote"] = (
+            "In this account the people of the valley kept a careful "
+            "record of number %d and its meaning." % i)
+    code, out = run_text_gate(QA_ECHO, base, tmp, d)
+    rep.check(code != 0, "⭑ AYNI FIELD NOTE AÇILIŞI YAKALANIR", out)
+
+    # (b) GÖREV KALIBI — beş sayfa aynı biçimle açılıyor
+    d = echo_fixture()
+    for i in range(5):
+        d["activities"][i]["prompt"] = (
+            "Your mission: work out the meaning of item %d." % i)
+    code, out = run_text_gate(QA_ECHO, base, tmp, d)
+    rep.check(code != 0, "⭑ AYNI GÖREV SATIRI KALIBI YAKALANIR", out)
+
+    # (c) DÜZLEŞTİRİCİ DİL — tek bir cümle yeter
+    d = echo_fixture()
+    d["activities"][1]["fieldNote"] = (
+        "These ancient peoples believed the ball court was a door. "
+        "Their strange customs are still a mystery to us.")
+    code, out = run_text_gate(QA_ECHO, base, tmp, d)
+    rep.check(code != 0, "⭑ KÜLTÜREL DÜZLEŞTİRME YAKALANIR", out)
+
+    # (d) SAYFA ÖRTÜŞMESİ — iki field note neredeyse aynı
+    d = echo_fixture()
+    d["activities"][4]["fieldNote"] = d["activities"][0]["fieldNote"].replace(
+        "three signs", "three marks")
+    code, out = run_text_gate(QA_ECHO, base, tmp, d)
+    rep.check(code != 0, "⭑ NEREDEYSE AYNI FIELD NOTE YAKALANIR", out)
+
+    # (e) BEYANSIZ NAKARAT — birebir aynı adım üç sayfada
+    d = echo_fixture()
+    for i in (0, 2, 4):
+        d["activities"][i]["steps"][1] = "Write the finding in the record box."
+    code, out = run_text_gate(QA_ECHO, base, tmp, d)
+    rep.check(code != 0, "⭑ BEYAN EDİLMEMİŞ NAKARAT YAKALANIR", out)
+
+    # (f) NAKARAT PAYI — beyan edilmiş bir kalıp kitabı ele geçiriyor
+    d = echo_fixture()
+    for i in range(5):
+        d["activities"][i]["steps"][1] = "Copy the word into the star box."
+    code, out = run_text_gate(QA_ECHO, base, tmp, d)
+    rep.check(code != 0, "⭑ NAKARAT SAYFALARIN ÇOĞUNU KAPLARSA YAKALANIR", out)
+
+    # (g) TEK KAYNAKLI KÜLTÜR — daha SIKI eşik gerçekten sıkı mı
+    #     Genel eşiğin (0,55) altında ama tek kaynaklı eşiğin (0,40)
+    #     üstünde kalan bir çift, YALNIZCA tek kaynaklı kültürde yanmalı.
+    d = echo_fixture()
+    d["activities"] = [
+        {"activityId": "andean-khipu-knots",
+         "prompt": "Your mission: read four knotted cords.",
+         "fieldNote": "A cord counts in tens along its length. Knots sit in "
+                      "places and the lowest place is nearest the end.",
+         "steps": ["Count the knots in each place."], "answer": "a",
+         "writingSpaceLines": 4, "pagePrints": ["cords"]},
+        {"activityId": "andean-altitude-map",
+         "prompt": "Your mission: sort four crops by height.",
+         "fieldNote": "A cord counts in tens along its length. Knots sit in "
+                      "bands and the lowest band is nearest the valley.",
+         "steps": ["Count the bands on each side."], "answer": "b",
+         "writingSpaceLines": 4, "pagePrints": ["bands"]},
+    ]
+    code, out = run_text_gate(QA_ECHO, base, tmp, d)
+    rep.check(code != 0, "⭑ TEK KAYNAKLI KÜLTÜRDE TEKRAR YAKALANIR", out)
+
+    # (h) ⭑ YANLIŞ POZİTİF YOK ⭑
+    #     Kültür adını ve yazı dizgesi terimini HER sayfada tekrarlayan
+    #     bir kurgu GEÇMEK ZORUNDADIR. qa_age § ⑨ atıfı şart koşuyor ve
+    #     iki kapı birbirine ters çalışamaz.
+    d = echo_fixture()
+    for i, a in enumerate(d["activities"]):
+        a["fieldNote"] = ("The Maya used bar and dot numerals here. "
+                          + _ECHO_NOTES[i]) if i < 3 else (
+                         "Aztec scribes used Nahuatl place glyphs here. "
+                          + _ECHO_NOTES[i])
+    code, out = run_text_gate(QA_ECHO, base, tmp, d)
+    rep.check(code == 0,
+              "⭑ ZORUNLU KÜLTÜREL TERİM TEKRARI CEZALANDIRILMAZ", out)
+
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 3 · ⑯ TASARIM DİZGESİ VE GÖRSEL ŞARTNAMESİ (qa_design)
+#
+# Bu kapının koruduğu şey bir belge değil bir GERİLİMDİR:
+#
+#     yapı tutarlılığı  ⇄  kültürel çeşitlilik
+#
+# İki yönde de kırılabilir ve iki yön de sınanıyor:
+#   · modül düşerse (mühür kutusu, açılış kuralı) → çocuk kuralı öğrenemez
+#   · düzen tekleşirse                            → altı bölge tek şablon olur
+#
+# (g) maddesi ikincisini kanıtlıyor: beş TİPİ de dolu, bütün sayfaları
+# aynı DÜZENDE olan bir bölge `qa_matrix`ten geçer ve buradan GEÇMEZ.
+# ═══════════════════════════════════════════════════════════════════════════
+QA_DESIGN = os.path.join(BUILD, "qa_design.py")
+
+_DS_OPENING = {
+    "regionId": "jaguar-condor",
+    "heading": "Jaguar and Condor",
+    "terrainLine": "Rainforest over pale rock in the north, thin cold air in the south.",
+    "openingText": " ".join(["Two lands that never met lie side by side in this "
+                             "region and the ground explains both of them."] * 6)
+                   + " Six pages have a star box. Write the word in the box. "
+                     "The number in the star says which letter to copy into the "
+                     "seal slot with the same number.",
+}
+
+
+def _ds_page(aid, layout, seal=None, star=None, idx=None, labels=("alpha", "beta")):
+    p = {"activityId": aid,
+         "prompt": "Your mission: read the plate.",
+         "fieldNote": "A field note that carries twenty words so the register "
+                      "band is not the thing under test here at all.",
+         "steps": ["Read each sign on the plate."],
+         "answer": "alpha · beta",
+         "layout": layout,
+         "writingSpaceLines": 4,
+         "pagePrints": ["a plate with a key: alpha, beta"],
+         "visualSpec": {
+             "assetId": "fig-" + aid, "visualClass": "diagram", "layout": layout,
+             "purpose": "Print the plate.", "subject": "a plate",
+             "requiredLabels": list(labels), "orientation": "portrait",
+             "targetPx": [1950, 2550], "aspect": "13:17",
+             "safeAreaMm": {"bleed": 3.2}, "restrictions": ["no answer", "no faces"],
+             "format": "png", "filename": "fig-" + aid + ".png",
+             "destination": "07_ASSETS/processed/interior/",
+             "status": "specified-not-produced"},
+         }
+    if seal:
+        p.update({"sealSlot": seal, "sealStarWord": star, "sealStarIndex": idx,
+                  "sealContribution": star[idx - 1].upper()})
+        p["answer"] = "alpha · beta · star box: " + star
+        p["pagePrints"].append(
+            "star box drawn as %d letter squares, square %d outlined, "
+            "marked \u2605%d \u2192 seal slot %d" % (len(star), idx, seal, seal))
+        p["pagePrints"].append("a label printed on the plate: " + star)
+    return p
+
+
+def design_fixture():
+    """Gerçek jaguar-condor kimlikleriyle kurulmuş temiz bir tasarım kurgusu."""
+    return {"meta": {"kind": "selftest-design", "language": "en"},
+            "regionOpenings": [dict(_DS_OPENING)],
+            "activities": [
+                _ds_page("maya-bar-dot-numbers", "key-decode", 1, "chilli", 1),
+                _ds_page("maya-ballcourt-plate", "plate-label"),
+                _ds_page("maya-number-make", "make-frame", labels=()),
+                _ds_page("maya-ballcourt-sort", "sort-cards", labels=()),
+                _ds_page("aztec-lake-city-map", "map-trace"),
+            ]}
+
+
+def part16_design(rep: Report, tmp: str, base: dict) -> None:
+    print("\n\u2470 TASARIM DİZGESİ kapısı ısırıyor mu")
+
+    code, out = run_text_gate(QA_DESIGN, base, tmp, design_fixture())
+    rep.check(code == 0, "temiz tasarım kurgusu GEÇER", out)
+
+    code, out = run_text_gate(QA_DESIGN, base, tmp, None)
+    rep.check(code == 0, "manuscript yokken kapı boş koşar", out)
+
+    # (a) ⭑ MÜHÜR KURALI AÇILIŞTAN DÜŞERSE ⭑ — Faz 2'nin 1 numaralı
+    #     bloklayıcısı buydu ve bir daha sessizce olamaz.
+    d = design_fixture()
+    d["regionOpenings"][0]["openingText"] = " ".join(
+        ["Two lands that never met lie side by side in this region here."] * 12)
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "⭑ AÇILIŞTA BASILMAYAN MÜHÜR KURALI YAKALANIR", out)
+
+    # (b) açılış bandı
+    d = design_fixture()
+    d["regionOpenings"][0]["openingText"] = ("Star box, seal slot, letter. "
+                                             "That is the whole opening.")
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "BANT DIŞI BÖLGE AÇILIŞI YAKALANIR", out)
+
+    # (c) yıldızlı kutu levhadan düştü
+    d = design_fixture()
+    d["activities"][0]["pagePrints"] = ["a plate with a key: alpha, beta",
+                                        "a label printed on the plate: chilli"]
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "⭑ LEVHADA TARİF EDİLMEYEN YILDIZLI KUTU YAKALANIR", out)
+
+    # (d) levhadaki yuva numarası kayıtla çelişiyor
+    d = design_fixture()
+    d["activities"][0]["pagePrints"][1] = (
+        "star box drawn as 6 letter squares, square 1 outlined, "
+        "marked \u26051 \u2192 seal slot 4")
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "⭑ LEVHA İLE KAYIT ARASINDAKİ YUVA ÇELİŞKİSİ YAKALANIR", out)
+
+    # (e) ⭑ YILDIZLI SÖZCÜK LEVHADA BASILI DEĞİL ⭑
+    #     Basılmayan bir sözcük kopyalanamaz, ÜRETİLİR — ve yanlış yazılır.
+    d = design_fixture()
+    d["activities"][0]["pagePrints"] = [x for x in d["activities"][0]["pagePrints"]
+                                        if not x.startswith("a label printed")]
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "⭑ LEVHADA BASILMAYAN YILDIZLI SÖZCÜK YAKALANIR", out)
+
+    # (f) düzen tipe izinli değil
+    d = design_fixture()
+    d["activities"][1]["layout"] = "key-decode"
+    d["activities"][1]["visualSpec"]["layout"] = "key-decode"
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "⭑ TİPİNE İZİNSİZ DÜZEN YAKALANIR", out)
+
+    # (g) ⭑ ŞABLONLAŞMA ⭑ — beş tipin hepsi dolu, düzen TEK.
+    #     qa_matrix bunu göremez; tip ile düzen aynı şey değildir.
+    d = design_fixture()
+    for a in d["activities"]:
+        a["layout"] = "make-frame"
+        a["visualSpec"]["layout"] = "make-frame"
+        a.pop("sealSlot", None)
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "⭑ TEK DÜZENE ÇÖKMÜŞ BÖLGE YAKALANIR", out)
+
+    # (h) görsel şartnamesi eksik
+    d = design_fixture()
+    d["activities"][2].pop("visualSpec")
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "⭑ ŞARTNAMESİZ SAYFA YAKALANIR", out)
+
+    # (i) şartname var ama alanları eksik
+    d = design_fixture()
+    d["activities"][2]["visualSpec"].pop("safeAreaMm")
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "EKSİK ALANLI ŞARTNAME YAKALANIR", out)
+
+    # (j) etiket gerektiren bir düzen etiket saymıyor
+    d = design_fixture()
+    d["activities"][1]["visualSpec"]["requiredLabels"] = []
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "⭑ ETİKETSİZ LEVHA ŞARTNAMESİ YAKALANIR", out)
+
+    # (k) assetId yinelendi
+    d = design_fixture()
+    d["activities"][1]["visualSpec"]["assetId"] = \
+        d["activities"][0]["visualSpec"]["assetId"]
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "YİNELENEN assetId YAKALANIR", out)
+
+    # (l) dosya adı sözleşme dışı
+    d = design_fixture()
+    d["activities"][1]["visualSpec"]["filename"] = "plate.png"
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "SÖZLEŞME DIŞI DOSYA ADI YAKALANIR", out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -1564,8 +1879,19 @@ def main() -> int:
         else:
             print("\n⑩–⑬ Faz 2 kapıları henüz doğmadı — ATLANDI")
 
-        # ⑭ Faz 3 · kurucu faz aşması bir KİLİT mi
+        # ⑭–⑯ Faz 3 kapıları
         part14_phase_override(rep, tmp)
+        p3 = [("qa_echo.py", QA_ECHO), ("qa_design.py", QA_DESIGN)]
+        p3_present = [n for n, q in p3 if os.path.isfile(q)]
+        if p3_present and not real_data_available():
+            rep.check(False, "Faz 3 kapıları var ama dizinler yok — "
+                             "TEST EDİLEMEYEN KAPI: %s" % p3_present)
+        elif p3_present:
+            base3 = with_config(load_real())
+            if os.path.isfile(QA_ECHO):
+                part15_echo(rep, tmp, base3)
+            if os.path.isfile(QA_DESIGN):
+                part16_design(rep, tmp, base3)
 
     part4_no_dead_exemptions(rep)
 

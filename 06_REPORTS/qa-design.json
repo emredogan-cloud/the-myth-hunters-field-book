@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "checks": 18,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "activities": 60,
+    "regionOpenings": 3,
+    "sealedPages": 19,
+    "layoutUse": {
+      "key-decode": 18,
+      "plate-label": 7,
+      "make-frame": 7,
+      "sort-cards": 15,
+      "map-trace": 8,
+      "key-build": 1,
+      "plate-compare": 2,
+      "map-overlay": 1,
+      "data-table": 1
+    },
+    "visualSpecs": 60,
+    "visualAssetsProduced": 0,
+    "requiredLabelsTotal": 317,
+    "layoutsPerRegion": {
+      "jaguar-condor": 5,
+      "monsoon": 6,
+      "great-ocean": 8
+    }
+  }
+}

@@ -54,9 +54,18 @@
       "claimId": "CLM-CHIN-PICTOGRAM",
       "statement": "A small group of Chinese characters began as pictures of the thing they name, and the picture is still visible in the modern form: 日 sun, 月 moon, 山 mountain, 水 water, 木 tree. Xu Shen's Shuowen jiezi (c. 100 CE) calls this class xiangxing, 'illustration of a shape'. Most Chinese characters are NOT pictures; the pictographs are the minority and the writing system is a system of word-signs.",
       "inheritedRecord": "culture-chinese",
-      "revalidatedFields": ["writingSystem", "pictographInventory"],
-      "usedBy": ["chinese-pictograph-key"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "pictographInventory"
+      ],
+      "usedBy": [
+        "chinese-pictograph-key"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -90,9 +99,17 @@
       "claimId": "CLM-CHIN-STROKEORDER",
       "statement": "Chinese characters are written in a fixed stroke order taught in schools. Among the basic rules: left before right; top before bottom; when a horizontal and a vertical stroke cross, the horizontal is written first (十, 干, 士); enclosing frames are written before their contents and closed last (日, 田, 回).",
       "inheritedRecord": "culture-chinese",
-      "revalidatedFields": ["writingSystem", "strokeOrderRules"],
-      "usedBy": ["chinese-strokes-plate"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "strokeOrderRules"
+      ],
+      "usedBy": [
+        "chinese-strokes-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -120,9 +137,18 @@
       "claimId": "CLM-CHIN-FIVEPHASE",
       "statement": "In the classical Chinese five-phase (wuxing) correlative scheme the four compass directions plus the centre each carry a colour: east green, south red, centre yellow, west white, north black. The scheme reached its received form in the Han period.",
       "inheritedRecord": "culture-chinese",
-      "revalidatedFields": ["cosmologyScheme", "colourDirectionMapping"],
-      "usedBy": ["chinese-five-colours-sort"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "cosmologyScheme",
+        "colourDirectionMapping"
+      ],
+      "usedBy": [
+        "chinese-five-colours-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -154,9 +180,16 @@
       "claimId": "CLM-CHIN-NUWA",
       "statement": "In the Huainanzi the sky cracks and Nüwa melts stones of five colours to patch it, props the four corners with the legs of a turtle, and dams the flood with reed ash.",
       "inheritedRecord": "story-chinese-nuwa-sky",
-      "revalidatedFields": ["plotSummary", "fiveColouredStones"],
-      "usedBy": ["chinese-sky-patch-make"],
-      "usedIn": ["field-note"],
+      "revalidatedFields": [
+        "plotSummary",
+        "fiveColouredStones"
+      ],
+      "usedBy": [
+        "chinese-sky-patch-make"
+      ],
+      "usedIn": [
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -177,9 +210,17 @@
       "claimId": "CLM-CHIN-ZODIAC",
       "statement": "The East Asian calendar runs a twelve-year animal cycle in the fixed order rat, ox, tiger, rabbit, dragon, snake, horse, goat, monkey, rooster, dog, pig. The order was established by the Han period and repeats every twelve years, so any year can be paired with its animal by counting on in twelves.",
       "inheritedRecord": "culture-chinese",
-      "revalidatedFields": ["calendarCycle", "animalOrder"],
-      "usedBy": ["chinese-zodiac-plate"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "calendarCycle",
+        "animalOrder"
+      ],
+      "usedBy": [
+        "chinese-zodiac-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -207,9 +248,17 @@
       "claimId": "CLM-CHIN-HUIYI",
       "statement": "One class of Chinese characters, called huiyi in the Shuowen jiezi's six-category scheme, is built by joining two characters whose meanings combine: 日 sun + 月 moon = 明 bright; 木 tree + 木 tree = 林 grove; 人 person + 木 tree = 休 rest; 女 woman + 子 child = 好 good.",
       "inheritedRecord": "culture-chinese",
-      "revalidatedFields": ["writingSystem", "compoundCharacterFormation"],
-      "usedBy": ["chinese-compound-characters"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "compoundCharacterFormation"
+      ],
+      "usedBy": [
+        "chinese-compound-characters"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -236,9 +285,18 @@
       "claimId": "CLM-CHIN-KUAFU",
       "statement": "The Shanhaijing records that the giant Kua Fu raced the sun, drank a great river dry and set out for the Great Marsh but did not reach it; the staff he dropped grew into a forest of peach trees. The account is transmitted in the 'Classic of the Great Wilderness: North'.",
       "inheritedRecord": "story-chinese-kuafu-sun",
-      "revalidatedFields": ["plotSummary", "aetiology", "sourceText"],
-      "usedBy": ["chinese-chase-the-sun"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "plotSummary",
+        "aetiology",
+        "sourceText"
+      ],
+      "usedBy": [
+        "chinese-chase-the-sun"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -275,9 +333,18 @@
       "claimId": "CLM-TURK-YURT",
       "statement": "A Turkic or Mongol felt tent is a round frame of a lattice wall, roof poles and a crown ring, covered with felt and tightened with ropes, and it is built to be dismantled and reassembled. In Kyrgyz and Kazakh usage the lattice wall is the kerege and raising the dome is shanyrak; the Mongol ger's counterpart crown is the toono.",
       "inheritedRecord": "culture-turkic",
-      "revalidatedFields": ["materialCulture", "dwellingParts", "portability"],
-      "usedBy": ["turkic-yurt-plate"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "materialCulture",
+        "dwellingParts",
+        "portability"
+      ],
+      "usedBy": [
+        "turkic-yurt-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -311,9 +378,19 @@
       "claimId": "CLM-TURK-ORKHONSITE",
       "statement": "The oldest surviving writing in a Turkic language stands on stone monuments in the Orkhon valley in central Mongolia, about 360 km south-west of Ulaanbaatar. The two great stelae were raised in 732 and 735 CE for the prince Kul Tigin and his brother; the script was deciphered by Vilhelm Thomsen in 1893. The valley is a UNESCO World Heritage cultural landscape and is still grazed by herders.",
       "inheritedRecord": "culture-turkic",
-      "revalidatedFields": ["writingSystem", "siteLocation", "decipherment"],
-      "usedBy": ["turkic-steppe-map"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "siteLocation",
+        "decipherment"
+      ],
+      "usedBy": [
+        "turkic-steppe-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -334,9 +411,19 @@
       "claimId": "CLM-TURK-ORKHONDIR",
       "statement": "Old Turkic runiform script is normally written right to left within a line, with successive lines running from bottom to top; some inscriptions instead alternate direction line by line (boustrophedon), in which case the letter shapes are mirrored on the reversed lines. The script is alphabetic and derives from Sogdian, not from Germanic runes, despite the nickname.",
       "inheritedRecord": "culture-turkic",
-      "revalidatedFields": ["writingSystem", "readingDirection", "scriptOrigin"],
-      "usedBy": ["turkic-orkhon-direction"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "readingDirection",
+        "scriptOrigin"
+      ],
+      "usedBy": [
+        "turkic-orkhon-direction"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -370,9 +457,16 @@
       "claimId": "CLM-TURK-TAMGA",
       "statement": "The Old Turkic letters are built from straight cuts and simple angles because they were made to be carved into hard stone with a chisel; the same constraint shapes the herd marks (tamga) cut on rock and property.",
       "inheritedRecord": "culture-turkic",
-      "revalidatedFields": ["writingSystem", "letterformConstraint"],
-      "usedBy": ["turkic-stone-mark-make"],
-      "usedIn": ["field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "letterformConstraint"
+      ],
+      "usedBy": [
+        "turkic-stone-mark-make"
+      ],
+      "usedIn": [
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -387,9 +481,17 @@
       "claimId": "CLM-TURK-TEPEGOZ",
       "statement": "The Book of Dede Korkut tells of Tepegöz, a one-eyed giant of the Oghuz tradition, confronted by the hero Basat; the Odyssey tells of Polyphemus, a one-eyed giant confronted by Odysseus. Scholars have compared the two since the early nineteenth century and the comparison now takes in hundreds of related tales. The two accounts end differently: Basat kills Tepegöz, while Odysseus only blinds Polyphemus and escapes.",
       "inheritedRecord": "story-turkic-basat-tepegoz",
-      "revalidatedFields": ["plotSummary", "crossCultureParallel"],
-      "usedBy": ["turkic-one-eyed-giants"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "plotSummary",
+        "crossCultureParallel"
+      ],
+      "usedBy": [
+        "turkic-one-eyed-giants"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -424,9 +526,18 @@
       "claimId": "CLM-PERS-RTL",
       "statement": "Persian is written in the Arabic script from right to left, but numbers inside the same line run left to right, so a Persian line is genuinely bidirectional.",
       "inheritedRecord": "culture-persian",
-      "revalidatedFields": ["writingSystem", "readingDirection", "digitDirection"],
-      "usedBy": ["persian-script-direction"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "readingDirection",
+        "digitDirection"
+      ],
+      "usedBy": [
+        "persian-script-direction"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -447,9 +558,18 @@
       "claimId": "CLM-PERS-FORMS",
       "statement": "A letter of the Perso-Arabic script takes up to four shapes according to its place in a word: isolated, initial, medial and final. A small set of letters has only isolated and final shapes and therefore does not join to the letter that follows it, which breaks the word into pieces.",
       "inheritedRecord": "culture-persian",
-      "revalidatedFields": ["writingSystem", "positionalForms", "nonJoiningLetters"],
-      "usedBy": ["persian-joined-letters"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "positionalForms",
+        "nonJoiningLetters"
+      ],
+      "usedBy": [
+        "persian-joined-letters"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -476,9 +596,18 @@
       "claimId": "CLM-PERS-ALBORZ",
       "statement": "The Alborz range runs along the southern shore of the Caspian Sea and separates a dry plateau from a wet coast: the Caspian slopes carry humid Hyrcanian forest with over 1,000 mm of rain a year in Gilan, while the southern slopes share the arid climate of the Iranian plateau. Mount Damavand, about 5,600 m, is the highest peak in Iran and stands in the central Alborz.",
       "inheritedRecord": "culture-persian",
-      "revalidatedFields": ["geography", "climateContrast", "highestPeak"],
-      "usedBy": ["persian-alborz-map"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "geography",
+        "climateContrast",
+        "highestPeak"
+      ],
+      "usedBy": [
+        "persian-alborz-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -505,9 +634,16 @@
       "claimId": "CLM-PERS-CHAHARBAGH",
       "statement": "The Persian chaharbagh is a walled garden quartered by two crossing water channels; the type is named in Persian sources from the eleventh century onward. The English word paradise descends from Old Iranian pairidaeza, 'walled around', by way of Greek paradeisos and Latin paradisus.",
       "inheritedRecord": "culture-persian",
-      "revalidatedFields": ["gardenForm", "etymology"],
-      "usedBy": ["persian-garden-make"],
-      "usedIn": ["field-note"],
+      "revalidatedFields": [
+        "gardenForm",
+        "etymology"
+      ],
+      "usedBy": [
+        "persian-garden-make"
+      ],
+      "usedIn": [
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -534,9 +670,17 @@
       "claimId": "CLM-PERS-GREATBIRDS",
       "statement": "Four separate traditions each name a great bird: the Simorgh in Persian tradition, where in Ferdowsi's Shahnameh she raises the abandoned child Zal in her nest in the Alborz; the fenghuang in China; the ho-o in Japan, a Japanese form of the fenghuang; and the bennu in Egypt, shown as a grey heron and tied to the morning sun.",
       "inheritedRecord": "story-persian-zal-simorgh",
-      "revalidatedFields": ["plotSummary", "crossCultureParallel"],
-      "usedBy": ["persian-great-birds-sort"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "plotSummary",
+        "crossCultureParallel"
+      ],
+      "usedBy": [
+        "persian-great-birds-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -580,9 +724,18 @@
       "claimId": "CLM-HIND-DEVANAGARI",
       "statement": "Devanagari runs left to right and its letters hang from a horizontal head stroke, the shirorekha, drawn along the top; when letters stand side by side in a word the head strokes join into one continuous line.",
       "inheritedRecord": "culture-hindu",
-      "revalidatedFields": ["writingSystem", "headline", "readingDirection"],
-      "usedBy": ["hindu-devanagari-key"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "headline",
+        "readingDirection"
+      ],
+      "usedBy": [
+        "hindu-devanagari-key"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -610,9 +763,20 @@
       "claimId": "CLM-HIND-GANGA",
       "statement": "The Ganga rises from the Gangotri Glacier in the Himalayas of Uttarakhand, runs about 2,510 km south-east past Haridwar, Prayagraj, Varanasi and Patna, crosses into Bangladesh, joins the Brahmaputra and the Meghna and reaches the Bay of Bengal through a delta shared by two countries.",
       "inheritedRecord": "story-hindu-ganga-descent",
-      "revalidatedFields": ["riverCourse", "sourceGlacier", "citiesOnCourse", "delta"],
-      "usedBy": ["hindu-ganga-course-map"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "riverCourse",
+        "sourceGlacier",
+        "citiesOnCourse",
+        "delta"
+      ],
+      "usedBy": [
+        "hindu-ganga-course-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -642,9 +806,16 @@
       "claimId": "CLM-HIND-RIVERSOURCE",
       "statement": "Five great South Asian rivers begin at five named places: the Ganga at the Gangotri Glacier, the Yamuna at the Yamunotri Glacier, the Brahmaputra at the Chemayungdung Glacier in south-western Tibet, the Indus on the northern flank of the Kailash Range, and the Sutlej at Lake La'nga in south-western Tibet, above 4,600 m. FOUR of the five begin in ice; the Sutlej begins in a lake.",
       "inheritedRecord": "culture-hindu",
-      "revalidatedFields": ["riverSources"],
-      "usedBy": ["hindu-river-names-sort"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "riverSources"
+      ],
+      "usedBy": [
+        "hindu-river-names-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "corrected",
       "correction": [
         "FAZ 1 İDDİASI — iki ayrı kusur taşıyordu ve ikisi de aktivite",
@@ -693,9 +864,18 @@
       "claimId": "CLM-VIET-TONES",
       "statement": "Vietnamese is written in the Latin-based quoc ngu alphabet and carries six tones on the vowel. Five tones take a written mark - grave, acute, hook above, tilde and dot below - and the sixth is written with no mark at all. The mark changes the word: ma, ma with grave, ma with acute, ma with hook, ma with tilde and ma with dot below are six different words.",
       "inheritedRecord": "culture-vietnamese",
-      "revalidatedFields": ["writingSystem", "toneMarks", "orthography"],
-      "usedBy": ["vietnamese-tone-hunt"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "toneMarks",
+        "orthography"
+      ],
+      "usedBy": [
+        "vietnamese-tone-hunt"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -729,9 +909,19 @@
       "claimId": "CLM-VIET-DRAGONBOAT",
       "statement": "A dragon boat is long and narrow, from about 12 m upward, carries a carved dragon head at the prow and a tail at the stern, is steered from the stern and is paddled in two rows in time to a drummer who sits at the bow. The dragon boat festival is on UNESCO's Representative List and is kept in Vietnam as well as in China.",
       "inheritedRecord": "culture-vietnamese",
-      "revalidatedFields": ["materialCulture", "boatParts", "festivalContext"],
-      "usedBy": ["vietnamese-dragon-boat-plate"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "materialCulture",
+        "boatParts",
+        "festivalContext"
+      ],
+      "usedBy": [
+        "vietnamese-dragon-boat-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -752,9 +942,19 @@
       "claimId": "CLM-VIET-REDRIVER",
       "statement": "The Red River delta in northern Vietnam is a flat triangle of about 7,000 square kilometres reaching some 150 km inland and 80 km along the coast, with Hanoi standing on it. Because the delta is flat, flood water spreads sideways instead of running away, and the delta has been protected by an earth dyke system built and rebuilt over roughly two thousand years.",
       "inheritedRecord": "story-vietnamese-son-tinh-thuy-tinh",
-      "revalidatedFields": ["deltaGeography", "floodBehaviour", "dykeSystem"],
-      "usedBy": ["vietnamese-red-river-map"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "deltaGeography",
+        "floodBehaviour",
+        "dykeSystem"
+      ],
+      "usedBy": [
+        "vietnamese-red-river-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -766,7 +966,7 @@
         {
           "ref": "Springer — The Evolution of Water Management in the Red River Delta of Vietnam and a Case of Chuc Son, Hanoi City (dyke building tradition over more than 2000 years)",
           "type": "journal",
-          "locator": "link.springer.com/chapter/10.1007/978-3-030-60269-7_19",
+          "locator": "Springer · Cham 2021 · in: Water Management in the Red River Delta, ch. 19",
           "accessed": "2026-08-13"
         },
         {
@@ -781,9 +981,18 @@
       "claimId": "CLM-VIET-SONTINH",
       "statement": "One of the earliest recorded Vietnamese legends sets a mountain spirit against a water spirit as rivals for a princess. The mountain spirit wins her; the water spirit, having lost, sends heavy rains every year in an effort to defeat him. The story is carried in the fifteenth-century collection Linh Nam chich quai, and the mountain figure is honoured in Vietnamese folk tradition as a protector against flood.",
       "inheritedRecord": "story-vietnamese-son-tinh-thuy-tinh",
-      "revalidatedFields": ["plotSummary", "aetiology", "sourceText"],
-      "usedBy": ["vietnamese-mountain-water-sort"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "plotSummary",
+        "aetiology",
+        "sourceText"
+      ],
+      "usedBy": [
+        "vietnamese-mountain-water-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "corrected",
       "correction": [
         "FAZ 1 İDDİASI: aktivite 'yarışmanın DÖRT TURUNU sıraya koy' diyordu",

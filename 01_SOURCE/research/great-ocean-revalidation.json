@@ -68,9 +68,18 @@
       "claimId": "CLM-JAPN-KANA",
       "statement": "Each kana sign stands for a whole syllable, not a single letter. Each of the two kana syllabaries has 46 basic signs; the first five stand for the vowels a, i, u, e, o, the next forty for a consonant plus a vowel, and the last for a final n.",
       "inheritedRecord": "culture-japanese",
-      "revalidatedFields": ["writingSystem", "syllabaryInventory"],
-      "usedBy": ["japanese-kana-key"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "syllabaryInventory"
+      ],
+      "usedBy": [
+        "japanese-kana-key"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -97,9 +106,17 @@
       "claimId": "CLM-JAPN-TWOKANA",
       "statement": "Hiragana and katakana write the same sounds but do different jobs and look different: hiragana is cursive and rounded, katakana is angular, and katakana is the set normally used for words borrowed from other languages and for scientific terms.",
       "inheritedRecord": "culture-japanese",
-      "revalidatedFields": ["writingSystem", "scriptDivisionOfLabour"],
-      "usedBy": ["japanese-two-alphabets"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "scriptDivisionOfLabour"
+      ],
+      "usedBy": [
+        "japanese-two-alphabets"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -120,9 +137,17 @@
       "claimId": "CLM-JAPN-AMATERASU",
       "statement": "In the Kojiki account the sun goddess Amaterasu withdraws into a cave and darkness falls. The other gods gather, collect cocks whose crowing comes before dawn, hang a mirror and jewels on a sakaki tree outside the cave, and Ame-no-Uzume dances until the gods roar with laughter; the noise makes Amaterasu curious and she looks out, and the light returns.",
       "inheritedRecord": "story-japanese-amaterasu-cave",
-      "revalidatedFields": ["plotSummary", "eventOrder"],
-      "usedBy": ["japanese-cave-sequence"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "plotSummary",
+        "eventOrder"
+      ],
+      "usedBy": [
+        "japanese-cave-sequence"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -159,9 +184,17 @@
       "claimId": "CLM-JAPN-EIGHT",
       "statement": "In older Japanese usage 'eight' is a conventional way of saying 'very many' rather than an exact count: the gods are collectively the yaoyorozu, the eight million, and the serpent Susanoo faces is Yamata-no-Orochi, the eight-forked serpent with eight heads and eight tails.",
       "inheritedRecord": "story-japanese-susanoo-orochi",
-      "revalidatedFields": ["numberConvention", "plotDetail"],
-      "usedBy": ["japanese-eight-of-everything"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "numberConvention",
+        "plotDetail"
+      ],
+      "usedBy": [
+        "japanese-eight-of-everything"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -177,9 +210,9 @@
           "accessed": "2026-08-13"
         },
         {
-          "ref": "Domenig, Gaudenz — Founding Territorial Cults in Early Japan (Brill, 2024), ch. 2",
+          "ref": "Domenig, Gaudenz — Founding Territorial Cults in Early Japan (Brill, Leiden, 2024), ch. 2: The Story of Yato no Kami",
           "type": "book",
-          "locator": "brill.com/display/book/9789004686458/BP000011.xml",
+          "locator": "Brill · Leiden 2024 · ch. 2 (doi 10.1163/9789004686458_004)",
           "accessed": "2026-08-13"
         }
       ],
@@ -198,9 +231,19 @@
       "claimId": "CLM-JAPN-URASHIMA",
       "statement": "The tale of the fisherman Urashima is one of the oldest written stories in Japan. It is recorded in the Tango no Kuni Fudoki of 713, in the Nihon Shoki of 720 and in the Man'yoshu of 759, and it was still being drawn by Japanese artists in the Meiji period more than eleven hundred years later. The tale turns on time running at two speeds, and on a box the story never opens for the reader.",
       "inheritedRecord": "story-japanese-urashima",
-      "revalidatedFields": ["sourceTexts", "textDates", "transmission"],
-      "usedBy": ["japanese-turtle-time-plate", "japanese-box-make"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "sourceTexts",
+        "textDates",
+        "transmission"
+      ],
+      "usedBy": [
+        "japanese-turtle-time-plate",
+        "japanese-box-make"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "corrected",
       "correction": [
         "FAZ 1 İDDİASI: aktivite 'dört zaman aralığını karşılaştır ve",
@@ -253,9 +296,18 @@
       "claimId": "CLM-KOR-HANGULSHAPE",
       "statement": "Hangul was designed, not inherited: it was created in 1443 under King Sejong and promulgated in 1446 with an explanatory volume, the Hunminjeongeum Haerye, which is on UNESCO's Memory of the World register. The basic consonant letters were drawn to copy the shape of the mouth and tongue making the sound.",
       "inheritedRecord": "culture-korean",
-      "revalidatedFields": ["writingSystem", "letterDesignPrinciple", "dateOfCreation"],
-      "usedBy": ["korean-hangul-shapes"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "letterDesignPrinciple",
+        "dateOfCreation"
+      ],
+      "usedBy": [
+        "korean-hangul-shapes"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -288,9 +340,17 @@
       "claimId": "CLM-KOR-HANGULBLOCK",
       "statement": "Hangul letters are not written in a line one after another: they are stacked into a square block, one block for each syllable, with the first consonant at the top left, the vowel to its right or below it, and any final consonant underneath.",
       "inheritedRecord": "culture-korean",
-      "revalidatedFields": ["writingSystem", "syllableBlockStructure"],
-      "usedBy": ["korean-hangul-build"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "syllableBlockStructure"
+      ],
+      "usedBy": [
+        "korean-hangul-build"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -311,9 +371,17 @@
       "claimId": "CLM-KOR-HANGULREAD",
       "statement": "Because hangul is an alphabet with a small fixed set of letters, a reader who has the key can sound out a Korean place name on a map without knowing any Korean.",
       "inheritedRecord": "culture-korean",
-      "revalidatedFields": ["writingSystem", "alphabeticity"],
-      "usedBy": ["korean-hangul-place-names"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "alphabeticity"
+      ],
+      "usedBy": [
+        "korean-hangul-place-names"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -334,9 +402,20 @@
       "claimId": "CLM-KOR-DANGUN",
       "statement": "The Korean foundation account in the Samguk yusa runs in this order: Hwanung comes down to the peak of Taebaek with his followers; a bear and a tiger ask to become human; they are given mugwort and garlic and told to stay out of the sunlight for a hundred days; the tiger gives up and the bear endures and becomes a woman; her son Dangun founds the kingdom of Gojoseon.",
       "inheritedRecord": "story-korean-dangun",
-      "revalidatedFields": ["plotSummary", "eventOrder", "sourceText"],
-      "usedBy": ["korean-animal-plate", "korean-founding-order"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "plotSummary",
+        "eventOrder",
+        "sourceText"
+      ],
+      "usedBy": [
+        "korean-animal-plate",
+        "korean-founding-order"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -363,9 +442,19 @@
       "claimId": "CLM-KOR-GEOG",
       "statement": "Mount Baekdu, about 2,750 m, is the highest point on the Korean peninsula and holds a crater lake. The Han (about 514 km) and the Geum both run west to the Yellow Sea, while the Nakdong (about 523 km) runs south to the Korea Strait at Busan; all three rise in the Taebaek Mountains, which run down the eastern side of the peninsula.",
       "inheritedRecord": "culture-korean",
-      "revalidatedFields": ["geography", "highestPeak", "riverCourses"],
-      "usedBy": ["korean-peninsula-map"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "geography",
+        "highestPeak",
+        "riverCourses"
+      ],
+      "usedBy": [
+        "korean-peninsula-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -392,9 +481,18 @@
       "claimId": "CLM-KOR-JUMONG",
       "statement": "In the account of Jumong, founder of Goguryeo, the hero comes to a great river with no way across; turtles and fish rise and gather to make a bridge, he crosses, and he goes on to found the kingdom in 37 BCE. The fullest account is in the Samguk sagi.",
       "inheritedRecord": "story-korean-jumong",
-      "revalidatedFields": ["plotSummary", "eventOrder", "sourceText"],
-      "usedBy": ["korean-river-crossing-sort"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "plotSummary",
+        "eventOrder",
+        "sourceText"
+      ],
+      "usedBy": [
+        "korean-river-crossing-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -415,9 +513,19 @@
       "claimId": "CLM-MAOR-BIRDS",
       "statement": "Several land birds live in Aotearoa New Zealand and nowhere else. The kiwi is flightless, nocturnal, with hair-like feathers and a very long bill; the kererū is a large pigeon with green and bronze feathers and a white front; the kea is a mountain parrot with red under its wings; the weka is a bold flightless rail. All ten species of moa, the largest of the flightless birds, are extinct.",
       "inheritedRecord": "culture-maori",
-      "revalidatedFields": ["localFauna", "birdNames", "extinctionStatus"],
-      "usedBy": ["maori-bird-plate"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "localFauna",
+        "birdNames",
+        "extinctionStatus"
+      ],
+      "usedBy": [
+        "maori-bird-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -451,9 +559,19 @@
       "claimId": "CLM-MAOR-RANGIPAPA",
       "statement": "In most Māori creation traditions Ranginui the sky father and Papatūānuku the earth mother lay pressed together and their children were born between them in the dark. The children decided to push their parents apart; several tried and failed, and Tāne succeeded by lying on his back and pushing with his feet, which made Te Ao Mārama, the world of light.",
       "inheritedRecord": "story-maori-rangi-papa",
-      "revalidatedFields": ["plotSummary", "eventOrder", "variantRange"],
-      "usedBy": ["maori-sky-earth-sort"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "plotSummary",
+        "eventOrder",
+        "variantRange"
+      ],
+      "usedBy": [
+        "maori-sky-earth-sort"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -490,9 +608,18 @@
       "claimId": "CLM-MAOR-MACRON",
       "statement": "In modern written te reo Māori a long vowel is marked with a macron - ā, ē, ī, ō, ū - called a tohutō. Vowel length changes the word, and the macron is used in official place names such as Whangārei. Older writing left long vowels unmarked or doubled them.",
       "inheritedRecord": "culture-maori",
-      "revalidatedFields": ["writingSystem", "orthography", "vowelLength"],
-      "usedBy": ["maori-macron-length"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "orthography",
+        "vowelLength"
+      ],
+      "usedBy": [
+        "maori-macron-length"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -519,9 +646,18 @@
       "claimId": "CLM-MAOR-TEIKA",
       "statement": "In Māori tradition the North Island is Te Ika-a-Māui, the fish that Māui hauled up, and the South Island is his canoe, Te Waka-a-Māui; Stewart Island is the anchor stone, Te Punga-a-Māui. Lake Taupō is named as the navel of the fish. Te Ika-a-Māui and Te Waipounamu became official alternative names for the two main islands in 2013.",
       "inheritedRecord": "story-maori-maui-fish",
-      "revalidatedFields": ["placeNames", "officialStatus", "landformMapping"],
-      "usedBy": ["maori-fish-island-map"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "placeNames",
+        "officialStatus",
+        "landformMapping"
+      ],
+      "usedBy": [
+        "maori-fish-island-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -542,9 +678,17 @@
       "claimId": "CLM-HAWI-ALPHABET",
       "statement": "The Hawaiian alphabet has thirteen letters: five vowels and eight consonants, A E I O U H K L M N P W. Two marks belong to the writing system: the ʻokina, which is a consonant with its own sound and not an apostrophe, and the kahakō, a macron that lengthens the vowel it sits over.",
       "inheritedRecord": "culture-hawaiian",
-      "revalidatedFields": ["writingSystem", "alphabetInventory", "diacritics"],
-      "usedBy": ["hawaiian-place-name-make"],
-      "usedIn": ["field-note"],
+      "revalidatedFields": [
+        "writingSystem",
+        "alphabetInventory",
+        "diacritics"
+      ],
+      "usedBy": [
+        "hawaiian-place-name-make"
+      ],
+      "usedIn": [
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -572,9 +716,17 @@
       "claimId": "CLM-HAWI-CHAIN",
       "statement": "The main Hawaiian Islands get older towards the west-north-west and younger towards the south-east, because the Pacific plate moves over a fixed hot spot. Kauaʻi is about five million years old; the island of Hawaiʻi at the south-eastern end is the youngest, and a still younger volcano is growing under the sea beyond it.",
       "inheritedRecord": "story-hawaiian-pele-journey",
-      "revalidatedFields": ["islandAgeOrder", "hotspotMechanism"],
-      "usedBy": ["hawaiian-island-chain-map"],
-      "usedIn": ["answer-source", "field-note"],
+      "revalidatedFields": [
+        "islandAgeOrder",
+        "hotspotMechanism"
+      ],
+      "usedBy": [
+        "hawaiian-island-chain-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
@@ -608,9 +760,18 @@
       "claimId": "CLM-HAWI-DAYLENGTH",
       "statement": "Close to the tropics the length of the day changes very little through the year, and far from them it changes a great deal. On a clear winter day level ground in Hawaiʻi receives at least 67 per cent as much solar energy between sunrise and sunset as on a clear summer day; at latitude 40 degrees the figure is 33 per cent and at 50 degrees only 20 per cent.",
       "inheritedRecord": "story-hawaiian-maui-sun",
-      "revalidatedFields": ["dayLengthVariation", "latitudeComparison"],
-      "usedBy": ["hawaiian-day-length-plate"],
-      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "revalidatedFields": [
+        "dayLengthVariation",
+        "latitudeComparison"
+      ],
+      "usedBy": [
+        "hawaiian-day-length-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
       "verdict": "confirmed",
       "sources": [
         {
