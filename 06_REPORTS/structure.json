@@ -1,7 +1,9 @@
 {
-  "status": "pass",
+  "status": "fail",
   "checks": 74,
-  "errors": [],
+  "errors": [
+    "belge içi bağlar çözülüyor — KIRIK: ['PROJECT_CONTEXT.md → 06_REPORTS/PHASE_3_REPORT.md']"
+  ],
   "warnings": [],
-  "trackedFiles": 96
+  "trackedFiles": 97
 }
