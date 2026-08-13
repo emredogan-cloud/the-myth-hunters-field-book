@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checks": 16,
+  "checks": 17,
   "errors": [],
   "warnings": [
     "20 aday kapalı katmanlı bir hikâyeye dayanıyor — proza yazılırken o katman AÇILAMAZ (Faz 2)"
@@ -17,6 +17,7 @@
     "safeWithAdultRatio": 0.036,
     "safeRatio": 0.964,
     "attributionChecked": 60,
+    "tierCPagesChecked": 10,
     "activitiesOnLayeredStories": 20
   }
 }

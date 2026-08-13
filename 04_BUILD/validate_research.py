@@ -24,6 +24,7 @@ On denetim:
   ⑧ DİAKRİTİK        — kültür adları ve yazı dizgeleri bozulmuş mu (mojibake)
   ⑨ HİKÂYE ENVANTERİ — culture_index'in usableStories listesi manifestle uyuşuyor mu
   ⑩ İDDİA ZİNCİRİ    — locked bir aktivitenin iddiası KANITA bağlı mı  ⭑FAZ 2⭑
+  ⑪ TASARIM KISITI   — 'field note söyler' diyen bir kısıt GERÇEKTEN söylüyor mu ⭑FAZ 3⭑
 
 ⑩ NEDEN VAR — KAYIT DOĞRULAMAK İLE İDDİA DOĞRULAMAK AYNI ŞEY DEĞİL:
 
@@ -431,6 +432,91 @@ def check_claim_chain(acts, claims, files, records, rep):
     print("  · %d iddia · %s" % (len(claims), verdicts))
 
 
+SAYS_RE = re.compile(r"field note[^.]{0,90}?(?:S[ÖO]YL|der\b|diyor)", re.IGNORECASE)
+TURKISH = re.compile(r"[ıİğĞşŞçÇöÖüÜ]")
+
+
+def check_design_constraints(claims, book, rep):
+    """⑪ 'FIELD NOTE ŞUNU SÖYLER' BİR BEYANDIR — VE BEYAN KANIT DEĞİLDİR.
+
+    ⭑ BU DENETİM BİR İÇ İNCELEMEDEN DOĞDU ⭑
+
+    `designConstraint` alanı bir riskin ELE ALINDIĞININ kaydıdır. İç
+    inceleme üç kısıtın *"field note şunu SÖYLER"* dediğini ve üçünde de
+    field note'un onu söylemediğini buldu. Bu, Faz 2 § 18.5'in bir kat
+    yukarısıdır: orada dolu bir TASARIM alanı basılı bir ad sanılıyordu,
+    burada dolu bir ARAŞTIRMA alanı yazılmış bir cümle sanılıyor.
+
+        Bir riskin ele alındığını YAZMAK, ele almak değildir.
+
+    ⚠ VE BU KAPI BİR DİL SINIRINDA DURUYOR.
+
+    Kısıtlar TÜRKÇE (belge dili), field note'lar İNGİLİZCE (ürün dili).
+    Türkçe bir alıntı bir İngilizce cümlede hiçbir zaman bulunamaz, yani
+    kapının ilk hâli dört kısıtı da yanlışlıkla suçladı.
+
+    Çözüm kapıyı gevşetmek DEĞİL, beyanı DENETLENEBİLİR YAZMAYA
+    zorlamaktır: bir kısıt field note'un ne söylediğini iddia ediyorsa,
+    o cümlenin İNGİLİZCE karşılığını tırnak içinde taşımalıdır.
+
+        SERT  → İngilizce alıntı VARSA, field note onu taşımalı
+        UYARI → İngilizce alıntı YOKSA, beyan denetlenemez biçimde yazılmış
+
+    Kapı cümlenin ANLAMINI denetlemiyor ve denetlediğini iddia etmiyor.
+    Denetlediği şey daha mütevazı ve yeterli: bir beyan bir METNE bağlı mı.
+    """
+    print("\n── ⑪ tasarım kısıtı beyanı ──")
+    if not book:
+        print("  ⊘ manuscript depoda yok — boş koştu")
+        return
+    notes = {x.get("activityId"): (x.get("fieldNote") or "")
+             for x in book.get("activities", [])}
+    unmet, uncheckable = [], []
+    checked = 0
+    for cid, c in sorted(claims.items()):
+        lines = c.get("designConstraint") or []
+        if isinstance(lines, str):
+            lines = [lines]
+        for line in lines:
+            if not SAYS_RE.search(line):
+                continue
+            checked += 1
+            # Denetlenebilir alıntı = tırnak içi, Türkçeye özgü harf
+            # taşımayan, en az iki sözcüklük bir öbek.
+            quotes = [q for q in re.findall(r"['\u2018\u201c]([^'\u2019\u201d]{6,80})['\u2019\u201d]", line)
+                      if not TURKISH.search(q) and len(q.split()) >= 2]
+            targets = [a for a in c.get("usedBy", []) if a in notes]
+            if not targets:
+                continue
+            if not quotes:
+                uncheckable.append("%s" % cid)
+                continue
+            for aid in targets:
+                fn = notes[aid].lower()
+                ok = False
+                for q in quotes:
+                    words = [w for w in re.findall(r"[a-z']+", q.lower()) if len(w) > 3]
+                    if not words:
+                        continue
+                    hit = sum(1 for w in words if w in fn)
+                    if q.lower() in fn or (words and hit / len(words) >= 0.6):
+                        ok = True
+                        break
+                if not ok:
+                    unmet.append("%s → %s" % (cid, aid))
+    rep.facts["designConstraintsChecked"] = checked
+    rep.facts["designConstraintsUncheckable"] = len(uncheckable)
+    rep.check(not unmet,
+              "'field note söyler' diyen her kısıt field note'ta karşılanıyor (%d kısıt)"
+              % checked
+              + ("" if not unmet else " — KARŞILANMIYOR: %s" % unmet[:5]))
+    if uncheckable:
+        rep.warn("%d kısıt denetlenebilir biçimde yazılmamış (İngilizce alıntı yok): %s "
+                 "— beyanı sınamak için kısıt, field note'un taşıması gereken cümleyi "
+                 "tırnak içinde İNGİLİZCE vermelidir"
+                 % (len(uncheckable), sorted(set(uncheckable))[:5]))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -483,6 +569,8 @@ def main() -> int:
     check_story_inventory(cultures, records, rep)
     claims, files = load_claims(rep)
     check_claim_chain(acts, claims, files, records, rep)
+    book_path = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
+    check_design_constraints(claims, load(book_path, rep, required=False), rep)
 
     print("\n" + "=" * 74)
     if rep.warnings:

@@ -1,8 +1,10 @@
 {
   "status": "pass",
-  "checks": 18,
+  "checks": 19,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "ilişki tek bir maddede durmuyor — bir ÇIKARIM tasarımı olabilir, insan bakmalı: [\"andean-altitude-map → 'maize 2300-3500 m → quechua…'\", \"andean-altitude-map → 'potato 3500-4000 m → suni…'\", \"andean-altitude-map → 'llama 4000-4800 m → puna…'\", \"andean-altitude-map → 'pepper tree 500-2300 m → yunga…'\", \"japanese-two-alphabets → 'angular set: katakana…'\"]"
+  ],
   "facts": {
     "activities": 60,
     "regionOpenings": 3,
@@ -25,6 +27,8 @@
       "jaguar-condor": 5,
       "monsoon": 6,
       "great-ocean": 8
-    }
+    },
+    "matchingPagesChecked": 7,
+    "uncolocatedPairs": 5
   }
 }

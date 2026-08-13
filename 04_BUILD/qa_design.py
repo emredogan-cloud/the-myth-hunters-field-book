@@ -20,6 +20,7 @@ Yedi denetim:
   ⑤ GÖRSEL ŞARTNAMESİ — her sayfa tam bir `visualSpec` taşıyor mu
   ⑥ BÖLGE ÇEŞİTLİLİĞİ — bir bölge tek düzene çökmüş mü
   ⑦ VARLIK KİMLİĞİ   — assetId tekil mi, dosya adı ve hedef sözleşmeye uyuyor mu
+  ⑧ EŞLEŞTİRME       — eşleştirmenin İKİ TARAFI da basılı mı  ⭑FAZ 3⭑
 
 ⑥ NEDEN VAR — VE BU KAPININ EN ÖZGÜN DENETİMİDİR:
 
@@ -305,6 +306,96 @@ def check_asset_identity(acts, cfg, rep):
               + ("" if not bad_dest else " — HEDEF DIŞI: %s" % bad_dest[:4]))
 
 
+MATCH_STEP = re.compile(
+    r"\b(?:draw a line from|match|join)\b", re.IGNORECASE)
+
+# Cevap alanlarındaki DEFTER TUTMA sözcükleri. Bunlar cevabın kendisi
+# değil, cevabı YAZMA biçimidir ve levhada basılı olmaları beklenmez.
+BOOKKEEPING = {
+    "marked", "traced", "drawn", "written", "circled", "shaded", "numbered",
+    "star", "box", "boxes", "card", "cards", "line", "lines", "name", "names",
+    "word", "words", "label", "labels", "column", "row", "rows", "side",
+    "sides", "first", "last", "order", "page", "into", "from", "with", "each",
+    "their", "there", "here", "cent", "per", "degrees", "latitude", "about",
+    "river", "rivers", "city", "cities", "country", "countries", "source",
+    "sources", "band", "bands", "sign", "signs", "part", "parts", "only",
+    "both", "under", "over", "point", "points", "place", "places",
+}
+TOKEN = re.compile(r"[A-Za-zʻ'\u00c0-\u024f\u1e00-\u1eff]+")
+
+
+def _sig(text: str) -> list[str]:
+    return [w for w in TOKEN.findall((text or "").lower())
+            if len(w) > 3 and w not in BOOKKEEPING]
+
+
+def check_matching_relation(acts, rep):
+    """⑧ BİR EŞLEŞTİRMENİN İKİ TARAFI DA BASILI MI.
+
+    ⭑ BU DENETİM BİR İÇ İNCELEMEDEN DOĞDU VE ON BİR SAYFA BULDU ⭑
+
+    `qa_instruction § ⑨` bir adımın işaret ettiği ADI çözüyor: "the key"
+    diyen bir adım için levhada bir anahtar var mı. Ama bir EŞLEŞTİRME
+    görevinde ad yetmez — İLİŞKİ gerekir:
+
+        levha: beş renk kartı        ✓ basılı
+        levha: beş yön kartı         ✓ basılı
+        hangisi hangisiyle gider     ✗ HİÇBİR YERDE
+
+    Üç kapı da yeşil yanıyordu ve sayfa çözülemezdi.
+
+    ⚠ BU KAPI İKİYE AYRILDI VE BÖLÜNME BİLİNÇLİDİR.
+
+    İlk hâli tek bir sert denetimdi: "her cevap alanı TEK bir levha
+    maddesinde birlikte geçmeli." O hâl üç sayfayı yakaladı ve biri
+    YANLIŞ POZİTİFTİ — bir haritada şehirleri işaretlemek bir eşleştirme
+    değildir, ve bazı meşru tasarımlarda ilişki bir TABLODA değil bir
+    ÇIKARIMDA durur (iki sayı karşılaştırılır).
+
+        Mekanik olarak karara bağlanabilen şey ile
+        bir insanın bakması gereken şey aynı kapıda duramaz.
+
+    Bu yüzden:
+
+      SERT  → eşleştirmenin İKİ TARAFI da sayfada basılı mı
+              (basılmayan bir şey eşleştirilemez — bu karara bağlanabilir)
+      UYARI → iki taraf AYNI maddede mi duruyor
+              (durmuyorsa ilişki bir çıkarım olabilir — insan bakar)
+    """
+    print("\n── ⑧ eşleştirme ilişkisi ──")
+    unprinted, uncolocated = [], []
+    checked = 0
+    for a in acts:
+        if a.get("layout") in ("sort-cards", "make-frame"):
+            continue
+        steps = a.get("steps") or []
+        if not any(MATCH_STEP.search(s or "") for s in steps):
+            continue
+        checked += 1
+        prints = a.get("pagePrints") or []
+        # Field note da BASILIDIR ve bir anahtar taşıyabilir.
+        haystack = [p.lower() for p in prints] + [(a.get("fieldNote") or "").lower()]
+        blob = " ".join(haystack)
+        for f in [x.strip() for x in re.split(r"\s·\s", a.get("answer") or "") if x.strip()]:
+            toks = _sig(f)
+            if len(set(toks)) < 2:
+                continue
+            missing = [t for t in set(toks) if t not in blob]
+            if missing:
+                unprinted.append("%s → '%s' basılı değil" % (a["activityId"], missing[0]))
+                continue
+            if not any(all(t in item for t in set(toks)) for item in haystack):
+                uncolocated.append("%s → '%s…'" % (a["activityId"], f[:34]))
+    rep.facts["matchingPagesChecked"] = checked
+    rep.check(not unprinted,
+              "eşleştirmenin her iki tarafı da sayfada basılı (%d sayfa)" % checked
+              + ("" if not unprinted else " — BASILI DEĞİL: %s" % unprinted[:6]))
+    if uncolocated:
+        rep.warn("ilişki tek bir maddede durmuyor — bir ÇIKARIM tasarımı olabilir, "
+                 "insan bakmalı: %s" % uncolocated[:6])
+    rep.facts["uncolocatedPairs"] = len(uncolocated)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -349,6 +440,7 @@ def main() -> int:
     check_visual_specs(acts, rep)
     check_region_variety(acts, cfg, rep)
     check_asset_identity(acts, cfg, rep)
+    check_matching_relation(acts, rep)
 
     print("\n" + "=" * 74)
     if rep.warnings:

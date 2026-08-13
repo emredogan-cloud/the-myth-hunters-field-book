@@ -7,7 +7,7 @@
   ],
   "facts": {
     "commercialFields": 15,
-    "commercialStringsScanned": 388,
+    "commercialStringsScanned": 395,
     "testOnlyPaths": [
       "01_SOURCE/pilot_tr",
       "03_EDITORIAL/child_tests_raw"

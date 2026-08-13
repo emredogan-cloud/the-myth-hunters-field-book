@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checks": 26,
+  "checks": 27,
   "errors": [],
   "warnings": [],
   "facts": {
@@ -24,6 +24,8 @@
     "claimVerdicts": {
       "confirmed": 49,
       "corrected": 6
-    }
+    },
+    "designConstraintsChecked": 1,
+    "designConstraintsUncheckable": 0
   }
 }

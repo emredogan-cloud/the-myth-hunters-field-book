@@ -24,6 +24,7 @@
 | Sayfa modeli | 148 ±%6 | **144** (−%2,7) | ✅ |
 | Yeniden doğrulanan iddia | cevap üreten hepsi | **42 yeni** · 55 toplam | ✅ |
 | Bulunan iddia hatası | — | **3 düzeltme · 1 düşen sayfa** | ⚠ *bulundu* |
+| İç editoryal inceleme | koşsun | **82 bulgu · 21 bloklayıcı** | ⚠ *bulundu ve düzeltildi* |
 | Doğrulanmış devralma kaydı | — | **31 / 76** (Faz 2: 7) | ✅ |
 | `safe` oranı | ≥%90 | **%95,0** | ✅ |
 | `do-not-use` | 0 | **0** | ✅ |
@@ -37,8 +38,8 @@
 | Dil ayrımı | ticari %100 İngilizce | **388/388 dize** | ✅ |
 | Görsel şartnamesi | her sayfa | **60** · 317 zorunlu etiket | ✅ |
 | **Üretilmiş görsel** | Faz 5'e ait | **0** | ✅ *bilerek* |
-| Yeni kapı | qa_echo (+ gerekli olanlar) | **qa_echo · qa_design** | ✅ |
-| Kapı öz-testi | yeşil | **145 denetim** (Faz 2: 114) | ✅ |
+| Yeni kapı | qa_echo (+ gerekli olanlar) | **qa_echo · qa_design** + 3 denetim | ✅ |
+| Kapı öz-testi | yeşil | **151 denetim** (Faz 2: 114) | ✅ |
 | **Çocuk saha oturumu** | — | **0 oturum** | ⏳ **BEKLİYOR** |
 
 ```
@@ -779,98 +780,229 @@ Eşleyici düzeltildi (`māori` · `việt` · `dede korkut` eklendi).
 
 ---
 
-## 21 · Bulunan kusurlar
+## 21 · İç editoryal inceleme — bu fazın en sert dersi
 
-Bu bölüm raporun en yararlı kısmıdır. Kapılar **yazıldıkları gün** iş
-yaptı ve üçü **kendi kusurlarını** buldu.
+> ⚠ **İÇ İNCELEME ÇOCUK DOĞRULAMASI DEĞİLDİR.**
+>
+> İnceleme *"bir yetişkin bu talimatı harfi harfine okuduğunda kusur
+> görüyor mu"* sorusunu sorar. Çocuk testi *"sekiz yaşındaki onu
+> yardımsız yapabiliyor mu"* sorusunu sorar. İkincisini yalnızca bir
+> çocuk cevaplayabilir ve bu ayrım rapor boyunca korunmuştur.
+
+Bağımsız bir editoryal alt-ajan 44 yeni sayfayı ve iki bölge açılışını,
+**yalnızca basılı metni okuyarak**, sekiz yaşındaki bir çocuk gibi harfi
+harfine çalıştı.
+
+| Sınıf | Bulgu |
+|---|---:|
+| **A · BLOKLAYICI** (çocuk takılır) | **21** |
+| **B · CİDDİ** (çocuk büyük olasılıkla yanlış yapar) | **28** |
+| **C · KÜÇÜK** | 9 |
+| **D · MÜHÜR** | 1 |
+| **E · SAYFALAR ARASI** | 6 |
+| **F · KÜLTÜREL** | 5 |
+| **G · İDDİA SÜRÜKLENMESİ** | **12** |
+| **Toplam** | **82** |
+| En az bir bloklayıcı taşıyan sayfa | **27 / 44** |
+
+### 21.1 · Ve işte fazın dersi
+
+> ### Kapı yeşildi. Kapı doğruydu. Sayfa yine çözülemezdi.
+
+Faz 2'nin dersi *"kapılar cümlenin BİÇİMİNİ ölçüyor, kusur cümlenin
+GÖNDERMESİNDE"* idi ve `qa_instruction § ⑨` o dersten doğdu. Faz 3'ün 44
+sayfası o kapıdan **geçti** ve on bir sayfa yine çözülemezdi:
+
+```
+levha: beş renk kartı        ✓ basılı
+levha: beş yön kartı         ✓ basılı
+hangisi hangisiyle gider     ✗ HİÇBİR YERDE
+```
+
+`§ ⑨` bir adımın işaret ettiği **ADI** çözüyor. Bir eşleştirmenin
+gerektirdiği **İLİŞKİYİ** çözmüyor. İki ayrı sorudur ve ikincisi hiç
+sorulmamıştı.
+
+> **Bir kapı bir kusur sınıfını kapatır, sınıfın komşusunu değil.**
+
+### 21.2 · İkinci örüntü: yeni katman, eski kusur
+
+`visualSpec` Faz 3'ün en iyi fikriydi ve **aynı kusuru bir kat yukarıda
+yeniden üretti**. `requiredLabels` kapalı bir beyaz listedir ve şu kısıtla
+gelir: *"print only the labels listed in requiredLabels."*
+
+Yedi sıralama sayfasında `requiredLabels` boştu — çünkü türetme
+`pagePrints` içindeki iki-nokta listelerinden besleniyordu ve o sayfalarda
+liste yoktu. Sonuç: **kartların üzerindeki cümleleri basmayı yasaklayan
+bir görsel şartnamesi.** Yedi sayfa da boş kart levhası tarif ediyordu.
+
+Cümleler `answer` alanında duruyordu ve aynı kısıt *"no answer may be
+visible"* diyordu. Yani şartname kendi kendisiyle çelişiyordu.
+
+> **Bir beyaz liste, neyi dışarıda bıraktığını söylemez.**
+
+### 21.3 · Üçüncü örüntü: ele alındığı YAZILAN risk
+
+Üç `designConstraint` alanı *"field note şunu söyler"* diyordu ve üçünde
+de field note onu söylemiyordu. Bu, Faz 2 § 18.5'in bir kat yukarısıdır:
+orada dolu bir **tasarım** alanı basılı bir ad sanılıyordu; burada dolu
+bir **araştırma** alanı yazılmış bir cümle sanılıyor.
+
+> **Bir riskin ele alındığını YAZMAK, ele almak değildir.**
+
+### 21.4 · En ciddi tekil bulgu — G1
+
+`hawaiian-day-length-plate` *"günün ne kadar değiştiğini"* soruyordu ve
+basılı sayı **güneş enerjisi oranıydı**. Çocuk bir Hawai kış gününün yaz
+gününün üçte ikisi — yaklaşık sekiz saat — olduğunu çıkarırdı. Honolulu'da
+gerçek aralık yaklaşık **%81**'dir.
+
+Faz 3 saatler tablosunu iki kaynakta doğrulayamadığı için **düşürmüştü**
+(§ 8.2). Ama onu gerektiren **çerçeveyi** düşürmemişti. Sayfa artık ışığın
+**gücünü** soruyor ve iddia tam olarak onu söylüyor.
+
+> **Bir veriyi düşürmek yetmez; onu isteyen soruyu da düşürmek gerekir.**
+
+### 21.5 · İkinci en ciddi — G2
+
+`vietnamese-mountain-water-sort` § 8.2'de **tam olarak** yarışma ayrıntısı
+iki kaynakta bulunamadığı için yeniden tasarlanmıştı. Yeni kartlardan biri
+*"the mountain spirit **arrives first** and wins her"* diyordu.
+
+*"Arrives first"* yarışmanın kendisidir. Daraltılmış iddia **bir sözcükle**
+geri gelmişti — ve o sözcük çocuğun sıraya koyduğu bir kartın üzerindeydi.
+
+> **Bir daraltma, daraltılan şeyin adını taşıyan tek bir sözcükle geri gelir.**
+
+### 21.6 · Kabul edilmeyen bir bulgu — D1
+
+İnceleme, `monsoon` bölge açılışının mühür sözcüğünü (**MONSOON**) iki kez
+bastığını ve bölgenin ödül yapısını ilk sayfada bozduğunu söyledi. Öneri:
+başlığı *"Mountain and Rain"* yapmak.
+
+**Reddedildi.** İki gerekçe:
+
+1. **Bölge adı A3 ile kilitlidir** (K18) ve başlığı değiştirmek bir kurucu
+   kararı gerektirir.
+2. Daha önemlisi: eşleşme **bilinçli bir tasarım aygıtıdır**.
+   `seal_key.json` gerekçesi bunu açıkça yazıyor — *"bölgenin adını taşır;
+   çocuk sözcüğü kurduğunda bölge başlığıyla eşleştiğini görür ve
+   doğruluğundan emin olur."* Mühür sisteminin bütün tasarımı **kendi
+   kendini doğrulamak** üzerine kurulu (`PROGRESSION_ARCHITECTURE`).
+
+İnceleme `seal_key.json`'u görmedi — göremezdi, dosya depoda değil. Bulgu
+**tasarım gerekçesi olmadan** verildi ve gerekçe okununca düşüyor.
+
+**Kısmen kabul:** açılış prozasındaki ikinci geçiş gereksizdi ve kaldırıldı
+(*"the rains take over"*). Başlık ve şerit motifi durur.
+
+> Bu, alt-ajanın körü körüne kabul edilmemesinin somut örneğidir
+> (yol haritası § 13). 82 bulgunun 81'i kabul edildi; biri gerekçesiyle
+> birlikte reddedildi ve **ret de kayda geçti**.
+
+---
+
+## 22 · Bulunan bütün kusurlar
+
+Yazım ve kapılar 17 kusur buldu; iç inceleme 82 tane daha. Aşağıdaki tablo
+**kapıların** bulduklarıdır; incelemenin bulguları § 21'de sınıflandı.
 
 | # | Kusur | Bulan | Düzeltme |
 |---|---|---|---|
-| 1 | *"Her büyük nehir buzda başlar"* — Sutlej **gölden** doğar | yeniden doğrulama | iddia daraltıldı, sayfa yeniden tasarlandı |
+| 1 | *"Her büyük nehir buzda başlar"* — Sutlej **gölden** doğar | yeniden doğrulama | iddia daraltıldı |
 | 2 | Nehir→sıradağ eşleştirmesi **çift cevaplıydı** | yeniden doğrulama | adlandırılmış kaynağa çevrildi |
 | 3 | *"Yarışmanın dört turu"* iki kaynakta **yok** | yeniden doğrulama | nedensel omurgaya indirildi |
 | 4 | Urashima'nın yılları **değişkeye göre değişiyor** | yeniden doğrulama | metin tarihlerine çevrildi |
-| 5 | *"Hangi kardeş güneşi aldı"* doğrulanamadı | yeniden doğrulama | **sayfa düştü**, yerine yedek geçti |
-| 6 | **`qa_age § ⑨` doğru imlâyı cezalandırıyordu** | yazım | eşleyiciye diakritikli biçim eklendi |
-| 7 | **`selftest` kurgusu elle bakım istiyordu** | `qa_all` | araştırma dizini artık **taranıyor** |
-| 8 | **`update_docs` bölge açılışını sayımdan düşürüyordu** | kod okuması | alan adı düzeltildi, çoğula çevrildi (1.015 → 1.175) |
-| 9 | Faz 1'den kalan mühür yuvaları seçilmemiş adaylardaydı | `qa_progression § ①` | üç aday temizlendi |
-| 10 | `korean-founding-order` yıldızlı sözcüğü **levhada basılı değildi** | `qa_design § ②` | levhaya eklendi, adım yeniden yazıldı |
-| 11 | İki levha *"bir anahtar paneli"* deyip girdileri saymıyordu | `visualSpec` türetmesi | anahtar girdileri **sayıldı** |
-| 12 | **`DESIGN_SYSTEM.md` sayfa kalıplarını ikinci kez basıyordu** | `validate_structure § ③` | kalıpların tek sahibi `STYLE.md` |
-| 13 | Prompt kütüphanesinin **kendi örneği** bir cevaptı | K10 okuması | örnek soyutlandı |
-| 14 | İki kaynak künyesi **ISBN taşıyordu** | `validate_structure` | yayıncı + yıl + bölüm biçimine çevrildi |
-| 15 | `japanese-eight-of-everything` düzeni **yanlış türetiliyordu** | `qa_design § ⑤` | levha kart biçimine çevrildi |
-| 16 | `persian-garden-make` adımı **tanınmayan bir fiille** başlıyordu | `qa_instruction § ①` | fiil listesi genişletilmedi, **adım değişti** |
-| 17 | `vietnamese-mountain-water-sort` *"the account"* diyordu, levhada başlık yoktu | `qa_instruction § ⑨` | levhaya başlık eklendi |
+| 5 | *"Hangi kardeş güneşi aldı"* doğrulanamadı | yeniden doğrulama | **sayfa düştü** |
+| 6 | **`qa_age § ⑨` doğru imlâyı cezalandırıyordu** | yazım | eşleyiciye diakritik eklendi |
+| 7 | **`selftest` kurgusu elle bakım istiyordu** | `qa_all` | dizin **taranıyor** |
+| 8 | **`update_docs` açılışı sayımdan düşürüyordu** | kod okuması | alan düzeltildi (1.015 → 1.175) |
+| 9 | Faz 1'den kalan mühür yuvaları | `qa_progression § ①` | üç aday temizlendi |
+| 10 | Yıldızlı sözcük **levhada basılı değildi** | `qa_design § ②` | levhaya eklendi |
+| 11 | İki levha anahtar girdilerini saymıyordu | `visualSpec` türetmesi | girdiler sayıldı |
+| 12 | **`DESIGN_SYSTEM.md` kalıpları ikinci kez basıyordu** | `validate_structure § ③` | tek sahip `STYLE.md` |
+| 13 | Prompt kütüphanesinin **kendi örneği** bir cevaptı | K10 okuması | soyutlandı |
+| 14 | İki künye **ISBN taşıyordu** | `validate_structure` | yayıncı + yıl biçimine |
+| 15 | Bir düzen **yanlış türetiliyordu** | `qa_design § ⑤` | levha kart biçimine |
+| 16 | Bir adım **tanınmayan fiille** başlıyordu | `qa_instruction § ①` | **adım değişti, liste değil** |
+| 17 | *"the account"* levhada yoktu | `qa_instruction § ⑨` | başlık eklendi |
+| **18** | **Eşleştirmenin bir tarafı hiç basılı değildi** | **`qa_design § ⑧` (YENİ)** | anahtar tamamlandı |
+| **19** | **`andean-altitude-map` dayanaksızdı** | **`qa_design § ⑧` (YENİ)** | yükseklikler basıldı |
+| **20** | **Dokuz Kademe C sayfası ebeveyn notsuzdu** | **`qa_age § ⑩` (YENİ)** | dokuz not yazıldı |
 
-### 21.1 · Bu fazın en öğretici kusuru
+### 22.1 · İki yeni kapı, iki FAZ 2 PİLOT sayfasında kusur buldu
 
-**16 numara** küçük görünüyor ve değil. `persian-garden-make`'in ikinci
-adımı *"Plant each quarter with something different"* diyordu ve
-`qa_instruction § ①` reddetti: `plant` tanınmış emir fiili listesinde
-yok.
+`qa_design § ⑧` yazıldığı gün `aztec-place-glyphs` ve
+`andean-altitude-map` sayfalarını kırmızı yaktı — **ikisi de Faz 2
+pilotundan**, ikisi de Faz 2'nin 61 bulgulu iç incelemesinden geçmiş.
 
-En kolay çözüm listeye `plant` eklemekti. **Yapılmadı.** Liste kapalı
-olduğu için bir kapıdır; her yeni fiil kapıyı biraz daha açar ve otuz
-fiil sonra kapı hiçbir şey denetlemez. Adım değiştirildi:
-*"Draw something different growing in each quarter."*
+- `aztec-place-glyphs`: cevap *"grasshopper"* diyordu, anahtar
+  **chapulin**'i hiç basmıyordu. Ve kök ile ad arasındaki ilişki hiçbir
+  yerde durmuyordu: çocuk *Tenochtitlan*'ın içinde *nochtli* olduğunu
+  **bilmek** zorundaydı.
+- `andean-altitude-map`: Faz 2 field note'u cevabı veriyordu ve yeniden
+  yazılmıştı — ama **yerine bir dayanak konmamıştı**. Sayfa o günden beri
+  dayanaksızdı.
 
-> **Bir kapıyı susturmanın en kolay yolu, genellikle onu yok etmektir.**
+> **Bir kapı yalnızca sonraki sayfaları korumaz; önceki sayfaları da
+> yeniden yargılar.**
 
 ---
 
-## 22 · Kök nedenler
+## 23 · Kök nedenler ve uygulanan düzeltmeler
 
-Yukarıdaki on yedi kusur dört köke iniyor:
+Doksan dokuz kusur beş köke iniyor:
 
-### ① Devralınan veri ANLATI eşiğinde doğrulanmıştı (1–5)
+### ① Devralınan veri ANLATI eşiğinde doğrulanmıştı — 5 kusur + 12 G bulgusu
 
-Faz 2'nin tespiti bu fazda da geçerli ve bir kat daha derinleşti:
-**bir iddianın doğru olması, bir cevabın dayanağı olabilmesi anlamına
-gelmiyor.** Beş kusurun beşi de bu köke iniyor ve beşi de yalnızca
-*"iki bağımsız kaynak"* eşiği uygulandığı için görüldü.
+*Bir iddianın doğru olması, bir cevabın dayanağı olabilmesi anlamına
+gelmiyor.* Ve daha incesi: bir iddia daraltıldıktan **sonra** bile, sayfa
+metni daraltılmış sınırın dışına tek bir sözcükle taşabilir (G2).
 
-### ② Kapılar birbirini görmüyordu (6, 12)
+### ② Kapılar birbirini görmüyordu — 3 kusur
 
 `qa_age` diakritikleri bilmiyordu, `validate_research` onları şart
 koşuyordu. `DESIGN_SYSTEM.md` kalıpları basıyordu, `validate_structure`
-onu sızıntı sayıyordu. İki kapı **aynı doğruyu iki yönden** savunursa,
-biri diğerini yanlış gösterir.
+onu sızıntı sayıyordu. F3 düzeltmesi `qa_solvable § ⑧`'i tetikledi.
+**Üçünde de çözüm bir kapıyı gevşetmek değil, doğru katmanı bulmaktı.**
 
-### ③ Ölçek varsayımları elle yazılmıştı (7, 8, 9)
+### ③ Ölçek varsayımları elle yazılmıştı — 3 kusur
 
-Üç kusurun üçü de *"bir tane vardı, şimdi üç tane var"* sınıfından.
-Tekil alan, sabit dosya adı, havuza dağıtılmış yuva — hepsi bir bölge
-varken doğruydu.
+Tekil alan, sabit dosya adı, havuza dağıtılmış yuva.
+*Bir sistemin ölçeklendiği yer, elle yazılmış sabitlerin kırıldığı yerdir.*
 
-> **Bir sistemin ölçeklendiği yer, elle yazılmış sabitlerin kırıldığı yerdir.**
+### ④ Bir kapı bir sınıfı kapatır, komşusunu değil — 11 A bulgusu
 
-### ④ Şartname metinden SONRA yazılırsa geç kalır (10, 11, 15, 17)
+`§ ⑨` ADI çözüyordu, İLİŞKİYİ değil. → `qa_design § ⑧` doğdu.
 
-Dördü de `pagePrints` ile ilgili ve dördü de Faz 2'nin dersinin
-tekrarı. Faz 3 sırayı düzeltti — sayfalar `pagePrints` ile **birlikte**
-yazıldı — ve buna rağmen dört kusur kaldı. Sıra doğru olsa bile
-**kapı gerekiyor**.
+### ⑤ Denetlenmeyen bir politika bir NİYETTİR — 9 F bulgusu + 3 G12
 
----
+`CULTURE_POLICY § 3` Kademe C için ebeveyn notu şart koşuyordu ve hiçbir
+kapı denetlemiyordu. Faz 1 ve 2'de **ısırmazdı bile** — o fazlarda
+yazılmış bir Kademe C sayfası yoktu. Faz 3 dokuz tane yazdı ve dokuzu da
+notsuz çıktı. → `qa_age § ⑩` doğdu.
 
-## 23 · Uygulanan düzeltmeler
+Aynı kök `designConstraint` beyanlarında: → `validate_research § ⑪` doğdu.
 
-Bütün kusurlar düzeltildi. Düzeltme biçimleri:
+### Uygulanan düzeltmeler
 
-| Biçim | Adet | Örnek |
-|---|---:|---|
-| İddia daraltıldı, sayfa yeniden tasarlandı | 3 | nehir kaynakları · Sơn Tinh · Urashima |
-| Sayfa düştü, havuzdan yedek geçti | 1 | `korean-sky-rope-plate` |
-| Kapı düzeltildi | 3 | `qa_age` eşleyicisi · `selftest` kurgusu · `update_docs` sayımı |
-| Veri temizlendi | 2 | eski mühür yuvaları · ISBN'li künyeler |
-| Levha tamamlandı | 4 | yıldızlı sözcük · iki anahtar paneli · başlık |
-| Belge tekilleştirildi | 2 | kalıpların tek sahibi · kütüphane örneği |
-| Metin değişti (kapı değil) | 2 | `plant` adımı · düzen türetmesi |
+| Biçim | Adet |
+|---|---:|
+| Levha tamamlandı (anahtar · ilişki · kart metni · etiket) | 24 |
+| Field note yeniden yazıldı (atıf · sürüklenme · cevap sızıntısı) | 21 |
+| Adım yeniden yazıldı | 19 |
+| Cevap kaydı düzeltildi | 9 |
+| Kademe C ebeveyn notu yazıldı | 9 |
+| İddia daraltıldı / kısıt denetlenebilir yazıldı | 7 |
+| Bölge açılışı düzeltildi | 2 |
+| Sayfa düştü, havuzdan yedek geçti | 1 |
+| **Yeni kapı doğdu** | **3** (`qa_design § ⑧` · `qa_age § ⑩` · `validate_research § ⑪`) |
+| **Kapı sıkılaştırıldı** | **1** (`qa_age § ⑨` — ad artık field note'ta aranıyor) |
+| **Reddedilen bulgu** | **1** (D1 · § 21.6) |
 
 **Hiçbir kapı gevşetilmedi.** Bir kez bir fiil listesini genişletmek
-gündeme geldi ve **reddedildi** (§ 21.1).
+gündeme geldi ve reddedildi: *bir kapıyı susturmanın en kolay yolu,
+genellikle onu yok etmektir.*
 
 ---
 
@@ -881,21 +1013,21 @@ gündeme geldi ve **reddedildi** (§ 21.1).
 | `validate_spec.py` | **§ ⑤ yeni** | 44 |
 | `validate_structure.py` | — | 74 |
 | `validate_inheritance.py` | — | 9 |
-| `validate_research.py` | — | 26 |
+| `validate_research.py` | **§ ⑪ YENİ** | **27** |
 | `qa_matrix.py` | — | 23 |
-| `qa_age.py` | **§ ⑨ eşleyici düzeltildi** | 16 |
+| `qa_age.py` | **§ ⑨ sıkılaştırıldı · § ⑩ YENİ** | **17** |
 | `qa_solvable.py` | — | 9 |
 | `qa_instruction.py` | — | 11 |
 | `qa_readability.py` | — | 11 |
 | `qa_language.py` | — | 7 |
 | `qa_progression.py` | — | 7 |
 | **`qa_echo.py`** | ✅ **YENİ** | **7** |
-| **`qa_design.py`** | ✅ **YENİ** | **18** |
+| **`qa_design.py`** | ✅ **YENİ** (§ ⑧ dâhil) | **19** |
 | `page_budget.py` | — | 6 |
 | **`image_prompts.py`** | ✅ **YENİ** | *üreteç · `--check`* |
 | `update_docs.py` | **sayım düzeltildi** | *üreteç · `--check`* |
 
-### Kapıların kendi testi: 114 → **145 denetim**
+### Kapıların kendi testi: 114 → **151 denetim**
 
 `selftest.py` on altı bölüme çıktı. Faz 3'te eklenen ⑭–⑯:
 
@@ -908,7 +1040,14 @@ gündeme geldi ve **reddedildi** (§ 21.1).
   tarif edilmeyen yıldızlı kutu · yuva çelişkisi · **basılmayan yıldızlı
   sözcük** · izinsiz düzen · **tek düzene çökmüş bölge** · şartnamesiz
   sayfa · eksik alan · etiketsiz levha · yinelenen assetId · sözleşme
-  dışı dosya adı
+  dışı dosya adı · **eşleştirmenin basılmayan tarafı** · *iki tarafı da
+  basılı eşleştirme GEÇER*
+
+Ve iç incelemeden doğan üç denetim ayrıca sınandı:
+
+- **⑤c** ebeveyn notsuz Kademe C sayfası yakalanıyor mu
+- **⑦b** field note'ta karşılanmayan `designConstraint` beyanı
+- **⑯(m)(n)** eşleştirmenin basılmayan tarafı · ve yanlış pozitif yok
 
 Her yeni kapı için **kusur fikstürü + selftest + CI entegrasyonu**
 üçlüsü tamamlandı.
@@ -983,7 +1122,8 @@ hiçbir şey ilerlemedi.**
 - [x] Üç bölge sayfa modeliyle ölçüldü
 - [x] 148 modeli gerçek veriyle güncellendi (144 · −%2,7)
 - [x] Manuscript ve cevap sızıntısı yok
-- [x] `selftest` yeşil (**145**) · CI yeşil
+- [x] `selftest` yeşil (**151**) · CI yeşil
+- [x] İç editoryal inceleme koşturuldu · 82 bulgu · 81 kabul · 1 gerekçeli ret
 - [ ] **A10 — gerçek oturum** ⏳ **BEKLİYOR**
 - [ ] `.gate` → `phase2` — **A10 kapanmadan yükseltilmez**
 - [ ] **A11 — Faz 3 kapı eşiği** ⏳ kurucu kararı
@@ -1003,7 +1143,8 @@ hiçbir şey ilerlemedi.**
 
 | Soru | Cevap |
 |---|---|
-| Sistem üç bölgeye ölçekleniyor mu | **Evet.** 60 sayfa on beş kapıdan geçti |
+| Sistem üç bölgeye ölçekleniyor mu | **Evet.** 60 sayfa on yedi kapıdan geçti |
+| Bant içinde olmak sayfayı çözülebilir yapıyor mu | **HAYIR.** On yedi kapı yeşilken 27 sayfa çözülemezdi |
 | Ölçeklenirken ne bozuluyor | **Elle yazılmış sabitler.** Üç kusur bu sınıftan |
 | İki bağımsız kaynak eşiği iş yapıyor mu | **Evet.** Üç iddiayı cevap kademesinden düşürdü |
 | Altı bölge tek şablona çöker mi | **Ölçülüyor artık.** `qa_design § ⑥` · 5–6–8 düzen |

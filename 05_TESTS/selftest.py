@@ -605,6 +605,47 @@ def part5b_attribution(rep: Report, tmp: str, base: dict) -> None:
     rep.check(code != 0, "⭑ ATIFSIZ SAYFA YAKALANIR (kültür adı yok)", out)
 
 
+def part5c_tier_c(rep: Report, tmp: str, base: dict) -> None:
+    """⑤c KADEME C EBEVEYN NOTU — CULTURE_POLICY § 3'ün ÖLÜ kuralı.
+
+    Kural Faz 1'den beri yazılıydı ve hiçbir kapı denetlemiyordu. Faz 1
+    ve 2'de ısırmazdı bile: o fazlarda yazılmış bir Kademe C sayfası
+    YOKTU. Faz 3 dokuz tane yazdı ve dokuzu da notsuz çıktı."""
+    print("\n⑤c KADEME C ebeveyn notu denetimi ısırıyor mu")
+
+    book = copy.deepcopy(BOOK_FIXTURE)
+    # jaguar-condor kültürleri Kademe B'dir; kurgu bir Kademe C kültürü
+    # kullanmak zorunda. Gerçek dizinden bir Kademe C sayfası alınıyor.
+    cul = base["01_SOURCE/culture_index.json"]["cultures"]
+    tier_c = [c["id"] for c in cul if c.get("eligibilityTier") == "C"]
+    acts = base["01_SOURCE/activity_index.json"]["activities"]
+    victim = next((a for a in acts if a.get("culture") in tier_c), None)
+    if victim is None:
+        rep.check(False, "dizinde hiç Kademe C aktivitesi yok — kural sınanamıyor")
+        return
+    # ⚠ Field note kültürün ADINI taşımak ZORUNDA (qa_age § ⑨, Faz 3'te
+    #   sıkılaştırıldı). Kurgu bunu unutursa test yanlış yerde kırmızı yanar.
+    cname = next(c["name"] for c in cul if c["id"] == victim["culture"])
+
+    ok = {"meta": {"kind": "selftest", "language": "en"},
+          "activities": [{"activityId": victim["activityId"],
+                          "prompt": "Your mission: read the plate.",
+                          "fieldNote": "This %s page carries a note that runs to about twenty "
+                                       "words so the register band is not the thing under test."
+                                       % cname,
+                          "steps": ["Read each sign on the plate."],
+                          "answer": "one", "writingSpaceLines": 4,
+                          "pagePrints": ["a plate"],
+                          "parentNote": "A one-line note for the adult reading with the child."}]}
+    code, out = run_text_gate(QA_AGE, base, tmp, ok)
+    rep.check(code == 0, "Kademe C sayfası ebeveyn notuyla GEÇER", out)
+
+    bad = copy.deepcopy(ok)
+    bad["activities"][0].pop("parentNote")
+    code, out = run_text_gate(QA_AGE, base, tmp, bad)
+    rep.check(code != 0, "⭑ EBEVEYN NOTSUZ KADEME C SAYFASI YAKALANIR", out)
+
+
 def part6_matrix_gate(rep: Report, tmp: str, base: dict) -> None:
     print("\n⑥ MATRİS VE MÜHÜR kapısı ısırıyor mu")
 
@@ -777,6 +818,38 @@ def part7_research_gate(rep: Report, tmp: str, base: dict) -> None:
     d = mutate_activity(base, lambda a: True, learningDimensions=[])
     code, out = run_gate(VALIDATE_RESEARCH, d, tmp)
     rep.check(code != 0, "⭑ ÖĞRENME BOYUTU OLMAYAN ADAY YAKALANIR", out)
+
+
+def part7b_design_constraint(rep: Report, tmp: str, base: dict) -> None:
+    """⑦b 'FIELD NOTE ŞUNU SÖYLER' BEYANI BİR METNE BAĞLI MI.
+
+    Bir riskin ele alındığını YAZMAK, ele almak değildir. Ve kapı bir dil
+    sınırında duruyor: kısıtlar Türkçe, field note'lar İngilizce — bu
+    yüzden kısıt, field note'un taşıması gereken cümleyi İNGİLİZCE
+    tırnak içinde vermek zorunda."""
+    print("\n⑦b TASARIM KISITI beyanı denetimi ısırıyor mu")
+    import shutil
+    reval = {"meta": {"region": "fixture"},
+             "claims": [{"claimId": "CLM-FIXTURE-SAYS",
+                         "statement": "A fixture claim.",
+                         "inheritedRecord": "culture-maya",
+                         "usedBy": ["maya-bar-dot-numbers"],
+                         "usedIn": ["field-note"],
+                         "verdict": "confirmed",
+                         "sources": [{"ref": "Fixture source", "type": "book"}],
+                         "designConstraint": [
+                             "Field note bunu SÖYLER: 'a shell means none at all'."]}]}
+    d = copy.deepcopy(base)
+    d["01_SOURCE/research/fixture-revalidation.json"] = reval
+    book = copy.deepcopy(BOOK_FIXTURE)
+    code, out = run_text_gate(VALIDATE_RESEARCH, d, tmp, book)
+    rep.check(code == 0, "field note kısıtı karşılıyorsa GEÇER", out)
+
+    bad = copy.deepcopy(book)
+    bad["activities"][0]["fieldNote"] = ("The Maya wrote numbers with three signs and each "
+                                         "one stands for a different amount entirely.")
+    code, out = run_text_gate(VALIDATE_RESEARCH, d, tmp, bad)
+    rep.check(code != 0, "⭑ FIELD NOTE'TA KARŞILANMAYAN BEYAN YAKALANIR", out)
 
 
 def part8_page_budget(rep: Report, tmp: str, base: dict) -> None:
@@ -1809,6 +1882,25 @@ def part16_design(rep: Report, tmp: str, base: dict) -> None:
     code, out = run_text_gate(QA_DESIGN, base, tmp, d)
     rep.check(code != 0, "SÖZLEŞME DIŞI DOSYA ADI YAKALANIR", out)
 
+    # (m) ⭑ EŞLEŞTİRMENİN BİR TARAFI BASILI DEĞİL ⭑
+    #     İç incelemenin en yüksek getirili örüntüsü: levha iki sütunu da
+    #     basıyor ve aralarındaki bağı hiç basmıyor. Burada daha da beteri
+    #     sınanıyor — bir taraf HİÇ basılmıyor.
+    d = design_fixture()
+    d["activities"][1]["steps"] = ["Draw a line from each sign to its word."]
+    d["activities"][1]["answer"] = "alpha stone · beta cactus"
+    d["activities"][1]["pagePrints"] = ["a plate with a key: alpha, beta"]
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code != 0, "⭑ EŞLEŞTİRMENİN BASILMAYAN TARAFI YAKALANIR", out)
+
+    # (n) ⭑ YANLIŞ POZİTİF YOK ⭑ iki taraf da basılıysa GEÇER
+    d = design_fixture()
+    d["activities"][1]["steps"] = ["Draw a line from each sign to its word."]
+    d["activities"][1]["answer"] = "alpha stone · beta cactus"
+    d["activities"][1]["pagePrints"] = ["a plate with a key: alpha stone, beta cactus"]
+    code, out = run_text_gate(QA_DESIGN, base, tmp, d)
+    rep.check(code == 0, "⭑ İKİ TARAFI DA BASILI EŞLEŞTİRME GEÇER", out)
+
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
@@ -1849,6 +1941,8 @@ def main() -> int:
                 part6_matrix_gate(rep, tmp, base)
             if os.path.isfile(VALIDATE_RESEARCH):
                 part7_research_gate(rep, tmp, base)
+            if os.path.isfile(VALIDATE_RESEARCH):
+                part7b_design_constraint(rep, tmp, base)
             if os.path.isfile(PAGE_BUDGET):
                 part8_page_budget(rep, tmp, base)
         if os.path.isfile(QA_READABILITY):
@@ -1876,6 +1970,7 @@ def main() -> int:
                 part13_progression(rep, tmp, base2)
             if os.path.isfile(QA_AGE):
                 part5b_attribution(rep, tmp, base2)
+                part5c_tier_c(rep, tmp, base2)
         else:
             print("\n⑩–⑬ Faz 2 kapıları henüz doğmadı — ATLANDI")
 
