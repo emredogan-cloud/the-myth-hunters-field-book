@@ -383,12 +383,26 @@ REAL = {
     "01_SOURCE/region_index.json": os.path.join(SRC, "region_index.json"),
     "01_SOURCE/inherited/IMPORT_MANIFEST.json":
         os.path.join(SRC, "inherited", "IMPORT_MANIFEST.json"),
-    # Faz 2: iddia zinciri (validate_research § ⑩) bu dosyayı OKUR.
-    # Kopyalanmazsa kilitli aktivitelerin claimRef'leri boşa düşer ve
-    # "temiz veri geçer" testi yanlış yere kırmızı yanar.
-    "01_SOURCE/research/jaguar-condor-revalidation.json":
-        os.path.join(SRC, "research", "jaguar-condor-revalidation.json"),
 }
+
+# ⚠ FAZ 3'TE DÜZELTİLDİ — SABİT DOSYA ADI TESTİ BÖLGE BÖLGE KIRIYORDU.
+#
+# Faz 2 bu sözlüğe TEK bir doğrulama dosyası ELLE yazmıştı
+# (`jaguar-condor-revalidation.json`) ve o gün doğruydu: bir bölge vardı.
+# Faz 3 iki bölge daha yazınca yeni iddialar kurgu köke KOPYALANMADI,
+# claimRef'ler boşa düştü ve "temiz veri geçer" testi kırmızı yandı —
+# yani test, kusuru olmayan bir veriyi kusurlu gösterdi.
+#
+#     Bir testin kurgusu elle bakımı gerektiriyorsa,
+#     o test er geç bakımsız kalır.
+#
+# Dizin artık TARANIYOR: bir sonraki bölge eklendiğinde burada
+# değiştirilecek hiçbir satır yok.
+_RESEARCH = os.path.join(SRC, "research")
+if os.path.isdir(_RESEARCH):
+    for _n in sorted(os.listdir(_RESEARCH)):
+        if _n.endswith("-revalidation.json"):
+            REAL["01_SOURCE/research/" + _n] = os.path.join(_RESEARCH, _n)
 
 
 def real_data_available() -> bool:

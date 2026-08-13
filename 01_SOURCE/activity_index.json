@@ -3344,9 +3344,9 @@
       "culture": "chinese",
       "region": "monsoon",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the stages of the chase and marks where the forest grew.",
@@ -3373,8 +3373,10 @@
         "culture-chinese",
         "story-chinese-kuafu-sun"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-chinese-kuafu-sun"
+      "sourceStory": "story-chinese-kuafu-sun",
+      "claimRefs": [
+        "CLM-CHIN-KUAFU"
+      ]
     },
     {
       "activityId": "chinese-compound-characters",
@@ -3382,9 +3384,9 @@
       "culture": "chinese",
       "region": "monsoon",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader works out four characters built by joining two others.",
@@ -3410,7 +3412,10 @@
       "inheritedRecords": [
         "culture-chinese"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "claimRefs": [
+        "CLM-CHIN-HUIYI",
+        "CLM-CHIN-PICTOGRAM"
+      ]
     },
     {
       "activityId": "chinese-five-colours-sort",
@@ -3418,9 +3423,9 @@
       "culture": "chinese",
       "region": "monsoon",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches five colours to the five directions of the old scheme.",
@@ -3447,8 +3452,12 @@
         "culture-chinese",
         "story-chinese-nuwa-sky"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-chinese-nuwa-sky"
+      "sourceStory": "story-chinese-nuwa-sky",
+      "claimRefs": [
+        "CLM-CHIN-FIVEPHASE",
+        "CLM-CHIN-NUWA"
+      ],
+      "sealSlot": 3
     },
     {
       "activityId": "chinese-pictograph-key",
@@ -3456,9 +3465,9 @@
       "culture": "chinese",
       "region": "monsoon",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches five characters to the pictures they grew from.",
@@ -3484,8 +3493,10 @@
       "inheritedRecords": [
         "culture-chinese"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 7
+      "sealSlot": 1,
+      "claimRefs": [
+        "CLM-CHIN-PICTOGRAM"
+      ]
     },
     {
       "activityId": "chinese-sky-patch-make",
@@ -3493,9 +3504,9 @@
       "culture": "chinese",
       "region": "monsoon",
       "type": "make",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader sketches the patch they would set in the sky and names its colour.",
@@ -3522,8 +3533,10 @@
         "culture-chinese",
         "story-chinese-nuwa-sky"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "sourceStory": "story-chinese-nuwa-sky"
+      "sourceStory": "story-chinese-nuwa-sky",
+      "claimRefs": [
+        "CLM-CHIN-NUWA"
+      ]
     },
     {
       "activityId": "chinese-strokes-plate",
@@ -3531,9 +3544,9 @@
       "culture": "chinese",
       "region": "monsoon",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader marks the first stroke in four characters.",
@@ -3560,7 +3573,9 @@
       "inheritedRecords": [
         "culture-chinese"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "claimRefs": [
+        "CLM-CHIN-STROKEORDER"
+      ]
     },
     {
       "activityId": "chinese-yellow-river-map",
@@ -3606,9 +3621,9 @@
       "culture": "chinese",
       "region": "monsoon",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader works out the animal for four given years using the twelve-year cycle.",
@@ -3635,7 +3650,9 @@
       "inheritedRecords": [
         "culture-chinese"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "claimRefs": [
+        "CLM-CHIN-ZODIAC"
+      ]
     },
     {
       "activityId": "hindu-devanagari-key",
@@ -3643,9 +3660,9 @@
       "culture": "hindu",
       "region": "monsoon",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches six Devanagari letters to their sounds using the key.",
@@ -3671,8 +3688,10 @@
       "inheritedRecords": [
         "culture-hindu"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hindu"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hindu",
+      "claimRefs": [
+        "CLM-HIND-DEVANAGARI"
+      ]
     },
     {
       "activityId": "hindu-ganga-course-map",
@@ -3680,9 +3699,9 @@
       "culture": "hindu",
       "region": "monsoon",
       "type": "map",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader marks five cities and two countries along the Ganga's course.",
@@ -3709,10 +3728,12 @@
         "culture-hindu",
         "story-hindu-ganga-descent"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
       "sourceStory": "story-hindu-ganga-descent",
-      "sealSlot": 5,
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hindu"
+      "sealSlot": 6,
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hindu",
+      "claimRefs": [
+        "CLM-HIND-GANGA"
+      ]
     },
     {
       "activityId": "hindu-river-names-sort",
@@ -3720,9 +3741,9 @@
       "culture": "hindu",
       "region": "monsoon",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches five South Asian rivers to the ranges they rise in.",
@@ -3748,8 +3769,10 @@
       "inheritedRecords": [
         "culture-hindu"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hindu"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hindu",
+      "claimRefs": [
+        "CLM-HIND-RIVERSOURCE"
+      ]
     },
     {
       "activityId": "hindu-sun-distance-plate",
@@ -3797,9 +3820,9 @@
       "culture": "persian",
       "region": "monsoon",
       "type": "map",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader traces the road from the plateau over the Alborz to the Caspian.",
@@ -3826,8 +3849,10 @@
         "culture-persian",
         "story-persian-zal-simorgh"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
-      "sourceStory": "story-persian-zal-simorgh"
+      "sourceStory": "story-persian-zal-simorgh",
+      "claimRefs": [
+        "CLM-PERS-ALBORZ"
+      ]
     },
     {
       "activityId": "persian-banner-plate",
@@ -3874,9 +3899,9 @@
       "culture": "persian",
       "region": "monsoon",
       "type": "make",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader designs a garden divided in four by water channels and names the parts.",
@@ -3903,7 +3928,9 @@
       "inheritedRecords": [
         "culture-persian"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "claimRefs": [
+        "CLM-PERS-CHAHARBAGH"
+      ]
     },
     {
       "activityId": "persian-great-birds-sort",
@@ -3911,9 +3938,9 @@
       "culture": "persian",
       "region": "monsoon",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches four legendary birds to the four cultures that tell of them.",
@@ -3940,12 +3967,14 @@
         "culture-persian",
         "story-persian-zal-simorgh"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
       "sourceStory": "story-persian-zal-simorgh",
       "crossCultureRefs": [
         "chinese",
         "japanese",
         "egyptian"
+      ],
+      "claimRefs": [
+        "CLM-PERS-GREATBIRDS"
       ]
     },
     {
@@ -3954,9 +3983,9 @@
       "culture": "persian",
       "region": "monsoon",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches four shapes of the same letter to their positions in a word.",
@@ -3982,8 +4011,9 @@
       "inheritedRecords": [
         "culture-persian"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 2
+      "claimRefs": [
+        "CLM-PERS-FORMS"
+      ]
     },
     {
       "activityId": "persian-script-direction",
@@ -3991,9 +4021,9 @@
       "culture": "persian",
       "region": "monsoon",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader writes four words in the direction Persian is read.",
@@ -4019,8 +4049,9 @@
       "inheritedRecords": [
         "culture-persian"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 1
+      "claimRefs": [
+        "CLM-PERS-RTL"
+      ]
     },
     {
       "activityId": "persian-shahnameh-order",
@@ -4102,9 +4133,9 @@
       "culture": "turkic",
       "region": "monsoon",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches two one-eyed giants to their cultures and to one detail each.",
@@ -4131,11 +4162,12 @@
         "culture-turkic",
         "story-turkic-basat-tepegoz"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
       "sourceStory": "story-turkic-basat-tepegoz",
-      "sealSlot": 4,
       "crossCultureRefs": [
         "greek"
+      ],
+      "claimRefs": [
+        "CLM-TURK-TEPEGOZ"
       ]
     },
     {
@@ -4144,9 +4176,9 @@
       "culture": "turkic",
       "region": "monsoon",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader works out the reading order of an Old Turkic inscription.",
@@ -4172,7 +4204,10 @@
       "inheritedRecords": [
         "culture-turkic"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "claimRefs": [
+        "CLM-TURK-ORKHONDIR"
+      ],
+      "sealSlot": 7
     },
     {
       "activityId": "turkic-orkhon-key",
@@ -4208,8 +4243,7 @@
       "inheritedRecords": [
         "culture-turkic"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 3
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
     },
     {
       "activityId": "turkic-steppe-map",
@@ -4217,9 +4251,9 @@
       "culture": "turkic",
       "region": "monsoon",
       "type": "map",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader marks the Altai, the steppe road and the valley where the stones were found.",
@@ -4245,7 +4279,10 @@
       "inheritedRecords": [
         "culture-turkic"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir."
+      "claimRefs": [
+        "CLM-TURK-ORKHONSITE"
+      ],
+      "sealSlot": 4
     },
     {
       "activityId": "turkic-stone-mark-make",
@@ -4253,9 +4290,9 @@
       "culture": "turkic",
       "region": "monsoon",
       "type": "make",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader designs a straight-line mark to carve on a stone and explains it.",
@@ -4282,7 +4319,9 @@
       "inheritedRecords": [
         "culture-turkic"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "claimRefs": [
+        "CLM-TURK-TAMGA"
+      ]
     },
     {
       "activityId": "turkic-yurt-plate",
@@ -4290,9 +4329,9 @@
       "culture": "turkic",
       "region": "monsoon",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader labels six parts of a yurt using a word bank.",
@@ -4319,7 +4358,9 @@
       "inheritedRecords": [
         "culture-turkic"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "claimRefs": [
+        "CLM-TURK-YURT"
+      ]
     },
     {
       "activityId": "vietnamese-dragon-boat-plate",
@@ -4327,9 +4368,9 @@
       "culture": "vietnamese",
       "region": "monsoon",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader labels five parts of a dragon boat using a word bank.",
@@ -4356,7 +4397,10 @@
       "inheritedRecords": [
         "culture-vietnamese"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "claimRefs": [
+        "CLM-VIET-DRAGONBOAT"
+      ],
+      "sealSlot": 2
     },
     {
       "activityId": "vietnamese-mountain-water-sort",
@@ -4364,9 +4408,9 @@
       "culture": "vietnamese",
       "region": "monsoon",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the four rounds of the contest and marks who gains each one.",
@@ -4393,8 +4437,11 @@
         "culture-vietnamese",
         "story-vietnamese-son-tinh-thuy-tinh"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-vietnamese-son-tinh-thuy-tinh"
+      "sourceStory": "story-vietnamese-son-tinh-thuy-tinh",
+      "claimRefs": [
+        "CLM-VIET-SONTINH",
+        "CLM-VIET-REDRIVER"
+      ]
     },
     {
       "activityId": "vietnamese-red-river-map",
@@ -4402,9 +4449,9 @@
       "culture": "vietnamese",
       "region": "monsoon",
       "type": "map",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader traces the Red River delta and marks where flood water spreads.",
@@ -4431,8 +4478,12 @@
         "culture-vietnamese",
         "story-vietnamese-son-tinh-thuy-tinh"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
-      "sourceStory": "story-vietnamese-son-tinh-thuy-tinh"
+      "sourceStory": "story-vietnamese-son-tinh-thuy-tinh",
+      "claimRefs": [
+        "CLM-VIET-REDRIVER",
+        "CLM-VIET-SONTINH"
+      ],
+      "sealSlot": 5
     },
     {
       "activityId": "vietnamese-six-tones",
@@ -4470,7 +4521,6 @@
         "culture-vietnamese"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 6,
       "parentNote": "An adult or older reader says the six words aloud once so the child hears the tones before matching."
     },
     {
@@ -4479,9 +4529,9 @@
       "culture": "vietnamese",
       "region": "monsoon",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader marks the tone sign that changes each word's meaning.",
@@ -4507,7 +4557,9 @@
       "inheritedRecords": [
         "culture-vietnamese"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "claimRefs": [
+        "CLM-VIET-TONES"
+      ]
     },
     {
       "activityId": "vietnamese-two-halves-make",
@@ -4554,9 +4606,9 @@
       "culture": "hawaiian",
       "region": "great-ocean",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader compares day lengths at four latitudes and finds where they change least.",
@@ -4584,9 +4636,12 @@
         "culture-hawaiian",
         "story-hawaiian-maui-sun"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
       "sourceStory": "story-hawaiian-maui-sun",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hawaiian"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hawaiian",
+      "claimRefs": [
+        "CLM-HAWI-DAYLENGTH"
+      ],
+      "sealSlot": 6
     },
     {
       "activityId": "hawaiian-island-chain-map",
@@ -4594,9 +4649,9 @@
       "culture": "hawaiian",
       "region": "great-ocean",
       "type": "map",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the islands by age and marks the youngest end of the chain.",
@@ -4623,9 +4678,11 @@
         "culture-hawaiian",
         "story-hawaiian-pele-journey"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
       "sourceStory": "story-hawaiian-pele-journey",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hawaiian"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hawaiian",
+      "claimRefs": [
+        "CLM-HAWI-CHAIN"
+      ]
     },
     {
       "activityId": "hawaiian-okina-kahako",
@@ -4663,7 +4720,6 @@
         "culture-hawaiian"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 6,
       "parentNote": "An adult or older reader says each pair once. The ʻokina is a stop in the throat and is easier to hear than to read.",
       "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hawaiian"
     },
@@ -4673,9 +4729,9 @@
       "culture": "hawaiian",
       "region": "great-ocean",
       "type": "make",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader sketches a place and writes a describing name for it.",
@@ -4702,8 +4758,10 @@
       "inheritedRecords": [
         "culture-hawaiian"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hawaiian"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § hawaiian",
+      "claimRefs": [
+        "CLM-HAWI-ALPHABET"
+      ]
     },
     {
       "activityId": "japanese-box-make",
@@ -4711,9 +4769,9 @@
       "culture": "japanese",
       "region": "great-ocean",
       "type": "make",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader sketches the box that must not be opened and writes what might be inside.",
@@ -4740,8 +4798,10 @@
         "culture-japanese",
         "story-japanese-urashima"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "sourceStory": "story-japanese-urashima"
+      "sourceStory": "story-japanese-urashima",
+      "claimRefs": [
+        "CLM-JAPN-URASHIMA"
+      ]
     },
     {
       "activityId": "japanese-cave-sequence",
@@ -4749,9 +4809,9 @@
       "culture": "japanese",
       "region": "great-ocean",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the four things done to draw the light out of the cave.",
@@ -4778,8 +4838,10 @@
         "culture-japanese",
         "story-japanese-amaterasu-cave"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-japanese-amaterasu-cave"
+      "sourceStory": "story-japanese-amaterasu-cave",
+      "claimRefs": [
+        "CLM-JAPN-AMATERASU"
+      ]
     },
     {
       "activityId": "japanese-crest-plate",
@@ -4824,9 +4886,9 @@
       "culture": "japanese",
       "region": "great-ocean",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader works out four counts from a description that repeats the number eight.",
@@ -4853,8 +4915,10 @@
         "culture-japanese",
         "story-japanese-susanoo-orochi"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-japanese-susanoo-orochi"
+      "sourceStory": "story-japanese-susanoo-orochi",
+      "claimRefs": [
+        "CLM-JAPN-EIGHT"
+      ]
     },
     {
       "activityId": "japanese-island-map",
@@ -4897,9 +4961,9 @@
       "culture": "japanese",
       "region": "great-ocean",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader uses a hiragana key to write four words.",
@@ -4925,8 +4989,10 @@
       "inheritedRecords": [
         "culture-japanese"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 1
+      "sealSlot": 1,
+      "claimRefs": [
+        "CLM-JAPN-KANA"
+      ]
     },
     {
       "activityId": "japanese-turtle-time-plate",
@@ -4934,9 +5000,9 @@
       "culture": "japanese",
       "region": "great-ocean",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader compares four spans of time and works out how long the fisherman was away.",
@@ -4964,8 +5030,10 @@
         "culture-japanese",
         "story-japanese-urashima"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
-      "sourceStory": "story-japanese-urashima"
+      "sourceStory": "story-japanese-urashima",
+      "claimRefs": [
+        "CLM-JAPN-URASHIMA"
+      ]
     },
     {
       "activityId": "japanese-two-alphabets",
@@ -4973,9 +5041,9 @@
       "culture": "japanese",
       "region": "great-ocean",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches six hiragana signs to the katakana signs for the same sounds.",
@@ -5001,8 +5069,10 @@
       "inheritedRecords": [
         "culture-japanese"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 2
+      "claimRefs": [
+        "CLM-JAPN-TWOKANA",
+        "CLM-JAPN-KANA"
+      ]
     },
     {
       "activityId": "korean-animal-plate",
@@ -5010,9 +5080,9 @@
       "culture": "korean",
       "region": "great-ocean",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader marks four differences between the two animals on the plate.",
@@ -5039,8 +5109,10 @@
         "culture-korean",
         "story-korean-dangun"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
-      "sourceStory": "story-korean-dangun"
+      "sourceStory": "story-korean-dangun",
+      "claimRefs": [
+        "CLM-KOR-DANGUN"
+      ]
     },
     {
       "activityId": "korean-founding-mountain-make",
@@ -5085,9 +5157,9 @@
       "culture": "korean",
       "region": "great-ocean",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the four stages of the founding account.",
@@ -5114,9 +5186,11 @@
         "culture-korean",
         "story-korean-dangun"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
       "sourceStory": "story-korean-dangun",
-      "sealSlot": 4
+      "sealSlot": 4,
+      "claimRefs": [
+        "CLM-KOR-DANGUN"
+      ]
     },
     {
       "activityId": "korean-hangul-build",
@@ -5124,9 +5198,9 @@
       "culture": "korean",
       "region": "great-ocean",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader builds four hangul syllable blocks from separate letters.",
@@ -5152,7 +5226,10 @@
       "inheritedRecords": [
         "culture-korean"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "claimRefs": [
+        "CLM-KOR-HANGULBLOCK",
+        "CLM-KOR-HANGULSHAPE"
+      ]
     },
     {
       "activityId": "korean-hangul-place-names",
@@ -5160,9 +5237,9 @@
       "culture": "korean",
       "region": "great-ocean",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader reads six Korean place names written in hangul using the key.",
@@ -5188,7 +5265,10 @@
       "inheritedRecords": [
         "culture-korean"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "claimRefs": [
+        "CLM-KOR-HANGULREAD",
+        "CLM-KOR-GEOG"
+      ]
     },
     {
       "activityId": "korean-hangul-shapes",
@@ -5196,9 +5276,9 @@
       "culture": "korean",
       "region": "great-ocean",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches five hangul consonants to diagrams of the mouth making them.",
@@ -5225,9 +5305,10 @@
       "inheritedRecords": [
         "culture-korean"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 3,
-      "parentNote": "A small mirror lets the child see their own mouth. An adult hands it over and takes it back; the mirror is glass."
+      "parentNote": "A small mirror lets the child see their own mouth. An adult hands it over and takes it back; the mirror is glass.",
+      "claimRefs": [
+        "CLM-KOR-HANGULSHAPE"
+      ]
     },
     {
       "activityId": "korean-peninsula-map",
@@ -5235,9 +5316,9 @@
       "culture": "korean",
       "region": "great-ocean",
       "type": "map",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader marks four points on the peninsula, including its highest mountain.",
@@ -5264,8 +5345,11 @@
         "culture-korean",
         "story-korean-dangun"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
-      "sourceStory": "story-korean-dangun"
+      "sourceStory": "story-korean-dangun",
+      "claimRefs": [
+        "CLM-KOR-GEOG"
+      ],
+      "sealSlot": 5
     },
     {
       "activityId": "korean-river-crossing-sort",
@@ -5273,9 +5357,9 @@
       "culture": "korean",
       "region": "great-ocean",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the events of the crossing and works out what made the bridge.",
@@ -5302,8 +5386,10 @@
         "culture-korean",
         "story-korean-jumong"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-korean-jumong"
+      "sourceStory": "story-korean-jumong",
+      "claimRefs": [
+        "CLM-KOR-JUMONG"
+      ]
     },
     {
       "activityId": "korean-sky-rope-plate",
@@ -5350,9 +5436,9 @@
       "culture": "maori",
       "region": "great-ocean",
       "type": "observe",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches four Aotearoa birds to their Māori names.",
@@ -5379,8 +5465,11 @@
       "inheritedRecords": [
         "culture-maori"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § maori"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § maori",
+      "claimRefs": [
+        "CLM-MAOR-BIRDS"
+      ],
+      "sealSlot": 2
     },
     {
       "activityId": "maori-fish-island-map",
@@ -5388,9 +5477,9 @@
       "culture": "maori",
       "region": "great-ocean",
       "type": "map",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader lays the fish shape over the North Island and marks head and tail.",
@@ -5417,9 +5506,11 @@
         "culture-maori",
         "story-maori-maui-fish"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
       "sourceStory": "story-maori-maui-fish",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § maori"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § maori",
+      "claimRefs": [
+        "CLM-MAOR-TEIKA"
+      ]
     },
     {
       "activityId": "maori-macron-length",
@@ -5427,9 +5518,9 @@
       "culture": "maori",
       "region": "great-ocean",
       "type": "cipher",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches six word pairs that differ only by a macron.",
@@ -5456,10 +5547,11 @@
       "inheritedRecords": [
         "culture-maori"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 5,
       "parentNote": "An adult or older reader says each pair once so the child hears the difference. Vowel length is the whole point.",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § maori"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § maori",
+      "claimRefs": [
+        "CLM-MAOR-MACRON"
+      ]
     },
     {
       "activityId": "maori-place-name-make",
@@ -5505,9 +5597,9 @@
       "culture": "maori",
       "region": "great-ocean",
       "type": "sort",
-      "status": "candidate",
-      "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "status": "written",
+      "editorialStatus": "line-edited",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the stages by which the sky was raised.",
@@ -5534,9 +5626,12 @@
         "culture-maori",
         "story-maori-rangi-papa"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
       "sourceStory": "story-maori-rangi-papa",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § maori"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § maori",
+      "claimRefs": [
+        "CLM-MAOR-RANGIPAPA"
+      ],
+      "sealSlot": 3
     },
     {
       "activityId": "andean-altitude-map",

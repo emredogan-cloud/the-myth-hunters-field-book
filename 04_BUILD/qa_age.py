@@ -335,6 +335,24 @@ def check_supervision_load(acts, dist, rep):
 # Kademe A/B/C fark etmez: attributionRequired olan her sayfada kültürün
 # adı ÇOCUĞUN GÖRDÜĞÜ metinde geçmelidir. Bir kültürün adı birden çok
 # meşru biçimde yazılabilir; liste onları taşır.
+#
+# ⚠ FAZ 3'TE DÜZELTİLDİ — KAPI DOĞRU İMLÂYI CEZALANDIRIYORDU.
+#
+# Liste yalnızca diakritiksiz biçimleri taşıyordu ve denetim düz alt-dize
+# araması yapıyor. Sonuç: doğru yazılmış **Māori** sayfada geçtiği hâlde
+# kapı 'atıfsız' diyordu, çünkü "māori" içinde "maori" alt-dizesi YOKTUR.
+#
+# Bu kusurun tehlikeli tarafı yanlış pozitif olması değil, ÖNERDİĞİ
+# ÇÖZÜMDÜR: kapıyı yeşile çevirmenin en kolay yolu sayfada makronu
+# düşürüp "Maori" yazmaktı. Yani kapı, kendisini susturmak isteyen bir
+# yazarı bir halkın adını YANLIŞ yazmaya iter.
+#
+#     Bir kapı, doğru olanı yapmayı pahalı hâle getiriyorsa,
+#     düzeltilmesi gereken kapıdır.
+#
+# `validate_research § ⑧` zaten diakritiklerin korunmasını ŞART KOŞUYOR;
+# iki kapı birbirine ters çalışıyordu. Liste artık diakritikli biçimi de
+# taşıyor ve `selftest § ⑤b` doğru yazılmış bir adın GEÇTİĞİNİ kanıtlıyor.
 CULTURE_NAMES = {
     "maya": ["maya", "k'iche", "kiche", "popol vuh"],
     "aztec": ["aztec", "nahuatl", "mexica", "tenochtitlan"],
@@ -350,14 +368,14 @@ CULTURE_NAMES = {
     "akan": ["akan", "ashanti", "asante", "ghana"],
     "zulu": ["zulu", "isizulu"],
     "persian": ["persian", "iran", "shahnameh"],
-    "turkic": ["turkic", "turkish", "altai", "orkhon"],
+    "turkic": ["turkic", "turkish", "altai", "orkhon", "dede korkut"],
     "hindu": ["hindu", "sanskrit", "india", "devanagari"],
-    "vietnamese": ["vietnamese", "vietnam"],
+    "vietnamese": ["vietnamese", "vietnam", "việt"],
     "chinese": ["chinese", "china"],
     "japanese": ["japanese", "japan"],
     "korean": ["korean", "korea", "hangul"],
-    "maori": ["maori", "aotearoa", "new zealand"],
-    "hawaiian": ["hawaiian", "hawai"],
+    "maori": ["maori", "māori", "aotearoa", "new zealand"],
+    "hawaiian": ["hawaiian", "hawai"],   # "hawai" makronsuz da, Hawaiʻi de yakalar
 }
 
 

@@ -1,0 +1,831 @@
+{
+  "$comment": [
+    "YENİDEN DOĞRULAMA KAYITLARI — Mountain and Monsoon · Faz 3",
+    "",
+    "⭑ BU DOSYA DEPODA DURUR VE DURMALIDIR ⭑",
+    "İçinde CEVAP yoktur. İçinde İDDİA ve İDDİANIN KAYNAĞI vardır (K11).",
+    "",
+    "Sözleşme K22: doğrulama KAYIT düzeyinde değil İDDİA düzeyinde yapılır.",
+    "Kademe kuralı (SOURCING_STANDARD § 3):",
+    "  arka plan / kültürel çerçeve      → 1 kaynak yeterli",
+    "  BİR AKTİVİTENİN CEVABINI ÜRETEN   → ≥2 BAĞIMSIZ kaynak",
+    "  telaffuz · ad yazımı · diakritik   → ≥2 BAĞIMSIZ kaynak",
+    "",
+    "⚠ YÖNTEM NOTU — DÜRÜSTLÜK İÇİN AÇIKÇA YAZILIYOR",
+    "Kaynaklar bu fazda ağ üzerinden okundu. Bir künye YALNIZCA o sayfanın",
+    "ilgili cümlesi GÖRÜLDÜĞÜNDE yazıldı; erişilemeyen bir kaynak künyeye",
+    "GİRMEDİ. Bazı yayıncılar (Britannica, korea.net) doğrudan çekmeyi",
+    "reddediyor; o sayfaların ilgili cümleleri arama katmanının döndürdüğü",
+    "alıntılardan okundu ve künyeye bu biçimde geçti. Okunmamış bir kaynağı",
+    "kaydetmek uydurmadır ve yapılmadı.",
+    "",
+    "⚠ KÜNYELERDE ISBN RAKAMI TAŞINMAZ (Faz 2 § 23): validate_structure",
+    "sahte ISBN arar ve bir KAYNAĞIN ISBN'i ile BİZİM ISBN'imizi ayırt",
+    "edemez. Kapı kapalı yönde arızalanıyor ve bu doğru.",
+    "",
+    "⚠ KAYNAK SAYILMAYAN: wiki maddeleri (SOURCING_STANDARD § 2).",
+    "Aşağıdaki künyelerin hiçbiri bir wiki maddesine dayanmıyor.",
+    "",
+    "VERDICT NE DEMEK",
+    "  confirmed → devralınan iddia doğrulandı, değişmedi",
+    "  corrected → devralınan iddia YANLIŞ ya da EKSİKTİ, düzeltildi",
+    "  rejected  → doğrulanamadı; iddia aktiviteden ÇIKARILIR"
+  ],
+  "meta": {
+    "region": "monsoon",
+    "phase": "phase3",
+    "revalidatedAt": "2026-08-13",
+    "revalidatedBy": "phase3-agent",
+    "method": [
+      "Her iddia, o iddiayı KULLANAN aktiviteden geriye doğru izlendi.",
+      "Cevap veya mühür üreten iddialar için en az iki BAĞIMSIZ kaynak arandı.",
+      "İki bağımsız kaynağa ULAŞILAMAYAN bir iddia, cevap üretmekten",
+      "ÇIKARILDI: ya aktivite yeniden tasarlandı ya da iddia yalnızca",
+      "field-note kademesine indirildi. Hiçbir iddia 'muhtemelen doğrudur'",
+      "gerekçesiyle cevap kademesinde bırakılmadı."
+    ],
+    "claimCount": 24,
+    "confirmed": 22,
+    "corrected": 2,
+    "rejected": 0
+  },
+  "claims": [
+    {
+      "claimId": "CLM-CHIN-PICTOGRAM",
+      "statement": "A small group of Chinese characters began as pictures of the thing they name, and the picture is still visible in the modern form: 日 sun, 月 moon, 山 mountain, 水 water, 木 tree. Xu Shen's Shuowen jiezi (c. 100 CE) calls this class xiangxing, 'illustration of a shape'. Most Chinese characters are NOT pictures; the pictographs are the minority and the writing system is a system of word-signs.",
+      "inheritedRecord": "culture-chinese",
+      "revalidatedFields": ["writingSystem", "pictographInventory"],
+      "usedBy": ["chinese-pictograph-key"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Chinese writing: Characteristics (pictographs, ideographs, phonetics)",
+          "type": "book",
+          "locator": "britannica.com/topic/Chinese-writing/Characteristics",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "ChinaKnowledge.de (Ulrich Theobald) — Origin and Types of Chinese Characters; The Chinese Script",
+          "type": "archive",
+          "locator": "chinaknowledge.de/Literature/Script/hanzi-originofcharacters.html",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Penn Museum, Expedition Magazine — Chinese Writing",
+          "type": "museum",
+          "locator": "penn.museum/sites/expedition/chinese-writing/",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA 'Çince karakterler resimdir' DEMEZ VE DİYEMEZ.",
+        "Penn Museum ve ChinaKnowledge ikisi de bu yaygın hatayı açıkça",
+        "reddediyor: karakterler resim değil SÖZCÜK İŞARETLERİDİR.",
+        "Field note bu yüzden 'some' der: BAZI karakterler başladıkları",
+        "resmi hâlâ taşır. Beş örnek bilerek bu bazılarından seçildi."
+      ]
+    },
+    {
+      "claimId": "CLM-CHIN-STROKEORDER",
+      "statement": "Chinese characters are written in a fixed stroke order taught in schools. Among the basic rules: left before right; top before bottom; when a horizontal and a vertical stroke cross, the horizontal is written first (十, 干, 士); enclosing frames are written before their contents and closed last (日, 田, 回).",
+      "inheritedRecord": "culture-chinese",
+      "revalidatedFields": ["writingSystem", "strokeOrderRules"],
+      "usedBy": ["chinese-strokes-plate"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Ministry of Education, R.O.C. (Taiwan) — Learning Program for Stroke of Chinese Characters, Basic Rules of Stroke Order",
+          "type": "archive",
+          "locator": "stroke-order.learningweb.moe.edu.tw/page.jsp?ID=46&la=1",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Frontiers in Psychology — Interference effects of radical markings and stroke order animations on Chinese character learning among L2 learners (states the basic rule set and cites State Language Commission 2020 standard)",
+          "type": "journal",
+          "locator": "frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.783613/full",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA YALNIZCA DÖRT KURALIN GEÇERLİ OLDUĞU KARAKTERLERİ KULLANIR.",
+        "Taiwan MoE listesi 17 kural taşıyor ve bazıları (戈 radikali,",
+        "shuzhe-shuqugou) sekiz yaşındaki için bir tuzaktır. Sayfadaki dört",
+        "karakter yalnızca 'soldan sağa', 'yukarıdan aşağıya', 'yatay önce'",
+        "ve 'çerçeve en son kapanır' kurallarını çalıştırır."
+      ]
+    },
+    {
+      "claimId": "CLM-CHIN-FIVEPHASE",
+      "statement": "In the classical Chinese five-phase (wuxing) correlative scheme the four compass directions plus the centre each carry a colour: east green, south red, centre yellow, west white, north black. The scheme reached its received form in the Han period.",
+      "inheritedRecord": "culture-chinese",
+      "revalidatedFields": ["cosmologyScheme", "colourDirectionMapping"],
+      "usedBy": ["chinese-five-colours-sort"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Internet Encyclopedia of Philosophy (peer-reviewed) — Wuxing (Wu-hsing)",
+          "type": "journal",
+          "locator": "iep.utm.edu/wuxing/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Wuxing (Five Elements): correlation with cardinal directions, seasons and colours",
+          "type": "book",
+          "locator": "britannica.com/topic/wuxing",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "DOĞUNUN RENGİ BİR BELİRSİZLİK TAŞIR VE SAYFA BUNU SÖYLER.",
+        "Çince 青 (qīng) hem yeşili hem maviyi kapsar; kaynaklar 'green'",
+        "yazıyor ama tek sözcük iki rengi birden karşılıyor. STYLE § 6:",
+        "belirsizlik gizlenmez. Field note bunu çocuk diliyle söylüyor ve",
+        "cevap 'green' olarak TEK kalıyor — çünkü kart üzerinde basılı olan",
+        "sözcük odur.",
+        "",
+        "MERKEZ BİR YÖN OLARAK SAYILIR ve bu sayfanın dersidir: dört değil",
+        "BEŞ yön. Görev 'beşinci yön nedir' sorusuna dayanıyor."
+      ]
+    },
+    {
+      "claimId": "CLM-CHIN-NUWA",
+      "statement": "In the Huainanzi the sky cracks and Nüwa melts stones of five colours to patch it, props the four corners with the legs of a turtle, and dams the flood with reed ash.",
+      "inheritedRecord": "story-chinese-nuwa-sky",
+      "revalidatedFields": ["plotSummary", "fiveColouredStones"],
+      "usedBy": ["chinese-sky-patch-make"],
+      "usedIn": ["field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "ChinaKnowledge.de (Ulrich Theobald) — Nü Wa 女媧",
+          "type": "archive",
+          "locator": "chinaknowledge.de/History/Myth/personsnvwa.html",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Journal of Chinese Humanities (Brill) 3:1 (2017) — A New Model in the Study of Chinese Mythology",
+          "type": "journal",
+          "locator": "brill.com/view/journals/joch/3/1/article-p1_1.xml",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-CHIN-ZODIAC",
+      "statement": "The East Asian calendar runs a twelve-year animal cycle in the fixed order rat, ox, tiger, rabbit, dragon, snake, horse, goat, monkey, rooster, dog, pig. The order was established by the Han period and repeats every twelve years, so any year can be paired with its animal by counting on in twelves.",
+      "inheritedRecord": "culture-chinese",
+      "revalidatedFields": ["calendarCycle", "animalOrder"],
+      "usedBy": ["chinese-zodiac-plate"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Victoria and Albert Museum — The lunar zodiac (order of the twelve animals; repeats every 12 years; traced to at least the Han dynasty)",
+          "type": "museum",
+          "locator": "vam.ac.uk/articles/the-lunar-zodiac",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "The Metropolitan Museum of Art — Celebrating the Year of the Ox / Year of the Rat exhibition pages (conventional order established by the Eastern Han)",
+          "type": "museum",
+          "locator": "metmuseum.org/exhibitions/year-of-the-ox",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA YALNIZCA GEÇMİŞ YILLARI KULLANIR VE AY TAKVİMİNE GİRMEZ.",
+        "Yeni yıl Gregoryen 1 Ocak'ta başlamaz; Ocak–Şubat doğumlu bir",
+        "çocuk kendi yılını yanlış hesaplayabilir. Sayfa bu yüzden ÇOCUĞUN",
+        "KENDİ DOĞUM YILINI sormaz; basılı dört yıl verir ve hepsi yıl",
+        "ortasındadır."
+      ]
+    },
+    {
+      "claimId": "CLM-CHIN-HUIYI",
+      "statement": "One class of Chinese characters, called huiyi in the Shuowen jiezi's six-category scheme, is built by joining two characters whose meanings combine: 日 sun + 月 moon = 明 bright; 木 tree + 木 tree = 林 grove; 人 person + 木 tree = 休 rest; 女 woman + 子 child = 好 good.",
+      "inheritedRecord": "culture-chinese",
+      "revalidatedFields": ["writingSystem", "compoundCharacterFormation"],
+      "usedBy": ["chinese-compound-characters"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "ChinaKnowledge.de (Ulrich Theobald) — Origin and Types of Chinese Characters (huiyi 'combined meaning'; six types after Xu Shen)",
+          "type": "archive",
+          "locator": "chinaknowledge.de/Literature/Script/hanzi-originofcharacters.html",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Shuowen jiezi (Xu Shen, c. 100 CE; the six categories of character formation)",
+          "type": "book",
+          "locator": "britannica.com/topic/Shuowen-jiezi",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Galambos, Imre — Popular character forms (suzi) and semantic compound (huiyi) characters in medieval Chinese manuscripts",
+          "type": "journal",
+          "locator": "academia.edu/1475221",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-CHIN-KUAFU",
+      "statement": "The Shanhaijing records that the giant Kua Fu raced the sun, drank a great river dry and set out for the Great Marsh but did not reach it; the staff he dropped grew into a forest of peach trees. The account is transmitted in the 'Classic of the Great Wilderness: North'.",
+      "inheritedRecord": "story-chinese-kuafu-sun",
+      "revalidatedFields": ["plotSummary", "aetiology", "sourceText"],
+      "usedBy": ["chinese-chase-the-sun"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Journal of Chinese Humanities (Brill) 3:1 (2017) — A New Model in the Study of Chinese Mythology (locates 'Kua Fu Chases the Sun' in the Dahuangbei jing of the Shanhaijing and quotes the passage)",
+          "type": "journal",
+          "locator": "brill.com/view/journals/joch/3/1/article-p1_1.xml",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Birrell, Anne — Chinese Mythology: An Introduction (Johns Hopkins University Press, 1993); reviewed in The Journal of Asian Studies (Cambridge)",
+          "type": "book",
+          "locator": "jhupbooks.press.jhu.edu/title/chinese-mythology",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "⚠ YAŞ DARALMASI — ÖLÜM SAYFADA GEÇMEZ.",
+        "Kaynak metin Kua Fu'nun bataklığa varamadan ÖLDÜĞÜNÜ söyler.",
+        "AGE_POLICY § 4 betimleme kuralı ölümün çizdirilmesini/anlatılmasını",
+        "yasaklamıyor ama bu bir ÇOCUK AKTİVİTESİDİR ve sıralama görevinin",
+        "son kartı ölüm olamaz.",
+        "",
+        "Sıralama şu dört kartla kurulur ve beşincisi YOKTUR:",
+        "  ① güneş çok sıcaktır  ② Kua Fu koşmaya başlar",
+        "  ③ nehri içer         ④ düşürdüğü sopa bir şeftali ormanı olur",
+        "",
+        "Bu bir sansür DEĞİL bir BİÇİM DARALMASIDIR (K13 § ①): anlatı",
+        "kendi başına tam ve nedenseldir — hikâyenin işi zaten ormanı",
+        "AÇIKLAMAKTIR ve dördüncü kart o açıklamadır. Kültür, hikâye veya",
+        "kota HİÇ düşürülmedi."
+      ]
+    },
+    {
+      "claimId": "CLM-TURK-YURT",
+      "statement": "A Turkic or Mongol felt tent is a round frame of a lattice wall, roof poles and a crown ring, covered with felt and tightened with ropes, and it is built to be dismantled and reassembled. In Kyrgyz and Kazakh usage the lattice wall is the kerege and raising the dome is shanyrak; the Mongol ger's counterpart crown is the toono.",
+      "inheritedRecord": "culture-turkic",
+      "revalidatedFields": ["materialCulture", "dwellingParts", "portability"],
+      "usedBy": ["turkic-yurt-plate"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "UNESCO Intangible Cultural Heritage — Traditional craftsmanship of the Mongol Ger and its associated customs ('a round structure of walls, poles and a peaked roof covered with canvas and felt, and tightened with ropes')",
+          "type": "archive",
+          "locator": "ich.unesco.org/en/RL/traditional-craftsmanship-of-the-mongol-ger-and-its-associated-customs-00872",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "UNESCO Intangible Cultural Heritage — Traditional knowledge and skills in making Kyrgyz, Kazakh and Karakalpak yurts (collapsible wooden circular frame; kerege; shanyrak; assembled and dismantled in a short time)",
+          "type": "archive",
+          "locator": "ich.unesco.org/en/RL/traditional-knowledge-and-skills-in-making-kyrgyz-kazakh-and-karakalpak-yurts-turkic-nomadic-dwellings-02284",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "British Museum — yurt components in the ethnographic collection (wall sections, roof struts, ties, door lintel), reg. W.As1973-09 series",
+          "type": "museum",
+          "locator": "britishmuseum.org/collection/object/W_As1973-09-50",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA TEK BİR HALKIN ADLARINI KULLANIR VE KARIŞTIRMAZ.",
+        "'Kerege' ve 'shanyrak' Kırgız/Kazak, 'toono' Moğol terimidir.",
+        "Bir levha ikisini birden basarsa çocuk yanlış bir eşleştirme",
+        "öğrenir. Sayfa Kırgız/Kazak adlandırmasını kullanır ve field note",
+        "başka halkların başka adlar kullandığını SÖYLER."
+      ]
+    },
+    {
+      "claimId": "CLM-TURK-ORKHONSITE",
+      "statement": "The oldest surviving writing in a Turkic language stands on stone monuments in the Orkhon valley in central Mongolia, about 360 km south-west of Ulaanbaatar. The two great stelae were raised in 732 and 735 CE for the prince Kul Tigin and his brother; the script was deciphered by Vilhelm Thomsen in 1893. The valley is a UNESCO World Heritage cultural landscape and is still grazed by herders.",
+      "inheritedRecord": "culture-turkic",
+      "revalidatedFields": ["writingSystem", "siteLocation", "decipherment"],
+      "usedBy": ["turkic-steppe-map"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "UNESCO World Heritage Centre — Orkhon Valley Cultural Landscape (List no. 1081): central Mongolia, c. 360 km south-west of Ulaanbaatar, 121,967 ha, still grazed by nomadic pastoralists",
+          "type": "archive",
+          "locator": "whc.unesco.org/en/list/1081/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Orhon inscriptions (discovered 1889 in the Orhon valley, northern Mongolia; deciphered 1893 by Vilhelm Thomsen; monuments erected 732 and 735 CE)",
+          "type": "book",
+          "locator": "britannica.com/topic/Orhon-inscriptions",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-TURK-ORKHONDIR",
+      "statement": "Old Turkic runiform script is normally written right to left within a line, with successive lines running from bottom to top; some inscriptions instead alternate direction line by line (boustrophedon), in which case the letter shapes are mirrored on the reversed lines. The script is alphabetic and derives from Sogdian, not from Germanic runes, despite the nickname.",
+      "inheritedRecord": "culture-turkic",
+      "revalidatedFields": ["writingSystem", "readingDirection", "scriptOrigin"],
+      "usedBy": ["turkic-orkhon-direction"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "The Unicode Standard, Chapter 14 (Central Asian scripts) — Old Turkic: right-to-left within a row, rows running bottom to top; boustrophedon variant with reversed letter shapes",
+          "type": "archive",
+          "locator": "unicode.org/versions/Unicode17.0.0/core-spec/chapter-14/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "ScriptSource (SIL International) — Old Turkic, Orkhon Runic script detail",
+          "type": "archive",
+          "locator": "scriptsource.org/cms/scripts/page.php?item_id=script_detail&key=Orkh",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "ISO/IEC JTC1/SC2/WG2 N3357R2 (L2/08-071) — Proposal to encode the Old Turkic script in the UCS",
+          "type": "archive",
+          "locator": "unicode.org/L2/L2008/08071-n3357r2-old-turkic.pdf",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA BOUSTROPHEDON'A GİRMEZ, YALNIZCA ANAR.",
+        "İki yönlü yazım bir ★★★ sayfası için bile fazladır ve cevabı",
+        "ikiye böler. Görev tek bir kalıptaki satırın okunma sırasını",
+        "sorar; field note 'bazı taşlarda sıra satır satır değişir' der",
+        "ve bunu bir MERAK olarak bırakır, bir görev olarak değil."
+      ]
+    },
+    {
+      "claimId": "CLM-TURK-TAMGA",
+      "statement": "The Old Turkic letters are built from straight cuts and simple angles because they were made to be carved into hard stone with a chisel; the same constraint shapes the herd marks (tamga) cut on rock and property.",
+      "inheritedRecord": "culture-turkic",
+      "revalidatedFields": ["writingSystem", "letterformConstraint"],
+      "usedBy": ["turkic-stone-mark-make"],
+      "usedIn": ["field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "ISO/IEC JTC1/SC2/WG2 N3357R2 (L2/08-071) — Proposal to encode the Old Turkic script in the UCS (letterform repertoire and epigraphic context)",
+          "type": "archive",
+          "locator": "unicode.org/L2/L2008/08071-n3357r2-old-turkic.pdf",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-TURK-TEPEGOZ",
+      "statement": "The Book of Dede Korkut tells of Tepegöz, a one-eyed giant of the Oghuz tradition, confronted by the hero Basat; the Odyssey tells of Polyphemus, a one-eyed giant confronted by Odysseus. Scholars have compared the two since the early nineteenth century and the comparison now takes in hundreds of related tales. The two accounts end differently: Basat kills Tepegöz, while Odysseus only blinds Polyphemus and escapes.",
+      "inheritedRecord": "story-turkic-basat-tepegoz",
+      "revalidatedFields": ["plotSummary", "crossCultureParallel"],
+      "usedBy": ["turkic-one-eyed-giants"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "d'Huy, Julien — Polyphemus (Aa. Th. 1137): a phylogenetic reconstruction of a prehistoric tale, Nouvelle Mythologie Comparée / New Comparative Mythology 1 (2013), 3–18",
+          "type": "journal",
+          "locator": "academia.edu/2433320",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Motif Akademi Halkbilimi Dergisi (DergiPark, peer-reviewed) — comparative study of Basat and Odysseus in the Tepegöz narratives",
+          "type": "journal",
+          "locator": "dergipark.org.tr/en/pub/mahder/issue/87286/1513102",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "⚠ KAPALI KATMAN AÇILMAZ — manifest bu hikâyeyi forbiddenLayer",
+        "olarak işaretliyor ve katman KÖRLEŞTİRME/ÖLDÜRME sahneleridir.",
+        "",
+        "Eşleştirme görevi YALNIZCA şu ayrıntıları kullanır:",
+        "  · devin tek gözü olması",
+        "  · bir mağarada yaşaması",
+        "  · sürüsünün olması",
+        "  · kahramanın adı",
+        "",
+        "İki anlatının FARKLI bittiği bilgisi field note'a bile GİRMEZ:",
+        "iddiada kayıtlıdır çünkü bilimsel karşılaştırmanın bir parçasıdır,",
+        "ama çocuğa görünen metne çıkmaz (AGE_POLICY § 4)."
+      ]
+    },
+    {
+      "claimId": "CLM-PERS-RTL",
+      "statement": "Persian is written in the Arabic script from right to left, but numbers inside the same line run left to right, so a Persian line is genuinely bidirectional.",
+      "inheritedRecord": "culture-persian",
+      "revalidatedFields": ["writingSystem", "readingDirection", "digitDirection"],
+      "usedBy": ["persian-script-direction"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "W3C — Text Layout Requirements for the Arabic Script (alreq): right-to-left script with left-to-right digits, i.e. bidirectional text",
+          "type": "archive",
+          "locator": "w3.org/TR/alreq-gap/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Unicode Standard Annex #9 — Unicode Bidirectional Algorithm (digit categories EN and AN; reordering of numbers within right-to-left runs)",
+          "type": "archive",
+          "locator": "unicode.org/reports/tr9/",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-PERS-FORMS",
+      "statement": "A letter of the Perso-Arabic script takes up to four shapes according to its place in a word: isolated, initial, medial and final. A small set of letters has only isolated and final shapes and therefore does not join to the letter that follows it, which breaks the word into pieces.",
+      "inheritedRecord": "culture-persian",
+      "revalidatedFields": ["writingSystem", "positionalForms", "nonJoiningLetters"],
+      "usedBy": ["persian-joined-letters"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "W3C — Arabic & Persian Layout Requirements (four positional forms defined as isolated, initial, medial, final; conditional joining)",
+          "type": "archive",
+          "locator": "w3.org/International/alreq/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "The Unicode Standard, Chapter 9 (Middle Eastern scripts) — Arabic: contextual shaping and non-joining letters",
+          "type": "archive",
+          "locator": "unicode.org/versions/Unicode17.0.0/core-spec/chapter-9/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Kew, Jonathan (SIL International) — Notes on some Unicode Arabic characters: recommendations for usage",
+          "type": "archive",
+          "locator": "static-scripts.sil.org/cms/sites/nrsi/download/arabicletterusagenotes/ArabicLetterUsageNotes.pdf",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-PERS-ALBORZ",
+      "statement": "The Alborz range runs along the southern shore of the Caspian Sea and separates a dry plateau from a wet coast: the Caspian slopes carry humid Hyrcanian forest with over 1,000 mm of rain a year in Gilan, while the southern slopes share the arid climate of the Iranian plateau. Mount Damavand, about 5,600 m, is the highest peak in Iran and stands in the central Alborz.",
+      "inheritedRecord": "culture-persian",
+      "revalidatedFields": ["geography", "climateContrast", "highestPeak"],
+      "usedBy": ["persian-alborz-map"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Alborz Mountains (separates the wetter Caspian lowlands from the deserts of central Iran; over 40 inches of precipitation in Gilan)",
+          "type": "book",
+          "locator": "britannica.com/place/Alborz-Mountains",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "NASA Earth Observatory — Snowcapped Mount Damavand (highest mountain in Iran, c. 5,600 m; part of the Alborz range bordering the Caspian)",
+          "type": "archive",
+          "locator": "science.nasa.gov/earth/earth-observatory/snowcapped-mount-damavand-153923/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Alpine Botany (Springer) — A bioclimatic characterization of high elevation habitats in the Alborz mountains of Iran (500–1500 mm on northern slopes; Hyrcanian forest to c. 2400 m)",
+          "type": "journal",
+          "locator": "link.springer.com/article/10.1007/s00035-018-0202-9",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-PERS-CHAHARBAGH",
+      "statement": "The Persian chaharbagh is a walled garden quartered by two crossing water channels; the type is named in Persian sources from the eleventh century onward. The English word paradise descends from Old Iranian pairidaeza, 'walled around', by way of Greek paradeisos and Latin paradisus.",
+      "inheritedRecord": "culture-persian",
+      "revalidatedFields": ["gardenForm", "etymology"],
+      "usedBy": ["persian-garden-make"],
+      "usedIn": ["field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Iranica — ČAHĀRBĀḠ (garden divided into four quarters by two cross-axial water courses; attested from the fifth/eleventh century)",
+          "type": "journal",
+          "locator": "iranicaonline.org/articles/caharbag-lit/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Iranica — GARDEN v. Achaemenid period (Avestan pairidaēza-, Old Persian *paridaida-, into Greek paradeisoi and Latin paradisus)",
+          "type": "journal",
+          "locator": "iranicaonline.org/articles/garden-i/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "UNESCO World Heritage Centre — The Persian Garden (List no. 1372): geometric layout, water channels and basins dividing the enclosed space into quarters",
+          "type": "archive",
+          "locator": "whc.unesco.org/en/list/1372",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-PERS-GREATBIRDS",
+      "statement": "Four separate traditions each name a great bird: the Simorgh in Persian tradition, where in Ferdowsi's Shahnameh she raises the abandoned child Zal in her nest in the Alborz; the fenghuang in China; the ho-o in Japan, a Japanese form of the fenghuang; and the bennu in Egypt, shown as a grey heron and tied to the morning sun.",
+      "inheritedRecord": "story-persian-zal-simorgh",
+      "revalidatedFields": ["plotSummary", "crossCultureParallel"],
+      "usedBy": ["persian-great-birds-sort"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Iranica — ZĀL (Sam abandons the white-haired infant in the Alborz; the Simorgh takes him to her nest and rears him; Sam later recovers him)",
+          "type": "journal",
+          "locator": "iranicaonline.org/articles/zal/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Fitzwilliam Museum, Cambridge — The Shahnameh: a Persian Cultural Emblem, object records 'The Simorgh restores Zal to Sam'",
+          "type": "museum",
+          "locator": "shahnameh.fitzmuseum.cam.ac.uk/explore/objects/no-45-the-simorgh-restores-zal-to-sam",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — fenghuang; ho-o bird; phoenix (bennu as a grey heron tied to the morning sun and the creation)",
+          "type": "book",
+          "locator": "britannica.com/topic/fenghuang",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "The Metropolitan Museum of Art — 'Zal in the Simurgh's Nest', folio from a Shahnama (Book of Kings)",
+          "type": "museum",
+          "locator": "metmuseum.org/art/collection/search/452627",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA 'HEPSİ AYNI KUŞTUR' DEMEZ VE DİYEMEZ.",
+        "Hō-ō için kaynak açıkça Çin fenghuang'ının Japon biçimi diyor;",
+        "Simorgh ve bennu ise BAĞIMSIZ geleneklerdir. Görev dördünü",
+        "kültürlerine eşleştirir; field note 'ikisi akraba, ikisi değil'",
+        "ayrımını çocuk diliyle söyler. Ödünç alma iddiası kurulmaz.",
+        "",
+        "Zal'ın TERK EDİLMESİ sayfaya girmez: sekiz yaşındaki için bir",
+        "bebeğin dağa bırakılması bu kitabın taşıyacağı bir sahne değildir.",
+        "Field note yalnızca 'kuş çocuğu yuvasında büyüttü' der."
+      ]
+    },
+    {
+      "claimId": "CLM-HIND-DEVANAGARI",
+      "statement": "Devanagari runs left to right and its letters hang from a horizontal head stroke, the shirorekha, drawn along the top; when letters stand side by side in a word the head strokes join into one continuous line.",
+      "inheritedRecord": "culture-hindu",
+      "revalidatedFields": ["writingSystem", "headline", "readingDirection"],
+      "usedBy": ["hindu-devanagari-key"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "The Unicode Standard, Chapter 12 (South and Central Asia I) — Devanagari: text runs left-to-right; glyphs align to a hanging baseline at a horizontal stroke near the top",
+          "type": "archive",
+          "locator": "unicode.org/versions/Unicode17.0.0/core-spec/chapter-12/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "W3C — Devanagari Script Resources / Devanagari Layout Requirements (shirorekha; core, upper and lower zones)",
+          "type": "archive",
+          "locator": "w3.org/TR/deva-lreq/",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "⚠ KADEME C DARALMASI — KUTSAL HECE VE TANRI ADI KULLANILMAZ.",
+        "culture_index § hindu 'kutsal hece veya mantra KULLANILMAZ' ve",
+        "'tanrı adlarının bir şifrenin CEVABI yapılması' yasağını taşıyor.",
+        "Anahtarın altı harfi sıradan sözcükler kurar (nehir, dağ, kitap",
+        "gibi) ve hiçbiri bir ibadet sözcüğü değildir."
+      ]
+    },
+    {
+      "claimId": "CLM-HIND-GANGA",
+      "statement": "The Ganga rises from the Gangotri Glacier in the Himalayas of Uttarakhand, runs about 2,510 km south-east past Haridwar, Prayagraj, Varanasi and Patna, crosses into Bangladesh, joins the Brahmaputra and the Meghna and reaches the Bay of Bengal through a delta shared by two countries.",
+      "inheritedRecord": "story-hindu-ganga-descent",
+      "revalidatedFields": ["riverCourse", "sourceGlacier", "citiesOnCourse", "delta"],
+      "usedBy": ["hindu-ganga-course-map"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Ganges River (Bhagirathi headwater at the foot of the Gangotri Glacier; 1,560 miles / 2,510 km; Uttar Pradesh, Bihar, West Bengal; delta shared by India and Bangladesh)",
+          "type": "book",
+          "locator": "britannica.com/place/Ganges-River",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "NASA Visible Earth — Ganges and Brahmaputra River Valleys (satellite record of the course and the delta)",
+          "type": "archive",
+          "locator": "visibleearth.nasa.gov/images/52735/ganges-and-brahmaputra-river-valleys",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "⚠ KAPALI KATMAN AÇILMAZ. Ganga'nın inişi anlatısı manifestte",
+        "forbiddenLayer taşıyor ve Kademe C kuralı yaşayan ibadetin bir",
+        "bulmacaya çevrilmesini yasaklıyor.",
+        "",
+        "Sayfa BİR COĞRAFYA sayfasıdır: kaynak, şehirler, iki ülke, delta.",
+        "Hac, arınma veya ritüel HİÇ anılmaz. Field note nehrin bir",
+        "yolculuk olduğunu söyler ve orada durur."
+      ]
+    },
+    {
+      "claimId": "CLM-HIND-RIVERSOURCE",
+      "statement": "Five great South Asian rivers begin at five named places: the Ganga at the Gangotri Glacier, the Yamuna at the Yamunotri Glacier, the Brahmaputra at the Chemayungdung Glacier in south-western Tibet, the Indus on the northern flank of the Kailash Range, and the Sutlej at Lake La'nga in south-western Tibet, above 4,600 m. FOUR of the five begin in ice; the Sutlej begins in a lake.",
+      "inheritedRecord": "culture-hindu",
+      "revalidatedFields": ["riverSources"],
+      "usedBy": ["hindu-river-names-sort"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "corrected",
+      "correction": [
+        "FAZ 1 İDDİASI — iki ayrı kusur taşıyordu ve ikisi de aktivite",
+        "düzeyindeydi:",
+        "",
+        "① 'Every great river on this map starts in ice.' (learningObjective)",
+        "   YANLIŞ. Sutlej buzuldan değil, Tibet'teki La'nga gölünden",
+        "   doğar. Bir anlatı cildinde 'hepsi dağdan iner' zararsız bir",
+        "   genellemedir; burada aynı cümle çocuğun deftere yazacağı bir",
+        "   CEVABI yanlışlar.",
+        "",
+        "② 'matches five rivers to the RANGES they rise in' (objective)",
+        "   ÇİFT CEVAP ÜRETİYORDU. Beş nehrin dördü de 'Himalaya' ya da",
+        "   'Tibet' cevabını savunulabilir kılıyor: Ganga ve Yamuna Büyük",
+        "   Himalaya'da, Brahmaputra ve Sutlej güneybatı Tibet'te doğar.",
+        "   Eşleştirme AYIRT EDİCİ DEĞİLDİ.",
+        "",
+        "DÜZELTME: görev sıradağa değil ADLANDIRILMIŞ KAYNAĞA eşleştiriyor",
+        "(Gangotri · Yamunotri · Chemayungdung · Kailash · La'nga). Beş",
+        "kaynak birbirinden farklı, beş cevap tek. Ve dördü buz, biri göl",
+        "olduğu için sayfa artık bir ÇIKARIM istiyor: 'hangisi ötekilere",
+        "benzemiyor'. Kusur bir ders hâline geldi."
+      ],
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Sutlej River (rises in Lake La'nga in south-western Tibet, above 15,000 ft / 4,600 m)",
+          "type": "book",
+          "locator": "britannica.com/place/Sutlej-River",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Brahmaputra River (source at the Chemayungdung Glacier, c. 100 km south-east of Lake Mapam, south-western Tibet); Himalayas: Drainage (Indus rises on the north flank of the Kailash Range; Yamuna from the Yamunotri glacier)",
+          "type": "book",
+          "locator": "britannica.com/place/Brahmaputra-River",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "ICIMOD — Mount Kailash: Sacred Routes Making Ways for Sustainability (Indus, Sutlej, Karnali and Brahmaputra emerging from the Kailash–Manasarovar region)",
+          "type": "journal",
+          "locator": "icimod.org/article/mount-kailash-sacred-routes-making-ways-for-sustainability/",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-VIET-TONES",
+      "statement": "Vietnamese is written in the Latin-based quoc ngu alphabet and carries six tones on the vowel. Five tones take a written mark - grave, acute, hook above, tilde and dot below - and the sixth is written with no mark at all. The mark changes the word: ma, ma with grave, ma with acute, ma with hook, ma with tilde and ma with dot below are six different words.",
+      "inheritedRecord": "culture-vietnamese",
+      "revalidatedFields": ["writingSystem", "toneMarks", "orthography"],
+      "usedBy": ["vietnamese-tone-hunt"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "The Unicode Standard, Chapter 7 (Europe-I, Modern and Liturgical Scripts) — the five combining marks used for Vietnamese tone (U+0300 grave, U+0309 hook above, U+0303 tilde, U+0301 acute, U+0323 dot below)",
+          "type": "archive",
+          "locator": "unicode.org/versions/Unicode17.0.0/core-spec/chapter-7/",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Journal of the International Phonetic Association (Cambridge) — Vietnamese (Hanoi Vietnamese): illustration of the IPA, six-tone system with unmarked level tone",
+          "type": "journal",
+          "locator": "cambridge.org/core/journals/journal-of-the-international-phonetic-association/article/vietnamese-hanoi-vietnamese/31774A6EB2D510A1AAC7B0027FE520F4",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Quoc-ngu (Latin alphabet modified with accents and signs for the consonants, vowels and tones of Vietnamese)",
+          "type": "book",
+          "locator": "britannica.com/topic/Quoc-ngu",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA TELAFFUZ İSTEMEZ, YALNIZCA İŞARETİ ARATIR.",
+        "SOURCING_STANDARD § 3 telaffuz için inherited-verified ZORUNLU",
+        "diyor ve bir ★ sayfası altı tonu ses olarak öğretemez. Görev",
+        "işaretin YERİNİ ve VARLIĞINI sorar. Sesi duymayı gerektiren",
+        "sürüm (vietnamese-six-tones) havuzda kaldı ve kitaba GİRMEDİ."
+      ]
+    },
+    {
+      "claimId": "CLM-VIET-DRAGONBOAT",
+      "statement": "A dragon boat is long and narrow, from about 12 m upward, carries a carved dragon head at the prow and a tail at the stern, is steered from the stern and is paddled in two rows in time to a drummer who sits at the bow. The dragon boat festival is on UNESCO's Representative List and is kept in Vietnam as well as in China.",
+      "inheritedRecord": "culture-vietnamese",
+      "revalidatedFields": ["materialCulture", "boatParts", "festivalContext"],
+      "usedBy": ["vietnamese-dragon-boat-plate"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Dragon Boat Festival (boats narrow and long, 40 ft to more than 100 ft, dragon head and tail, steerer at the stern, two rows of paddlers, drummer at the bow)",
+          "type": "book",
+          "locator": "britannica.com/topic/Dragon-Boat-Festival",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "UNESCO Intangible Cultural Heritage — Dragon Boat festival (Representative List, 2009)",
+          "type": "archive",
+          "locator": "ich.unesco.org/en/RL/dragon-boat-festival-00225",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-VIET-REDRIVER",
+      "statement": "The Red River delta in northern Vietnam is a flat triangle of about 7,000 square kilometres reaching some 150 km inland and 80 km along the coast, with Hanoi standing on it. Because the delta is flat, flood water spreads sideways instead of running away, and the delta has been protected by an earth dyke system built and rebuilt over roughly two thousand years.",
+      "inheritedRecord": "story-vietnamese-son-tinh-thuy-tinh",
+      "revalidatedFields": ["deltaGeography", "floodBehaviour", "dykeSystem"],
+      "usedBy": ["vietnamese-red-river-map"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Red River delta (flat triangular region, c. 2,700 sq mi / 7,000 sq km, extending c. 150 km inland and 80 km along the coast; Hanoi and Haiphong)",
+          "type": "book",
+          "locator": "britannica.com/place/Red-River-delta",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Springer — The Evolution of Water Management in the Red River Delta of Vietnam and a Case of Chuc Son, Hanoi City (dyke building tradition over more than 2000 years)",
+          "type": "journal",
+          "locator": "link.springer.com/chapter/10.1007/978-3-030-60269-7_19",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "International Journal of Asian Studies (Cambridge) — Constrained river, constrained choices: seasonal floods and colonial authority in the Red River Delta",
+          "type": "journal",
+          "locator": "cambridge.org/core/journals/international-journal-of-asian-studies/article/constrained-river-constrained-choices-seasonal-floods-and-colonial-authority-in-the-red-river-delta/46AFB4D09AEB35C6DB38B1A66349457A",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-VIET-SONTINH",
+      "statement": "One of the earliest recorded Vietnamese legends sets a mountain spirit against a water spirit as rivals for a princess. The mountain spirit wins her; the water spirit, having lost, sends heavy rains every year in an effort to defeat him. The story is carried in the fifteenth-century collection Linh Nam chich quai, and the mountain figure is honoured in Vietnamese folk tradition as a protector against flood.",
+      "inheritedRecord": "story-vietnamese-son-tinh-thuy-tinh",
+      "revalidatedFields": ["plotSummary", "aetiology", "sourceText"],
+      "usedBy": ["vietnamese-mountain-water-sort"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "corrected",
+      "correction": [
+        "FAZ 1 İDDİASI: aktivite 'yarışmanın DÖRT TURUNU sıraya koy' diyordu",
+        "(objective: 'Reader orders the four rounds of the contest').",
+        "",
+        "DÖRT TUR İKİ BAĞIMSIZ KAYNAKTA DOĞRULANAMADI. Ulaşılan akademik",
+        "kaynaklar anlatının NEDENSEL omurgasını doğruluyor — iki ruh, bir",
+        "prenses, dağın kazanması, suyun her yıl geri gelmesi — ama",
+        "'yarışmanın turları' ayrıntısını hiçbiri vermiyor.",
+        "",
+        "SOURCING_STANDARD § 3: bir aktivitenin CEVABINI üreten iddia ≥2",
+        "bağımsız kaynak ister. Bu ayrıntı o eşiği geçmiyor.",
+        "",
+        "DÜZELTME — İDDİA DARALTILDI, AKTİVİTE YENİDEN TASARLANDI:",
+        "sıralama artık kaynakların BİRLİKTE söylediği dört adımı kuruyor",
+        "(iki talip → dağ kazanır → su öfkelenir → yağmur her yıl döner).",
+        "Uydurulmuş bir tur dizisi sayfaya GİRMEDİ.",
+        "",
+        "Bu, Faz 2'nin top oyunu düzeltmesiyle aynı sınıftandır: anlatı",
+        "için yeterli olan bir cümle, bir bulmaca cevabı olarak yeterli",
+        "değildi."
+      ],
+      "sources": [
+        {
+          "ref": "TRaNS: Trans-Regional and -National Studies of Southeast Asia (Cambridge) — Rivers, Oceans, and Spirits: Water Cosmologies, Gender, and Religious Change in Southeast Asia (rivalry of mountain and water spirits for a princess; the losing water spirit sends heavy rains every year)",
+          "type": "journal",
+          "locator": "cambridge.org/core/journals/trans-trans-regional-and-national-studies-of-southeast-asia/article/rivers-oceans-and-spirits-water-cosmologies-gender-and-religious-change-in-southeast-asia/B3E7FBF88C8E0573CD05CAC9EBB26508",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Cogent Arts & Humanities (Taylor & Francis, peer-reviewed) — Vietnamese religion, folklore and literature: Archetypal journeys from folktales to medieval fantasy short stories (Tan Vien Son Thanh as the figure representing the power to fight flood)",
+          "type": "journal",
+          "locator": "tandfonline.com/doi/full/10.1080/23311983.2020.1847769",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Journal of Southeast Asian Studies (Cambridge) — A mythographical journey to modernity: the textual and symbolic transformations of the Hung Kings founding myths (Linh Nam chich quai, prefaces of 1492; Son Tinh and Thuy Tinh among its tales)",
+          "type": "journal",
+          "locator": "cambridge.org/core/journals/journal-of-southeast-asian-studies/article/abs/mythographical-journey-to-modernity-the-textual-and-symbolic-transformations-of-the-hung-kings-founding-myths/4444E56BF953F891ADB9FB2FC4E790CE",
+          "accessed": "2026-08-13"
+        }
+      ]
+    }
+  ]
+}

@@ -35,16 +35,16 @@
 | | Ölçülen | Hedef |
 |---|---:|---:|
 | Aday aktivite | **168** | ≥160 |
-| Kilitli aktivite | **16** | 120 |
-| Yazılmış aktivite | **16** | 120 |
+| Kilitli aktivite | **60** | 120 |
+| Yazılmış aktivite | **60** | 120 |
 | Devralınan kayıt | **76** | — |
 | Kültür | **22** | 22 |
 | Bölge (tanımlı) | **6** | 6 |
-| **Bölge (yazılmış)** | **1** | 6 |
-| Sayfa basım maddesi (`pagePrints`) | **67** | — |
+| **Bölge (yazılmış)** | **3** | 6 |
+| Sayfa basım maddesi (`pagePrints`) | **254** | — |
 | Görsel şartnamesi | **0** | ~150 |
 | Görsel varlık (üretilmiş) | **0** | ~150 |
-| Kelime | **1.175** | ~22.000 |
+| Kelime | **4.360** | ~22.000 |
 
 ---
 

@@ -4,11 +4,11 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 983,
-    "sentences": 125,
-    "avgSentenceWords": 7.86,
-    "fkGrade": 2.21,
-    "longWordRatio": 0.021,
+    "words": 3748,
+    "sentences": 450,
+    "avgSentenceWords": 8.33,
+    "fkGrade": 2.91,
+    "longWordRatio": 0.035,
     "perActivity": [
       {
         "activityId": "maya-bar-dot-numbers",
@@ -169,29 +169,469 @@
         "longWordRatio": 0.0,
         "fieldNoteWords": 25,
         "steps": 4
+      },
+      {
+        "activityId": "chinese-pictograph-key",
+        "words": 59,
+        "sentences": 6,
+        "avgSentenceWords": 9.83,
+        "fkGrade": 2.45,
+        "longWordRatio": 0.034,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "turkic-yurt-plate",
+        "words": 52,
+        "sentences": 6,
+        "avgSentenceWords": 8.67,
+        "fkGrade": 2.09,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "vietnamese-dragon-boat-plate",
+        "words": 55,
+        "sentences": 6,
+        "avgSentenceWords": 9.17,
+        "fkGrade": 3.43,
+        "longWordRatio": 0.018,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "persian-script-direction",
+        "words": 56,
+        "sentences": 6,
+        "avgSentenceWords": 9.33,
+        "fkGrade": 3.22,
+        "longWordRatio": 0.018,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "chinese-strokes-plate",
+        "words": 49,
+        "sentences": 6,
+        "avgSentenceWords": 8.17,
+        "fkGrade": 4.69,
+        "longWordRatio": 0.041,
+        "fieldNoteWords": 22,
+        "steps": 2
+      },
+      {
+        "activityId": "vietnamese-tone-hunt",
+        "words": 49,
+        "sentences": 6,
+        "avgSentenceWords": 8.17,
+        "fkGrade": 2.28,
+        "longWordRatio": 0.061,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "chinese-five-colours-sort",
+        "words": 52,
+        "sentences": 6,
+        "avgSentenceWords": 8.67,
+        "fkGrade": 3.45,
+        "longWordRatio": 0.077,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "persian-joined-letters",
+        "words": 49,
+        "sentences": 6,
+        "avgSentenceWords": 8.17,
+        "fkGrade": 3.01,
+        "longWordRatio": 0.02,
+        "fieldNoteWords": 23,
+        "steps": 2
+      },
+      {
+        "activityId": "chinese-sky-patch-make",
+        "words": 45,
+        "sentences": 6,
+        "avgSentenceWords": 7.5,
+        "fkGrade": 1.76,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 20,
+        "steps": 2
+      },
+      {
+        "activityId": "hindu-devanagari-key",
+        "words": 59,
+        "sentences": 7,
+        "avgSentenceWords": 8.43,
+        "fkGrade": 3.3,
+        "longWordRatio": 0.034,
+        "fieldNoteWords": 24,
+        "steps": 3
+      },
+      {
+        "activityId": "turkic-steppe-map",
+        "words": 64,
+        "sentences": 8,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 3.2,
+        "longWordRatio": 0.031,
+        "fieldNoteWords": 23,
+        "steps": 4
+      },
+      {
+        "activityId": "chinese-zodiac-plate",
+        "words": 53,
+        "sentences": 6,
+        "avgSentenceWords": 8.83,
+        "fkGrade": 3.22,
+        "longWordRatio": 0.075,
+        "fieldNoteWords": 27,
+        "steps": 2
+      },
+      {
+        "activityId": "persian-alborz-map",
+        "words": 70,
+        "sentences": 7,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 2.81,
+        "longWordRatio": 0.014,
+        "fieldNoteWords": 30,
+        "steps": 3
+      },
+      {
+        "activityId": "hindu-river-names-sort",
+        "words": 59,
+        "sentences": 7,
+        "avgSentenceWords": 8.43,
+        "fkGrade": 2.5,
+        "longWordRatio": 0.034,
+        "fieldNoteWords": 26,
+        "steps": 3
+      },
+      {
+        "activityId": "turkic-stone-mark-make",
+        "words": 57,
+        "sentences": 7,
+        "avgSentenceWords": 8.14,
+        "fkGrade": 2.08,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "vietnamese-red-river-map",
+        "words": 72,
+        "sentences": 8,
+        "avgSentenceWords": 9.0,
+        "fkGrade": 3.82,
+        "longWordRatio": 0.014,
+        "fieldNoteWords": 29,
+        "steps": 4
+      },
+      {
+        "activityId": "turkic-one-eyed-giants",
+        "words": 67,
+        "sentences": 7,
+        "avgSentenceWords": 9.57,
+        "fkGrade": 2.23,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 30,
+        "steps": 3
+      },
+      {
+        "activityId": "hindu-ganga-course-map",
+        "words": 70,
+        "sentences": 8,
+        "avgSentenceWords": 8.75,
+        "fkGrade": 3.67,
+        "longWordRatio": 0.029,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "persian-garden-make",
+        "words": 56,
+        "sentences": 7,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 5.44,
+        "longWordRatio": 0.089,
+        "fieldNoteWords": 26,
+        "steps": 3
+      },
+      {
+        "activityId": "persian-great-birds-sort",
+        "words": 86,
+        "sentences": 9,
+        "avgSentenceWords": 9.56,
+        "fkGrade": 2.41,
+        "longWordRatio": 0.023,
+        "fieldNoteWords": 29,
+        "steps": 3
+      },
+      {
+        "activityId": "turkic-orkhon-direction",
+        "words": 90,
+        "sentences": 10,
+        "avgSentenceWords": 9.0,
+        "fkGrade": 2.74,
+        "longWordRatio": 0.022,
+        "fieldNoteWords": 29,
+        "steps": 4
+      },
+      {
+        "activityId": "chinese-compound-characters",
+        "words": 79,
+        "sentences": 9,
+        "avgSentenceWords": 8.78,
+        "fkGrade": 1.87,
+        "longWordRatio": 0.013,
+        "fieldNoteWords": 22,
+        "steps": 3
+      },
+      {
+        "activityId": "vietnamese-mountain-water-sort",
+        "words": 77,
+        "sentences": 9,
+        "avgSentenceWords": 8.56,
+        "fkGrade": 4.14,
+        "longWordRatio": 0.065,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "chinese-chase-the-sun",
+        "words": 74,
+        "sentences": 9,
+        "avgSentenceWords": 8.22,
+        "fkGrade": 4.2,
+        "longWordRatio": 0.054,
+        "fieldNoteWords": 26,
+        "steps": 3
+      },
+      {
+        "activityId": "japanese-kana-key",
+        "words": 56,
+        "sentences": 6,
+        "avgSentenceWords": 9.33,
+        "fkGrade": 3.85,
+        "longWordRatio": 0.054,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "korean-animal-plate",
+        "words": 54,
+        "sentences": 6,
+        "avgSentenceWords": 9.0,
+        "fkGrade": 4.96,
+        "longWordRatio": 0.093,
+        "fieldNoteWords": 27,
+        "steps": 2
+      },
+      {
+        "activityId": "maori-bird-plate",
+        "words": 59,
+        "sentences": 6,
+        "avgSentenceWords": 9.83,
+        "fkGrade": 2.25,
+        "longWordRatio": 0.034,
+        "fieldNoteWords": 28,
+        "steps": 2
+      },
+      {
+        "activityId": "hawaiian-place-name-make",
+        "words": 51,
+        "sentences": 7,
+        "avgSentenceWords": 7.29,
+        "fkGrade": 2.75,
+        "longWordRatio": 0.059,
+        "fieldNoteWords": 26,
+        "steps": 2
+      },
+      {
+        "activityId": "japanese-two-alphabets",
+        "words": 52,
+        "sentences": 6,
+        "avgSentenceWords": 8.67,
+        "fkGrade": 5.94,
+        "longWordRatio": 0.173,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "korean-hangul-shapes",
+        "words": 55,
+        "sentences": 6,
+        "avgSentenceWords": 9.17,
+        "fkGrade": 3.65,
+        "longWordRatio": 0.055,
+        "fieldNoteWords": 23,
+        "steps": 2
+      },
+      {
+        "activityId": "japanese-box-make",
+        "words": 49,
+        "sentences": 6,
+        "avgSentenceWords": 8.17,
+        "fkGrade": 3.73,
+        "longWordRatio": 0.061,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "maori-sky-earth-sort",
+        "words": 58,
+        "sentences": 7,
+        "avgSentenceWords": 8.29,
+        "fkGrade": 3.51,
+        "longWordRatio": 0.034,
+        "fieldNoteWords": 26,
+        "steps": 3
+      },
+      {
+        "activityId": "hawaiian-island-chain-map",
+        "words": 65,
+        "sentences": 8,
+        "avgSentenceWords": 8.12,
+        "fkGrade": 2.83,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 29,
+        "steps": 3
+      },
+      {
+        "activityId": "korean-founding-order",
+        "words": 54,
+        "sentences": 7,
+        "avgSentenceWords": 7.71,
+        "fkGrade": 3.59,
+        "longWordRatio": 0.056,
+        "fieldNoteWords": 21,
+        "steps": 3
+      },
+      {
+        "activityId": "maori-macron-length",
+        "words": 65,
+        "sentences": 8,
+        "avgSentenceWords": 8.12,
+        "fkGrade": 3.01,
+        "longWordRatio": 0.031,
+        "fieldNoteWords": 29,
+        "steps": 3
+      },
+      {
+        "activityId": "korean-peninsula-map",
+        "words": 68,
+        "sentences": 8,
+        "avgSentenceWords": 8.5,
+        "fkGrade": 3.86,
+        "longWordRatio": 0.044,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "japanese-cave-sequence",
+        "words": 58,
+        "sentences": 8,
+        "avgSentenceWords": 7.25,
+        "fkGrade": 1.28,
+        "longWordRatio": 0.034,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "korean-hangul-build",
+        "words": 56,
+        "sentences": 7,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 2.91,
+        "longWordRatio": 0.054,
+        "fieldNoteWords": 24,
+        "steps": 3
+      },
+      {
+        "activityId": "maori-fish-island-map",
+        "words": 55,
+        "sentences": 7,
+        "avgSentenceWords": 7.86,
+        "fkGrade": 2.06,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 26,
+        "steps": 3
+      },
+      {
+        "activityId": "japanese-eight-of-everything",
+        "words": 76,
+        "sentences": 9,
+        "avgSentenceWords": 8.44,
+        "fkGrade": 4.47,
+        "longWordRatio": 0.079,
+        "fieldNoteWords": 22,
+        "steps": 3
+      },
+      {
+        "activityId": "korean-hangul-place-names",
+        "words": 92,
+        "sentences": 11,
+        "avgSentenceWords": 8.36,
+        "fkGrade": 2.68,
+        "longWordRatio": 0.054,
+        "fieldNoteWords": 30,
+        "steps": 4
+      },
+      {
+        "activityId": "hawaiian-day-length-plate",
+        "words": 93,
+        "sentences": 11,
+        "avgSentenceWords": 8.45,
+        "fkGrade": 2.43,
+        "longWordRatio": 0.022,
+        "fieldNoteWords": 29,
+        "steps": 4
+      },
+      {
+        "activityId": "korean-river-crossing-sort",
+        "words": 67,
+        "sentences": 9,
+        "avgSentenceWords": 7.44,
+        "fkGrade": 4.04,
+        "longWordRatio": 0.06,
+        "fieldNoteWords": 23,
+        "steps": 3
+      },
+      {
+        "activityId": "japanese-turtle-time-plate",
+        "words": 83,
+        "sentences": 10,
+        "avgSentenceWords": 8.3,
+        "fkGrade": 3.0,
+        "longWordRatio": 0.048,
+        "fieldNoteWords": 24,
+        "steps": 4
       }
     ],
     "registers": {
       "instruction": {
-        "words": 551,
-        "sentences": 83,
-        "avgSentenceWords": 6.64,
-        "fkGrade": 1.28,
-        "maxSentenceWords": 12
+        "words": 1992,
+        "sentences": 294,
+        "avgSentenceWords": 6.78,
+        "fkGrade": 1.91,
+        "maxSentenceWords": 13
       },
       "fieldNote": {
-        "words": 372,
-        "sentences": 34,
-        "avgSentenceWords": 10.94,
-        "fkGrade": 3.87,
-        "maxSentenceWords": 18
+        "words": 1502,
+        "sentences": 128,
+        "avgSentenceWords": 11.73,
+        "fkGrade": 4.68,
+        "maxSentenceWords": 20
       },
       "hint": {
-        "words": 60,
-        "sentences": 8,
-        "avgSentenceWords": 7.5,
-        "fkGrade": 3.27,
-        "maxSentenceWords": 9
+        "words": 254,
+        "sentences": 28,
+        "avgSentenceWords": 9.07,
+        "fkGrade": 3.56,
+        "maxSentenceWords": 14
       }
     }
   }

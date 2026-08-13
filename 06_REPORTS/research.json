@@ -9,19 +9,21 @@
     "activitiesWithStory": 63,
     "activitiesCultureOnly": 105,
     "inheritanceStatus": {
-      "inherited-provisional": 152,
-      "inherited-verified": 16
+      "inherited-provisional": 108,
+      "inherited-verified": 60
     },
-    "answerSourceEligibleRecords": 39,
+    "answerSourceEligibleRecords": 42,
     "usableStoriesListed": 52,
-    "claimRecords": 13,
+    "claimRecords": 55,
     "revalidationFiles": [
-      "jaguar-condor-revalidation.json"
+      "great-ocean-revalidation.json",
+      "jaguar-condor-revalidation.json",
+      "monsoon-revalidation.json"
     ],
-    "lockedActivities": 16,
+    "lockedActivities": 60,
     "claimVerdicts": {
-      "confirmed": 10,
-      "corrected": 3
+      "confirmed": 49,
+      "corrected": 6
     }
   }
 }

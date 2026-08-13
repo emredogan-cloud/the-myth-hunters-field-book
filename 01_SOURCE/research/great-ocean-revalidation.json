@@ -1,0 +1,638 @@
+{
+  "$comment": [
+    "YENİDEN DOĞRULAMA KAYITLARI — The Great Ocean · Faz 3",
+    "",
+    "⭑ BU DOSYA DEPODA DURUR VE DURMALIDIR ⭑",
+    "İçinde CEVAP yoktur. İçinde İDDİA ve İDDİANIN KAYNAĞI vardır (K11).",
+    "",
+    "Yöntem, kademe kuralı ve künye politikası için kardeş dosyaya bakınız:",
+    "01_SOURCE/research/monsoon-revalidation.json § $comment",
+    "",
+    "BU BÖLGENİN KENDİNE ÖZGÜ SERTLİĞİ: dört kültürün ikisi Kademe C",
+    "(Māori · Hawai'i) ve biri Kademe B (Japon). Üçünün de yaşayan bir",
+    "geleneği var ve üçünde de yasak biçim listesi uzun. Kısıt taraması",
+    "bu yüzden iddia düzeyinde YENİDEN yapıldı: bir iddianın doğru olması,",
+    "onu bir çocuk görevine çevirmenin serbest olduğu anlamına GELMEZ.",
+    "",
+    "  whakapapa bir bulmaca CEVABI olamaz.        (culture_index § maori)",
+    "  tā moko deseni çocuğa ÇİZDİRİLEMEZ.         (culture_index § maori)",
+    "  Şinto ritüeli TAKLİT EDİLEMEZ.              (culture_index § japanese)",
+    "  gut ve jesa aktiviteye ÇEVRİLEMEZ.          (culture_index § korean)",
+    "",
+    "Bu dört yasak, aşağıdaki iddiaların designConstraint alanlarında",
+    "tek tek karşılandı."
+  ],
+  "meta": {
+    "region": "great-ocean",
+    "phase": "phase3",
+    "revalidatedAt": "2026-08-13",
+    "revalidatedBy": "phase3-agent",
+    "method": [
+      "Her iddia, o iddiayı KULLANAN aktiviteden geriye doğru izlendi.",
+      "Cevap veya mühür üreten iddialar için en az iki BAĞIMSIZ kaynak arandı.",
+      "İki bağımsız kaynağa ULAŞILAMAYAN bir iddia cevap kademesinden",
+      "çıkarıldı; bir aktivite bu yüzden kitaptan DÜŞTÜ ve bir aktivite",
+      "yeniden tasarlandı. Ayrıntı: CLM-JAPN-URASHIMA § correction ve",
+      "meta.droppedActivities."
+    ],
+    "claimCount": 18,
+    "confirmed": 17,
+    "corrected": 1,
+    "rejected": 0,
+    "droppedActivities": [
+      {
+        "activityId": "korean-sky-rope-plate",
+        "reason": [
+          "KİTAPTAN DÜŞTÜ — havuzda `candidate` olarak KALIR.",
+          "",
+          "Aktivite 'hangi kardeş güneşi aldı ve sıra neden önemli' diye",
+          "soruyordu. Bu, anlatının belirli bir değişkesine dayanan bir",
+          "CEVAPTIR ve iki bağımsız akademik kaynakta doğrulanamadı:",
+          "ulaşılabilen kayıtlar kardeşlerin güneş ve ay olduğunu söylüyor,",
+          "hangisinin hangisini aldığını ve gerekçesini vermiyor.",
+          "",
+          "Ayrıca anlatının açılışı bir kaplanın anneyi öldürmesidir",
+          "(AGE_POLICY § 2 çerçeve 4) ve sayfanın o kapıyı açmadan",
+          "kurulması ayrıca zordu.",
+          "",
+          "Yerine aynı bölge × aynı kültürden `korean-hangul-build` geçti.",
+          "Mühür yuvası taşındı (PROGRESSION_ARCHITECTURE § 6: yuva kalıcı,",
+          "sakini değiştirilebilir). Kültür kotası, zorluk profili ve tip",
+          "asgarileri BOZULMADI."
+        ]
+      }
+    ]
+  },
+  "claims": [
+    {
+      "claimId": "CLM-JAPN-KANA",
+      "statement": "Each kana sign stands for a whole syllable, not a single letter. Each of the two kana syllabaries has 46 basic signs; the first five stand for the vowels a, i, u, e, o, the next forty for a consonant plus a vowel, and the last for a final n.",
+      "inheritedRecord": "culture-japanese",
+      "revalidatedFields": ["writingSystem", "syllabaryInventory"],
+      "usedBy": ["japanese-kana-key"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — kana (two parallel syllabaries, each independently representing all the sounds of Japanese)",
+          "type": "book",
+          "locator": "britannica.com/topic/kana",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — hiragana (46 basic symbols; the first five represent the vowels a, i, u, e, o; the final symbol represents a final n)",
+          "type": "book",
+          "locator": "britannica.com/topic/hiragana",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "The Cambridge Handbook of Japanese Linguistics, ch. 2: The History of the Language",
+          "type": "book",
+          "locator": "cambridge.org/core/books/cambridge-handbook-of-japanese-linguistics/history-of-the-language/1B577053DEC70811956FB4FA1A2DD92D",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-JAPN-TWOKANA",
+      "statement": "Hiragana and katakana write the same sounds but do different jobs and look different: hiragana is cursive and rounded, katakana is angular, and katakana is the set normally used for words borrowed from other languages and for scientific terms.",
+      "inheritedRecord": "culture-japanese",
+      "revalidatedFields": ["writingSystem", "scriptDivisionOfLabour"],
+      "usedBy": ["japanese-two-alphabets"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — katakana (angular; most commonly used to transliterate foreign words)",
+          "type": "book",
+          "locator": "britannica.com/topic/katakana",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — hiragana (cursive; more cursive than katakana, which is mainly for foreign loanwords and scientific terms)",
+          "type": "book",
+          "locator": "britannica.com/topic/hiragana",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-JAPN-AMATERASU",
+      "statement": "In the Kojiki account the sun goddess Amaterasu withdraws into a cave and darkness falls. The other gods gather, collect cocks whose crowing comes before dawn, hang a mirror and jewels on a sakaki tree outside the cave, and Ame-no-Uzume dances until the gods roar with laughter; the noise makes Amaterasu curious and she looks out, and the light returns.",
+      "inheritedRecord": "story-japanese-amaterasu-cave",
+      "revalidatedFields": ["plotSummary", "eventOrder"],
+      "usedBy": ["japanese-cave-sequence"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Amaterasu (withdrew into a cave and darkness fell; the gods collected cocks and hung a mirror and jewels on a sakaki tree)",
+          "type": "book",
+          "locator": "britannica.com/topic/Amaterasu",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Amenouzume (her dance and the laughter of the assembled gods awaken the curiosity of the sun goddess)",
+          "type": "book",
+          "locator": "britannica.com/topic/Amenouzume",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "The Metropolitan Museum of Art — Kono Bairei, 'Luring the Sun Goddess Amaterasu Out of a Cave with Music' (Meiji period)",
+          "type": "museum",
+          "locator": "metmuseum.org/art/collection/search/670889",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "⚠ KAPALI KATMAN AÇILMAZ ve RİTÜEL TAKLİT EDİLMEZ.",
+        "Manifest bu kaydı forbiddenLayer ile işaretliyor; kapalı katman",
+        "Amaterasu'nun mağaraya çekilmesine YOL AÇAN olaylardır ve sayfaya",
+        "GİRMEZ. Sıralama mağara kapandıktan SONRA başlar.",
+        "",
+        "Uzume'nin dansı bir ŞİNTO ritüelinin kökeni sayılır (kagura).",
+        "culture_index § japanese ritüel taklidini yasaklıyor: sayfa dansı",
+        "ÇOCUĞA YAPTIRMAZ, yalnızca olayların sırasına koydurur."
+      ]
+    },
+    {
+      "claimId": "CLM-JAPN-EIGHT",
+      "statement": "In older Japanese usage 'eight' is a conventional way of saying 'very many' rather than an exact count: the gods are collectively the yaoyorozu, the eight million, and the serpent Susanoo faces is Yamata-no-Orochi, the eight-forked serpent with eight heads and eight tails.",
+      "inheritedRecord": "story-japanese-susanoo-orochi",
+      "revalidatedFields": ["numberConvention", "plotDetail"],
+      "usedBy": ["japanese-eight-of-everything"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Japanese mythology (the gods, too numerous to count, are known collectively as yaoyorozu-no-kamigami, the eight million)",
+          "type": "book",
+          "locator": "britannica.com/topic/Japanese-mythology",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Ashkenazi, Michael — Handbook of Japanese Mythology (Oxford University Press)",
+          "type": "book",
+          "locator": "academic.oup.com/book/49565",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Domenig, Gaudenz — Founding Territorial Cults in Early Japan (Brill, 2024), ch. 2",
+          "type": "book",
+          "locator": "brill.com/display/book/9789004686458/BP000011.xml",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "⚠ EJDERHANIN ÖLDÜRÜLMESİ SAYFAYA GİRMEZ.",
+        "Manifest kaydı forbiddenLayer taşıyor ve katman öldürme sahnesidir.",
+        "Sayfa yalnızca SAYMA görevidir: sekiz baş, sekiz kuyruk, sekiz",
+        "vadi, sekiz tepe. Kahraman, kılıç ve sonuç HİÇ anılmaz.",
+        "",
+        "Ve sayfanın asıl dersi sayının kendisi değil: 'sekiz' burada bir",
+        "SAYI DEĞİL BİR SÖZCÜKTÜR ve 'pek çok' demektir. Çocuk önce sayar,",
+        "sonra sayının saymadığını öğrenir."
+      ]
+    },
+    {
+      "claimId": "CLM-JAPN-URASHIMA",
+      "statement": "The tale of the fisherman Urashima is one of the oldest written stories in Japan. It is recorded in the Tango no Kuni Fudoki of 713, in the Nihon Shoki of 720 and in the Man'yoshu of 759, and it was still being drawn by Japanese artists in the Meiji period more than eleven hundred years later. The tale turns on time running at two speeds, and on a box the story never opens for the reader.",
+      "inheritedRecord": "story-japanese-urashima",
+      "revalidatedFields": ["sourceTexts", "textDates", "transmission"],
+      "usedBy": ["japanese-turtle-time-plate", "japanese-box-make"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "corrected",
+      "correction": [
+        "FAZ 1 İDDİASI: aktivite 'dört zaman aralığını karşılaştır ve",
+        "balıkçının ne kadar uzakta kaldığını bul' diyordu — yani cevap",
+        "anlatının SAYILARINA dayanıyordu (üç yıl / üç yüz yıl).",
+        "",
+        "O SAYILAR İKİ BAĞIMSIZ KAYNAKTA DOĞRULANAMADI. Ulaşılan tek",
+        "akademik kaynak 'bir değişkede üç yıl … üç yüz yıl' diyor ve",
+        "cümlenin kendisi DEĞİŞKELERİN FARKLI OLDUĞUNU söylüyor. Değişkeye",
+        "göre değişen bir sayı, tek cevaplı bir bulmacanın girdisi olamaz",
+        "(qa_solvable § ④'ün yasakladığı belirsizliğin kaynağı).",
+        "",
+        "DÜZELTME: sayfa artık anlatının sayılarını değil METİNLERİN",
+        "TARİHLERİNİ okutuyor — 713, 720, 759 ve bir Meiji baskısı. Cevap",
+        "tek ve doğrulanabilir: en eski kitap Tango Fudoki, ilk ile üçüncü",
+        "kitap arasında 46 yıl var.",
+        "",
+        "Ve ders GÜÇLENDİ: çocuk 'iki hızda akan zaman'ı hikâyenin İÇİNDE",
+        "değil, hikâyenin KENDİ YAŞINDA görüyor. Bin üç yüz yıldır anlatılan",
+        "bir hikâye, zamanın iki hızda aktığının kendi kanıtıdır."
+      ],
+      "sources": [
+        {
+          "ref": "The Myth of Eternal Youth: Two Japanese Perspectives (peer-reviewed conference paper; gives the transmission as Tango Fudoki 713, Nihongi 720, Man'yoshu 759)",
+          "type": "journal",
+          "locator": "academia.edu/90041273",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "The Cambridge History of Japanese Literature, ch. 2: Myth and history in the Kojiki, Nihon shoki, and related works",
+          "type": "book",
+          "locator": "cambridge.org/core/books/abs/cambridge-history-of-japanese-literature/myth-and-history-in-thekojiki-nihon-shoki-and-related-works/D0B7B8B46D8CC4A8AB879E1185E6BD37",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "The Metropolitan Museum of Art — Kawanabe Kyosai, 'Urashima Taro Riding on a Tortoise', Japan, Meiji period (1868-1912)",
+          "type": "museum",
+          "locator": "metmuseum.org/art/collection/search/50771",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "KUTUNUN İÇİ SAYFADA SÖYLENMEZ ÇÜNKÜ ANLATIDA DA SÖYLENMEZ.",
+        "japanese-box-make açık uçludur ve ölçütü budur: çocuk kendi",
+        "cevabını yazar, ve sayfa ona anlatının da susmuş olduğunu söyler.",
+        "Bu bir kaçış kapısı değil, anlatının kendi biçimidir."
+      ]
+    },
+    {
+      "claimId": "CLM-KOR-HANGULSHAPE",
+      "statement": "Hangul was designed, not inherited: it was created in 1443 under King Sejong and promulgated in 1446 with an explanatory volume, the Hunminjeongeum Haerye, which is on UNESCO's Memory of the World register. The basic consonant letters were drawn to copy the shape of the mouth and tongue making the sound.",
+      "inheritedRecord": "culture-korean",
+      "revalidatedFields": ["writingSystem", "letterDesignPrinciple", "dateOfCreation"],
+      "usedBy": ["korean-hangul-shapes"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Hangul (alphabet designed in the fifteenth century; letter shapes and their articulatory basis)",
+          "type": "book",
+          "locator": "britannica.com/topic/Hangul-Korean-alphabet",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "UNESCO Memory of the World — Hunminjeongum Manuscript",
+          "type": "archive",
+          "locator": "unesco.org/en/memory-world/hunminjeongum-manuscript",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Korea.net (Republic of Korea, official) — King Sejong the Great's gift to Korea: Hangeul (created 1443, promulgated 1446 with the Hunminjeongeum Haeryebon; consonants modelled after the shapes of the vocal organs)",
+          "type": "archive",
+          "locator": "korea.net/NewsFocus/HonoraryReporters/view?articleId=190540",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "AYNA BİR MALZEMEDİR VE T1 KADEMESİNDEDİR.",
+        "Sayfa çocuğun kendi ağzına bakmasını istiyor; AGE_POLICY § 3.1",
+        "aynayı T1 sayıyor ve bu yüzden sayfa safe-with-adult. Ebeveyn",
+        "notu aynanın verilmesini ve SONRA kaldırılmasını şart koşuyor."
+      ]
+    },
+    {
+      "claimId": "CLM-KOR-HANGULBLOCK",
+      "statement": "Hangul letters are not written in a line one after another: they are stacked into a square block, one block for each syllable, with the first consonant at the top left, the vowel to its right or below it, and any final consonant underneath.",
+      "inheritedRecord": "culture-korean",
+      "revalidatedFields": ["writingSystem", "syllableBlockStructure"],
+      "usedBy": ["korean-hangul-build"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Hangul (letters combined into syllabic units written in square blocks)",
+          "type": "book",
+          "locator": "britannica.com/topic/Hangul-Korean-alphabet",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "UNESCO Memory of the World — Hunminjeongum Manuscript (the promulgating volume that sets out how the letters combine)",
+          "type": "archive",
+          "locator": "unesco.org/en/memory-world/hunminjeongum-manuscript",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-KOR-HANGULREAD",
+      "statement": "Because hangul is an alphabet with a small fixed set of letters, a reader who has the key can sound out a Korean place name on a map without knowing any Korean.",
+      "inheritedRecord": "culture-korean",
+      "revalidatedFields": ["writingSystem", "alphabeticity"],
+      "usedBy": ["korean-hangul-place-names"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Hangul (alphabetic script; chart of letters and their sounds)",
+          "type": "book",
+          "locator": "britannica.com/topic/Hangul-Korean-alphabet",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Korea.net (Republic of Korea, official) — National Hangeul Museum / Hangeul overview",
+          "type": "archive",
+          "locator": "korea.net/NewsFocus/policies/view?articleId=122044",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-KOR-DANGUN",
+      "statement": "The Korean foundation account in the Samguk yusa runs in this order: Hwanung comes down to the peak of Taebaek with his followers; a bear and a tiger ask to become human; they are given mugwort and garlic and told to stay out of the sunlight for a hundred days; the tiger gives up and the bear endures and becomes a woman; her son Dangun founds the kingdom of Gojoseon.",
+      "inheritedRecord": "story-korean-dangun",
+      "revalidatedFields": ["plotSummary", "eventOrder", "sourceText"],
+      "usedBy": ["korean-animal-plate", "korean-founding-order"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Tangun (the legendary founder of the first Korean kingdom)",
+          "type": "book",
+          "locator": "britannica.com/topic/Tangun",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Korea.net (Republic of Korea, official) — Dangun, Father of Korea (Hwanung descends to Taebaeksan; the bear and tiger are given garlic and mugwort and told to avoid sunlight for 100 days; the tiger gives up, the bear perseveres)",
+          "type": "archive",
+          "locator": "korea.net/NewsFocus/Culture/view?articleId=121092",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Oxford Learning Link — Document: A Korean Foundation Myth (Patterns of World History, 3rd edition source reader)",
+          "type": "archive",
+          "locator": "learninglink.oup.com/access/content/von-sivers-3e-dashboard-resources/document-a-korean-foundation-myth",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-KOR-GEOG",
+      "statement": "Mount Baekdu, about 2,750 m, is the highest point on the Korean peninsula and holds a crater lake. The Han (about 514 km) and the Geum both run west to the Yellow Sea, while the Nakdong (about 523 km) runs south to the Korea Strait at Busan; all three rise in the Taebaek Mountains, which run down the eastern side of the peninsula.",
+      "inheritedRecord": "culture-korean",
+      "revalidatedFields": ["geography", "highestPeak", "riverCourses"],
+      "usedBy": ["korean-peninsula-map"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Mount Paektu (2,750 m, highest mountain on the peninsula, extinct volcano topped by a crater lake)",
+          "type": "book",
+          "locator": "britannica.com/place/Mount-Paektu",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Han River (514 km, rises on the western slopes of the Taebaek range, flows west through Seoul to the Yellow Sea); Nakdong River (523 km, flows south from the Taebaek Mountains to the Korea Strait at Busan); Taebaek Mountains (the Han, Nakdong and Geum all originate there)",
+          "type": "book",
+          "locator": "britannica.com/place/Han-River-South-Korea",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "NASA Earth Observatory — Mount Paektu, North Korea's slumbering giant",
+          "type": "archive",
+          "locator": "earthobservatory.nasa.gov/images/88020/mount-paektu-north-koreas-slumbering-giant",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-KOR-JUMONG",
+      "statement": "In the account of Jumong, founder of Goguryeo, the hero comes to a great river with no way across; turtles and fish rise and gather to make a bridge, he crosses, and he goes on to found the kingdom in 37 BCE. The fullest account is in the Samguk sagi.",
+      "inheritedRecord": "story-korean-jumong",
+      "revalidatedFields": ["plotSummary", "eventOrder", "sourceText"],
+      "usedBy": ["korean-river-crossing-sort"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Korea.net (Republic of Korea, official) — Jumong: founder of Goguryeo Kingdom is man of legend, history (turtles and other creatures gather to form a bridge as he crosses a great river; Goguryeo founded 37 BCE)",
+          "type": "archive",
+          "locator": "korea.net/NewsFocus/Culture/view?articleId=121572",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Goguryeo; Samguk sagi (the twelfth-century history that carries the fullest founding account)",
+          "type": "book",
+          "locator": "britannica.com/place/Goguryeo",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-MAOR-BIRDS",
+      "statement": "Several land birds live in Aotearoa New Zealand and nowhere else. The kiwi is flightless, nocturnal, with hair-like feathers and a very long bill; the kererū is a large pigeon with green and bronze feathers and a white front; the kea is a mountain parrot with red under its wings; the weka is a bold flightless rail. All ten species of moa, the largest of the flightless birds, are extinct.",
+      "inheritedRecord": "culture-maori",
+      "revalidatedFields": ["localFauna", "birdNames", "extinctionStatus"],
+      "usedBy": ["maori-bird-plate"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Te Ara: The Encyclopedia of New Zealand — Land birds overview (ten moa species now extinct; kiwi flightless with loose hair-like feathers; kea and kaka have red underwings; the weka helps itself to people's belongings)",
+          "type": "archive",
+          "locator": "teara.govt.nz/en/land-birds-overview/print",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Te Ara: The Encyclopedia of New Zealand — Large forest birds (the kererū, iridescent green and bronze with a white vest)",
+          "type": "archive",
+          "locator": "teara.govt.nz/en/large-forest-birds/page-1",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Department of Conservation, New Zealand — Forest and mountain birds",
+          "type": "archive",
+          "locator": "doc.govt.nz/nature/native-animals/birds/forest-and-mountain-birds/",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "MOA'NIN NASIL YOK OLDUĞU SAYFADA AVLANMA OLARAK ÇİZDİRİLMEZ.",
+        "Kaynak avlanmayı açıkça söylüyor ve bu doğru bir bilgidir; ama",
+        "AGE_POLICY § 4 avın bir çocuk görevine çevrilmesini yasaklıyor",
+        "(culture_index § inuit'te aynı yasak yazılı). Field note yalnızca",
+        "'artık yok' der; sebep bir gözlem görevinin konusu değildir."
+      ]
+    },
+    {
+      "claimId": "CLM-MAOR-RANGIPAPA",
+      "statement": "In most Māori creation traditions Ranginui the sky father and Papatūānuku the earth mother lay pressed together and their children were born between them in the dark. The children decided to push their parents apart; several tried and failed, and Tāne succeeded by lying on his back and pushing with his feet, which made Te Ao Mārama, the world of light.",
+      "inheritedRecord": "story-maori-rangi-papa",
+      "revalidatedFields": ["plotSummary", "eventOrder", "variantRange"],
+      "usedBy": ["maori-sky-earth-sort"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Te Ara: The Encyclopedia of New Zealand — Māori creation traditions (Ranginui and Papatūānuku joined together, children born between them in darkness; the children push the pair apart)",
+          "type": "archive",
+          "locator": "teara.govt.nz/en/maori-creation-traditions",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Te Ara: The Encyclopedia of New Zealand — Te Waonui a Tāne, forest mythology (Tāne lay on his back and pushed up with his feet; the brothers who tried first and failed; Te Ao Mārama)",
+          "type": "archive",
+          "locator": "teara.govt.nz/en/te-waonui-a-tane-forest-mythology/page-1",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Te Ara: The Encyclopedia of New Zealand — Ranginui, the sky father",
+          "type": "archive",
+          "locator": "teara.govt.nz/en/ranginui-the-sky/page-1",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "⚠ WHAKAPAPA BİR CEVAP DEĞİLDİR ve sayfa soy zinciri sormaz.",
+        "culture_index § maori bunu açıkça yasaklıyor. Görev OLAY SIRASI",
+        "sorar, akrabalık sırası değil: karanlık → itmeye karar → ilk",
+        "denemeler → Tāne ayaklarıyla iter → ışık.",
+        "",
+        "Kaynak 'in most Māori creation traditions' diyor ve field note bu",
+        "çoğulluğu SÖYLER: iwi'ye göre anlatı değişir ve sayfa bir",
+        "değişkeyi 'doğru' ilan etmez (STYLE § 6)."
+      ]
+    },
+    {
+      "claimId": "CLM-MAOR-MACRON",
+      "statement": "In modern written te reo Māori a long vowel is marked with a macron - ā, ē, ī, ō, ū - called a tohutō. Vowel length changes the word, and the macron is used in official place names such as Whangārei. Older writing left long vowels unmarked or doubled them.",
+      "inheritedRecord": "culture-maori",
+      "revalidatedFields": ["writingSystem", "orthography", "vowelLength"],
+      "usedBy": ["maori-macron-length"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Te Ara: The Encyclopedia of New Zealand — Te reo Māori, the Māori language (contemporary convention: long vowels indicated by a macron; the macron is known as a tohutō; historically unmarked or doubled)",
+          "type": "archive",
+          "locator": "teara.govt.nz/en/te-reo-maori-the-maori-language/print",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Te Ara: The Encyclopedia of New Zealand — Marking Vowels (1966 Encyclopaedia of New Zealand)",
+          "type": "archive",
+          "locator": "teara.govt.nz/en/1966/maori-language/page-7",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Toitū Te Whenua Land Information New Zealand — New Zealand Geographic Board place name records (official spellings carrying macrons)",
+          "type": "archive",
+          "locator": "linz.govt.nz/our-work/new-zealand-geographic-board/place-name-stories",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-MAOR-TEIKA",
+      "statement": "In Māori tradition the North Island is Te Ika-a-Māui, the fish that Māui hauled up, and the South Island is his canoe, Te Waka-a-Māui; Stewart Island is the anchor stone, Te Punga-a-Māui. Lake Taupō is named as the navel of the fish. Te Ika-a-Māui and Te Waipounamu became official alternative names for the two main islands in 2013.",
+      "inheritedRecord": "story-maori-maui-fish",
+      "revalidatedFields": ["placeNames", "officialStatus", "landformMapping"],
+      "usedBy": ["maori-fish-island-map"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Toitū Te Whenua Land Information New Zealand — Te Ika-a-Māui North Island and Te Waipounamu South Island (official alternative names, 2013)",
+          "type": "archive",
+          "locator": "linz.govt.nz/our-work/new-zealand-geographic-board/place-name-stories/te-ika-maui-north-island-and-te-waipounamu-south-island",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Te Ara: The Encyclopedia of New Zealand — Māui names the land; Tapa whenua, naming places (North Island as Māui's fish, South Island as his canoe, Stewart Island as the anchor stone; Taupō as the navel of the fish)",
+          "type": "archive",
+          "locator": "teara.govt.nz/en/map/18640/maui-names-the-land",
+          "accessed": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-HAWI-ALPHABET",
+      "statement": "The Hawaiian alphabet has thirteen letters: five vowels and eight consonants, A E I O U H K L M N P W. Two marks belong to the writing system: the ʻokina, which is a consonant with its own sound and not an apostrophe, and the kahakō, a macron that lengthens the vowel it sits over.",
+      "inheritedRecord": "culture-hawaiian",
+      "revalidatedFields": ["writingSystem", "alphabetInventory", "diacritics"],
+      "usedBy": ["hawaiian-place-name-make"],
+      "usedIn": ["field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "University of Hawaiʻi — Hawaiian Language Online: diacritics (thirteen letters, five vowels and eight consonants; ʻokina as a glottal stop; kahakō lengthens and stresses the vowel)",
+          "type": "archive",
+          "locator": "hawaii.edu/site/info/diacritics.php",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "University of Hawaiʻi System — Hawaiian Language Considerations (editorial standard for ʻokina and kahakō)",
+          "type": "archive",
+          "locator": "hawaii.edu/offices/communications/standards/hawaiian-language-considerations/",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA ÇOCUĞA HAWAİCE BİR AD UYDURTMAZ.",
+        "Kendi diline ait olmayan bir dilde ad üretmek, o dili bir oyuncak",
+        "yapar. Görev çocuğun KENDİ DİLİNDE bir betimleyici ad yazmasını",
+        "ister ve Hawai adlarını ÖRNEK olarak gösterir: ders 'adlar",
+        "betimlemedir' ilkesidir, Hawaice üretim değil."
+      ]
+    },
+    {
+      "claimId": "CLM-HAWI-CHAIN",
+      "statement": "The main Hawaiian Islands get older towards the west-north-west and younger towards the south-east, because the Pacific plate moves over a fixed hot spot. Kauaʻi is about five million years old; the island of Hawaiʻi at the south-eastern end is the youngest, and a still younger volcano is growing under the sea beyond it.",
+      "inheritedRecord": "story-hawaiian-pele-journey",
+      "revalidatedFields": ["islandAgeOrder", "hotspotMechanism"],
+      "usedBy": ["hawaiian-island-chain-map"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "U.S. Geological Survey, Hawaiian Volcano Observatory — Evolution of Hawaiian Volcanoes (Kauaʻi about 5.0 to 5.5 million years old; Hawaiʻi the youngest of the main islands; Kamaʻehuakanaloa the youngest volcano in the ridge)",
+          "type": "archive",
+          "locator": "usgs.gov/observatories/hvo/evolution-hawaiian-volcanoes",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "Hawaiʻi Center for Volcanology, SOEST, University of Hawaiʻi — Formation of the Hawaiian Islands (Pacific plate moving north-west at 5 to 10 cm a year over a fixed hot spot)",
+          "type": "archive",
+          "locator": "soest.hawaii.edu/GG/HCV/haw_formation.html",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "U.S. Geological Survey — Volcano Watch: Island of Hawaii sits at the end of a long, old chain of 125 volcanoes",
+          "type": "archive",
+          "locator": "usgs.gov/news/volcano-watch-island-hawaii-sits-end-a-long-old-chain-125-volcanoes",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "⚠ PELE YAŞAYAN BİR İNANCIN PARÇASIDIR VE BİR CEVAP DEĞİLDİR.",
+        "Sayfanın cevabı JEOLOJİDİR: adaların yaş sırası. Field note",
+        "anlatının aynı yönde ilerlediğini SÖYLER ama 'çünkü Pele öyle",
+        "gitti' demez. İki bilgi yan yana durur; biri ötekini",
+        "açıklamaz ve hiçbiri ötekinin cevabı olmaz."
+      ]
+    },
+    {
+      "claimId": "CLM-HAWI-DAYLENGTH",
+      "statement": "Close to the tropics the length of the day changes very little through the year, and far from them it changes a great deal. On a clear winter day level ground in Hawaiʻi receives at least 67 per cent as much solar energy between sunrise and sunset as on a clear summer day; at latitude 40 degrees the figure is 33 per cent and at 50 degrees only 20 per cent.",
+      "inheritedRecord": "story-hawaiian-maui-sun",
+      "revalidatedFields": ["dayLengthVariation", "latitudeComparison"],
+      "usedBy": ["hawaiian-day-length-plate"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "NOAA National Weather Service, Honolulu Forecast Office — Climate of Hawaiʻi (uniform day lengths; 67 per cent at Hawaiʻi against 33 per cent at latitude 40 and 20 per cent at latitude 50)",
+          "type": "archive",
+          "locator": "weather.gov/hfo/climate_summary",
+          "accessed": "2026-08-13"
+        },
+        {
+          "ref": "United States Naval Observatory, Astronomical Applications Department — Comparative Lengths of Days and Nights; Duration of Daylight/Darkness Table for One Year",
+          "type": "archive",
+          "locator": "aa.usno.navy.mil/faq/longest_day",
+          "accessed": "2026-08-13"
+        }
+      ],
+      "designConstraint": [
+        "MĀUI'NİN GÜNEŞİ YAVAŞLATMASI BİR CEVAP DEĞİL BİR ÇERÇEVEDİR.",
+        "Cevap ölçülmüş veridir. Field note anlatının bir soruyu",
+        "sorduğunu söyler — günün neden bu kadar kısa olduğunu — ve",
+        "sayfanın kendi verisi o soruya BAŞKA bir cevap verir. İkisi",
+        "yarışmaz; sayfa hangisinin 'doğru' olduğunu söylemez."
+      ]
+    }
+  ]
+}

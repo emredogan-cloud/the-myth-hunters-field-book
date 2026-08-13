@@ -9,8 +9,8 @@
 | | Ölçülen | Hedef |
 |---|---:|---:|
 | Aday aktivite | **168** | ≥160 |
-| Kilitli aktivite | **16** | 120 |
-| Yazılmış aktivite | **16** | 120 |
+| Kilitli aktivite | **60** | 120 |
+| Yazılmış aktivite | **60** | 120 |
 | Düşürülmüş aday | **0** | — |
 | Kültür | **22** | 22 |
 | Bölge | **6** | 6 |
@@ -30,11 +30,11 @@
 
 | Durum | Kayıt |
 |---|---:|
-| `inherited-provisional` | 69 |
-| `inherited-verified` | 7 |
+| `inherited-provisional` | 45 |
+| `inherited-verified` | 31 |
 | `new-researched` | 0 |
 | **Toplam** | **76** |
-| **Doğrulanmış oran** | **%9.2** (Faz 1 ölçütü: doğrulanmış VEYA planlı) |
+| **Doğrulanmış oran** | **%40.8** (Faz 1 ölçütü: doğrulanmış VEYA planlı) |
 
 > Doğrulama KAYIT düzeyinde değil KULLANIM düzeyinde ilerler:
 > bir kayıt, ondan CEVAP ÜRETEN bir sayfa yazıldığında
@@ -46,7 +46,7 @@
 
 | | |
 |---|---:|
-| Aktivite sayfası (ölçülen ağırlıktan) | 104.5 |
+| Aktivite sayfası (ölçülen ağırlıktan) | 104.0 |
 | Ön madde | 8 |
 | Bölge başına yapı sayfası | 2 |
 | Final görev | 5 |
