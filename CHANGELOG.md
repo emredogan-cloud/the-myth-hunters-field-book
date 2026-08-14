@@ -90,6 +90,121 @@ diyordu; karar geldi. Bir uyarı beklediği karar alındıktan sonra hâlâ o
 kararı bekliyor gibi konuşursa, okuyanı **kapanmış bir kalemi yeniden
 açmaya** çağırır.
 
+### Eklendi — ÖN MADDE · 9 sayfa · 8 bölüm
+
+`title-page` · `copyright-page` · `mission-order` · `how-a-page-works` (2) ·
+`star-box-and-seal` · `the-route` · `when-you-are-stuck` · `before-you-start`
+
+Yol haritasının adıyla istediği dört parça da var. Jenerik açılış kalıbı
+kullanılmadı ve `qa_readability § ⑨` bunu mekanik olarak denetliyor.
+
+**Kelime 2.015** — yol haritası ~4.000 tahmin ediyordu ve fark
+**doldurulmadı**: sekiz sayfaya 4.000 kelime, sayfa başına 500 kelime
+demektir ve 8,5×11 bir çocuk kitabı için okunamaz bir yoğunluktur.
+Toplam **21.283** · hedef 22.000 ±%15 → **bantta**.
+
+Okunabilirlik: ön madde **FK 4,10**, field note **FK 5,39** — ön madde
+tanıttığı içerikten **kolay**.
+
+### Bulundu ve düzeltildi — üç ön madde kusuru
+
+| # | Ne | Neden ciddi |
+|---|---|---|
+| **E1** | `how-to-use` ve `hint-rule` arka maddedeydi ve ÇOCUĞA sesleniyordu | bir çocuk kitabın nasıl çalıştığını **131. sayfada** öğrenemez |
+| **E2** | mühür kuralı örneği `CONDOR` kullanıyordu | **bir bölgenin mühür sözcüğü** — kitabın 5. sayfasında |
+| **E3** | görev emri bir mühür sözcüğü taşıyordu | ön madde mühür kelime dağarcığının **en yoğun** olduğu yer |
+
+E1 sayfa sayısına dokunmadı: üç sayfanın **okuru** değişti
+(`audience: adult`). Ayrım ölçüldü — örtüşme **0,238** (eşik 0,55).
+
+### Eklendi — GÖRSEL HATTI (K35) · dört katman
+
+```
+raw/  DEĞİŞMEZ · processed/ RAW'dan yeniden üretilebilir
+final/ basıma hazır · rejected/ SİLİNMEZ, gerekçesiyle ayrılır
+```
+
+- `04_BUILD/asset_manifest.py` — envanteri **hesaplar**: **158** varlık
+  (120 + 22 vinyet + 6 damga + 6 rozet + 4 ön madde). 150'ye yuvarlanmadı.
+- `04_BUILD/asset_pipeline.py` — RAW'ı **okur, asla yazmaz**. Hedeften
+  küçük RAW **büyütülmez, reddedilir**.
+- `04_BUILD/qa_assets.py` — **33 denetim** · yeni kapı
+- `07_ASSETS/IMAGE_PROMPT_LIBRARY.local.html` — **158 dolu prompt**
+
+### Bulundu ve düzeltildi — ALTI şartname kendi levhasıyla çelişiyordu
+
+`andean-altitude-map` · `turkic-yurt-plate` · `persian-joined-letters` ·
+`vietnamese-red-river-map` · `hawaiian-island-chain-map` ·
+`japanese-turtle-time-plate` (+ `inuit-ice-window-draw` izlenebilirlik)
+
+**İkisi sayfayı önceden çözerdi:** D4 tintlenmiş bir harita istiyordu
+(boyama çocuğun görevi), D5 sayısal yaş istiyordu (sıralama bir
+aritmetiğe dönerdi).
+
+### Eklendi — 49 ölçüm kısıtı · 23 sayfa
+
+Cevabı sayıya/sıraya/glife dayanan **43** sayfanın **20'sinde** kısıt
+vardı, **23'ünde yoktu**. Üreteç eline bırakılmış bir ölçüm, üretecin
+değiştirebileceği bir cevaptır. Şimdi **43/43** ve denetim **uyarı değil
+KAPI**.
+
+### Bulundu ve düzeltildi — kültürel kısıtlar illüstratöre ULAŞMIYORDU
+
+59 yasak biçim `culture_index`te Türkçeydi ve promptlar onları olduğu
+gibi taşıyordu. **Uygulanamayan bir kısıt, yazılmamış bir kısıttır.**
+`forbiddenFormsEn` doğdu (Türkçe alan authoritative kalır).
+
+Sonuç: prompta ulaşan kültürel güvenlik satırı **0 → 235**, çevrilmemiş
+**0**. Son bir kısıt Türkçe **noktasız-ı** yüzünden eşleşmedi ve
+Faz 4 § 28 ④'ün Unicode katlaması burada da uygulandı.
+
+### Bulundu ve düzeltildi — BULGU P1 · ön madde iki zorunlu sayfayı taşımıyordu
+
+Faz 1 modeli ön maddeyi 8 sayıyordu ve o 8'in ikisi
+`title-and-copyright` idi. Manuscript'in ön maddesi de 8 sayfaydı — ama
+içinde **ne başlık ne künye sayfası vardı**.
+
+> **İki liste TOPLAMDA uyuşuyordu ve BAŞKA BİR KİTABI tarif ediyordu.**
+
+Düzeltme içerik kısmadı: `the-kit` `mission-order`ın ayak paneline
+katlandı ve açılan yere kitabın gerçekten ihtiyaç duyduğu iki sayfa kondu.
+Ön madde **8 → 9** · ham model **143 → 144**.
+
+**Sayfa modeli artık ÖLÇÜYOR:** ön/arka madde ve final görev manuscript'ten
+okunur; gömülü tablo yalnızca manuscript yokken (CI · K10) kullanılan bir
+yedektir ve rapor hangisinin kullanıldığını söyler.
+
+**Nihai model: 144 · hedef 144 · sapma %0,0 · telif 5,55 $**
+
+### Değişti — üç kapı ROL ve SINIF ayrımı öğrendi
+
+- `qa_answerkey § ⑩` gövde şartı yalnızca `role: teaching` için; bölüm
+  **adı** değil **işi** aranıyor
+- `qa_readability § ⑨` ön madde registeri yalnızca öğretim sayfalarını ölçer
+- `qa_assets` sabit cümle değil **sınıf** arıyor (ilk hâli 57 doğru sayfayı
+  kırmızı yaktı) ve evrensel kuralı **tek kaynakta** denetliyor (55)
+
+### Güvenlik — kendi koyduğum bir sızıntı kapatıldı
+
+Envanterin ilk hâli **tek** dosya yazıyordu ve takip ediliyordu; içindeki
+ölçüm kısıtları cevabın kendisini taşıyor. Envanter ve prompt kütüphanesi
+**ikiye ayrıldı** (takip edilen: sayım + sha256 · yerel: tam kayıt).
+`validate_structure § ⑤b` doğdu. `.gitignore`'da `final/` ve `rejected/`
+de eksikti — **reddedilen bir ham görsel, kabul edilenden daha az gizli
+değildir**.
+
+### Test altyapısı
+
+| | Faz 4 | **Faz 5** |
+|---|---:|---:|
+| Kapı | 15 | **16** |
+| `selftest` | 178 | **237** |
+| § 30 kusurlu kurgu sınıfı | — | **18 / 18** |
+
+Yeni selftest bölümleri: **⑲** sayfa hedefi zinciri · **⑳** ön madde ·
+**㉑** görsel varlık · **㉒** görsel hat **dosya katmanı** (kurgu PNG
+üretir; `--force` koşusundan sonra bile RAW'a yazılmadığını kanıtlar).
+
 ### DEĞİŞMEYEN — çocuk doğrulaması
 
 ```
