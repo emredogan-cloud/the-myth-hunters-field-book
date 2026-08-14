@@ -610,6 +610,48 @@ def check_cultural_safety(man, cultures, rep):
               "her aktivite varlığı sayfaya ÖZGÜ en az bir kısıt taşıyor"
               + ("" if not bland else " — YALNIZCA KALIP: %s" % bland[:5]))
 
+    # ⑧b ⭑ KISIT İLLÜSTRATÖRE ULAŞABİLİYOR MU ⭑
+    #
+    # Kültürel güvenlik kısıtları `culture_index`te TÜRKÇEDİR, çünkü proje
+    # dili Türkçedir. Ama bu satırlar görseli ÜRETEN tarafa gider ve bir
+    # üreteç Türkçe bir emri güvenilir biçimde uygulamaz.
+    #
+    #     Uygulanamayan bir kısıt, yazılmamış bir kısıttır.
+    #
+    # Bu yüzden her kültür İngilizce karşılıklarını da taşır ve iki liste
+    # AYNI UZUNLUKTA olmak zorundadır: biri büyür öteki büyümezse, bir
+    # kısıt sessizce prompt katmanına geçmemiş demektir.
+    lopsided, untranslated = [], []
+    for cid, c in sorted(cmap.items()):
+        tr = c.get("forbiddenForms") or []
+        if not tr:
+            continue
+        en = c.get("forbiddenFormsEn") or []
+        if not en:
+            untranslated.append(cid)
+        elif len(en) != len(tr):
+            lopsided.append("%s (%d≠%d)" % (cid, len(tr), len(en)))
+    rep.check(not untranslated,
+              "⭑ yasak biçimi olan her kültür İNGİLİZCE karşılığını da taşıyor"
+              + ("" if not untranslated else " — ÇEVİRİSİZ: %s" % untranslated))
+    rep.check(not lopsided,
+              "⭑ Türkçe ve İngilizce yasak biçim listeleri aynı uzunlukta"
+              + ("" if not lopsided else " — AYRIK: %s" % lopsided))
+
+    # Ve İngilizce karşılık gerçekten İNGİLİZCE olmalı: Türkçeye özgü
+    # harfler bir kopyala-yapıştır kazası demektir.
+    import re as _re
+    TR_ONLY = _re.compile(r"[ıİğĞşŞ]")
+    notenglish = []
+    for cid, c in sorted(cmap.items()):
+        for e in (c.get("forbiddenFormsEn") or []):
+            if TR_ONLY.search(e):
+                notenglish.append(cid)
+                break
+    rep.check(not notenglish,
+              "İngilizce karşılıklar gerçekten İngilizce"
+              + ("" if not notenglish else " — TÜRKÇE KALINTI: %s" % notenglish))
+
     # Yaşayan gelenek: vinyet onu bir kalıntı gibi göstermemeli.
     living = []
     for a in assets:

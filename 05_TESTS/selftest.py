@@ -2706,6 +2706,38 @@ def part21_assets(rep: Report, tmp: str) -> None:
     rep.check(code != 0,
               "⭑ KADEME C KÜLTÜRÜN YASAK BİÇİMİ DÜŞERSE KIRMIZI", out)
 
+    # (n2) ⭑ ÇEVİRİ SENKRONU ⭑ — İngilizce karşılık düşerse KIRMIZI.
+    #      Uygulanamayan bir kısıt, yazılmamış bir kısıttır: illüstratör
+    #      `culture_index`i okumaz ve Türkçe bir emri uygulamaz.
+    cpath = "01_SOURCE/culture_index.json"
+
+    def drop_en(d):
+        for c in d[cpath]["cultures"]:
+            if c.get("forbiddenFormsEn"):
+                c.pop("forbiddenFormsEn")
+                break
+
+    def short_en(d):
+        for c in d[cpath]["cultures"]:
+            en = c.get("forbiddenFormsEn")
+            if en and len(en) > 1:
+                c["forbiddenFormsEn"] = en[:-1]
+                break
+
+    def turkish_en(d):
+        for c in d[cpath]["cultures"]:
+            if c.get("forbiddenFormsEn"):
+                c["forbiddenFormsEn"][0] = "şaman uygulamasının taklidi"
+                break
+
+    for fn, label in ((drop_en, "⭑ İNGİLİZCE KARŞILIĞI DÜŞEN KÜLTÜR YAKALANIR"),
+                      (short_en, "⭑ İKİ LİSTE AYRILIRSA KAPI KIRMIZI"),
+                      (turkish_en, "⭑ 'İNGİLİZCE' ALANDA TÜRKÇE KALINTI YAKALANIR")):
+        d = copy.deepcopy(base)
+        fn(d)
+        code, out = run_asset_gate(d, tmp)
+        rep.check(code != 0, label, out)
+
     # (n) vinyet bir levhaya dönüşemez: TEK etiket taşır
     def fat_vignette(m):
         for a in m["assets"]:

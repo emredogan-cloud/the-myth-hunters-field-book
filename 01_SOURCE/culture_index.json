@@ -23,7 +23,6 @@
     "ritüel sözcük üzerinden şifre kurulmaz — kamuya açık yazı ve imlâ",
     "üzerinden kurulur."
   ],
-
   "meta": {
     "target": 22,
     "locked": 22,
@@ -39,7 +38,6 @@
       "activityQuota düşer. Kültürün kendisi son çare bile değildir."
     ]
   },
-
   "cultures": [
     {
       "id": "inuit",
@@ -51,8 +49,17 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 4,
-      "usableStories": ["story-inuit-sedna", "story-inuit-blind-boy-loon"],
-      "allowedTypes": ["observe", "map", "sort", "make", "cipher"],
+      "usableStories": [
+        "story-inuit-sedna",
+        "story-inuit-blind-boy-loon"
+      ],
+      "allowedTypes": [
+        "observe",
+        "map",
+        "sort",
+        "make",
+        "cipher"
+      ],
       "writingSystem": "Inuktitut hecelemesi (qaniujaaqpait) — Nunavut'ta yol tabelalarında kullanılan KAMUYA AÇIK yazı sistemi",
       "forbiddenForms": [
         "Sedna anlatısının parmak kesme bölümünden görev türetilmesi",
@@ -60,7 +67,16 @@
         "avlanma tekniğinin bir çocuk görevine çevrilmesi"
       ],
       "fieldNoteAngle": "Buzun altındaki dünya: aynı denizin iki adı, iki hikâyesi",
-      "learningDimensions": ["observation", "geography", "vocabulary"]
+      "learningDimensions": [
+        "observation",
+        "geography",
+        "vocabulary"
+      ],
+      "forbiddenFormsEn": [
+        "Do not derive any task from the finger-severing episode of the Sedna account.",
+        "Do not imitate or 'decode' angakkuq (shaman) practice.",
+        "Do not turn hunting technique into a child's task; show no hunting equipment or kill scene."
+      ]
     },
     {
       "id": "norse",
@@ -72,16 +88,34 @@
       "attributionRequired": false,
       "livingTradition": false,
       "activityQuota": 8,
-      "usableStories": ["story-norse-thors-hammer", "story-norse-idun-apples",
-                        "story-norse-fenrir-binding", "story-norse-mead-poetry"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-norse-thors-hammer",
+        "story-norse-idun-apples",
+        "story-norse-fenrir-binding",
+        "story-norse-mead-poetry"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Genç Futhark rün alfabesi — tarihsel, yaşayan bir ibadetin parçası değil",
       "forbiddenForms": [
         "Fenrir'in bağlanmasındaki el kaybının çizdirilmesi",
         "çağdaş yeni-pagan uygulamasının 'gerçek İskandinav dini' diye sunulması"
       ],
       "fieldNoteAngle": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
-      "learningDimensions": ["pattern-recognition", "vocabulary", "comparative-mythology"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "vocabulary",
+        "comparative-mythology"
+      ],
+      "forbiddenFormsEn": [
+        "Do not draw the hand lost in the binding of Fenrir.",
+        "Do not present modern neo-pagan practice as 'the real Norse religion'."
+      ]
     },
     {
       "id": "finnish",
@@ -93,16 +127,33 @@
       "attributionRequired": false,
       "livingTradition": false,
       "activityQuota": 6,
-      "usableStories": ["story-finnish-sampo", "story-finnish-kantele",
-                        "story-finnish-lemminkainen"],
-      "allowedTypes": ["cipher", "sort", "observe", "make", "map"],
+      "usableStories": [
+        "story-finnish-sampo",
+        "story-finnish-kantele",
+        "story-finnish-lemminkainen"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "sort",
+        "observe",
+        "make",
+        "map"
+      ],
       "writingSystem": "Fince ünlü uyumu ve bileşik sözcük yapısı — dil örüntüsü olarak",
       "forbiddenForms": [
         "Sami (Saami) malzemesinin Fin malzemesiyle KARIŞTIRILMASI — ayrı halk, ayrı gelenek",
         "Lemminkäinen'in parçalanma bölümünden görev türetilmesi"
       ],
       "fieldNoteAngle": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
-      "learningDimensions": ["pattern-recognition", "historical-reasoning", "vocabulary"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "historical-reasoning",
+        "vocabulary"
+      ],
+      "forbiddenFormsEn": [
+        "Never mix Sami (Saami) material with Finnish material: they are separate peoples with separate traditions.",
+        "Do not derive any task from the dismemberment episode of Lemminkäinen."
+      ]
     },
     {
       "id": "irish",
@@ -114,18 +165,34 @@
       "attributionRequired": false,
       "livingTradition": false,
       "activityQuota": 6,
-      "usableStories": ["story-irish-fionn-salmon", "story-irish-children-of-lir",
-                        "story-irish-cu-chulainn-name"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-irish-fionn-salmon",
+        "story-irish-children-of-lir",
+        "story-irish-cu-chulainn-name"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Ogham — taş kenarına çentiklerle yazılan tarihsel alfabe",
       "forbiddenForms": [
         "Cú Chulainn'in savaş çılgınlığının (ríastrad) betimlenmesi",
         "Lir'in çocuklarındaki üvey anne zulmünden görev türetilmesi"
       ],
       "fieldNoteAngle": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
-      "learningDimensions": ["pattern-recognition", "geography", "storytelling"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "geography",
+        "storytelling"
+      ],
+      "forbiddenFormsEn": [
+        "Do not depict Cu Chulainn's battle frenzy (riastrad).",
+        "Do not derive any task from the stepmother's cruelty in the Children of Lir."
+      ]
     },
-
     {
       "id": "greek",
       "name": "Greek",
@@ -136,16 +203,34 @@
       "attributionRequired": false,
       "livingTradition": false,
       "activityQuota": 9,
-      "usableStories": ["story-greek-persephone", "story-greek-icarus",
-                        "story-greek-arachne", "story-greek-orpheus"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-greek-persephone",
+        "story-greek-icarus",
+        "story-greek-arachne",
+        "story-greek-orpheus"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Yunan alfabesi — harflerin adları ve Latin alfabesine geçişi",
       "forbiddenForms": [
         "Persephone'nin kaçırılma anının çizdirilmesi",
         "Eleusis Gizemleri'nin 'içeriğinin' uydurulması — kaynaklar orada susar"
       ],
       "fieldNoteAngle": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
-      "learningDimensions": ["geography", "comparative-mythology", "vocabulary"]
+      "learningDimensions": [
+        "geography",
+        "comparative-mythology",
+        "vocabulary"
+      ],
+      "forbiddenFormsEn": [
+        "Do not draw the moment of Persephone's abduction.",
+        "Do not invent the 'contents' of the Eleusinian Mysteries: the sources are silent there."
+      ]
     },
     {
       "id": "egyptian",
@@ -157,9 +242,17 @@
       "attributionRequired": false,
       "livingTradition": false,
       "activityQuota": 5,
-      "usableStories": ["story-egyptian-isis-secret-name",
-                        "story-egyptian-shipwrecked-sailor"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-egyptian-isis-secret-name",
+        "story-egyptian-shipwrecked-sailor"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Hiyeroglif — kartuş içinde ad yazımı; tek ünsüz işaretleri",
       "forbiddenForms": [
         "Horus–Seth çekişmesinden görev türetilmesi (kayıt aktivite DIŞI)",
@@ -167,7 +260,16 @@
         "Ra'nın zehirlenme sahnesinin çizdirilmesi"
       ],
       "fieldNoteAngle": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
-      "learningDimensions": ["pattern-recognition", "vocabulary", "historical-reasoning"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "vocabulary",
+        "historical-reasoning"
+      ],
+      "forbiddenFormsEn": [
+        "Do not derive any task from the Horus-Seth conflict.",
+        "Do not have the reader carry out mummification step by step.",
+        "Do not draw the poisoning of Ra."
+      ]
     },
     {
       "id": "mesopotamian",
@@ -179,17 +281,33 @@
       "attributionRequired": false,
       "livingTradition": false,
       "activityQuota": 6,
-      "usableStories": ["story-meso-gilgamesh-plant", "story-meso-etana-eagle"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-meso-gilgamesh-plant",
+        "story-meso-etana-eagle"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Çivi yazısı — kil üzerine kama izleri; sayı sistemi 60 tabanlı",
       "forbiddenForms": [
         "Etana anlatısındaki yılan-kartal intikam sahnesinin çizdirilmesi",
         "çivi yazısı tabletlerinin 'kayıp bir şifre' gibi sunulması — okunmuş bir yazıdır"
       ],
       "fieldNoteAngle": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
-      "learningDimensions": ["pattern-recognition", "historical-reasoning", "memory"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "historical-reasoning",
+        "memory"
+      ],
+      "forbiddenFormsEn": [
+        "Do not draw the snake-and-eagle revenge scene from the Etana account.",
+        "Do not present cuneiform tablets as 'a lost code': cuneiform is a deciphered script."
+      ]
     },
-
     {
       "id": "yoruba",
       "name": "Yoruba",
@@ -200,8 +318,17 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 5,
-      "usableStories": ["story-yoruba-obatala-land", "story-yoruba-osun-seventeenth"],
-      "allowedTypes": ["cipher", "sort", "observe", "map", "make"],
+      "usableStories": [
+        "story-yoruba-obatala-land",
+        "story-yoruba-osun-seventeenth"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "sort",
+        "observe",
+        "map",
+        "make"
+      ],
       "writingSystem": "Yoruba imlâsı — alt nokta (ẹ ọ ṣ) ve ton işaretleri (à á)",
       "forbiddenForms": [
         "Ifá kehanet sisteminin bir bulmacaya çevrilmesi — KAPALI BİLGİ",
@@ -209,7 +336,16 @@
         "kutsal adların bir şifrenin CEVABI yapılması"
       ],
       "fieldNoteAngle": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
-      "learningDimensions": ["vocabulary", "observation", "cultural-comparison"]
+      "learningDimensions": [
+        "vocabulary",
+        "observation",
+        "cultural-comparison"
+      ],
+      "forbiddenFormsEn": [
+        "Do not turn the Ifa divination system into a puzzle: it is closed knowledge.",
+        "Do not imitate or stage worship directed at an orisa.",
+        "No sacred name may be the ANSWER to any cipher."
+      ]
     },
     {
       "id": "akan",
@@ -221,8 +357,17 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 7,
-      "usableStories": ["story-akan-ananse-stories", "story-akan-ananse-wisdom"],
-      "allowedTypes": ["cipher", "sort", "observe", "make", "map"],
+      "usableStories": [
+        "story-akan-ananse-stories",
+        "story-akan-ananse-wisdom"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "sort",
+        "observe",
+        "make",
+        "map"
+      ],
       "writingSystem": "Akan gün-adları (Kwame, Akosua…) — doğum gününe bağlı KAMUYA AÇIK adlandırma dizgesi",
       "forbiddenForms": [
         "çocuğa 'kendi Adinkra sembolünü tasarlat' — sembol dizgesi Akan'a aittir",
@@ -230,7 +375,16 @@
         "kraliyet/atalar törenlerinin taklidi"
       ],
       "fieldNoteAngle": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
-      "learningDimensions": ["storytelling", "pattern-recognition", "cultural-comparison"]
+      "learningDimensions": [
+        "storytelling",
+        "pattern-recognition",
+        "cultural-comparison"
+      ],
+      "forbiddenFormsEn": [
+        "Do not ask a child to design their own Adinkra symbol: the sign system belongs to the Akan.",
+        "Do not invent meanings for Adinkra symbols; use only published pairings.",
+        "Do not imitate royal or ancestral ceremony."
+      ]
     },
     {
       "id": "zulu",
@@ -242,17 +396,32 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 4,
-      "usableStories": ["story-zulu-chameleon-message"],
-      "allowedTypes": ["cipher", "sort", "observe", "make", "map"],
+      "usableStories": [
+        "story-zulu-chameleon-message"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "sort",
+        "observe",
+        "make",
+        "map"
+      ],
       "writingSystem": "isiZulu şıklama ünsüzleri (c · q · x) — imlâ ve telaffuz",
       "forbiddenForms": [
         "sangoma (şifacı) uygulamasının taklidi",
         "tek hikâyeden dört ayrı 'olay örgüsü' aktivitesi türetilmesi — tekrar riski"
       ],
       "fieldNoteAngle": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
-      "learningDimensions": ["vocabulary", "observation", "comparative-mythology"]
+      "learningDimensions": [
+        "vocabulary",
+        "observation",
+        "comparative-mythology"
+      ],
+      "forbiddenFormsEn": [
+        "Do not imitate sangoma (healer) practice.",
+        "Do not derive four separate plot activities from one story."
+      ]
     },
-
     {
       "id": "persian",
       "name": "Persian",
@@ -263,15 +432,32 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 5,
-      "usableStories": ["story-persian-zal-simorgh", "story-persian-kaveh"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-persian-zal-simorgh",
+        "story-persian-kaveh"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Fars-Arap alfabesi — sağdan sola yazım ve harflerin bitişik biçimleri",
       "forbiddenForms": [
         "Zerdüşt ibadetinin (ateş tapınağı) taklidi",
         "Kaveh anlatısındaki infaz sahnelerinin çizdirilmesi"
       ],
       "fieldNoteAngle": "Şehnâme bin yıl önce tek bir şairin elinden çıktı ve adı biliniyor: Firdevsî",
-      "learningDimensions": ["geography", "historical-reasoning", "vocabulary"]
+      "learningDimensions": [
+        "geography",
+        "historical-reasoning",
+        "vocabulary"
+      ],
+      "forbiddenFormsEn": [
+        "Do not imitate Zoroastrian worship or fire-temple practice.",
+        "Do not draw the execution scenes from the Kaveh account."
+      ]
     },
     {
       "id": "turkic",
@@ -283,15 +469,32 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 5,
-      "usableStories": ["story-turkic-boghach-khan", "story-turkic-basat-tepegoz"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-turkic-boghach-khan",
+        "story-turkic-basat-tepegoz"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Orhun (Eski Türk) runik yazısı — Orhun yazıtlarından, tarihsel",
       "forbiddenForms": [
         "Tepegöz'ün yamyamlık bölümünden görev türetilmesi",
         "çağdaş şamanlık uygulamasının taklidi"
       ],
       "fieldNoteAngle": "Tek gözlü dev üç kültürde birden var — aynı korku, üç ayrı ad",
-      "learningDimensions": ["comparative-mythology", "pattern-recognition", "geography"]
+      "learningDimensions": [
+        "comparative-mythology",
+        "pattern-recognition",
+        "geography"
+      ],
+      "forbiddenFormsEn": [
+        "Do not derive any task from the cannibalism episode of Tepegoz.",
+        "Do not imitate contemporary shamanic practice."
+      ]
     },
     {
       "id": "hindu",
@@ -303,8 +506,17 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 3,
-      "usableStories": ["story-hindu-ganga-descent", "story-hindu-hanuman-sun"],
-      "allowedTypes": ["observe", "map", "sort", "make", "cipher"],
+      "usableStories": [
+        "story-hindu-ganga-descent",
+        "story-hindu-hanuman-sun"
+      ],
+      "allowedTypes": [
+        "observe",
+        "map",
+        "sort",
+        "make",
+        "cipher"
+      ],
       "writingSystem": "Devanagari — okulda öğretilen KAMUYA AÇIK yazı sistemi; kutsal hece veya mantra KULLANILMAZ",
       "forbiddenForms": [
         "Ganeşa'nın başının kesilmesi anlatısı (kayıt aktivite DIŞI)",
@@ -313,7 +525,17 @@
         "yaşayan bir ibadetin 'çözülecek bir sır' gibi sunulması"
       ],
       "fieldNoteAngle": "Ganj bir nehirdir ve bir yolculuktur: kaynaktan denize kaç ülke",
-      "learningDimensions": ["geography", "observation", "cultural-comparison"]
+      "learningDimensions": [
+        "geography",
+        "observation",
+        "cultural-comparison"
+      ],
+      "forbiddenFormsEn": [
+        "Do not use the beheading narrative of Ganesha.",
+        "Do not imitate mantra, mudra or puja practice.",
+        "No deity name may be the ANSWER to any cipher.",
+        "Do not present a living devotion as 'a secret to be solved'."
+      ]
     },
     {
       "id": "vietnamese",
@@ -325,16 +547,32 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 4,
-      "usableStories": ["story-vietnamese-son-tinh-thuy-tinh",
-                        "story-vietnamese-lac-long-quan"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-vietnamese-son-tinh-thuy-tinh",
+        "story-vietnamese-lac-long-quan"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Chữ Quốc ngữ ton işaretleri — altı ton tek bir ünlü üzerinde: a · à · á · ả · ã · ạ. Ayrıca boynuzlu ünlüler ơ ve ư ayrı harflerdir (một · mộng · hươu)",
       "forbiddenForms": [
         "atalar sunağı (bàn thờ) uygulamasının taklidi",
         "Hùng kralları anlatısının çağdaş siyasî iddiaya bağlanması"
       ],
       "fieldNoteAngle": "Aynı harfler, altı farklı ton, altı farklı sözcük",
-      "learningDimensions": ["vocabulary", "geography", "pattern-recognition"]
+      "learningDimensions": [
+        "vocabulary",
+        "geography",
+        "pattern-recognition"
+      ],
+      "forbiddenFormsEn": [
+        "Do not imitate ancestral altar (ban tho) practice.",
+        "Do not tie the Hung kings account to any contemporary political claim."
+      ]
     },
     {
       "id": "chinese",
@@ -346,9 +584,18 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 7,
-      "usableStories": ["story-chinese-nuwa-sky", "story-chinese-houyi-change",
-                        "story-chinese-kuafu-sun"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-chinese-nuwa-sky",
+        "story-chinese-houyi-change",
+        "story-chinese-kuafu-sun"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Çince karakterler — resimden yazıya giden piktogramlar (日 月 山 水)",
       "forbiddenForms": [
         "atalar ibadetinin taklidi",
@@ -356,9 +603,17 @@
         "karakterlerin 'gizli semboller' diye sunulması — okunan bir yazıdır"
       ],
       "fieldNoteAngle": "Bir karakter bir resimden doğar ve resim hâlâ içinde durur",
-      "learningDimensions": ["pattern-recognition", "vocabulary", "observation"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "vocabulary",
+        "observation"
+      ],
+      "forbiddenFormsEn": [
+        "Do not imitate ancestral worship.",
+        "Do not turn I Ching divination into a puzzle.",
+        "Do not present Chinese characters as 'hidden symbols': it is a read script."
+      ]
     },
-
     {
       "id": "japanese",
       "name": "Japanese",
@@ -369,10 +624,18 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 6,
-      "usableStories": ["story-japanese-amaterasu-cave",
-                        "story-japanese-susanoo-orochi",
-                        "story-japanese-urashima"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-japanese-amaterasu-cave",
+        "story-japanese-susanoo-orochi",
+        "story-japanese-urashima"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Hiragana ve katakana — iki hece alfabesi, aynı sesler",
       "forbiddenForms": [
         "Şinto ritüelinin (harae, norito) taklidi",
@@ -380,7 +643,16 @@
         "tapınak uygulamasının bir 'görev' hâline getirilmesi"
       ],
       "fieldNoteAngle": "İki alfabe aynı sesleri yazar — hangisi hangi işe bakar",
-      "learningDimensions": ["pattern-recognition", "vocabulary", "comparative-mythology"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "vocabulary",
+        "comparative-mythology"
+      ],
+      "forbiddenFormsEn": [
+        "Do not imitate Shinto ritual (harae, norito).",
+        "Do not draw the killing of Orochi.",
+        "Do not turn shrine practice into a 'mission'."
+      ]
     },
     {
       "id": "korean",
@@ -392,16 +664,33 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 7,
-      "usableStories": ["story-korean-dangun", "story-korean-jumong",
-                        "story-korean-sun-moon-siblings"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-korean-dangun",
+        "story-korean-jumong",
+        "story-korean-sun-moon-siblings"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Hangul — harflerin biçimi ağzın biçimini gösterir; tasarlanmış bir alfabe",
       "forbiddenForms": [
         "gut (Muism töreni) veya mudang inisiyasyonunun taklidi",
         "jesa (aile atalar töreni) uygulamasının aktiviteye çevrilmesi"
       ],
       "fieldNoteAngle": "Hangul 1443'te tasarlandı ve tasarımcısı biliniyor — alfabeler her zaman eski değildir",
-      "learningDimensions": ["pattern-recognition", "vocabulary", "historical-reasoning"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "vocabulary",
+        "historical-reasoning"
+      ],
+      "forbiddenFormsEn": [
+        "Do not imitate gut (Muism ritual) or mudang initiation.",
+        "Do not turn jesa (family ancestral rite) into an activity."
+      ]
     },
     {
       "id": "maori",
@@ -413,8 +702,17 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 4,
-      "usableStories": ["story-maori-maui-fish", "story-maori-rangi-papa"],
-      "allowedTypes": ["observe", "map", "sort", "make", "cipher"],
+      "usableStories": [
+        "story-maori-maui-fish",
+        "story-maori-rangi-papa"
+      ],
+      "allowedTypes": [
+        "observe",
+        "map",
+        "sort",
+        "make",
+        "cipher"
+      ],
       "writingSystem": "Te reo Māori makronları (ā ē ī ō ū) — ünlü uzunluğu ve imlâ",
       "forbiddenForms": [
         "whakapapa (soy zinciri) bir bulmaca CEVABI olamaz",
@@ -423,7 +721,17 @@
         "iwi'ye özgü anlatı değişkelerinin 'doğru cevap' diye sunulması"
       ],
       "fieldNoteAngle": "Kuzey Adası'nın adı bir balıktır: Te Ika-a-Māui, haritada hâlâ görülür",
-      "learningDimensions": ["geography", "observation", "vocabulary"]
+      "learningDimensions": [
+        "geography",
+        "observation",
+        "vocabulary"
+      ],
+      "forbiddenFormsEn": [
+        "Whakapapa (genealogy) may never be a puzzle ANSWER.",
+        "Do not ask a child to draw ta moko (tattoo) patterns.",
+        "Do not imitate haka or karakia.",
+        "Do not present iwi-specific narrative variants as 'the right answer'."
+      ]
     },
     {
       "id": "hawaiian",
@@ -435,8 +743,17 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 3,
-      "usableStories": ["story-hawaiian-maui-sun", "story-hawaiian-pele-journey"],
-      "allowedTypes": ["observe", "map", "sort", "make", "cipher"],
+      "usableStories": [
+        "story-hawaiian-maui-sun",
+        "story-hawaiian-pele-journey"
+      ],
+      "allowedTypes": [
+        "observe",
+        "map",
+        "sort",
+        "make",
+        "cipher"
+      ],
       "writingSystem": "ʻOkina (ʻ) ve kahakō (ā) — iki işaret, iki ayrı sözcük",
       "forbiddenForms": [
         "mele veya oli (ezgi ve dua) metninin kullanılması",
@@ -445,9 +762,18 @@
         "heiau (tapınak) planının bir labirente çevrilmesi"
       ],
       "fieldNoteAngle": "Aynı harfler, bir işaretle başka sözcük: ʻokina bir harftir, bir kesme işareti değil",
-      "learningDimensions": ["vocabulary", "geography", "observation"]
+      "learningDimensions": [
+        "vocabulary",
+        "geography",
+        "observation"
+      ],
+      "forbiddenFormsEn": [
+        "Do not use the text of any mele or oli (chant and prayer).",
+        "Do not turn hula into a 'movement task'.",
+        "Do not turn living respect for Pele into a puzzle theme.",
+        "Do not turn a heiau (temple) plan into a maze."
+      ]
     },
-
     {
       "id": "maya",
       "name": "Maya",
@@ -458,9 +784,18 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 7,
-      "usableStories": ["story-maya-hero-twins", "story-maya-maize-people",
-                        "story-maya-hurakan-storm"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-maya-hero-twins",
+        "story-maya-maize-people",
+        "story-maya-hurakan-storm"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Maya çubuk-nokta sayı dizgesi (nokta 1, çubuk 5, kabuk 0) ve yer adı glifleri",
       "forbiddenForms": [
         "yeraltı sınavlarının (Xibalba) işkence sahnelerinin betimlenmesi",
@@ -468,7 +803,16 @@
         "'Maya kehaneti' klişesinin tekrarlanması"
       ],
       "fieldNoteAngle": "Sıfırı yazan üç uygarlıktan biri: bir kabuk işareti, bir hiçlik",
-      "learningDimensions": ["pattern-recognition", "memory", "historical-reasoning"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "memory",
+        "historical-reasoning"
+      ],
+      "forbiddenFormsEn": [
+        "Do not depict the torture scenes of the underworld trials (Xibalba).",
+        "Do not use contemporary Maya ceremony or the day-count calendar (cholq'ij) as a divination device.",
+        "Do not repeat the 'Maya prophecy' cliche."
+      ]
     },
     {
       "id": "aztec",
@@ -480,8 +824,17 @@
       "attributionRequired": true,
       "livingTradition": false,
       "activityQuota": 6,
-      "usableStories": ["story-aztec-fifth-sun", "story-aztec-quetzalcoatl-maize"],
-      "allowedTypes": ["cipher", "map", "sort", "observe", "make"],
+      "usableStories": [
+        "story-aztec-fifth-sun",
+        "story-aztec-quetzalcoatl-maize"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "map",
+        "sort",
+        "observe",
+        "make"
+      ],
       "writingSystem": "Nahuatl yer adı glifleri — Codex Mendoza'daki kent işaretleri",
       "forbiddenForms": [
         "insan kurbanı bölümünden görev türetilmesi",
@@ -489,7 +842,16 @@
         "yaşayan Nahua topluluklarının 'yok olmuş' diye anlatılması"
       ],
       "fieldNoteAngle": "Bir kent adı bir resimdir: tepe, su, taş — hepsi okunur",
-      "learningDimensions": ["pattern-recognition", "geography", "vocabulary"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "geography",
+        "vocabulary"
+      ],
+      "forbiddenFormsEn": [
+        "Do not derive any task from human sacrifice.",
+        "Do not turn the tonalpohualli divinatory calendar into a puzzle.",
+        "Do not describe living Nahua communities as 'vanished'."
+      ]
     },
     {
       "id": "andean",
@@ -501,8 +863,16 @@
       "attributionRequired": true,
       "livingTradition": true,
       "activityQuota": 3,
-      "usableStories": ["story-andean-llama-flood"],
-      "allowedTypes": ["cipher", "observe", "map", "sort", "make"],
+      "usableStories": [
+        "story-andean-llama-flood"
+      ],
+      "allowedTypes": [
+        "cipher",
+        "observe",
+        "map",
+        "sort",
+        "make"
+      ],
       "writingSystem": "Khipu (quipu) düğüm kayıtları — sayıyı düğümle yazan bir dizge",
       "forbiddenForms": [
         "yaşayan tören takviminin veya dağ (apu) saygısının taklidi",
@@ -510,7 +880,32 @@
         "'İnka sırrı' klişesinin tekrarlanması"
       ],
       "fieldNoteAngle": "Düğümün yeri sayıyı söyler: ip bir defterdir",
-      "learningDimensions": ["pattern-recognition", "memory", "observation"]
+      "learningDimensions": [
+        "pattern-recognition",
+        "memory",
+        "observation"
+      ],
+      "forbiddenFormsEn": [
+        "Do not imitate the living ceremonial calendar or reverence for mountains (apu).",
+        "Do not derive four separate plot activities from one story.",
+        "Do not repeat the 'Inca secret' cliche."
+      ]
     }
+  ],
+  "$comment_forbiddenFormsEn": [
+    "⭑ FAZ 5 — YASAK BİÇİMLERİN İNGİLİZCE KARŞILIĞI ⭑",
+    "",
+    "Türkçe `forbiddenForms` alanı AUTHORITATIVE kalır ve bütün kapılar onu",
+    "okur. `forbiddenFormsEn` yalnızca PROMPT KATMANI içindir.",
+    "",
+    "Gerekçe bir üslup tercihi değil bir İŞLEV meselesi: kültürel güvenlik",
+    "kısıtları görseli ÜRETEN tarafa gider ve üreteç Türkçe bir emri",
+    "güvenilir biçimde uygulamaz.",
+    "",
+    "    Uygulanamayan bir kısıt, yazılmamış bir kısıttır.",
+    "",
+    "İki liste AYNI UZUNLUKTA olmak zorundadır; qa_assets § ⑧b bunu",
+    "denetler. Biri büyür öteki büyümezse bir kısıt sessizce",
+    "İngilizceye geçmemiş demektir."
   ]
 }

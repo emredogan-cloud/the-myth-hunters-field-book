@@ -93,6 +93,11 @@
 # gerekçeyle şartname metnini kütüphaneye almıyor.
 07_ASSETS/ASSET_MANIFEST.local.json
 
+# ③d DOLU PROMPT KÜTÜPHANESİ — aynı gerekçe, aynı kural
+# IMAGE_PROMPT_LIBRARY.local.html promptları PRINT EXACTLY listeleriyle
+# DOLU taşır. Takip edilen sürüm yer tutucuyla durur ve depoda o kalır.
+07_ASSETS/IMAGE_PROMPT_LIBRARY.local.html
+
 # ④ FONTLAR ───────────────────────────────────────────────────────────────
 07_ASSETS/fonts/*.ttf
 07_ASSETS/fonts/*.otf

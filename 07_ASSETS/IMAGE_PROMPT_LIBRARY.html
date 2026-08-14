@@ -56,14 +56,14 @@
 <body>
 <div class="wrap">
 <h1>Görsel Prompt Kütüphanesi</h1>
-<p class="sub">The Myth Hunter's Field Book · <strong>Faz 3 · şartname katmanı</strong> · 13 Ağustos 2026<br>120 sayfa için görsel şartnamesi · <strong>0 üretilmiş varlık</strong>. Varlık üretimi <strong>Faz 5</strong>'tir.</p>
+<p class="sub">The Myth Hunter's Field Book · <strong>Faz 5 · şartname katmanı · yer tutuculu</strong> · 14 Ağustos 2026<br>158 varlık · 120 aktivite şartnamesi · <strong>0 üretilmiş varlık</strong>.</p>
 <div class="note stop">
 <strong>ŞARTNAME BİR VARLIK DEĞİLDİR.</strong><br>
-Bu belge 120 görselin <em>ne olması gerektiğini</em> söyler. Hiçbiri üretilmedi ve bu belge üretildiklerini iddia etmez. <code>BOOK_STATS.md</code> ikisini ayrı satırlarda sayar: <em>görsel şartnamesi</em> ve <em>görsel varlık</em>.
+Bu belge 158 görselin <em>ne olması gerektiğini</em> söyler. <code>BOOK_STATS.md</code> ikisini ayrı satırlarda sayar: <em>görsel şartnamesi</em> ve <em>görsel varlık</em>.
 </div>
 <div class="note stop">
 <strong>BU BELGE CEVAP TAŞIMAZ — VE TAŞIYAMAZ (karar K10).</strong><br>
-Her sayfanın basacağı şeylerin tam listesi (<code>pagePrints</code>) <em>cevabın kendisidir</em>: <em>“the chilli basket drawn empty”</em> bir şartnamedir <strong>ve aynı zamanda cevaptır</strong>. Bu yüzden promptlar <code>{PRINT_LIST}</code> yer tutucusuyla durur. Faz 5'te promptu üreten kişi yer tutucuyu <strong>elindeki manuscript'ten</strong> doldurur; public depo dolu hâlini hiçbir zaman görmez.
+Her sayfanın basacağı şeylerin tam listesi (<code>pagePrints</code>) <em>cevabın kendisidir</em>. Bu yüzden buradaki promptlar <code>{PRINT_LIST}</code> yer tutucusuyla durur.<br><br><strong>Dolu sürüm:</strong> <code>./04_BUILD/image_prompts.py</code> koştuğunda <code>07_ASSETS/IMAGE_PROMPT_LIBRARY.local.html</code> dosyasını da yazar. O dosya <strong>depoya girmez</strong> ve kurucunun gerçek çalışma arayüzüdür.
 </div>
 <h2>1 · Sözleşme: görsel metnin İHTİYACINDAN türer</h2>
 <p>Karar <strong>K25</strong>: <em>bir talimat “the X” derse, levha X'i basmak zorundadır.</em> Faz 2 bunu 16 sayfada ölçtü ve 11'inin çözülemez olduğunu buldu — sebeplerin çoğu görseldeydi. Zincir şudur ve tersi çalışmaz:</p>
@@ -144,8 +144,17 @@ PRINT EXACTLY:
 
 PRINT EXACTLY:
 {PRINT_LIST}<button class="copy" data-t="t9">kopyala</button></div>
-<h2>6 · Sayfa şartnameleri</h2>
-<p>Her satır bir varlıktır. <code>PRINT_LIST</code> sütunu bilerek <strong>boştur</strong>: içeriği manuscript'te durur ve depoya girmez.</p>
+<h2>6 · Varlık envanteri</h2>
+<p>Her satır bir varlıktır. Envanter <strong>hesaplanır</strong>, yol haritasının “~150” tahminine yuvarlanmaz.</p>
+<div class="scroll"><table>
+<tr><th>Sınıf</th><th>Adet</th><th>Kaynak</th></tr>
+<tr><td>aktivite görseli</td><td>120</td><td><code>book.json § visualSpec</code></td></tr>
+<tr><td>kültür vinyeti</td><td>22</td><td><code>culture_index.json</code></td></tr>
+<tr><td>mühür damgası</td><td>6</td><td><code>region_index § sealStampMotif</code></td></tr>
+<tr><td>rozet</td><td>6</td><td><code>DESIGN_SYSTEM § 1 · § 4 · § 7</code></td></tr>
+<tr><td>ön madde diyagramı</td><td>4</td><td><code>book.json § frontMatter</code></td></tr>
+<tr><td><strong>toplam</strong></td><td><strong>158</strong></td><td></td></tr>
+</table></div>
 <div class="scroll"><table>
 <tr><th>#</th><th>activity_id</th><th>asset_id</th><th>sınıf / düzen</th><th>yön · px · oran</th><th>dosya → hedef</th><th>durum</th></tr>
 <tr><td>1</td><td><code>inuit-syllabic-signs</code><br><span class='tag'>north-ice</span></td><td><code>fig-inuit-syllabic-signs</code></td><td>cipher-key<br><code>key-decode</code></td><td>portrait · 1650×2100 · 11:14<br><span class='tag'>300 dpi</span><span class='tag'>grayscale</span></td><td><code>fig-inuit-syllabic-signs.png</code><br><code>07_ASSETS/processed/interior/</code></td><td><span class='tag warnchip'>specified-not-produced</span></td></tr>
