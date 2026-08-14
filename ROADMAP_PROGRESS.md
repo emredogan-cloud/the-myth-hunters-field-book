@@ -41,10 +41,10 @@
 | Kültür | **22** | 22 |
 | Bölge (tanımlı) | **6** | 6 |
 | **Bölge (yazılmış)** | **6** | 6 |
-| Sayfa basım maddesi (`pagePrints`) | **568** | — |
+| Sayfa basım maddesi (`pagePrints`) | **569** | — |
 | Görsel şartnamesi | **120** | ~150 |
 | Görsel varlık (üretilmiş) | **0** | ~150 |
-| Kelime | **9.537** | ~22.000 |
+| Kelime | **9.543** | ~22.000 |
 
 ---
 

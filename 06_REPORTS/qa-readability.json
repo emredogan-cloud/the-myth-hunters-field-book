@@ -4,10 +4,10 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 8162,
+    "words": 8166,
     "sentences": 878,
     "avgSentenceWords": 9.3,
-    "fkGrade": 3.51,
+    "fkGrade": 3.52,
     "longWordRatio": 0.043,
     "perActivity": [
       {
@@ -772,10 +772,10 @@
       },
       {
         "activityId": "finnish-lakes-map",
-        "words": 73,
+        "words": 76,
         "sentences": 8,
-        "avgSentenceWords": 9.12,
-        "fkGrade": 4.29,
+        "avgSentenceWords": 9.5,
+        "fkGrade": 4.26,
         "longWordRatio": 0.0,
         "fieldNoteWords": 28,
         "steps": 4
@@ -872,12 +872,12 @@
       },
       {
         "activityId": "greek-labyrinth-cipher",
-        "words": 115,
+        "words": 117,
         "sentences": 10,
-        "avgSentenceWords": 11.5,
-        "fkGrade": 3.77,
-        "longWordRatio": 0.035,
-        "fieldNoteWords": 27,
+        "avgSentenceWords": 11.7,
+        "fkGrade": 3.9,
+        "longWordRatio": 0.034,
+        "fieldNoteWords": 29,
         "steps": 4
       },
       {
@@ -982,12 +982,12 @@
       },
       {
         "activityId": "egyptian-sailor-sequence",
-        "words": 57,
+        "words": 56,
         "sentences": 7,
-        "avgSentenceWords": 8.14,
-        "fkGrade": 4.77,
-        "longWordRatio": 0.105,
-        "fieldNoteWords": 28,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 5.23,
+        "longWordRatio": 0.089,
+        "fieldNoteWords": 27,
         "steps": 3
       },
       {
@@ -1145,8 +1145,8 @@
         "words": 64,
         "sentences": 7,
         "avgSentenceWords": 9.14,
-        "fkGrade": 3.28,
-        "longWordRatio": 0.031,
+        "fkGrade": 3.83,
+        "longWordRatio": 0.047,
         "fieldNoteWords": 23,
         "steps": 3
       },
@@ -1213,17 +1213,17 @@
     ],
     "registers": {
       "instruction": {
-        "words": 4553,
+        "words": 4556,
         "sentences": 576,
-        "avgSentenceWords": 7.9,
+        "avgSentenceWords": 7.91,
         "fkGrade": 2.53,
         "maxSentenceWords": 17
       },
       "fieldNote": {
-        "words": 3073,
+        "words": 3074,
         "sentences": 248,
-        "avgSentenceWords": 12.39,
-        "fkGrade": 5.38,
+        "avgSentenceWords": 12.4,
+        "fkGrade": 5.39,
         "maxSentenceWords": 29
       },
       "hint": {
