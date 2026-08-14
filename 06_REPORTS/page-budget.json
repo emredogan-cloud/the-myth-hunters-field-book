@@ -3,29 +3,29 @@
   "checks": 6,
   "errors": [],
   "warnings": [
-    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 3/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
+    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 4/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
   ],
   "facts": {
-    "regionsMeasured": 3,
+    "regionsMeasured": 4,
     "frontMatter": 8,
     "backMatter": 14,
     "structuralPerRegion": 2,
     "finalQuest": 5,
-    "activityPages": 104.0,
-    "regionsTotal": 116.0,
-    "modelRaw": 143.0,
+    "activityPages": 103.8,
+    "regionsTotal": 115.8,
+    "modelRaw": 142.8,
     "modelPages": 143,
     "modelPagesSignatureAligned": 144,
     "regions": [
       {
         "region": "north-ice",
         "quota": 24,
-        "avgPageWeight": 0.875,
-        "weightSource": "havuz",
-        "lockedActivities": 0,
-        "activityPages": 21.0,
+        "avgPageWeight": 0.865,
+        "weightSource": "ÖLÇÜLDÜ",
+        "lockedActivities": 24,
+        "activityPages": 20.8,
         "structuralPages": 2,
-        "totalPages": 23.0
+        "totalPages": 22.8
       },
       {
         "region": "middle-sea",

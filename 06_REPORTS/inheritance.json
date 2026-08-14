@@ -5,9 +5,9 @@
   "warnings": [],
   "facts": {
     "records": 76,
-    "status_inherited-provisional": 45,
-    "status_inherited-verified": 31,
+    "status_inherited-provisional": 35,
+    "status_inherited-verified": 41,
     "status_new-researched": 0,
-    "verified_ratio": 0.408
+    "verified_ratio": 0.539
   }
 }

@@ -4,11 +4,11 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 3876,
-    "sentences": 447,
-    "avgSentenceWords": 8.67,
-    "fkGrade": 3.1,
-    "longWordRatio": 0.036,
+    "words": 5581,
+    "sentences": 622,
+    "avgSentenceWords": 8.97,
+    "fkGrade": 3.3,
+    "longWordRatio": 0.04,
     "perActivity": [
       {
         "activityId": "maya-bar-dot-numbers",
@@ -609,29 +609,269 @@
         "longWordRatio": 0.032,
         "fieldNoteWords": 31,
         "steps": 4
+      },
+      {
+        "activityId": "inuit-syllabic-signs",
+        "words": 73,
+        "sentences": 7,
+        "avgSentenceWords": 10.43,
+        "fkGrade": 4.48,
+        "longWordRatio": 0.082,
+        "fieldNoteWords": 26,
+        "steps": 3
+      },
+      {
+        "activityId": "inuit-sea-creatures-plate",
+        "words": 62,
+        "sentences": 6,
+        "avgSentenceWords": 10.33,
+        "fkGrade": 5.57,
+        "longWordRatio": 0.129,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "inuit-loon-flight-map",
+        "words": 63,
+        "sentences": 6,
+        "avgSentenceWords": 10.5,
+        "fkGrade": 4.24,
+        "longWordRatio": 0.032,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "inuit-ice-window-draw",
+        "words": 62,
+        "sentences": 6,
+        "avgSentenceWords": 10.33,
+        "fkGrade": 3.86,
+        "longWordRatio": 0.081,
+        "fieldNoteWords": 23,
+        "steps": 2
+      },
+      {
+        "activityId": "norse-futhark-key",
+        "words": 62,
+        "sentences": 6,
+        "avgSentenceWords": 10.33,
+        "fkGrade": 4.24,
+        "longWordRatio": 0.032,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "norse-runestone-read",
+        "words": 105,
+        "sentences": 13,
+        "avgSentenceWords": 8.08,
+        "fkGrade": 3.18,
+        "longWordRatio": 0.048,
+        "fieldNoteWords": 26,
+        "steps": 4
+      },
+      {
+        "activityId": "norse-weekday-names",
+        "words": 84,
+        "sentences": 9,
+        "avgSentenceWords": 9.33,
+        "fkGrade": 2.24,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "norse-binding-riddle",
+        "words": 90,
+        "sentences": 9,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 3.39,
+        "longWordRatio": 0.056,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "norse-who-owns-what",
+        "words": 56,
+        "sentences": 6,
+        "avgSentenceWords": 9.33,
+        "fkGrade": 3.43,
+        "longWordRatio": 0.036,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "norse-apples-sequence",
+        "words": 62,
+        "sentences": 7,
+        "avgSentenceWords": 8.86,
+        "fkGrade": 2.71,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "norse-ship-plate",
+        "words": 72,
+        "sentences": 7,
+        "avgSentenceWords": 10.29,
+        "fkGrade": 3.01,
+        "longWordRatio": 0.028,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "norse-kenning-make",
+        "words": 61,
+        "sentences": 6,
+        "avgSentenceWords": 10.17,
+        "fkGrade": 3.66,
+        "longWordRatio": 0.082,
+        "fieldNoteWords": 27,
+        "steps": 2
+      },
+      {
+        "activityId": "finnish-kantele-strings",
+        "words": 61,
+        "sentences": 6,
+        "avgSentenceWords": 10.17,
+        "fkGrade": 4.43,
+        "longWordRatio": 0.115,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "finnish-spoken-to-printed",
+        "words": 99,
+        "sentences": 10,
+        "avgSentenceWords": 9.9,
+        "fkGrade": 4.0,
+        "longWordRatio": 0.04,
+        "fieldNoteWords": 25,
+        "steps": 4
+      },
+      {
+        "activityId": "finnish-vowel-harmony",
+        "words": 64,
+        "sentences": 7,
+        "avgSentenceWords": 9.14,
+        "fkGrade": 5.86,
+        "longWordRatio": 0.141,
+        "fieldNoteWords": 24,
+        "steps": 3
+      },
+      {
+        "activityId": "finnish-alliteration",
+        "words": 73,
+        "sentences": 8,
+        "avgSentenceWords": 9.12,
+        "fkGrade": 2.19,
+        "longWordRatio": 0.027,
+        "fieldNoteWords": 25,
+        "steps": 4
+      },
+      {
+        "activityId": "finnish-lakes-map",
+        "words": 73,
+        "sentences": 8,
+        "avgSentenceWords": 9.12,
+        "fkGrade": 4.29,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 28,
+        "steps": 4
+      },
+      {
+        "activityId": "finnish-instrument-make",
+        "words": 58,
+        "sentences": 6,
+        "avgSentenceWords": 9.67,
+        "fkGrade": 6.29,
+        "longWordRatio": 0.155,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "irish-ogham-key",
+        "words": 63,
+        "sentences": 6,
+        "avgSentenceWords": 10.5,
+        "fkGrade": 3.86,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 28,
+        "steps": 2
+      },
+      {
+        "activityId": "irish-ogham-read",
+        "words": 66,
+        "sentences": 7,
+        "avgSentenceWords": 9.43,
+        "fkGrade": 2.39,
+        "longWordRatio": 0.015,
+        "fieldNoteWords": 26,
+        "steps": 3
+      },
+      {
+        "activityId": "irish-stone-plate",
+        "words": 58,
+        "sentences": 6,
+        "avgSentenceWords": 9.67,
+        "fkGrade": 3.24,
+        "longWordRatio": 0.052,
+        "fieldNoteWords": 28,
+        "steps": 2
+      },
+      {
+        "activityId": "irish-name-changes",
+        "words": 106,
+        "sentences": 11,
+        "avgSentenceWords": 9.64,
+        "fkGrade": 3.53,
+        "longWordRatio": 0.028,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "irish-swans-count",
+        "words": 64,
+        "sentences": 5,
+        "avgSentenceWords": 12.8,
+        "fkGrade": 4.71,
+        "longWordRatio": 0.031,
+        "fieldNoteWords": 29,
+        "steps": 2
+      },
+      {
+        "activityId": "irish-salmon-river-map",
+        "words": 68,
+        "sentences": 7,
+        "avgSentenceWords": 9.71,
+        "fkGrade": 4.16,
+        "longWordRatio": 0.029,
+        "fieldNoteWords": 25,
+        "steps": 3
       }
     ],
     "registers": {
       "instruction": {
-        "words": 2082,
-        "sentences": 292,
-        "avgSentenceWords": 7.13,
-        "fkGrade": 2.07,
-        "maxSentenceWords": 15
+        "words": 3054,
+        "sentences": 407,
+        "avgSentenceWords": 7.5,
+        "fkGrade": 2.24,
+        "maxSentenceWords": 16
       },
       "fieldNote": {
-        "words": 1535,
-        "sentences": 127,
-        "avgSentenceWords": 12.09,
-        "fkGrade": 4.95,
-        "maxSentenceWords": 22
+        "words": 2157,
+        "sentences": 176,
+        "avgSentenceWords": 12.26,
+        "fkGrade": 5.22,
+        "maxSentenceWords": 29
       },
       "hint": {
-        "words": 259,
-        "sentences": 28,
-        "avgSentenceWords": 9.25,
-        "fkGrade": 3.69,
-        "maxSentenceWords": 14
+        "words": 370,
+        "sentences": 39,
+        "avgSentenceWords": 9.49,
+        "fkGrade": 3.83,
+        "maxSentenceWords": 18
       }
     }
   }
