@@ -36,6 +36,7 @@ On dört bölüm:
   ⑲  SAYFA HEDEFİ karar zinciri kopuyor mu       (Faz 5'te doğdu · A12)
   ⑳  ÖN MADDE cevap/mühür sızdırıyor mu          (Faz 5'te doğdu)
   ㉑  GÖRSEL VARLIK kapısı ısırıyor mu            (Faz 5'te doğdu)
+  ㉒  GÖRSEL HAT dosya katmanında çalışıyor mu    (Faz 5'te doğdu)
 
 ④ doğrudan Bestiarium'un üç ölü kuralına ve World Myths'in K14 kararına
 cevaptır: takip edilmeyen bir dosya için yazılmış muafiyet ÖLÜ MUAFİYETTİR
@@ -63,6 +64,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import os
 import subprocess
@@ -2772,6 +2774,172 @@ def part21_assets(rep: Report, tmp: str) -> None:
               out)
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 5 · ㉒ DOSYA KATMANI — HAT GERÇEKTEN İŞLİYOR MU (asset_pipeline)
+#
+# ⭑ ㉑ ŞARTNAMEYİ SINAR; BU BÖLÜM DOSYAYI SINAR ⭑
+#
+# İkisi ayrı körlüklerdir ve biri ötekini kapatmaz. Kusursuz bir şartname,
+# hattın hiç çalışmadığı bir depoda da kusursuz görünür.
+#
+#     Bir hat, ürettiğini iddia ettiği şeyi gerçekten üretiyor mu?
+#     Bunu yalnızca GERÇEK BİR DOSYA cevaplayabilir.
+#
+# Bu bölüm kurgu PNG'ler üretir ve hattı onların üstünde koşturur:
+#
+#   · doğru bir RAW           → işlenir, hedef kutuyu BİREBİR doldurur
+#   · hedeften küçük bir RAW  → BÜYÜTÜLMEZ, REDDEDİLİR, gerekçesi yazılır
+#   · yanlış oranlı bir RAW   → doldurma oranı DÜŞER ve kapı görür
+#   · RAW değişirse           → köken sha256'sı tutmaz ve kapı görür
+#
+# ⚠ Pillow ister. CI üçüncü taraf paket kurmaz (K7) ve orada bu bölüm
+# ATLANIR — ama atlandığını SÖYLER; sessizce yeşil yanmaz.
+# ═══════════════════════════════════════════════════════════════════════════
+def part22_pipeline(rep: Report, tmp: str) -> None:
+    print("\n㉒ GÖRSEL HAT dosya katmanında çalışıyor mu")
+    try:
+        from PIL import Image, ImageDraw
+    except ImportError:
+        print("  ⊘ Pillow yok — dosya katmanı ATLANDI "
+              "(pip install -r 04_BUILD/requirements.txt)")
+        return
+
+    pipeline = os.path.join(BUILD, "asset_pipeline.py")
+    if not os.path.isfile(pipeline):
+        print("  ⊘ asset_pipeline.py yok — bölüm atlandı")
+        return
+    man_p = os.path.join(ROOT, "07_ASSETS", "ASSET_MANIFEST.local.json")
+    if not os.path.isfile(man_p):
+        print("  ⊘ tam envanter yok — bölüm atlandı")
+        return
+    with open(man_p, encoding="utf-8") as fh:
+        man = json.load(fh)
+
+    import shutil
+    _RUN_SEQ[0] += 1
+    root = os.path.join(tmp, "pipe-%03d" % _RUN_SEQ[0])
+    os.makedirs(os.path.join(root, "04_BUILD"), exist_ok=True)
+    os.makedirs(os.path.join(root, "07_ASSETS", "raw"), exist_ok=True)
+    shutil.copy2(pipeline, os.path.join(root, "04_BUILD", "asset_pipeline.py"))
+    qa = os.path.join(BUILD, "qa_assets.py")
+    if os.path.isfile(qa):
+        shutil.copy2(qa, os.path.join(root, "04_BUILD", "qa_assets.py"))
+    ip = os.path.join(BUILD, "image_prompts.py")
+    if os.path.isfile(ip):
+        shutil.copy2(ip, os.path.join(root, "04_BUILD", "image_prompts.py"))
+
+    # Kurgu envanter: üç varlık yeter ve üçü üç ayrı şeyi sınar.
+    picks = []
+    for cls in ("activity", "culture-vignette", "seal-stamp"):
+        for a in man["assets"]:
+            if a["assetClass"] == cls:
+                picks.append(copy.deepcopy(a))
+                break
+    small_man = {k: v for k, v in man.items() if k != "assets"}
+    small_man["assets"] = picks
+    with open(os.path.join(root, "07_ASSETS", "ASSET_MANIFEST.local.json"),
+              "w", encoding="utf-8") as fh:
+        json.dump(small_man, fh, ensure_ascii=False)
+
+    def draw(path, w, h, border=True, mode="RGB"):
+        im = Image.new(mode, (w, h), "white" if mode == "RGB" else 255)
+        dr = ImageDraw.Draw(im)
+        ink = "black" if mode == "RGB" else 0
+        m = int(min(w, h) * 0.10) if border else 2
+        dr.rectangle([m, m, w - m, h - m], outline=ink, width=5)
+        dr.line([m, m, w - m, h - m], fill=ink, width=3)
+        im.save(path)
+
+    good, small, skew = picks[0], picks[1], picks[2]
+    rawdir = os.path.join(root, "07_ASSETS", "raw")
+    gw, gh = good["targetDimensions"]
+    draw(os.path.join(rawdir, good["filename"]), int(gw * 1.5), int(gh * 1.5))
+    sw, sh = small["targetDimensions"]
+    draw(os.path.join(rawdir, small["filename"]), int(sw * 0.5), int(sh * 0.5),
+         border=False)
+    kw, kh = skew["targetDimensions"]
+    draw(os.path.join(rawdir, skew["filename"]), kw * 3, int(kh * 0.9),
+         border=False)
+
+    def run_pipe(*extra):
+        out = subprocess.run(
+            [sys.executable, os.path.join(root, "04_BUILD", "asset_pipeline.py")]
+            + list(extra), capture_output=True, text=True, timeout=180)
+        return out.returncode, out.stdout + out.stderr
+
+    code, out = run_pipe()
+    rep.check(code == 0, "hat kurgu RAW'lar üzerinde koşuyor", out)
+
+    proc = os.path.join(root, "07_ASSETS", "processed", "interior")
+    rej = os.path.join(root, "07_ASSETS", "rejected")
+
+    # (a) ⭑ DOĞRU RAW HEDEF KUTUYU BİREBİR DOLDURUR ⭑
+    gp = os.path.join(proc, good["filename"])
+    ok = os.path.isfile(gp)
+    rep.check(ok, "geçerli RAW işlendi (%s)" % good["assetId"], out)
+    if ok:
+        with Image.open(gp) as im:
+            rep.check(im.size == (gw, gh),
+                      "⭑ İŞLENMİŞ VARLIK HEDEF KUTUYU BİREBİR DOLDURUYOR "
+                      "(%dx%d)" % im.size, out)
+            rep.check(im.mode in ("L", "1"),
+                      "işlenmiş varlık gri tonlamaya çevrildi (%s)" % im.mode, out)
+
+    # (b) ⭑ HEDEFTEN KÜÇÜK RAW BÜYÜTÜLMEZ — REDDEDİLİR ⭑
+    #     Yukarı örnekleme çözünürlük kazandırmaz; 300 dpi iddiasını
+    #     yalan hâline getirir.
+    rep.check(not os.path.isfile(os.path.join(proc, small["filename"])),
+              "⭑ HEDEFTEN KÜÇÜK RAW İŞLENMEDİ (büyütme YOK)", out)
+    rep.check(os.path.isfile(os.path.join(rej, small["filename"])),
+              "⭑ REDDEDİLEN RAW rejected/ altına KOPYALANDI", out)
+    rep.check(os.path.isfile(os.path.join(rej, small["filename"] + ".reason.json")),
+              "⭑ REDDİN GEREKÇESİ YAZILDI (silinen bir ret hatayı serbest bırakır)",
+              out)
+
+    # (c) ⭑ KÖKEN KAYDI — işlenmiş varlık kaynağının sha256'sını taşır ⭑
+    meta_p = os.path.join(proc, good["filename"] + ".source.json")
+    rep.check(os.path.isfile(meta_p), "⭑ İŞLENMİŞ VARLIK KÖKEN KAYDI TAŞIYOR", out)
+    if os.path.isfile(meta_p):
+        with open(meta_p, encoding="utf-8") as fh:
+            meta = json.load(fh)
+        rep.check(len(meta.get("sourceSha256") or "") == 64,
+                  "köken kaydı kaynağın sha256'sını taşıyor", out)
+        rep.check(meta.get("fillRatio") is not None,
+                  "köken kaydı DOLULUK oranını ölçüyor (yanlış şablon görünür kalır)",
+                  out)
+
+    # (d) ⭑ YANLIŞ ORANLI RAW DOLDURMAYLA GİZLENMEZ, ÖLÇÜLÜR ⭑
+    skew_meta = os.path.join(proc, skew["filename"] + ".source.json")
+    if os.path.isfile(skew_meta):
+        with open(skew_meta, encoding="utf-8") as fh:
+            sm = json.load(fh)
+        rep.check((sm.get("fillRatio") or 1.0) < 0.85,
+                  "⭑ YANLIŞ ORANLI RAW'IN DOLULUĞU DÜŞÜK ÖLÇÜLDÜ (%.2f)"
+                  % (sm.get("fillRatio") or 1.0), out)
+
+    # (e) ⭑ RAW DEĞİŞİRSE HAT BUNU GÖRÜR ⭑ — yeniden üretilebilirlik sözleşmesi
+    code, out2 = run_pipe("--check")
+    rep.check(code == 0, "değişmemiş RAW için hat GÜNCEL diyor", out2)
+    draw(os.path.join(rawdir, good["filename"]), int(gw * 1.6), int(gh * 1.6))
+    code, out3 = run_pipe("--check")
+    rep.check(code != 0, "⭑ RAW DEĞİŞTİĞİNDE İŞLENMİŞ VARLIK BAYAT SAYILIR", out3)
+
+    # (f) ⭑ HAT RAW'A ASLA YAZMAZ ⭑ — K35'in tek cümlesi
+    before = {}
+    for fn in os.listdir(rawdir):
+        with open(os.path.join(rawdir, fn), "rb") as fh:
+            before[fn] = hashlib.sha256(fh.read()).hexdigest()
+    run_pipe("--force")
+    changed = []
+    for fn, h in before.items():
+        with open(os.path.join(rawdir, fn), "rb") as fh:
+            if hashlib.sha256(fh.read()).hexdigest() != h:
+                changed.append(fn)
+    rep.check(not changed,
+              "⭑ HAT RAW'A YAZMADI (--force koşusundan sonra bile)"
+              + ("" if not changed else " — DEĞİŞEN: %s" % changed))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -2864,9 +3032,10 @@ def main() -> int:
             if os.path.isfile(QA_ANSWERKEY):
                 part18_answerkey(rep, tmp, base3)
 
-        # ㉑ Faz 5 · görsel varlık kapısı
+        # ㉑–㉒ Faz 5 · görsel varlık kapısı ve DOSYA katmanı
         if os.path.isfile(QA_ASSETS):
             part21_assets(rep, tmp)
+        part22_pipeline(rep, tmp)
 
     part4_no_dead_exemptions(rep)
 

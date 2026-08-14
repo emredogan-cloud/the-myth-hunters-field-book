@@ -255,7 +255,9 @@ olmayan bir varlığı var göstermektir.
 - Okunabilirlik bantları (`STYLE § 3`) — Faz 2'de ölçüldü, değişmedi
 - Mühür mekaniği (`PROGRESSION_ARCHITECTURE`) — A3 ile kilitli
 - Beş aktivite tipi (`ACTIVITY_TAXONOMY § 2`) — Faz 1'de kilitli
-- Sayfa hedefi 148 (`K19`) — kurucu kararı
+- Sayfa hedefi — kurucu kararı · **Faz 5'te 148 → 144 oldu (`K33` · A12)**
+  ve bu bir tasarım kararı DEĞİLDİR: altı bölge gerçek içerikle ölçüldü
+  ve model zaten 144'tü. Dizge bu sayıyı okur, üretmez.
 
 > Bir tasarım dizgesi, kendisinden önce alınmış kararları yeniden
 > açmaz. Açarsa o bir dizge değil bir revizyondur.

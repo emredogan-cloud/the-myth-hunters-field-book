@@ -76,8 +76,12 @@ Fırsat skoru **6,0/10** — üçünün en düşüğü, **ve bu bilinçlidir**.
 | Doğrulanmış iddia | **108** · 92 teyit · 13 düzeltme · **3 RET** |
 | Kültür · bölge | **22** · **6** ✅ · yazılmış bölge **6/6** ✅ |
 | Sayfa modeli | **144** ölçüldü = hedef **144** · sapma **%0** · **6/6 bölge gerçek** · ✅ **A12 → K33** |
-| Görsel şartnamesi | **120** · 700 etiket · üretilmiş varlık **0** |
-| Kapı öz-testi | **178 denetim yeşil** |
+| Ön madde | **9 sayfa** · 8 bölüm · başlık ve künye dâhil ✅ |
+| Kelime | **21.283** / 22.000 ±%15 ✅ |
+| Görsel envanteri | **158** varlık (120 + 22 vinyet + 6 damga + 6 rozet + 4 ön madde) |
+| Görsel şartnamesi | **725 zorunlu etiket** · **üretilmiş varlık 0** — ham üretim kurucuya ait |
+| Görsel hattı | ✅ kuruldu ve **dosya katmanında sınandı** (K35) |
+| Kapı öz-testi | **234 denetim yeşil** |
 | Çocuk testi | ⏳ **2 testçi · 0 OTURUM · DIŞ DOĞRULAMA BEKLİYOR** |
 | **Sonraki adım** | Faz 5 raporu → **DUR**. Faz 6 kurucu talimatı ister. |
 
@@ -111,7 +115,7 @@ Faz 1 raporu: [`06_REPORTS/PHASE_1_REPORT.md`](06_REPORTS/PHASE_1_REPORT.md)
 ③ BÖLGE+MÜHÜR   region_index.json ········ 6 bölge · 37 mühür yuvası
 ④ AKTİVİTE      activity_index.json ······ 168 aday · 30 hücre dolu
 ⑤ GÜVENLİK      AGE_POLICY § 3 ··········· safetyClass HESAPLANIR
-⑥ SAYFA         page-budget.json ········· 148 sayfa · 5,48 $ telif
+⑥ SAYFA         page-budget.json ········· 144 sayfa · 5,55 $ telif
 ```
 
 Her katmanın kendi kapısı var ve her kapı `selftest.py` tarafından
