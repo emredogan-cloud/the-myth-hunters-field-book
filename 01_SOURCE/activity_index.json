@@ -2585,9 +2585,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader pairs seven male and seven female day-names with their days.",
@@ -2607,14 +2607,18 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 8,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sealSlot": 6
+      "sealSlot": 6,
+      "claimRefs": [
+        "CLM-SS-AKAN-DAY-NAMES"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "akan-day-names",
@@ -2622,9 +2626,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader works out which Akan day-name belongs to four given birthdays.",
@@ -2644,14 +2648,18 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 3
+      "sealSlot": 3,
+      "claimRefs": [
+        "CLM-SS-AKAN-DAY-NAMES"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "akan-goldweight-plate",
@@ -2659,9 +2667,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches four Akan gold weights to what each one shows.",
@@ -2682,13 +2690,17 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-SS-AKAN-GOLDWEIGHTS"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "akan-kente-pattern-plate",
@@ -2733,9 +2745,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader sketches the spider as a storyteller rather than as an animal.",
@@ -2755,7 +2767,7 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 3,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
@@ -2763,7 +2775,11 @@
         "story-akan-ananse-stories"
       ],
       "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "sourceStory": "story-akan-ananse-stories"
+      "sourceStory": "story-akan-ananse-stories",
+      "claimRefs": [
+        "CLM-SS-ANANSE-CHARACTER"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "akan-story-trade",
@@ -2771,9 +2787,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the four creatures by difficulty and matches each to how it was caught.",
@@ -2793,7 +2809,7 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -2802,7 +2818,11 @@
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
       "sourceStory": "story-akan-ananse-stories",
-      "sealSlot": 7
+      "sealSlot": 7,
+      "claimRefs": [
+        "CLM-SS-ANANSE-TRADE"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "akan-story-trade-make",
@@ -2849,9 +2869,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader traces a story's path from teller to teller across four towns.",
@@ -2871,13 +2891,18 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir."
+      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
+      "claimRefs": [
+        "CLM-SS-ATUMPAN",
+        "CLM-SS-AKAN-PEOPLE"
+      ],
+      "layout": "map-overlay"
     },
     {
       "activityId": "akan-talking-drum-plate",
@@ -2885,9 +2910,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches four drum patterns to four phrases by their tone shape.",
@@ -2908,13 +2933,17 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-SS-ATUMPAN"
+      ],
+      "layout": "plate-compare"
     },
     {
       "activityId": "akan-wisdom-pot-sequence",
@@ -2960,9 +2989,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader works out four Yoruba numbers built by subtracting from twenty.",
@@ -2982,13 +3011,17 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 7,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer."
+      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
+      "claimRefs": [
+        "CLM-SS-YORUBA-NUMBERS"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "yoruba-market-day-plate",
@@ -3071,9 +3104,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader traces the Osun river and marks the protected grove on its bank.",
@@ -3093,7 +3126,7 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
@@ -3102,7 +3135,11 @@
       ],
       "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
       "sourceStory": "story-yoruba-osun-seventeenth",
-      "sealSlot": 2
+      "sealSlot": 2,
+      "claimRefs": [
+        "CLM-SS-OSUN-GROVE"
+      ],
+      "layout": "map-trace"
     },
     {
       "activityId": "yoruba-sentence-name-make",
@@ -3110,9 +3147,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader writes a sentence-name for a traveller and explains what it means.",
@@ -3133,13 +3170,17 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
         "culture-yoruba"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
+      "claimRefs": [
+        "CLM-SS-YORUBA-MARKS"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "yoruba-tone-marks",
@@ -3147,9 +3188,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader reads three words spelled with the same letters but different tone marks.",
@@ -3169,14 +3210,18 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 1
+      "sealSlot": 1,
+      "claimRefs": [
+        "CLM-SS-YORUBA-MARKS"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "yoruba-underdot-letters",
@@ -3184,9 +3229,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches six words to meanings using the under-dot letters.",
@@ -3206,13 +3251,17 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-SS-YORUBA-MARKS"
+      ],
+      "layout": "key-build"
     },
     {
       "activityId": "zulu-chameleon-plate",
@@ -3220,9 +3269,9 @@
       "culture": "zulu",
       "region": "sun-savanna",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader labels four features that make a chameleon a slow traveller.",
@@ -3242,13 +3291,17 @@
       ],
       "culturalContext": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-zulu"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-SS-CHAMELEON-BODY"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "zulu-click-letters",
@@ -3256,9 +3309,9 @@
       "culture": "zulu",
       "region": "sun-savanna",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches six isiZulu words to the click each one begins with.",
@@ -3287,7 +3340,11 @@
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
       "sealSlot": 4,
-      "parentNote": "An adult or older reader says each click once so the child can hear the difference before matching."
+      "parentNote": "An adult or older reader says each click once so the child can hear the difference before matching.",
+      "claimRefs": [
+        "CLM-SS-ZULU-CLICKS"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "zulu-click-word-hunt",
@@ -3367,9 +3424,9 @@
       "culture": "zulu",
       "region": "sun-savanna",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader chooses an animal to carry urgent news and gives one reason.",
@@ -3390,13 +3447,17 @@
       ],
       "culturalContext": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
         "culture-zulu"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
+      "claimRefs": [
+        "CLM-SS-CHAMELEON-MESSAGE"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "zulu-two-messengers",
@@ -3404,9 +3465,9 @@
       "culture": "zulu",
       "region": "sun-savanna",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the events and works out why the second messenger won.",
@@ -3426,7 +3487,7 @@
       ],
       "culturalContext": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -3435,7 +3496,11 @@
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
       "sourceStory": "story-zulu-chameleon-message",
-      "sealSlot": 5
+      "sealSlot": 5,
+      "claimRefs": [
+        "CLM-SS-CHAMELEON-MESSAGE"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "chinese-archer-sequence",

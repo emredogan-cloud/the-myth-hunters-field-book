@@ -355,6 +355,31 @@ def check_supervision_load(acts, dist, rep):
 # `validate_research § ⑧` zaten diakritiklerin korunmasını ŞART KOŞUYOR;
 # iki kapı birbirine ters çalışıyordu. Liste artık diakritikli biçimi de
 # taşıyor ve `selftest § ⑤b` doğru yazılmış bir adın GEÇTİĞİNİ kanıtlıyor.
+def _fold(text: str) -> str:
+    """Diakritikleri SÖKER ve küçük harfe indirir.
+
+    ⭑ BU KUSUR ÜÇÜNCÜ KEZ GÖRÜLDÜ VE ÜÇÜNCÜSÜNDE SINIF OLARAK KAPATILDI ⭑
+
+    Faz 3 `māori`'yi listeye ekledi, sonra `việt`'i ekledi. Faz 4 aynı
+    kusuru `Yorùbá` ile bir kez daha buldu: sayfada doğru yazılmış bir
+    halk adı vardı ve kapı 'atıfsız' diyordu, çünkü "yorùbá" içinde
+    "yoruba" alt-dizesi YOKTUR.
+
+        Bir kusur üç kez aynı biçimde geldiyse,
+        düzeltilmesi gereken örnek değil SINIFTIR.
+
+    Liste büyütmek her yeni kültürde aynı tuzağı yeniden kurar — ve tuzağın
+    yönü tehlikelidir: kapıyı susturmanın en ucuz yolu bir halkın adını
+    YANLIŞ yazmaktır. Eşleyici artık iki tarafı da katlıyor; liste yalnızca
+    EŞ ANLAMLILAR için duruyor (Kalevala, Nunavut, Ashanti gibi).
+
+    `validate_research § ⑧` diakritiklerin KORUNMASINI ayrıca şart koşuyor;
+    iki kapı artık aynı yöne bakıyor."""
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFD", (text or "").lower())
+                   if not unicodedata.combining(c))
+
+
 CULTURE_NAMES = {
     "maya": ["maya", "k'iche", "kiche", "popol vuh"],
     "aztec": ["aztec", "nahuatl", "mexica", "tenochtitlan"],
@@ -420,9 +445,9 @@ def check_attribution(acts, rep):
         # sayfada bunu buldu: ad vardı ama bir BİLGİYE bağlı değildi.
         # DESIGN_SYSTEM § 5 yeri field note olarak donduruyor — orası adın
         # bir bilgiye bağlandığı yerdir; başlıktaki ad bir etikettir.
-        seen = (a.get("fieldNote", "") or "").lower()
+        seen = _fold(a.get("fieldNote", "") or "")
         names = CULTURE_NAMES.get(a.get("culture"), [a.get("culture", "")])
-        if not any(n in seen for n in names if n):
+        if not any(_fold(n) in seen for n in names if n):
             missing.append("%s (%s)" % (a["activityId"], a.get("culture")))
     rep.facts["attributionChecked"] = checked
     rep.check(not missing,

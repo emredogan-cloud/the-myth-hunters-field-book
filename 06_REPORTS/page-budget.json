@@ -3,10 +3,10 @@
   "checks": 6,
   "errors": [],
   "warnings": [
-    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 5/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
+    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 6/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
   ],
   "facts": {
-    "regionsMeasured": 5,
+    "regionsMeasured": 6,
     "frontMatter": 8,
     "backMatter": 14,
     "structuralPerRegion": 2,
@@ -41,8 +41,8 @@
         "region": "sun-savanna",
         "quota": 16,
         "avgPageWeight": 0.875,
-        "weightSource": "havuz",
-        "lockedActivities": 0,
+        "weightSource": "ÖLÇÜLDÜ",
+        "lockedActivities": 16,
         "activityPages": 14.0,
         "structuralPages": 2,
         "totalPages": 16.0

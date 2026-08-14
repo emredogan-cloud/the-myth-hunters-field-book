@@ -6,32 +6,33 @@
     "ilişki tek bir maddede durmuyor — bir ÇIKARIM tasarımı olabilir, insan bakmalı: [\"andean-altitude-map → 'maize 2300-3500 m → quechua…'\", \"andean-altitude-map → 'potato 3500-4000 m → suni…'\", \"andean-altitude-map → 'llama 4000-4800 m → puna…'\", \"andean-altitude-map → 'pepper tree 500-2300 m → yunga…'\", \"japanese-two-alphabets → 'angular set: katakana…'\", \"norse-weekday-names → 'Woden Wednesday…'\"]"
   ],
   "facts": {
-    "activities": 104,
-    "regionOpenings": 5,
-    "sealedPages": 30,
+    "activities": 120,
+    "regionOpenings": 6,
+    "sealedPages": 37,
     "layoutUse": {
-      "key-decode": 24,
-      "plate-label": 13,
-      "make-frame": 12,
-      "sort-cards": 21,
-      "map-trace": 12,
-      "key-build": 6,
-      "plate-compare": 5,
-      "map-overlay": 4,
+      "key-decode": 27,
+      "plate-label": 15,
+      "make-frame": 15,
+      "sort-cards": 22,
+      "map-trace": 13,
+      "key-build": 7,
+      "plate-compare": 6,
+      "map-overlay": 5,
       "data-table": 2,
-      "sort-columns": 5
+      "sort-columns": 8
     },
-    "visualSpecs": 104,
+    "visualSpecs": 120,
     "visualAssetsProduced": 0,
-    "requiredLabelsTotal": 568,
+    "requiredLabelsTotal": 684,
     "layoutsPerRegion": {
       "jaguar-condor": 5,
       "monsoon": 6,
       "great-ocean": 8,
       "north-ice": 9,
-      "middle-sea": 10
+      "middle-sea": 10,
+      "sun-savanna": 9
     },
-    "matchingPagesChecked": 9,
-    "uncolocatedPairs": 10
+    "matchingPagesChecked": 10,
+    "uncolocatedPairs": 13
   }
 }

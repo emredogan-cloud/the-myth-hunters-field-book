@@ -19,7 +19,7 @@
   "generatedBy": "04_BUILD/import_from_world_myths.py",
   "counts": {
     "culture": 22,
-    "status_inherited-provisional": 28,
+    "status_inherited-provisional": 22,
     "tier_A": 47,
     "tier_B": 16,
     "tier_C": 13,
@@ -28,13 +28,13 @@
     "answerSourceEligible": 39,
     "activityExcluded": 2,
     "forbiddenLayerFlagged": 20,
-    "status_inherited-verified": 48,
+    "status_inherited-verified": 54,
     "status_new-researched": 0,
     "revalidatedAtPhase2": 7,
-    "inherited-provisional": 28,
-    "inherited-verified": 48,
+    "inherited-provisional": 22,
+    "inherited-verified": 54,
     "new-researched": 0,
-    "revalidatedAtPhase4": 17
+    "revalidatedAtPhase4": 23
   },
   "records": [
     {
@@ -47,7 +47,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "182ad453e7b95c3514ce0a789038bb87dabdf2f067e0ad75bd290137de17d5e7",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -61,9 +61,18 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "communicationMethod",
+        "geography",
+        "instrument",
+        "languageGroup",
+        "namingSystem",
+        "objectFunction",
+        "range",
+        "typology"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -999,7 +1008,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "e083fc9c1c76fde4532a1a5ad53ebeb706387f6deffb89690fc76636649bcd33",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1013,9 +1022,14 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "diacritics",
+        "numberSystem",
+        "orthography",
+        "toneSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -1038,7 +1052,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "ba65b45f9322853a7707f4e1891c9a1273ffc3be2f4e88a5888e3ba3b7420a7f",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1052,9 +1066,13 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "naturalHistory",
+        "orthography",
+        "phonology"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -1079,7 +1097,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1101,9 +1119,15 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "characterRole",
+        "genreName",
+        "listContents",
+        "methods",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -4197,7 +4221,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -4219,9 +4243,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "dating",
+        "geography",
+        "heritageStatus"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -4255,7 +4283,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -4277,9 +4305,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "eventOrder",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",

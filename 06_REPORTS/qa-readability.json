@@ -4,11 +4,11 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 7017,
-    "sentences": 763,
-    "avgSentenceWords": 9.2,
-    "fkGrade": 3.42,
-    "longWordRatio": 0.041,
+    "words": 8162,
+    "sentences": 878,
+    "avgSentenceWords": 9.3,
+    "fkGrade": 3.51,
+    "longWordRatio": 0.043,
     "perActivity": [
       {
         "activityId": "maya-bar-dot-numbers",
@@ -1049,28 +1049,188 @@
         "longWordRatio": 0.018,
         "fieldNoteWords": 21,
         "steps": 2
+      },
+      {
+        "activityId": "yoruba-tone-marks",
+        "words": 78,
+        "sentences": 7,
+        "avgSentenceWords": 11.14,
+        "fkGrade": 2.22,
+        "longWordRatio": 0.013,
+        "fieldNoteWords": 25,
+        "steps": 3
+      },
+      {
+        "activityId": "yoruba-underdot-letters",
+        "words": 57,
+        "sentences": 6,
+        "avgSentenceWords": 9.5,
+        "fkGrade": 4.88,
+        "longWordRatio": 0.088,
+        "fieldNoteWords": 22,
+        "steps": 2
+      },
+      {
+        "activityId": "yoruba-river-map",
+        "words": 68,
+        "sentences": 7,
+        "avgSentenceWords": 9.71,
+        "fkGrade": 4.68,
+        "longWordRatio": 0.088,
+        "fieldNoteWords": 24,
+        "steps": 3
+      },
+      {
+        "activityId": "yoruba-counting-to-twenty",
+        "words": 103,
+        "sentences": 9,
+        "avgSentenceWords": 11.44,
+        "fkGrade": 4.45,
+        "longWordRatio": 0.039,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "yoruba-sentence-name-make",
+        "words": 66,
+        "sentences": 7,
+        "avgSentenceWords": 9.43,
+        "fkGrade": 4.54,
+        "longWordRatio": 0.076,
+        "fieldNoteWords": 26,
+        "steps": 2
+      },
+      {
+        "activityId": "akan-day-names",
+        "words": 60,
+        "sentences": 6,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 3.06,
+        "longWordRatio": 0.017,
+        "fieldNoteWords": 28,
+        "steps": 2
+      },
+      {
+        "activityId": "akan-day-name-pairs",
+        "words": 79,
+        "sentences": 7,
+        "avgSentenceWords": 11.29,
+        "fkGrade": 4.49,
+        "longWordRatio": 0.025,
+        "fieldNoteWords": 30,
+        "steps": 3
+      },
+      {
+        "activityId": "akan-story-trade",
+        "words": 107,
+        "sentences": 11,
+        "avgSentenceWords": 9.73,
+        "fkGrade": 3.31,
+        "longWordRatio": 0.028,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "akan-goldweight-plate",
+        "words": 55,
+        "sentences": 6,
+        "avgSentenceWords": 9.17,
+        "fkGrade": 4.5,
+        "longWordRatio": 0.036,
+        "fieldNoteWords": 21,
+        "steps": 2
+      },
+      {
+        "activityId": "akan-talking-drum-plate",
+        "words": 64,
+        "sentences": 7,
+        "avgSentenceWords": 9.14,
+        "fkGrade": 3.28,
+        "longWordRatio": 0.031,
+        "fieldNoteWords": 23,
+        "steps": 3
+      },
+      {
+        "activityId": "akan-story-web-map",
+        "words": 70,
+        "sentences": 7,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 3.99,
+        "longWordRatio": 0.014,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "akan-spider-draw",
+        "words": 59,
+        "sentences": 6,
+        "avgSentenceWords": 9.83,
+        "fkGrade": 6.65,
+        "longWordRatio": 0.119,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "zulu-click-letters",
+        "words": 60,
+        "sentences": 6,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 4.24,
+        "longWordRatio": 0.083,
+        "fieldNoteWords": 23,
+        "steps": 2
+      },
+      {
+        "activityId": "zulu-two-messengers",
+        "words": 96,
+        "sentences": 10,
+        "avgSentenceWords": 9.6,
+        "fkGrade": 4.38,
+        "longWordRatio": 0.104,
+        "fieldNoteWords": 26,
+        "steps": 4
+      },
+      {
+        "activityId": "zulu-chameleon-plate",
+        "words": 67,
+        "sentences": 6,
+        "avgSentenceWords": 11.17,
+        "fkGrade": 4.26,
+        "longWordRatio": 0.075,
+        "fieldNoteWords": 30,
+        "steps": 2
+      },
+      {
+        "activityId": "zulu-messenger-make",
+        "words": 56,
+        "sentences": 7,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 4.18,
+        "longWordRatio": 0.071,
+        "fieldNoteWords": 23,
+        "steps": 2
       }
     ],
     "registers": {
       "instruction": {
-        "words": 3877,
-        "sentences": 501,
-        "avgSentenceWords": 7.74,
-        "fkGrade": 2.4,
-        "maxSentenceWords": 16
+        "words": 4553,
+        "sentences": 576,
+        "avgSentenceWords": 7.9,
+        "fkGrade": 2.53,
+        "maxSentenceWords": 17
       },
       "fieldNote": {
-        "words": 2665,
-        "sentences": 214,
-        "avgSentenceWords": 12.45,
-        "fkGrade": 5.34,
+        "words": 3073,
+        "sentences": 248,
+        "avgSentenceWords": 12.39,
+        "fkGrade": 5.38,
         "maxSentenceWords": 29
       },
       "hint": {
-        "words": 475,
-        "sentences": 48,
-        "avgSentenceWords": 9.9,
-        "fkGrade": 3.7,
+        "words": 536,
+        "sentences": 54,
+        "avgSentenceWords": 9.93,
+        "fkGrade": 3.74,
         "maxSentenceWords": 18
       }
     }

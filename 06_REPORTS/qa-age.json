@@ -6,17 +6,17 @@
     "18 aday kapalı katmanlı bir hikâyeye dayanıyor — proza yazılırken o katman AÇILAMAZ (Faz 2)"
   ],
   "facts": {
-    "proseMerged": 104,
+    "proseMerged": 120,
     "activitiesScanned": 168,
     "safetyDistribution": {
       "safe": 162,
       "safe-with-adult": 6
     },
     "frameHitsReviewed": 0,
-    "stepsPresent": 104,
+    "stepsPresent": 120,
     "safeWithAdultRatio": 0.036,
     "safeRatio": 0.964,
-    "attributionChecked": 64,
+    "attributionChecked": 80,
     "tierCPagesChecked": 14,
     "activitiesOnLayeredStories": 18
   }

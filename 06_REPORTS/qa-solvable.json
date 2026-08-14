@@ -4,9 +4,9 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "activities": 104,
-    "openEnded": 12,
-    "openEndedRatio": 0.115,
-    "sealedPages": 30
+    "activities": 120,
+    "openEnded": 15,
+    "openEndedRatio": 0.125,
+    "sealedPages": 37
   }
 }
