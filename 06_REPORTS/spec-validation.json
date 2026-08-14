@@ -1,24 +1,31 @@
 {
   "status": "pass",
   "gate": "phase1",
-  "checks": 44,
+  "checks": 61,
   "errors": [],
   "warnings": [],
   "facts": {
     "royalty_paperback": 5.48,
     "activities_total": 168,
     "cultures_total": 22,
-    "activities_candidate": 108,
+    "activities_candidate": 48,
     "activities_researched": 0,
     "activities_locked": 0,
-    "activities_written": 60,
+    "activities_written": 120,
     "activities_dropped": 0,
-    "inherit_inherited-provisional": 108,
-    "inherit_inherited-verified": 60,
+    "inherit_inherited-provisional": 48,
+    "inherit_inherited-verified": 120,
     "inherit_new-researched": 0,
     "matrix_holes": 0,
     "phaseOverrideActive": true,
-    "phaseOverrideAuthorises": "phase3",
-    "phaseOverrideDefers": "A10"
+    "phaseOverrideAuthorises": "phase4",
+    "phaseOverrideDefers": "A10",
+    "derived_phase0": 0,
+    "derived_phase1": 0,
+    "derived_phase2": 16,
+    "derived_phase3": 60,
+    "derived_phase4": 120,
+    "derived_phase5": 120,
+    "derived_release": 120
   }
 }

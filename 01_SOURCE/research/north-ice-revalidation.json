@@ -1,0 +1,969 @@
+{
+  "$comment": [
+    "YENİDEN DOĞRULAMA KAYITLARI — The Northern Ice · Faz 4",
+    "",
+    "⭑ BU DOSYA DEPODA DURUR VE DURMALIDIR ⭑",
+    "İçinde CEVAP yoktur. İçinde İDDİA ve İDDİANIN KAYNAĞI vardır (K11).",
+    "",
+    "Sözleşme K22: doğrulama KAYIT düzeyinde değil İDDİA düzeyinde yapılır.",
+    "Kademe kuralı (SOURCING_STANDARD § 3):",
+    "  arka plan / kültürel çerçeve      → 1 kaynak yeterli",
+    "  BİR AKTİVİTENİN CEVABINI ÜRETEN   → ≥2 BAĞIMSIZ kaynak",
+    "  telaffuz · ad yazımı · diakritik   → ≥2 BAĞIMSIZ kaynak",
+    "",
+    "⚠ YÖNTEM NOTU — DÜRÜSTLÜK İÇİN AÇIKÇA YAZILIYOR",
+    "Kaynaklar ağ üzerinden okundu. Bir künye YALNIZCA o sayfanın ilgili",
+    "cümlesi GÖRÜLDÜĞÜNDE yazıldı; erişilemeyen bir kaynak künyeye GİRMEDİ.",
+    "Britannica doğrudan çekmeyi reddediyor (HTTP 403); o sayfaların ilgili",
+    "cümleleri arama katmanının döndürdüğü alıntılardan okundu ve künyeye",
+    "'accessVia: search-snippet' ile geçti. Okunmamış bir kaynağı kaydetmek",
+    "uydurmadır ve yapılmadı.",
+    "",
+    "⚠ KÜNYELERDE ISBN RAKAMI TAŞINMAZ (Faz 2 § 23): validate_structure",
+    "sahte ISBN arar ve bir KAYNAĞIN ISBN'i ile BİZİM ISBN'imizi ayırt",
+    "edemez. Kapı kapalı yönde arızalanıyor ve bu doğru.",
+    "",
+    "⚠ KAYNAK SAYILMAYAN: wiki maddeleri (SOURCING_STANDARD § 2).",
+    "Aşağıdaki künyelerin hiçbiri bir wiki maddesine dayanmıyor.",
+    "",
+    "VERDICT NE DEMEK",
+    "  confirmed → devralınan iddia doğrulandı, değişmedi",
+    "  corrected → devralınan iddia YANLIŞ ya da EKSİKTİ, düzeltildi",
+    "  rejected  → doğrulanamadı; iddia aktiviteden ÇIKARILIR"
+  ],
+  "meta": {
+    "region": "north-ice",
+    "phase": "phase4",
+    "revalidatedAt": "2026-08-14",
+    "revalidatedBy": "phase4-agent",
+    "method": [
+      "Her iddia, o iddiayı KULLANAN aktiviteden geriye doğru izlendi.",
+      "Cevap veya mühür üreten iddialar için en az iki BAĞIMSIZ kaynak arandı.",
+      "İki bağımsız kaynağa ULAŞILAMAYAN bir iddia, cevap üretmekten",
+      "ÇIKARILDI: ya aktivite yeniden tasarlandı ya da iddia yalnızca",
+      "field-note kademesine indirildi. Hiçbir iddia 'muhtemelen doğrudur'",
+      "gerekçesiyle cevap kademesinde bırakılmadı.",
+      "",
+      "⭑ FAZ 4'ÜN İLK DÜŞEN İDDİASI: 'dokuz dünya' listesi. Bu bölgenin",
+      "en görünür Norse motifi bir CEVAP olamadı — § CLM-NI-NINE-WORLDS."
+    ],
+    "claimCount": 21,
+    "confirmed": 18,
+    "corrected": 2,
+    "rejected": 1
+  },
+  "claims": [
+    {
+      "claimId": "CLM-NI-SYLLABICS",
+      "statement": "Inuktitut is written in Nunavut with a syllabic script called qaniujaaqpait. Each consonant has one character, and that character is rotated or reversed to show the three vowels i, u and a. A long vowel is marked with a dot placed above the character. When a consonant is not followed by a vowel, a smaller raised character called a final (naniq, plural naniit) is used. Confirmed character values: ᒥ mi, ᒧ mu, ᒪ ma, ᐃ i, ᐅ u, ᐊ a.",
+      "inheritedRecord": "culture-inuit",
+      "revalidatedFields": [
+        "writingSystem",
+        "characterValues",
+        "orthographyRule"
+      ],
+      "usedBy": [
+        "inuit-syllabic-signs"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Inuktut Tusaalanga (Pirurvik Centre, funded by the Government of Nunavut) — How to read syllabics",
+          "type": "archive",
+          "locator": "tusaalanga.ca/node/2516",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Inuktut Tusaalanga — Writing the Inuit Language (qaniujaaqpait / qaliujaaqpait, ICI orthography)",
+          "type": "archive",
+          "locator": "tusaalanga.ca/node/2505",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Inuit Tapiriit Kanatami — Inuktut Qaliujaaqpait project (1976 common writing system effort; two forms)",
+          "type": "ethnography",
+          "locator": "itk.ca/projects/inuktut-qaliujaaqpait/",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA çocuğa hiçbir hece işareti UYDURTMAZ. Yalnızca yukarıda",
+        "TEK TEK doğrulanmış altı karakter basılır: ᒥ ᒧ ᒪ ᐃ ᐅ ᐊ.",
+        "Bir yer adı okutulmuyor — doğrulanmış bir yer adı yazımına",
+        "ulaşılamadı ve UYDURULMADI (aday hedefi bu yüzden DARALTILDI).",
+        "Field note ŞUNU söyler: 'Inuktitut is written in Nunavut with signs called qaniujaaqpait' — bu yaşayan bir yazıdır, çözülecek bir bilmece değil.",
+        "bu yaşayan bir yazıdır, çözülecek bir bilmece değil."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-ARCTIC-NAMES",
+      "statement": "Inuktitut names for five Arctic animals: nanuq (polar bear), natsiq (ringed seal), aiviq (walrus), tuktu (caribou), qilalugaq (beluga).",
+      "inheritedRecord": "culture-inuit",
+      "revalidatedFields": [
+        "vocabulary",
+        "name-spelling"
+      ],
+      "usedBy": [
+        "inuit-sea-creatures-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Inuit Tapiriit Kanatami — Arctic Wildlife (Inuktitut animal name list)",
+          "type": "ethnography",
+          "locator": "itk.ca/wp-content/uploads/2016/07/Arctic-Wildlife.pdf",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Government of Nunavut, Department of Culture and Heritage — Terminology / Asuilaak Living Dictionary (80,000 Inuktitut and Inuinnaqtun terms)",
+          "type": "archive",
+          "locator": "gov.nu.ca/en/culture-language-heritage-and-art/terminology",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Parks Canada — Ukkusiksalik National Park, Mammals (Inuktitut names beside English)",
+          "type": "archive",
+          "locator": "parcs.canada.ca/pn-np/nu/ukkusiksalik/nature/faune-wildlife/mammifieres-mammals",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA bir AVLANMA görevi kurmaz (culture_index § inuit yasak biçim).",
+        "Field note ŞUNU söyler: 'the names are still used every day across Nunavut'.",
+        "Diakritiksiz yazımlar KORUNUR: q ve ng harfleri düşürülemez."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-FLOE-EDGE",
+      "statement": "The floe edge is the boundary where land-fast ice meets open water. It is called sinaa in Inuktitut. Seals, polar bears, walrus, narwhal, bowhead and beluga whales and many birds gather there, which is why it has long been a place Inuit travel to.",
+      "inheritedRecord": "culture-inuit",
+      "revalidatedFields": [
+        "geography",
+        "vocabulary"
+      ],
+      "usedBy": [
+        "inuit-loon-flight-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Government of Nunavut — Floe edge (operator activities; definition and location)",
+          "type": "archive",
+          "locator": "gov.nu.ca/operator-activities/floe-edge",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Parks Canada — Auyuittuq National Park, Experience the Arctic Circle (floe edge where frozen sea meets open sea; wildlife gathering)",
+          "type": "archive",
+          "locator": "parks.canada.ca/pn-np/nu/auyuittuq/activ/decouverte-tours/cercle-circle",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Nunatsiaq News — Floe edge near Iqaluit closer than usual (Canadian Ice Service; boundary between shore ice and open water)",
+          "type": "archive",
+          "locator": "nunatsiaq.com/stories/article/65674floe_edge_near_iqaluit_thinner_and_closer_than_usual_canadian_/",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "HARİTA bir AV ROTASI değildir. Çocuk buz kenarını İŞARETLER,",
+        "kimseyi avlamaz (culture_index § inuit yasak biçim 3).",
+        "Field note ŞUNU söyler: 'it moves as the season turns' — sabit bir",
+        "çizgi olduğu iddia EDİLMEZ."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-FUTHARK16",
+      "statement": "The older runic alphabet had 24 characters. By the beginning of the Viking Age it had been reduced to 16. In the 16-character alphabet one character served several sounds: the t rune stood for both t and d, the k rune for both k and g, and the u rune for u, o, y and ø.",
+      "inheritedRecord": "culture-norse",
+      "revalidatedFields": [
+        "writingSystem",
+        "soundValues"
+      ],
+      "usedBy": [
+        "norse-futhark-key"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Historiska museet (Swedish History Museum), The Viking World — Display: Runes in everyday life ('Originally, the runic alphabet had 24 characters. By the beginning of the Viking Age it had been modified and comprised 16 characters… the rune t represented both t and d, the rune k represented k and g')",
+          "type": "museum",
+          "locator": "vikingar.historiska.se/objects.php?showcase=9e9357a0-1b95-4d69-8b5e-7ce14c4e23b4&l=en",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Historiska museet — Runes (history hub): 'The common Viking-Age runic alphabet had 16 characters, developed from earlier alphabets with more signs.'",
+          "type": "museum",
+          "locator": "historiska.se/en/explore-history/history-hub/runes/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Runic alphabet (Scandinavian reduction to 16 letters, 8th–13th century)",
+          "type": "book",
+          "locator": "britannica.com/topic/runic-alphabet",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        }
+      ],
+      "designConstraint": [
+        "Field note ŞUNU söyler: 'a single rune had to stand for more than one sound' — rünler bir alfabedir, bir büyü değil (culture_index § norse).",
+        "Rünler bir ALFABEDİR ve sayfa bunu field note'ta söyler.",
+        "Levhada yalnızca sesi ve belirsizliği doğrulanmış rünler basılır."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-JELLING",
+      "statement": "Two royal rune stones stand at Jelling in Jutland. King Gorm the Old raised the smaller stone for his wife Thyra; its inscription reads 'King Gorm made this monument to his wife Thyra, Denmark's ornament'. Around 965 King Harald Bluetooth raised the larger stone in memory of his parents Gorm and Thyra. Denmark is named on the larger stone, which is why it is often called Denmark's birth certificate.",
+      "inheritedRecord": "culture-norse",
+      "revalidatedFields": [
+        "inscription",
+        "genealogy",
+        "dating"
+      ],
+      "usedBy": [
+        "norse-futhark-key",
+        "norse-runestone-read"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "National Museum of Denmark — The Jelling Stone / The monuments at Jelling (inscriptions, dating c. 965, 'Denmark's birth certificate')",
+          "type": "museum",
+          "locator": "en.natmus.dk/historical-knowledge/denmark/prehistoric-period-until-1050-ad/the-viking-age/the-monuments-at-jelling/the-jelling-stone/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "UNESCO World Heritage Centre — Jelling Mounds, Runic Stones and Church (list no. 697)",
+          "type": "archive",
+          "locator": "whc.unesco.org/en/list/697/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Jelling stones ('two 10th-century royal gravestones… best known of all Danish runic inscriptions')",
+          "type": "book",
+          "locator": "britannica.com/topic/Jelling-stones",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA Harald'ın lakabını ('Bluetooth') bir şaka olarak kullanmaz.",
+        "Field note iki taşın BİR AİLEYİ kaydettiğini söyler — çocuğun",
+        "çıkaracağı şey budur ve field note bunu SÖYLEMEZ, yalnızca",
+        "LEVHA ŞUNU basar: 'Two stones stand at Jelling' — aile bağı hiçbir sayfada BASILI DEĞİLDİR ve çocuk onu iki yazıttan kurar (qa_solvable § ⑧)."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-RUNESTONE-FORMULA",
+      "statement": "Most Viking-Age rune stones are memorials raised by relatives, and they follow a standard formula: X had this stone raised in memory of Y, his or her named relation. Museum examples: 'Ragnvaldr had the runes carved in memory of Fastvé, his mother' and 'Þorsteinn had the landmark made in memory of Sveinn, his father.'",
+      "inheritedRecord": "culture-norse",
+      "revalidatedFields": [
+        "inscriptionFormula"
+      ],
+      "usedBy": [
+        "norse-runestone-read"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Historiska museet — Runes ('The texts are often memorial inscriptions for deceased persons, written by their relatives'; two quoted inscriptions)",
+          "type": "museum",
+          "locator": "historiska.se/en/explore-history/history-hub/runes/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "National Museum of Denmark — Rune stones (memorial purpose; who raised them)",
+          "type": "museum",
+          "locator": "en.natmus.dk/historical-knowledge/denmark/prehistoric-period-until-1050-ad/the-viking-age/power-and-aristocracy/rune-stones/",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "Field note ŞUNU söyler: 'Most Viking rune stones say one plain thing'.",
+        "Sayfa bir mezar taşı SAHNESİ kurmaz; ölüm anlatılmaz, yalnızca",
+        "'in memory of' kalıbı okunur (AGE_POLICY § 2 çerçeve 4)."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-WEEKDAYS",
+      "statement": "Four English weekday names carry Germanic god names: Tuesday from Tiw (Old English name for Týr), Wednesday from Woden (the Old English form of Odin), Thursday from Thunor/Thor, and Friday from Frige (Old Norse Frigg). Saturday, Sunday and Monday do not: they keep Saturn, the Sun and the Moon.",
+      "inheritedRecord": "culture-norse",
+      "revalidatedFields": [
+        "etymology"
+      ],
+      "usedBy": [
+        "norse-weekday-names"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Week (origin of the English day-names; Germanic deities substituted for Roman ones)",
+          "type": "book",
+          "locator": "britannica.com/science/week",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        },
+        {
+          "ref": "Online Etymology Dictionary (Douglas Harper) — Tuesday, Wednesday, Thursday, Friday, Woden (Old English forms Tiwesdæg, Wodnesdæg, þurresdæg, Frigedæg; loan-translations of dies Martis / Mercurii / Jovis / Veneris)",
+          "type": "archive",
+          "locator": "etymonline.com/word/Wednesday",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA yalnızca DÖRT günü sorar. Saturday/Sunday/Monday cevap",
+        "kademesine GİRMEZ — onlar Norse değildir ve sayfa bunu bir KARŞIT",
+        "ÖRNEK olarak basar, bir cevap olarak değil.",
+        "'Woden' ile 'Odin' AYNI tanrıdır ve sayfa ikisini de basar:",
+        "Field note ŞUNU söyler: 'The other three do not' — üç günün Norse OLMADIĞI sayfada basılıdır."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-GLEIPNIR",
+      "statement": "In Gylfaginning the fetter Gleipnir is made of six things: the noise a cat makes when it walks, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish and the spittle of a bird. The list is the story's explanation for why those six things cannot be found in the world.",
+      "inheritedRecord": "story-norse-fenrir-binding",
+      "revalidatedFields": [
+        "storyDetail",
+        "listContents"
+      ],
+      "usedBy": [
+        "norse-binding-riddle"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Snorri Sturluson, Edda: Prologue and Gylfaginning, translated by Anthony Faulkes — Viking Society for Northern Research, University College London",
+          "type": "book",
+          "locator": "vsnrweb-publications.org.uk/Edda-1.pdf",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Snorri Sturluson, The Prose Edda, translated by Arthur Gilchrist Brodeur — Gylfaginning (Internet Sacred Text Archive facsimile of the printed edition)",
+          "type": "archive",
+          "locator": "sacred-texts.com/neu/pre/pre04.htm",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Snorri Sturluson, The Younger Edda, translated by Rasmus B. Anderson — Gylfaginning (Germanic Mythology text archive)",
+          "type": "archive",
+          "locator": "germanicmythology.com/ProseEdda/AndersonGylfaginning.html",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA KURDUN BAĞLANMASINI ANLATMAZ ve Týr'ın el kaybını",
+        "ÇİZDİRMEZ (culture_index § norse yasak biçim 1; AGE_POLICY § 2).",
+        "Yalnızca ALTI MALZEME basılır ve tasnif edilir. Kimin bağlandığı",
+        "field note'ta bir cümleyle geçer, sahne kurulmaz."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-TREASURES",
+      "statement": "In Skáldskaparmál six treasures are made by two groups of dwarfs. The sons of Ivaldi make Sif's golden hair, the ship Skidbladnir and the spear Gungnir. Brokk and his brother Sindri make the boar Gullinbursti, the ring Draupnir and the hammer Mjollnir. The treasures are then given out: Odin receives Gungnir and Draupnir, Thor receives Mjollnir, Freyr receives Skidbladnir and Gullinbursti, and Sif receives the hair.",
+      "inheritedRecord": "culture-norse",
+      "revalidatedFields": [
+        "storyDetail",
+        "ownership"
+      ],
+      "usedBy": [
+        "norse-who-owns-what"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Snorri Sturluson, The Prose Edda, translated by A. G. Brodeur — Skáldskaparmál (Internet Sacred Text Archive facsimile)",
+          "type": "archive",
+          "locator": "sacred-texts.com/neu/pre/pre05.htm",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Snorri Sturluson, Edda, translated by A. G. Brodeur — Skáldskaparmál (Germanic Mythology text archive)",
+          "type": "archive",
+          "locator": "germanicmythology.com/ProseEdda/BRODEURSkaldskaparmal.html",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Encyclopaedia Britannica Kids (Students) — Loki (the wager with the dwarfs and the making of the treasures)",
+          "type": "book",
+          "locator": "kids.britannica.com/students/article/Loki/311837",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA Loki'nin dudaklarının dikilmesini ANMAZ — bahsin bedeli",
+        "sayfanın DIŞINDA kalır (AGE_POLICY § 2 çerçeve 4).",
+        "Cevap kademesi yalnızca NESNE → SAHİP eşleşmesidir.",
+        "İki atölye ayrımı KARTTA basılır. Çocuğun göreceği örüntü, her tanrının",
+        "İKİ atölyeden BİRER nesne almasıdır. Örüntü hiçbir yerde BASILI DEĞİLDİR."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-IDUN",
+      "statement": "In Skáldskaparmál the order of the Idun episode is fixed by the text: Loki is caught by the eagle Thjazi and buys his freedom with a promise; Loki lures Idun out of Asgard with her apples; Thjazi carries her away; the gods grow old and grey; the gods force Loki to bring her back; Loki carries her home in the shape of a nut and Thjazi, chasing as an eagle, is burned at the walls of Asgard.",
+      "inheritedRecord": "story-norse-idun-apples",
+      "revalidatedFields": [
+        "storyDetail",
+        "eventOrder"
+      ],
+      "usedBy": [
+        "norse-apples-sequence"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Snorri Sturluson, The Prose Edda, translated by A. G. Brodeur — Skáldskaparmál (Internet Sacred Text Archive facsimile)",
+          "type": "archive",
+          "locator": "sacred-texts.com/neu/pre/pre05.htm",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Snorri Sturluson, Edda, translated by Anthony Faulkes — Viking Society for Northern Research, University College London (Skáldskaparmál)",
+          "type": "book",
+          "locator": "vsnrweb-publications.org.uk/EDDArestr.pdf",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SIRALAMA dört kartla biter ve son kart Thjazi'nin YANMASI DEĞİL,",
+        "Idun'un geri gelmesidir. Ölüm sahnesi karta girmez.",
+        "Kartların hiçbiri 'first' veya 'then' gibi sıra sözcüğü taşımaz —",
+        "yoksa sıralama metinden değil BİÇİMDEN çözülür (Faz 3 § 21.5)."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-SHIP",
+      "statement": "The keel and the stems form the backbone of a Viking ship. The hull is clinker-built: each strake overlaps the one below it and the strakes are fixed with iron rivets; the Oseberg ship's hull has twelve strakes a side. The ship is steered with a side rudder mounted on the right-hand side, and the English word starboard comes from Old Norse styrbord, the side where you steer.",
+      "inheritedRecord": "culture-norse",
+      "revalidatedFields": [
+        "technicalTerms",
+        "etymology",
+        "inventoryCount"
+      ],
+      "usedBy": [
+        "norse-ship-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Viking Ship Museum, Roskilde — All about the Viking ship: Keel and stem; The hull of the ship; Rudder and tackle (styrbord / starboard; strakes; iron rivets; twelve strakes on Oseberg)",
+          "type": "museum",
+          "locator": "vikingeskibsmuseet.dk/en/professions/education/all-about-the-viking-ship/the-hull-of-the-ship",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Oseberg ship (c. 820 CE, found 1903 in south-eastern Norway; deck and mast of pine)",
+          "type": "book",
+          "locator": "britannica.com/topic/Oseberg-ship",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        }
+      ],
+      "designConstraint": [
+        "LEVHA yalnızca kaynakta ADI GEÇEN parçaları etiketler: keel, stem,",
+        "strake, rivet, mast, side rudder. Uydurulmuş bir parça adı basılmaz.",
+        "Field note ŞUNU söyler: 'The word starboard comes from the side you steer on'."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-NINE-WORLDS",
+      "statement": "REDDEDİLDİ — 'Yggdrasil'in dokuz dünyası şunlardır: …' biçiminde kanonik bir liste. Eski Norse kaynakları dokuz dünyadan SÖZ EDER ama hiçbiri dokuzunu birlikte SAYMAZ; Völuspá sayıyı anar, adları vermez ve Snorri de tam bir liste kurmaz. Modern listeler ikincil derlemelerdir ve birbirinden farklıdır.",
+      "inheritedRecord": "culture-norse",
+      "revalidatedFields": [
+        "cosmology",
+        "listContents"
+      ],
+      "usedBy": [],
+      "usedIn": [],
+      "verdict": "rejected",
+      "sources": [
+        {
+          "ref": "Snorri Sturluson, Edda, translated by Anthony Faulkes — Viking Society for Northern Research, University College London (Gylfaginning; dokuz dünya bir bütün liste olarak SAYILMAZ)",
+          "type": "book",
+          "locator": "vsnrweb-publications.org.uk/PrologueandGylfaginning.unicode.pdf",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Yggdrasill (world tree; realms adı verilmeden anılır)",
+          "type": "book",
+          "locator": "britannica.com/topic/Yggdrasill",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        }
+      ],
+      "designConstraint": [
+        "⛔ `norse-nine-worlds-map` SEÇİMDEN ÇIKARILDI ve havuzda",
+        "`candidate` olarak kaldı. Yerine aynı bölge × aynı kültürden",
+        "`norse-apples-sequence` geçti (PROGRESSION_ARCHITECTURE § 6).",
+        "",
+        "Gerekçe Faz 3 § 8.1'in aynısıdır bir kat derinde: iddia YANLIŞ",
+        "değil, KANONİK DEĞİL. Dört clue'dan dokuz dünyayı yerleştiren bir",
+        "sayfa, çocuğa ikincil bir derlemeyi birincil kaynak diye öğretirdi.",
+        "",
+        "Bölgenin harita sayısı 4 → 3 düştü; asgari 2 KORUNDU."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-KANTELE",
+      "statement": "The Kalevala gives the kantele two origins: the first kantele is made from the jaw of a giant pike and strung with horsehair, and a second one is made of birch. Real kanteles have been built with different numbers of strings (5, 8, 10, 12 and, in modern concert forms, 39), and older ones were carved from a single piece of wood before builders began using planks about three hundred years ago.",
+      "inheritedRecord": "story-finnish-kantele",
+      "revalidatedFields": [
+        "storyDetail",
+        "instrumentConstruction"
+      ],
+      "usedBy": [
+        "finnish-kantele-strings",
+        "finnish-instrument-make"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "corrected",
+      "sources": [
+        {
+          "ref": "Kalevalaseura (The Kalevala Society, Finland) — Themes and worldview: the kantele ('the first one was made out of the jaw of a giant pike, the second one of birch'; 'an instrument with a varying number of strings (5, 8, 10, 12 etc.)')",
+          "type": "ethnography",
+          "locator": "kalevalaseura.fi/en/themes-and-worldview/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Suomalaisen Kirjallisuuden Seura / Finnish Literature Society — Tietävä: Kalevala, objects and places (sampo ja kantele)",
+          "type": "ethnography",
+          "locator": "matkallakalevalaan.finlit.fi/kalevalan-kuka-kukin/sampo-ja-kantele",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "National Museum of Finland — kantele object records (Finna.fi collection database; instruments with differing string counts)",
+          "type": "museum",
+          "locator": "finna.fi/Record/musketti.M012:SU4972:3",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "⭑ DÜZELTME: aday hedefi 'kantelenin TELLERİNİ SAY' diyordu.",
+        "Tel sayısı DEĞİŞKENDİR (5 · 8 · 10 · 12 · 39) ve tek cevaplı bir",
+        "bulmacanın girdisi OLAMAZ — Faz 3'ün Urashima dersinin aynısı.",
+        "",
+        "Sayfa artık SAYMIYOR, MALZEME OKUYOR: Kalevala'nın verdiği İKİ",
+        "köken (turna balığının çenesi + huş) ve tellerin at kılından",
+        "olduğu iki bağımsız kaynakta duruyor.",
+        "",
+        "LEVHA hiçbir yerde tek bir tel sayısı BASMAZ — tel sayısı değişkendir; yoksa sayfa",
+        "çocuğa 'kantelenin beş teli vardır' diye yanlış bir şey öğretir."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-KALEVALA-MADE",
+      "statement": "The Kalevala was compiled by Elias Lonnrot, a doctor and folklore collector, from oral poems that had been passed down in Karelia and eastern Finland. He travelled from village to village recording verses, then combined and edited them into one long poem. The first Kalevala appeared in 1835 with 32 poems, and an enlarged edition appeared in 1849 with 50 poems.",
+      "inheritedRecord": "culture-finnish",
+      "revalidatedFields": [
+        "publicationHistory",
+        "collectionMethod",
+        "dates"
+      ],
+      "usedBy": [
+        "finnish-spoken-to-printed"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Suomalaisen Kirjallisuuden Seura / Finnish Literature Society — Tietävä: What is the Kalevala ('Elias Lönnrot… travelled from village to village, recorded oral verses… The first version was published in 1835, and a more comprehensive edition appeared in 1849')",
+          "type": "ethnography",
+          "locator": "tietava.finlit.fi/en/kalevala/what-is-the-kalevala-and-who-are-the-characters-whose-adventures-we-can-read-about-in-it/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Kalevala ('published the folk material in two editions (32 cantos, 1835; enlarged into 50 cantos, 1849)')",
+          "type": "book",
+          "locator": "britannica.com/topic/Kalevala",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        },
+        {
+          "ref": "Kalevalaseura (The Kalevala Society) — What happens in the Kalevala",
+          "type": "ethnography",
+          "locator": "kalevalaseura.fi/en/what-happens-in-the-kalevala",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SIRALAMA dört adımdır ve dördü de İKİ kaynakta birlikte duruyor:",
+        "sözlü aktarım → Lönnrot'un derlemesi → birleştirme/düzenleme →",
+        "basılı kitap. Uydurulmuş bir ara adım EKLENMEZ (Faz 3 § 8.2 ②).",
+        "Field note ŞUNU söyler: 'Before either printing it was sung by people who could not read it' — derlenmiş bir kitaptır",
+        "ve bu bölgenin field note açısıdır (culture_index § finnish)."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-KALEVALA-METRE",
+      "statement": "The Kalevala is written in an unrhymed four-beat trochaic line known as the Kalevala metre, and its style is characterised by alliteration, parallelism and repetition. Alliteration in this verse binds words inside a line by their opening sounds, not by rhyme at the line ends.",
+      "inheritedRecord": "culture-finnish",
+      "revalidatedFields": [
+        "poeticForm"
+      ],
+      "usedBy": [
+        "finnish-alliteration"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Kalevala ('written in unrhymed octosyllabic trochees and dactyls (the Kalevala metre) and its style is characterized by alliteration, parallelism, and repetition')",
+          "type": "book",
+          "locator": "britannica.com/topic/Kalevala",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        },
+        {
+          "ref": "University of Helsinki research portal — 'The Finnic Tetrameter: A Creolization of Poetic Form?' (verse-internal alliteration as a systematic feature)",
+          "type": "journal",
+          "locator": "researchportal.helsinki.fi/en/publications/the-finnic-tetrameter-a-creolization-of-poetic-form/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "University of Helsinki (HELDA) — 'What to Call the Poetic Form: Kalevala-Meter or Kalevalaic Verse… Finnic Alliterative Verse'",
+          "type": "journal",
+          "locator": "helda.helsinki.fi/server/api/core/bitstreams/a23f692b-a082-4d5a-a188-8df0180b25b0/content",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA Fince dizeler BASMAZ — doğrulanmış bir Fince dörtlüğün",
+        "birebir yazımına ulaşılamadı ve UYDURULMAZ.",
+        "Field note ŞUNU söyler: 'It binds words inside a line instead' — kural İngilizce bir dörtlükte gösterilir ve field",
+        "note kuralın Kalevala'dan geldiğini söyler. Çocuk KURALI öğrenir,",
+        "yanlış yazılmış bir Fince dizeyi değil."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-VOWEL-HARMONY",
+      "statement": "Finnish has eight vowels in three groups: front (a-umlaut, o-umlaut, y), back (a, o, u) and neutral (e, i). Front and back vowels do not occur together inside one simple word; the neutral vowels e and i occur with either group.",
+      "inheritedRecord": "culture-finnish",
+      "revalidatedFields": [
+        "languagePattern",
+        "diacritics"
+      ],
+      "usedBy": [
+        "finnish-vowel-harmony"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "University of Jyväskylä — Finnish Grammar: Vowels (front / back / neutral groups and the harmony rule)",
+          "type": "archive",
+          "locator": "users.jyu.fi/~pamakine/kieli/suomi/aanneoppi/vokaaliten.html",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "University of Tampere — Finnish Front Vowels ('the front vowels ä, ö, y cannot be used in the same word as the back vowels a, o, u')",
+          "type": "archive",
+          "locator": "people.uta.fi/~km56049/finnish/fvowel.html",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Vowel harmony (definition; occurrence of a vowel controlled by other vowels in the word)",
+          "type": "book",
+          "locator": "britannica.com/topic/vowel-harmony",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA yalnızca KURALI sınar, sözcük anlamı sormaz. Basılan her",
+        "sözcük gerçek bir Fince sözcük OLMAK ZORUNDA DEĞİLDİR ve sayfa",
+        "bunu açıkça söyler: Field note ŞUNU söyler: 'Finnish sorts its vowels into three families' — basılanlar sözcük değil, ÖRÜNTÜ.",
+        "⚠ Diakritikler KORUNUR: ä ö düşürülemez (validate_research § ⑧)."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-FINNISH-LAKES",
+      "statement": "Finland's inland waters cover almost one tenth of the country's total area. Ten Finnish lakes are larger than 100 square miles, and there are tens of thousands of smaller ones. Lake Saimaa is the main lake of the Great Saimaa system, the largest lake system in Finland.",
+      "inheritedRecord": "culture-finnish",
+      "revalidatedFields": [
+        "geography",
+        "measurements"
+      ],
+      "usedBy": [
+        "finnish-lakes-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Finland: Drainage ('inland waters occupy almost one-tenth of the country's total area; there are 10 lakes of more than 100 square miles')",
+          "type": "book",
+          "locator": "britannica.com/place/Finland",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        },
+        {
+          "ref": "Encyclopaedia Britannica — Lake Saimaa (area 443 sq mi; Great Saimaa system 1,690 sq mi, largest in Finland)",
+          "type": "book",
+          "locator": "britannica.com/place/Lake-Saimaa",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        }
+      ],
+      "designConstraint": [
+        "⭑ DARALTMA: aday hedefi 'Karelya göllerini geçen bir rota çiz ve",
+        "kaç TAŞIMA (portage) olduğunu say' diyordu. Doğrulanmış bir",
+        "tarihsel taşıma yolu listesine ULAŞILAMADI ve uydurulmadı.",
+        "",
+        "Sayfa artık ÖLÇÜLMÜŞ sayılarla çalışıyor: hangi su daha büyük,",
+        "kara mı su mu daha çok yer kaplıyor. Cevap iki Britannica",
+        "maddesinden mekanik olarak çıkıyor.",
+        "",
+        "Sayfa hiçbir gölün 'Kalevala gölü' olduğunu SÖYLEMEZ."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-OGHAM",
+      "statement": "Ogham is the earliest written form of the Irish language. Its original alphabet has twenty letters arranged in four groups of five, called aicmi. The letters are cut as notches and strokes on, across or either side of a central stem line, usually the edge of a standing stone, and are read from the bottom upward. Ogham stones date from about the fourth to the sixth century AD and usually record a person's name in a set formula such as X son of Y, of the tribe of Z; the formula word MAQI means 'son of'.",
+      "inheritedRecord": "culture-irish",
+      "revalidatedFields": [
+        "writingSystem",
+        "readingDirection",
+        "inscriptionFormula"
+      ],
+      "usedBy": [
+        "irish-ogham-key",
+        "irish-ogham-read",
+        "irish-stone-plate"
+      ],
+      "usedIn": [
+        "answer-source",
+        "seal-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Heritage Ireland / Office of Public Works — Ballintaggart Ogham Stones ('The ogham alphabet uses a script made of lines cut on, across, or either side of, a central stem line. Ogham inscriptions were usually written vertically and are read from bottom to top… usually record the name of a person with a standard formula such as: X son of Y, member of the tribe of Z')",
+          "type": "archive",
+          "locator": "heritageireland.ie/unguided-sites/ballintaggart-ogham-stones/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Ogham in 3D — Dublin Institute for Advanced Studies (project description: notches and horizontal or diagonal lines/scores representing the sounds of an early form of Irish; stone descriptions with MAQ(Q)I 'son of')",
+          "type": "archive",
+          "locator": "ogham.celt.dias.ie/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Omniglot — Ogham ('Originally Ogham consisted of 20 letters or four aicmí'; 4th–6th century monumental inscriptions; 'Inscriptions are mostly people's names')",
+          "type": "archive",
+          "locator": "omniglot.com/writing/ogham.htm",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA ogham'ı bir 'ağaç alfabesi' olarak SUNMAZ: harf adlarının",
+        "ağaç anlamları geç ortaçağ elyazmalarından gelir ve taş",
+        "yazıtlarının bir özelliği değildir. Levha yalnızca ÇENTİK",
+        "SAYISINI ve KENARA GÖRE YÖNÜ basar.",
+        "OKUMA YÖNÜ (aşağıdan yukarı) üç sayfanın üçünde de BASILI olmak zorundadır — yoksa",
+        "çocuk taşı ters okur ve suçu kendinde arar."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-CUCHULAINN",
+      "statement": "Setanta killed the hound that guarded the house of Culann the smith and offered to guard the house himself in its place. From then on he was called Cu Chulainn, which means 'Culann's hound'.",
+      "inheritedRecord": "story-irish-cu-chulainn-name",
+      "revalidatedFields": [
+        "storyDetail",
+        "nameMeaning"
+      ],
+      "usedBy": [
+        "irish-name-changes"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — Cú Chulainn (original name Setanta; killed Culann's hound and took its place; the name means 'Culann's hound')",
+          "type": "book",
+          "locator": "britannica.com/topic/Cu-Chulainn",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        },
+        {
+          "ref": "CELT: Corpus of Electronic Texts, University College Cork — Táin Bó Cúailnge from the Book of Leinster, 'Here begin the youthful deeds of Cú Chulainn'",
+          "type": "archive",
+          "locator": "celt.ucc.ie/published/T301035/text004.html",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "dúchas.ie — The Schools' Collection, National Folklore Collection, University College Dublin: 'How Cuchulainn Got His Name' and 'The Salmon of Knowledge' (Finegas, the Boyne, the burned thumb)",
+          "type": "ethnography",
+          "locator": "duchas.ie/en/cbes/4725004/4699248/4724101",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA köpeğin ÖLDÜRÜLMESİNİ betimlemez ve çizdirmez (AGE_POLICY § 2 çerçeve 4).",
+        "Kart ŞUNU basar: 'offered to guard the smith' — öldürme sahnesi yok.",
+        "Cú Chulainn'in savaş çılgınlığı (ríastrad) ANILMAZ (culture_index § irish yasak biçim 1)."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-FIONN",
+      "statement": "Fionn was taught by the poet Finnegas, who caught the salmon of knowledge in the river Boyne. Fionn burned his thumb while cooking the fish, put the thumb in his mouth, and the salmon's knowledge passed to him.",
+      "inheritedRecord": "story-irish-fionn-salmon",
+      "revalidatedFields": [
+        "storyDetail",
+        "nameMeaning"
+      ],
+      "usedBy": [
+        "irish-name-changes",
+        "irish-salmon-river-map"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "confirmed",
+      "sources": [
+        {
+          "ref": "Encyclopaedia Britannica — The Boyish Exploits of Finn / Fenian cycle (Finn's boyhood deeds; the salmon of knowledge)",
+          "type": "book",
+          "locator": "britannica.com/art/The-Boyish-Exploits-of-Finn",
+          "accessed": "2026-08-14",
+          "accessVia": "search-snippet"
+        },
+        {
+          "ref": "dúchas.ie — The Schools' Collection, National Folklore Collection, University College Dublin: 'The Salmon of Knowledge' (Finegas, the strange salmon in the Boyne, the burned thumb)",
+          "type": "ethnography",
+          "locator": "duchas.ie/en/cbes/4701676/4691872/4725845",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Heritage Ireland / Office of Public Works — Women, Water and Wisdom in Celtic Mythology (the Boyne and the salmon of knowledge)",
+          "type": "archive",
+          "locator": "heritageireland.ie/2024/03/women-water-and-wisdom-in-celtic-mythology/",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "SAYFA balığın pişirilmesini SAHNELEMEZ; harita bir nehir haritasıdır.",
+        "HARİTA nehri gerçek bir nehir olarak basar ve adını taşır — hikâye gerçek bir yere bağlıdır."
+      ]
+    },
+    {
+      "claimId": "CLM-NI-LIR",
+      "statement": "In the tale of the fate of the children of Lir the four children spend nine hundred years as swans, in three spans of three hundred years each and in three named waters, in this order: Lough Derravaragh, then the Sea of Moyle between Ireland and Scotland, then Erris (Iorrus Domhnann) in the west.",
+      "inheritedRecord": "story-irish-children-of-lir",
+      "revalidatedFields": [
+        "storyDetail",
+        "durations",
+        "placeNames"
+      ],
+      "usedBy": [
+        "irish-swans-count"
+      ],
+      "usedIn": [
+        "answer-source",
+        "field-note"
+      ],
+      "verdict": "corrected",
+      "sources": [
+        {
+          "ref": "CELT: Corpus of Electronic Texts, University College Cork — 'The Fate of the Children of Lir' (three hundred years on Lough Derravaragh, three hundred on the Sea of Moyle, three hundred at Iorrus Domhnann)",
+          "type": "archive",
+          "locator": "celt.ucc.ie/published/T300014.html",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "Heritage Ireland / Office of Public Works — Women, Water and Wisdom in Celtic Mythology (four children cursed to live 900 years as swans)",
+          "type": "archive",
+          "locator": "heritageireland.ie/2024/03/women-water-and-wisdom-in-celtic-mythology/",
+          "accessed": "2026-08-14"
+        },
+        {
+          "ref": "dúchas.ie — The Schools' Collection, National Folklore Collection, University College Dublin (Westmeath Lake; the children of Lir on Lough Derravaragh)",
+          "type": "ethnography",
+          "locator": "duchas.ie/en/cbes/5009043/4980255/5118219",
+          "accessed": "2026-08-14"
+        }
+      ],
+      "designConstraint": [
+        "⭑ DÜZELTME: aday hedefi 'levhadaki kuşları işaretlerine göre say",
+        "ve grupla' diyordu. Bu bir SAYMA alıştırmasıdır ve hiçbir kültürel",
+        "bilgi taşımaz — K4 böyle bir sayfayı DEKORATİF sayar.",
+        "",
+        "Sayfa artık kaynakta ADI GEÇEN üç suyu ve üç üç-yüz-yıllık süreyi",
+        "sıraya koyuyor. Toplam 900 mekanik olarak çıkıyor.",
+        "",
+        "⛔ ÜVEY ANNE ZULMÜ SAYFAYA GİRMEZ (culture_index § irish yasak",
+        "biçim 2). Kartlar yalnızca SU ve SÜRE taşır; kimin neden büyü",
+        "yaptığı sayfanın dışındadır. Field note ŞUNU söyler: 'four children are put under a spell' ve orada durur."
+      ]
+    }
+  ]
+}

@@ -9,8 +9,8 @@
 | | Ölçülen | Hedef |
 |---|---:|---:|
 | Aday aktivite | **168** | ≥160 |
-| Kilitli aktivite | **60** | 120 |
-| Yazılmış aktivite | **60** | 120 |
+| Kilitli aktivite | **120** | 120 |
+| Yazılmış aktivite | **120** | 120 |
 | Düşürülmüş aday | **0** | — |
 | Kültür | **22** | 22 |
 | Bölge | **6** | 6 |
@@ -30,11 +30,11 @@
 
 | Durum | Kayıt |
 |---|---:|
-| `inherited-provisional` | 45 |
-| `inherited-verified` | 31 |
+| `inherited-provisional` | 22 |
+| `inherited-verified` | 54 |
 | `new-researched` | 0 |
 | **Toplam** | **76** |
-| **Doğrulanmış oran** | **%40.8** (Faz 1 ölçütü: doğrulanmış VEYA planlı) |
+| **Doğrulanmış oran** | **%71.1** (Faz 1 ölçütü: doğrulanmış VEYA planlı) |
 
 > Doğrulama KAYIT düzeyinde değil KULLANIM düzeyinde ilerler:
 > bir kayıt, ondan CEVAP ÜRETEN bir sayfa yazıldığında

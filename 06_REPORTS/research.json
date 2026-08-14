@@ -2,30 +2,36 @@
   "status": "pass",
   "checks": 27,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "8 kısıt denetlenebilir biçimde yazılmamış (İngilizce alıntı yok): ['CLM-MS-CARTOUCHE', 'CLM-MS-KNOSSOS', 'CLM-NI-FUTHARK16', 'CLM-NI-JELLING', 'CLM-SS-ATUMPAN'] — beyanı sınamak için kısıt, field note'un taşıması gereken cümleyi tırnak içinde İNGİLİZCE vermelidir"
+  ],
   "facts": {
     "records": 76,
     "activities": 168,
-    "activitiesWithStory": 63,
-    "activitiesCultureOnly": 105,
+    "activitiesWithStory": 60,
+    "activitiesCultureOnly": 108,
     "inheritanceStatus": {
-      "inherited-provisional": 108,
-      "inherited-verified": 60
+      "inherited-verified": 120,
+      "inherited-provisional": 48
     },
     "answerSourceEligibleRecords": 42,
     "usableStoriesListed": 52,
-    "claimRecords": 55,
+    "claimRecords": 108,
     "revalidationFiles": [
       "great-ocean-revalidation.json",
       "jaguar-condor-revalidation.json",
-      "monsoon-revalidation.json"
+      "middle-sea-revalidation.json",
+      "monsoon-revalidation.json",
+      "north-ice-revalidation.json",
+      "sun-savanna-revalidation.json"
     ],
-    "lockedActivities": 60,
+    "lockedActivities": 120,
     "claimVerdicts": {
-      "confirmed": 49,
-      "corrected": 6
+      "confirmed": 92,
+      "corrected": 13,
+      "rejected": 3
     },
-    "designConstraintsChecked": 1,
-    "designConstraintsUncheckable": 0
+    "designConstraintsChecked": 20,
+    "designConstraintsUncheckable": 8
   }
 }

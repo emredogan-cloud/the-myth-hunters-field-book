@@ -19,7 +19,7 @@
   "generatedBy": "04_BUILD/import_from_world_myths.py",
   "counts": {
     "culture": 22,
-    "status_inherited-provisional": 69,
+    "status_inherited-provisional": 22,
     "tier_A": 47,
     "tier_B": 16,
     "tier_C": 13,
@@ -28,9 +28,13 @@
     "answerSourceEligible": 39,
     "activityExcluded": 2,
     "forbiddenLayerFlagged": 20,
-    "status_inherited-verified": 7,
+    "status_inherited-verified": 54,
     "status_new-researched": 0,
-    "revalidatedAtPhase2": 7
+    "revalidatedAtPhase2": 7,
+    "inherited-provisional": 22,
+    "inherited-verified": 54,
+    "new-researched": 0,
+    "revalidatedAtPhase4": 23
   },
   "records": [
     {
@@ -43,7 +47,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "182ad453e7b95c3514ce0a789038bb87dabdf2f067e0ad75bd290137de17d5e7",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -57,9 +61,18 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "communicationMethod",
+        "geography",
+        "instrument",
+        "languageGroup",
+        "namingSystem",
+        "objectFunction",
+        "range",
+        "typology"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -238,7 +251,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "68783ac6e5a8c445f9e77808104d618761a800467457fdc9e478e63b4b0aec7c",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -252,9 +265,18 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "construction",
+        "declipherment",
+        "geography",
+        "naming",
+        "signClasses",
+        "signMeaning",
+        "technicalTerms",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -277,7 +299,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "4cb2cd5ee037c76fe4cda53907f4fda99923929979e915f071f438fa41732931",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -291,9 +313,18 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "collectionMethod",
+        "dates",
+        "diacritics",
+        "geography",
+        "languagePattern",
+        "measurements",
+        "poeticForm",
+        "publicationHistory"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -316,7 +347,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "b486e8fcbcd01b3b627a2cdf4a41f76e1dc65a19ccc098f5f05563c63b68453d",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -330,9 +361,23 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "archaeology",
+        "architecturalTerms",
+        "astronomy",
+        "dating",
+        "descent",
+        "excavationHistory",
+        "iconography",
+        "letterCount",
+        "namesInUse",
+        "structure",
+        "subjectMatter",
+        "technique",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -441,7 +486,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "4fd8719baacc49f88f30673befe9a35be8787e10291f4e1de1430eed24593b78",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -455,9 +500,16 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "characterValues",
+        "geography",
+        "name-spelling",
+        "orthographyRule",
+        "vocabulary",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "C",
@@ -480,7 +532,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "490b6ccbe4dbc31175efe869748b9426e4d01b6f44fd0dae940e6be8ea21ba03",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -494,9 +546,13 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "inscriptionFormula",
+        "readingDirection",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -708,7 +764,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "021cf8241e0332802f22c71d65a5d084cb38bd5391cb38561d15f262998efb70",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -722,9 +778,18 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "geography",
+        "naming",
+        "numberSystem",
+        "objectFunction",
+        "survival",
+        "technique",
+        "toolAndMethod",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -747,7 +812,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "da325c03a104042050bc55fedecc12878e5d9a99f616f7e6ae08fd1812cc8ea2",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -761,9 +826,21 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "dating",
+        "etymology",
+        "genealogy",
+        "inscription",
+        "inscriptionFormula",
+        "inventoryCount",
+        "ownership",
+        "soundValues",
+        "storyDetail",
+        "technicalTerms",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -931,7 +1008,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "e083fc9c1c76fde4532a1a5ad53ebeb706387f6deffb89690fc76636649bcd33",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -945,9 +1022,14 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "diacritics",
+        "numberSystem",
+        "orthography",
+        "toneSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -970,7 +1052,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "ba65b45f9322853a7707f4e1891c9a1273ffc3be2f4e88a5888e3ba3b7420a7f",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -984,9 +1066,13 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "naturalHistory",
+        "orthography",
+        "phonology"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -1011,7 +1097,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1033,9 +1119,15 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "characterRole",
+        "genreName",
+        "listContents",
+        "methods",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",
@@ -1606,7 +1698,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1628,9 +1720,14 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "dating",
+        "manuscript",
+        "purpose",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -1665,7 +1762,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1687,9 +1784,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "instrumentConstruction",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -1894,7 +1994,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1916,9 +2016,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "materials",
+        "placeNames",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -2009,7 +2113,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2031,9 +2135,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "durations",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -2481,7 +2588,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2503,9 +2610,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "durations",
+        "placeNames",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -2539,7 +2650,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2561,9 +2672,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "nameMeaning",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -2596,7 +2710,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2618,9 +2732,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "nameMeaning",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -3385,7 +3502,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -3407,9 +3524,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "eventOrder",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -3443,7 +3563,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -3465,9 +3585,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "listContents",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -3501,7 +3624,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -3523,9 +3646,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "eventOrder",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/north-ice-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -4095,7 +4221,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -4117,9 +4243,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "dating",
+        "geography",
+        "heritageStatus"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "B",
@@ -4153,7 +4283,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -4175,9 +4305,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "eventOrder",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/sun-savanna-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "attributed",
       "eligibilityTier": "A",

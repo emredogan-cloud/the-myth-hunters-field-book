@@ -2,13 +2,14 @@
 """
 VERİ BÜTÜNLÜĞÜ VE KAPSAM KAPISI — The Myth Hunter's Field Book
 ================================================================================
-Beş soru:
+Altı soru:
 
   ① project_config.json kendi içinde tutarlı mı
   ② activity_index.json şemaya uyuyor mu, kimlikler tekil mi
   ③ 6 bölge × 5 aktivite tipi matrisinin her hücresi dolu mu
   ④ .gate seviyesinin GEREKTİRDİĞİ kapsam sağlanmış mı
   ⑤ KURUCU FAZ AŞMASI görünür ve KİLİTLİ mi                  ⭑FAZ 3⭑
+  ⑥ KAPI EŞİKLERİ ÜRETİM PLANINDAN TÜRÜYOR MU               ⭑FAZ 4⭑
 
 ③ bu projeye özgüdür: "Kuzeyin Buzları bölgesinde 4 tasnif aktivitesi
 bulamıyorum" sorununu 90. aktivitede öğrenmek pahalıdır. Matris Faz 1'de
@@ -34,6 +35,33 @@ Bu yüzden aşma bloğu bir kaçış kapısı değil bir KİLİTTİR. Aşma etki
 Dördüncüsü kritiktir: `documentedIn` yalnızca bir liste değildir, kapı o
 dosyaları AÇAR ve içlerinde aşmanın gerçekten anıldığını arar. Bir
 belgeye yazılmamış bir aşma, yapılmamış bir aşma gibi davranır.
+
+⑥ FAZ 4'TE DOĞDU — VE BİR ÇELİŞKİYİ İMKÂNSIZ KILAR (A11 · K29):
+
+Faz 3 raporu § 4.1 ölçülmüş bir çelişki bildirdi: config Faz 3 için 80
+kilitli aktivite istiyordu, yol haritası 60 diyordu. Kurucu 60'ı onayladı.
+
+Ama 80'i 60 yapmak yalnızca BUGÜNKÜ çelişkiyi kapatır. Kök neden şuydu:
+
+    Eşikler bootstrap'ın "6 bölge × 20" varsayımından ELLE türetilmişti
+    (20 · 40 · 60 · 80 · 100 · 120), Faz 1 ise kotaları ARZA göre
+    EŞİTSİZ kurdu (16 · 20 · 24 · 24 · 20 · 16 = 120 · K18).
+
+Eşitsiz kotalarla "üç bölge" otomatik olarak 60 etmez. Elle yazılmış her
+basamak o günden beri bir TAHMİNDİ — ve tahminlerin ikisi yanlıştı.
+
+    Elle yazılan bir eşik, bir gün mimarinin söylediğinden
+    BAŞKA bir şey söyler. Sorun sayının yanlış olması değil,
+    KİMSENİN BUNU ÖLÇMÜYOR olmasıdır.
+
+Bu yüzden eşik artık okunmuyor, TÜRETİLİYOR:
+
+    productionPlan[faz]  ×  regionsHypothesis[].activityQuota
+    → kümülatif toplam  ==  requirements[faz].activitiesLocked
+
+Config'teki sayılar artık bir KOPYADIR. Kopya sürüklenirse kapı kırmızı
+yanar ve hangi yönde sürüklendiğini söyler. `selftest § ⑰` bunu kusurlu
+kurguyla sınıyor: 80 yazılı bir config KIRMIZI, 60 yazılı olan YEŞİL.
 
 TASARIM: yalnızca Python standart kütüphanesi (karar K7).
 
@@ -341,6 +369,98 @@ def check_phase_override(cfg, gate, rep):
               + ("" if not silent else " — SESSİZ: %s" % silent))
 
 
+def check_gate_derivation(cfg, rep):
+    """⑥ KAPI EŞİKLERİ ÜRETİM PLANINDAN TÜRÜYOR MU — A11 · K29.
+
+    Eşik elle yazılmaz, ÜRETİLİR. Bu denetim türetmeyi yeniden hesaplar ve
+    config'teki kopyayla karşılaştırır. İkisi ayrılırsa kapı, hangi
+    basamağın hangi yönde sürüklendiğini SÖYLER."""
+    print("\n── kapı eşiklerinin türetilmesi (A11 · K29) ──")
+    gates = cfg.get("gates", {})
+    plan = gates.get("productionPlan")
+    req = gates.get("requirements", {})
+    levels = gates.get("levels", [])
+    scope = cfg.get("scope", {})
+    regions = scope.get("regionsHypothesis", [])
+
+    if plan is None:
+        rep.fail("gates.productionPlan yok — eşikler türetilemiyor, elle "
+                 "yazılmış sayı denetlenemez")
+        return
+
+    quota = {r.get("id"): r.get("activityQuota", 0) for r in regions}
+
+    # (a) Plan her kapı seviyesini tam olarak bir kez tanımlamalı.
+    plan_levels = [k for k in plan if not k.startswith("$")]
+    rep.check(set(plan_levels) == set(levels),
+              "üretim planı her kapı seviyesini tanımlıyor (%d)" % len(levels))
+
+    # (b) Her bölge planda TAM BİR KEZ geçmeli — iki fazda üretilen bir
+    #     bölge kümülatif toplamı sessizce şişirir.
+    planned = [rid for lv in levels for rid in plan.get(lv, [])]
+    dupes = sorted({r for r in planned if planned.count(r) > 1})
+    rep.check(not dupes, "hiçbir bölge iki fazda üretilmiyor" +
+              ("" if not dupes else " — YİNELENEN: %s" % dupes))
+
+    # (c) Planlanan bölgeler kilitli bölge mimarisiyle aynı kümedir.
+    unknown = sorted(set(planned) - set(quota))
+    rep.check(not unknown, "plandaki her bölge tanımlı" +
+              ("" if not unknown else " — TANIMSIZ: %s" % unknown))
+    missing = sorted(set(quota) - set(planned))
+    rep.check(not missing, "her bölge bir fazda üretiliyor" +
+              ("" if not missing else " — PLANSIZ: %s" % missing))
+
+    # (d) Türetme ile elle yazılan sayı AYNI olmalı.
+    cumulative = 0
+    drift = []
+    for lv in levels:
+        cumulative += sum(quota.get(rid, 0) for rid in plan.get(lv, []))
+        r = req.get(lv)
+        if r is None:
+            rep.fail("kapı seviyesi config'de tanımsız: %s" % lv)
+            continue
+        for field in ("activitiesLocked", "activitiesWritten"):
+            if r.get(field) != cumulative:
+                drift.append("%s.%s: yazılı %s ≠ türetilen %d"
+                             % (lv, field, r.get(field), cumulative))
+        rep.facts["derived_%s" % lv] = cumulative
+    rep.check(not drift,
+              "eşikler üretim planından türüyor" +
+              ("" if not drift else " — SÜRÜKLENME: %s" % drift))
+
+    # (e) Son basamak alt başlıktaki vaadi tutmalı: 120 aktivite.
+    rep.check(cumulative == scope.get("activities", -1),
+              "kümülatif kota alt başlığın vaadini tutuyor (%d == %s)"
+              % (cumulative, scope.get("activities")))
+
+    # (f) Eşikler geri gidemez. Bir faz öncekinden az istiyorsa kapsam
+    #     sessizce küçülmüş demektir.
+    prev = -1
+    backwards = []
+    for lv in levels:
+        cur = req.get(lv, {}).get("activitiesWritten", 0)
+        if cur < prev:
+            backwards.append(lv)
+        prev = cur
+    rep.check(not backwards, "eşikler monoton artıyor" +
+              ("" if not backwards else " — GERİ GİDEN: %s" % backwards))
+
+    # (g) Tarihî kayıt SİLİNMEMİŞ olmalı. Bir düzeltmenin kendisi de bir
+    #     kayıttır: eski değeri unutan bir sistem aynı hatayı tekrarlar.
+    hist = gates.get("requirementsHistory", [])
+    rep.check(bool(hist), "eşik değişikliklerinin tarihî kaydı duruyor (%d)"
+              % len(hist))
+    for entry in hist:
+        for field in ("decision", "decidedAt", "decidedBy", "reason", "changes"):
+            rep.check(bool(entry.get(field)),
+                      "tarihî kayıt '%s' alanını taşıyor (%s)"
+                      % (field, entry.get("decision", "?")))
+        for ch in entry.get("changes", []):
+            rep.check(ch.get("old") is not None and ch.get("new") is not None,
+                      "tarihî kayıt ESKİ ve YENİ değeri birlikte taşıyor (%s.%s)"
+                      % (ch.get("gate"), ch.get("field")))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -371,6 +491,7 @@ def main():
     check_matrix(cfg, acts, rep)
     check_gate_scope(cfg, gate, rep)
     check_phase_override(cfg, gate, rep)
+    check_gate_derivation(cfg, rep)
 
     print("\n" + "=" * 74)
     if rep.warnings:

@@ -80,13 +80,40 @@ diye düşünür.
 | Faz | Ad | Yazım | Kapı | Dal |
 |---|---|---|---|---|
 | **1** | Devralma mimarisi, aktivite taksonomisi, yaş çerçevesi | **yok** | `phase1` | `faz/1-devralma` |
-| **2** | Pilot: bir bölge (20 aktivite) + **çocuk saha testi** | ~3.700 kelime | `phase2` | `faz/2-pilot` |
-| **3** | Bölge bloğu I — üç bölge (60 aktivite) | ~7.400 kelime | `phase3` | `faz/3-blok-1` |
-| **4** | Bölge bloğu II — üç bölge + final görev (40 aktivite) | ~6.900 kelime | `phase4` | `faz/4-blok-2` |
+| **2** | Pilot: bir bölge (**16** aktivite ⭑) + **çocuk saha testi** | ~3.700 kelime | `phase2` | `faz/2-pilot` |
+| **3** | Bölge bloğu I — üç bölge (60 aktivite · kümülatif) | ~7.400 kelime | `phase3` | `faz/3-blok-1` |
+| **4** | Bölge bloğu II — üç bölge + final görev (**60** yeni ⭑) | ~6.900 kelime | `phase4` | `faz/4-blok-2` |
 | **5** | Editoryal yakınsama + sayfa tasarımı + görsel üretim | ~4.000 kelime | `phase5` | `faz/5-yakinsama` |
 | **6** | Nihai üretim + KDP paketi | **yok** | `release` | `faz/6-uretim` |
 
 **Faz 4 sonunda manuscript ÖZÜNDE TAMAMDIR.**
+
+> ### ⭑ A11 → KARAR K29 · KURUCU · 14 Ağustos 2026 ⭑
+>
+> **ESKİ SAYILAR — silinmedi, kayda geçti:**
+>
+> | Faz | ESKİ | YENİ | Ne oldu |
+> |---|---:|---:|---|
+> | **2** | ~~20~~ | **16** | pilot bölgesi `jaguar-condor`'un kotası 16'dır |
+> | **3** | 60 | 60 | ⭑ **kurucu onayladı** · config'teki 80 düzeltildi |
+> | **4** | ~~40 yeni~~ | **60 yeni** | 24 + 20 + 16 · kümülatif 120 |
+>
+> Bu tablo bir kez `20 · 60 · 40` diyordu ve **hepsi bootstrap'ın
+> "6 bölge × 20 aktivite" varsayımından** geliyordu. Faz 1 o varsayımı
+> yıktı ve kotaları **arza göre eşitsiz** kurdu (**K18**):
+>
+> ```
+> 16 · 20 · 24 · 24 · 20 · 16  =  120
+> ```
+>
+> Eşitsiz kotalarla *"üç bölge"* otomatik olarak 60 etmez ve *"bir
+> bölge"* 20 etmez. Kurucu Faz 3 eşiğini **60** olarak onayladı; diğer
+> iki basamak aynı düzeltmenin sonucudur.
+>
+> Sayılar artık üç yerde **birbirinden bağımsız** durmuyor: eşik
+> `gates.productionPlan × activityQuota` formülünden **türetiliyor** ve
+> `validate_spec § ⑥` her koşuda yeniden hesaplayıp bu tabloyla
+> karşılaştırıyor. Ayrıntı: `DECISIONS.md § K29`.
 
 Pazar raporunun üretim tahmini **7–9 hafta**. Bu bir *planlama referansıdır,
 garanti değil* — ve yalnızca araştırma devralındığı için gerçekçidir.
@@ -259,7 +286,8 @@ zor bölgede kırılır ve bunu 100. aktivitede öğrenirsiniz.
 | `06_REPORTS/PHASE_2_REPORT.md` | **Kalibrasyon raporu** |
 
 ### 4. Yazım hedefi
-20 aktivite + bölge açılışı + bölge mührü.
+**16** aktivite + bölge açılışı + bölge mührü. *(⭑ K29: eski "20"
+bootstrap tahminiydi; `jaguar-condor` kotası A3/K18 ile **16**'dır.)*
 
 ### 5. Yaklaşık kelime hedefi
 **~3.700**. Aktivite kitabında kelime azdır; asıl iş **sayfa tasarımıdır**.
@@ -289,17 +317,17 @@ qa_readability.py  → 3.–5. sınıf bandı · cümle ort. 9–14 kelime
 ```
 
 ### 10. Definition of Done
-- [ ] 20 aktivite yazıldı, `locked`
+- [ ] **16** aktivite yazıldı, `locked` *(⭑ K29 · eski: 20)*
 - [ ] **≥2 çocukla saha testi yapıldı ve kaydedildi**
 - [ ] Çocukların **tek başına** anlayamadığı her talimat yeniden yazıldı
-- [ ] `qa_solvable` 20/20 — çift cevaplı aktivite yok
+- [ ] `qa_solvable` **16/16** — çift cevaplı aktivite yok
 - [ ] Zorluk merdiveni doğrulandı (8 yaş da 12 yaş da kullanabiliyor)
 - [ ] `STYLE.md` ölçümle güncellendi
 - [ ] Gerçek dizgi ölçümü → sayfa modeli güncel
 - [ ] CI **YEŞİL** · `.gate` → `phase2`
 
 ### 11. PASS kriterleri
-- 20/20 aktivite tek cevaplı (veya açıkça `openEnded`)
+- **16/16** aktivite tek cevaplı (veya açıkça `openEnded`)
 - Çocuk testinde **≥%80 aktivite yardımsız anlaşıldı**
 - Sayfa/aktivite ölçüldü ve modelle uyumlu
 - Okunabilirlik 3.–5. sınıf bandında
@@ -335,7 +363,7 @@ dal: faz/2-pilot  ·  etiket: v0.2.0
 `gates-selftest` yeni dört kapıyı da kapsamalı.
 
 ### 17. Beklenen çıktılar
-`book.json` (20) · `CHILD_TEST_LOG.md` · `STYLE.md` v2.0 ·
+`book.json` (**16**) · `CHILD_TEST_LOG.md` · `STYLE.md` v2.0 ·
 `phase2-typeset-measurement.json` · `PHASE_2_REPORT.md`
 
 ### 18. Riskler
@@ -346,7 +374,7 @@ dal: faz/2-pilot  ·  etiket: v0.2.0
 | Devralınan veri yanlış çıkıyor | Tam da bunun için pilot var — 20'de bulmak 120'de bulmaktan ucuz |
 
 ### 19. Faz devri
-Faz 3'e girmek için: 20/20 tek cevaplı, çocuk testi geçti,
+Faz 3'e girmek için: **16/16** tek cevaplı, çocuk testi geçti,
 `STYLE.md` v2.0 onaylı, `.gate` = `phase2`.
 
 ---
@@ -358,7 +386,8 @@ Faz 3'e girmek için: 20/20 tek cevaplı, çocuk testi geçti,
 **ölçekte** çalıştığını kanıtlamak.
 
 ### 2. Kapsam
-3 bölge × 20 aktivite = **60 aktivite** (pilot dahil → net 40 yeni)
+**60 aktivite** kümülatif (pilot 16 + `monsoon` 24 + `great-ocean` 20)
+→ **net 44 yeni** *(⭑ K29: kotalar eşitsiz — "3 × 20" bootstrap tahminiydi)*
 \+ 3 bölge açılışı + 3 bölge mührü
 
 ### 3. Teslimatlar
@@ -368,7 +397,7 @@ Faz 3'e girmek için: 20/20 tek cevaplı, çocuk testi geçti,
 - `06_REPORTS/PHASE_3_REPORT.md`
 
 ### 4. Yazım hedefi
-40 yeni aktivite + 3 bölge açılışı.
+**44** yeni aktivite + 3 bölge açılışı. *(⭑ K29 · eski: 40)*
 
 ### 5. Yaklaşık kelime hedefi
 **~7.400** · kümülatif ~11.100.
@@ -448,7 +477,8 @@ Faz 4: kalan üç bölge + final görev.
 **Manuscript'i özünde tamamlamak.**
 
 ### 2. Kapsam
-3 bölge × 20 = **60 aktivite** (kümülatif 120)
+**60 yeni aktivite** — `north-ice` 24 + `middle-sea` 20 + `sun-savanna` 16
+(kümülatif **120**) *(⭑ K29: "3 × 20" bootstrap tahminiydi; kotalar A3/K18)*
 \+ **FINAL QUEST · The Cartographer's Seal**
 \+ arka madde: kademeli ipuçları · cevap anahtarı · kültür sözlüğü ·
 World Myths köprü sayfası

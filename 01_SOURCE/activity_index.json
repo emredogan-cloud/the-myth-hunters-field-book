@@ -66,9 +66,9 @@
       "culture": "finnish",
       "region": "north-ice",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader marks the repeated opening sounds in a four-line verse.",
@@ -89,13 +89,17 @@
       ],
       "culturalContext": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-finnish"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-NI-KALEVALA-METRE"
+      ],
+      "layout": "plate-compare"
     },
     {
       "activityId": "finnish-compound-words",
@@ -138,9 +142,9 @@
       "culture": "finnish",
       "region": "north-ice",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader sketches an instrument built from an unexpected material and names it.",
@@ -160,7 +164,7 @@
       ],
       "culturalContext": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 3,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
@@ -168,7 +172,11 @@
         "story-finnish-kantele"
       ],
       "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "sourceStory": "story-finnish-kantele"
+      "sourceStory": "story-finnish-kantele",
+      "claimRefs": [
+        "CLM-NI-KANTELE"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "finnish-kantele-strings",
@@ -176,9 +184,9 @@
       "culture": "finnish",
       "region": "north-ice",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader counts the strings on a kantele and labels four parts of its body.",
@@ -208,7 +216,11 @@
       ],
       "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
       "sourceStory": "story-finnish-kantele",
-      "sealSlot": 3
+      "sealSlot": 3,
+      "claimRefs": [
+        "CLM-NI-KANTELE"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "finnish-lakes-map",
@@ -216,9 +228,9 @@
       "culture": "finnish",
       "region": "north-ice",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader traces a route across the Karelian lakes and counts the portages.",
@@ -237,13 +249,17 @@
       ],
       "culturalContext": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 6,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-finnish"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir."
+      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
+      "claimRefs": [
+        "CLM-NI-FINNISH-LAKES"
+      ],
+      "layout": "map-overlay"
     },
     {
       "activityId": "finnish-sampo-parts",
@@ -289,9 +305,9 @@
       "culture": "finnish",
       "region": "north-ice",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader orders the four steps by which sung poems became a printed book.",
@@ -311,13 +327,17 @@
       ],
       "culturalContext": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 8,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-finnish"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer."
+      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
+      "claimRefs": [
+        "CLM-NI-KALEVALA-MADE"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "finnish-vowel-harmony",
@@ -325,9 +345,9 @@
       "culture": "finnish",
       "region": "north-ice",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader completes six Finnish words by choosing the matching vowel set.",
@@ -347,13 +367,17 @@
       ],
       "culturalContext": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 7,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-finnish"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-NI-VOWEL-HARMONY"
+      ],
+      "layout": "key-build"
     },
     {
       "activityId": "inuit-daylight-clock",
@@ -399,9 +423,9 @@
       "culture": "inuit",
       "region": "north-ice",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader sketches an animal for the far side of the ice and writes one line about it.",
@@ -421,14 +445,18 @@
       ],
       "culturalContext": "Buzun altındaki dünya: aynı denizin iki adı, iki hikâyesi",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 3,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
         "culture-inuit"
       ],
       "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § inuit"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § inuit",
+      "claimRefs": [
+        "CLM-NI-FLOE-EDGE"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "inuit-loon-flight-map",
@@ -436,9 +464,9 @@
       "culture": "inuit",
       "region": "north-ice",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader traces the loon's flight and marks where open water ends.",
@@ -458,16 +486,19 @@
       ],
       "culturalContext": "Buzun altındaki dünya: aynı denizin iki adı, iki hikâyesi",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
-        "culture-inuit",
-        "story-inuit-blind-boy-loon"
+        "culture-inuit"
       ],
       "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
-      "sourceStory": "story-inuit-blind-boy-loon",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § inuit"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § inuit",
+      "claimRefs": [
+        "CLM-NI-FLOE-EDGE"
+      ],
+      "layout": "map-trace",
+      "sealSlot": 1
     },
     {
       "activityId": "inuit-sea-creatures-plate",
@@ -475,9 +506,9 @@
       "culture": "inuit",
       "region": "north-ice",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader marks which animals in the plate live below the ice and which above.",
@@ -497,16 +528,18 @@
       ],
       "culturalContext": "Buzun altındaki dünya: aynı denizin iki adı, iki hikâyesi",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
-        "culture-inuit",
-        "story-inuit-sedna"
+        "culture-inuit"
       ],
       "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
-      "sourceStory": "story-inuit-sedna",
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § inuit"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § inuit",
+      "claimRefs": [
+        "CLM-NI-ARCTIC-NAMES"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "inuit-syllabic-signs",
@@ -514,9 +547,9 @@
       "culture": "inuit",
       "region": "north-ice",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches five Inuktitut syllabic signs to their sounds and reads one place name.",
@@ -536,15 +569,18 @@
       ],
       "culturalContext": "Buzun altındaki dünya: aynı denizin iki adı, iki hikâyesi",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-inuit"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 1,
-      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § inuit"
+      "restrictionNote": "Kademe C — biçim kısıtlı. İzinli biçimler ve yasak formlar: 01_SOURCE/culture_index.json § inuit",
+      "claimRefs": [
+        "CLM-NI-SYLLABICS"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "inuit-two-names-one-sea",
@@ -626,9 +662,9 @@
       "culture": "irish",
       "region": "north-ice",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader matches three heroes' first names to the names they earned.",
@@ -648,15 +684,21 @@
       ],
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-irish",
-        "story-irish-cu-chulainn-name"
+        "story-irish-cu-chulainn-name",
+        "story-irish-fionn-salmon"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-irish-cu-chulainn-name"
+      "sourceStory": "story-irish-cu-chulainn-name",
+      "claimRefs": [
+        "CLM-NI-CUCHULAINN",
+        "CLM-NI-FIONN"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "irish-ogham-direction",
@@ -701,9 +743,9 @@
       "culture": "irish",
       "region": "north-ice",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader uses an ogham key to write a name along a stone's edge.",
@@ -723,14 +765,18 @@
       ],
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-irish"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 4
+      "sealSlot": 4,
+      "claimRefs": [
+        "CLM-NI-OGHAM"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "irish-ogham-read",
@@ -738,9 +784,9 @@
       "culture": "irish",
       "region": "north-ice",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader reads three ogham names from a drawing of a standing stone.",
@@ -760,13 +806,17 @@
       ],
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-irish"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-NI-OGHAM"
+      ],
+      "layout": "key-build"
     },
     {
       "activityId": "irish-place-names",
@@ -810,9 +860,9 @@
       "culture": "irish",
       "region": "north-ice",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader traces the river to the pool where the salmon was caught.",
@@ -832,7 +882,7 @@
       ],
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
@@ -840,7 +890,11 @@
         "story-irish-fionn-salmon"
       ],
       "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
-      "sourceStory": "story-irish-fionn-salmon"
+      "sourceStory": "story-irish-fionn-salmon",
+      "claimRefs": [
+        "CLM-NI-FIONN"
+      ],
+      "layout": "map-trace"
     },
     {
       "activityId": "irish-stone-plate",
@@ -848,9 +902,9 @@
       "culture": "irish",
       "region": "north-ice",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader marks the inscribed edge on a plate of a standing stone.",
@@ -876,7 +930,11 @@
       "inheritedRecords": [
         "culture-irish"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-NI-OGHAM"
+      ],
+      "layout": "plate-compare"
     },
     {
       "activityId": "irish-swans-count",
@@ -884,9 +942,9 @@
       "culture": "irish",
       "region": "north-ice",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader counts and groups the birds in the plate by their markings.",
@@ -906,7 +964,7 @@
       ],
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -914,7 +972,11 @@
         "story-irish-children-of-lir"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-irish-children-of-lir"
+      "sourceStory": "story-irish-children-of-lir",
+      "claimRefs": [
+        "CLM-NI-LIR"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "norse-apples-sequence",
@@ -922,9 +984,9 @@
       "culture": "norse",
       "region": "north-ice",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader puts four events of the apple theft into order.",
@@ -944,7 +1006,7 @@
       ],
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -952,7 +1014,11 @@
         "story-norse-idun-apples"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-norse-idun-apples"
+      "sourceStory": "story-norse-idun-apples",
+      "claimRefs": [
+        "CLM-NI-IDUN"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "norse-binding-riddle",
@@ -960,9 +1026,9 @@
       "culture": "norse",
       "region": "north-ice",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader sorts the six ingredients of the fetter into things that exist and things that do not.",
@@ -982,7 +1048,7 @@
       ],
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 8,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -990,7 +1056,11 @@
         "story-norse-fenrir-binding"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-norse-fenrir-binding"
+      "sourceStory": "story-norse-fenrir-binding",
+      "claimRefs": [
+        "CLM-NI-GLEIPNIR"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "norse-futhark-key",
@@ -998,9 +1068,9 @@
       "culture": "norse",
       "region": "north-ice",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader uses a Younger Futhark key to write four names in runes.",
@@ -1020,14 +1090,19 @@
       ],
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 2
+      "sealSlot": 2,
+      "claimRefs": [
+        "CLM-NI-FUTHARK16",
+        "CLM-NI-JELLING"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "norse-hammer-journey",
@@ -1073,9 +1148,9 @@
       "culture": "norse",
       "region": "north-ice",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader invents a kenning for the sea and explains the two words.",
@@ -1096,15 +1171,17 @@
       ],
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
-        "culture-norse",
-        "story-norse-mead-poetry"
+        "culture-norse"
       ],
       "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "sourceStory": "story-norse-mead-poetry"
+      "claimRefs": [
+        "CLM-NI-TREASURES"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "norse-mead-vessel-draw",
@@ -1187,9 +1264,9 @@
       "culture": "norse",
       "region": "north-ice",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader decodes a runic memorial formula and names who raised the stone.",
@@ -1209,13 +1286,18 @@
       ],
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 7,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-NI-JELLING",
+        "CLM-NI-RUNESTONE-FORMULA"
+      ],
+      "layout": "key-build"
     },
     {
       "activityId": "norse-ship-plate",
@@ -1223,9 +1305,9 @@
       "culture": "norse",
       "region": "north-ice",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader labels six parts of a Viking ship using a word bank.",
@@ -1246,13 +1328,17 @@
       ],
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 7,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-NI-SHIP"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "norse-weekday-names",
@@ -1260,9 +1346,9 @@
       "culture": "norse",
       "region": "north-ice",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader finds the Norse name hidden inside four English weekday names.",
@@ -1282,14 +1368,18 @@
       ],
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sealSlot": 5
+      "sealSlot": 5,
+      "claimRefs": [
+        "CLM-NI-WEEKDAYS"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "norse-who-owns-what",
@@ -1297,9 +1387,9 @@
       "culture": "norse",
       "region": "north-ice",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader matches eight named objects to the god who carries them.",
@@ -1319,13 +1409,17 @@
       ],
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer."
+      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
+      "claimRefs": [
+        "CLM-NI-TREASURES"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "egyptian-boat-plate",
@@ -1333,9 +1427,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader labels six parts of a Nile boat using a word bank.",
@@ -1356,13 +1450,17 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-NILE-BOAT"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "egyptian-cartouche-key",
@@ -1370,9 +1468,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader writes a name in hieroglyphs inside a cartouche.",
@@ -1392,14 +1490,18 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 3
+      "sealSlot": 3,
+      "claimRefs": [
+        "CLM-MS-CARTOUCHE"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "egyptian-hieroglyph-classes",
@@ -1407,9 +1509,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader sorts signs into sound-signs, word-signs and silent markers.",
@@ -1429,13 +1531,17 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 8,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer."
+      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
+      "claimRefs": [
+        "CLM-MS-HIEROGLYPH-CLASSES"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "egyptian-island-make",
@@ -1520,9 +1626,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader marks Upper and Lower Egypt on the Nile and explains why Upper is south.",
@@ -1542,14 +1648,18 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
       ],
       "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
-      "sealSlot": 4
+      "sealSlot": 4,
+      "claimRefs": [
+        "CLM-MS-NILE-DIRECTION"
+      ],
+      "layout": "map-trace"
     },
     {
       "activityId": "egyptian-sailor-sequence",
@@ -1557,9 +1667,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader puts the sailor's voyage events into order.",
@@ -1579,7 +1689,7 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -1587,7 +1697,11 @@
         "story-egyptian-shipwrecked-sailor"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-egyptian-shipwrecked-sailor"
+      "sourceStory": "story-egyptian-shipwrecked-sailor",
+      "claimRefs": [
+        "CLM-MS-SAILOR"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "greek-alphabet-key",
@@ -1595,9 +1709,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader uses a Greek alphabet key to write four names.",
@@ -1617,14 +1731,18 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 1
+      "sealSlot": 1,
+      "claimRefs": [
+        "CLM-MS-GREEK-ALPHABET"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "greek-column-orders",
@@ -1632,9 +1750,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader labels three column capitals as Doric, Ionic and Corinthian.",
@@ -1661,7 +1779,11 @@
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-COLUMN-ORDERS"
+      ],
+      "layout": "plate-compare"
     },
     {
       "activityId": "greek-constellation-plate",
@@ -1669,9 +1791,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader finds three constellations on a star chart and names the story each carries.",
@@ -1692,13 +1814,17 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-CONSTELLATIONS"
+      ],
+      "layout": "data-table"
     },
     {
       "activityId": "greek-crete-palace-map",
@@ -1706,9 +1832,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader finds the route from gate to centre on a plan of the Knossos palace.",
@@ -1728,13 +1854,17 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir."
+      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
+      "claimRefs": [
+        "CLM-MS-KNOSSOS"
+      ],
+      "layout": "map-overlay"
     },
     {
       "activityId": "greek-god-domains",
@@ -1778,9 +1908,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader traces the flight between two islands and marks the sea named after it.",
@@ -1800,7 +1930,7 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
@@ -1809,7 +1939,11 @@
       ],
       "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
       "sourceStory": "story-greek-icarus",
-      "sealSlot": 2
+      "sealSlot": 2,
+      "claimRefs": [
+        "CLM-MS-ICARUS"
+      ],
+      "layout": "map-trace"
     },
     {
       "activityId": "greek-labyrinth-cipher",
@@ -1817,9 +1951,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader follows the one true path through a plan and reads the letters along it.",
@@ -1839,13 +1973,17 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-MS-LABYRINTH-COIN"
+      ],
+      "layout": "key-build"
     },
     {
       "activityId": "greek-labyrinth-make",
@@ -1926,9 +2064,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader orders four events that explain the return of winter.",
@@ -1948,7 +2086,7 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -1956,7 +2094,11 @@
         "story-greek-persephone"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-greek-persephone"
+      "sourceStory": "story-greek-persephone",
+      "claimRefs": [
+        "CLM-MS-PERSEPHONE"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "greek-vase-plate",
@@ -1964,9 +2106,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader finds four story details on a black-figure vase.",
@@ -1987,13 +2129,17 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-VASE"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "greek-weaving-motifs",
@@ -2039,9 +2185,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader sketches a pair of wings and labels what they are made of.",
@@ -2062,7 +2208,7 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
@@ -2070,7 +2216,11 @@
         "story-greek-icarus"
       ],
       "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "sourceStory": "story-greek-icarus"
+      "sourceStory": "story-greek-icarus",
+      "claimRefs": [
+        "CLM-MS-ICARUS"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "mesopotamian-base-sixty",
@@ -2078,9 +2228,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader writes four numbers in base sixty and finds why an hour has sixty minutes.",
@@ -2100,13 +2250,17 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 8,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-MS-BASE-SIXTY"
+      ],
+      "layout": "key-build"
     },
     {
       "activityId": "mesopotamian-cuneiform-key",
@@ -2114,9 +2268,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader uses a cuneiform key to read four words.",
@@ -2136,14 +2290,18 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 7,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 5
+      "sealSlot": 5,
+      "claimRefs": [
+        "CLM-MS-CUNEIFORM"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "mesopotamian-eagle-height-plate",
@@ -2182,8 +2340,7 @@
         "story-meso-etana-eagle"
       ],
       "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
-      "sourceStory": "story-meso-etana-eagle",
-      "sealSlot": 6
+      "sourceStory": "story-meso-etana-eagle"
     },
     {
       "activityId": "mesopotamian-plant-quest-steps",
@@ -2191,9 +2348,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader orders the stages of the search for the plant.",
@@ -2213,7 +2370,7 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -2221,7 +2378,11 @@
         "story-meso-gilgamesh-plant"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-meso-gilgamesh-plant"
+      "sourceStory": "story-meso-gilgamesh-plant",
+      "claimRefs": [
+        "CLM-MS-GILGAMESH-PLANT"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "mesopotamian-seal-cylinder-plate",
@@ -2229,9 +2390,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader matches four cylinder seals to the impressions they print.",
@@ -2252,13 +2413,18 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-CYLINDER-SEAL"
+      ],
+      "layout": "plate-label",
+      "sealSlot": 6
     },
     {
       "activityId": "mesopotamian-tablet-order",
@@ -2302,9 +2468,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader marks four cities between the Tigris and the Euphrates.",
@@ -2324,13 +2490,17 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir."
+      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
+      "claimRefs": [
+        "CLM-MS-MESOPOTAMIA-NAME"
+      ],
+      "layout": "map-overlay"
     },
     {
       "activityId": "mesopotamian-your-seal-make",
@@ -2338,9 +2508,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader designs a cylinder seal and draws the picture it would print.",
@@ -2361,13 +2531,17 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
+      "claimRefs": [
+        "CLM-MS-CYLINDER-SEAL"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "akan-adinkra-match",
@@ -2411,9 +2585,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader pairs seven male and seven female day-names with their days.",
@@ -2433,14 +2607,18 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 8,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sealSlot": 6
+      "sealSlot": 6,
+      "claimRefs": [
+        "CLM-SS-AKAN-DAY-NAMES"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "akan-day-names",
@@ -2448,9 +2626,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader works out which Akan day-name belongs to four given birthdays.",
@@ -2470,14 +2648,18 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 3
+      "sealSlot": 3,
+      "claimRefs": [
+        "CLM-SS-AKAN-DAY-NAMES"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "akan-goldweight-plate",
@@ -2485,9 +2667,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches four Akan gold weights to what each one shows.",
@@ -2508,13 +2690,17 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-SS-AKAN-GOLDWEIGHTS"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "akan-kente-pattern-plate",
@@ -2559,9 +2745,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader sketches the spider as a storyteller rather than as an animal.",
@@ -2581,7 +2767,7 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 3,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
@@ -2589,7 +2775,11 @@
         "story-akan-ananse-stories"
       ],
       "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "sourceStory": "story-akan-ananse-stories"
+      "sourceStory": "story-akan-ananse-stories",
+      "claimRefs": [
+        "CLM-SS-ANANSE-CHARACTER"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "akan-story-trade",
@@ -2597,9 +2787,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the four creatures by difficulty and matches each to how it was caught.",
@@ -2619,7 +2809,7 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -2628,7 +2818,11 @@
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
       "sourceStory": "story-akan-ananse-stories",
-      "sealSlot": 7
+      "sealSlot": 7,
+      "claimRefs": [
+        "CLM-SS-ANANSE-TRADE"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "akan-story-trade-make",
@@ -2675,9 +2869,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader traces a story's path from teller to teller across four towns.",
@@ -2697,13 +2891,18 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir."
+      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
+      "claimRefs": [
+        "CLM-SS-ATUMPAN",
+        "CLM-SS-AKAN-PEOPLE"
+      ],
+      "layout": "map-overlay"
     },
     {
       "activityId": "akan-talking-drum-plate",
@@ -2711,9 +2910,9 @@
       "culture": "akan",
       "region": "sun-savanna",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches four drum patterns to four phrases by their tone shape.",
@@ -2734,13 +2933,17 @@
       ],
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-SS-ATUMPAN"
+      ],
+      "layout": "plate-compare"
     },
     {
       "activityId": "akan-wisdom-pot-sequence",
@@ -2786,9 +2989,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader works out four Yoruba numbers built by subtracting from twenty.",
@@ -2808,13 +3011,17 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 7,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer."
+      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
+      "claimRefs": [
+        "CLM-SS-YORUBA-NUMBERS"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "yoruba-market-day-plate",
@@ -2897,9 +3104,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader traces the Osun river and marks the protected grove on its bank.",
@@ -2919,7 +3126,7 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
@@ -2928,7 +3135,11 @@
       ],
       "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
       "sourceStory": "story-yoruba-osun-seventeenth",
-      "sealSlot": 2
+      "sealSlot": 2,
+      "claimRefs": [
+        "CLM-SS-OSUN-GROVE"
+      ],
+      "layout": "map-trace"
     },
     {
       "activityId": "yoruba-sentence-name-make",
@@ -2936,9 +3147,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader writes a sentence-name for a traveller and explains what it means.",
@@ -2959,13 +3170,17 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
         "culture-yoruba"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
+      "claimRefs": [
+        "CLM-SS-YORUBA-MARKS"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "yoruba-tone-marks",
@@ -2973,9 +3188,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader reads three words spelled with the same letters but different tone marks.",
@@ -2995,14 +3210,18 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 1
+      "sealSlot": 1,
+      "claimRefs": [
+        "CLM-SS-YORUBA-MARKS"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "yoruba-underdot-letters",
@@ -3010,9 +3229,9 @@
       "culture": "yoruba",
       "region": "sun-savanna",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches six words to meanings using the under-dot letters.",
@@ -3032,13 +3251,17 @@
       ],
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-SS-YORUBA-MARKS"
+      ],
+      "layout": "key-build"
     },
     {
       "activityId": "zulu-chameleon-plate",
@@ -3046,9 +3269,9 @@
       "culture": "zulu",
       "region": "sun-savanna",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader labels four features that make a chameleon a slow traveller.",
@@ -3068,13 +3291,17 @@
       ],
       "culturalContext": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-zulu"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-SS-CHAMELEON-BODY"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "zulu-click-letters",
@@ -3082,9 +3309,9 @@
       "culture": "zulu",
       "region": "sun-savanna",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader matches six isiZulu words to the click each one begins with.",
@@ -3113,7 +3340,11 @@
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
       "sealSlot": 4,
-      "parentNote": "An adult or older reader says each click once so the child can hear the difference before matching."
+      "parentNote": "An adult or older reader says each click once so the child can hear the difference before matching.",
+      "claimRefs": [
+        "CLM-SS-ZULU-CLICKS"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "zulu-click-word-hunt",
@@ -3193,9 +3424,9 @@
       "culture": "zulu",
       "region": "sun-savanna",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader chooses an animal to carry urgent news and gives one reason.",
@@ -3216,13 +3447,17 @@
       ],
       "culturalContext": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
         "culture-zulu"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
+      "claimRefs": [
+        "CLM-SS-CHAMELEON-MESSAGE"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "zulu-two-messengers",
@@ -3230,9 +3465,9 @@
       "culture": "zulu",
       "region": "sun-savanna",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "attributed",
       "attributionRequired": true,
       "objective": "Reader orders the events and works out why the second messenger won.",
@@ -3252,7 +3487,7 @@
       ],
       "culturalContext": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -3261,7 +3496,11 @@
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
       "sourceStory": "story-zulu-chameleon-message",
-      "sealSlot": 5
+      "sealSlot": 5,
+      "claimRefs": [
+        "CLM-SS-CHAMELEON-MESSAGE"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "chinese-archer-sequence",

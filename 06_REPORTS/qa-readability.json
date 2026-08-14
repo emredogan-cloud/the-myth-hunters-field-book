@@ -4,11 +4,11 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 3876,
-    "sentences": 447,
-    "avgSentenceWords": 8.67,
-    "fkGrade": 3.1,
-    "longWordRatio": 0.036,
+    "words": 8166,
+    "sentences": 878,
+    "avgSentenceWords": 9.3,
+    "fkGrade": 3.52,
+    "longWordRatio": 0.043,
     "perActivity": [
       {
         "activityId": "maya-bar-dot-numbers",
@@ -609,29 +609,629 @@
         "longWordRatio": 0.032,
         "fieldNoteWords": 31,
         "steps": 4
+      },
+      {
+        "activityId": "inuit-syllabic-signs",
+        "words": 73,
+        "sentences": 7,
+        "avgSentenceWords": 10.43,
+        "fkGrade": 4.48,
+        "longWordRatio": 0.082,
+        "fieldNoteWords": 26,
+        "steps": 3
+      },
+      {
+        "activityId": "inuit-sea-creatures-plate",
+        "words": 62,
+        "sentences": 6,
+        "avgSentenceWords": 10.33,
+        "fkGrade": 5.57,
+        "longWordRatio": 0.129,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "inuit-loon-flight-map",
+        "words": 63,
+        "sentences": 6,
+        "avgSentenceWords": 10.5,
+        "fkGrade": 4.24,
+        "longWordRatio": 0.032,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "inuit-ice-window-draw",
+        "words": 62,
+        "sentences": 6,
+        "avgSentenceWords": 10.33,
+        "fkGrade": 3.86,
+        "longWordRatio": 0.081,
+        "fieldNoteWords": 23,
+        "steps": 2
+      },
+      {
+        "activityId": "norse-futhark-key",
+        "words": 62,
+        "sentences": 6,
+        "avgSentenceWords": 10.33,
+        "fkGrade": 4.24,
+        "longWordRatio": 0.032,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "norse-runestone-read",
+        "words": 105,
+        "sentences": 13,
+        "avgSentenceWords": 8.08,
+        "fkGrade": 3.18,
+        "longWordRatio": 0.048,
+        "fieldNoteWords": 26,
+        "steps": 4
+      },
+      {
+        "activityId": "norse-weekday-names",
+        "words": 84,
+        "sentences": 9,
+        "avgSentenceWords": 9.33,
+        "fkGrade": 2.24,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "norse-binding-riddle",
+        "words": 90,
+        "sentences": 9,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 3.39,
+        "longWordRatio": 0.056,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "norse-who-owns-what",
+        "words": 56,
+        "sentences": 6,
+        "avgSentenceWords": 9.33,
+        "fkGrade": 3.43,
+        "longWordRatio": 0.036,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "norse-apples-sequence",
+        "words": 65,
+        "sentences": 7,
+        "avgSentenceWords": 9.29,
+        "fkGrade": 3.1,
+        "longWordRatio": 0.015,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "norse-ship-plate",
+        "words": 72,
+        "sentences": 7,
+        "avgSentenceWords": 10.29,
+        "fkGrade": 3.01,
+        "longWordRatio": 0.028,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "norse-kenning-make",
+        "words": 61,
+        "sentences": 6,
+        "avgSentenceWords": 10.17,
+        "fkGrade": 3.66,
+        "longWordRatio": 0.082,
+        "fieldNoteWords": 27,
+        "steps": 2
+      },
+      {
+        "activityId": "finnish-kantele-strings",
+        "words": 61,
+        "sentences": 6,
+        "avgSentenceWords": 10.17,
+        "fkGrade": 4.43,
+        "longWordRatio": 0.115,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "finnish-spoken-to-printed",
+        "words": 99,
+        "sentences": 10,
+        "avgSentenceWords": 9.9,
+        "fkGrade": 4.0,
+        "longWordRatio": 0.04,
+        "fieldNoteWords": 25,
+        "steps": 4
+      },
+      {
+        "activityId": "finnish-vowel-harmony",
+        "words": 64,
+        "sentences": 7,
+        "avgSentenceWords": 9.14,
+        "fkGrade": 5.86,
+        "longWordRatio": 0.141,
+        "fieldNoteWords": 24,
+        "steps": 3
+      },
+      {
+        "activityId": "finnish-alliteration",
+        "words": 73,
+        "sentences": 8,
+        "avgSentenceWords": 9.12,
+        "fkGrade": 2.19,
+        "longWordRatio": 0.027,
+        "fieldNoteWords": 25,
+        "steps": 4
+      },
+      {
+        "activityId": "finnish-lakes-map",
+        "words": 76,
+        "sentences": 8,
+        "avgSentenceWords": 9.5,
+        "fkGrade": 4.26,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 28,
+        "steps": 4
+      },
+      {
+        "activityId": "finnish-instrument-make",
+        "words": 58,
+        "sentences": 6,
+        "avgSentenceWords": 9.67,
+        "fkGrade": 6.29,
+        "longWordRatio": 0.155,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "irish-ogham-key",
+        "words": 63,
+        "sentences": 6,
+        "avgSentenceWords": 10.5,
+        "fkGrade": 3.86,
+        "longWordRatio": 0.0,
+        "fieldNoteWords": 28,
+        "steps": 2
+      },
+      {
+        "activityId": "irish-ogham-read",
+        "words": 66,
+        "sentences": 7,
+        "avgSentenceWords": 9.43,
+        "fkGrade": 2.39,
+        "longWordRatio": 0.015,
+        "fieldNoteWords": 26,
+        "steps": 3
+      },
+      {
+        "activityId": "irish-stone-plate",
+        "words": 58,
+        "sentences": 6,
+        "avgSentenceWords": 9.67,
+        "fkGrade": 3.24,
+        "longWordRatio": 0.052,
+        "fieldNoteWords": 28,
+        "steps": 2
+      },
+      {
+        "activityId": "irish-name-changes",
+        "words": 106,
+        "sentences": 11,
+        "avgSentenceWords": 9.64,
+        "fkGrade": 3.53,
+        "longWordRatio": 0.028,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "irish-swans-count",
+        "words": 64,
+        "sentences": 5,
+        "avgSentenceWords": 12.8,
+        "fkGrade": 4.71,
+        "longWordRatio": 0.031,
+        "fieldNoteWords": 29,
+        "steps": 2
+      },
+      {
+        "activityId": "irish-salmon-river-map",
+        "words": 68,
+        "sentences": 7,
+        "avgSentenceWords": 9.71,
+        "fkGrade": 4.16,
+        "longWordRatio": 0.029,
+        "fieldNoteWords": 25,
+        "steps": 3
+      },
+      {
+        "activityId": "greek-alphabet-key",
+        "words": 66,
+        "sentences": 6,
+        "avgSentenceWords": 11.0,
+        "fkGrade": 5.33,
+        "longWordRatio": 0.076,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "greek-icarus-flight-map",
+        "words": 77,
+        "sentences": 7,
+        "avgSentenceWords": 11.0,
+        "fkGrade": 4.18,
+        "longWordRatio": 0.026,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "greek-labyrinth-cipher",
+        "words": 117,
+        "sentences": 10,
+        "avgSentenceWords": 11.7,
+        "fkGrade": 3.9,
+        "longWordRatio": 0.034,
+        "fieldNoteWords": 29,
+        "steps": 4
+      },
+      {
+        "activityId": "greek-crete-palace-map",
+        "words": 64,
+        "sentences": 7,
+        "avgSentenceWords": 9.14,
+        "fkGrade": 3.28,
+        "longWordRatio": 0.047,
+        "fieldNoteWords": 24,
+        "steps": 3
+      },
+      {
+        "activityId": "greek-column-orders",
+        "words": 53,
+        "sentences": 6,
+        "avgSentenceWords": 8.83,
+        "fkGrade": 4.78,
+        "longWordRatio": 0.075,
+        "fieldNoteWords": 26,
+        "steps": 2
+      },
+      {
+        "activityId": "greek-constellation-plate",
+        "words": 103,
+        "sentences": 10,
+        "avgSentenceWords": 10.3,
+        "fkGrade": 5.27,
+        "longWordRatio": 0.058,
+        "fieldNoteWords": 23,
+        "steps": 4
+      },
+      {
+        "activityId": "greek-vase-plate",
+        "words": 66,
+        "sentences": 5,
+        "avgSentenceWords": 13.2,
+        "fkGrade": 4.75,
+        "longWordRatio": 0.03,
+        "fieldNoteWords": 26,
+        "steps": 2
+      },
+      {
+        "activityId": "greek-seasons-six-seeds",
+        "words": 59,
+        "sentences": 6,
+        "avgSentenceWords": 9.83,
+        "fkGrade": 4.05,
+        "longWordRatio": 0.017,
+        "fieldNoteWords": 28,
+        "steps": 2
+      },
+      {
+        "activityId": "greek-wing-design-make",
+        "words": 63,
+        "sentences": 6,
+        "avgSentenceWords": 10.5,
+        "fkGrade": 4.05,
+        "longWordRatio": 0.079,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "egyptian-cartouche-key",
+        "words": 60,
+        "sentences": 6,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 3.26,
+        "longWordRatio": 0.067,
+        "fieldNoteWords": 23,
+        "steps": 2
+      },
+      {
+        "activityId": "egyptian-nile-map",
+        "words": 81,
+        "sentences": 7,
+        "avgSentenceWords": 11.57,
+        "fkGrade": 4.66,
+        "longWordRatio": 0.025,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "egyptian-hieroglyph-classes",
+        "words": 96,
+        "sentences": 10,
+        "avgSentenceWords": 9.6,
+        "fkGrade": 2.17,
+        "longWordRatio": 0.021,
+        "fieldNoteWords": 24,
+        "steps": 4
+      },
+      {
+        "activityId": "egyptian-boat-plate",
+        "words": 58,
+        "sentences": 5,
+        "avgSentenceWords": 11.6,
+        "fkGrade": 3.38,
+        "longWordRatio": 0.017,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "egyptian-sailor-sequence",
+        "words": 56,
+        "sentences": 7,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 5.23,
+        "longWordRatio": 0.089,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "mesopotamian-cuneiform-key",
+        "words": 75,
+        "sentences": 7,
+        "avgSentenceWords": 10.71,
+        "fkGrade": 3.54,
+        "longWordRatio": 0.027,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "mesopotamian-base-sixty",
+        "words": 105,
+        "sentences": 11,
+        "avgSentenceWords": 9.55,
+        "fkGrade": 4.32,
+        "longWordRatio": 0.057,
+        "fieldNoteWords": 26,
+        "steps": 4
+      },
+      {
+        "activityId": "mesopotamian-seal-cylinder-plate",
+        "words": 56,
+        "sentences": 6,
+        "avgSentenceWords": 9.33,
+        "fkGrade": 3.64,
+        "longWordRatio": 0.036,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "mesopotamian-your-seal-make",
+        "words": 60,
+        "sentences": 6,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 4.44,
+        "longWordRatio": 0.1,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "mesopotamian-plant-quest-steps",
+        "words": 64,
+        "sentences": 7,
+        "avgSentenceWords": 9.14,
+        "fkGrade": 2.17,
+        "longWordRatio": 0.016,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "mesopotamian-two-rivers-map",
+        "words": 55,
+        "sentences": 6,
+        "avgSentenceWords": 9.17,
+        "fkGrade": 3.22,
+        "longWordRatio": 0.018,
+        "fieldNoteWords": 21,
+        "steps": 2
+      },
+      {
+        "activityId": "yoruba-tone-marks",
+        "words": 78,
+        "sentences": 7,
+        "avgSentenceWords": 11.14,
+        "fkGrade": 2.22,
+        "longWordRatio": 0.013,
+        "fieldNoteWords": 25,
+        "steps": 3
+      },
+      {
+        "activityId": "yoruba-underdot-letters",
+        "words": 57,
+        "sentences": 6,
+        "avgSentenceWords": 9.5,
+        "fkGrade": 4.88,
+        "longWordRatio": 0.088,
+        "fieldNoteWords": 22,
+        "steps": 2
+      },
+      {
+        "activityId": "yoruba-river-map",
+        "words": 68,
+        "sentences": 7,
+        "avgSentenceWords": 9.71,
+        "fkGrade": 4.68,
+        "longWordRatio": 0.088,
+        "fieldNoteWords": 24,
+        "steps": 3
+      },
+      {
+        "activityId": "yoruba-counting-to-twenty",
+        "words": 103,
+        "sentences": 9,
+        "avgSentenceWords": 11.44,
+        "fkGrade": 4.45,
+        "longWordRatio": 0.039,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "yoruba-sentence-name-make",
+        "words": 66,
+        "sentences": 7,
+        "avgSentenceWords": 9.43,
+        "fkGrade": 4.54,
+        "longWordRatio": 0.076,
+        "fieldNoteWords": 26,
+        "steps": 2
+      },
+      {
+        "activityId": "akan-day-names",
+        "words": 60,
+        "sentences": 6,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 3.06,
+        "longWordRatio": 0.017,
+        "fieldNoteWords": 28,
+        "steps": 2
+      },
+      {
+        "activityId": "akan-day-name-pairs",
+        "words": 79,
+        "sentences": 7,
+        "avgSentenceWords": 11.29,
+        "fkGrade": 4.49,
+        "longWordRatio": 0.025,
+        "fieldNoteWords": 30,
+        "steps": 3
+      },
+      {
+        "activityId": "akan-story-trade",
+        "words": 107,
+        "sentences": 11,
+        "avgSentenceWords": 9.73,
+        "fkGrade": 3.31,
+        "longWordRatio": 0.028,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "akan-goldweight-plate",
+        "words": 55,
+        "sentences": 6,
+        "avgSentenceWords": 9.17,
+        "fkGrade": 4.5,
+        "longWordRatio": 0.036,
+        "fieldNoteWords": 21,
+        "steps": 2
+      },
+      {
+        "activityId": "akan-talking-drum-plate",
+        "words": 64,
+        "sentences": 7,
+        "avgSentenceWords": 9.14,
+        "fkGrade": 3.83,
+        "longWordRatio": 0.047,
+        "fieldNoteWords": 23,
+        "steps": 3
+      },
+      {
+        "activityId": "akan-story-web-map",
+        "words": 70,
+        "sentences": 7,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 3.99,
+        "longWordRatio": 0.014,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "akan-spider-draw",
+        "words": 59,
+        "sentences": 6,
+        "avgSentenceWords": 9.83,
+        "fkGrade": 6.65,
+        "longWordRatio": 0.119,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "zulu-click-letters",
+        "words": 60,
+        "sentences": 6,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 4.24,
+        "longWordRatio": 0.083,
+        "fieldNoteWords": 23,
+        "steps": 2
+      },
+      {
+        "activityId": "zulu-two-messengers",
+        "words": 96,
+        "sentences": 10,
+        "avgSentenceWords": 9.6,
+        "fkGrade": 4.38,
+        "longWordRatio": 0.104,
+        "fieldNoteWords": 26,
+        "steps": 4
+      },
+      {
+        "activityId": "zulu-chameleon-plate",
+        "words": 67,
+        "sentences": 6,
+        "avgSentenceWords": 11.17,
+        "fkGrade": 4.26,
+        "longWordRatio": 0.075,
+        "fieldNoteWords": 30,
+        "steps": 2
+      },
+      {
+        "activityId": "zulu-messenger-make",
+        "words": 56,
+        "sentences": 7,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 4.18,
+        "longWordRatio": 0.071,
+        "fieldNoteWords": 23,
+        "steps": 2
       }
     ],
     "registers": {
       "instruction": {
-        "words": 2082,
-        "sentences": 292,
-        "avgSentenceWords": 7.13,
-        "fkGrade": 2.07,
-        "maxSentenceWords": 15
+        "words": 4556,
+        "sentences": 576,
+        "avgSentenceWords": 7.91,
+        "fkGrade": 2.53,
+        "maxSentenceWords": 17
       },
       "fieldNote": {
-        "words": 1535,
-        "sentences": 127,
-        "avgSentenceWords": 12.09,
-        "fkGrade": 4.95,
-        "maxSentenceWords": 22
+        "words": 3074,
+        "sentences": 248,
+        "avgSentenceWords": 12.4,
+        "fkGrade": 5.39,
+        "maxSentenceWords": 29
       },
       "hint": {
-        "words": 259,
-        "sentences": 28,
-        "avgSentenceWords": 9.25,
-        "fkGrade": 3.69,
-        "maxSentenceWords": 14
+        "words": 536,
+        "sentences": 54,
+        "avgSentenceWords": 9.93,
+        "fkGrade": 3.74,
+        "maxSentenceWords": 18
       }
     }
   }

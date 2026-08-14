@@ -7,10 +7,11 @@
 
 ## AÇIK KARARLAR — kurucudan yanıt bekleyen
 
-Durum tablosu · **13 Ağustos 2026 · Faz 3**
+Durum tablosu · **14 Ağustos 2026 · Faz 4**
 
 > ⚠ **A10 ERTELENDİ, KAPANMADI.** Kurucu Faz 3'ü A10 beklenmeden
-> başlattı (**K27**). Bu, testin yapıldığı anlamına **gelmez**.
+> başlattı (**K27**) ve Faz 4'ü de aynı aşmayla başlattı (**K30**).
+> Bu, testin yapıldığı anlamına **gelmez**.
 > `externalValidation` hâlâ `pending`, `.gate` hâlâ `phase1`.
 
 | # | Soru | Aciliyet | Ne zaman kapanmalı | Durum |
@@ -19,26 +20,20 @@ Durum tablosu · **13 Ağustos 2026 · Faz 3**
 | ~~A2~~ | ~~Devralma politikası onayı~~ | — | — | ✅ **KAPANDI → K12** |
 | ~~A3~~ | ~~6 bölge ve mühür mimarisi onayı~~ | — | — | ✅ **KAPANDI → K18** |
 | ~~A8~~ | ~~148 sayfa kabul edilecek mi~~ | — | — | ✅ **KAPANDI → K19** |
-| **A4** | 168 adaydan 120'sinin nihai seçimi | **YÜKSEK** | Faz 3 başlarken | AÇIK · pilot 16'sını seçti |
 | ~~A7~~ | ~~≥2 çocuk testçi~~ | — | — | ✅ **KAPANDI → K26** · testçi bulundu |
-| **A10** | gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **ERTELENDİ (K27)** · oturum **YAPILMADI** |
-| **A11** | **YENİ** — `gates.requirements.phase3` 80 mi 60 mı | ORTA | kapı `phase3`'e yükselirken | AÇIK · **çelişki ölçüldü (K28)** |
+| ~~A11~~ | ~~`gates.requirements.phase3` 80 mi 60 mı~~ | — | — | ✅ **KAPANDI → K29** · kurucu **60** dedi |
+| ~~A4~~ | ~~168 adaydan 120'sinin nihai seçimi~~ | — | — | ✅ **KAPANDI → K31** · Faz 4 kalan 60'ı seçti |
+| **A10** | gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **ERTELENDİ (K27 · K30)** · oturum **YAPILMADI** |
+| **A12** | **YENİ** — 148 mi 144 mü · dayanak gözden geçirmesi | ORTA | Faz 5 sayfa planı | AÇIK · **6/6 bölge ölçüldü (K32)** |
 | **A9** | fizikî prova siparişi ve değerlendirmesi | ORTA | Faz 5–6 | AÇIK · **KURUCUYA AİT** |
 | **A5** | Ciltli hediye sürümü v1.0'a girecek mi | DÜŞÜK | Faz 4 | AÇIK (varsayım: hayır) |
 | **A6** | Yazar biyografisi metni | ORTA | Faz 5 | AÇIK |
+| — | İki ebeveyn okuması | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** |
+| — | ~150 görselin üretilmesi | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** |
 
 ---
 
-### A4 · 120 aktivitenin nihai listesi — kısmen ilerledi
-
-Faz 2 pilotu `jaguar-condor` bölgesinin **16'sını** 22 adaydan seçti ve
-`locked` yaptı. Kalan beş bölgenin seçimi Faz 3–4'e ait.
-
-**Düşürülen altı aday havuzda kalır** ve `status: candidate` durumundadır:
-bir pilot aktivitesi çocuk testinde düşerse yerine aynı bölge × aynı
-tipten biri geçer (PROGRESSION_ARCHITECTURE § 6).
-
-### A10 · Gerçek oturum — **AÇIK · KURUCU TARAFINDAN ERTELENDİ (K27)**
+### A10 · Gerçek oturum — **AÇIK · KURUCU TARAFINDAN ERTELENDİ (K27 · K30)**
 
 A7 kapandı (testçi bulundu, K26) ve Türkçe materyal üretildi. Kalan tek
 şey **oturumun kendisidir** ve onu ajan yapamaz.
@@ -66,27 +61,32 @@ ama oturum yoksa, kapı bunu her koşuda söylüyor.
 Kimlikler anonimdir (`tester-01`) ve gerçek ad depoya **hiçbir koşulda**
 girmez — `validate_structure.py § check_child_privacy` denetler.
 
-### A11 · Faz 3 kapı eşiği — 80 mi 60 mı · **YENİ · AÇIK**
+### A11 · Faz 3 kapı eşiği — ✅ **KAPANDI → K29**
 
-İki belge farklı sayı söylüyor ve ikisi de kapsam otoritesi taşıyor:
+Kurucu **60**'ı onayladı ve 80'i *"tutarsız bir artık gereklilik"*
+olarak nitelendirdi. Ayrıntı ve kök neden: **K29**.
 
-| Kaynak | Faz 3 kilitli aktivite |
-|---|---:|
-| `THE_MYTH_HUNTERS_FIELD_BOOK_IMPLEMENTATION_ROADMAP.md` § FAZ 3 | **60** (kümülatif) |
-| `project_config § gates.requirements.phase3` | **80** |
+### A12 · 148 mi 144 mü — **YENİ · AÇIK**
 
-Ajan **hiçbirini değiştirmedi**. Yol haritası *"tek doğruluk
-kaynağıdır"* ve kapsam sayıları `scope.locked` altında bir **kurucu
-kararıdır** (K8). 80 büyük olasılıkla bootstrap'ın "6 bölge × 20"
-varsayımından kalan bir artıktır — ama **büyük olasılıkla** bir
-doğrulama değildir.
+Faz 3 § 19.1 şunu yazmıştı: *"Kalan üç bölge ölçüldüğünde dayanak gözden
+geçirilir ve o **KURUCU KARARIDIR**."* Faz 4 kalan üç bölgeyi ölçtü ve
+o an geldi.
 
-Bugün ısırmıyor: `.gate` `phase1` ve K27 gereği orada kalıyor. Kapı
-`phase3`'e yükseltilmek istendiğinde ısıracak.
+```
+0,844  0,863  0,865  0,865  0,875  0,887   → ortalama 0,867 · yayılım %5
+model 144 sayfa · telif 5,55 $ · dayanak 5,48 $ · fark +0,07 $
+```
 
-**Kurucudan istenen:** 60 mı 80 mi. Yol haritası kazanırsa config
-düzeltilir; config kazanırsa Faz 3 kapsamı 80'e çıkar ve bu **bir
-bölge daha** demektir.
+| Seçenek | Sonuç |
+|---|---|
+| **148 kalır** (mevcut) | dayanak 0,07 $ muhafazakâr kalır · içerik değişmez |
+| **144'e çekilir** | dayanak ölçümle aynı olur · BRIEF § 7 güncellenir |
+| **148'e doldurulur** | ön madde 8 → 12 sayfa · **içerik ekleme gerekir** |
+
+**Ajan hiçbirini seçmedi.** Kurucu talimatı § 22: *"Do NOT shorten
+content merely to reach 148. Do NOT silently increase the target."*
+Sayfa kısılmadı, hedef sessizce değişmedi. Karar: **K32**'de kayıtlı
+ölçüm, seçim kurucuda.
 
 ### A9 · Fizikî prova — KURUCUYA AİT · **YENİ**
 
@@ -625,3 +625,187 @@ artıktır ama bunu ajan **varsayamaz**.
 Bugün ısırmıyor — `.gate` `phase1` ve orada kalıyor (K27). Kapıyı
 `phase3`'e yükseltmek istendiğinde **ısıracak** ve o an bir karar
 gerekecek. Açık kalem: **A11**.
+
+> **Sonuç (14 Ağustos 2026):** kurucu **60**'ı onayladı. Çelişki
+> kapandı ve bir daha açılamayacak biçimde **mekanikleştirildi** →
+> **K29**.
+
+---
+
+### K29 · A11 kapandı — Faz 3 eşiği **60** · ve eşikler artık TÜRETİLİYOR
+
+**14 Ağustos 2026 · Faz 4 · KURUCU KARARI.**
+
+Kurucu talimatı § 2:
+
+> *"The Phase 3 gate requirement must be treated as **60 locked
+> activities**, NOT 80. The previous 80-activity requirement was
+> identified as an **inconsistent leftover requirement**."*
+
+#### Değişen sayı
+
+| Kapı | Alan | **ESKİ** | **YENİ** | Kaynak |
+|---|---|---:|---:|---|
+| `phase3` | `activitiesLocked` | **80** | **60** | ⭑ kurucu onayı |
+| `phase3` | `activitiesWritten` | **80** | **60** | ⭑ kurucu onayı |
+| `phase2` | `activitiesLocked` | 20 | **16** | türetme sonucu |
+| `phase2` | `activitiesWritten` | 20 | **16** | türetme sonucu |
+| `phase4` | her ikisi | 120 | 120 | değişmedi |
+
+**Eski değerler silinmedi**, `project_config § gates.requirementsHistory`
+içinde makine okunur biçimde duruyor ve `validate_spec § ⑥(g)` kaydın
+silinmesini **kırmızı yakıyor**.
+
+#### Kök neden — 80 bir hata değil, bir ARTIKTI
+
+Merdivenin tamamı bootstrap'ın **"6 bölge × 20 aktivite"** varsayımından
+elle türetilmişti: `20 · 40 · 60 · 80 · 100 · 120`. Faz 1 o varsayımı
+yıktı ve kotaları **arza göre eşitsiz** kurdu (**K18**):
+
+```
+16 · 20 · 24 · 24 · 20 · 16  =  120
+```
+
+Eşitsiz kotalarla *"üç bölge"* otomatik olarak 60 etmez. O günden sonra
+merdivenin her basamağı bir **tahmindi** ve iki basamağı yanlıştı:
+`phase3` 80 yerine 60, `phase2` 20 yerine 16.
+
+> ### Bir düzeltme, düzelttiği kusurun TEKRARINI engellemiyorsa bir düzeltme değil bir ERTELEMEDİR.
+
+80'i elle 60 yapmak bugünkü çelişkiyi kapatırdı ve **yarınkini
+kapatmazdı**. Bu yüzden eşik artık okunmuyor, **türetiliyor**:
+
+```
+gates.productionPlan[faz]  ×  scope.regionsHypothesis[].activityQuota
+        →  kümülatif toplam  ==  gates.requirements[faz].activitiesLocked
+```
+
+`project_config`'teki sayılar artık bir **kopyadır**. Kopya sürüklenirse
+`validate_spec § ⑥` kırmızı yanar ve **hangi basamağın hangi yönde**
+sürüklendiğini söyler.
+
+#### phase2 · 20 → 16 — kurucunun sorusunda ADI GEÇMEDİ
+
+Bu şeffaflık gerektiriyor. Kurucu **phase3**'ü sordu ve **phase3**'ü
+yanıtladı. `phase2` aynı artığın bir basamak aşağısıdır ve türetme onu
+kaçınılmaz olarak yakaladı: pilot bölgesi `jaguar-condor`'un kotası
+**16**'dır (K18) ve Faz 2 gerçekten 16 sayfa yazdı.
+
+Eski 20, Faz 2 tamamlandığı gün kapıyı **yanlış yere** kırmızı
+yakardı — yani bir *yanlış-kırmızı*ydı. Yanlış-kırmızı, yanlış-yeşil
+kadar zarar verir: kapıya olan güveni bitirir.
+
+Değişiklik **gizlenmiyor**: burada, `requirementsHistory` içinde ve
+`PHASE_4_REPORT § 2`'de açıkça duruyor, `founderApproved: ["phase3"]`
+ile `derivedConsequence: ["phase2"]` alanları **ayrı** tutuluyor ve bir
+kurucu talimatıyla **geri alınabilir**.
+
+#### Kanıt — `selftest § ⑰` sekiz kusurlu kurgu koşturuyor
+
+| Kurgu | Beklenen |
+|---|---|
+| **eski 80 geri yazılır** | ⭑ **KIRMIZI** |
+| eski 20 geri yazılır | ⭑ KIRMIZI |
+| bir bölge iki fazda üretilir | KIRMIZI |
+| bir bölge hiç planlanmaz | KIRMIZI |
+| **kota değişir, eşik değişmez** | ⭑ KIRMIZI |
+| eşik geri gider (phase5 < phase4) | KIRMIZI |
+| tarihî kayıt silinir / ESKİ değer düşürülür | KIRMIZI |
+| üretim planı silinir | KIRMIZI |
+| **temiz türetilmiş config** | **YEŞİL** |
+
+Beşincisi denetimin asıl işidir: mimari kayarsa kapı da kayar,
+**sessizce ayrılmazlar**.
+
+#### Ne DEĞİŞMEDİ
+
+- `scope.activities` = **120** · `scope.cultures` = **22** — alt başlığın
+  vaadi
+- Bölge kotaları (**K18** · A3) — bir tanesine bile dokunulmadı
+- `.gate` — hâlâ `phase1`, K27/K30 tavanı orada tutuyor
+- 37 mühür yuvası mimarisi
+
+---
+
+### K30 · Kurucu aşması Faz 4'e genişletildi — **tavan değişmedi**
+
+**14 Ağustos 2026 · KURUCU KARARI.**
+
+Kurucu talimatı § 3:
+
+> *"CONTINUE PHASE 4 USING THE 60-ACTIVITY PRODUCTION PATH… A10 MUST NOT
+> BLOCK PHASE 4."*
+
+K27 aşması `authorisedPhase: "phase3"` taşıyordu. Kurucu Faz 4'ü de aynı
+koşullarla açtı, yani aşma **genişledi**:
+
+```
+authorisedPhase   phase3  →  phase4     ⭑ GENİŞLEDİ
+gateCeiling       phase1  →  phase1     ✋ DEĞİŞMEDİ
+deferredBlocker   A10     →  A10        ✋ DEĞİŞMEDİ
+externalValidation pending → pending    ✋ DEĞİŞMEDİ
+```
+
+**Yalnızca yetki genişledi, kilit genişlemedi.** Aynı talimat bunu
+ayrıca şart koşuyor:
+
+> *"A10 MUST NEVER BE MARKED PASS / CLOSED / COMPLETED / VERIFIED unless
+> the founder later supplies genuine external test evidence."*
+
+`validate_spec § ⑤` dört kilidi koruyor ve `doesNotImply` listesine
+beşinci bir cümle eklendi:
+
+> **"Faz 4 üretiminin bitmesi A10'u kapatır"** — hayır, kapatmaz.
+
+Yüz yirmi sayfanın tamamlanması sıfır çocuk oturumunu bir çocuk
+oturumu yapmaz.
+
+---
+
+### K31 · A4 kapandı — 120 aktivitenin nihai listesi tamam
+
+**14 Ağustos 2026 · Faz 4.**
+
+A4 üç fazda kapandı: Faz 2 pilotun **16**'sını, Faz 3 iki bölgenin
+**44**'ünü, Faz 4 kalan üç bölgenin **60**'ını seçti.
+
+```
+jaguar-condor 16 + monsoon 24 + great-ocean 20 + north-ice 24
+              + middle-sea 20 + sun-savanna 16  =  120   ✅
+```
+
+**Düşürülen 48 aday havuzda kalır** ve `status: candidate` durumundadır
+(**PROGRESSION_ARCHITECTURE § 6**): bir sayfa çocuk testinde düşerse
+yerine aynı bölge × aynı tipten biri geçer. Faz 3 bu yedeği bir kez
+gerçekten kullandı (`korean-sky-rope-plate` → `korean-hangul-build`).
+
+---
+
+### K32 · Sayfa modeli ALTI bölgeyle ölçüldü — dayanak kararı kurucuya taşındı
+
+**14 Ağustos 2026 · Faz 4.**
+
+Faz 2 bir bölge ölçtü, Faz 3 üç, Faz 4 **altı**:
+
+| Bölge | Ağırlık | Faz |
+|---|---:|---|
+| jaguar-condor | 0,844 | 2 |
+| great-ocean | 0,863 | 3 |
+| monsoon | 0,865 | 3 |
+| north-ice | 0,865 | **4** |
+| sun-savanna | 0,875 | **4** |
+| middle-sea | 0,887 | **4** |
+
+Ortalama **0,867** · yayılım **0,043** (en ağır bölge en hafifinden
+yalnızca %5 ağır). Faz 3'ün *"kalan üç bölge de 0,857'de gelirse model
+yine 144 eder"* tahmini tuttu: **model 144.**
+
+`page_budget.py` uyarısı buna göre değiştirildi ve artık *"bekle"*
+demiyor: **"BÜTÜN BÖLGELER ÖLÇÜLDÜ (6/6): dayanağın gözden geçirilmesi
+artık bir KURUCU KARARIDIR."**
+
+> **Bir uyarı koşullar değişince aynı şeyi söylemeye devam ederse,
+> söylediği şey doğru olsa bile YANLIŞ ZAMANI gösterir.**
+
+Karar kurucuya taşındı: **A12**. 148 hedefi o karara kadar **yerinde
+kalır** (K19 yeniden açılmadı).

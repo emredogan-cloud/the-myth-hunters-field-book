@@ -4,21 +4,22 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "activities": 60,
+    "activities": 120,
     "maskedTerms": 162,
-    "openerShapes": 57,
-    "missionShapes": 52,
+    "openerShapes": 116,
+    "missionShapes": 101,
     "fieldNoteJaccardMax": 0.333,
     "singleSourceCultures": [
-      "andean (1 hikâye → 3 sayfa)"
+      "andean (1 hikâye → 3 sayfa)",
+      "zulu (1 hikâye → 4 sayfa)"
     ],
     "refrainsDeclared": 6,
     "refrainCounts": {
-      "into the star box": 19,
-      "number them from first to last": 8,
-      "draw a line from each": 6,
+      "into the star box": 37,
+      "number them from first to last": 12,
+      "draw a line from each": 10,
       "write each label on the line beside its part": 2,
-      "read the four cards": 7,
+      "read the four cards": 8,
       "read the five cards": 2
     }
   }

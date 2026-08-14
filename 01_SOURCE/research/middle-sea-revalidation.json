@@ -1,0 +1,434 @@
+{
+  "$comment": [
+    "YENİDEN DOĞRULAMA KAYITLARI — The Middle Sea · Faz 4",
+    "",
+    "⭑ BU DOSYA DEPODA DURUR VE DURMALIDIR ⭑",
+    "İçinde CEVAP yoktur. İçinde İDDİA ve İDDİANIN KAYNAĞI vardır (K11).",
+    "",
+    "Kademe kuralı (SOURCING_STANDARD § 3): cevap üreten iddia ≥2 BAĞIMSIZ kaynak.",
+    "",
+    "⚠ YÖNTEM NOTU: kaynaklar ağ üzerinden okundu. Britannica doğrudan çekmeyi",
+    "reddediyor (HTTP 403); ilgili cümleler arama katmanının döndürdüğü",
+    "alıntılardan okundu ve künyeye 'accessVia: search-snippet' ile geçti.",
+    "Okunmamış bir kaynak künyeye GİRMEDİ.",
+    "",
+    "⚠ BU BÖLGENİN İKİ DÜŞEN İDDİASI VAR ve ikisi de aynı sınıftan:",
+    "METİN EKSİK. Etana'nın yükseliş yükseklikleri ve tabletlerin",
+    "yakalama-satırı (catch-line) düzeni iki bağımsız erişilebilir kaynakta",
+    "DOĞRULANAMADI. İkisi de cevap kademesinden çıkarıldı."
+  ],
+  "meta": {
+    "region": "middle-sea",
+    "phase": "phase4",
+    "revalidatedAt": "2026-08-14",
+    "revalidatedBy": "phase4-agent",
+    "method": [
+      "Her iddia, o iddiayı KULLANAN aktiviteden geriye doğru izlendi.",
+      "Cevap veya mühür üreten iddialar için en az iki BAĞIMSIZ kaynak arandı.",
+      "Ulaşılamayan bir iddia cevap üretmekten ÇIKARILDI; sayfa yeniden",
+      "tasarlandı ya da havuzdan bir yedek geçti."
+    ],
+    "claimCount": 18,
+    "confirmed": 14,
+    "corrected": 2,
+    "rejected": 2
+  },
+  "claims": [
+    {
+      "claimId": "CLM-MS-GREEK-ALPHABET",
+      "statement": "The classical Greek alphabet had 24 letters, seven of which were vowels. It was derived from the North Semitic alphabet through the Phoenicians, and its major innovation was making some consonant signs stand for vowels. It is the direct or indirect ancestor of all modern European alphabets, reaching the Latin alphabet through the Etruscans.",
+      "inheritedRecord": "culture-greek",
+      "revalidatedFields": ["writingSystem", "letterCount", "descent"],
+      "usedBy": ["greek-alphabet-key"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Greek alphabet ('The Classical alphabet had 24 letters, 7 of which were vowels'; 'direct or indirect ancestor of all modern European alphabets')", "type": "book", "locator": "britannica.com/topic/Greek-alphabet", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Alphabet: Greek alphabet (five letters given vowel values α ε ι ο υ; Chalcidian → Etruscan → Latin)", "type": "book", "locator": "britannica.com/topic/alphabet-writing/Greek-alphabet", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Phoenician alphabet (consonant-only North Semitic parent)", "type": "book", "locator": "britannica.com/topic/Phoenician-alphabet", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "SAYFA Yunan alfabesini bir ŞİFRE gibi sunmaz: bir alfabedir ve",
+        "bugünkü harflerin atasıdır. LEVHA ŞUNU basar: 'the alphabet this",
+        "book is printed in came from this one'.",
+        "Yalnızca doğrulanmış harf adları basılır; uydurulmuş bir ses",
+        "karşılığı levhaya GİRMEZ."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-ICARUS",
+      "statement": "In the Daedalus and Icarus story the wings are made of feathers bound with thread and fixed with wax. Icarus flies too near the Sun, the wax melts, and he falls into the sea. Classical accounts say the sea was afterwards called the Icarian Sea and the island beside it Icaria, both named from the boy.",
+      "inheritedRecord": "story-greek-icarus",
+      "revalidatedFields": ["storyDetail", "materials", "placeNames"],
+      "usedBy": ["greek-icarus-flight-map", "greek-wing-design-make"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Icarus (wings of wax and feathers; flew too near the Sun; fell into the sea)", "type": "book", "locator": "britannica.com/topic/Icarus-Greek-mythology", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Diodorus Siculus, Library of History IV — Theoi Classical Texts Library ('in memory of him the sea was named the Icarian and the island was called Icaria')", "type": "archive", "locator": "theoi.com/Text/DiodorusSiculus4D.html", "accessed": "2026-08-14"},
+        {"ref": "Ovid, Metamorphoses VIII — Theoi Classical Texts Library ('He bound with thread the middle feathers, and the lower fixed with pliant wax'; 'now called Icarian from the dead boy's name')", "type": "archive", "locator": "theoi.com/Text/OvidMetamorphoses8.html", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "⛔ DÜŞMENİN KENDİSİ ÇİZDİRİLMEZ VE ANLATILMAZ (AGE_POLICY § 2).",
+        "Harita bir UÇUŞ HATTI ve iki ada basar; sayfa 'he fell' cümlesini",
+        "kurmaz, yalnızca denizin ve adanın ADININ nereden geldiğini sorar.",
+        "Kanat sayfası MALZEME sorar: tüy, iplik, balmumu — üçü de metinde."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-LABYRINTH-COIN",
+      "statement": "Coins of Knossos carry a labyrinth design as the symbol of the city. Unlike most literary descriptions, that design has a single path into the centre and looks like a plan of a building in which it is impossible to get lost.",
+      "inheritedRecord": "culture-greek",
+      "revalidatedFields": ["iconography", "structure"],
+      "usedBy": ["greek-labyrinth-cipher"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "corrected",
+      "sources": [
+        {"ref": "Ashmolean Museum, University of Oxford — Myths of the Labyrinth ('a labyrinth design which sometimes had a Minotaur at the centre… this design, unlike most literary descriptions, has a single path into the centre… where it is impossible to get lost')", "type": "museum", "locator": "ashmolean.org/article/myths-of-the-labyrinth", "accessed": "2026-08-14"},
+        {"ref": "Encyclopaedia Britannica — Cretan labyrinth / Labyrinth (architecture): placed near Knossos by older writers and represented on coins", "type": "book", "locator": "britannica.com/topic/Cretan-labyrinth", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "⭑ DÜZELTME: aday hedefi 'The Cretan labyrinth had one path, not many'",
+        "diyordu. Kaynak bunu SÖYLEMİYOR: TEK YOLLU olan MADENÎ PARA",
+        "TASARIMIDIR; edebî betimlemeler labirenti kaybolunan bir yer diye",
+        "anlatır ve ikisi ÇELİŞİR. İddia paraya daraltıldı.",
+        "LEVHA ŞUNU basar: 'this is the design on the coins of Knossos' —",
+        "sayfa hiçbir yerde 'the labyrinth had one path' DEMEZ."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-KNOSSOS",
+      "statement": "A Bronze Age palace at Knossos on Crete was found in 1878 by the Cretan archaeologist Minos Kalokairinos and later excavated by Arthur Evans, then Keeper of the Ashmolean. Nothing matching a labyrinth has been found in the excavations unless the palace itself was what the older writers meant.",
+      "inheritedRecord": "culture-greek",
+      "revalidatedFields": ["archaeology", "excavationHistory"],
+      "usedBy": ["greek-crete-palace-map"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Ashmolean Museum, University of Oxford — Myths of the Labyrinth (Kalokairinos 1878; Evans as Keeper of the Ashmolean)", "type": "museum", "locator": "ashmolean.org/article/myths-of-the-labyrinth", "accessed": "2026-08-14"},
+        {"ref": "Encyclopaedia Britannica — Labyrinth (architecture) ('nothing corresponding to it has been found during modern excavations, unless the royal palace was intended')", "type": "book", "locator": "britannica.com/technology/labyrinth-architecture", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Knossos (the palace site on Crete)", "type": "book", "locator": "britannica.com/place/Knossos", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "SAYFA sarayı 'the labyrinth' DİYE ADLANDIRMAZ. Plan bir SARAY",
+        "planıdır ve field note kazının ne bulup ne bulmadığını söyler.",
+        "Minotaur sayfaya girmez: bir canavarın tutulduğu yer fikri sekiz",
+        "yaşındaki için gereksiz ve doğrulanmamıştır."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-COLUMN-ORDERS",
+      "statement": "Greek builders used three standard orders, told apart by the capital at the top of the column. The Doric capital is a square abacus over a plain round echinus. The Ionic capital carries two scrolls, called volutes. The Corinthian capital is an inverted bell surrounded by rows of stylised acanthus leaves.",
+      "inheritedRecord": "culture-greek",
+      "revalidatedFields": ["architecturalTerms"],
+      "usedBy": ["greek-column-orders"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Order (architecture); Doric order; Ionic order; Capital (architecture)", "type": "book", "locator": "britannica.com/technology/order-architecture", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The Metropolitan Museum of Art — Architecture in Ancient Greece (Heilbrunn Timeline essay: the three orders and their capitals)", "type": "museum", "locator": "metmuseum.org/essays/architecture-in-ancient-greece", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "LEVHA yalnızca BAŞLIKLARI basar, bütün tapınağı değil: ayrım",
+        "başlıktadır ve sayfa çocuğu oraya bakmaya zorlar.",
+        "Üç başlık da aynı ölçekte çizilir; biri büyütülürse cevap sızar."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-PERSEPHONE",
+      "statement": "Because Persephone ate pomegranate in the underworld she was bound to spend part of every year there and the rest with her mother Demeter, and the story was told to account for the barren season in Greek fields. Ancient accounts disagree about how long that part of the year was: a third of the year, four months and six months all appear in the sources.",
+      "inheritedRecord": "story-greek-persephone",
+      "revalidatedFields": ["storyDetail", "durations"],
+      "usedBy": ["greek-seasons-six-seeds"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "corrected",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Persephone ('bound to spend one-third (or, in some accounts, four or six months) of each year with Hades')", "type": "book", "locator": "britannica.com/topic/Persephone-Greek-goddess", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Demeter ('The story that Persephone spent four months of each year in the underworld was no doubt meant to account for the barren appearance of Greek fields in full summer')", "type": "book", "locator": "britannica.com/topic/Demeter", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "⭑ DÜZELTME: aday kimliği `greek-seasons-six-seeds` bir SAYI vaat",
+        "ediyordu ve o sayı KAYNAKLARA GÖRE DEĞİŞİYOR. Hiçbir çekirdek",
+        "sayısı ve hiçbir ay sayısı CEVAP KADEMESİNE GİRMEDİ.",
+        "Sayfa yalnızca NEDEN SIRASINI soruyor ve field note anlaşmazlığı",
+        "AÇIKÇA basıyor — bu, sayfanın dersinin kendisidir.",
+        "⛔ KAÇIRILMA ANI ÇİZDİRİLMEZ (culture_index § greek yasak biçim 1).",
+        "Kartlar 'Persephone goes to the underworld' der ve durur."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-CONSTELLATIONS",
+      "statement": "Ptolemy catalogued 48 constellations in the Almagest and their names are, with few exceptions, the ones still used; astronomers now recognise 88. Four of Ptolemy's constellations carry the characters of one Greek story and stand together in the sky: Cassiopeia, Cepheus, Andromeda and Perseus. Orion was identified with his constellation as early as Homer.",
+      "inheritedRecord": "culture-greek",
+      "revalidatedFields": ["astronomy", "namesInUse"],
+      "usedBy": ["greek-constellation-plate"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Constellation ('Ptolemy… the names and orientation of the 48 constellations therein adopted are, with a few exceptions, identical with those used at the present time'; 88 modern constellations)", "type": "book", "locator": "britannica.com/science/constellation", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Smithsonian / Chandra X-ray Observatory — Constellation Andromeda ('Cassiopeia, Cepheus, Andromeda, and Perseus make up the group of constellations called the Royal Family of the Sky')", "type": "archive", "locator": "chandra.si.edu/photo/constellations/andromeda.html", "accessed": "2026-08-14"},
+        {"ref": "Encyclopaedia Britannica — Orion (Greek mythology) ('identified as early as Homer (Iliad, Book XVIII) with the constellation known by his name')", "type": "book", "locator": "britannica.com/topic/Orion-Greek-mythology", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "LEVHA yıldızları GERÇEK göreli konumlarında basar; süs takımyıldızı",
+        "uydurulmaz. Yalnızca adı doğrulanmış dört takımyıldız basılır.",
+        "SAYFA astrolojiye HİÇ girmez: bunlar gökyüzü haritasının bölmeleridir."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-VASE",
+      "statement": "In black-figure painting the figures are drawn on the natural clay surface in a glossy black pigment and the details are then incised into the black. The technique began at Corinth about 700 BC and Athenian painters perfected it about 550 BC; most vases show scenes from myths and heroic tales.",
+      "inheritedRecord": "culture-greek",
+      "revalidatedFields": ["technique", "dating", "subjectMatter"],
+      "usedBy": ["greek-vase-plate"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Black-figure pottery ('figures and ornamentation were drawn on the natural clay surface of a vase in glossy black pigment; the finishing details were incised into the black'; Corinth c. 700 BCE)", "type": "book", "locator": "britannica.com/art/black-figure-pottery", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The Metropolitan Museum of Art — Athenian Vase Painting: Black- and Red-Figure Techniques (Heilbrunn Timeline essay)", "type": "museum", "locator": "metmuseum.org/essays/athenian-vase-painting-black-and-red-figure-techniques", "accessed": "2026-08-14"},
+        {"ref": "The British Museum — Greek vases gallery (collection statement on painted narrative scenes)", "type": "museum", "locator": "britishmuseum.org/collection/galleries/greek-vases", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "LEVHA bir savaş sahnesi basmaz. Seçilen sahne parçaları bir",
+        "yolculuk ve bir zanaat sahnesidir (AGE_POLICY § 2 çerçeve 4).",
+        "Sayfa 'siyah figür' tekniğini ADIYLA basar: çocuk bir teknik adı",
+        "öğreniyor, bir resim beğenmiyor."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-CARTOUCHE",
+      "statement": "A cartouche is an oval ring drawn round a royal name in Egyptian writing. It is a form of the shen ring, a sign meaning protection, and it was the repeated ring around royal names that first let Champollion pick those names out of a text.",
+      "inheritedRecord": "culture-egyptian",
+      "revalidatedFields": ["writingSystem", "signMeaning", "declipherment"],
+      "usedBy": ["egyptian-cartouche-key"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Cartouche (oval figure enclosing hieroglyphs, used for royal names)", "type": "book", "locator": "britannica.com/art/cartouche", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The British Museum — Eureka! Finding the key to ancient Egypt (Champollion, cartouches and the mixed nature of Egyptian writing)", "type": "museum", "locator": "britishmuseum.org/blog/eureka-finding-key-ancient-egypt", "accessed": "2026-08-14"},
+        {"ref": "The British Museum — Cracking cartouches (schools resource: the shen ring and protection)", "type": "museum", "locator": "britishmuseum.org/learn/schools/ages-7-11/ancient-egypt/cracking-cartouches-game", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "SAYFA hiyeroglifi 'gizli bir dil' diye SUNMAZ: çözülmüş bir yazıdır",
+        "ve field note çözüldüğünü söyler.",
+        "Levhaya yalnızca tek-ünsüz işaretleri basılır; çok-ünsüz işaret",
+        "karıştırılmaz — sekiz yaşındaki için yanlış bir genelleme olurdu."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-HIEROGLYPH-CLASSES",
+      "statement": "Egyptian hieroglyphs do three different jobs. A logogram is a single sign standing for a whole word. A phonogram stands for one or more sounds. A determinative carries no sound at all: it sits at the end of a word and tells the reader what kind of thing the word is.",
+      "inheritedRecord": "culture-egyptian",
+      "revalidatedFields": ["writingSystem", "signClasses"],
+      "usedBy": ["egyptian-hieroglyph-classes"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Hieroglyphic writing (logograms, phonograms, determinatives; determinatives 'carry no phonetic significance')", "type": "book", "locator": "britannica.com/topic/hieroglyphic-writing", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The British Museum — Eureka! Finding the key to ancient Egypt ('purely phonetic signs were used alongside signs representing an entire word in the same cartouche')", "type": "museum", "locator": "britishmuseum.org/blog/eureka-finding-key-ancient-egypt", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "KARTLAR yalnızca ÜÇ sınıfı ayırır ve bir işaretin iki iş birden",
+        "yapabildiğini AYRI bir kartla gösterir — genelleme yapılmaz.",
+        "Sayfa hiçbir tanrı adını bir şifrenin cevabı yapmaz."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-NILE-DIRECTION",
+      "statement": "The Nile rises south of the Equator and flows northward into the Mediterranean. Because of that, Upper Egypt is the valley in the south and Lower Egypt is the delta in the north: the names follow the river, not the compass.",
+      "inheritedRecord": "culture-egyptian",
+      "revalidatedFields": ["geography", "naming"],
+      "usedBy": ["egyptian-nile-map"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Nile River ('rises south of the Equator and flows northward through northeastern Africa to drain into the Mediterranean Sea')", "type": "book", "locator": "britannica.com/place/Nile-River", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Upper Egypt (the Nile valley south of the delta) and Lower Egypt (the delta, bounded north by the Mediterranean)", "type": "book", "locator": "britannica.com/place/Upper-Egypt", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "HARİTADA kuzey oku BASILI olmalıdır — yoksa cevap gözlemlenemez.",
+        "Sayfa piramitleri bir dekor olarak kullanmaz: bu bir COĞRAFYA",
+        "sayfasıdır ve K4 dekoratif temayı yasaklıyor."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-SAILOR",
+      "statement": "The Tale of the Shipwrecked Sailor is a Middle Kingdom Egyptian story preserved on a single papyrus, Hermitage 1115, from about 2000 BC. It is a tale inside a tale: an official returning from an expedition tells how he was the sole survivor of a shipwreck, was washed up on an island ruled by a giant serpent, and came home again. It was written to reassure its audience that apparent misfortune can turn into good fortune.",
+      "inheritedRecord": "story-egyptian-shipwrecked-sailor",
+      "revalidatedFields": ["storyDetail", "manuscript", "dating", "purpose"],
+      "usedBy": ["egyptian-sailor-sequence"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "University College London — Digital Egypt: Egyptian Literary Compositions of the Middle Kingdom (framing narrative; sole survivor; island of the ka; giant serpent; Hermitage 1115)", "type": "archive", "locator": "ucl.ac.uk/museums-static/digitalegypt/literature/midegsummaries.html", "accessed": "2026-08-14"},
+        {"ref": "Encyclopaedia Britannica — The Shipwrecked Sailor (Middle Kingdom tale, c. 2000 BCE)", "type": "book", "locator": "britannica.com/topic/The-Shipwrecked-Sailor", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "SIRALAMA yalnızca UCL özetinin verdiği adımları kullanır.",
+        "Yılan bir TEHDİT olarak çizilmez: metinde adamı geri gönderen",
+        "odur ve kart bunu söyler.",
+        "Gemi enkazı sahnesi ÇİZDİRİLMEZ; kart 'the ship was lost' der."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-NILE-BOAT",
+      "statement": "Large ancient Egyptian ships were rowed with more than twenty oars a side and steered with two or more steering oars, not with a rudder at the stern. Egyptian hulls were built by fastening planks edge to edge, a method that later Mediterranean shipbuilding grew out of.",
+      "inheritedRecord": "culture-egyptian",
+      "revalidatedFields": ["technicalTerms", "construction"],
+      "usedBy": ["egyptian-boat-plate"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "corrected",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Ship: History of ships ('large Egyptian ships had more than 20 oars to a side, with two or more steering oars'; edge-fastened plank construction)", "type": "book", "locator": "britannica.com/technology/ship/History-of-ships", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Boat ('Early Egyptian boats were built of bundles of reeds lashed together… By 3000 BCE larger wooden seagoing versions')", "type": "book", "locator": "britannica.com/technology/boat", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "⭑ DARALTMA: aday gerekçesi 'A boat built for a river has no keel for",
+        "the open sea' diyordu. 'Omurgasız' iddiası iki bağımsız erişilebilir",
+        "kaynakta DOĞRULANAMADI ve sayfadan ÇIKARILDI.",
+        "Sayfa artık yalnızca SAYILABİLİR olanı soruyor: kaç dümen küreği,",
+        "kaç kürek. Levha o sayıları çiziyor ve çocuk sayıyor."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-CUNEIFORM",
+      "statement": "Cuneiform is named from the Latin cuneus, wedge, and forma, shape, because pressing a stylus into wet clay leaves a wedge-shaped mark. The same stylus makes different signs depending on the angle it is pressed at and on whether the pointed or the round end is used.",
+      "inheritedRecord": "culture-mesopotamian",
+      "revalidatedFields": ["writingSystem", "toolAndMethod"],
+      "usedBy": ["mesopotamian-cuneiform-key"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Cuneiform ('from the Latin cuneus, wedge, and forma, shape… the pressure of the stylus gave a wedge-shaped symbol')", "type": "book", "locator": "britannica.com/topic/cuneiform", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Cuneiform numeral (signs made with the pointed or the circular end of the stylus; different angles)", "type": "book", "locator": "britannica.com/topic/cuneiform-numeral", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The Metropolitan Museum of Art — Cuneiform tablet: administrative account concerning the distribution of barley and emmer (Sumerian, Jemdet Nasr)", "type": "museum", "locator": "metmuseum.org/art/collection/search/327384", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "SAYFA çivi yazısını 'kayıp bir şifre' diye SUNMAZ — okunmuş bir",
+        "yazıdır (culture_index § mesopotamian yasak biçim 2).",
+        "Levhada basılan sözcük bir MUHASEBE sözcüğüdür ve field note",
+        "tabletlerin çoğunun hesap tuttuğunu söyler."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-BASE-SIXTY",
+      "statement": "Babylonian mathematics used a base-60, or sexagesimal, system for numbers larger than 60. That system is still in use today in the way hours, minutes and seconds are counted and in the way angles are measured in degrees, minutes and seconds.",
+      "inheritedRecord": "culture-mesopotamian",
+      "revalidatedFields": ["numberSystem", "survival"],
+      "usedBy": ["mesopotamian-base-sixty"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Sexagesimal number system ('still used today in measuring time (hours, minutes, seconds) and angles')", "type": "book", "locator": "britannica.com/science/sexagesimal-number-system", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Numerals and numeral systems ('a base-60, or sexagesimal, system for numbers larger than 60')", "type": "book", "locator": "britannica.com/science/numeral/Numeral-systems", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "SAYFA altmışlık dizgeyi bir 'sır' gibi sunmaz. Çocuk kendi",
+        "saatinden başlar ve dört bin yıl geriye gider.",
+        "Basılan bütün sayılar 1–59 aralığındadır: sıfır işareti tartışmalıdır",
+        "ve bir çocuk sayfasının girdisi olamaz."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-CYLINDER-SEAL",
+      "statement": "A cylinder seal is a small stone cylinder engraved in intaglio. Rolled across wet clay it leaves a continuous scene standing out in relief. Impressed on a tablet or on the clay sealing a jar, the print identified who was responsible for what the document said, much as a signature does now.",
+      "inheritedRecord": "culture-mesopotamian",
+      "revalidatedFields": ["objectFunction", "technique"],
+      "usedBy": ["mesopotamian-seal-cylinder-plate", "mesopotamian-your-seal-make"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Cylinder seal ('small stone cylinders engraved in intaglio on their surface to leave impressions when rolled on wet clay')", "type": "book", "locator": "britannica.com/art/cylinder-seal", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The Metropolitan Museum of Art — Cylinder Seals: Tiny Treasures That Leave a Big Impression ('the seal impressions served to identify the authority responsible… much as a signature does today')", "type": "museum", "locator": "metmuseum.org/perspectives/cylinder-seals-tiny-treasures-that-leave-a-big-impression", "accessed": "2026-08-14"},
+        {"ref": "Penn Museum, Expedition Magazine — The Origin and Development of the Ancient Near Eastern Cylinder Seal", "type": "museum", "locator": "penn.museum/sites/expedition/the-origin-and-development-of-the-ancient-near-eastern-cylinder-seal/", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "LEVHA silindiri ve baskısını YAN YANA basar: baskı silindirin",
+        "AYNASIDIR ve çocuğun çözeceği şey tam olarak budur.",
+        "Sayfa hiçbir baskıyı 'büyülü' diye sunmaz — bir imzadır."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-GILGAMESH-PLANT",
+      "statement": "In the Epic of Gilgamesh, Gilgamesh makes a dangerous journey to find Utnapishtim, the survivor of the flood, is shown where to find a plant that renews youth, obtains it, and then a serpent seizes and eats it. He returns to Uruk still mortal.",
+      "inheritedRecord": "story-meso-gilgamesh-plant",
+      "revalidatedFields": ["storyDetail", "eventOrder"],
+      "usedBy": ["mesopotamian-plant-quest-steps"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Epic of Gilgamesh ('Though Gilgamesh obtains a plant to renew youth, a serpent steals it, and Gilgamesh returns to Uruk')", "type": "book", "locator": "britannica.com/topic/Epic-of-Gilgamesh", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Gilgamesh (the journey to Utnapishtim; the plant seized and eaten by a serpent)", "type": "book", "locator": "britannica.com/topic/Gilgamesh", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The British Museum — tablet K.3375, the Flood Tablet from the Library of Ashurbanipal (the eleventh tablet of the series)", "type": "museum", "locator": "britishmuseum.org/collection/object/W_K-3375", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "SIRALAMA dört kartla biter ve son kart ÖLÜM değil DÖNÜŞTÜR.",
+        "Enkidu'nun ölümü ve yas bölümü sayfaya GİRMEZ (AGE_POLICY § 2).",
+        "Kartlarda sıra sözcüğü (first, then, next) BULUNMAZ."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-MESOPOTAMIA-NAME",
+      "statement": "Mesopotamia is a Greek name meaning the land between the rivers, and the two rivers are the Tigris and the Euphrates.",
+      "inheritedRecord": "culture-mesopotamian",
+      "revalidatedFields": ["geography", "naming"],
+      "usedBy": ["mesopotamian-two-rivers-map"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — History of Mesopotamia (the region between the Tigris and Euphrates; the name)", "type": "book", "locator": "britannica.com/place/Mesopotamia-historical-region-Asia", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The Metropolitan Museum of Art — Sumerian and Jemdet Nasr tablet records from southern Mesopotamia (find-region context)", "type": "museum", "locator": "metmuseum.org/art/collection/search/329081", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "HARİTA yalnızca iki nehri ve doğrulanmış konumları basar.",
+        "Şehir noktaları ADLANDIRILIR ama sayfa hiçbir şehrin 'ilk şehir'",
+        "olduğunu iddia ETMEZ — bu tartışmalı bir iddiadır."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-ETANA-HEIGHTS",
+      "statement": "REDDEDİLDİ — 'Etana kartalın sırtında yükselirken yeryüzü sırayla şuna benzer: …' biçiminde bir yükseklik dizisi. Britannica Etana destanının olay örgüsünü veriyor ama yükseklik betimlemelerini VERMİYOR ve metinlerin eksik olduğunu açıkça söylüyor ('the result of Etana's quest is uncertain because of the incomplete state of the texts'). İki bağımsız erişilebilir kaynakta doğrulanamadı.",
+      "inheritedRecord": "story-meso-etana-eagle",
+      "revalidatedFields": ["storyDetail", "descriptionSequence"],
+      "usedBy": [],
+      "usedIn": [],
+      "verdict": "rejected",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Etana Epic ('the result of Etana's quest is uncertain because of the incomplete state of the texts')", "type": "book", "locator": "britannica.com/topic/Etana-Epic", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The Electronic Text Corpus of Sumerian Literature, University of Oxford — arandı, Etana yükseklik pasajı BULUNAMADI (negatif sonuç kayda geçiyor)", "type": "archive", "locator": "etcsl.orinst.ox.ac.uk/", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "⛔ `mesopotamian-eagle-height-plate` SEÇİMDEN ÇIKARILDI ve havuzda",
+        "`candidate` olarak kaldı. MÜHÜR YUVASI 6 TAŞINDI:",
+        "`mesopotamian-seal-cylinder-plate` yuvayı devraldı",
+        "(PROGRESSION_ARCHITECTURE § 6: yuva kalıcı, sakini değiştirilebilir).",
+        "",
+        "Yerine geçen sayfa aynı bölge × aynı kültürdendir ve zorluk profili",
+        "`mesopotamian-two-rivers-map` ile birlikte yeniden dengelendi."
+      ]
+    },
+    {
+      "claimId": "CLM-MS-CATCH-LINES",
+      "statement": "REDDEDİLDİ — 'Her tablet bir sonrakinin ilk satırıyla biter, ve tabletler bu yakalama-satırlarıyla sıraya konur.' Britannica ve British Museum destanın on iki tablet üzerinde durduğunu ve on birincisinin Tufan tableti olduğunu doğruluyor; ama YAKALAMA-SATIRI düzeninin kendisi iki bağımsız erişilebilir kaynakta bulunamadı.",
+      "inheritedRecord": "culture-mesopotamian",
+      "revalidatedFields": ["scribalPractice"],
+      "usedBy": [],
+      "usedIn": [],
+      "verdict": "rejected",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Epic of Gilgamesh ('The fullest version… appears on 12 incomplete tablets')", "type": "book", "locator": "britannica.com/topic/Epic-of-Gilgamesh", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The British Museum — tablet K.3375 (the eleventh tablet of the series; colophon present)", "type": "museum", "locator": "britishmuseum.org/collection/object/W_K-3375", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "⛔ `mesopotamian-tablet-order` SEÇİMDEN ÇIKARILDI ve havuzda",
+        "`candidate` olarak kaldı. Yerine `mesopotamian-two-rivers-map`",
+        "geçti ve bölge zorluk profili yeniden dengelendi:",
+        "greek-god-domains (★) çıkarıldı, greek-vase-plate (★★) alındı.",
+        "",
+        "Ders Faz 3 § 8.2 ②'nin aynısı: bir ayrıntı DOĞRU OLABİLİR ve yine",
+        "de iki bağımsız kaynakta bulunamayabilir. Bulunamayan ayrıntı",
+        "sayfaya girmez."
+      ]
+    }
+  ]
+}

@@ -3,10 +3,10 @@
   "checks": 6,
   "errors": [],
   "warnings": [
-    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 3/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
+    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 6/6 bölge GERÇEK içerikle ölçüldü. BÜTÜN BÖLGELER ÖLÇÜLDÜ (6/6): dayanağın gözden geçirilmesi artık bir KURUCU KARARIDIR. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
   ],
   "facts": {
-    "regionsMeasured": 3,
+    "regionsMeasured": 6,
     "frontMatter": 8,
     "backMatter": 14,
     "structuralPerRegion": 2,
@@ -20,29 +20,29 @@
       {
         "region": "north-ice",
         "quota": 24,
-        "avgPageWeight": 0.875,
-        "weightSource": "havuz",
-        "lockedActivities": 0,
-        "activityPages": 21.0,
+        "avgPageWeight": 0.865,
+        "weightSource": "ÖLÇÜLDÜ",
+        "lockedActivities": 24,
+        "activityPages": 20.8,
         "structuralPages": 2,
-        "totalPages": 23.0
+        "totalPages": 22.8
       },
       {
         "region": "middle-sea",
         "quota": 20,
-        "avgPageWeight": 0.875,
-        "weightSource": "havuz",
-        "lockedActivities": 0,
-        "activityPages": 17.5,
+        "avgPageWeight": 0.887,
+        "weightSource": "ÖLÇÜLDÜ",
+        "lockedActivities": 20,
+        "activityPages": 17.8,
         "structuralPages": 2,
-        "totalPages": 19.5
+        "totalPages": 19.8
       },
       {
         "region": "sun-savanna",
         "quota": 16,
         "avgPageWeight": 0.875,
-        "weightSource": "havuz",
-        "lockedActivities": 0,
+        "weightSource": "ÖLÇÜLDÜ",
+        "lockedActivities": 16,
         "activityPages": 14.0,
         "structuralPages": 2,
         "totalPages": 16.0

@@ -31,6 +31,8 @@ On dört bölüm:
   ⑭  KURUCU FAZ AŞMASI bir KİLİT mi              (Faz 3'te doğdu)
   ⑮  TEKRAR (qa_echo) kapısı ısırıyor mu         (Faz 3'te doğdu)
   ⑯  TASARIM DİZGESİ kapısı ısırıyor mu          (Faz 3'te doğdu)
+  ⑰  KAPI EŞİKLERİ TÜRETİLİYOR mu                (Faz 4'te doğdu · A11)
+  ⑱  CEVAP ANAHTARI kapısı ısırıyor mu           (Faz 4'te doğdu)
 
 ④ doğrudan Bestiarium'un üç ölü kuralına ve World Myths'in K14 kararına
 cevaptır: takip edilmeyen bir dosya için yazılmış muafiyet ÖLÜ MUAFİYETTİR
@@ -314,17 +316,30 @@ def part3_gates_lock(rep: Report, tmp: str) -> None:
     code, out = run_spec_with(cfg, small, "phase1", tmp)
     rep.check(code != 0, "phase1 yetersiz adayla KIRMIZI (120 < 160)", out)
 
-    # phase2: 20 kilitli aktivite yoksa KIRMIZI
+    # phase2: kilitli aktivite yoksa KIRMIZI
     code, out = run_spec_with(cfg, clean_games(cfg, status="candidate"),
                               "phase2", tmp)
     rep.check(code != 0, "phase2 kilitli aktivite olmadan KIRMIZI", out)
 
-    # phase2: 20 yazılmış varsa geçer
+    # phase2 eşiği A11 · K29 ile TÜRETİLİYOR (jaguar-condor kotası = 16).
+    # Eşik artık elle yazılmadığı için test de sayıyı ELLE YAZMAZ: config'ten
+    # okur. Yoksa eşik değişince test sessizce yanlış şeyi ölçmeye başlar.
+    need = cfg["gates"]["requirements"]["phase2"]["activitiesWritten"]
+
+    # BİR EKSİK yazılmışsa KIRMIZI — eşiğin TAM YERİ sınanıyor
     g = clean_games(cfg, status="candidate")
-    for i in range(20):
+    for i in range(need - 1):
         g["activities"][i]["status"] = "written"
     code, out = run_spec_with(cfg, g, "phase2", tmp)
-    rep.check(code == 0, "phase2 20 yazılmış aktiviteyle geçer", out)
+    rep.check(code != 0, "phase2 eşiğin BİR ALTINDA KIRMIZI (%d < %d)"
+              % (need - 1, need), out)
+
+    # TAM eşik kadar yazılmışsa geçer
+    g = clean_games(cfg, status="candidate")
+    for i in range(need):
+        g["activities"][i]["status"] = "written"
+    code, out = run_spec_with(cfg, g, "phase2", tmp)
+    rep.check(code == 0, "phase2 tam eşikle geçer (%d)" % need, out)
 
     # phase4: 120 yazılmış aktivite yoksa KIRMIZI
     code, out = run_spec_with(cfg, g, "phase4", tmp)
@@ -850,6 +865,93 @@ def part7b_design_constraint(rep: Report, tmp: str, base: dict) -> None:
                                          "one stands for a different amount entirely.")
     code, out = run_text_gate(VALIDATE_RESEARCH, d, tmp, bad)
     rep.check(code != 0, "⭑ FIELD NOTE'TA KARŞILANMAYAN BEYAN YAKALANIR", out)
+
+
+def _rec_used(d, rid, skip_claim):
+    """Bu kaydı BAŞKA (reddedilmemiş) bir iddia da kullanıyor mu."""
+    for k, doc in d.items():
+        if not k.endswith("-revalidation.json"):
+            continue
+        for c in doc.get("claims", []):
+            if c.get("claimId") == skip_claim:
+                continue
+            if c.get("inheritedRecord") == rid and c.get("verdict") != "rejected":
+                return True
+    return False
+
+
+def part7c_rejected_claim(rep: Report, tmp: str, base: dict) -> None:
+    """⑦c REDDEDİLMİŞ BİR İDDİA BİR KAYDI DOĞRULAYAMAZ — VE TERSİ.
+
+    ⭑ FAZ 4'TE DOĞDU ⭑
+
+    `validate_research § ⑩(e)` bütün iddiaların devralma kaydını
+    doğrulanmış istiyordu. Faz 4 iki iddiayı REDDETTİ ve kapı ajanı bir
+    açmaza soktu: doğrulanamayan bir kaydı doğrulanmış ilan et, ya da
+    reddin kaydını sil. Kapı daraltıldı; bu bölüm daraltmanın bir DELİK
+    açmadığını kanıtlar."""
+    print("\n⑦c REDDEDİLMİŞ iddia kaydı doğrulayamaz (ve kullanılan iddia hâlâ istiyor)")
+    files = [f for f in os.listdir(os.path.join(ROOT, "01_SOURCE", "research"))
+             if f.endswith("-revalidation.json")]
+    if not files:
+        print("  ⊘ doğrulama künyesi yok — atlandı")
+        return
+
+    def run_with(mutate):
+        d = copy.deepcopy(base)
+        mutate(d)
+        return run_gate(VALIDATE_RESEARCH, d, tmp)
+
+    # (a) temiz gerçek veri geçer
+    code, out = run_gate(VALIDATE_RESEARCH, base, tmp)
+    rep.check(code == 0, "gerçek doğrulama künyeleri GEÇER", out)
+
+    # (b) REDDEDİLMİŞ bir iddianın kaydı provisional kalabilir
+    RKEY = [k for k in base if k.endswith("-revalidation.json")]
+    MKEY = "01_SOURCE/inherited/IMPORT_MANIFEST.json"
+
+    def make_rejected(d):
+        """Bir iddiayı reddet VE kaydını provisional'a düşür: reddedilmiş bir
+        iddianın doğrulanmamış kaydı kapıyı kırmızı yakmamalıdır."""
+        for k in RKEY:
+            for c in d[k]["claims"]:
+                if c.get("verdict") != "rejected" and c.get("inheritedRecord"):
+                    c["verdict"] = "rejected"
+                    c["usedBy"] = []
+                    c["usedIn"] = []
+                    rid = c["inheritedRecord"]
+                    # Reddedilen iddiaya dayanan sayfa kitaptan DÜŞER —
+                    # gerçekte de öyle olur (Faz 3 § 8.2 ④, Faz 4 § CLM-NI-NINE-WORLDS).
+                    for a in d["01_SOURCE/activity_index.json"]["activities"]:
+                        refs = a.get("claimRefs") or []
+                        if c["claimId"] in refs:
+                            a["claimRefs"] = [r for r in refs if r != c["claimId"]]
+                            if not a["claimRefs"]:
+                                a["status"] = "candidate"
+                                a.pop("sealSlot", None)
+                    for r in d[MKEY]["records"]:
+                        if r["recordId"] == rid and not _rec_used(d, rid, c["claimId"]):
+                            r["status"] = "inherited-provisional"
+                    return
+    code, out = run_with(make_rejected)
+    rep.check(code == 0, "reddedilmiş iddia kaydı provisional bırakabilir", out)
+
+    # (c) ⭑ KULLANILAN bir iddia hâlâ DOĞRULANMIŞ kayıt İSTİYOR ⭑
+    def break_record(d):
+        used = None
+        for k in RKEY:
+            for c in d[k]["claims"]:
+                if c.get("verdict") != "rejected" and c.get("inheritedRecord"):
+                    used = c["inheritedRecord"]
+                    break
+            if used:
+                break
+        for r in d[MKEY]["records"]:
+            if r["recordId"] == used:
+                r["status"] = "inherited-provisional"
+    code, out = run_with(break_record)
+    rep.check(code != 0,
+              "⭑ KULLANILAN İDDİANIN DOĞRULANMAMIŞ KAYDI YAKALANIR", out)
 
 
 def part8_page_budget(rep: Report, tmp: str, base: dict) -> None:
@@ -1788,7 +1890,7 @@ def design_fixture():
 
 
 def part16_design(rep: Report, tmp: str, base: dict) -> None:
-    print("\n\u2470 TASARIM DİZGESİ kapısı ısırıyor mu")
+    print("\n\u246f TASARIM DİZGESİ kapısı ısırıyor mu")
 
     code, out = run_text_gate(QA_DESIGN, base, tmp, design_fixture())
     rep.check(code == 0, "temiz tasarım kurgusu GEÇER", out)
@@ -1902,6 +2004,245 @@ def part16_design(rep: Report, tmp: str, base: dict) -> None:
     rep.check(code == 0, "⭑ İKİ TARAFI DA BASILI EŞLEŞTİRME GEÇER", out)
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 4 · ⑰ KAPI EŞİKLERİ TÜRETİLEBİLİR Mİ (A11 · K29)
+#
+# Faz 3 raporu § 4.1 bir çelişki ÖLÇTÜ ve düzeltmedi: config Faz 3 için 80
+# kilitli aktivite istiyordu, yol haritası 60 diyordu. Kurucu 60'ı onayladı.
+#
+# Ama bir sayıyı elle düzeltmek, aynı sayının BİR DAHA sürüklenmesini
+# engellemez. Çelişkiyi ilk üreten şey 80'in kendisi değil, eşiklerin
+# ELLE YAZILMIŞ olmasıydı: bootstrap "6 bölge × 20" varsayıyordu, Faz 1
+# kotaları eşitsiz kurdu (K18) ve merdiven o gün sessizce yalanlandı.
+#
+#     Bir düzeltme, düzelttiği kusurun TEKRARINI engellemiyorsa,
+#     bir düzeltme değil bir ERTELEMEDİR.
+#
+# Bu bölüm türetmenin ısırdığını kanıtlar. En önemlisi (a): KURUCUNUN
+# REDDETTİĞİ 80 DEĞERİ, config'e geri yazıldığında kapı KIRMIZI yanmalıdır.
+# ═══════════════════════════════════════════════════════════════════════════
+def part17_gate_derivation(rep: Report, tmp: str) -> None:
+    print("\n⑰ kapı eşikleri üretim planından türüyor mu (A11 · K29)")
+
+    base = without_override(clean_config())
+    if "productionPlan" not in base.get("gates", {}):
+        rep.check(False, "gates.productionPlan yok — ⑰ sınanamıyor")
+        return
+
+    games = clean_games(base)
+
+    # temiz config → GEÇER (yanlış pozitif yok)
+    code, out = run_spec_with(base, games, "phase1", tmp)
+    rep.check(code == 0, "türetilmiş eşikler GEÇER", out)
+
+    # (a) ⭑ KURUCUNUN REDDETTİĞİ DEĞER ⭑ — 80 geri yazılırsa KIRMIZI
+    d = copy.deepcopy(base)
+    d["gates"]["requirements"]["phase3"]["activitiesLocked"] = 80
+    d["gates"]["requirements"]["phase3"]["activitiesWritten"] = 80
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ESKİ 80 DEĞERİ YAKALANIR (A11 · türetme 60 diyor)",
+              out)
+    rep.check("phase3" in out and "60" in out,
+              "kapı hangi basamağın sürüklendiğini SÖYLÜYOR", out)
+
+    # (b) phase2'nin eski 20'si de aynı sınıftandır ve aynı kapı yakalar
+    d = copy.deepcopy(base)
+    d["gates"]["requirements"]["phase2"]["activitiesLocked"] = 20
+    d["gates"]["requirements"]["phase2"]["activitiesWritten"] = 20
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ESKİ 20 DEĞERİ YAKALANIR (türetme 16 diyor)", out)
+
+    # (c) bir bölge iki fazda üretilirse kümülatif toplam sessizce şişer
+    d = copy.deepcopy(base)
+    d["gates"]["productionPlan"]["phase3"] = list(
+        d["gates"]["productionPlan"]["phase3"]) + ["north-ice"]
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ İKİ FAZDA ÜRETİLEN BÖLGE YAKALANIR", out)
+
+    # (d) bir bölge hiç planlanmazsa 120 vaadi tutmaz
+    d = copy.deepcopy(base)
+    d["gates"]["productionPlan"]["phase4"] = ["north-ice", "middle-sea"]
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ PLANSIZ KALAN BÖLGE YAKALANIR (sun-savanna)", out)
+
+    # (e) kota değişirse eşik ONUNLA BİRLİKTE değişmelidir. Bu, türetmenin
+    #     asıl işidir: mimari kayarsa kapı da kayar, sessizce ayrılmazlar.
+    d = copy.deepcopy(base)
+    for r in d["scope"]["regionsHypothesis"]:
+        if r["id"] == "north-ice":
+            r["activityQuota"] = 20
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ KOTA DEĞİŞİP EŞİK DEĞİŞMEZSE YAKALANIR", out)
+
+    # (f) eşikler geri gidemez — kapsam sessizce küçülemez
+    d = copy.deepcopy(base)
+    d["gates"]["productionPlan"]["phase2"] = []
+    d["gates"]["productionPlan"]["phase3"] = ["jaguar-condor", "monsoon",
+                                              "great-ocean"]
+    d["gates"]["requirements"]["phase2"]["activitiesLocked"] = 0
+    d["gates"]["requirements"]["phase2"]["activitiesWritten"] = 0
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code == 0, "planı kaydırmak TEK BAŞINA kusur değildir", out)
+    d["gates"]["requirements"]["phase5"]["activitiesWritten"] = 100
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ GERİ GİDEN EŞİK YAKALANIR (phase5 < phase4)", out)
+
+    # (g) TARİHÎ KAYIT SİLİNEMEZ. Eski değeri unutan bir sistem aynı
+    #     hatayı tekrarlar; bu yüzden kayıt bir belge değil bir KAPIDIR.
+    d = copy.deepcopy(base)
+    d["gates"]["requirementsHistory"] = []
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ SİLİNMİŞ TARİHÎ KAYIT YAKALANIR", out)
+
+    d = copy.deepcopy(base)
+    for entry in d["gates"]["requirementsHistory"]:
+        for ch in entry.get("changes", []):
+            ch.pop("old", None)
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ESKİ DEĞERİ DÜŞÜRÜLMÜŞ KAYIT YAKALANIR", out)
+
+    # (h) türetme kaynağının kendisi kaybolamaz
+    d = copy.deepcopy(base)
+    d["gates"].pop("productionPlan")
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ÜRETİM PLANI SİLİNİRSE KAPI KIRMIZI", out)
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 4 · ⑱ CEVAP ANAHTARI · FİNAL GÖREV · ARKA MADDE (qa_answerkey)
+#
+# Bu kapının iki ayrı yoldan yanlış olma ihtimali var ve ikisi de sınanmalı:
+#
+#   ① eksik bir anahtarı KAÇIRIR  → kitap cevapsız basılır
+#   ② tasarımı SIZINTI SANAR      → yazar doğru bir cevabı bozar
+#
+# İkincisi bu kapıda GERÇEKTEN OLDU: ilk hâli 'voyage' sözcüğünü bir cevapta
+# görüp kırmızı yandı ve iki mühür sözcüğünün bölge adını BİLEREK yankıladığını
+# bilmiyordu (seal_key gerekçesi · Faz 3 § 21.6). Bu bölüm her iki yönü de
+# kilitliyor.
+# ═══════════════════════════════════════════════════════════════════════════
+QA_ANSWERKEY = os.path.join(BUILD, "qa_answerkey.py")
+ANSWER_KEY_REL = "01_SOURCE/answers/answer_key.json"
+SEAL_KEY_REL = "01_SOURCE/answers/seal_key.json"
+
+
+def part18_answerkey(rep: Report, tmp: str, base: dict) -> None:
+    print("\n\u2471 CEVAP ANAHTARI kapısı ısırıyor mu")
+    ak = os.path.join(ROOT, "01_SOURCE", "answers", "answer_key.json")
+    sk = os.path.join(ROOT, "01_SOURCE", "answers", "seal_key.json")
+    if not (os.path.isfile(ak) and os.path.isfile(sk)):
+        print("  ⊘ anahtar dosyaları depoda yok (K10) — bölüm atlandı")
+        return
+    with open(ak, encoding="utf-8") as fh:
+        akey = json.load(fh)
+    with open(sk, encoding="utf-8") as fh:
+        seal = json.load(fh)
+
+    bk = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
+    if not os.path.isfile(bk):
+        print("  ⊘ manuscript depoda yok (K10) — bölüm atlandı")
+        return
+    with open(bk, encoding="utf-8") as fh:
+        book = json.load(fh)
+    BOOK_REL = "02_MANUSCRIPT/book.json"
+
+    def run(mutate_key=None, mutate_book=None, mutate_seal=None):
+        d = copy.deepcopy(base)
+        d[ANSWER_KEY_REL] = copy.deepcopy(akey)
+        d[SEAL_KEY_REL] = copy.deepcopy(seal)
+        d[BOOK_REL] = copy.deepcopy(book)
+        if mutate_key:
+            mutate_key(d[ANSWER_KEY_REL])
+        if mutate_book:
+            mutate_book(d[BOOK_REL])
+        if mutate_seal:
+            mutate_seal(d[SEAL_KEY_REL])
+        return run_gate(QA_ANSWERKEY, d, tmp)
+
+    # (a) temiz kurgu GEÇER — yanlış pozitif yok
+    code, out = run()
+    rep.check(code == 0, "temiz cevap anahtarı GEÇER", out)
+
+    # (b) bir sayfa anahtarda yoksa KIRMIZI
+    code, out = run(mutate_key=lambda k: k["entries"].pop(0))
+    rep.check(code != 0, "⭑ EKSİK ANAHTAR KAYDI YAKALANIR", out)
+
+    # (c) cevap sürüklenirse KIRMIZI — anahtar ile sayfa AYRILAMAZ
+    def drift(k):
+        for e in k["entries"]:
+            if not e.get("openEnded"):
+                e["answer"] = e["answer"] + " and something else"
+                return
+    code, out = run(mutate_key=drift)
+    rep.check(code != 0, "⭑ ANAHTAR İLE SAYFANIN AYRILMASI YAKALANIR", out)
+
+    # (d) açık uçlu bir sayfaya CEVAP yazılırsa KIRMIZI
+    def wrong_shape(k):
+        for e in k["entries"]:
+            if e.get("openEnded"):
+                e["answer"] = "a good drawing"
+                return
+    code, out = run(mutate_key=wrong_shape)
+    rep.check(code != 0, "⭑ AÇIK UÇLU SAYFAYA YAZILAN CEVAP YAKALANIR", out)
+
+    # (e) ⭑ MÜHÜR SÖZCÜĞÜ BİR CEVAP OLARAK GEÇERSE KIRMIZI ⭑
+    def leak(k):
+        w = seal["seals"][0]["word"]
+        for e in k["entries"]:
+            if not e.get("openEnded"):
+                e["answer"] = w
+                return
+    code, out = run(mutate_key=leak)
+    rep.check(code != 0, "⭑ CEVAP OLARAK BASILAN MÜHÜR SÖZCÜĞÜ YAKALANIR", out)
+
+    # (f) ⭑ YILDIZ SÖZCÜĞÜ MÜHÜR SÖZCÜĞÜNE EŞİTSE KIRMIZI (mekanik çöküş) ⭑
+    def collapse(b):
+        words = {s["region"]: s["word"] for s in seal["seals"]}
+        idx = {a["activityId"]: a for a in base["01_SOURCE/activity_index.json"]["activities"]}
+        for a in b["activities"]:
+            if a.get("sealStarWord"):
+                a["sealStarWord"] = words[idx[a["activityId"]]["region"]]
+                a["sealStarIndex"] = 1
+                return
+    code, out = run(mutate_book=collapse)
+    rep.check(code != 0, "⭑ MÜHÜR SÖZCÜĞÜNE ÇÖKEN YILDIZ SÖZCÜĞÜ YAKALANIR", out)
+
+    # (g) final görevin kurtarma şeridi düşerse KIRMIZI
+    def strip_selfcheck(b):
+        for p in b["finalQuest"]["quest"]:
+            p["pagePrints"] = [x for x in p["pagePrints"]
+                               if "do not make a word" not in x.lower()]
+    code, out = run(mutate_book=strip_selfcheck)
+    rep.check(code != 0, "⭑ DÜŞEN KENDİ KENDİNİ DOĞRULAMA ŞERİDİ YAKALANIR", out)
+
+    # (h) arka maddeden bir bölüm düşerse KIRMIZI
+    def drop_section(b):
+        b["backMatter"]["sections"] = [s for s in b["backMatter"]["sections"]
+                                       if s["id"] != "world-myths-bridge"]
+    code, out = run(mutate_book=drop_section)
+    rep.check(code != 0, "⭑ DÜŞEN ARKA MADDE BÖLÜMÜ YAKALANIR", out)
+
+    # (i) gerekçesiz bir bölüm KIRMIZI — sayfa sayısı için bölüm eklenemez
+    def gut_purpose(b):
+        b["backMatter"]["sections"][0]["purpose"] = "it is nice"
+    code, out = run(mutate_book=gut_purpose)
+    rep.check(code != 0, "⭑ GEREKÇESİZ ARKA MADDE BÖLÜMÜ YAKALANIR", out)
+
+    # (j) çentik kendi sözcüğünün dışına düşerse KIRMIZI
+    def bad_notch(s):
+        s["seals"][0]["notchPosition"] = s["seals"][0]["letterCount"] + 1
+    code, out = run(mutate_seal=bad_notch)
+    rep.check(code != 0, "⭑ SÖZCÜĞÜN DIŞINA DÜŞEN ÇENTİK YAKALANIR", out)
+
+    # (k) ⭑ YANLIŞ POZİTİF TESTİ ⭑ — bölge adını yankılayan bir mühür
+    #     sözcüğü GEÇMEK ZORUNDADIR. Bu bir tasarım aygıtıdır (Faz 3 § 21.6)
+    #     ve kapı onu sızıntı sanarsa yazarı doğru bir cevabı bozmaya iter.
+    code, out = run()
+    rep.check(code == 0,
+              "⭑ BÖLGE ADINI YANKILAYAN MÜHÜR SÖZCÜĞÜ GEÇER (yanlış pozitif yok)",
+              out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -1943,6 +2284,8 @@ def main() -> int:
                 part7_research_gate(rep, tmp, base)
             if os.path.isfile(VALIDATE_RESEARCH):
                 part7b_design_constraint(rep, tmp, base)
+            if os.path.isfile(VALIDATE_RESEARCH):
+                part7c_rejected_claim(rep, tmp, base)
             if os.path.isfile(PAGE_BUDGET):
                 part8_page_budget(rep, tmp, base)
         if os.path.isfile(QA_READABILITY):
@@ -1974,8 +2317,9 @@ def main() -> int:
         else:
             print("\n⑩–⑬ Faz 2 kapıları henüz doğmadı — ATLANDI")
 
-        # ⑭–⑯ Faz 3 kapıları
+        # ⑭–⑯ Faz 3 kapıları · ⑰ Faz 4
         part14_phase_override(rep, tmp)
+        part17_gate_derivation(rep, tmp)
         p3 = [("qa_echo.py", QA_ECHO), ("qa_design.py", QA_DESIGN)]
         p3_present = [n for n, q in p3 if os.path.isfile(q)]
         if p3_present and not real_data_available():
@@ -1987,6 +2331,8 @@ def main() -> int:
                 part15_echo(rep, tmp, base3)
             if os.path.isfile(QA_DESIGN):
                 part16_design(rep, tmp, base3)
+            if os.path.isfile(QA_ANSWERKEY):
+                part18_answerkey(rep, tmp, base3)
 
     part4_no_dead_exemptions(rep)
 

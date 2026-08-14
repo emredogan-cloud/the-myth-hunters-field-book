@@ -1,0 +1,280 @@
+{
+  "$comment": [
+    "YENİDEN DOĞRULAMA KAYITLARI — Sun and Savanna · Faz 4",
+    "",
+    "⭑ BU DOSYA DEPODA DURUR VE DURMALIDIR ⭑ İçinde CEVAP yoktur (K11).",
+    "",
+    "⚠ BU BÖLGE ÜÇ YAŞAYAN GELENEĞE DOKUNUYOR ve üçünün de atıf zorunluluğu",
+    "var (culture_index: akan · yoruba · zulu, hepsi livingTradition: true).",
+    "Yoruba ayrıca Kademe B'dir ve üç yasak biçim taşır: Ifá kehanetinin",
+    "bulmacaya çevrilmesi, òrìṣà ibadetinin taklidi, KUTSAL ADLARIN BİR",
+    "ŞİFRENİN CEVABI YAPILMASI. Bu bölgede hiçbir tanrı adı, hiçbir mühür",
+    "sözcüğü ve hiçbir cevap kutusu bir kutsal ada dayanmıyor.",
+    "",
+    "⚠ 'AFRİKA MİTOLOJİSİ' DİYE BİR BÖLÜM YOKTUR (region_index § note).",
+    "Üç kültür kendi adıyla anılır ve bölge açılışı üçünü ayrı ayrı sayar.",
+    "",
+    "⚠ YÖNTEM: Britannica doğrudan çekmeyi reddediyor (403); ilgili cümleler",
+    "arama katmanının alıntılarından okundu ve 'accessVia: search-snippet'",
+    "ile geçti. Okunmamış bir kaynak künyeye GİRMEDİ."
+  ],
+  "meta": {
+    "region": "sun-savanna",
+    "phase": "phase4",
+    "revalidatedAt": "2026-08-14",
+    "revalidatedBy": "phase4-agent",
+    "method": [
+      "Her iddia, o iddiayı KULLANAN aktiviteden geriye doğru izlendi.",
+      "Cevap veya mühür üreten iddialar için en az iki BAĞIMSIZ kaynak arandı.",
+      "Kutsal malzeme cevap kademesinden ÖNCEDEN çıkarıldı: bu bölgede",
+      "daraltma bir düzeltme değil bir TASARIM GİRDİSİDİR."
+    ],
+    "claimCount": 12,
+    "confirmed": 9,
+    "corrected": 3,
+    "rejected": 0
+  },
+  "claims": [
+    {
+      "claimId": "CLM-SS-YORUBA-MARKS",
+      "statement": "Yoruba writing uses two kinds of mark. Tone marks over a vowel show three tones: a grave accent for the low tone, an acute accent for the high tone, and the middle tone which is normally left unmarked. A dot written under a letter makes it a different letter: e-dot and o-dot are different vowels from plain e and o, and s-dot is a different consonant from plain s. Leaving the marks off makes different words look identical.",
+      "inheritedRecord": "culture-yoruba",
+      "revalidatedFields": ["orthography", "diacritics", "toneSystem"],
+      "usedBy": ["yoruba-tone-marks", "yoruba-underdot-letters", "yoruba-sentence-name-make"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "SOAS University of London — Why write in Yorùbá on the internet? (tone marks and under-dots; words become indistinguishable without them)", "type": "journal", "locator": "study.soas.ac.uk/why-write-yoruba-on-internet/", "accessed": "2026-08-14"},
+        {"ref": "Cambridge University Press, Canadian Journal of Linguistics — Emerging grammars in contemporary Yorùbá phonology (ṣ = ʃ, ẹ = ɛ, ọ = ɔ)", "type": "journal", "locator": "cambridge.org/core/services/aop-cambridge-core/content/view/5FBC31A5B98304BD5F4F398569D75854", "accessed": "2026-08-14"},
+        {"ref": "SIL Global — Africa orthography resources (Yorùbá tonal and orthographic diacritics)", "type": "archive", "locator": "sil.org/orthography/africa", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "⛔ HİÇBİR KUTSAL AD BİR ŞİFRENİN CEVABI DEĞİLDİR",
+        "(culture_index § yoruba yasak biçim 3). Sayfalar yalnızca İŞARETLERİ",
+        "sınıyor; anlamı doğrulanmamış hiçbir Yoruba sözcüğü cevap olmuyor.",
+        "⚠ DİAKRİTİKLER BASILMAK ZORUNDA: ẹ ọ ṣ à á düşürülemez",
+        "(validate_research § ⑧). Bir işareti düşürmek sayfanın DERSİNİ yalanlar."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-OSUN-GROVE",
+      "statement": "The Osun river runs through the Osun-Osogbo Sacred Grove on the edge of the city of Osogbo in southern Nigeria. The grove is one of the last remnants of primary high forest in southern Nigeria and was placed on the UNESCO World Heritage List in 2005.",
+      "inheritedRecord": "story-yoruba-osun-seventeenth",
+      "revalidatedFields": ["geography", "heritageStatus", "dating"],
+      "usedBy": ["yoruba-river-map"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "corrected",
+      "sources": [
+        {"ref": "UNESCO World Heritage Centre — Osun-Osogbo Sacred Grove, list no. 1118 ('one of the last remnants of primary high forest in southern Nigeria'; inscribed 2005)", "type": "archive", "locator": "whc.unesco.org/en/list/1118/", "accessed": "2026-08-14"},
+        {"ref": "Encyclopaedia Britannica — Osun-Osogbo Sacred Grove (forested area, Nigeria)", "type": "book", "locator": "britannica.com/place/Osun-Osigbo-Sacred-Grove", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "UNESCO World Heritage Centre — Conservation Management Plan 2025–2029, Osun Osogbo Sacred Grove", "type": "archive", "locator": "whc.unesco.org/document/224879", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "⭑ DARALTMA: aday hedefi korunun ADINI taşıyan tanrıçayı anıyordu.",
+        "Sayfa artık bir COĞRAFYA ve KORUMA sayfasıdır: nehir, orman ve",
+        "dünya mirası statüsü. Tapınma, sunu ve yıllık tören ANILMIYOR",
+        "(culture_index § yoruba yasak biçim 2).",
+        "Mühür sözcüğü 'grove' bir arazi sözcüğüdür, kutsal bir ad DEĞİLDİR."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-YORUBA-NUMBERS",
+      "statement": "The Yoruba number system uses subtraction as a normal way of naming numbers: numbers just below a base are named by subtracting from the base above them rather than by adding to the base below. The system runs on twenties as well as on tens and fives.",
+      "inheritedRecord": "culture-yoruba",
+      "revalidatedFields": ["numberSystem"],
+      "usedBy": ["yoruba-counting-to-twenty"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Numerals and numeral systems (vigesimal systems; naming by subtraction)", "type": "book", "locator": "britannica.com/science/numeral/Numeral-systems", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — The number twenty (twenty as a counting base)", "type": "book", "locator": "britannica.com/science/the-number-twenty", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "⭑ DARALTMA: sayfa Yoruba SAYI ADLARINI basmıyor. İki bağımsız",
+        "kaynakta birebir yazımları doğrulanamadı ve UYDURULMADI.",
+        "Sayfa YÖNTEMİ sınıyor: çıkarmayla adlandırma. Çocuk aritmetiği",
+        "yapıyor, bir sözcük listesi ezberlemiyor.",
+        "Field note yöntemin Yoruba'ya ait olduğunu söyler ve atıf orada durur."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-AKAN-DAY-NAMES",
+      "statement": "Akan children receive a name from the day of the week they were born on, and each day has a separate name for a boy and for a girl. The pattern is visible in ordinary usage: the earth deity Asase Yaa carries the day-name Yaa, which marks a female born on Thursday.",
+      "inheritedRecord": "culture-akan",
+      "revalidatedFields": ["namingSystem"],
+      "usedBy": ["akan-day-names", "akan-day-name-pairs"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Asase Yaa ('Named according to the Akan tradition of day-naming, she is referred to as Asase (Earth) Yaa (Female Born on Thursday)')", "type": "book", "locator": "britannica.com/topic/Asase-Yaa", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "University of Ghana (UGSpace) — The Sociolinguistics of Akan person names ('Akan names with temporal deixis are birthday names… names that denote the day of the week on which the child is born')", "type": "journal", "locator": "ugspace.ug.edu.gh/items/e7428163-8513-4f3d-88ce-62d62b997c1c", "accessed": "2026-08-14"},
+        {"ref": "Encyclopaedia Britannica — Akan (West African people of Ghana and Côte d'Ivoire)", "type": "book", "locator": "britannica.com/topic/Akan", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "SAYFA yalnızca İKİ doğrulanmış eşleşmeyi cevap kademesinde tutar",
+        "(Yaa = Perşembe kız) ve geri kalanı LEVHADAN okutur: tam tablo",
+        "sayfada BASILIDIR ve çocuk okuyarak çalışır, ezberden değil.",
+        "Bir Akan adı hiçbir yerde 'komik' ya da 'garip' diye sunulmaz."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-AKAN-GOLDWEIGHTS",
+      "statement": "Akan merchants and rulers used small cast brass weights, called abrammuo, to weigh gold dust in trade. Many of the weights are tiny figures of everyday objects; museum collections hold thousands of them, including sword, fly-whisk, amulet and purely geometric forms.",
+      "inheritedRecord": "culture-akan",
+      "revalidatedFields": ["objectFunction", "typology"],
+      "usedBy": ["akan-goldweight-plate"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "The Metropolitan Museum of Art — Akan gold weights: sword, fly whisk, amulet and geometric weights ('cast brass gold weights, known as abrammuo… developed by Akan merchants and rulers to standardize the trade in gold dust')", "type": "museum", "locator": "metmuseum.org/art/collection/search/698426", "accessed": "2026-08-14"},
+        {"ref": "The British Museum — African gold-weights online research catalogue (a selection of 2,000 cast brass weights collected between the 16th and 20th centuries)", "type": "museum", "locator": "britishmuseum.org/research/online_research_catalogues/agw/african_gold-weights/manufacturing_gold.aspx", "accessed": "2026-08-14"},
+        {"ref": "Smithsonian, National Museum of American History — Akan gold weight, British West Africa", "type": "museum", "locator": "americanhistory.si.edu/collections/object/nmah_910805", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "LEVHA yalnızca müze kayıtlarında ADI GEÇEN dört biçim basar.",
+        "Bir ağırlığın anlamı UYDURULMAZ: bunlar ölçü aletidir ve sayfa",
+        "onları bir sembol dizgesi gibi SUNMAZ (Adinkra ile karıştırılmaz)."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-ATUMPAN",
+      "statement": "The atumpan is a pair of Asante drums played with two L-shaped sticks. Talking drums such as the Asante atumpan and the Yoruba dundun imitate the rhythms of speech rather than spelling out words, and a message can be sent about twenty miles before another drummer relays it onward.",
+      "inheritedRecord": "culture-akan",
+      "revalidatedFields": ["instrument", "communicationMethod", "range"],
+      "usedBy": ["akan-talking-drum-plate", "akan-story-web-map"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Talking drum ('imitate speech rhythms to communicate across distances… send messages up to 20 miles (32 km), where other drummers relay them')", "type": "book", "locator": "britannica.com/technology/talking-drum", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "The Metropolitan Museum of Art — Atumpan, Asante (object record)", "type": "museum", "locator": "metmuseum.org/art/collection/search/501976", "accessed": "2026-08-14"},
+        {"ref": "Smithsonian Folkways Recordings — Ashanti: Talking Drum (Atumpan); Smithsonian Human Studies Film Archives — Atumpan: The Talking Drums of Ghana", "type": "ethnography", "locator": "folkways.si.edu/ashanti-atumpan/world/music/track/smithsonian", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "⭑ DARALTMA: `akan-story-web-map` adayı 'bir hikâye her anlatımda",
+        "biraz değişir ve değişimler izlenebilir' diyordu. Bu bir VARSAYIMDIR",
+        "ve doğrulanamadı. Sayfa artık DOĞRULANMIŞ bir ağı çiziyor: davul",
+        "menzili ve röle mesafesi. Kimlik değişmedi, içerik değişti.",
+        "SAYFA davulun 'sözcükleri hecelediğini' SÖYLEMEZ — konuşmanın",
+        "ezgisini taklit eder ve field note bunu söyler."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-ANANSE-TRADE",
+      "statement": "In one well known Akan tale Ananse buys the right to all stories from Nyame, the sky god, and the price is three catches: the leopard with dagger-like teeth, the hornets that sting like fire, and the invisible fairy of the forest. Ananse takes each of them by a trick rather than by strength: the leopard by a rope game, the hornets by making them shelter from rain inside a covered calabash, and the fairy by a figure covered in sticky tar.",
+      "inheritedRecord": "story-akan-ananse-stories",
+      "revalidatedFields": ["storyDetail", "listContents", "methods"],
+      "usedBy": ["akan-story-trade", "akan-spider-draw"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "corrected",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Ananse ('won the rights to all stories from Nyame, the Sky God, by capturing the Jaguar, the Hornets, and the Invisible Fairy'; the rope game, the calabash and the tar figure)", "type": "book", "locator": "britannica.com/topic/Ananse", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Smithsonian Folkways Recordings — Ashanti: Folk Tales from Ghana, collected and told by Harold Courlander", "type": "ethnography", "locator": "folkways.si.edu/harold-courlander/ashanti-folk-tales-from-ghana/childrens-prose/album/smithsonian", "accessed": "2026-08-14"},
+        {"ref": "Encyclopaedia Britannica — Nyame (the Asante sky god from whom the stories are bought)", "type": "book", "locator": "britannica.com/topic/Nyame", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "⭑ DÜZELTME: aday hedefi DÖRT yaratık diyordu. Erişilen iki bağımsız",
+        "kaynak ÜÇ tane veriyor. Dördüncü (piton) yaygın anlatımlarda geçer",
+        "ama iki bağımsız kaynakta doğrulanamadı ve SAYFAYA GİRMEDİ.",
+        "Ayrıca kaynaklar 'jaguar' diyor; jaguar Afrika'da yaşamaz ve bu bir",
+        "çeviri geleneğidir. Sayfa 'leopard' basar ve field note hayvanın",
+        "ADININ çevirilere göre değiştiğini SÖYLEMEZ — yalnızca leoparı basar.",
+        "Hiçbir yakalama ŞİDDET içermez: üçü de hile (AGE_POLICY § 2)."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-ZULU-CLICKS",
+      "statement": "In isiZulu the letters c, q and x each stand for a click, and the three clicks are made in three different places in the mouth: the c click against the back of the upper front teeth, the q click against the ridge behind them, and the x click at the side of the tongue. They are consonants like any other, not noises added to a word.",
+      "inheritedRecord": "culture-zulu",
+      "revalidatedFields": ["phonology", "orthography"],
+      "usedBy": ["zulu-click-letters"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Click (speech sound) (dental, alveolar and lateral clicks; 'the c click of Nguni languages… squeezing the tip of the tongue firmly against the alveolar ridge, just behind the upper front teeth')", "type": "book", "locator": "britannica.com/topic/click-speech-sound", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "South African History Online — Kora: A Lost Khoisan Language, ch. 3, The Sounds of Kora (the click inventory and its letters)", "type": "archive", "locator": "sahistory.org.za/archive/kora-lost-khoisan-language-chapter-3-sounds-kora", "accessed": "2026-08-14"},
+        {"ref": "Encyclopaedia Britannica — Zulu (isiZulu, a Nguni language of South Africa)", "type": "book", "locator": "britannica.com/topic/Zulu", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "SAYFA çocuktan bir şıklama ÜRETMESİNİ istemez ve telaffuz",
+        "denemesi yaptırmaz — yanlış taklit bir dille alay etmeye dönüşebilir.",
+        "Sayfa harfleri AĞIZDAKİ YERE eşleştirir; levha bir ağız kesiti basar.",
+        "Hiçbir isiZulu sözcüğünün anlamı cevap kademesine girmez."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-CHAMELEON-MESSAGE",
+      "statement": "In a Zulu account the supreme being sends the chameleon with a message for people, then changes his mind and sends a lizard with a different message. The chameleon travels slowly and stops on the way; the lizard arrives first, its message is the one people hear, and the chameleon is not believed when it finally comes.",
+      "inheritedRecord": "story-zulu-chameleon-message",
+      "revalidatedFields": ["storyDetail", "eventOrder"],
+      "usedBy": ["zulu-two-messengers", "zulu-messenger-make"],
+      "usedIn": ["answer-source", "seal-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — African religions: Mythology ('the supreme being Unkulunkulu instructed the chameleon to take a message… the chameleon moved slowly… the supreme being changed his mind and sent a lizard… The chameleon was not believed')", "type": "book", "locator": "britannica.com/topic/African-religions/Mythology", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Smithsonian Institution Libraries — Hans Abrahamsson, The Origin of Death: Studies in African Mythology (the two-messenger type)", "type": "book", "locator": "si.edu/object/origin-death-studies-african-mythology-hans-abrahamsson:siris_sil_83452", "accessed": "2026-08-14"},
+        {"ref": "University of KwaZulu-Natal — N. Canonici, Tricksters and trickery in Zulu folktales (Zulu narrative corpus)", "type": "journal", "locator": "researchspace.ukzn.ac.za/handle/10413/6350", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "⭑ BİÇİM DARALTMASI (K13 § ① ilk basamak): sayfa HIZ ve SIRA sorar.",
+        "Ölüm bir SAHNE olarak kurulmaz ve hiçbir kart bir ölümü betimlemez.",
+        "Field note sonucu TEK cümlede, sade, imgesiz söyler.",
+        "Sayfa bir EBEVEYN NOTU taşır: yetişkin konuyu isterse açar.",
+        "sangoma (şifacı) uygulaması ANILMAZ (culture_index § zulu yasak biçim 1)."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-CHAMELEON-BODY",
+      "statement": "A chameleon's body is built for holding still and gripping rather than for speed: its feet are split into opposed bundles of toes that clamp a branch, its tail curls and grips, its eyes turn separately from each other, and it moves with a slow rocking walk.",
+      "inheritedRecord": "culture-zulu",
+      "revalidatedFields": ["naturalHistory"],
+      "usedBy": ["zulu-chameleon-plate"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Chameleon (reptile): description, feet, prehensile tail, independently moving eyes, slow movement", "type": "book", "locator": "britannica.com/animal/chameleon-reptile", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica Kids (Students) — lizard (chameleon body plan)", "type": "book", "locator": "kids.britannica.com/students/article/lizard/275511", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "LEVHA yalnızca kaynakta ADI GEÇEN dört özelliği etiketler.",
+        "Sayfa hayvanı hikâyenin 'suçlusu' gibi SUNMAZ: bu bir gözlem",
+        "levhasıdır ve hikâyeyle bağı field note'ta tek cümledir.",
+        "Renk değiştirme ANILMAZ: sebebi yaygın olarak yanlış anlatılır."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-AKAN-PEOPLE",
+      "statement": "The Akan are a West African people living in present-day Ghana and Côte d'Ivoire, and Akan is also the name of the group of languages they speak, which includes Twi and Fante.",
+      "inheritedRecord": "culture-akan",
+      "revalidatedFields": ["geography", "languageGroup"],
+      "usedBy": ["akan-story-web-map"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Akan (West African people of Ghana and Côte d'Ivoire)", "type": "book", "locator": "britannica.com/topic/Akan", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Encyclopaedia Britannica — Akan languages (Twi, Fante)", "type": "book", "locator": "britannica.com/topic/Akan-languages", "accessed": "2026-08-14", "accessVia": "search-snippet"}
+      ],
+      "designConstraint": [
+        "HARİTA modern ülke sınırlarını basar ve sayfa 'Afrika' demez:",
+        "iki ülke ADIYLA anılır (region_index § sun-savanna note)."
+      ]
+    },
+    {
+      "claimId": "CLM-SS-ANANSE-CHARACTER",
+      "statement": "Ananse is a spider who appears as a character rather than as an animal in Akan tales, and the tales themselves are named after him: anansesem means spider stories. He wins by knowing what other characters cannot resist, not by being stronger than them.",
+      "inheritedRecord": "story-akan-ananse-stories",
+      "revalidatedFields": ["characterRole", "genreName"],
+      "usedBy": ["akan-spider-draw"],
+      "usedIn": ["answer-source", "field-note"],
+      "verdict": "confirmed",
+      "sources": [
+        {"ref": "Encyclopaedia Britannica — Ananse (trickster figure of Akan folklore; wins by cunning)", "type": "book", "locator": "britannica.com/topic/Ananse", "accessed": "2026-08-14", "accessVia": "search-snippet"},
+        {"ref": "Smithsonian Folkways Recordings — Ashanti: Folk Tales from Ghana (Courlander; the anansesem cycle)", "type": "ethnography", "locator": "folkways.si.edu/harold-courlander/ashanti-folk-tales-from-ghana/childrens-prose/album/smithsonian", "accessed": "2026-08-14"}
+      ],
+      "designConstraint": [
+        "SAYFA çocuğa bir Akan sembolü TASARLATMAZ (culture_index § akan",
+        "yasak biçim 1). İstenen şey bir KARAKTER çizimidir, bir işaret değil.",
+        "Ölçüt bir 'anlam' değil, çizimin bir KARAKTERİ gösterip göstermediği."
+      ]
+    }
+  ]
+}
