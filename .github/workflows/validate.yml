@@ -104,6 +104,21 @@ jobs:
         with: { python-version: '3.12' }
       - name: yapı, belge ve sızıntı denetimi
         run: python3 04_BUILD/validate_structure.py --verbose --json 06_REPORTS/structure.json
+      - name: ÜRETİLEN BELGELER bayat mı
+        # ⚠ Bir üreteç yalnızca yerelde denetlenirse, tazelenmeden edilen
+        # bir push sessizce bayat bir belge bırakır — ve bayat bir belge
+        # bir gün YALAN söylemeye başlar (K17).
+        #
+        # Manuscript depoda yoksa üreteçler BOŞ KOŞAR ve yeşil yanar;
+        # o hâlde denetim yalnızca "üretilen dosya kaynağıyla tutarlı mı"
+        # sorusunu sorar ve doğru cevap verir.
+        run: |
+          for g in image_prompts update_docs; do
+            if [ -f "04_BUILD/$g.py" ]; then
+              echo "▸ $g --check"
+              python3 "04_BUILD/$g.py" --check || exit 1
+            fi
+          done
       - uses: actions/upload-artifact@v4
         if: always()
         with:

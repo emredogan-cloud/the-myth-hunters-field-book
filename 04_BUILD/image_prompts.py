@@ -653,6 +653,19 @@ def main() -> int:
     print("  GÖRSEL PROMPT KÜTÜPHANESİ")
     print("=" * 74)
 
+    # ⚠ MANUSCRIPT DEPODA DURMAZ (K10) ve kütüphane ondan TÜRER.
+    #
+    # Manuscript yokken üreteç BOŞ bir kütüphane üretir ve o boş kütüphane
+    # takip edilenle elbette tutmaz. Bu bir BAYATLIK değildir: kaynak
+    # orada değildir. `asset_manifest.py` aynı gerekçeyle aynı şeyi yapar.
+    #
+    #     Bir bayatlık denetimi, kaynağın YOKLUĞUNU
+    #     bir sürüklenme sanmamalıdır.
+    if not os.path.isfile(BOOK):
+        print("  ⊘ manuscript depoda yok (K10) — kütüphane üretilemedi, BOŞ KOŞTU")
+        print("=" * 74)
+        return 0
+
     want = build(populated=False)
 
     if args.check:

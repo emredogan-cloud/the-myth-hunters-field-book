@@ -442,7 +442,11 @@ def check_front_matter(book, seal, rep):
                      (s.get("purpose") or "") for s in secs]).lower()
     need = {
         "görev emri": "mission-order" in ids,
-        "araçlar": all(w in blob for w in ("pencil", "eraser", "ruler")),
+        # ⚠ 'ruler' ARANMIYOR ve bu bir gevşetme değil bir DÜZELTME:
+        # bulgu B22 ölçtü ki 120 sayfanın HİÇBİRİ cetvel kullanmıyor.
+        # Bir kapı, kitabın kullanmadığı bir aracı şart koşarsa, sayfayı
+        # yanlış yazmaya İTER.
+        "araçlar": all(w in blob for w in ("pencil", "eraser")),
         "mühür sayfası": "star-box-and-seal" in ids,
         "ipucu kuralı": "when-you-are-stuck" in ids,
         "başlık sayfası": "title-page" in ids,

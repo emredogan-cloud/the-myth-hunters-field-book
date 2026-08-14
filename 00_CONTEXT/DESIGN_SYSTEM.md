@@ -63,7 +63,7 @@ gözünü bir kez eğitir, 120 sayfa boyunca aynı yerlere bakar.
 | ⑤ | **field note** | ✅ her sayfa | 15–35 kelime · kalıp: `STYLE § 2` | `qa_readability § ⑥` |
 | ⑥ | **kültürel atıf** | ✅ atıf gerektiğinde | kültürün adı, field note içinde | `qa_age § ⑨` |
 | ⑦ | **yazma alanı** | ✅ yazdıran sayfada | `writingSpaceLines` satır | `qa_instruction § ⑧` |
-| ⑧ | **yıldızlı kutu** | mühür sayfasında | harf kareleri + `★n → seal slot n` | `qa_design § ②` |
+| ⑧ | **yıldızlı kutu** | mühür sayfasında | harf kareleri + `★n → seal slot m` (**n ≠ m**) | `qa_design § ②` |
 | ⑨ | **ipucu şeridi** | yalnızca ★★★ | iki kademeli ipucu, ters basılı | `ACTIVITY_TAXONOMY § 5` |
 | ⑩ | **ebeveyn notu** | `safe-with-adult` sayfada | tek cümle, sayfa dibinde | `qa_age § ③` |
 
@@ -78,7 +78,7 @@ gözünü bir kez eğitir, 120 sayfa boyunca aynı yerlere bakar.
 │         (pagePrints burada basılır)          │
 │                                              │
 ├──────────────────────────────────────────────┤
-│ ④ 1. … 2. … 3. …          ⑧ ★n → seal slot n │
+│ ④ 1. … 2. … 3. …          ⑧ ★n → seal slot m │
 ├──────────────────────────────────────────────┤
 │ ⑦ yazma alanı                                │
 ├──────────────────────────────────────────────┤
@@ -161,11 +161,28 @@ başlarsa kapı yanar.
 ## 4 · Mühür modülü — **kitabın tek gerçek arayüzü**
 
 ```
-★n → seal slot n
+★n → seal slot m          ⚠ n ile m AYNI DEĞİLDİR
 ┌─┬─┬─┬─┬─┬─┬─┬─┐
 │ │ │▓│ │ │ │ │ │      ▓ = çerçeveli kare, mühre giden harf
 └─┴─┴─┴─┴─┴─┴─┴─┘
+   n = HARF sırası (sözcüğün kaçıncı harfi)
+   m = YUVA sırası (mühürdeki kaçıncı yer)
 ```
+
+> ### ⚠ FAZ 5 · BULGU A2 — bu şema bir kez `★n → seal slot n` diyordu
+>
+> Ve o hâliyle **37 mühür sayfasının 27'sinde yanlıştı.** Yıldız sayısı
+> sözcüğün **kaçıncı harfi** olduğunu sayar; yuva sayısı o harfin
+> **mühürdeki yerini** sayar. İkisi ayrı büyüklüktür ve yalnızca
+> tesadüfen eşit olur.
+>
+> Aynı yanlış varsayım ön maddede ve altı bölge açılışında **basılı bir
+> kural** olarak duruyordu (*"the seal slot with the same number"*).
+> Levha zaten doğru oku basıyordu — yani **sayfa doğruydu, KURAL
+> yanlıştı** — ve bir kuralı okuyup levhaya bakmayan bir okur harfleri
+> yanlış yuvalara yazardı.
+>
+> `qa_progression § ⑧` bu değişmezi artık mekanik olarak denetliyor.
 
 Dört kural, dördü de mekanik olarak denetleniyor:
 
@@ -173,7 +190,7 @@ Dört kural, dördü de mekanik olarak denetleniyor:
 |---|---|
 | Yıldızlı sözcük **sayfada basılıdır**; çocuk kopyalar, üretmez | `qa_solvable § ⑦` |
 | Kutu **harf karelerine** bölünür ve hedef kare çerçevelidir | `qa_design § ②` |
-| Kutunun yanında `★n → seal slot n` **basılıdır** | `qa_design § ②` |
+| Kutunun yanında `★n → seal slot m` **basılıdır** ve **m okun tek kaynağıdır** | `qa_design § ②` · `qa_progression § ⑧` |
 | Harf **hesaplanır**, elle yazılmaz | `qa_solvable § ⑦` · `qa_progression § ②` |
 
 ---

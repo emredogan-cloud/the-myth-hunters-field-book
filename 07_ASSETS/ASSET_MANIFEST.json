@@ -202,9 +202,9 @@
       "rejectedLocation": "07_ASSETS/rejected/fig-aztec-town-sign-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#aztec-town-sign-make",
       "status": "specified-not-produced",
-      "requiredLabelCount": 0,
+      "requiredLabelCount": 1,
       "restrictionCount": 6,
-      "privateSha256": "23d26882921838e3a977f9339220bc2ebd4b29eae4ffc7800fa2d91d3762425d"
+      "privateSha256": "a9f2d6b5026798a116a167a510113c55661b51619bb10329668f593b8f23670c"
     },
     {
       "assetId": "fig-maya-number-add",
@@ -810,9 +810,9 @@
       "rejectedLocation": "07_ASSETS/rejected/fig-persian-joined-letters.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#persian-joined-letters",
       "status": "specified-not-produced",
-      "requiredLabelCount": 4,
+      "requiredLabelCount": 5,
       "restrictionCount": 5,
-      "privateSha256": "154edc42bd5f281e7628e51dc94965ff2d0c726ee0ab13fb2d842bd6c12a2786"
+      "privateSha256": "c1dda57bd2b7896f7e3aa31c3768f087856d4651574bd7b5aba1123c8cb41e57"
     },
     {
       "assetId": "fig-chinese-sky-patch-make",
@@ -1674,9 +1674,9 @@
       "rejectedLocation": "07_ASSETS/rejected/fig-maori-macron-length.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maori-macron-length",
       "status": "specified-not-produced",
-      "requiredLabelCount": 1,
+      "requiredLabelCount": 6,
       "restrictionCount": 6,
-      "privateSha256": "aadefdda274a91a04451af7b58378ec83d4876e1aa9b9a754ebaf19a8c03a6f9"
+      "privateSha256": "054dc047932e6ebcf7f851d1436d1dd42fce6c5aad8f81ae044c9df3dce14f8d"
     },
     {
       "assetId": "fig-korean-peninsula-map",
@@ -2444,7 +2444,7 @@
       "status": "specified-not-produced",
       "requiredLabelCount": 11,
       "restrictionCount": 4,
-      "privateSha256": "d35e2643c68d8a0aee24a44c5c5e983a21620e4022a56129bd3986c774ea7c6f"
+      "privateSha256": "269c4190383674b82c0079529ec679093d987f1b55039d9e49997411f38b364e"
     },
     {
       "assetId": "fig-finnish-alliteration",
@@ -3724,7 +3724,7 @@
       "status": "specified-not-produced",
       "requiredLabelCount": 4,
       "restrictionCount": 4,
-      "privateSha256": "ee8eaf02389d2f6ed52cfd3fe9937a71248441281c609e51f48e677a96722d1a"
+      "privateSha256": "cfe389f23592c2b7dbf7453ac5fe131838d81b86fb8eb2995ad583dc4053fc6b"
     },
     {
       "assetId": "fig-akan-spider-draw",

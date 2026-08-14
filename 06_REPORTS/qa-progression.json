@@ -1,12 +1,14 @@
 {
   "status": "pass",
-  "checks": 7,
+  "checks": 14,
   "errors": [],
   "warnings": [],
   "facts": {
     "sealSlotsTotal": 37,
     "damageRadius": 1,
     "chainedPages": 0,
+    "sealPagesWithPrintedBox": 37,
+    "starIndexDiffersFromSlot": 27,
     "regionsWithWrittenSeals": 6,
     "sealLettersTotal": 37,
     "lettersReachingFinal": 6,
