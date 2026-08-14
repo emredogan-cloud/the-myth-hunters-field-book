@@ -8,9 +8,14 @@
 > **Kitap ÜRETİLEBİLİR mi — ve üretilirken hangi şartname kendi
 > levhasıyla çelişiyor?**
 >
-> Cevap: **evet, üretilebilir.** Ve çelişen dokuz şey bulundu: altı görsel
-> şartnamesi, iki ön madde sızıntısı ve bir sayfa modeli. Dokuzu da
-> bulunması gereken yerde bulundu — **görsel üretilmeden önce.**
+> Cevap: **evet, üretilebilir.** Ve çelişen çok şey bulundu: altı görsel
+> şartnamesi, iki ön madde sızıntısı, bir sayfa modeli — ve bağımsız
+> editoryal inceleme **on üç bloklayıcı** daha buldu. Hepsi bulunması
+> gereken yerde bulundu: **görsel üretilmeden önce.**
+>
+> İkisi kitabı gerçekten bozardı. Dokuz levha yanlış bir yıldız numarası
+> basıyordu ve `monsoon` bölgesinin mühür sözcüğü **kurulamıyordu** —
+> **üç kapının arasından geçmiş bir kusurdu.**
 
 ---
 
@@ -62,7 +67,7 @@ DOĞRULAMA** anlamındadır.
 | **Mühür yıldız numarası** | doğru | **9 yanlıştı · 37/37 düzeltildi** | ⚠ *bulundu* |
 | Basılı mühür kuralı | doğru | **27/37'de yanlıştı · düzeltildi** | ⚠ *bulundu* |
 | Kusurlu kurgu sınıfı (§ 30) | 18 | **18 / 18** | ✅ |
-| CI | yeşil | **8/8 push yeşil** | ✅ |
+| CI | yeşil | **2 kırmızı · bulundu, düzeltildi** | ⚠ *§ 24.0* |
 | **Çocuk saha oturumu** | — | **0 oturum** | ⏳ **BEKLİYOR** |
 
 ```
@@ -988,14 +993,44 @@ ve **her vinyet** tam kapsam ister; diğer aktivite sayfaları için sayfaya
 |---|---|
 | Faz 5 dalı | `faz/5-yakinsama` |
 | Commit | **10** |
-| CI | ✅ **hepsi yeşil** — kırmızı koşu **0** |
+| CI | **2 kırmızı koşu** (§ 24.0 · tek sebep) · düzeltildi · kalan hepsi yeşil |
 | Açık PR | 0 |
 | `.gate` | **`phase1`** — değişmedi |
 | Depoda **olmayan** | `book.json` · `answer_key.json` · `seal_key.json` · `pilot_tr/` · **ham/işlenmiş/nihai/reddedilmiş görseller** · **`*.local.json`** · **`*.local.html`** |
 | Depoda **olan** | kod · şema · kapılar · **envanter (içeriksiz)** · **prompt kütüphanesi (yer tutuculu)** · ölçüm raporları |
 
-Faz 5'te CI hiç kırmızı yanmadı: her batch **yerel `qa_all.sh` yeşil
-olduktan sonra** push edildi.
+### 24.0 · ⚠ CI BİR KEZ KIRMIZI YANDI — ve sebebi bir kapı EKLEMEKTİ
+
+Faz 5'in dokuzuncu ve onuncu push'unda CI kırmızı yandı (aynı sebep: ikincisi düzeltme gelmeden önce push edilmişti). Rapor bunu gizlemiyor,
+çünkü kırmızının **sebebi** bu fazın en tekrar eden dersidir.
+
+Kırmızıyı yakan adım benim eklediğim adımdı: *"ÜRETİLEN BELGELER bayat
+mı"*. `image_prompts` doğru davrandı ve boş koştu; `update_docs`
+davranmadı.
+
+`BOOK_STATS` ve `ROADMAP_PROGRESS` manuscript'ten de beslenir (kelime
+sayısı, yazılmış aktivite, sayfa modeli). Manuscript depoda **durmaz**
+(K10) — yani CI'da üreteç **farklı** bir metin üretiyor ve o fark bir
+bayatlık **değildir**: kaynak orada değildir.
+
+> ### Bir bayatlık denetimi, kaynağın YOKLUĞUNU bir sürüklenme sanmamalıdır.
+
+`asset_manifest.py` ve `image_prompts.py` aynı gerekçeyle aynı guard'ı
+**zaten taşıyordu**; `update_docs.py` taşımıyordu ve **CI'a eklendiği anda
+görünür oldu**. Kural yeniydi denemez: kural vardı, ona uymayan dosya
+vardı.
+
+Düzeltme sonrası CI ortamı yeniden ve tam olarak sınandı — takip edilen
+dosyalarla, manuscript olmadan:
+
+```
+üç üreteç (--check)     → çıkış 0
+on altı kapı            → hepsi yeşil
+selftest                → yeşil (177 denetim · manuscript'e bağlı bölümler atlandı)
+```
+
+Faz 5'in geri kalanında CI kırmızı yanmadı: her batch **yerel
+`qa_all.sh` yeşil olduktan sonra** push edildi.
 
 ### 24.1 · CI ortamı ayrıca sınandı
 
@@ -1143,6 +1178,7 @@ Faz 5'te eklenen dört bölüm:
 | Bir kusur üç kapının ARASINDAN geçebilir mi | **Evet.** A1 ve A2 üç doğru kapının arasından geçti |
 | Bir faz kendi işini denetleyebilir mi | **Evet — üç kendi kusurunu buldu** (A5 · A13 · B22) |
 | Bir inceleme raporu bir sızıntı olabilir mi | **Evet.** Alıntı, metnin kendisi kadar korumalıdır |
+| Bir kapı EKLEMEK CI'ı kırabilir mi | **Evet — kırdı.** Kaynağın yokluğu bir sürüklenme değildir |
 | Sayfa hedefi ölçümle tutuyor mu | **Evet.** 144 = 144 · sapma %0,0 |
 | **Çocuklar talimatları yardımsız anlıyor mu** | **HÂLÂ BİLİNMİYOR** |
 
