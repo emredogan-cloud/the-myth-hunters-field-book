@@ -3,7 +3,7 @@
 > **Projeye yeni giren her ajanın ve her insanın okuyacağı ilk belgedir.**
 > Hafızası olmayan bir ajan buradan başlar.
 >
-> Son güncelleme: **14 Ağustos 2026** · Faz: **5 SÜRÜYOR** · Kapı: `phase1`
+> Son güncelleme: **14 Ağustos 2026** · Faz: **5 TAMAM** · Kapı: `phase1`
 >
 > ⚠ **Kapı ile faz AYRIŞMIŞTIR ve bu bilinçlidir.** Kurucu Faz 3'ü, Faz
 > 2'nin çocuk oturumu (**A10**) yapılmadan başlattı — karar **K27** —,
@@ -68,7 +68,7 @@ Fırsat skoru **6,0/10** — üçünün en düşüğü, **ve bu bilinçlidir**.
 
 | | |
 |---|---|
-| Faz | **5 · SÜRÜYOR** — kurucu aşmasıyla (K27 · K30 · **K34**) |
+| Faz | **5 · TAMAM** — kurucu aşmasıyla (K27 · K30 · **K34**) |
 | Kapı (`.gate`) | `phase1` — **bilerek yükseltilmedi** |
 | Aday aktivite | **168** / ≥160 ✅ |
 | Kilitli / yazılmış | **120** / 120 — **altı bölgenin altısı** ✅ |
@@ -242,15 +242,18 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 
 ## 11 · Sonraki izinli eylem
 
-> **FAZ 5 SÜRÜYOR — kurucu aşmasıyla (K27 · K30 · K34).**
+> **FAZ 5 TAMAM — kurucu aşmasıyla (K27 · K30 · K34).**
 >
-> Manuscript **özünde tamamdır**: 120 aktivite, 22 kültür, 6 bölge,
-> 37 mühür yuvası, final görev ve arka madde. Faz 5 ön maddeyi, görsel
-> hattını ve editoryal yakınsamayı ekler.
+> Manuscript **tamamdır**: 120 aktivite, 22 kültür, 6 bölge, 37 mühür
+> yuvası, final görev, arka madde ve **9 sayfalık ön madde**. Görsel
+> hattı kuruldu ve **dosya katmanında sınandı**; envanter **158 varlık**
+> olarak hesaplandı.
 >
 > ```
-> FAZ 5 YETKİSİ        ✅ VERİLDİ     (kurucu · K34)
-> A12 SAYFA HEDEFİ     ✅ KAPANDI     144 (kurucu · K33)
+> FAZ 5 ÜRETİMİ        ✅ TAMAM       ön madde · görsel hattı · yakınsama
+> A12 SAYFA HEDEFİ     ✅ KAPANDI     144 (kurucu · K33) · sapma %0,0
+> EDİTORYAL YAKINSAMA  ✅ KOŞTURULDU  66 bulgu · 13 bloklayıcının 13'ü düzeltildi
+> HAM GÖRSEL ÜRETİMİ   ⏳ KURUCUYA AİT 0 / 158 · hat HAZIR
 > A10 ÇOCUK OTURUMU    ❌ YAPILMADI   (0 oturum)
 > .gate                    phase1     (YÜKSELTİLMEDİ)
 > ```
@@ -258,7 +261,9 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 > **Aşma bir sonucu üretmez, bir sırayı değiştirir.** Kitap çocuk
 > doğrulamasından geçmiş **değildir** ve hiçbir belge öyle demez.
 >
-> Bir kurucu kararı hâlâ bekliyor: **A10** (gerçek çocuk oturumu).
+> Kurucuya ait kalan işler: **A10** (gerçek çocuk oturumu) · **~158 ham
+> görselin üretimi** · **iki ebeveyn okuması** · **A9** (fizikî prova) ·
+> **A6** (yazar biyografisi).
 >
 > **Faz 6 kurucu talimatı olmadan BAŞLAMAZ.** Prova sipariş edilmedi,
 > KDP'ye dokunulmadı.
