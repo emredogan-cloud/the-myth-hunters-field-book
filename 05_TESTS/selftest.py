@@ -32,6 +32,7 @@ On dört bölüm:
   ⑮  TEKRAR (qa_echo) kapısı ısırıyor mu         (Faz 3'te doğdu)
   ⑯  TASARIM DİZGESİ kapısı ısırıyor mu          (Faz 3'te doğdu)
   ⑰  KAPI EŞİKLERİ TÜRETİLİYOR mu                (Faz 4'te doğdu · A11)
+  ⑱  CEVAP ANAHTARI kapısı ısırıyor mu           (Faz 4'te doğdu)
 
 ④ doğrudan Bestiarium'un üç ölü kuralına ve World Myths'in K14 kararına
 cevaptır: takip edilmeyen bir dosya için yazılmış muafiyet ÖLÜ MUAFİYETTİR
@@ -2107,6 +2108,141 @@ def part17_gate_derivation(rep: Report, tmp: str) -> None:
     rep.check(code != 0, "⭑ ÜRETİM PLANI SİLİNİRSE KAPI KIRMIZI", out)
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 4 · ⑱ CEVAP ANAHTARI · FİNAL GÖREV · ARKA MADDE (qa_answerkey)
+#
+# Bu kapının iki ayrı yoldan yanlış olma ihtimali var ve ikisi de sınanmalı:
+#
+#   ① eksik bir anahtarı KAÇIRIR  → kitap cevapsız basılır
+#   ② tasarımı SIZINTI SANAR      → yazar doğru bir cevabı bozar
+#
+# İkincisi bu kapıda GERÇEKTEN OLDU: ilk hâli 'voyage' sözcüğünü bir cevapta
+# görüp kırmızı yandı ve iki mühür sözcüğünün bölge adını BİLEREK yankıladığını
+# bilmiyordu (seal_key gerekçesi · Faz 3 § 21.6). Bu bölüm her iki yönü de
+# kilitliyor.
+# ═══════════════════════════════════════════════════════════════════════════
+QA_ANSWERKEY = os.path.join(BUILD, "qa_answerkey.py")
+ANSWER_KEY_REL = "01_SOURCE/answers/answer_key.json"
+SEAL_KEY_REL = "01_SOURCE/answers/seal_key.json"
+
+
+def part18_answerkey(rep: Report, tmp: str, base: dict) -> None:
+    print("\n\u2471 CEVAP ANAHTARI kapısı ısırıyor mu")
+    ak = os.path.join(ROOT, "01_SOURCE", "answers", "answer_key.json")
+    sk = os.path.join(ROOT, "01_SOURCE", "answers", "seal_key.json")
+    if not (os.path.isfile(ak) and os.path.isfile(sk)):
+        print("  ⊘ anahtar dosyaları depoda yok (K10) — bölüm atlandı")
+        return
+    with open(ak, encoding="utf-8") as fh:
+        akey = json.load(fh)
+    with open(sk, encoding="utf-8") as fh:
+        seal = json.load(fh)
+
+    bk = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
+    if not os.path.isfile(bk):
+        print("  ⊘ manuscript depoda yok (K10) — bölüm atlandı")
+        return
+    with open(bk, encoding="utf-8") as fh:
+        book = json.load(fh)
+    BOOK_REL = "02_MANUSCRIPT/book.json"
+
+    def run(mutate_key=None, mutate_book=None, mutate_seal=None):
+        d = copy.deepcopy(base)
+        d[ANSWER_KEY_REL] = copy.deepcopy(akey)
+        d[SEAL_KEY_REL] = copy.deepcopy(seal)
+        d[BOOK_REL] = copy.deepcopy(book)
+        if mutate_key:
+            mutate_key(d[ANSWER_KEY_REL])
+        if mutate_book:
+            mutate_book(d[BOOK_REL])
+        if mutate_seal:
+            mutate_seal(d[SEAL_KEY_REL])
+        return run_gate(QA_ANSWERKEY, d, tmp)
+
+    # (a) temiz kurgu GEÇER — yanlış pozitif yok
+    code, out = run()
+    rep.check(code == 0, "temiz cevap anahtarı GEÇER", out)
+
+    # (b) bir sayfa anahtarda yoksa KIRMIZI
+    code, out = run(mutate_key=lambda k: k["entries"].pop(0))
+    rep.check(code != 0, "⭑ EKSİK ANAHTAR KAYDI YAKALANIR", out)
+
+    # (c) cevap sürüklenirse KIRMIZI — anahtar ile sayfa AYRILAMAZ
+    def drift(k):
+        for e in k["entries"]:
+            if not e.get("openEnded"):
+                e["answer"] = e["answer"] + " and something else"
+                return
+    code, out = run(mutate_key=drift)
+    rep.check(code != 0, "⭑ ANAHTAR İLE SAYFANIN AYRILMASI YAKALANIR", out)
+
+    # (d) açık uçlu bir sayfaya CEVAP yazılırsa KIRMIZI
+    def wrong_shape(k):
+        for e in k["entries"]:
+            if e.get("openEnded"):
+                e["answer"] = "a good drawing"
+                return
+    code, out = run(mutate_key=wrong_shape)
+    rep.check(code != 0, "⭑ AÇIK UÇLU SAYFAYA YAZILAN CEVAP YAKALANIR", out)
+
+    # (e) ⭑ MÜHÜR SÖZCÜĞÜ BİR CEVAP OLARAK GEÇERSE KIRMIZI ⭑
+    def leak(k):
+        w = seal["seals"][0]["word"]
+        for e in k["entries"]:
+            if not e.get("openEnded"):
+                e["answer"] = w
+                return
+    code, out = run(mutate_key=leak)
+    rep.check(code != 0, "⭑ CEVAP OLARAK BASILAN MÜHÜR SÖZCÜĞÜ YAKALANIR", out)
+
+    # (f) ⭑ YILDIZ SÖZCÜĞÜ MÜHÜR SÖZCÜĞÜNE EŞİTSE KIRMIZI (mekanik çöküş) ⭑
+    def collapse(b):
+        words = {s["region"]: s["word"] for s in seal["seals"]}
+        idx = {a["activityId"]: a for a in base["01_SOURCE/activity_index.json"]["activities"]}
+        for a in b["activities"]:
+            if a.get("sealStarWord"):
+                a["sealStarWord"] = words[idx[a["activityId"]]["region"]]
+                a["sealStarIndex"] = 1
+                return
+    code, out = run(mutate_book=collapse)
+    rep.check(code != 0, "⭑ MÜHÜR SÖZCÜĞÜNE ÇÖKEN YILDIZ SÖZCÜĞÜ YAKALANIR", out)
+
+    # (g) final görevin kurtarma şeridi düşerse KIRMIZI
+    def strip_selfcheck(b):
+        for p in b["finalQuest"]["quest"]:
+            p["pagePrints"] = [x for x in p["pagePrints"]
+                               if "do not make a word" not in x.lower()]
+    code, out = run(mutate_book=strip_selfcheck)
+    rep.check(code != 0, "⭑ DÜŞEN KENDİ KENDİNİ DOĞRULAMA ŞERİDİ YAKALANIR", out)
+
+    # (h) arka maddeden bir bölüm düşerse KIRMIZI
+    def drop_section(b):
+        b["backMatter"]["sections"] = [s for s in b["backMatter"]["sections"]
+                                       if s["id"] != "world-myths-bridge"]
+    code, out = run(mutate_book=drop_section)
+    rep.check(code != 0, "⭑ DÜŞEN ARKA MADDE BÖLÜMÜ YAKALANIR", out)
+
+    # (i) gerekçesiz bir bölüm KIRMIZI — sayfa sayısı için bölüm eklenemez
+    def gut_purpose(b):
+        b["backMatter"]["sections"][0]["purpose"] = "it is nice"
+    code, out = run(mutate_book=gut_purpose)
+    rep.check(code != 0, "⭑ GEREKÇESİZ ARKA MADDE BÖLÜMÜ YAKALANIR", out)
+
+    # (j) çentik kendi sözcüğünün dışına düşerse KIRMIZI
+    def bad_notch(s):
+        s["seals"][0]["notchPosition"] = s["seals"][0]["letterCount"] + 1
+    code, out = run(mutate_seal=bad_notch)
+    rep.check(code != 0, "⭑ SÖZCÜĞÜN DIŞINA DÜŞEN ÇENTİK YAKALANIR", out)
+
+    # (k) ⭑ YANLIŞ POZİTİF TESTİ ⭑ — bölge adını yankılayan bir mühür
+    #     sözcüğü GEÇMEK ZORUNDADIR. Bu bir tasarım aygıtıdır (Faz 3 § 21.6)
+    #     ve kapı onu sızıntı sanarsa yazarı doğru bir cevabı bozmaya iter.
+    code, out = run()
+    rep.check(code == 0,
+              "⭑ BÖLGE ADINI YANKILAYAN MÜHÜR SÖZCÜĞÜ GEÇER (yanlış pozitif yok)",
+              out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -2195,6 +2331,8 @@ def main() -> int:
                 part15_echo(rep, tmp, base3)
             if os.path.isfile(QA_DESIGN):
                 part16_design(rep, tmp, base3)
+            if os.path.isfile(QA_ANSWERKEY):
+                part18_answerkey(rep, tmp, base3)
 
     part4_no_dead_exemptions(rep)
 

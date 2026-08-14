@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "checks": 25,
+  "errors": [],
+  "warnings": [
+    "mühür sözcükleriyle AYNI YAZILAN 4 sıradan sözcük anahtarda geçiyor — mühür olarak okunabilir bir konumda değiller, ama bir insan bakmalı (sözcükler EKRANA BASILMADI)"
+  ],
+  "facts": {
+    "activities": 120,
+    "keyEntries": 120,
+    "closedAnswers": 105,
+    "openEndedCriteria": 15,
+    "hintedPages": 25,
+    "incidentalSealWordTokens": 4,
+    "finalQuestPages": 5,
+    "backMatterSections": 6,
+    "backMatterPages": 14
+  }
+}
