@@ -35,6 +35,7 @@ On dört bölüm:
   ⑱  CEVAP ANAHTARI kapısı ısırıyor mu           (Faz 4'te doğdu)
   ⑲  SAYFA HEDEFİ karar zinciri kopuyor mu       (Faz 5'te doğdu · A12)
   ⑳  ÖN MADDE cevap/mühür sızdırıyor mu          (Faz 5'te doğdu)
+  ㉑  GÖRSEL VARLIK kapısı ısırıyor mu            (Faz 5'te doğdu)
 
 ④ doğrudan Bestiarium'un üç ölü kuralına ve World Myths'in K14 kararına
 cevaptır: takip edilmeyen bir dosya için yazılmış muafiyet ÖLÜ MUAFİYETTİR
@@ -369,6 +370,37 @@ def part4_no_dead_exemptions(rep: Report) -> None:
     for rel in sorted(vs.ANSWER_SCAN_SKIP):
         rep.check(os.path.isfile(os.path.join(ROOT, rel)),
                   "cevap-taraması muafiyeti canlı: %s" % rel)
+
+    # ⭑ GÖRSEL ŞARTNAMESİ KORUMASI GERÇEKTEN AYIRT EDİYOR MU ⭑
+    #
+    # Bu denetim bir hatadan doğdu: envanter üreteci ilk hâlinde TEK bir
+    # dosya yazıyordu, o dosya takip ediliyordu ve içindeki ölçüm kısıtları
+    # cevabın kendisini taşıyordu. Kural VARDI (image_prompts.py Faz 2'den
+    # beri şartname metnini kütüphaneye almıyor) ama yeni dosya ona
+    # uymamıştı.
+    #
+    #     Bir kural yalnızca onu bilen dosyalarda geçerliyse,
+    #     bir kural değil bir ALIŞKANLIKTIR.
+    #
+    # Test iki yönlü olmak ZORUNDA: örüntüler tam kaydı YAKALAMALI ve
+    # ayıklanmış kaydı YAKALAMAMALI. Tek yönlü bir test, hiçbir şeyi
+    # yakalamayan bir örüntüyle de geçer.
+    import re as _re
+    pub = os.path.join(ROOT, "07_ASSETS", "ASSET_MANIFEST.json")
+    loc = os.path.join(ROOT, "07_ASSETS", "ASSET_MANIFEST.local.json")
+    if hasattr(vs, "check_answer_leak") and os.path.isfile(pub):
+        SPEC = [r'"requiredLabels"\s*:\s*\[', r'"restrictions"\s*:\s*\[',
+                r'"pagePrints"\s*:\s*\[']
+        with open(pub, encoding="utf-8") as fh:
+            pub_body = fh.read()
+        rep.check(not any(_re.search(p, pub_body) for p in SPEC),
+                  "⭑ TAKİP EDİLEN envanter şartname İÇERİĞİ taşımıyor")
+        if os.path.isfile(loc):
+            with open(loc, encoding="utf-8") as fh:
+                loc_body = fh.read()
+            rep.check(any(_re.search(p, loc_body) for p in SPEC),
+                      "⭑ örüntüler TAM kaydı gerçekten YAKALIYOR "
+                      "(yakalamayan bir örüntü her şeyi geçirir)")
 
     # Muafiyet listesi gerçekten GEREKLİ mi: muaf dosya, muaf olmasaydı
     # yakalanacak mıydı? Değilse muafiyet gereksizdir ve kaldırılmalıdır.
@@ -2439,6 +2471,260 @@ def part18_answerkey(rep: Report, tmp: str, base: dict) -> None:
               "⭑ ROTA SAYFASININ BÖLGE ADLARI GEÇER (yanlış pozitif yok)", out)
 
 
+QA_ASSETS = os.path.join(BUILD, "qa_assets.py")
+ASSET_MANIFEST_GEN = os.path.join(BUILD, "asset_manifest.py")
+ASSET_PIPELINE = os.path.join(BUILD, "asset_pipeline.py")
+IMAGE_PROMPTS = os.path.join(BUILD, "image_prompts.py")
+
+
+def run_asset_gate(data: dict, tmp: str, files: dict | None = None):
+    """Görsel kapısını kurgu bir kökte koşturur.
+
+    ⚠ `qa_assets` bir şeyi daha okur: `04_BUILD/image_prompts.py`. Evrensel
+    yasak listesi ORADA durur (tek kaynak · D17) ve kapı kopyayı değil
+    KAYNAĞI denetler. Kurgu kök bu yüzden üreteci de taşımak zorundadır —
+    taşımazsa test, denetlemek istediği şeyin YOKLUĞUNU sınar.
+    """
+    import shutil
+    _RUN_SEQ[0] += 1
+    root = os.path.join(tmp, "asset-%03d" % _RUN_SEQ[0])
+    os.makedirs(os.path.join(root, "04_BUILD"), exist_ok=True)
+    for rel, obj in data.items():
+        p = os.path.join(root, *rel.split("/"))
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "w", encoding="utf-8") as fh:
+            json.dump(obj, fh, ensure_ascii=False)
+    for rel, blob in (files or {}).items():
+        p = os.path.join(root, *rel.split("/"))
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "wb") as fh:
+            fh.write(blob)
+    with open(os.path.join(root, ".gate"), "w", encoding="utf-8") as fh:
+        fh.write("phase1")
+    shutil.copy2(QA_ASSETS, os.path.join(root, "04_BUILD", "qa_assets.py"))
+    if os.path.isfile(IMAGE_PROMPTS):
+        shutil.copy2(IMAGE_PROMPTS,
+                     os.path.join(root, "04_BUILD", "image_prompts.py"))
+    out = subprocess.run([sys.executable,
+                          os.path.join(root, "04_BUILD", "qa_assets.py")],
+                         capture_output=True, text=True, timeout=180)
+    return out.returncode, out.stdout + out.stderr
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 5 · ㉑ GÖRSEL VARLIK KAPISI (qa_assets)
+#
+# ⭑ BU KAPI DOĞDUĞU KOŞUDA YEDİ GERÇEK KUSUR YAKALADI ⭑
+#
+# Faz 4 yüz yirmi şartname ve yedi yüz etiket üretti ve hiçbiri bir
+# görsele karşı sınanmamıştı — sınanamazdı, çünkü görsel yoktu. Kapı
+# doğduğunda şartname katmanını sınadı ve altı çelişki buldu (D1–D6):
+# etiketler kendi levhalarıyla çelişiyordu. İkisi sayfayı ÖNCEDEN
+# ÇÖZERDİ.
+#
+#     Bir şartname kendi levhasıyla çelişiyorsa, ondan üretilen
+#     kusursuz bir görsel bile sayfayı çözülemez yapar.
+#
+# Ve kapının KENDİSİ de iki kez yanlış kuruldu — ikisi de burada
+# kayıtlı, çünkü ikisi de aynı sınıftan:
+#
+#   · sabit bir cümle aradı, 57 doğru sayfayı kırmızı yaktı
+#   · evrensel bir kuralı 158 şartnamede aradı, 55'ini kırmızı yaktı
+#
+# İkisinde de kapıyı yeşile çevirmenin en ucuz yolu DOĞRU olanı bozmaktı.
+# ═══════════════════════════════════════════════════════════════════════════
+def part21_assets(rep: Report, tmp: str) -> None:
+    print("\n㉑ GÖRSEL VARLIK kapısı ısırıyor mu")
+
+    # ⚠ TAM kayıt gerekir. Takip edilen envanter içerik TAŞIMAZ (K10) ve
+    # onunla koşulan bir test, denetlemek istediği alanların YOKLUĞUNU
+    # sınardı — yani hiçbir şeyi.
+    man_p = os.path.join(ROOT, "07_ASSETS", "ASSET_MANIFEST.local.json")
+    bk = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
+    if not (os.path.isfile(man_p) and os.path.isfile(bk)):
+        print("  ⊘ tam envanter veya manuscript yok — bölüm atlandı")
+        return
+
+    with open(man_p, encoding="utf-8") as fh:
+        man = json.load(fh)
+    with open(bk, encoding="utf-8") as fh:
+        book = json.load(fh)
+
+    def real(rel):
+        p = os.path.join(ROOT, *rel.split("/"))
+        with open(p, encoding="utf-8") as fh:
+            return json.load(fh)
+
+    base = {
+        "07_ASSETS/ASSET_MANIFEST.local.json": man,
+        "02_MANUSCRIPT/book.json": book,
+        "01_SOURCE/activity_index.json": real("01_SOURCE/activity_index.json"),
+        "01_SOURCE/culture_index.json": real("01_SOURCE/culture_index.json"),
+        "01_SOURCE/region_index.json": real("01_SOURCE/region_index.json"),
+    }
+    sk = os.path.join(ROOT, "01_SOURCE", "answers", "seal_key.json")
+    if os.path.isfile(sk):
+        base["01_SOURCE/answers/seal_key.json"] = real("01_SOURCE/answers/seal_key.json")
+
+    def run(mutate_man=None, mutate_book=None, files=None):
+        d = copy.deepcopy(base)
+        if mutate_man:
+            mutate_man(d["07_ASSETS/ASSET_MANIFEST.local.json"])
+        if mutate_book:
+            mutate_book(d["02_MANUSCRIPT/book.json"])
+        return run_asset_gate(d, tmp, files)
+
+    # (a) temiz envanter GEÇER — yanlış pozitif yok
+    code, out = run()
+    rep.check(code == 0, "temiz görsel envanteri GEÇER", out)
+
+    # (b) bir şartname envanterden düşerse KIRMIZI
+    #     Envanterden düşen bir şartname, ÜRETİLMEYEN bir görseldir ve
+    #     eksikliği ancak dizgi sırasında, en pahalı anda fark edilir.
+    def drop_asset(m):
+        m["assets"] = [a for a in m["assets"] if a["assetClass"] != "activity"][:] \
+            + [a for a in m["assets"] if a["assetClass"] == "activity"][1:]
+    code, out = run(mutate_man=drop_asset)
+    rep.check(code != 0, "⭑ ENVANTERDEN DÜŞEN ŞARTNAME YAKALANIR", out)
+
+    # (c) bir varlık yanlış aktiviteye bağlanırsa KIRMIZI
+    #     Yol haritası Faz 5 § 8: "envanter ölçümden ÖNCE koşar — yanlış
+    #     aktiviteye bağlanmış kusursuz bir görsel, aktiviteyi çözülemez yapar."
+    def rewire(m):
+        for a in m["assets"]:
+            if a["assetClass"] == "activity":
+                a["activityId"] = "no-such-activity"
+                break
+    code, out = run(mutate_man=rewire)
+    rep.check(code != 0, "⭑ YANLIŞ AKTİVİTEYE BAĞLANMIŞ VARLIK YAKALANIR", out)
+
+    # (d) yanlış bölge / yanlış kültür
+    def wrong_region(m):
+        for a in m["assets"]:
+            if a["assetClass"] == "activity":
+                a["region"] = "north-ice" if a["region"] != "north-ice" else "monsoon"
+                break
+    code, out = run(mutate_man=wrong_region)
+    rep.check(code != 0, "⭑ YANLIŞ BÖLGE YAKALANIR", out)
+
+    def wrong_culture(m):
+        for a in m["assets"]:
+            if a["assetClass"] == "activity":
+                a["culture"] = "norse" if a["culture"] != "norse" else "maya"
+                break
+    code, out = run(mutate_man=wrong_culture)
+    rep.check(code != 0, "⭑ YANLIŞ KÜLTÜR YAKALANIR", out)
+
+    # (e) bir kültür vinyetsiz kalırsa KIRMIZI — alt başlıktaki 22 vaadi
+    #     görselde de tutulur (K13: kültür düşürülmez)
+    def drop_vignette(m):
+        m["assets"] = [a for a in m["assets"]
+                       if a["assetClass"] != "culture-vignette"][:] + \
+                      [a for a in m["assets"]
+                       if a["assetClass"] == "culture-vignette"][1:]
+    code, out = run(mutate_man=drop_vignette)
+    rep.check(code != 0, "⭑ VİNYETSİZ KALAN KÜLTÜR YAKALANIR", out)
+
+    # (f) bir bölge damgasız kalırsa KIRMIZI
+    def drop_stamp(m):
+        m["assets"] = [a for a in m["assets"] if a["assetClass"] != "seal-stamp"][:] + \
+                      [a for a in m["assets"] if a["assetClass"] == "seal-stamp"][1:]
+    code, out = run(mutate_man=drop_stamp)
+    rep.check(code != 0, "⭑ DAMGASIZ KALAN BÖLGE YAKALANIR", out)
+
+    # (g) ⭑ RAW ÜZERİNE YAZMA RİSKİ ⭑ — iki katman aynı yolu gösteremez
+    def collide(m):
+        m["assets"][0]["processedLocation"] = m["assets"][0]["rawLocation"]
+    code, out = run(mutate_man=collide)
+    rep.check(code != 0, "⭑ RAW İLE PROCESSED AYNI YOLA BAKARSA KIRMIZI", out)
+
+    # (h) ⭑ ZORUNLU ETİKET LEVHADAN TÜRER ⭑ — D1–D6'nın sınıfı
+    def orphan_label(m):
+        for a in m["assets"]:
+            if a["assetClass"] == "activity":
+                a["requiredLabels"] = list(a["requiredLabels"]) + ["zzz-not-on-plate"]
+                break
+    code, out = run(mutate_man=orphan_label)
+    rep.check(code != 0,
+              "⭑ LEVHADA KARŞILIĞI OLMAYAN ETİKET YAKALANIR (D1–D6 sınıfı)", out)
+
+    # (i) ⭑ CEVAP GÖZLEMLENEBİLİRLİĞİ ⭑ — ölçüme dayanan bir sayfanın
+    #     kısıtı düşerse KIRMIZI. Üreteç eline bırakılmış bir ölçüm,
+    #     üretecin değiştirebileceği bir cevaptır.
+    def strip_measure(m):
+        STD = ("No answer may be visible", "No decorative text",
+               "No photographic", "culture_index", "KAPALI KATMAN")
+        for a in m["assets"]:
+            if a["assetClass"] == "activity" and a["activityId"] == "norse-ship-plate":
+                a["restrictions"] = [r for r in a["restrictions"]
+                                     if r.startswith(STD)]
+                break
+    code, out = run(mutate_man=strip_measure)
+    rep.check(code != 0, "⭑ ÖLÇÜM KISITI DÜŞÜRÜLÜRSE KAPI KIRMIZI", out)
+
+    # (j) cevabı gizleyen kısıt tamamen düşerse KIRMIZI
+    def strip_answer_rule(m):
+        m["assets"][0]["restrictions"] = ["Draw something nice."]
+    code, out = run(mutate_man=strip_answer_rule)
+    rep.check(code != 0, "⭑ 'CEVAP GÖRÜNMEZ' KISITI DÜŞERSE KIRMIZI", out)
+
+    # (k) ⭑ MÜHÜR SESSİZLİĞİ ⭑ — damga bir harf isterse KIRMIZI
+    def lettered_stamp(m):
+        for a in m["assets"]:
+            if a["assetClass"] == "seal-stamp":
+                a["requiredLabels"] = ["A"]
+                break
+    code, out = run(mutate_man=lettered_stamp)
+    rep.check(code != 0, "⭑ HARF İSTEYEN MÜHÜR DAMGASI YAKALANIR", out)
+
+    # (l) ⭑ ETİKET OLARAK BASILAN MÜHÜR SÖZCÜĞÜ ⭑
+    seal_p = os.path.join(ROOT, "01_SOURCE", "answers", "seal_key.json")
+    if os.path.isfile(seal_p):
+        with open(seal_p, encoding="utf-8") as fh:
+            sealdoc = json.load(fh)
+        word = next(((s.get("word") or "") for s in (sealdoc.get("seals") or [])
+                     if s.get("word")), "")
+        if word:
+            def leak(m):
+                for a in m["assets"]:
+                    if a["assetClass"] == "activity":
+                        a["requiredLabels"] = list(a["requiredLabels"]) + [word]
+                        break
+            code, out = run(mutate_man=leak)
+            rep.check(code != 0,
+                      "⭑ ZORUNLU ETİKET OLARAK BASILAN MÜHÜR SÖZCÜĞÜ YAKALANIR",
+                      out)
+
+    # (m) ⭑ KÜLTÜREL GÜVENLİK ⭑ — Kademe C bir varlığın kısıtı düşerse KIRMIZI
+    def strip_culture(m):
+        for a in m["assets"]:
+            if a.get("culture") == "inuit":
+                a["restrictions"] = [r for r in a["restrictions"]
+                                     if not r.startswith("culture_index")]
+                break
+    code, out = run(mutate_man=strip_culture)
+    rep.check(code != 0,
+              "⭑ KADEME C KÜLTÜRÜN YASAK BİÇİMİ DÜŞERSE KIRMIZI", out)
+
+    # (n) vinyet bir levhaya dönüşemez: TEK etiket taşır
+    def fat_vignette(m):
+        for a in m["assets"]:
+            if a["assetClass"] == "culture-vignette":
+                a["requiredLabels"] = list(a["requiredLabels"]) + ["extra label"]
+                break
+    code, out = run(mutate_man=fat_vignette)
+    rep.check(code != 0, "⭑ FAZLA ETİKET TAŞIYAN VİNYET YAKALANIR", out)
+
+    # (o) ⭑ YANLIŞ POZİTİF TESTİ ⭑ — sayı genişletmesi ve normalleştirme
+    #     MEŞRUDUR ve geçmek ZORUNDADIR. Levha "numbered 1 to 4" diyorsa
+    #     '2' etiketi türemiştir; kapı bunu kusur sanarsa doğru yazılmış
+    #     bir şartnameyi bozmaya iter.
+    code, out = run()
+    rep.check(code == 0,
+              "⭑ SAYI GENİŞLETMESİ VE NORMALLEŞTİRME GEÇER (yanlış pozitif yok)",
+              out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -2530,6 +2816,10 @@ def main() -> int:
                 part16_design(rep, tmp, base3)
             if os.path.isfile(QA_ANSWERKEY):
                 part18_answerkey(rep, tmp, base3)
+
+        # ㉑ Faz 5 · görsel varlık kapısı
+        if os.path.isfile(QA_ASSETS):
+            part21_assets(rep, tmp)
 
     part4_no_dead_exemptions(rep)
 

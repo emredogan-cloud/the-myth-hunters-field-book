@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "checks": 30,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "manifestAssets": 158,
+    "counts": {
+      "activity": 120,
+      "badge": 6,
+      "culture-vignette": 22,
+      "front-matter": 4,
+      "seal-stamp": 6,
+      "total": 158
+    },
+    "roadmapDelta": 8,
+    "processedOnDisk": 0,
+    "dimensionChecked": 0,
+    "requiredLabels": 725,
+    "measurementPages": 43,
+    "measurementConstrained": 43,
+    "rejected": 0
+  }
+}

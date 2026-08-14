@@ -60,15 +60,38 @@
 **/*_PRIVATE.md
 
 # ③ GÖRSEL VARLIKLAR ──────────────────────────────────────────────────────
-# ~150 görsel öğe × 3 format çok büyüktür ve ham çıktı yeniden üretilebilir
+# 158 görsel öğe × 3 katman çok büyüktür ve ham çıktı yeniden üretilebilir
 # değildir (üreteç deterministik değil). Depoda yalnızca ÖLÇÜMLERİ durur.
+#
+# ⚠ FAZ 5 · K35 — DÖRT KATMANIN DÖRDÜ DE DIŞARIDA KALIR.
+# İlk hâl yalnızca raw/ ve processed/'ı dışlıyordu; `final/` ve
+# `rejected/` Faz 5'te doğdu ve ikisi de GÖRSEL TAŞIR. `rejected/` özellikle
+# tehlikeliydi: reddedilen bir ham görsel, kabul edilenden daha az gizli
+# değildir.
 07_ASSETS/raw/*
 07_ASSETS/processed/**/*
+07_ASSETS/final/**/*
+07_ASSETS/rejected/**/*
 07_ASSETS/print/**/*
 07_ASSETS/kindle/**/*
 07_ASSETS/web/**/*
 !07_ASSETS/**/.gitkeep
 !07_ASSETS/**/README.md
+
+# ③b ENVANTER DEPODA DURUR — ama yalnızca ÖLÇÜM olarak.
+# ASSET_MANIFEST.json görsel taşımaz ve İÇERİK de taşımaz: kimlik, ölçü,
+# yol, SAYIM ve sha256 taşır. Bir yol bir varlık değildir ve manifest
+# bunu `status` ile söyler.
+!07_ASSETS/ASSET_MANIFEST.json
+
+# ③c TAM ENVANTER DEPOYA GİREMEZ — CEVAP TAŞIR
+#
+# `requiredLabels` ve `restrictions` bir görsel şartnamesidir VE AYNI
+# ZAMANDA CEVAPTIR: bir ölçüm kısıtı çoğu zaman cevabın kendisini yazar
+# ("cord A three in the tens and four in the ones"). K10 cevabın public
+# depoda durmasını yasaklar ve `image_prompts.py` Faz 2'den beri aynı
+# gerekçeyle şartname metnini kütüphaneye almıyor.
+07_ASSETS/ASSET_MANIFEST.local.json
 
 # ④ FONTLAR ───────────────────────────────────────────────────────────────
 07_ASSETS/fonts/*.ttf
