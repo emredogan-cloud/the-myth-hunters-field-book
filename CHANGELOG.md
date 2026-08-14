@@ -205,6 +205,60 @@ Yeni selftest bölümleri: **⑲** sayfa hedefi zinciri · **⑳** ön madde ·
 **㉑** görsel varlık · **㉒** görsel hat **dosya katmanı** (kurgu PNG
 üretir; `--force` koşusundan sonra bile RAW'a yazılmadığını kanıtlar).
 
+### Bulundu ve düzeltildi — EDİTORYAL YAKINSAMA · 66 bulgu · 13 bloklayıcı
+
+Bağımsız editoryal alt-ajan **kitabın tamamını** okudu (120/120 aktivite)
+ve **37 mühür kutusunun aritmetiğini ilk kez birer birer** yeniden
+hesapladı.
+
+| Sınıf | Bulgu | Karşılık |
+|---|---:|---|
+| **A · BLOKLAYICI** | **13** | **13 düzeltildi** |
+| B · ciddi | 26 | 4 düzeltildi · 22 kayıtlı |
+| C · küçük | 19 | 19 kayıtlı |
+| D · görsel kısıt | 8 | 3 düzeltildi · 5 kayıtlı |
+
+**A1 — dokuz levha yanlış yıldız numarası basıyordu.** Basılı `★` harf
+sırası değil **mühür yuvası** numarasıydı; ikisi aritmetik olarak
+imkânsızdı (altı harfli sözcükte ★7). `monsoon`'un yedi mühür sayfasının
+**altısı** listedeydi — o bölgenin mühür sözcüğü **kurulamazdı**.
+
+**A2 — basılı mühür kuralı 37 sayfanın 27'sinde yanlıştı.** Ön madde ve
+altı bölge açılışı *"seal slot with the same number"* diyordu; yıldız
+sayısı **harf** sırasını, yuva sayısı **mühürdeki yeri** sayar.
+
+> **Levha doğruydu, KURAL yanlıştı.**
+
+**Ve ikisi de üç kapının ARASINDAN geçmişti** — üçü de doğruydu:
+`qa_solvable § ⑦` harfi yeniden hesaplıyor (37/37) · `qa_design § ②` kutu
+var mı (37/37) · `qa_progression § ②` harf gerçek cevaptan mı türüyor
+(37/37).
+
+> **Kimse BASILI SAYININ doğru sayı olduğunu sormamıştı.**
+
+Kalan on bir bloklayıcı: yanlış garanti (A3) · beş kasaba dört bacak (A4)
+· **Faz 5'in kendi ölçüm kısıtı** levhayla çelişti (A5) · sayfa üç farklı
+sayfa olarak tarif edilmiş (A6) · gri tonlamadan renk kopyalatma (A7) ·
+"tek kişi" iki kişi (A8) · tekil adım iki cevap (A9) · üç geçerli cevap
+(A10) · başka sayfanın levhası (A11) · eksik zorunlu ebeveyn notu (A12) ·
+**ön madde imlâ kuralını kendi sayfasında çiğniyordu** (A13 · 14 ad).
+
+### Eklendi — `qa_progression § ⑧⑨` · 7 → 14 denetim
+
+Basılı `★` harf sırasıdır · hiçbir `★` sözcüğün dışına düşemez · **ölçüm
+ayrıkken hiçbir yer "aynı numaralı yuva" kuralını basamaz.**
+
+### Güvenlik — inceleme raporunun KENDİSİ kapıya takıldı
+
+Tam kayıt her bulguyu **birebir alıntıyla** kanıtlıyor ve o alıntılar
+cevap taşıyor. `validate_structure § ④⑤` yakaladı.
+
+> **Bir inceleme raporu, incelediği metni alıntılayarak kanıtlar — ve o
+> alıntı, metnin kendisi kadar korumalıdır.**
+
+Rapor ikiye ayrıldı (takip edilen özet + `.gitignore`'lu tam kayıt) —
+Faz 5'te bu ayrım **üçüncü kez** kuruldu.
+
 ### DEĞİŞMEYEN — çocuk doğrulaması
 
 ```

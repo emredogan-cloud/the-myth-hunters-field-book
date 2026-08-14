@@ -43,11 +43,11 @@ DOĞRULAMA** anlamındadır.
 | Ciltsiz baskı · telif | — | **3,45 $ · 5,55 $** | ✅ |
 | Başabaş ACOS | — | **%37,0** | ✅ |
 | Ön madde | 8 sayfa | **9 sayfa · 8 bölüm** | ✅ *bkz. P1* |
-| Kelime | 22.000 ±%15 | **21.283** (−%3,3) | ✅ |
-| Ön madde okunabilirliği | ≤ field note +0,5 | **FK 4,10 < 5,39** | ✅ |
+| Kelime | 22.000 ±%15 | **21.615** (%-1,8) | ✅ |
+| Ön madde okunabilirliği | ≤ field note +0,5 | **FK 4,22 < 5,40** | ✅ |
 | Ticari dil | %100 İngilizce | **1.488 dize** (Faz 4: 814) | ✅ |
 | **Varlık envanteri** | ~150 | **158** · hesaplandı | ✅ |
-| Zorunlu etiket | — | **725** (Faz 4: 700) | ✅ |
+| Zorunlu etiket | — | **732** (Faz 4: 700) | ✅ |
 | **Üretilmiş görsel varlık** | kurucuya ait | **0** | ⏳ *bilerek* |
 | Görsel hattı | kurulsun | **kuruldu · dosya katmanında sınandı** | ✅ |
 | Ölçüme dayanan sayfa | kısıtlı olsun | **43 / 43** | ✅ *23'ü Faz 5'te* |
@@ -57,8 +57,12 @@ DOĞRULAMA** anlamındadır.
 | Kültürel kısıt erişilebilirliği | — | **235 satır · 0 çevrilmemiş** | ✅ |
 | Kapı sayısı | — | **16** (yeni: `qa_assets`) | ✅ |
 | Kapı öz-testi | yeşil | **237 denetim** (Faz 4: 178) | ✅ |
+| **Editoryal inceleme** | koşsun | **66 bulgu · 13 bloklayıcı** | ⚠ *bulundu* |
+| Bloklayıcı bulgu karşılığı | hepsi | **13 / 13 düzeltildi** | ✅ |
+| **Mühür yıldız numarası** | doğru | **9 yanlıştı · 37/37 düzeltildi** | ⚠ *bulundu* |
+| Basılı mühür kuralı | doğru | **27/37'de yanlıştı · düzeltildi** | ⚠ *bulundu* |
 | Kusurlu kurgu sınıfı (§ 30) | 18 | **18 / 18** | ✅ |
-| CI | yeşil | **6/6 push yeşil** | ✅ |
+| CI | yeşil | **8/8 push yeşil** | ✅ |
 | **Çocuk saha oturumu** | — | **0 oturum** | ⏳ **BEKLİYOR** |
 
 ```
@@ -188,13 +192,13 @@ fizikî prova           0   uydurulmadı
 |---|---:|---|---:|
 | `title-page` | 1 | production | 22 |
 | `copyright-page` | 1 | production | 90 |
-| `mission-order` | 1 | teaching | 291 |
-| `how-a-page-works` | **2** | teaching | 229 |
-| `star-box-and-seal` | 1 | teaching | 198 |
+| `mission-order` | 1 | teaching | 330 |
+| `how-a-page-works` | **2** | teaching | 320 |
+| `star-box-and-seal` | 1 | teaching | 272 |
 | `the-route` | 1 | teaching | 208 |
 | `when-you-are-stuck` | 1 | teaching | 190 |
 | `before-you-start` | 1 | teaching | 227 |
-| **toplam** | **9** | | **1.455** |
+| **toplam** | **9** | | **1.659** |
 
 Yol haritasının adıyla istediği dört parça da var: **görev emri ·
 araçlar · mühür sayfası · ipucu kuralı.**
@@ -272,20 +276,20 @@ sessizliği · örnek sözcüğün gerçek bir yıldız sözcüğü olmaması.
 
 | Katman | Kelime |
 |---|---:|
-| Proza (talimat · field note · ipucu · ölçüt · ebeveyn notu) | 8.973 |
-| Levha mobilyası (`pagePrints`) | 7.868 |
-| Bölge açılışları | 1.013 |
+| Proza (talimat · field note · ipucu · ölçüt · ebeveyn notu) | 9.000 |
+| Levha mobilyası (`pagePrints`) | 7.889 |
+| Bölge açılışları | 1.031 |
 | Final görev | 786 |
-| Arka madde iskeleti | 628 |
-| **Ön madde** | **2.015** |
-| **TOPLAM** | **21.283** |
+| Arka madde iskeleti | 643 |
+| **Ön madde** | **2.266** |
+| **TOPLAM** | **21.615** |
 
-Hedef **22.000 ± %15** = 18.700–25.300 → **bantta**, sapma **−%3,3**.
+Hedef **22.000 ± %15** = 18.700–25.300 → **bantta**, sapma **%-1,8**.
 
 ### 5.1 · Yol haritasının ~4.000 tahmini tutmadı — ve doldurulmadı
 
 Yol haritası ön madde için ~4.000 kelime tahmin ediyordu; ölçülen
-**2.015**. Fark **doldurulmadı** ve doldurulmaması bilinçlidir:
+**2.266**. Fark **doldurulmadı** ve doldurulmaması bilinçlidir:
 
 > **Kurucu talimatı § 6:** *"Do NOT add meaningless prose merely to hit
 > 22.000. CONTENT QUALITY > WORD COUNT."*
@@ -302,11 +306,11 @@ değil tahmindi.
 | Talimat | 7,91 | **2,53** | 5–11 · ≤4,0 ✅ |
 | Field note | 12,40 | **5,39** | 9–14 · 3,0–5,9 ✅ |
 | İpucu | 9,93 | **3,74** | ≤4,5 ✅ |
-| **Ön madde** | **10,76** | **4,10** | 9–16 · ≤6,5 ✅ |
+| **Ön madde** | **11,09** | **4,22** | 9–16 · ≤6,5 ✅ |
 
-Değişmez: **fk(ön madde) 4,10 ≤ fk(field note) 5,39 + 0,5** ✅
+Değişmez: **fk(ön madde) 4,22 ≤ fk(field note) 5,40 + 0,5** ✅
 
-Ön madde kitabın **en zor metni değil**: field note'tan 1,29 sınıf kolay.
+Ön madde kitabın **en zor metni değil**: field note'tan 1,18 sınıf kolay.
 Kurucu talimatı § 8 bunu adıyla şart koşuyordu.
 
 `qa_readability`: 11 → **18 denetim** (yeni § ⑨ ön madde registeri).
@@ -657,16 +661,109 @@ yakar.
 >
 > **INTERNAL EDITORIAL VALIDATION — NOT CHILD VALIDATION.**
 
-Bağımsız bir editoryal alt-ajan koşturuldu. Bulgular ve karşılıkları:
-[`06_REPORTS/LINE_EDITOR_REPORT.md`](LINE_EDITOR_REPORT.md)
+Bağımsız bir editoryal alt-ajan koşturuldu ve **kitabın tamamını** okudu:
+120 aktivitenin 120'si, altı bölge açılışı, final görev, arka madde ve
+Faz 5'te yazılan ön madde. **37 mühür kutusunun aritmetiği ilk kez birer
+birer yeniden hesaplandı.**
 
-*(§ 16 bulgu tablosunu taşır.)*
+| Sınıf | Bulgu | Karşılık |
+|---|---:|---|
+| **A · BLOKLAYICI** | **13** | **13 düzeltildi** |
+| **B · CİDDİ** | **26** | 4 düzeltildi · 22 kayıtlı |
+| **C · KÜÇÜK** | 19 | 19 kayıtlı |
+| **D · GÖRSEL KISIT** | 8 | 3 düzeltildi · 5 kayıtlı |
+| **Toplam** | **66** | **20 düzeltildi · 46 kayıtlı** |
+
+Ayrıntı: [`06_REPORTS/LINE_EDITOR_REPORT.md`](LINE_EDITOR_REPORT.md)
+
+> Faz 4 on bulgu bulmuştu; bu inceleme altmış altı buluyor. **Bu bir kalite
+> düşüşü değildir:** Faz 4 altmış YENİ sayfayı inceledi, bu inceleme
+> kitabın TAMAMINI ve daha hiç incelenmemiş ön maddeyi inceledi.
+
+### 15.1 · Raporun kendisi kapıya takıldı
+
+Tam kayıt her bulguyu **sayfadan birebir alıntıyla** kanıtlıyor ve o
+alıntılar aktivite prozası ile **cevap** taşıyor. `validate_structure § ④⑤`
+raporu bir sızıntı olarak yakaladı.
+
+> ### Bir inceleme raporu, incelediği metni alıntılayarak kanıtlar — ve o alıntı, metnin kendisi kadar korumalıdır.
+
+Rapor, envanterin ve prompt kütüphanesinin izlediği **aynı ayrıma** tabi
+tutuldu: takip edilen özet + `.gitignore`'lu tam kayıt. **Faz 5'te bu
+ayrım üçüncü kez kuruldu** ve üçünde de aynı kural geçerliydi — kuralın
+kendisi yeni değildi, ona uymayan dosyalar yeniydi.
 
 ---
 
-## 16 · Line editor bulguları
+## 16 · Line editor bulguları — on üç bloklayıcı
 
-*(Rapor alındığında doldurulur.)*
+| # | Sayfa / bölüm | Kusur | Karşılık |
+|---|---|---|---|
+| **A1** | 9 mühür sayfası | Basılı `★` **harf sırası değil yuva numarasıydı**; ikisi aritmetik olarak imkânsız (6 harflik sözcükte ★7, 4 harflikte ★5). `monsoon`'un yedi mühür sayfasının **altısı** — o bölgenin sözcüğü **kurulamazdı** | ✅ |
+| **A2** | ön madde + 6 açılış + `DESIGN_SYSTEM § 4` | Basılı kural iki **ayrı** büyüklüğü aynı ilan ediyordu; ölçüm: **27/37 sayfada farklılar** | ✅ |
+| **A3** | ön madde + arka madde | *"Hiçbir sayfa başkasının cevabına bağlı değil"* — üç karşı örnek | ✅ |
+| **A4** | `akan-story-web-map` | Beş kasaba **dört** bacak verir; cevap 100 mil ve **altı** kasaba ister | ✅ |
+| **A5** | `aztec-maize-journey-sort` | **Faz 5'in kendi ölçüm kısıtı** levhanın konum göndermesiyle çelişti | ✅ |
+| **A6** | `maori-macron-length` | Sayfa **üç farklı sayfa** olarak tarif edilmişti | ✅ |
+| **A7** | `aztec-town-sign-make` | Gri tonlamalı örnekten **renk** kopyalatıyordu | ✅ |
+| **A8** | `norse-runestone-read` | *"Tek kişi"* aslında **iki** kişiydi | ✅ |
+| **A9** | `persian-joined-letters` | Adım tekil, cevap **iki** şekil; ölçüt levhada basılı değildi | ✅ |
+| **A10** | `finnish-vowel-harmony` | Adım 3'ün **üç** geçerli cevabı vardı · test sözcüğü kuralı **bozmuyordu** · field note cevabı veriyordu | ✅ |
+| **A11** | `akan-day-name-pairs` | Adım **başka bir sayfanın** levhasını gerektiriyordu | ✅ |
+| **A12** | `zulu-click-letters` | `safe-with-adult` sayfanın **zorunlu** ebeveyn notu yoktu | ✅ |
+| **A13** | ön madde + 4 sayfa | Ön madde imlâ kuralını **kendi sayfasında** çiğniyordu · 14 ad | ✅ |
+
+### 16.1 · ⭑ A1 ve A2 üç kapının ARASINDAN geçti
+
+| Kapı | Ne denetliyordu | Sonuç |
+|---|---|---|
+| `qa_solvable § ⑦` | mühür **harfi** yeniden hesaplanıyor mu | ✅ 37/37 |
+| `qa_design § ②` | yıldız kutusu **var mı** | ✅ 37/37 |
+| `qa_progression § ②` | harf **gerçek bir cevaptan** mı türüyor | ✅ 37/37 |
+
+Üçü de doğruydu. Harf doğruydu, kutu vardı, türetme doğruydu.
+
+> ### Kimse BASILI SAYININ doğru sayı olduğunu sormamıştı.
+
+`qa_progression § ⑧⑨` doğdu ve ikisini birden kapatıyor: basılı `★` harf
+sırasıdır · hiçbir `★` sözcüğün dışına düşemez · **ölçüm ayrıkken hiçbir
+yer "aynı numaralı yuva" kuralını basamaz.**
+
+`qa_progression`: 7 → **14 denetim**.
+
+### 16.2 · Faz 5'in kendi kusurları — üçü
+
+Bu incelemenin en değerli tarafı, **Faz 5'in kendi işini** denetlemesiydi:
+
+| # | Ne | Nereden geldi |
+|---|---|---|
+| **A5** | ölçüm kısıtı levhanın konum göndermesini yasakladı | § 12'nin 49 kısıtı |
+| **A13** | ön madde imlâ kuralını kendi sayfasında çiğnedi | § 4'ün ön maddesi |
+| **B22** | kit sayfası **cetvel** istiyordu; 120 sayfanın **hiçbiri** kullanmıyor | § 4'ün ön maddesi |
+
+B22'nin ölçümü: `coloured-pencils` **38** sayfa · `read-aloud-partner` 2 ·
+`mirror` 1 · `string` 1 · **`ruler` 0**. *"Kit'in tamamı bu"* diyen bir
+sayfa ölçümle çelişemez.
+
+### 16.3 · Kayıtlı kalan 46 bulgu
+
+| Sınıf | Adet | En büyük küme |
+|---|---:|---|
+| B · ciddi | 22 | **9 sayfada field note cevabı söylüyor** |
+| C · küçük | 19 | sayım, birim ve etiket uyuşmazlıkları |
+| D · görsel kısıt | 5 | eksik `requiredLabels` · `pagePrints`'e sızmış tasarım notu |
+
+Dokuz field-note sızıntısı **aynı sınıftan** ve Faz 4 § 27.3 aynı sınıfı
+dört sayfada bulmuştu: `qa_solvable § ⑧` anlamlı sözcük örtüşmesiyle
+çalışıyor ve **kısa cümleler eşiğin altında kalıyor**.
+
+> **Kapı yanlış değil, ÇÖZÜNÜRLÜĞÜ yetersiz — ve bu bir kapı gevşetme
+> gerekçesi değil, bir İNSAN OKUMASI gerekçesidir.**
+
+⚠ Ayrıca ölçüldü ve **Faz 6'ya taşındı:** `writingSpaceLines` alanı ile
+`pagePrints`'in saydığı yazma satırı **120 sayfanın 63'ünde** uyuşmuyor.
+İki alan da satır sayısı iddia ediyor; dizgiden önce **biri yetkili ilan
+edilmelidir**.
 
 ---
 
@@ -890,7 +987,7 @@ ve **her vinyet** tam kapsam ister; diğer aktivite sayfaları için sayfaya
 | | |
 |---|---|
 | Faz 5 dalı | `faz/5-yakinsama` |
-| Commit | **7** |
+| Commit | **10** |
 | CI | ✅ **hepsi yeşil** — kırmızı koşu **0** |
 | Açık PR | 0 |
 | `.gate` | **`phase1`** — değişmedi |
@@ -927,7 +1024,7 @@ selftest.py                →  ✅ 177 denetim (manuscript'e bağlı bölümler
 | `qa_instruction.py` | 11 | 11 | — |
 | `qa_readability.py` | 11 | **18** | ⭑ **§ ⑨ YENİ** |
 | `qa_language.py` | 7 | **8** | ⭑ ticari alan 814 → **1.488** |
-| `qa_progression.py` | 7 | 7 | — |
+| `qa_progression.py` | 7 | **14** | ⭑ **§ ⑧⑨ YENİ** |
 | `qa_echo.py` | 7 | **11** | ⭑ **§ ⑦ YENİ** |
 | `qa_design.py` | 19 | 19 | — |
 | `qa_answerkey.py` | 25 | **35** | ⭑ **§ ⑩ YENİ** |
@@ -1042,7 +1139,10 @@ Faz 5'te eklenen dört bölüm:
 | İki sayının uyuşması bir doğrulama mıdır | **HAYIR.** İki liste 8'de uyuşuyordu ve başka bir kitabı tarif ediyordu |
 | Bir hat kendi çıktısını reddettirebilir mi | **Evet — ve reddettirdi.** Düzeltilen kapı değil hattı |
 | Bir kapı doğru olanı pahalı hâle getirebilir mi | **Evet — iki kez.** 57 ve 55 doğru sayfa kırmızı yandı |
-| Ön madde içerikten kolay mı | **Evet.** FK 4,10 < 5,39 |
+| Ön madde içerikten kolay mı | **Evet.** FK 4,22 < 5,40 |
+| Bir kusur üç kapının ARASINDAN geçebilir mi | **Evet.** A1 ve A2 üç doğru kapının arasından geçti |
+| Bir faz kendi işini denetleyebilir mi | **Evet — üç kendi kusurunu buldu** (A5 · A13 · B22) |
+| Bir inceleme raporu bir sızıntı olabilir mi | **Evet.** Alıntı, metnin kendisi kadar korumalıdır |
 | Sayfa hedefi ölçümle tutuyor mu | **Evet.** 144 = 144 · sapma %0,0 |
 | **Çocuklar talimatları yardımsız anlıyor mu** | **HÂLÂ BİLİNMİYOR** |
 
