@@ -362,6 +362,54 @@ def check_answer_leak(rep: Report, files: list[str]) -> None:
     rep.check(not leaked, "cevap anahtarı depoya sızmamış" +
               ("" if not leaked else " — SIZINTI: %s" % leaked[:5]))
 
+    # ⑤b ⭑ GÖRSEL ŞARTNAMESİ DE BİR CEVAP TAŞIYICISIDIR ⭑
+    #
+    # Bu denetim Faz 5'te doğdu ve doğmasının sebebi bir hataydı: envanter
+    # üreteci ilk hâlinde TEK bir dosya yazıyordu ve o dosya takip
+    # ediliyordu. İçinde `restrictions` vardı ve Faz 5'in ölçüm kısıtları
+    # cevabın kendisini yazıyor:
+    #
+    #     "Exactly these knot counts must be countable: cord A three in
+    #      the tens and four in the ones; ..."
+    #
+    # Yukarıdaki ⑤ taraması bunu GÖREMEZDİ: alan adı arıyor, içerik değil.
+    # Ve `image_prompts.py` tam olarak aynı gerekçeyle Faz 2'den beri
+    # şartname metnini kütüphaneye almıyordu — kural VARDI, yeni dosya
+    # ona uymamıştı.
+    #
+    #     Bir kural yalnızca onu bilen dosyalarda geçerliyse,
+    #     bir kural değil bir ALIŞKANLIKTIR.
+    #
+    # Bu yüzden kural artık dosyadan bağımsız: takip edilen HİÇBİR dosya
+    # `requiredLabels` veya `restrictions` İÇERİĞİ taşıyamaz.
+    print("\n── görsel şartnamesi koruması ──")
+    SPEC_CONTENT = [
+        r'"requiredLabels"\s*:\s*\[',
+        r'"restrictions"\s*:\s*\[',
+        r'"pagePrints"\s*:\s*\[',
+    ]
+    spec_leak: list[str] = []
+    for rel in files:
+        if rel in ANSWER_SCAN_SKIP or not rel.endswith((".json", ".md", ".txt")):
+            continue
+        # Şema ve üreteç kodu alan ADINI tanımlar, DEĞER taşımaz.
+        if rel.endswith(".schema.json") or rel.startswith("04_BUILD/"):
+            continue
+        p = os.path.join(ROOT, rel)
+        if not os.path.isfile(p):
+            continue
+        try:
+            with open(p, encoding="utf-8") as fh:
+                body = fh.read()
+        except (OSError, UnicodeDecodeError):
+            continue
+        hits = [pat for pat in SPEC_CONTENT if re.search(pat, body)]
+        if hits:
+            spec_leak.append("%s (%d alan)" % (rel, len(hits)))
+    rep.check(not spec_leak,
+              "takip edilen hiçbir dosya görsel şartnamesi İÇERİĞİ taşımıyor" +
+              ("" if not spec_leak else " — SIZINTI: %s" % spec_leak[:5]))
+
 
 def check_child_privacy(rep: Report, files: list[str]) -> None:
     """⑥ Çocuk testçi kimlikleri anonim mi.

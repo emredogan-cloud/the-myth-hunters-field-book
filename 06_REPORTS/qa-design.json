@@ -3,7 +3,7 @@
   "checks": 19,
   "errors": [],
   "warnings": [
-    "ilişki tek bir maddede durmuyor — bir ÇIKARIM tasarımı olabilir, insan bakmalı: [\"andean-altitude-map → 'maize 2300-3500 m → quechua…'\", \"andean-altitude-map → 'potato 3500-4000 m → suni…'\", \"andean-altitude-map → 'llama 4000-4800 m → puna…'\", \"andean-altitude-map → 'pepper tree 500-2300 m → yunga…'\", \"japanese-two-alphabets → 'angular set: katakana…'\", \"norse-weekday-names → 'Woden Wednesday…'\"]"
+    "ilişki tek bir maddede durmuyor — bir ÇIKARIM tasarımı olabilir, insan bakmalı: [\"andean-altitude-map → 'maize 2300-3500 m → quechua…'\", \"andean-altitude-map → 'potato 3500-4000 m → suni…'\", \"andean-altitude-map → 'llama 4000-4800 m → puna…'\", \"andean-altitude-map → 'pepper tree 500-2300 m → yunga…'\", \"persian-joined-letters → 'joins on one side only: the start …'\", \"japanese-two-alphabets → 'angular set: katakana…'\"]"
   ],
   "facts": {
     "activities": 120,
@@ -23,7 +23,7 @@
     },
     "visualSpecs": 120,
     "visualAssetsProduced": 0,
-    "requiredLabelsTotal": 700,
+    "requiredLabelsTotal": 710,
     "layoutsPerRegion": {
       "jaguar-condor": 5,
       "monsoon": 6,
@@ -32,7 +32,7 @@
       "middle-sea": 10,
       "sun-savanna": 9
     },
-    "matchingPagesChecked": 10,
-    "uncolocatedPairs": 13
+    "matchingPagesChecked": 11,
+    "uncolocatedPairs": 14
   }
 }

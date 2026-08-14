@@ -320,6 +320,24 @@ def main() -> int:
     ap.add_argument("--check", action="store_true", help="bayatsa kırmızı yan")
     args = ap.parse_args()
 
+    # ⚠ MANUSCRIPT DEPODA DURMAZ (K10) ve bu iki belge ondan da beslenir
+    # (kelime sayısı · yazılmış aktivite · sayfa modeli). Manuscript yokken
+    # üreteç FARKLI bir metin üretir ve o fark bir BAYATLIK değildir:
+    # kaynak orada değildir.
+    #
+    #     Bir bayatlık denetimi, kaynağın YOKLUĞUNU
+    #     bir sürüklenme sanmamalıdır.
+    #
+    # `asset_manifest.py` ve `image_prompts.py` aynı gerekçeyle aynı şeyi
+    # yapar. Yerel koşu tazeliği yine de sert denetler.
+    if args.check and not os.path.isfile(BOOK):
+        print("=" * 74)
+        print("  ÜRETİLEN BELGELER")
+        print("=" * 74)
+        print("  ⊘ manuscript depoda yok (K10) — tazelik denetlenemedi, BOŞ KOŞTU")
+        print("=" * 74)
+        return 0
+
     d = collect()
     targets = [(BOOK_STATS, render_book_stats(d)),
                (ROADMAP_PROGRESS, render_progress(d))]

@@ -1,12 +1,12 @@
 {
   "status": "pass",
-  "checks": 11,
+  "checks": 18,
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 8166,
+    "words": 8175,
     "sentences": 878,
-    "avgSentenceWords": 9.3,
+    "avgSentenceWords": 9.31,
     "fkGrade": 3.52,
     "longWordRatio": 0.043,
     "perActivity": [
@@ -142,11 +142,11 @@
       },
       {
         "activityId": "aztec-maize-journey-sort",
-        "words": 72,
+        "words": 77,
         "sentences": 9,
-        "avgSentenceWords": 8.0,
-        "fkGrade": 3.59,
-        "longWordRatio": 0.014,
+        "avgSentenceWords": 8.56,
+        "fkGrade": 3.68,
+        "longWordRatio": 0.013,
         "fieldNoteWords": 21,
         "steps": 3
       },
@@ -242,10 +242,10 @@
       },
       {
         "activityId": "persian-joined-letters",
-        "words": 50,
+        "words": 51,
         "sentences": 6,
-        "avgSentenceWords": 8.33,
-        "fkGrade": 2.53,
+        "avgSentenceWords": 8.5,
+        "fkGrade": 2.76,
         "longWordRatio": 0.02,
         "fieldNoteWords": 23,
         "steps": 2
@@ -752,12 +752,12 @@
       },
       {
         "activityId": "finnish-vowel-harmony",
-        "words": 64,
+        "words": 70,
         "sentences": 7,
-        "avgSentenceWords": 9.14,
-        "fkGrade": 5.86,
-        "longWordRatio": 0.141,
-        "fieldNoteWords": 24,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 5.5,
+        "longWordRatio": 0.129,
+        "fieldNoteWords": 28,
         "steps": 3
       },
       {
@@ -955,8 +955,8 @@
         "words": 81,
         "sentences": 7,
         "avgSentenceWords": 11.57,
-        "fkGrade": 4.66,
-        "longWordRatio": 0.025,
+        "fkGrade": 4.51,
+        "longWordRatio": 0.012,
         "fieldNoteWords": 28,
         "steps": 3
       },
@@ -1112,11 +1112,11 @@
       },
       {
         "activityId": "akan-day-name-pairs",
-        "words": 79,
+        "words": 76,
         "sentences": 7,
-        "avgSentenceWords": 11.29,
-        "fkGrade": 4.49,
-        "longWordRatio": 0.025,
+        "avgSentenceWords": 10.86,
+        "fkGrade": 4.48,
+        "longWordRatio": 0.026,
         "fieldNoteWords": 30,
         "steps": 3
       },
@@ -1213,17 +1213,17 @@
     ],
     "registers": {
       "instruction": {
-        "words": 4556,
+        "words": 4561,
         "sentences": 576,
-        "avgSentenceWords": 7.91,
+        "avgSentenceWords": 7.92,
         "fkGrade": 2.53,
         "maxSentenceWords": 17
       },
       "fieldNote": {
-        "words": 3074,
+        "words": 3078,
         "sentences": 248,
-        "avgSentenceWords": 12.4,
-        "fkGrade": 5.39,
+        "avgSentenceWords": 12.41,
+        "fkGrade": 5.4,
         "maxSentenceWords": 29
       },
       "hint": {
@@ -1233,6 +1233,14 @@
         "fkGrade": 3.74,
         "maxSentenceWords": 18
       }
-    }
+    },
+    "frontMatter": {
+      "words": 1528,
+      "sentences": 139,
+      "avgSentenceWords": 10.99,
+      "fkGrade": 4.22,
+      "maxSentenceWords": 28
+    },
+    "frontMatterSections": 6
   }
 }

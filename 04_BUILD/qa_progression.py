@@ -274,6 +274,142 @@ def check_with_key(acts, regions, key, rep):
               % (total_letters, rep.facts["lettersReachingFinal"], pct))
 
 
+def check_star_arrow(acts, rep):
+    """⑧ YILDIZ SAYISI ile YUVA SAYISI — İKİ AYRI BÜYÜKLÜK (Faz 5 · A1 · A2).
+
+    ⭑ BU DENETİM İKİ GERÇEK KUSURDAN DOĞDU VE İKİSİ DE KAPILARIN
+      DIŞINDAYDI ⭑
+
+    Levha şu kalıbı basar:
+
+        "star box drawn as N letter squares, square k outlined,
+         marked ★s → seal slot m"
+
+    Dört sayı var ve üçü AYNI olmak zorunda: `k = s = sealStarIndex`.
+    Dördüncüsü (`m = sealSlot`) BAŞKA bir büyüklüktür.
+
+    A1 — dokuz sayfada `s`, `sealStarIndex` yerine `sealSlot` basılmıştı.
+    İkisi aritmetik olarak imkânsızdı: altı harfli bir sözcükte ★7,
+    dört harfli bir sözcükte ★5. `monsoon` bölgesinin yedi mühür
+    sayfasının altısı bu listedeydi — o bölgenin mühür sözcüğü
+    KURULAMAZDI.
+
+    A2 — ön madde ve altı bölge açılışı şu kuralı basıyordu:
+    *"Copy that letter into the seal slot with the same number."*
+    Ölçüm: `sealStarIndex != sealSlot` → 37 sayfanın **27'sinde**.
+
+        Levha doğruydu, KURAL yanlıştı. Ve bir kuralı okuyup levhaya
+        bakmayan bir okur harfleri yanlış yuvalara yazardı.
+
+    Neden hiçbir kapı görmedi: `qa_solvable § ⑦` HARFİ yeniden hesaplıyor
+    (37/37 doğru) ve `qa_design § ②` kutunun VARLIĞINI denetliyor. İkisi de
+    doğruydu. Kimse **basılı sayının** doğru sayı olduğunu sormamıştı.
+    """
+    print("\n── ⑧ yıldız sayısı ↔ yuva sayısı (A1 · A2) ──")
+    # ⚠ KARE SAYISI SÖZCÜKLE YAZILIR ("six letter squares"), rakamla değil.
+    # İlk hâl `\d+` arıyordu ve 37 sayfanın 37'sini "kutusuz" sanmıştı —
+    # yani kapı doğru sayfaları kusurlu ilan ediyordu. Bir kapının ilk
+    # koşusunda yanlış yönde arızalanması bu projede üçüncü kez oldu.
+    WORDNUM = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+               "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+    pat = re.compile(r"star box drawn as (\w+) letter squares?, "
+                     r"square (\d+) outlined, marked ★(\d+)\s*→\s*seal slot (\d+)")
+    # ⚠ Bu denetim BASILI levhayı okur. Manuscript depoda yoksa (K10)
+    # `pagePrints` hiç yoktur ve o hâlde denetlenecek bir levha da yoktur.
+    # Kapı burada BOŞ KOŞAR — kusurlu ilan etmez.
+    seal_pages = [a for a in acts if a.get("sealSlot")]
+    with_prints = [a for a in seal_pages if a.get("pagePrints")]
+    if not with_prints:
+        print("  ⊘ levha metni yok (manuscript depoda durmaz) — BOŞ KOŞTU")
+        return sum(1 for a in seal_pages
+                   if a.get("sealStarIndex") != a.get("sealSlot"))
+
+    seen = 0
+    no_print, wrong_sq, wrong_star, wrong_slot, impossible, wrong_len = \
+        [], [], [], [], [], []
+    for a in with_prints:
+        seen += 1
+        aid = a["activityId"]
+        blob = " ".join(a.get("pagePrints") or [])
+        m = pat.search(blob)
+        if not m:
+            no_print.append(aid)
+            continue
+        sq_raw = m.group(1)
+        squares = (int(sq_raw) if sq_raw.isdigit()
+                   else WORDNUM.get(sq_raw.lower(), -1))
+        outlined, star, slot = (int(x) for x in m.groups()[1:])
+        si = a.get("sealStarIndex")
+        word = a.get("sealStarWord") or ""
+        if squares != len(word):
+            wrong_len.append("%s (%d kare · %d harf)" % (aid, squares, len(word)))
+        if outlined != si:
+            wrong_sq.append("%s (çerçeve %d · index %s)" % (aid, outlined, si))
+        # ⭑ A1'İN KENDİSİ ⭑
+        if star != si:
+            wrong_star.append("%s (★%d · index %s)" % (aid, star, si))
+        if slot != a["sealSlot"]:
+            wrong_slot.append("%s (yuva %d · kayıt %s)" % (aid, slot, a["sealSlot"]))
+        # Aritmetik imkânsızlık: sözcükte o harf YOK.
+        if star > len(word):
+            impossible.append("%s (★%d · sözcük %d harf)" % (aid, star, len(word)))
+
+    rep.facts["sealPagesWithPrintedBox"] = seen - len(no_print)
+    rep.check(not no_print, "her mühür sayfası yıldız kutusunu levhaya basıyor"
+              + ("" if not no_print else " — BASMAYAN: %s" % no_print[:5]))
+    rep.check(not wrong_len, "yıldız kutusu kare sayısı sözcük uzunluğuyla aynı"
+              + ("" if not wrong_len else " — AYRIK: %s" % wrong_len[:5]))
+    rep.check(not wrong_sq, "çerçeveli kare harf sırasıyla aynı"
+              + ("" if not wrong_sq else " — AYRIK: %s" % wrong_sq[:5]))
+    rep.check(not wrong_star,
+              "⭑ BASILI ★ SAYISI HARF SIRASIDIR, yuva numarası DEĞİL"
+              + ("" if not wrong_star else " — AYRIK: %s" % wrong_star[:9]))
+    rep.check(not impossible,
+              "⭑ hiçbir ★ sözcüğün dışına düşmüyor"
+              + ("" if not impossible else " — İMKÂNSIZ: %s" % impossible))
+    rep.check(not wrong_slot, "basılı yuva numarası kayıtla aynı"
+              + ("" if not wrong_slot else " — AYRIK: %s" % wrong_slot[:5]))
+
+    # ⭑ A2 · BASILI KURAL, İKİ SAYIYI AYNI SAYI İLAN EDEMEZ ⭑
+    #
+    # Ölçüm bunu bir kez ve toplu olarak yapar: eğer bir tek sayfada bile
+    # index ≠ slot ise, "aynı numaralı yuva" diyen bir kural YANLIŞTIR.
+    diff = sum(1 for a in acts
+               if a.get("sealSlot") and a.get("sealStarIndex") != a["sealSlot"])
+    rep.facts["starIndexDiffersFromSlot"] = diff
+    print("  ★ ile yuva farklı olan sayfa: %d / %d" % (diff, seen))
+    return diff
+
+
+def check_printed_rule(book, diff, rep):
+    """⑨ BASILI KURAL ÖLÇÜMLE UYUŞUYOR MU (A2).
+
+    Kural metni yalnızca ölçüm onu doğruluyorsa 'aynı numara' diyebilir.
+    Bir tek sayfada bile ayrılıyorlarsa o cümle yanlıştır ve okuru yanlış
+    yuvaya yollar."""
+    print("\n── ⑨ basılı mühür kuralı (A2) ──")
+    BAD = re.compile(r"seal slot (?:with|carrying) the same number", re.I)
+    hits = []
+    for r in book.get("regionOpenings") or []:
+        if BAD.search(r.get("openingText") or ""):
+            hits.append("regionOpening:" + r.get("regionId", "?"))
+    for s in (book.get("frontMatter") or {}).get("sections") or []:
+        blob = (s.get("bodyText") or "") + " " + " ".join(s.get("prints") or [])
+        if BAD.search(blob):
+            hits.append("frontMatter:" + s.get("id", "?"))
+    for s in (book.get("backMatter") or {}).get("sections") or []:
+        blob = (s.get("purpose") or "") + " " + " ".join(s.get("prints") or [])
+        if BAD.search(blob):
+            hits.append("backMatter:" + s.get("id", "?"))
+    if diff:
+        rep.check(not hits,
+                  "⭑ hiçbir yer 'aynı numaralı yuva' KURALINI basmıyor "
+                  "(ölçüm: %d sayfada farklılar)" % diff
+                  + ("" if not hits else " — YANLIŞ KURAL: %s" % hits))
+    else:
+        rep.check(True, "ölçümde ★ ile yuva hiç ayrılmıyor — kural serbest")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -305,6 +441,14 @@ def main() -> int:
         check_independence(acts, rep)
     else:
         print("\n── ⑤ sayfa bağımsızlığı ──")
+        print("  ⊘ manuscript depoda yok — boş koştu")
+
+    if acts:
+        diff = check_star_arrow(acts, rep)
+        if book_doc:
+            check_printed_rule(book_doc, diff, rep)
+    else:
+        print("\n── ⑧⑨ ──")
         print("  ⊘ manuscript depoda yok — boş koştu")
 
     key = load(SEAL_KEY, rep, required=False)

@@ -2,19 +2,18 @@
   "status": "pass",
   "checks": 6,
   "errors": [],
-  "warnings": [
-    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 6/6 bölge GERÇEK içerikle ölçüldü. BÜTÜN BÖLGELER ÖLÇÜLDÜ (6/6): dayanağın gözden geçirilmesi artık bir KURUCU KARARIDIR. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
-  ],
+  "warnings": [],
   "facts": {
+    "matterSource": "ÖLÇÜLDÜ (manuscript)",
     "regionsMeasured": 6,
-    "frontMatter": 8,
+    "frontMatter": 9,
     "backMatter": 14,
     "structuralPerRegion": 2,
     "finalQuest": 5,
     "activityPages": 104.0,
     "regionsTotal": 116.0,
-    "modelRaw": 143.0,
-    "modelPages": 143,
+    "modelRaw": 144.0,
+    "modelPages": 144,
     "modelPagesSignatureAligned": 144,
     "regions": [
       {
@@ -78,12 +77,12 @@
         "totalPages": 15.5
       }
     ],
-    "pageTarget": 148,
-    "pageDeltaPct": -2.7,
+    "pageTarget": 144,
+    "pageDeltaPct": 0.0,
     "royalty_paperback": 5.55,
     "printCost_paperback": 3.45,
     "breakevenAcos_paperback": 37.0,
-    "royaltyBaseline": 5.48,
-    "royaltyDriftVsBaseline": 0.07
+    "royaltyBaseline": 5.55,
+    "royaltyDriftVsBaseline": 0.0
   }
 }

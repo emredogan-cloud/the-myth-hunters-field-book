@@ -77,6 +77,16 @@ jobs:
           else
             echo "::notice::qa_matrix.py henüz yok — Faz 1 teslimatı"
           fi
+      - name: VARLIK ENVANTERİ güncel mi
+        # ⚠ Envanter ölçümden ÖNCE koşar (yol haritası Faz 5 § 8): yanlış
+        # aktiviteye bağlanmış kusursuz bir görsel, aktiviteyi ÇÖZÜLEMEZ
+        # yapar. Manuscript depoda yoksa üreteç BOŞ KOŞAR ve yeşil yanar.
+        run: |
+          if [ -f 04_BUILD/asset_manifest.py ]; then
+            python3 04_BUILD/asset_manifest.py --check
+          else
+            echo "::notice::asset_manifest.py henüz yok — Faz 5 teslimatı"
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -94,6 +104,21 @@ jobs:
         with: { python-version: '3.12' }
       - name: yapı, belge ve sızıntı denetimi
         run: python3 04_BUILD/validate_structure.py --verbose --json 06_REPORTS/structure.json
+      - name: ÜRETİLEN BELGELER bayat mı
+        # ⚠ Bir üreteç yalnızca yerelde denetlenirse, tazelenmeden edilen
+        # bir push sessizce bayat bir belge bırakır — ve bayat bir belge
+        # bir gün YALAN söylemeye başlar (K17).
+        #
+        # Manuscript depoda yoksa üreteçler BOŞ KOŞAR ve yeşil yanar;
+        # o hâlde denetim yalnızca "üretilen dosya kaynağıyla tutarlı mı"
+        # sorusunu sorar ve doğru cevap verir.
+        run: |
+          for g in image_prompts update_docs; do
+            if [ -f "04_BUILD/$g.py" ]; then
+              echo "▸ $g --check"
+              python3 "04_BUILD/$g.py" --check || exit 1
+            fi
+          done
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -130,7 +155,7 @@ jobs:
       - name: metin kapıları (Faz 2'de doğar)
         run: |
           RAN=0
-          for g in qa_age qa_solvable qa_instruction qa_readability qa_language qa_length qa_voice qa_echo qa_design qa_drift qa_crossref qa_progression qa_answerkey; do
+          for g in qa_age qa_solvable qa_instruction qa_readability qa_language qa_length qa_voice qa_echo qa_design qa_drift qa_crossref qa_progression qa_answerkey qa_assets; do
             if [ -f "04_BUILD/$g.py" ]; then
               echo "▸ $g"
               python3 "04_BUILD/$g.py" --verbose --json "06_REPORTS/${g//_/-}.json" || exit 1

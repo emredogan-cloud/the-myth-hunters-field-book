@@ -7,10 +7,11 @@
 
 ## AÇIK KARARLAR — kurucudan yanıt bekleyen
 
-Durum tablosu · **14 Ağustos 2026 · Faz 4**
+Durum tablosu · **14 Ağustos 2026 · Faz 5**
 
 > ⚠ **A10 ERTELENDİ, KAPANMADI.** Kurucu Faz 3'ü A10 beklenmeden
-> başlattı (**K27**) ve Faz 4'ü de aynı aşmayla başlattı (**K30**).
+> başlattı (**K27**), Faz 4'ü aynı aşmayla açtı (**K30**) ve Faz 5'i de
+> aynı aşmayla açtı (**K34**).
 > Bu, testin yapıldığı anlamına **gelmez**.
 > `externalValidation` hâlâ `pending`, `.gate` hâlâ `phase1`.
 
@@ -19,17 +20,17 @@ Durum tablosu · **14 Ağustos 2026 · Faz 4**
 | ~~A1~~ | ~~Manuscript public depoda mı duracak?~~ | — | — | ✅ **KAPANDI → K11** |
 | ~~A2~~ | ~~Devralma politikası onayı~~ | — | — | ✅ **KAPANDI → K12** |
 | ~~A3~~ | ~~6 bölge ve mühür mimarisi onayı~~ | — | — | ✅ **KAPANDI → K18** |
-| ~~A8~~ | ~~148 sayfa kabul edilecek mi~~ | — | — | ✅ **KAPANDI → K19** |
+| ~~A8~~ | ~~148 sayfa kabul edilecek mi~~ | — | — | ✅ **KAPANDI → K19** · *sonra **K33** ile aşıldı* |
 | ~~A7~~ | ~~≥2 çocuk testçi~~ | — | — | ✅ **KAPANDI → K26** · testçi bulundu |
 | ~~A11~~ | ~~`gates.requirements.phase3` 80 mi 60 mı~~ | — | — | ✅ **KAPANDI → K29** · kurucu **60** dedi |
 | ~~A4~~ | ~~168 adaydan 120'sinin nihai seçimi~~ | — | — | ✅ **KAPANDI → K31** · Faz 4 kalan 60'ı seçti |
-| **A10** | gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **ERTELENDİ (K27 · K30)** · oturum **YAPILMADI** |
-| **A12** | **YENİ** — 148 mi 144 mü · dayanak gözden geçirmesi | ORTA | Faz 5 sayfa planı | AÇIK · **6/6 bölge ölçüldü (K32)** |
+| ~~A12~~ | ~~148 mi 144 mü · dayanak gözden geçirmesi~~ | — | — | ✅ **KAPANDI → K33** · kurucu **144** dedi |
+| **A10** | gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **ERTELENDİ (K27 · K30 · K34)** · oturum **YAPILMADI** |
 | **A9** | fizikî prova siparişi ve değerlendirmesi | ORTA | Faz 5–6 | AÇIK · **KURUCUYA AİT** |
 | **A5** | Ciltli hediye sürümü v1.0'a girecek mi | DÜŞÜK | Faz 4 | AÇIK (varsayım: hayır) |
-| **A6** | Yazar biyografisi metni | ORTA | Faz 5 | AÇIK |
+| **A6** | Yazar biyografisi metni | ORTA | Faz 6 | AÇIK |
 | — | İki ebeveyn okuması | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** |
-| — | ~150 görselin üretilmesi | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** |
+| — | ~150 görselin RAW üretimi | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** · hat hazır (K35) |
 
 ---
 
@@ -66,27 +67,10 @@ girmez — `validate_structure.py § check_child_privacy` denetler.
 Kurucu **60**'ı onayladı ve 80'i *"tutarsız bir artık gereklilik"*
 olarak nitelendirdi. Ayrıntı ve kök neden: **K29**.
 
-### A12 · 148 mi 144 mü — **YENİ · AÇIK**
+### A12 · 148 mi 144 mü — ✅ **KAPANDI → K33**
 
-Faz 3 § 19.1 şunu yazmıştı: *"Kalan üç bölge ölçüldüğünde dayanak gözden
-geçirilir ve o **KURUCU KARARIDIR**."* Faz 4 kalan üç bölgeyi ölçtü ve
-o an geldi.
-
-```
-0,844  0,863  0,865  0,865  0,875  0,887   → ortalama 0,867 · yayılım %5
-model 144 sayfa · telif 5,55 $ · dayanak 5,48 $ · fark +0,07 $
-```
-
-| Seçenek | Sonuç |
-|---|---|
-| **148 kalır** (mevcut) | dayanak 0,07 $ muhafazakâr kalır · içerik değişmez |
-| **144'e çekilir** | dayanak ölçümle aynı olur · BRIEF § 7 güncellenir |
-| **148'e doldurulur** | ön madde 8 → 12 sayfa · **içerik ekleme gerekir** |
-
-**Ajan hiçbirini seçmedi.** Kurucu talimatı § 22: *"Do NOT shorten
-content merely to reach 148. Do NOT silently increase the target."*
-Sayfa kısılmadı, hedef sessizce değişmedi. Karar: **K32**'de kayıtlı
-ölçüm, seçim kurucuda.
+Kurucu **144**'ü onayladı. Ayrıntı, ekonomik sonuç ve kayıt disiplini:
+**K33**.
 
 ### A9 · Fizikî prova — KURUCUYA AİT · **YENİ**
 
@@ -809,3 +793,167 @@ artık bir KURUCU KARARIDIR."**
 
 Karar kurucuya taşındı: **A12**. 148 hedefi o karara kadar **yerinde
 kalır** (K19 yeniden açılmadı).
+
+---
+
+## FAZ 5 KARARLARI — 14 Ağustos 2026
+
+### K33 · A12 kapandı — sayfa hedefi **144** · ve hedefin DAYANAĞI da kayda geçti
+
+**14 Ağustos 2026 · Faz 5 · kurucu talimatı § 3.**
+
+Kurucu kararı tek cümleydi: **FINAL PAGE TARGET = 144 PAGES.**
+
+| | **ESKİ** | **YENİ** | Kaynak |
+|---|---:|---:|---|
+| `scope.pageTarget` | **148** | **144** | ⭑ kurucu onayı |
+| Ciltsiz baskı maliyeti | 3,52 $ | **3,45 $** | ölçüm |
+| Ciltsiz telif | 5,48 $ | **5,55 $** | ölçüm |
+| Başabaş ACOS | %36,5 | **%37,0** | ölçüm |
+| `royaltyBaseline.paperback` | 5,48 | **5,55** | türetme sonucu |
+
+Talimat iki yasağı birlikte koydu ve ikisi de uygulandı:
+
+```
+148'e ulaşmak için DOLGU EKLENMEDİ
+144'ün altına inmek için İÇERİK ÇIKARILMADI
+```
+
+Model zaten **143 ham → 144 forma hizalı** ölçülmüştü (K32). Karar bir
+sayıyı değiştirmedi; **bir tahmini bir ölçümle değiştirdi.**
+
+#### 33.1 · Aynı sayı iki kez, iki farklı şey
+
+Hedef bu projede üç kez yazıldı ve **ikisi aynı sayıdır**:
+
+| # | Değer | Karar | Dayanak |
+|---|---:|---|---|
+| ① | 144 | bootstrap | **hiçbir bölge ölçülmemişti** — tahmin |
+| ② | 148 | **K19** (A8) | Faz 1 modeli · 0/6 bölge gerçek içerikle ölçülmüştü |
+| ③ | **144** | **K33** (A12) | **6/6 bölge GERÇEK içerikle ölçüldü** (K32) |
+
+① ile ③ aynı sayıdır ve **aynı şey değildir**. Biri hiçbir şey
+ölçülmeden yazıldı, öteki altı ölçümün sonucudur.
+
+> ### Bir hedefin DEĞERİ bir şey söyler; DAYANAĞI başka bir şey. Yalnızca değeri saklayan bir kayıt, üçüncü değişiklikte hangi ölçümün hangi sayıyı ürettiğini SÖYLEYEMEZ.
+
+Bu yüzden karar bir sayıyı güncellemekle kalmadı, **kaydın biçimini
+değiştirdi**: `scope.pageTargetHistory` üç kaydı da dayanağıyla taşıyor
+ve tekil `pageTargetBootstrapHypothesis` alanı **kaldırıldı** — aynı sayı
+iki yerde durursa er geç iki farklı şey söyler (D17).
+
+#### 33.2 · Kök neden düzeltmesi — hedef artık SESSİZCE kayamaz
+
+K29'un dersi burada bir kat yukarıda tekrarlandı:
+
+> **Bir düzeltme, düzelttiği kusurun TEKRARINI engellemiyorsa bir
+> düzeltme değil bir ERTELEMEDİR.**
+
+148'i 144 yapmak yalnızca bugünkü sayıyı düzeltir. Sayfa hedefi bu
+projede masum bir sayı değildir — **14,99 $ fiyat noktasının kendisidir**.
+Sessizce kayan bir hedef, sessizce kayan bir marjdır.
+
+`validate_spec § ⑦` doğdu ve dört şeyi birlikte denetliyor:
+
+```
+· pageTargetHistory DURUYOR ve her kayıt DOLU bir dayanak taşıyor
+· zincir KESİNTİSİZ: her kayıt kendisini aşan kararı gösterir ve
+  o karar BİR SONRAKİ kaydın kendisidir
+· geçmiş KÖKENİNDEN başlar (ilk kayıt 'bootstrap')
+· yürürlükteki hedef ve telif dayanağı geçmişin SON kaydıyla aynı
+```
+
+#### 33.3 · Kapı ilk koşusunda KENDİ iki deliğini buldu
+
+`selftest § ⑲` on kurgu koşturuyor ve ilk hâl **ikisini kaçırdı**:
+
+| Kurgu | İlk hâl | Neden kaçırdı |
+|---|---|---|
+| `basis: ""` | ❌ **yeşil** | `is not None` kullanıyordu — alan VARDI ama BOŞTU |
+| **aradan 148 kaydı düşürülür** | ❌ **yeşil** | yalnızca SON kayıt denetleniyordu |
+
+İkincisi kapının varlık sebebiydi ve tam da onu kaçırıyordu: aradan bir
+kaydı düşürmek, **bir supersession'ın izini silmenin en sinsi biçimidir**
+— 148 hiç var olmamış gibi görünür ve iki 144 tek bir karara çöker.
+
+Düzeltme örneği değil **sınıfı** kapattı: zincir kuralı, aradan da
+baştan da sondan da bir kaydın düşürülmesini imkânsız kılıyor.
+
+`selftest`: 178 → **188 denetim**.
+
+---
+
+### K34 · Kurucu aşması Faz 5'e genişletildi — **tavan yine değişmedi**
+
+**14 Ağustos 2026 · Faz 5 · kurucu talimatı § 4.**
+
+Kurucu talimatı açıktı: *"Use the Founder Override and proceed to
+Phase 5."*
+
+```
+PHASE 5 PRODUCTION      ✅ YETKİLİ      (kurucu · K34)
+A10 ÇOCUK OTURUMU       ❌ YAPILMADI    (0 oturum)
+DIŞ DOĞRULAMA           ⏳ BEKLİYOR     externalValidation = pending
+.gate                       phase1      (YÜKSELTİLMEDİ)
+```
+
+Genişleyen yalnızca `authorisedPhase`'tir: **`gateCeiling` `phase1`'de
+kalır.** Talimatın kendisi bu ayrımı tek cümlede kuruyor:
+
+> *"The Founder Override means: DO NOT WAIT FOR CHILD TESTING TO BEGIN
+> PHASE 5. It does NOT mean: CHILD TESTING PASSED."*
+
+#### 34.1 · Genişletme kaydı artık EZİLMİYOR
+
+K27 ve K30 tekil alanlar kullanıyordu (`extendedTo` · `extensionDecision`)
+ve **üçüncü genişletme K30'u ezecekti**. Aşmanın ne kadar uzadığı, tam da
+uzadıkça görünmez olacaktı.
+
+`phaseOverride.extensionHistory` doğdu ve üç genişletmeyi de taşıyor:
+
+| Yetkilenen faz | Karar | Tavan |
+|---|---|---|
+| `phase3` | **K27** | `phase1` |
+| `phase4` | **K30** | `phase1` |
+| **`phase5`** | **K34** | **`phase1`** |
+
+Üçüncü sütun bu tablonun asıl işidir: **aşma üç kez uzadı ve tavan bir
+kez bile kalkmadı.**
+
+#### 34.2 · `doesNotImply` beşinci maddeyi aldı
+
+Faz 4 listeye *"120 sayfanın bitmesi A10'u kapatmaz"* maddesini eklemişti.
+Faz 5 aynı sınıfın bir sonrakini ekliyor:
+
+> **"Faz 5 görsel üretiminin bitmesi A10'u kapatmaz."**
+
+Gerekçe aynı ve tekrar etmesi bir kusur değil, kusurun **tekrar eden
+biçimi**: her fazda üretim bitince, biten üretimin yapılmamış testi
+kapattığı sanılır. Liste bunu her fazda bir kez daha yazarak engelliyor.
+
+---
+
+### K35 · Görsel hattı ÜÇ KATMANDIR ve RAW'a dokunulmaz
+
+**14 Ağustos 2026 · Faz 5 · kurucu talimatı § 14–15.**
+
+Görsel varlıklar üç dizinde durur ve **yalnızca ortadaki üretilebilir**:
+
+```
+07_ASSETS/raw/         KURUCUNUN çıktısı · DEĞİŞMEZ · asla üzerine yazılmaz
+07_ASSETS/processed/   CLI ÜRETİR · her zaman RAW'dan YENİDEN üretilebilir
+07_ASSETS/final/       basıma hazır · processed'dan türer
+07_ASSETS/rejected/    şartnameyi ihlal eden RAW · silinmez, AYRILIR
+```
+
+Kural tek cümlede: **bir işlenmiş varlık her zaman RAW'dan yeniden
+üretilebilmelidir.** Bu yüzden `asset_pipeline.py` RAW'ı okur, asla
+yazmaz ve her işlenmiş dosyanın yanına kaynağının sha256'sını koyar.
+
+Reddedilen bir görsel **silinmez**: `rejected/` altına taşınır ve
+gerekçesi manifest'e yazılır. Silinen bir ret, aynı hatanın ikinci kez
+yapılmasını serbest bırakır.
+
+> **Şartnameyi ihlal eden görsel değiştirilir; şartname değiştirilmez.**
+> Şartnamenin kendisi kanıtlanabilir biçimde yanlışsa bu bir **tasarım
+> düzeltmesidir** ve kayda geçer (kurucu talimatı § 16).

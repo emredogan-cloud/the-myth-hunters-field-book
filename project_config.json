@@ -88,24 +88,24 @@
       "$comment": [
         "⭑ KURUCU FAZ AŞMA KAYDI — KARAR K27 · 13 Ağustos 2026 ⭑",
         "⭑ FAZ 4'E GENİŞLETİLDİ — KARAR K30 · 14 Ağustos 2026 ⭑",
+        "⭑ FAZ 5'E GENİŞLETİLDİ — KARAR K34 · 14 Ağustos 2026 ⭑",
         "",
         "Kurucu talimatı: «Test aşamasını atlayıp tasarım (Faz 3) aşamasına",
         "geç.» Bu AÇIK bir kurucu aşmasıdır ve gizlenmez.",
         "",
-        "K30 · Faz 4 talimatı § 3: «CONTINUE PHASE 4 USING THE 60-ACTIVITY",
-        "PRODUCTION PATH» ve «A10 MUST NOT BLOCK PHASE 4». Aşma böylece",
-        "phase4'e genişletildi. GENİŞLEYEN yalnızca authorisedPhase'tir:",
-        "gateCeiling phase1'de KALIR çünkü A10 hâlâ yapılmadı. Aynı talimat",
-        "bunu ayrıca şart koşuyor: «A10 MUST NEVER BE MARKED PASS / CLOSED /",
-        "COMPLETED / VERIFIED unless the founder later supplies genuine",
-        "external test evidence.»",
+        "K34 · Faz 5 talimatı § 4: «Use the Founder Override and proceed to",
+        "Phase 5.» Aşma phase5'e genişletildi. GENİŞLEYEN yalnızca",
+        "authorisedPhase'tir: gateCeiling phase1'de KALIR çünkü A10 hâlâ",
+        "yapılmadı. Aynı talimat bunu tek cümlede söylüyor:",
+        "  «The Founder Override means: DO NOT WAIT FOR CHILD TESTING TO",
+        "   BEGIN PHASE 5. It does NOT mean: CHILD TESTING PASSED.»",
         "",
-        "NE AÇAR:  Faz 3 VE Faz 4 üretim işi A10 beklenmeden BAŞLAYABİLİR.",
+        "NE AÇAR:  Faz 3 · Faz 4 · Faz 5 üretim işi A10 beklenmeden BAŞLAR.",
         "NE AÇMAZ: A10 hâlâ AÇIK. Çocuk oturumu YAPILMADI.",
         "          externalValidation hâlâ 'pending'.",
         "          .gate hâlâ 'phase1' ve bu koşuda YÜKSELTİLMEZ.",
         "",
-        "Kurucu talimatı § 4 bunu ayrıca şart koşuyor: kapı depo temiz",
+        "Kurucu talimatı § 32 bunu ayrıca şart koşuyor: kapı depo temiz",
         "görünsün diye sahte yükseltilmez. Aşma GÖRÜNÜR olmalıdır.",
         "",
         "validate_spec § ⑤ bu bloğu mekanik olarak denetler: aşma etkinken",
@@ -115,10 +115,14 @@
         "Yani bu blok bir kaçış kapısı değil, bir KİLİTTİR: aşma kaydı",
         "yapılmamış bir testi geçmiş saymak için KULLANILAMAZ.",
         "",
+        "extensionHistory: her genişletme kaydı SİLİNMEZ. Tekil extendedTo",
+        "alanı üçüncü genişletmede K30'u ezerdi — bir genişletme kaydını",
+        "ezmek, aşmanın ne kadar uzadığını görünmez yapar.",
+        "",
         "status yalnızca KURUCU beyanıyla değişir."
       ],
       "active": true,
-      "authorisedPhase": "phase4",
+      "authorisedPhase": "phase5",
       "gateCeiling": "phase1",
       "deferredBlocker": "A10",
       "deferredBlockerStatus": "open-not-performed",
@@ -126,23 +130,48 @@
       "declaredAt": "2026-08-13",
       "declaredBy": "kurucu talimatı · Faz 3 § 3",
       "decision": "K27",
-      "extendedTo": "phase4",
+      "extendedTo": "phase5",
       "extendedAt": "2026-08-14",
-      "extendedBy": "kurucu talimatı · Faz 4 § 3 ve § 4",
-      "extensionDecision": "K30",
+      "extendedBy": "kurucu talimatı · Faz 5 § 4",
+      "extensionDecision": "K34",
       "doesNotImply": [
         "çocuk testi yapıldı",
         "kitap çocuk-doğrulandı",
         "Faz 2 PASS ölçütü sağlandı",
         "kapı phase2'ye yükselebilir",
-        "Faz 4 üretiminin bitmesi A10'u kapatır"
+        "Faz 4 üretiminin bitmesi A10'u kapatır",
+        "Faz 5 görsel üretiminin bitmesi A10'u kapatır"
       ],
       "documentedIn": [
         "DECISIONS.md",
         "PROJECT_CONTEXT.md",
         "ROADMAP_PROGRESS.md",
         "06_REPORTS/PHASE_3_REPORT.md",
-        "06_REPORTS/PHASE_4_REPORT.md"
+        "06_REPORTS/PHASE_4_REPORT.md",
+        "06_REPORTS/PHASE_5_REPORT.md"
+      ],
+      "extensionHistory": [
+        {
+          "authorisedPhase": "phase3",
+          "decision": "K27",
+          "at": "2026-08-13",
+          "by": "kurucu talimatı · Faz 3 § 3",
+          "gateCeiling": "phase1"
+        },
+        {
+          "authorisedPhase": "phase4",
+          "decision": "K30",
+          "at": "2026-08-14",
+          "by": "kurucu talimatı · Faz 4 § 3 ve § 4",
+          "gateCeiling": "phase1"
+        },
+        {
+          "authorisedPhase": "phase5",
+          "decision": "K34",
+          "at": "2026-08-14",
+          "by": "kurucu talimatı · Faz 5 § 4",
+          "gateCeiling": "phase1"
+        }
       ]
     },
     "physicalProof": {
@@ -203,7 +232,6 @@
       "hints",
       "expectedResult",
       "answer",
-      "answerNote",
       "sealInstruction",
       "parentNote",
       "safetyNotes",
@@ -211,7 +239,10 @@
       "glossaryEntry",
       "openingText",
       "terrainLine",
-      "heading"
+      "heading",
+      "bodyText",
+      "prints",
+      "pagePrints"
     ],
     "testOnlyPath": "01_SOURCE/pilot_tr/",
     "turkishPilotMayNeverEnter": [
@@ -227,6 +258,37 @@
     "testOnlyPaths": [
       "01_SOURCE/pilot_tr/",
       "03_EDITORIAL/child_tests_raw/"
+    ],
+    "editorialFields": [
+      "answerNote",
+      "editorialNote",
+      "batchNote",
+      "note",
+      "comment",
+      "recoveryNote",
+      "purpose",
+      "answerShape",
+      "expectedResultNote"
+    ],
+    "$comment_fields": [
+      "commercialFields → SAYFAYA BASILAN alanlar. Hepsi İNGİLİZCE olmalıdır.",
+      "editorialFields  → sayfaya ÇIKMAYAN tasarım notları. Türkçe SERBEST.",
+      "",
+      "Ayrım bir üslup tercihi değil bir OKUR tercihidir: birini çocuk okur,",
+      "ötekini ajan okur. İkisini aynı kefeye koymak ya Türkçe notları yasaklar",
+      "(gereksiz) ya da İngilizce zorunluluğunu gevşetir (tehlikeli).",
+      "",
+      "⭑ FAZ 5: bodyText · prints · pagePrints EKLENDİ ⭑",
+      "Üçü de sayfaya basılır ve üçü de Faz 4'e kadar HİÇ taranmamıştı:",
+      "taranan alan 814 → 1.487'ye çıktı. 673 basılı dize dört faz boyunca",
+      "dil kapısının DIŞINDA durdu.",
+      "",
+      "⭑ FAZ 5 · answerNote commercialFields'ten ÇIKARILDI ⭑",
+      "Alan config'te TİCARİ yazıyordu ama qa_language onu gömülü listesinde",
+      "ATLIYORDU. İki kaynak dört faz boyunca farklı şey söyledi ve kimse",
+      "ölçmüyordu. Gerçek doğru walker'daydı: answerNote bir tasarım notudur",
+      "ve Türkçedir. Yeni § ① denetimi bir alanın hem ticari hem editoryal",
+      "olmasını KIRMIZI yakıyor."
     ]
   },
   "audience": {
@@ -254,13 +316,17 @@
       "Değişiklik artık bir KURUCU KARARI gerektirir — alt başlıktaki",
       "120 ve 22 doğrulanabilir vaatlerdir.",
       "",
-      "⭑ FAZ 2 / KARAR A8 → K19: pageTarget 144 → 148 ⭑",
-      "Faz 1 sayfa modelini ölçtü: 144 ham → 148 forma hizalı (×4).",
-      "Kurucu 148'i telif düşüşüyle BİRLİKTE kabul etti:",
-      "  baskı 3,45 $ → 3,52 $ · ciltsiz telif 5,55 $ → 5,48 $",
-      "BRIEF § 7 aynı sayılara güncellendi; iki belge artık aynı şeyi",
-      "söylüyor ve page_budget.py'nin sapma uyarısı SUSTU.",
-      "Karar YENİDEN AÇILMAZ: 0,07 $ için içerik kısılmaz."
+      "⭑ FAZ 5 / KARAR A12 → K33: pageTarget 148 → 144 ⭑",
+      "Faz 4 ALTI bölgenin altısını da gerçek içerikle ölçtü (K32):",
+      "  0,844 · 0,863 · 0,865 · 0,865 · 0,875 · 0,887 → ort. 0,867",
+      "  ham model 143 → forma hizalı 144",
+      "Kurucu 144'ü ONAYLADI. Hedef artık bir TAHMİN değil bir ÖLÇÜMDÜR.",
+      "  baskı 3,52 $ → 3,45 $ · ciltsiz telif 5,48 $ → 5,55 $",
+      "",
+      "148 SİLİNMEDİ: pageTargetHistory onu makine okunur biçimde taşır",
+      "ve validate_spec § ⑦ kaydın silinmesini KIRMIZI yakar.",
+      "Dolgu YASAK: 148'e ulaşmak için içerik EKLENMEZ; 144'ün altına",
+      "inmek için içerik ÇIKARILMAZ (kurucu talimatı Faz 5 § 3)."
     ],
     "locked": true,
     "lockedAtPhase": "phase1",
@@ -270,9 +336,8 @@
     "regions": 6,
     "activityTypesRequired": 5,
     "manuscriptWordTarget": 22000,
-    "pageTarget": 148,
-    "pageTargetDecision": "A8 → K19 · kurucu · 13 Ağustos 2026",
-    "pageTargetBootstrapHypothesis": 144,
+    "pageTarget": 144,
+    "pageTargetDecision": "A12 → K33 · kurucu · 14 Ağustos 2026",
     "pageTolerancePct": 6,
     "activityTypes": [
       {
@@ -362,6 +427,35 @@
       "aktivite çıkarmayı zorlar ve bu TEKRAR üretir.",
       "",
       "Kültür eşlemesi ve mühür mimarisi: 01_SOURCE/region_index.json"
+    ],
+    "pageTargetHistory": [
+      {
+        "value": 144,
+        "decision": "bootstrap",
+        "openItem": null,
+        "decidedAt": "2026-08-12",
+        "decidedBy": "yol haritası bootstrap hipotezi",
+        "basis": "hipotez — hiçbir bölge ölçülmemişti",
+        "supersededBy": "K19"
+      },
+      {
+        "value": 148,
+        "decision": "K19",
+        "openItem": "A8",
+        "decidedAt": "2026-08-13",
+        "decidedBy": "kurucu · Faz 2",
+        "basis": "Faz 1 modeli: 144 ham → 148 forma hizalı · 0/6 bölge GERÇEK içerikle ölçülmüştü",
+        "supersededBy": "K33"
+      },
+      {
+        "value": 144,
+        "decision": "K33",
+        "openItem": "A12",
+        "decidedAt": "2026-08-14",
+        "decidedBy": "kurucu · Faz 5 talimatı § 3",
+        "basis": "6/6 bölge GERÇEK içerikle ölçüldü (K32) · ham 143 → forma hizalı 144",
+        "supersededBy": null
+      }
     ]
   },
   "inheritance": {
@@ -464,6 +558,25 @@
       },
       "hint": {
         "fkGradeMax": 4.5
+      },
+      "frontMatter": {
+        "$comment": [
+          "FAZ 5'TE DOĞDU — ön madde kitabın İLK okunan metnidir.",
+          "",
+          "Bir aktivite sayfası değildir: ne talimat ne field note. Kendi",
+          "bandı yoksa hiç ölçülmez, ve ölçülmeyen bir metin kitabın en zor",
+          "metni olabilir.",
+          "",
+          "Bant field note'un ÜSTÜNDE ama dar bir payla (5,9 → 6,5):",
+          "ön madde açıklayıcı bir metindir ve field note'tan biraz daha",
+          "uzun cümle taşır. Pay 0,5 sınıftır ve bir DEĞİŞMEZLE kilitlidir:",
+          "  fk(ön madde) ≤ fk(field note) + 0,5",
+          "Yani bant tek başına gevşek değildir; değişmez onu içeriğe bağlar."
+        ],
+        "avgWordsMin": 9.0,
+        "avgWordsMax": 16.0,
+        "maxSentenceWords": 28,
+        "fkGradeMax": 6.5
       }
     },
     "readabilityInvariant": "fk(instruction) < fk(fieldNote)"
@@ -501,16 +614,36 @@
       "karardır ve DESIGN_SYSTEM.md § 2 ile birlikte değişir."
     ],
     "layouts": {
-      "key-decode": ["cipher"],
-      "key-build": ["cipher"],
-      "sort-cards": ["sort"],
-      "sort-columns": ["sort"],
-      "plate-label": ["observe"],
-      "plate-compare": ["observe"],
-      "data-table": ["observe"],
-      "map-trace": ["map"],
-      "map-overlay": ["map"],
-      "make-frame": ["make"]
+      "key-decode": [
+        "cipher"
+      ],
+      "key-build": [
+        "cipher"
+      ],
+      "sort-cards": [
+        "sort"
+      ],
+      "sort-columns": [
+        "sort"
+      ],
+      "plate-label": [
+        "observe"
+      ],
+      "plate-compare": [
+        "observe"
+      ],
+      "data-table": [
+        "observe"
+      ],
+      "map-trace": [
+        "map"
+      ],
+      "map-overlay": [
+        "map"
+      ],
+      "make-frame": [
+        "make"
+      ]
     },
     "minLayoutsPerRegion": 3,
     "openingWordsMin": 120,
@@ -602,15 +735,37 @@
         "A8 kapandığında iki yerde birden değiştirilmesi gerekiyordu.",
         "İki yerde duran bir sayı er geç iki farklı şey söyler (D17).",
         "",
-        "paperback: kurucunun K19 ile kabul ettiği ÖLÇÜLMÜŞ değer.",
-        "bootstrapHypothesis: kayıt için tutulan eski hipotez; kod onu",
-        "kullanmaz, yalnızca rapor karşılaştırması için durur."
+        "⭑ A12 → K33: dayanak 5,48 $ → 5,55 $ ⭑",
+        "144 sayfa ÖLÇÜLDÜ ve kurucu onayladı; dayanak artık modelin",
+        "kendisidir. Sapma sıfıra indi — uyarı sustu çünkü SAPMA YOK,",
+        "eşik gevşetildiği için değil. Eşikler DEĞİŞMEDİ.",
+        "",
+        "paperbackHistory: eski dayanaklar silinmez, kayıtta durur."
       ],
-      "paperback": 5.48,
-      "bootstrapHypothesis": 5.55,
+      "paperback": 5.55,
       "driftWarnAt": 0.05,
       "driftFailAt": 0.25,
-      "decision": "A8 → K19 · kurucu · 13 Ağustos 2026"
+      "decision": "A12 → K33 · kurucu · 14 Ağustos 2026",
+      "paperbackHistory": [
+        {
+          "value": 5.55,
+          "decision": "bootstrap",
+          "pages": 144,
+          "supersededBy": "K19"
+        },
+        {
+          "value": 5.48,
+          "decision": "K19",
+          "pages": 148,
+          "supersededBy": "K33"
+        },
+        {
+          "value": 5.55,
+          "decision": "K33",
+          "pages": 144,
+          "supersededBy": null
+        }
+      ]
     },
     "editionsHypothesis": [
       {
@@ -710,9 +865,18 @@
       ],
       "phase0": [],
       "phase1": [],
-      "phase2": ["jaguar-condor"],
-      "phase3": ["monsoon", "great-ocean"],
-      "phase4": ["north-ice", "middle-sea", "sun-savanna"],
+      "phase2": [
+        "jaguar-condor"
+      ],
+      "phase3": [
+        "monsoon",
+        "great-ocean"
+      ],
+      "phase4": [
+        "north-ice",
+        "middle-sea",
+        "sun-savanna"
+      ],
       "phase5": [],
       "release": []
     },
@@ -725,13 +889,37 @@
         "decidedBy": "kurucu talimatı · Faz 4 § 2 ve § 31",
         "reason": "Yol haritasının tanımladığı Faz 3 kapsamı ve kurucu onaylı kapı düzeltmesi. Kök neden: eşikler bootstrap'ın '6 × 20' varsayımından elle türetilmişti; K18 kotaları eşitsiz kurdu.",
         "changes": [
-          {"gate": "phase2", "field": "activitiesLocked", "old": 20, "new": 16},
-          {"gate": "phase2", "field": "activitiesWritten", "old": 20, "new": 16},
-          {"gate": "phase3", "field": "activitiesLocked", "old": 80, "new": 60},
-          {"gate": "phase3", "field": "activitiesWritten", "old": 80, "new": 60}
+          {
+            "gate": "phase2",
+            "field": "activitiesLocked",
+            "old": 20,
+            "new": 16
+          },
+          {
+            "gate": "phase2",
+            "field": "activitiesWritten",
+            "old": 20,
+            "new": 16
+          },
+          {
+            "gate": "phase3",
+            "field": "activitiesLocked",
+            "old": 80,
+            "new": 60
+          },
+          {
+            "gate": "phase3",
+            "field": "activitiesWritten",
+            "old": 80,
+            "new": 60
+          }
         ],
-        "founderApproved": ["phase3"],
-        "derivedConsequence": ["phase2"]
+        "founderApproved": [
+          "phase3"
+        ],
+        "derivedConsequence": [
+          "phase2"
+        ]
       }
     ],
     "requirements": {

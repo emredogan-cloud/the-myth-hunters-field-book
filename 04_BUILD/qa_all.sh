@@ -149,6 +149,16 @@ run "KAPILARIN KENDİ TESTİ"     $PY 05_TESTS/selftest.py
   run "cevap anahtarı"          $PY 04_BUILD/qa_answerkey.py \
                                    --json 06_REPORTS/qa-answerkey.json
 
+# ── FAZ 5 · GÖRSEL VARLIK HATTI ────────────────────────────────────────────
+# ⚠ ENVANTER ÖLÇÜMDEN ÖNCE KOŞAR (yol haritası Faz 5 § 8): yanlış aktiviteye
+# bağlanmış kusursuz bir görsel, aktiviteyi ÇÖZÜLEMEZ yapar. Bu yüzden
+# envanter tazeliği bir görsel kapısı DEĞİL, bir veri kapısıdır.
+[ -f 04_BUILD/asset_manifest.py ] && \
+  run "varlık envanteri güncel"  $PY 04_BUILD/asset_manifest.py --check
+[ -f 04_BUILD/qa_assets.py ] && \
+  run "GÖRSEL VARLIKLAR"         $PY 04_BUILD/qa_assets.py \
+                                   --json 06_REPORTS/qa-assets.json
+
 # ── ÜRETİM MODELİ ──────────────────────────────────────────────────────────
 [ -f 04_BUILD/page_budget.py ] && \
   run "sayfa bütçesi"           $PY 04_BUILD/page_budget.py \

@@ -87,27 +87,37 @@ araştırmayı World Myths'te zaten yaptık.
 
 ## 7 · Ticari model (rapor § 16)
 
-> ✅ **A8 KAPANDI · 13 Ağustos 2026 · kurucu kararı → `DECISIONS.md § K19`.**
-> Telifler artık hipotez değil **ölçülmüş modeldir** ve **148 sayfalık**
-> modele dayanır. Faz 1 sayfa modelini ölçtü (144 ham → 148 forma hizalı)
-> ve kurucu 148'i **telif düşüşüyle birlikte** kabul etti.
+> ✅ **A12 KAPANDI · 14 Ağustos 2026 · kurucu kararı → `DECISIONS.md § K33`.**
+> Telifler artık hipotez değil **ölçülmüş modeldir** ve **144 sayfalık**
+> modele dayanır. Faz 4 altı bölgenin altısını da gerçek içerikle ölçtü
+> (143 ham → 144 forma hizalı · K32) ve kurucu **144'ü onayladı**.
+>
+> Hedef bir tahmin değil bir **ölçümdür**: model ile hedef arasındaki
+> sapma **%0**.
 
 | Sürüm | Trim | Liste | Baskı | Telif | Başabaş ACOS |
 |---|---|---:|---:|---:|---:|
-| **Ciltsiz** | 8,5×11 | 14,99 $ | 3,52 $ | **5,48 $** | %36,5 |
-| Ciltli (A5) | 8,25×11 | 24,99 $ | 8,17 $ | 6,83 $ | %27,3 |
+| **Ciltsiz** | 8,5×11 | 14,99 $ | **3,45 $** | **5,55 $** | **%37,0** |
+| Ciltli (A5) | 8,25×11 | 24,99 $ | 8,10 $ | 6,90 $ | %27,6 |
 | Kindle | — | **önerilmez** | — | — | — |
 
 <details>
-<summary>Bootstrap hipotezi (144 sayfa) — kayıt için</summary>
+<summary>Hedefin üç hâli — kayıt için (silinmez)</summary>
 
-| Sürüm | Baskı | Telif | Başabaş ACOS |
-|---|---:|---:|---:|
-| Ciltsiz | 3,45 $ | 5,55 $ | %37,0 |
+| # | Sayfa | Karar | Baskı | Telif | Dayanak |
+|---|---:|---|---:|---:|---|
+| ① | 144 | bootstrap | 3,45 $ | 5,55 $ | **hiçbir bölge ölçülmemişti** |
+| ② | 148 | **K19** (A8) | 3,52 $ | 5,48 $ | Faz 1 modeli · 0/6 bölge gerçek |
+| ③ | **144** | **K33** (A12) | **3,45 $** | **5,55 $** | **6/6 bölge ÖLÇÜLDÜ** |
 
-Fark: baskı **+0,07 $**, telif **−0,07 $**, başabaş ACOS **−0,5 puan**.
-Kurucu bu farkı kabul etti; alternatif final görevi veya cevap anahtarını
-kısmaktı ve ikisi de **ürünün işlevidir**.
+① ile ③ **aynı sayıdır ve aynı şey değildir**: biri hiçbir şey
+ölçülmeden yazıldı, öteki altı ölçümün sonucudur. Kayıt bu ikisini
+ayırt edebilsin diye `project_config § scope.pageTargetHistory` üç
+kaydı da **dayanağıyla** taşır ve `validate_spec § ⑦` zincirin
+kopmasını kırmızı yakar.
+
+148'e ulaşmak için **dolgu eklenmedi**; 144'ün altına inmek için
+**içerik çıkarılmadı**.
 </details>
 
 **Kindle neden yok:** üzerine yazılan bir kitap e-okuyucuda çalışmaz ve
@@ -121,19 +131,20 @@ planlıdır (14,99 $ vs 12,99 $, **tek değişken**).
 
 ## 8 · Gerçek ekonomi: read-through
 
-Bu ürünün tek başına marjı dardır (5,48 $). Gerçek işi **World Myths'i
+Bu ürünün tek başına marjı dardır (5,55 $). Gerçek işi **World Myths'i
 tetiklemektir**:
 
 ```
-Field Book (5,48 $)  →  World Myths ciltsiz (6,39 $)  →  ciltli (7,74 $)
+Field Book (5,55 $)  →  World Myths ciltsiz (6,39 $)  →  ciltli (7,74 $)
 ```
 
-Read-through %20 olursa efektif telif ≈ 5,48 + (0,20 × 6,39) = **6,76 $**.
+Read-through %20 olursa efektif telif ≈ 5,55 + (0,20 × 6,39) = **6,83 $**.
 
-> Dört sayfanın maliyeti read-through'un **yanında ölçülür**: 0,07 $ kayıp,
-> tek bir read-through satışının (6,39 $) **%1,1'idir**. Kısılacak dört
-> sayfa ise final görevden veya cevap anahtarından gelecekti — yani
-> read-through'u besleyen tamamlanma duygusundan.
+> **Dört sayfalık tartışma kapandı ve içeriğe hiç dokunulmadan kapandı.**
+> K19 dört sayfa için 0,07 $ telif kaybını *bilerek* üstlenmişti; K33
+> altı bölge ölçüldükten sonra o dört sayfanın **hiç var olmadığını**
+> gösterdi. Kazanılan 0,07 $ bir tasarruf değil, bir **düzeltmedir**:
+> model baştan 144'tü, hedef 148 diyordu.
 
 > ⚠ Read-through oranı **ölçülmeden bilinemez** ve bu yol haritası onu
 > kanıtlayamaz — yalnızca test edilebilir hâle getirir.

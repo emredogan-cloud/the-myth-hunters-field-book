@@ -44,6 +44,7 @@ import collections
 import html
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -57,6 +58,7 @@ CONFIG = os.path.join(ROOT, "project_config.json")
 OUT = os.path.join(ROOT, "07_ASSETS", "IMAGE_PROMPT_LIBRARY.html")
 
 BANNER = "<!-- ÜRETİLMİŞTİR — 04_BUILD/image_prompts.py · ELLE DÜZENLEMEYİN -->"
+OUT_LOCAL = os.path.join(ROOT, "07_ASSETS", "IMAGE_PROMPT_LIBRARY.local.html")
 
 # ── Düzen başına prompt şablonu ────────────────────────────────────────────
 # Şablonlar SINIF düzeyindedir ve sayfaya özel hiçbir şey taşımaz.
@@ -115,6 +117,45 @@ TEMPLATES = {
         "frame must be mostly empty: the child fills it.\n\nPRINT EXACTLY:\n{PRINT_LIST}"),
 }
 
+# ── Varlık sınıfı şablonları — aktivite DIŞI dört sınıf (Faz 5) ───────────
+# Bunlar bir düzen değil bir SINIF taşır: vinyet bir levha değildir, damga
+# bir illüstrasyon değildir. Şablonu düzenden değil sınıftan almaları bu
+# yüzden zorunlu.
+CLASS_TEMPLATES = {
+    "culture-vignette": (
+        "Black ink line drawing on white, technical field-guide style, no shading. "
+        "A small CONTEXT vignette for one named culture in a children's field book. "
+        "Draw two or three documented, everyday objects or landscape features that "
+        "belong to this culture and to no other, arranged as a still group with "
+        "clear white space around them. This is not a puzzle and carries no answer: "
+        "nothing in it is counted, ordered or matched anywhere in the book.\n\n"
+        "It must read as a place people LIVE, not as a ruin, a museum case or a "
+        "costume. No people, no faces, no ceremony, no sacred object.\n\n"
+        "PRINT EXACTLY ONE LABEL — the culture's own name:\n{PRINT_LIST}"),
+    "seal-stamp": (
+        "Black ink line drawing on white, no shading. A STAMP OUTLINE for the end "
+        "of one region of a children's field book, drawn as an empty frame a child "
+        "will write inside. The frame carries the region's own motif on its border "
+        "and one NOTCH cut into the edge.\n\n"
+        "⭑ THE STAMP CARRIES NO LETTERS AND NO WORDS. The letter slots are drawn "
+        "EMPTY as plain ruled squares. The notch is drawn but NOT numbered — the "
+        "number is set in type later. A letter printed here would destroy the only "
+        "self-check in the book.\n\n{PRINT_LIST}"),
+    "badge": (
+        "Black ink line drawing on white, no shading. A small reusable INTERFACE "
+        "mark for a children's activity book, drawn to read clearly at thumbnail "
+        "size. Heavy even line weight, no fine detail, no culture-specific "
+        "ornament: this mark appears on pages from every region and must belong to "
+        "none of them.\n\n{PRINT_LIST}"),
+    "front-matter": (
+        "Black ink line drawing on white, technical diagram style, no shading. An "
+        "instructional DIAGRAM for the opening pages of a children's field book. It "
+        "explains how the book itself works.\n\n"
+        "⭑ It must use a NEUTRAL demonstration subject and must NOT reproduce any "
+        "real activity page from the book. It carries no seal word, no answer and "
+        "no puzzle content.\n\n{PRINT_LIST}"),
+}
+
 NEGATIVE = [
     "no colour — the interior is printed black and white",
     "no greyscale washes or gradients; line and solid black only",
@@ -148,7 +189,100 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
-def build() -> str:
+def english_constraints(restrictions, culture_id, cmap):
+    """Prompta giden kısıtları İNGİLİZCEYE çevirir.
+
+    ⭑ NEDEN — VE BU BİR ÜSLUP MESELESİ DEĞİL ⭑
+
+    `visualSpec.restrictions` içindeki kültürel kısıtlar Türkçedir çünkü
+    `culture_index` proje dilindedir. Ama bu satırlar görseli ÜRETEN
+    tarafa gider ve bir üreteç Türkçe bir emri güvenilir biçimde
+    uygulamaz.
+
+        Uygulanamayan bir kısıt, yazılmamış bir kısıttır.
+
+    Ve tam olarak EN ÖNEMLİ kısıtlar bunlar: kültürel güvenlik.
+    Eşleştirme sıraya göre yapılır — `forbiddenForms[i]` ↔
+    `forbiddenFormsEn[i]` — ve iki liste aynı uzunlukta olmak
+    zorundadır (qa_assets § ⑧b denetler).
+    """
+    STD = ("No answer may be visible", "No decorative text", "No photographic")
+    c = (cmap or {}).get(culture_id or "") or {}
+    tr = c.get("forbiddenForms") or []
+    en = c.get("forbiddenFormsEn") or []
+    def norm(x):
+        """⚠ TÜRKÇE NOKTASIZ-I KATLAMASI — Faz 4 § 28 ④'ün aynı dersi.
+
+        'CEVABI'.lower() Python'da 'cevabi' verir, 'cevabı' değil: nokta
+        Türkçede anlamlıdır ama Unicode küçültmesi onu bilmez. Katlama
+        yapılmazsa aynı kısıtın iki yazımı eşleşmez ve kültürel güvenlik
+        kısıtı SESSİZCE çevrilmeden kalır.
+
+        Faz 4 aynı kusuru üçüncü kez gördüğünde örneği değil SINIFI
+        kapatmıştı; burada da liste büyütülmüyor, KATLAMA yapılıyor."""
+        x = (x or "").replace("İ", "i").replace("I", "ı")
+        x = x.lower().replace("ı", "i")
+        return re.sub(r"[^a-zçğöşü ]", "", x).strip()
+
+    pairs = list(zip(tr, en)) if len(tr) == len(en) else []
+    out = []
+    for r in restrictions:
+        if r.startswith(STD):
+            continue
+        if r.startswith("culture_index §"):
+            # Faz 4 kimi sayfada kısıtı SAYFAYA GÖRE yeniden yazdı ve
+            # sonuna İngilizce bir emir ekledi:
+            #   "... yasak biçim: X — no mystical glow or aura."
+            # Bu hâl kanonik dizeyle birebir eşleşmez. Üç aşamalı
+            # eşleştirme: birebir → gövde eşleşmesi → İngilizce kuyruk.
+            body = r.split(":", 1)[1] if ":" in r else r
+            tail = ""
+            for dash in ("—", " - "):
+                if dash in body:
+                    body, tail = body.split(dash, 1)
+                    break
+            nb = norm(body)
+            hit = ""
+            for t, e in pairs:
+                nt = norm(t)
+                if nb and nt and (nb == nt or nb in nt or nt in nb):
+                    hit = e
+                    break
+            if hit:
+                out.append("CULTURAL SAFETY: " + hit
+                           + (" " + tail.strip() if tail.strip() else ""))
+                continue
+            if tail.strip():
+                # Kanonik karşılık yok ama sayfanın kendi İngilizce emri var.
+                out.append("CULTURAL SAFETY: " + tail.strip())
+                continue
+            # Hiçbiri yoksa kısıt SESSİZCE DÜŞMEZ: düşerse prompt daha
+            # temiz görünür ve daha az korur.
+            out.append("CULTURAL SAFETY (project record, untranslated): " + r)
+            continue
+        if r.startswith("KAPALI KATMAN"):
+            out.append("CLOSED LAYER: the forbidden layer of the source record "
+                       "may not enter the drawing.")
+            continue
+        out.append(r)
+    return out
+
+
+def load_assets():
+    """Tam envanteri okur (yerel), yoksa takip edileni.
+
+    ⚠ Takip edilen envanter İÇERİK taşımaz (K10). Onunla üretilen bir
+    kütüphane yalnızca yer tutucu sürümü verebilir — ve bunu SÖYLER."""
+    local = os.path.join(ROOT, "07_ASSETS", "ASSET_MANIFEST.local.json")
+    pub = os.path.join(ROOT, "07_ASSETS", "ASSET_MANIFEST.json")
+    for path, full in ((local, True), (pub, False)):
+        if os.path.isfile(path):
+            with open(path, encoding="utf-8") as fh:
+                return json.load(fh), full
+    return None, False
+
+
+def build(populated: bool = False) -> str:
     book = jload(BOOK, {"activities": []}) or {"activities": []}
     acts_doc = jload(ACTS, {"activities": []}) or {"activities": []}
     design = {a["activityId"]: a for a in acts_doc.get("activities", [])}
@@ -167,6 +301,17 @@ def build() -> str:
         specs.append((rorder.get(d.get("region"), 99), d.get("region", "?"), a, vs, d))
     specs.sort(key=lambda x: (x[0], x[2].get("pageOrder", 0)))
 
+    cmap = {c["id"]: c for c in cultures}
+    inv, inv_full = load_assets()
+    inv_assets = (inv or {}).get("assets", []) if inv else []
+    by_id = {a.get("assetId"): a for a in inv_assets}
+    # Aktivite dışı sınıflar: vinyet · damga · rozet · ön madde
+    extra = [a for a in inv_assets if a.get("assetClass") != "activity"]
+    rank = {"culture-vignette": 0, "seal-stamp": 1, "badge": 2, "front-matter": 3}
+    extra.sort(key=lambda a: (rank.get(a.get("assetClass"), 9),
+                              rorder.get(a.get("region") or "", 99),
+                              a.get("assetId") or ""))
+
     by_layout = collections.Counter(vs["layout"] for _, _, _, vs, _ in specs)
     by_region = collections.Counter(r for _, r, _, _, _ in specs)
 
@@ -175,30 +320,59 @@ def build() -> str:
          "<title>Görsel Prompt Kütüphanesi — The Myth Hunter's Field Book</title>",
          BANNER, "<style>", CSS, "</style>", "</head>", "<body>", '<div class="wrap">']
 
+    produced = sum(1 for a in inv_assets
+                   if os.path.isfile(os.path.join(ROOT, a.get("processedLocation") or "")))
     L += [
         "<h1>Görsel Prompt Kütüphanesi</h1>",
-        '<p class="sub">The Myth Hunter\'s Field Book · <strong>Faz 3 · şartname katmanı</strong> · '
-        "13 Ağustos 2026<br>%d sayfa için görsel şartnamesi · <strong>0 üretilmiş varlık</strong>. "
-        "Varlık üretimi <strong>Faz 5</strong>'tir.</p>" % len(specs),
+        '<p class="sub">The Myth Hunter\'s Field Book · <strong>Faz 5 · %s</strong> · '
+        "14 Ağustos 2026<br>%d varlık · %d aktivite şartnamesi · "
+        "<strong>%d üretilmiş varlık</strong>.</p>"
+        % ("ÜRETİM KATMANI · dolu promptlar" if populated
+           else "şartname katmanı · yer tutuculu",
+           len(inv_assets), len(specs), produced),
+    ]
 
-        '<div class="note stop">',
-        "<strong>ŞARTNAME BİR VARLIK DEĞİLDİR.</strong><br>",
-        "Bu belge %d görselin <em>ne olması gerektiğini</em> söyler. Hiçbiri "
-        "üretilmedi ve bu belge üretildiklerini iddia etmez. "
-        "<code>BOOK_STATS.md</code> ikisini ayrı satırlarda sayar: "
-        "<em>görsel şartnamesi</em> ve <em>görsel varlık</em>." % len(specs),
-        "</div>",
+    if populated:
+        L += [
+            '<div class="note stop">',
+            "<strong>BU DOSYA DEPOYA GİRMEZ.</strong><br>",
+            "Promptlar <code>PRINT EXACTLY</code> listeleriyle <strong>DOLU</strong> "
+            "ve o listeler cevabın kendisini taşır: "
+            "<em>“the chilli basket drawn empty”</em> bir şartnamedir "
+            "<strong>ve aynı zamanda cevaptır</strong> (karar K10). "
+            "<code>.gitignore § ③d</code> bu dosyayı dışlar ve "
+            "<code>validate_structure § ⑤b</code> depoya girmesini kırmızı yakar.",
+            "</div>",
+            '<div class="note">',
+            "<strong>KULLANIM.</strong> Bir varlığın kutusundaki "
+            "<em>promptu kopyala</em> düğmesine bas ve üretece yapıştır. Prompt "
+            "şablonu, basılacak listeyi, ortak olumsuz kısıtları ve o sayfanın "
+            "kültürel kısıtlarını <strong>birlikte</strong> taşır — dört parçayı "
+            "elle birleştirmek gerekmez.",
+            "</div>",
+        ]
+    else:
+        L += [
+            '<div class="note stop">',
+            "<strong>ŞARTNAME BİR VARLIK DEĞİLDİR.</strong><br>",
+            "Bu belge %d görselin <em>ne olması gerektiğini</em> söyler. "
+            "<code>BOOK_STATS.md</code> ikisini ayrı satırlarda sayar: "
+            "<em>görsel şartnamesi</em> ve <em>görsel varlık</em>."
+            % len(inv_assets),
+            "</div>",
+            '<div class="note stop">',
+            "<strong>BU BELGE CEVAP TAŞIMAZ — VE TAŞIYAMAZ (karar K10).</strong><br>",
+            "Her sayfanın basacağı şeylerin tam listesi (<code>pagePrints</code>) "
+            "<em>cevabın kendisidir</em>. Bu yüzden buradaki promptlar "
+            "<code>{PRINT_LIST}</code> yer tutucusuyla durur.<br><br>"
+            "<strong>Dolu sürüm:</strong> <code>./04_BUILD/image_prompts.py</code> "
+            "koştuğunda <code>07_ASSETS/IMAGE_PROMPT_LIBRARY.local.html</code> "
+            "dosyasını da yazar. O dosya <strong>depoya girmez</strong> ve "
+            "kurucunun gerçek çalışma arayüzüdür.",
+            "</div>",
+        ]
 
-        '<div class="note stop">',
-        "<strong>BU BELGE CEVAP TAŞIMAZ — VE TAŞIYAMAZ (karar K10).</strong><br>",
-        "Her sayfanın basacağı şeylerin tam listesi (<code>pagePrints</code>) "
-        "<em>cevabın kendisidir</em>: <em>“the chilli basket drawn empty”</em> bir "
-        "şartnamedir <strong>ve aynı zamanda cevaptır</strong>. Bu yüzden promptlar "
-        "<code>{PRINT_LIST}</code> yer tutucusuyla durur. Faz 5'te promptu üreten "
-        "kişi yer tutucuyu <strong>elindeki manuscript'ten</strong> doldurur; "
-        "public depo dolu hâlini hiçbir zaman görmez.",
-        "</div>",
-
+    L += [
         "<h2>1 · Sözleşme: görsel metnin İHTİYACINDAN türer</h2>",
         "<p>Karar <strong>K25</strong>: <em>bir talimat “the X” derse, levha X'i "
         "basmak zorundadır.</em> Faz 2 bunu 16 sayfada ölçtü ve 11'inin "
@@ -217,10 +391,13 @@ def build() -> str:
         "<tr><th>Bölge</th><th>Şartname</th><th>Üretilmiş</th></tr>",
     ]
     for rid, n in sorted(by_region.items(), key=lambda kv: rorder.get(kv[0], 99)):
+        made = sum(1 for _, r2, _, vs, _ in specs if r2 == rid and os.path.isfile(
+            os.path.join(ROOT, "07_ASSETS", "processed", "interior", vs["filename"])))
         L.append("<tr><td>%s <span class='tag'>%s</span></td><td>%d</td>"
-                 "<td><strong>0</strong></td></tr>" % (esc(rname.get(rid, rid)), esc(rid), n))
+                 "<td><strong>%d</strong></td></tr>"
+                 % (esc(rname.get(rid, rid)), esc(rid), n, made))
     L.append("<tr><td><strong>toplam</strong></td><td><strong>%d</strong></td>"
-             "<td><strong>0</strong></td></tr>" % len(specs))
+             "<td><strong>%d</strong></td></tr>" % (len(specs), produced))
     L.append("</table></div>")
 
     L += ["<h2>3 · Ortak olumsuz kısıtlar</h2>",
@@ -244,9 +421,115 @@ def build() -> str:
         L.append('<div class="prompt" id="t%d">%s<button class="copy" data-t="t%d">'
                  "kopyala</button></div>" % (i, esc(tmpl), i))
 
-    L += ["<h2>6 · Sayfa şartnameleri</h2>",
-          "<p>Her satır bir varlıktır. <code>PRINT_LIST</code> sütunu bilerek "
-          "<strong>boştur</strong>: içeriği manuscript'te durur ve depoya girmez.</p>",
+    # ── DOLU PROMPT KUTULARI — yalnızca yerel sürümde ─────────────────────
+    if populated and inv_full:
+        L += ["<h2>6 · Üretime hazır promptlar</h2>",
+              "<p>Her kutu <strong>tek başına</strong> yeterlidir: şablon + "
+              "basılacak liste + ortak olumsuz kısıtlar + o varlığın kendi "
+              "kısıtları. Kopyala, yapıştır, üret.</p>"]
+        # ⚠ Grup, tasarım kaydını da TAŞIMAK zorunda: kültür kimliği oradan
+        # gelir ve o olmadan kültürel kısıtlar çevrilemez. İlk hâl yalnızca
+        # aktiviteyi taşıyordu ve bütün kısıtlar sessizce "untranslated"
+        # dalına düşüyordu — prompt DOLU görünüyor, koruma YOK.
+        groups = []
+        for rid in sorted(by_region, key=lambda r: rorder.get(r, 99)):
+            groups.append((rname.get(rid, rid),
+                           [(a, d) for _, r2, a, vs, d in specs if r2 == rid]))
+        # aktivite promptları, bölge bölge
+        pidx = 0
+        for gname, acts in groups:
+            if not acts:
+                continue
+            L.append("<h3>%s <span class='tag'>%d sayfa</span></h3>"
+                     % (esc(gname), len(acts)))
+            for a, d in acts:
+                vs = a["visualSpec"]
+                inv_a = by_id.get(vs["assetId"], {})
+                pidx += 1
+                tmpl = TEMPLATES.get(vs["layout"], "{PRINT_LIST}")
+                plist = "\n".join("- " + p for p in (a.get("pagePrints") or []))
+                labels = ", ".join(vs.get("requiredLabels") or []) or "(etiket yok)"
+                extra_r = english_constraints(vs.get("restrictions") or [],
+                                              d.get("culture"), cmap)
+                body = (tmpl.replace("{PRINT_LIST}", plist)
+                        + "\n\nEVERY LABEL BELOW MUST BE LEGIBLE AND SPELLED EXACTLY:\n"
+                        + labels
+                        + "\n\nCONSTRAINTS:\n"
+                        + "\n".join("- " + r for r in extra_r)
+                        + "\n\nNEGATIVE: " + "; ".join(NEGATIVE)
+                        + "\n\nOUTPUT: PNG, %s, %d×%d px, %s, %d dpi minimum."
+                        % (vs.get("colour", "grayscale"), vs["targetPx"][0],
+                           vs["targetPx"][1], vs.get("aspect", ""),
+                           vs.get("minDpi", 300)))
+                L.append("<h4><code>%s</code></h4>" % esc(a["activityId"]))
+                L.append("<p class='sub'><span class='tag'>%s</span>"
+                         "<span class='tag'>%s</span><span class='tag'>%d×%d</span>"
+                         "<span class='tag'>%s</span><span class='tag'>%d etiket</span>"
+                         "<code>%s</code></p>"
+                         % (esc(vs["visualClass"]), esc(vs["layout"]),
+                            vs["targetPx"][0], vs["targetPx"][1],
+                            esc(vs.get("aspect", "")),
+                            len(vs.get("requiredLabels") or []),
+                            esc(vs["filename"])))
+                L.append('<div class="prompt" id="p%d">%s'
+                         '<button class="copy" data-t="p%d">promptu kopyala</button>'
+                         "</div>" % (pidx, esc(body), pidx))
+        # aktivite dışı varlıklar
+        for a in extra:
+            pidx += 1
+            tmpl = CLASS_TEMPLATES.get(a.get("assetClass"), "{PRINT_LIST}")
+            if a.get("assetClass") == "culture-vignette":
+                c = cmap.get(a.get("culture") or "", {})
+                plist = ("- the culture's own name, printed once: %s"
+                         % ", ".join(a.get("requiredLabels") or []))
+            elif a.get("assetClass") == "seal-stamp":
+                motif = ""
+                for r in regions:
+                    if r["id"] == a.get("region"):
+                        motif = r.get("sealStampMotif", "")
+                plist = ("MOTIF (from region_index, not to be printed as text): %s"
+                         % motif) if motif else "PRINT NOTHING."
+            else:
+                plist = "PRINT NOTHING except what the constraints allow."
+            extra_r = english_constraints(a.get("restrictions") or [],
+                                          a.get("culture"), cmap)
+            body = (tmpl.replace("{PRINT_LIST}", plist)
+                    + "\n\nPURPOSE: " + (a.get("purpose") or "")
+                    + "\n\nCONSTRAINTS:\n"
+                    + "\n".join("- " + r for r in extra_r)
+                    + "\n\nNEGATIVE: " + "; ".join(NEGATIVE)
+                    + "\n\nOUTPUT: PNG, %s, %d×%d px, %s, %d dpi minimum."
+                    % (a.get("colour", "grayscale"),
+                       a["targetDimensions"][0], a["targetDimensions"][1],
+                       a.get("aspectRatio", ""), a.get("minDpi", 300)))
+            L.append("<h4><code>%s</code></h4>" % esc(a["assetId"]))
+            L.append("<p class='sub'><span class='tag'>%s</span>"
+                     "<span class='tag'>%d×%d</span><span class='tag'>%s</span>"
+                     "<code>%s</code></p>"
+                     % (esc(a.get("assetClass")), a["targetDimensions"][0],
+                        a["targetDimensions"][1], esc(a.get("aspectRatio", "")),
+                        esc(a["filename"])))
+            L.append('<div class="prompt" id="p%d">%s'
+                     '<button class="copy" data-t="p%d">promptu kopyala</button>'
+                     "</div>" % (pidx, esc(body), pidx))
+
+    L += ["<h2>%d · Varlık envanteri</h2>" % (7 if populated and inv_full else 6),
+          "<p>Her satır bir varlıktır. Envanter <strong>hesaplanır</strong>, "
+          "yol haritasının “~150” tahminine yuvarlanmaz.</p>",
+          '<div class="scroll"><table>',
+          "<tr><th>Sınıf</th><th>Adet</th><th>Kaynak</th></tr>",
+          "<tr><td>aktivite görseli</td><td>%d</td><td><code>book.json § visualSpec</code></td></tr>" % len(specs),
+          "<tr><td>kültür vinyeti</td><td>%d</td><td><code>culture_index.json</code></td></tr>"
+          % sum(1 for a in inv_assets if a.get("assetClass") == "culture-vignette"),
+          "<tr><td>mühür damgası</td><td>%d</td><td><code>region_index § sealStampMotif</code></td></tr>"
+          % sum(1 for a in inv_assets if a.get("assetClass") == "seal-stamp"),
+          "<tr><td>rozet</td><td>%d</td><td><code>DESIGN_SYSTEM § 1 · § 4 · § 7</code></td></tr>"
+          % sum(1 for a in inv_assets if a.get("assetClass") == "badge"),
+          "<tr><td>ön madde diyagramı</td><td>%d</td><td><code>book.json § frontMatter</code></td></tr>"
+          % sum(1 for a in inv_assets if a.get("assetClass") == "front-matter"),
+          "<tr><td><strong>toplam</strong></td><td><strong>%d</strong></td><td></td></tr>"
+          % len(inv_assets),
+          "</table></div>",
           '<div class="scroll"><table>',
           "<tr><th>#</th><th>activity_id</th><th>asset_id</th><th>sınıf / düzen</th>"
           "<th>yön · px · oran</th><th>dosya → hedef</th><th>durum</th></tr>"]
@@ -366,15 +649,33 @@ def main() -> int:
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args()
 
-    want = build()
+    print("=" * 74)
+    print("  GÖRSEL PROMPT KÜTÜPHANESİ")
+    print("=" * 74)
+
+    # ⚠ MANUSCRIPT DEPODA DURMAZ (K10) ve kütüphane ondan TÜRER.
+    #
+    # Manuscript yokken üreteç BOŞ bir kütüphane üretir ve o boş kütüphane
+    # takip edilenle elbette tutmaz. Bu bir BAYATLIK değildir: kaynak
+    # orada değildir. `asset_manifest.py` aynı gerekçeyle aynı şeyi yapar.
+    #
+    #     Bir bayatlık denetimi, kaynağın YOKLUĞUNU
+    #     bir sürüklenme sanmamalıdır.
+    if not os.path.isfile(BOOK):
+        print("  ⊘ manuscript depoda yok (K10) — kütüphane üretilemedi, BOŞ KOŞTU")
+        print("=" * 74)
+        return 0
+
+    want = build(populated=False)
+
     if args.check:
+        # ⚠ YALNIZCA TAKİP EDİLEN SÜRÜM DENETLENİR.
+        # Yerel sürüm depoda yoktur ve CI'da hiç üretilmez; onu bayatlık
+        # denetimine sokmak, olmayan bir dosyayı KIRMIZI yakmak olurdu.
         cur = ""
         if os.path.isfile(OUT):
             with open(OUT, encoding="utf-8") as fh:
                 cur = fh.read()
-        print("=" * 74)
-        print("  GÖRSEL PROMPT KÜTÜPHANESİ")
-        print("=" * 74)
         if cur != want:
             print("  ✗ BAYAT: %s" % os.path.relpath(OUT, ROOT))
             print("\n  Tazele: ./04_BUILD/image_prompts.py")
@@ -387,7 +688,21 @@ def main() -> int:
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write(want)
-    print("yazıldı: %s" % os.path.relpath(OUT, ROOT))
+    print("  yazıldı: %s   (takip edilen · yer tutuculu)"
+          % os.path.relpath(OUT, ROOT))
+
+    inv, full = load_assets()
+    if inv and full:
+        with open(OUT_LOCAL, "w", encoding="utf-8") as fh:
+            fh.write(build(populated=True))
+        n = len(inv.get("assets", []))
+        print("  yazıldı: %s   (yerel · %d DOLU prompt)"
+              % (os.path.relpath(OUT_LOCAL, ROOT), n))
+        print("\n  ⚠ Yerel sürüm CEVAP TAŞIR ve depoya GİRMEZ (.gitignore § ③d).")
+    else:
+        print("  ⊘ tam envanter yok — dolu sürüm üretilmedi")
+        print("     ./04_BUILD/asset_manifest.py")
+    print("=" * 74)
     return 0
 
 

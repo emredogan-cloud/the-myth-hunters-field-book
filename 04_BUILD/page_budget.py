@@ -104,13 +104,67 @@ def load(path, rep, required=True):
         return None
 
 
-def build_model(cfg, acts, regions, rep):
+def measured_matter(rep):
+    """⭑ FAZ 5 — ÖN/ARKA MADDE VE FİNAL GÖREV ARTIK ÖLÇÜLÜR ⭑
+
+    Faz 1 bu üç sayıyı ELLE yazmıştı ve o gün doğruydular: manuscript
+    yoktu, tahmin etmekten başka yol da yoktu. Faz 4 arka maddeyi, Faz 5
+    ön maddeyi yazdı — ve o günden sonra elle yazılmış sayı bir TAHMİN
+    değil bir RİSK oldu.
+
+    ⚠ BULGU P1 — VE İKİ SAYININ NEDEN UYUŞMASI YETMEZ:
+
+    Faz 1 ön maddeyi 8 sayıyordu ve o 8'in ikisi 'title-and-copyright'tı.
+    Manuscript'in ön maddesi de 8 sayfaydı — ama içinde ne başlık ne telif
+    sayfası vardı.
+
+        İki liste TOPLAMDA uyuşuyordu ve BAŞKA BİR KİTABI tarif ediyordu.
+
+    Toplamın eşitliği bir doğrulama değildir. Bu yüzden model artık
+    manuscript'i OKUR; elle yazılmış tablo yalnızca manuscript YOKKEN
+    (CI · K10) kullanılan bir YEDEKTİR ve rapor hangisinin kullanıldığını
+    söyler.
+    """
     front = sum(FRONT_MATTER.values())
     back = sum(BACK_MATTER.values())
+    quest = FINAL_QUEST_PAGES
+    source = "tahmin (manuscript depoda yok)"
+
+    book_p = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
+    if os.path.isfile(book_p):
+        try:
+            with open(book_p, encoding="utf-8") as fh:
+                book = json.load(fh)
+        except (json.JSONDecodeError, OSError):
+            book = None
+        if book:
+            fm = book.get("frontMatter") or {}
+            bm = book.get("backMatter") or {}
+            fq = book.get("finalQuest") or {}
+            f_secs = fm.get("sections") or []
+            b_secs = bm.get("sections") or []
+            if f_secs and b_secs:
+                front = sum(s.get("pages", 0) for s in f_secs)
+                back = sum(s.get("pages", 0) for s in b_secs)
+                quest = fq.get("pages", quest)
+                source = "ÖLÇÜLDÜ (manuscript)"
+                # Bildirilen bütçe ile bölümlerin toplamı ayrılamaz.
+                for label, secs, budget in (("ön madde", f_secs, fm.get("pageBudget")),
+                                            ("arka madde", b_secs, bm.get("pageBudget"))):
+                    tot = sum(s.get("pages", 0) for s in secs)
+                    if budget is not None and tot != budget:
+                        rep.check(False, "%s bölüm toplamı bildirilen bütçeyle "
+                                  "aynı (%d ≠ %s)" % (label, tot, budget))
+    rep.facts["matterSource"] = source
+    return front, back, quest, source
+
+
+def build_model(cfg, acts, regions, rep):
+    front, back, quest, msource = measured_matter(rep)
     structural_per_region = sum(PER_REGION_STRUCTURAL.values())
 
     print("\n── sayfa modeli ──")
-    print("  ön madde                     %3d" % front)
+    print("  ön madde                     %3d   [%s]" % (front, msource))
 
     region_rows = []
     activity_pages_total = 0.0
@@ -160,10 +214,10 @@ def build_model(cfg, acts, regions, rep):
 
     regions_total = activity_pages_total + structural_per_region * len(regions)
     print("  bölgeler toplamı             %5.1f" % regions_total)
-    print("  final görev                  %3d" % FINAL_QUEST_PAGES)
-    print("  arka madde                   %3d" % back)
+    print("  final görev                  %3d" % quest)
+    print("  arka madde                   %3d   [%s]" % (back, msource))
 
-    raw = front + regions_total + FINAL_QUEST_PAGES + back
+    raw = front + regions_total + quest + back
     # Basılı kitap dörde bölünebilir bir forma sayısında biter.
     modeled = int(raw + 0.999)
     padded = modeled + (-modeled) % 4
@@ -177,7 +231,7 @@ def build_model(cfg, acts, regions, rep):
         "frontMatter": front,
         "backMatter": back,
         "structuralPerRegion": structural_per_region,
-        "finalQuest": FINAL_QUEST_PAGES,
+        "finalQuest": quest,
         "activityPages": round(activity_pages_total, 1),
         "regionsTotal": round(regions_total, 1),
         "modelRaw": round(raw, 1),
@@ -266,21 +320,31 @@ def check_royalty(cfg, pages, rep):
             coverage = ("%d/%d bölge GERÇEK içerikle ölçüldü"
                         % (measured, total_regions))
             if got > hyp:
-                # ⚠ FAZ 4: ALTI BÖLGENİN ALTISI DA ÖLÇÜLDÜ.
-                # Faz 3 § 19.1 şunu yazmıştı: "Kalan üç bölge ölçüldüğünde
-                # dayanak gözden geçirilir ve o KURUCU KARARIDIR." O an geldi
-                # ve uyarı artık BEKLE demiyor, KARAR VER diyor. Bir uyarı
-                # koşullar değişince aynı şeyi söylemeye devam ederse,
-                # söylediği şey doğru olsa bile YANLIŞ ZAMANI gösterir.
-                tail = ("BÜTÜN BÖLGELER ÖLÇÜLDÜ (%d/%d): dayanağın gözden "
-                        "geçirilmesi artık bir KURUCU KARARIDIR."
-                        % (measured, total_regions)
+                # ⚠ FAZ 5: A12 KAPANDI — KURUCU 144'Ü ONAYLADI (K33).
+                #
+                # Faz 4'te bu dal "dayanağın gözden geçirilmesi artık bir
+                # KURUCU KARARIDIR" diyordu ve doğruydu: o an karar
+                # bekliyordu. Karar geldi ve dayanak ölçümle hizalandı, yani
+                # bu dal artık NORMAL koşulda hiç yanmaz — yanarsa dayanak
+                # ile model YENİDEN ayrılmış demektir ve söylenecek şey
+                # başkadır.
+                #
+                # Bir uyarı, beklediği karar alındıktan sonra hâlâ o kararı
+                # BEKLİYOR gibi konuşursa, okuyanı kapanmış bir kalemi
+                # yeniden açmaya çağırır.
+                decision = (cfg.get("scope", {}).get("pageTargetDecision")
+                            or "kayıtsız")
+                tail = ("A12 KAPANDI (%s): dayanak ÖLÇÜLMÜŞ modelle "
+                        "hizalanmıştı ve şimdi yeniden AYRILDI — sebebi "
+                        "bulunmalıdır." % decision
                         if measured >= total_regions and total_regions else
                         "Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan "
                         "bölgeler ölçülünce dayanak gözden geçirilir.")
                 rep.warn("ciltsiz telifi dayanaktan %+.2f $ YÜKSEK "
                          "(%.2f $ vs %.2f $) — sayfa modeli KÜÇÜLDÜ. %s. %s "
-                         "Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
+                         "Hedef SESSİZCE değiştirilmez: değişiklik "
+                         "scope.pageTargetHistory'ye bir kayıt EKLER "
+                         "(validate_spec § ⑦)."
                          % (got - hyp, got, hyp, coverage, tail))
             else:
                 rep.warn("ciltsiz telifi dayanaktan %+.2f $ DÜŞÜK "

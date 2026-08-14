@@ -5,6 +5,271 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [Yayınlanmamış] — 2026-08-14 · Faz 5 · editoryal yakınsama + görsel üretim
+
+```
+FAZ 5 YETKİSİ         ✅ VERİLDİ     kurucu · K34
+A12 SAYFA HEDEFİ      ✅ KAPANDI     144 · kurucu · K33
+A10 ÇOCUK OTURUMU     ❌ YAPILMADI   0 oturum · AÇIK
+.gate                     phase1     YÜKSELTİLMEDİ
+```
+
+### Değişti — A12 KAPANDI · sayfa hedefi **148 → 144** (K33)
+
+Kurucu kararı: **FINAL PAGE TARGET = 144 PAGES.** Model zaten 143 ham →
+144 forma hizalı ölçülmüştü (K32); karar bir sayıyı değiştirmedi,
+**bir tahmini bir ölçümle değiştirdi.**
+
+| | ESKİ | YENİ |
+|---|---:|---:|
+| `scope.pageTarget` | 148 | **144** |
+| Ciltsiz baskı | 3,52 $ | **3,45 $** |
+| Ciltsiz telif | 5,48 $ | **5,55 $** |
+| Başabaş ACOS | %36,5 | **%37,0** |
+| Model ↔ hedef sapması | −%2,7 | **%0** |
+
+148'e ulaşmak için **dolgu eklenmedi**; 144'ün altına inmek için
+**içerik çıkarılmadı**. Güncellenen: `project_config § scope` ·
+`§ production.royaltyBaseline` · `BRIEF § 7` · `PROJECT_CONTEXT` ·
+`BOOK_STATS` · `ROADMAP_PROGRESS` · `DECISIONS § K33`.
+
+### Eklendi — kayıt biçimi: **değer değil, DAYANAK saklanıyor**
+
+Hedef bu projede üç kez yazıldı ve **ikisi aynı sayıdır**: 144
+(bootstrap · hiçbir bölge ölçülmemişti) → 148 (K19) → **144** (K33 ·
+6/6 bölge ölçüldü). ① ile ③ aynı sayıdır ve **aynı şey değildir**.
+
+- `scope.pageTargetHistory` — üç kayıt, her biri dayanağıyla
+- `production.royaltyBaseline.paperbackHistory` — üç dayanak
+- Tekil `pageTargetBootstrapHypothesis` ve `bootstrapHypothesis` alanları
+  **kaldırıldı**: aynı sayı iki yerde durursa er geç iki farklı şey söyler
+
+### Eklendi — `validate_spec § ⑦` · sayfa hedefi karar zinciri
+
+Sayfa hedefi masum bir sayı değildir: **14,99 $ fiyat noktasının
+kendisidir.** Kapı dört şeyi denetler — geçmiş duruyor mu, her kayıt DOLU
+bir dayanak taşıyor mu, zincir kesintisiz mi, yürürlükteki hedef ve telif
+dayanağı son kayıtla aynı mı.
+
+`validate_spec`: 61 → **85 denetim**.
+
+### Eklendi — `selftest § ⑲` · on kurgu · ve kapının İKİ DELİĞİ
+
+Kapının ilk hâli iki kurguyu **kaçırdı** ve ikisi de burada bulundu:
+
+| Kurgu | İlk hâl | Neden |
+|---|---|---|
+| `basis: ""` | ❌ yeşil | `is not None` — alan VARDI, BOŞTU |
+| **aradan 148 kaydı düşürülür** | ❌ yeşil | yalnızca SON kayıt denetleniyordu |
+
+İkincisi kapının varlık sebebiydi. Düzeltme örneği değil **sınıfı**
+kapattı: zincir kuralı aradan da baştan da sondan da kayıt düşürmeyi
+imkânsız kılıyor.
+
+`selftest`: 178 → **188 denetim**.
+
+### Değişti — kurucu aşması Faz 5'e genişledi (K34), **tavan yine değişmedi**
+
+| Yetkilenen faz | Karar | Tavan |
+|---|---|---|
+| `phase3` | K27 | `phase1` |
+| `phase4` | K30 | `phase1` |
+| **`phase5`** | **K34** | **`phase1`** |
+
+`phaseOverride.extensionHistory` doğdu: tekil `extendedTo` alanı üçüncü
+genişletmede **K30'u ezecekti** — aşmanın ne kadar uzadığı, tam da
+uzadıkça görünmez olacaktı.
+
+`doesNotImply` beşinci maddeyi aldı: **"Faz 5 görsel üretiminin bitmesi
+A10'u kapatmaz."**
+
+### Değişti — `page_budget` uyarısı kapanmış bir kalemi işaret etmiyor
+
+Uyarı *"dayanağın gözden geçirilmesi artık bir KURUCU KARARIDIR"*
+diyordu; karar geldi. Bir uyarı beklediği karar alındıktan sonra hâlâ o
+kararı bekliyor gibi konuşursa, okuyanı **kapanmış bir kalemi yeniden
+açmaya** çağırır.
+
+### Eklendi — ÖN MADDE · 9 sayfa · 8 bölüm
+
+`title-page` · `copyright-page` · `mission-order` · `how-a-page-works` (2) ·
+`star-box-and-seal` · `the-route` · `when-you-are-stuck` · `before-you-start`
+
+Yol haritasının adıyla istediği dört parça da var. Jenerik açılış kalıbı
+kullanılmadı ve `qa_readability § ⑨` bunu mekanik olarak denetliyor.
+
+**Kelime 2.015** — yol haritası ~4.000 tahmin ediyordu ve fark
+**doldurulmadı**: sekiz sayfaya 4.000 kelime, sayfa başına 500 kelime
+demektir ve 8,5×11 bir çocuk kitabı için okunamaz bir yoğunluktur.
+Toplam **21.283** · hedef 22.000 ±%15 → **bantta**.
+
+Okunabilirlik: ön madde **FK 4,10**, field note **FK 5,39** — ön madde
+tanıttığı içerikten **kolay**.
+
+### Bulundu ve düzeltildi — üç ön madde kusuru
+
+| # | Ne | Neden ciddi |
+|---|---|---|
+| **E1** | `how-to-use` ve `hint-rule` arka maddedeydi ve ÇOCUĞA sesleniyordu | bir çocuk kitabın nasıl çalıştığını **131. sayfada** öğrenemez |
+| **E2** | mühür kuralı örneği `CONDOR` kullanıyordu | **bir bölgenin mühür sözcüğü** — kitabın 5. sayfasında |
+| **E3** | görev emri bir mühür sözcüğü taşıyordu | ön madde mühür kelime dağarcığının **en yoğun** olduğu yer |
+
+E1 sayfa sayısına dokunmadı: üç sayfanın **okuru** değişti
+(`audience: adult`). Ayrım ölçüldü — örtüşme **0,238** (eşik 0,55).
+
+### Eklendi — GÖRSEL HATTI (K35) · dört katman
+
+```
+raw/  DEĞİŞMEZ · processed/ RAW'dan yeniden üretilebilir
+final/ basıma hazır · rejected/ SİLİNMEZ, gerekçesiyle ayrılır
+```
+
+- `04_BUILD/asset_manifest.py` — envanteri **hesaplar**: **158** varlık
+  (120 + 22 vinyet + 6 damga + 6 rozet + 4 ön madde). 150'ye yuvarlanmadı.
+- `04_BUILD/asset_pipeline.py` — RAW'ı **okur, asla yazmaz**. Hedeften
+  küçük RAW **büyütülmez, reddedilir**.
+- `04_BUILD/qa_assets.py` — **33 denetim** · yeni kapı
+- `07_ASSETS/IMAGE_PROMPT_LIBRARY.local.html` — **158 dolu prompt**
+
+### Bulundu ve düzeltildi — ALTI şartname kendi levhasıyla çelişiyordu
+
+`andean-altitude-map` · `turkic-yurt-plate` · `persian-joined-letters` ·
+`vietnamese-red-river-map` · `hawaiian-island-chain-map` ·
+`japanese-turtle-time-plate` (+ `inuit-ice-window-draw` izlenebilirlik)
+
+**İkisi sayfayı önceden çözerdi:** D4 tintlenmiş bir harita istiyordu
+(boyama çocuğun görevi), D5 sayısal yaş istiyordu (sıralama bir
+aritmetiğe dönerdi).
+
+### Eklendi — 49 ölçüm kısıtı · 23 sayfa
+
+Cevabı sayıya/sıraya/glife dayanan **43** sayfanın **20'sinde** kısıt
+vardı, **23'ünde yoktu**. Üreteç eline bırakılmış bir ölçüm, üretecin
+değiştirebileceği bir cevaptır. Şimdi **43/43** ve denetim **uyarı değil
+KAPI**.
+
+### Bulundu ve düzeltildi — kültürel kısıtlar illüstratöre ULAŞMIYORDU
+
+59 yasak biçim `culture_index`te Türkçeydi ve promptlar onları olduğu
+gibi taşıyordu. **Uygulanamayan bir kısıt, yazılmamış bir kısıttır.**
+`forbiddenFormsEn` doğdu (Türkçe alan authoritative kalır).
+
+Sonuç: prompta ulaşan kültürel güvenlik satırı **0 → 235**, çevrilmemiş
+**0**. Son bir kısıt Türkçe **noktasız-ı** yüzünden eşleşmedi ve
+Faz 4 § 28 ④'ün Unicode katlaması burada da uygulandı.
+
+### Bulundu ve düzeltildi — BULGU P1 · ön madde iki zorunlu sayfayı taşımıyordu
+
+Faz 1 modeli ön maddeyi 8 sayıyordu ve o 8'in ikisi
+`title-and-copyright` idi. Manuscript'in ön maddesi de 8 sayfaydı — ama
+içinde **ne başlık ne künye sayfası vardı**.
+
+> **İki liste TOPLAMDA uyuşuyordu ve BAŞKA BİR KİTABI tarif ediyordu.**
+
+Düzeltme içerik kısmadı: `the-kit` `mission-order`ın ayak paneline
+katlandı ve açılan yere kitabın gerçekten ihtiyaç duyduğu iki sayfa kondu.
+Ön madde **8 → 9** · ham model **143 → 144**.
+
+**Sayfa modeli artık ÖLÇÜYOR:** ön/arka madde ve final görev manuscript'ten
+okunur; gömülü tablo yalnızca manuscript yokken (CI · K10) kullanılan bir
+yedektir ve rapor hangisinin kullanıldığını söyler.
+
+**Nihai model: 144 · hedef 144 · sapma %0,0 · telif 5,55 $**
+
+### Değişti — üç kapı ROL ve SINIF ayrımı öğrendi
+
+- `qa_answerkey § ⑩` gövde şartı yalnızca `role: teaching` için; bölüm
+  **adı** değil **işi** aranıyor
+- `qa_readability § ⑨` ön madde registeri yalnızca öğretim sayfalarını ölçer
+- `qa_assets` sabit cümle değil **sınıf** arıyor (ilk hâli 57 doğru sayfayı
+  kırmızı yaktı) ve evrensel kuralı **tek kaynakta** denetliyor (55)
+
+### Güvenlik — kendi koyduğum bir sızıntı kapatıldı
+
+Envanterin ilk hâli **tek** dosya yazıyordu ve takip ediliyordu; içindeki
+ölçüm kısıtları cevabın kendisini taşıyor. Envanter ve prompt kütüphanesi
+**ikiye ayrıldı** (takip edilen: sayım + sha256 · yerel: tam kayıt).
+`validate_structure § ⑤b` doğdu. `.gitignore`'da `final/` ve `rejected/`
+de eksikti — **reddedilen bir ham görsel, kabul edilenden daha az gizli
+değildir**.
+
+### Test altyapısı
+
+| | Faz 4 | **Faz 5** |
+|---|---:|---:|
+| Kapı | 15 | **16** |
+| `selftest` | 178 | **237** |
+| § 30 kusurlu kurgu sınıfı | — | **18 / 18** |
+
+Yeni selftest bölümleri: **⑲** sayfa hedefi zinciri · **⑳** ön madde ·
+**㉑** görsel varlık · **㉒** görsel hat **dosya katmanı** (kurgu PNG
+üretir; `--force` koşusundan sonra bile RAW'a yazılmadığını kanıtlar).
+
+### Bulundu ve düzeltildi — EDİTORYAL YAKINSAMA · 66 bulgu · 13 bloklayıcı
+
+Bağımsız editoryal alt-ajan **kitabın tamamını** okudu (120/120 aktivite)
+ve **37 mühür kutusunun aritmetiğini ilk kez birer birer** yeniden
+hesapladı.
+
+| Sınıf | Bulgu | Karşılık |
+|---|---:|---|
+| **A · BLOKLAYICI** | **13** | **13 düzeltildi** |
+| B · ciddi | 26 | 4 düzeltildi · 22 kayıtlı |
+| C · küçük | 19 | 19 kayıtlı |
+| D · görsel kısıt | 8 | 3 düzeltildi · 5 kayıtlı |
+
+**A1 — dokuz levha yanlış yıldız numarası basıyordu.** Basılı `★` harf
+sırası değil **mühür yuvası** numarasıydı; ikisi aritmetik olarak
+imkânsızdı (altı harfli sözcükte ★7). `monsoon`'un yedi mühür sayfasının
+**altısı** listedeydi — o bölgenin mühür sözcüğü **kurulamazdı**.
+
+**A2 — basılı mühür kuralı 37 sayfanın 27'sinde yanlıştı.** Ön madde ve
+altı bölge açılışı *"seal slot with the same number"* diyordu; yıldız
+sayısı **harf** sırasını, yuva sayısı **mühürdeki yeri** sayar.
+
+> **Levha doğruydu, KURAL yanlıştı.**
+
+**Ve ikisi de üç kapının ARASINDAN geçmişti** — üçü de doğruydu:
+`qa_solvable § ⑦` harfi yeniden hesaplıyor (37/37) · `qa_design § ②` kutu
+var mı (37/37) · `qa_progression § ②` harf gerçek cevaptan mı türüyor
+(37/37).
+
+> **Kimse BASILI SAYININ doğru sayı olduğunu sormamıştı.**
+
+Kalan on bir bloklayıcı: yanlış garanti (A3) · beş kasaba dört bacak (A4)
+· **Faz 5'in kendi ölçüm kısıtı** levhayla çelişti (A5) · sayfa üç farklı
+sayfa olarak tarif edilmiş (A6) · gri tonlamadan renk kopyalatma (A7) ·
+"tek kişi" iki kişi (A8) · tekil adım iki cevap (A9) · üç geçerli cevap
+(A10) · başka sayfanın levhası (A11) · eksik zorunlu ebeveyn notu (A12) ·
+**ön madde imlâ kuralını kendi sayfasında çiğniyordu** (A13 · 14 ad).
+
+### Eklendi — `qa_progression § ⑧⑨` · 7 → 14 denetim
+
+Basılı `★` harf sırasıdır · hiçbir `★` sözcüğün dışına düşemez · **ölçüm
+ayrıkken hiçbir yer "aynı numaralı yuva" kuralını basamaz.**
+
+### Güvenlik — inceleme raporunun KENDİSİ kapıya takıldı
+
+Tam kayıt her bulguyu **birebir alıntıyla** kanıtlıyor ve o alıntılar
+cevap taşıyor. `validate_structure § ④⑤` yakaladı.
+
+> **Bir inceleme raporu, incelediği metni alıntılayarak kanıtlar — ve o
+> alıntı, metnin kendisi kadar korumalıdır.**
+
+Rapor ikiye ayrıldı (takip edilen özet + `.gitignore`'lu tam kayıt) —
+Faz 5'te bu ayrım **üçüncü kez** kuruldu.
+
+### DEĞİŞMEYEN — çocuk doğrulaması
+
+```
+çocuk oturumu        0    uydurulmadı
+externalValidation   pending
+A10                  AÇIK
+.gate                phase1
+```
+
+**Kurucu aşması bir üretim yetkisidir, bir test kanıtı değildir.**
+
 ## [0.4.0] — 2026-08-14 · Faz 4 · manuscript ÖZÜNDE TAMAM
 
 **120 aktivite · 22 kültür · 6 bölge · 37 mühür yuvası · final görev ·
