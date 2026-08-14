@@ -1,13 +1,14 @@
 {
   "status": "pass",
-  "checks": 7,
+  "checks": 8,
   "errors": [],
   "warnings": [
     "testçi onaylandı (2) ve materyal üretildi (2 dosya) — ama dış doğrulama hâlâ 'pending'. PAKET ÜRETMEK TEST YAPMAK DEĞİLDİR; bu alan yalnızca GERÇEK bir oturum CHILD_TEST_LOG.md'ye kaydedildiğinde değişir."
   ],
   "facts": {
-    "commercialFields": 15,
-    "commercialStringsScanned": 814,
+    "commercialFields": 17,
+    "editorialFields": 9,
+    "commercialStringsScanned": 1481,
     "testOnlyPaths": [
       "01_SOURCE/pilot_tr",
       "03_EDITORIAL/child_tests_raw"

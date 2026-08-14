@@ -34,6 +34,7 @@ On dört bölüm:
   ⑰  KAPI EŞİKLERİ TÜRETİLİYOR mu                (Faz 4'te doğdu · A11)
   ⑱  CEVAP ANAHTARI kapısı ısırıyor mu           (Faz 4'te doğdu)
   ⑲  SAYFA HEDEFİ karar zinciri kopuyor mu       (Faz 5'te doğdu · A12)
+  ⑳  ÖN MADDE cevap/mühür sızdırıyor mu          (Faz 5'te doğdu)
 
 ④ doğrudan Bestiarium'un üç ölü kuralına ve World Myths'in K14 kararına
 cevaptır: takip edilmeyen bir dosya için yazılmış muafiyet ÖLÜ MUAFİYETTİR
@@ -2336,6 +2337,106 @@ def part18_answerkey(rep: Report, tmp: str, base: dict) -> None:
     rep.check(code == 0,
               "⭑ BÖLGE ADINI YANKILAYAN MÜHÜR SÖZCÜĞÜ GEÇER (yanlış pozitif yok)",
               out)
+
+    # ═══════════════════════════════════════════════════════════════════════
+    # ⑳ ÖN MADDE — qa_answerkey § ⑩
+    #
+    # ⭑ BU KAPI DOĞDUĞU KOŞUDA İKİ GERÇEK KUSUR YAKALADI ⭑
+    #
+    # Ön madde mühür kuralını bir ÖRNEKLE anlatmak zorundadır ve örneğin
+    # kendisi bir tuzaktır: kuralı en iyi anlatan sözcük, çoğu zaman
+    # kitabın gerçekten kullandığı sözcüktür.
+    #
+    #   E2 · örnek sözcük CONDOR'du — ve CONDOR bir MÜHÜR SÖZCÜĞÜDÜR.
+    #        Ön madde bir bölgenin cevabını 5. sayfada basacaktı.
+    #   E3 · görev emri cümlesi bir mühür sözcüğünü sıradan bir sözcük
+    #        olarak taşıyordu, mühür kelime dağarcığının EN YOĞUN olduğu
+    #        yerde.
+    #
+    # İkisi de KAPI DARALTILARAK değil METİN DÜZELTİLEREK kapandı.
+    # Kurucu talimatı § 37: "weaken QA gates to get green" YASAK.
+    # ═══════════════════════════════════════════════════════════════════════
+    print("\n⑳ ÖN MADDE kapısı ısırıyor mu (qa_answerkey § ⑩)")
+
+    if not book.get("frontMatter"):
+        rep.check(False, "manuscript ön madde taşımıyor — ⑳ sınanamıyor")
+        return
+
+    def fm(d):
+        return d["frontMatter"]["sections"]
+
+    # (a) temiz ön madde GEÇER
+    code, out = run()
+    rep.check(code == 0, "temiz ön madde GEÇER", out)
+
+    # (b) ön madde tamamen silinemez
+    code, out = run(mutate_book=lambda b: b.pop("frontMatter"))
+    rep.check(code != 0, "⭑ ÖN MADDE SİLİNİRSE KAPI KIRMIZI", out)
+
+    # (c) yol haritasının istediği bir parça düşerse KIRMIZI
+    def drop_seal_page(b):
+        b["frontMatter"]["sections"] = [
+            s for s in fm(b) if s["id"] != "star-box-and-seal"]
+    code, out = run(mutate_book=drop_seal_page)
+    rep.check(code != 0, "⭑ MÜHÜR SAYFASI DÜŞERSE KAPI KIRMIZI", out)
+
+    # (d) sayfa bütçesi sürüklenirse KIRMIZI
+    def drift_pages(b):
+        fm(b)[0]["pages"] = fm(b)[0]["pages"] + 3
+    code, out = run(mutate_book=drift_pages)
+    rep.check(code != 0, "⭑ ÖN MADDE SAYFA BÜTÇESİ SÜRÜKLENİRSE KIRMIZI", out)
+
+    # (e) gerekçesi boşaltılmış bölüm — sayfa doldurmak için eklenemez
+    code, out = run(mutate_book=lambda b: fm(b)[0].__setitem__("purpose", "x"))
+    rep.check(code != 0, "⭑ GEREKÇESİZ ÖN MADDE BÖLÜMÜ YAKALANIR", out)
+
+    # (f) gövdesi boşaltılmış bölüm — başlık bir sayfa değildir
+    code, out = run(mutate_book=lambda b: fm(b)[0].__setitem__("bodyText", "Short."))
+    rep.check(code != 0, "⭑ GÖVDESİZ ÖN MADDE BÖLÜMÜ YAKALANIR", out)
+
+    # (g) ⭑ E2'NİN KENDİSİ ⭑ — örnek sözcük gerçek bir MÜHÜR sözcüğü olursa
+    real_seal = next(((s.get("word") or "") for s in (seal.get("seals") or [])
+                      if s.get("word")), "")
+
+    def leak_demo(b):
+        for s in fm(b):
+            if s["id"] == "star-box-and-seal":
+                s["prints"] = list(s["prints"]) + [
+                    "a worked trace using the word %s" % real_seal]
+    if real_seal:
+        code, out = run(mutate_book=leak_demo)
+        rep.check(code != 0,
+                  "⭑ ÖN MADDEDE BASILAN MÜHÜR SÖZCÜĞÜ YAKALANIR (bulgu E2)", out)
+
+    # (h) ⭑ E3'ÜN KENDİSİ ⭑ — gövde metnine sızan mühür sözcüğü
+    def leak_body(b):
+        for s in fm(b):
+            if s["id"] == "mission-order":
+                s["bodyText"] = s["bodyText"] + " You will need a %s." % real_seal
+    if real_seal:
+        code, out = run(mutate_book=leak_body)
+        rep.check(code != 0,
+                  "⭑ GÖVDE METNİNE SIZAN MÜHÜR SÖZCÜĞÜ YAKALANIR (bulgu E3)", out)
+
+    # (i) örnek sözcük gerçek bir YILDIZ sözcüğü olamaz: o sayfanın işini
+    #     önceden yapmış olur
+    star = next(((a.get("sealStarWord") or "") for a in book.get("activities", [])
+                 if a.get("sealStarWord")), "")
+
+    def demo_is_star(b):
+        for s in fm(b):
+            if s["id"] == "star-box-and-seal":
+                s["demonstrationWord"] = star
+    if star:
+        code, out = run(mutate_book=demo_is_star)
+        rep.check(code != 0, "⭑ ÖRNEK SÖZCÜK GERÇEK BİR YILDIZ SÖZCÜĞÜ OLAMAZ", out)
+
+    # (j) ⭑ YANLIŞ POZİTİF TESTİ ⭑ — rota sayfası bölge ADINI basmak
+    #     ZORUNDADIR ve iki bölge adı bir mühür sözcüğüyle aynı yazılır.
+    #     Kapı bunu sızıntı sanarsa rota sayfası yazılamaz hâle gelir.
+    code, out = run()
+    rep.check(code == 0,
+              "⭑ ROTA SAYFASININ BÖLGE ADLARI GEÇER (yanlış pozitif yok)", out)
 
 
 def main() -> int:

@@ -393,6 +393,148 @@ def check_back_matter(book, cultures, rep):
                   "sözlük yirmi iki kültürün hepsini kapsadığını yazıyor (%d)" % need)
 
 
+# ── ⑩ ÖN MADDE ────────────────────────────────────────────────────────────
+def check_front_matter(book, seal, rep):
+    """⑩ ÖN MADDE — tam mı, ve KİTABIN İLK SAYFALARI CEVAP SIZDIRIYOR MU.
+
+    ⭑ BU DENETİM FAZ 5'TE GERÇEK BİR KUSUR YAKALADI (bulgu E2) ⭑
+
+    Ön maddenin ilk taslağı mühür kuralını bir ÖRNEKLE anlatıyordu ve
+    örnek sözcük olarak CONDOR'u kullanıyordu. CONDOR bir bölge adıdır —
+    ve aynı zamanda o bölgenin MÜHÜR SÖZCÜĞÜDÜR.
+
+        Ön madde o hâliyle bir bölgenin cevabını
+        kitabın BEŞİNCİ SAYFASINDA basardı.
+
+    Ve sızıntının yönü en kötü yöndü: çocuk henüz tek bir sayfa
+    çözmeden, kitabın kendi kendini doğrulama aygıtı ölürdü.
+
+    ⚠ Bu fonksiyon hiçbir mühür sözcüğünü ekrana BASMAZ; yalnızca KAÇ
+    tanesinin sızdığını ve HANGİ bölümde olduğunu söyler.
+
+    Ön madde ayrıca arka maddeden farklı bir şey daha ister: bir
+    KULLANIM KILAVUZU KULLANIMDAN ÖNCE gelmelidir. Bu yüzden ⑩ sayfa
+    bütçesini ve bölüm gerekçelerini arka maddeyle aynı sertlikte
+    denetler — ön madde 'sonra yazarız' denebilecek bir yer değildir.
+    """
+    print("\n── ⑩ ön madde ──")
+    fm = book.get("frontMatter")
+    if not fm:
+        rep.check(False, "manuscript ön madde taşımıyor")
+        return
+
+    secs = fm.get("sections") or []
+    rep.facts["frontMatterSections"] = len(secs)
+
+    # (a) Yol haritası Faz 5 § 2'nin adıyla istediği dört parça.
+    ids = {s.get("id") for s in secs}
+    blob = json.dumps(fm, ensure_ascii=False).lower()
+    need = {
+        "görev emri": "mission-order" in ids,
+        "araçlar": "the-kit" in ids,
+        "mühür sayfası": "star-box-and-seal" in ids,
+        "ipucu kuralı": "when-you-are-stuck" in ids,
+    }
+    missing = [k for k, v in need.items() if not v]
+    rep.check(not missing, "yol haritasının istediği ön madde parçaları var"
+              + ("" if not missing else " — EKSİK: %s" % missing))
+
+    # (b) Sayfa bütçesi tutuyor mu — arka maddeyle aynı sertlik.
+    total = sum(s.get("pages", 0) for s in secs)
+    rep.facts["frontMatterPages"] = total
+    rep.check(total == fm.get("pageBudget"),
+              "ön madde sayfa toplamı bütçesiyle aynı (%d/%s)"
+              % (total, fm.get("pageBudget")))
+
+    # (c) Hiçbir bölüm sayfa doldurmak için EKLENEMEZ.
+    no_purpose = [s.get("id") for s in secs
+                  if len((s.get("purpose") or "").split()) < 8]
+    rep.check(not no_purpose, "her ön madde bölümü tanımlı bir işi olduğunu yazıyor"
+              + ("" if not no_purpose else " — GEREKÇESİZ: %s" % no_purpose))
+    thin = [s.get("id") for s in secs if len(s.get("prints") or []) < 3]
+    rep.check(not thin, "her ön madde bölümü basacağı şeyi sayıyor"
+              + ("" if not thin else " — BOŞ: %s" % thin))
+    nobody = [s.get("id") for s in secs
+              if len((s.get("bodyText") or "").split()) < 40]
+    rep.check(not nobody, "her ön madde bölümü gerçek bir gövde metni taşıyor"
+              + ("" if not nobody else " — İNCE: %s" % nobody))
+
+    # (d) ⭑ MÜHÜR SESSİZLİĞİ — ÖN MADDEDE ⭑
+    #
+    # Arka maddedeki ⑤ denetiminden bir farkı var ve fark KRİTİK: orada
+    # bölge adları taranan metinden ÇIKARILIYOR, çünkü iki mühür sözcüğü
+    # bilerek kendi bölgesinin adını yankılar ve final görev bloğunda
+    # bölge adı geçmek zorundadır.
+    #
+    # ÖN MADDEDE BÖYLE BİR MUAFİYET YOKTUR — ama bir incelik var:
+    # `the-route` bölümü altı bölgenin ADINI basmak ZORUNDADIR, ve iki
+    # bölge adı bir mühür sözcüğüyle aynı yazılır. Bu bir sızıntı
+    # DEĞİLDİR: rota sayfası bölge adını bir BAŞLIK olarak basar, bir
+    # mühür kutusunun cevabı olarak değil.
+    #
+    # Muafiyet bu yüzden BÖLÜM düzeyinde ve DAR: yalnızca `the-route`,
+    # yalnızca bölge adı olarak geçen biçimiyle. Başka her bölümde,
+    # başka her bağlamda bir mühür sözcüğü görmek gerçek bir ihlaldir.
+    words, final = set(), ""
+    if seal:
+        for s in (seal.get("seals") or []):
+            w = (s.get("word") or "").strip().lower()
+            if w:
+                words.add(w)
+        final = ((seal.get("finalQuest") or {}).get("word") or "").strip().lower()
+
+    if not words and not final:
+        print("  ⊘ mühür anahtarı depoda yok — sızıntı denetlenemedi")
+    else:
+        leaks = []
+        for s in secs:
+            sid = s.get("id")
+            text = " ".join([s.get("bodyText") or "",
+                             " ".join(s.get("prints") or []),
+                             s.get("heading") or "",
+                             s.get("demonstrationWord") or ""]).lower()
+            if sid == "the-route":
+                # Rota sayfası bölge ADINI basar; bölge adları çıkarılır.
+                for r in ("north-ice", "the northern ice", "middle-sea",
+                          "the middle sea", "sun-savanna", "sun and savanna",
+                          "monsoon", "mountain and monsoon", "great-ocean",
+                          "the great ocean", "jaguar-condor",
+                          "jaguar and condor"):
+                    text = text.replace(r, " ")
+            for w in (words | ({final} if final else set())):
+                if w and re.search(r"\b%s\b" % re.escape(w), text):
+                    leaks.append(sid)
+                    break
+        rep.check(not leaks,
+                  "ön maddenin hiçbir bölümü bir mühür sözcüğü basmıyor"
+                  + ("" if not leaks else " — ⭑ SIZINTI: %s" % sorted(set(leaks))))
+
+    # (e) Örnek sözcük kurgusal olmalı: kitapta bir yıldız sözcüğü olamaz.
+    #
+    # Bir mühür kuralı örneği, gerçek bir sayfanın yıldız sözcüğünü
+    # kullanırsa o sayfanın işini önceden yapmış olur.
+    stars = {(a.get("sealStarWord") or "").strip().lower()
+             for a in book.get("activities", []) if a.get("sealStarWord")}
+    bad_demo = []
+    for s in secs:
+        demo = (s.get("demonstrationWord") or "").strip().lower()
+        if demo and demo in stars:
+            bad_demo.append(s.get("id"))
+    rep.check(not bad_demo,
+              "ön maddenin örnek sözcüğü gerçek bir yıldız sözcüğü değil"
+              + ("" if not bad_demo else " — ⭑ ÇAKIŞMA: %s" % bad_demo))
+
+    # (f) Ön madde bir CEVAP taşıyamaz: kapalı cevaplar sayfada kalır.
+    answers = {(a.get("answer") or "").strip().lower()
+               for a in book.get("activities", []) if a.get("answer")}
+    answers = {a for a in answers if len(a) > 12}   # kısa cevaplar rastlantısaldır
+    fmblob = " ".join([(s.get("bodyText") or "") + " " +
+                       " ".join(s.get("prints") or []) for s in secs]).lower()
+    hit = sorted(a for a in answers if a in fmblob)
+    rep.check(not hit, "ön madde hiçbir aktivite cevabını basmıyor"
+              + ("" if not hit else " — CEVAP: %d" % len(hit)))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -432,6 +574,7 @@ def main() -> int:
 
     check_final_quest(book, regions, seal, rep)
     check_back_matter(book, cultures, rep)
+    check_front_matter(book, seal, rep)
 
     print("\n" + "=" * 74)
     if rep.warnings:

@@ -32,6 +32,22 @@ Ne ölçer:
   ⑥ FIELD NOTE BOYU    — 15–35 kelime
   ⑦ YASAK KALIP        — STYLE.md § 4 kalıpları
   ⑧ KÜÇÜMSEYEN TON     — "little explorer" ve akrabaları
+  ⑨ ÖN MADDE           — Faz 5'te doğdu · KİTABIN İLK OKUNAN METNİ
+
+⑨ NEDEN AYRI BİR REGİSTER:
+
+Ön madde, çocuğun kitapta okuduğu İLK metindir ve bir aktivite sayfası
+değildir: bir talimat da değil, bir field note da değil. Kendi bandı yoksa
+hiç ölçülmez — ve ölçülmeyen bir metin, kitabın en zor metni olabilir.
+
+    Bir çocuk kitabın nasıl çalıştığını anlamadan
+    ilk sayfayı çeviremez. Ön maddenin zorluğu bir
+    ÜSLUP meselesi değil, bir ERİŞİM meselesidir.
+
+Ve değişmez bir kat yukarı taşınır: ön madde, tanıttığı içerikten daha
+zor olamaz. Kurucu talimatı Faz 5 § 8 bunu adıyla şart koşuyor —
+*"Do NOT allow front matter to become harder than the activity content
+without editorial reason."*
 
 ③ bu kapının en özgün denetimidir: bir talimat, tanıttığı içerikten
 DAHA ZOR OLAMAZ. Olursa çocuk görevi değil cümleyi çözmeye çalışır.
@@ -189,6 +205,29 @@ def measure_registers(acts: list[dict]) -> dict:
     return {"instruction": _block(instruction),
             "fieldNote": _block(note),
             "hint": _block(hint)}
+
+
+def load_front_matter(rep):
+    """Ön madde gövde metnini toplar.
+
+    Yalnızca ÇOCUĞUN GÖRDÜĞÜ proza ölçülür: `bodyText`. `purpose` bir
+    tasarım notudur ve sayfaya basılmaz; `prints` levha mobilyasıdır ve
+    cümle değil ADDIR — ikisini de ölçüme katmak registeri kirletir."""
+    for path in SOURCES:
+        if not os.path.isfile(path):
+            continue
+        try:
+            with open(path, encoding="utf-8") as fh:
+                doc = json.load(fh)
+        except json.JSONDecodeError:
+            continue
+        fm = doc.get("frontMatter")
+        if not fm:
+            continue
+        secs = fm.get("sections", [])
+        return [(s.get("id"), s.get("bodyText") or "") for s in secs
+                if (s.get("bodyText") or "").strip()]
+    return []
 
 
 def measure(acts):
@@ -350,6 +389,65 @@ def main() -> int:
     pat = [p for p in PATRONISING if re.search(p, blob, re.IGNORECASE)]
     rep.check(not pat, "küçümseyen hitap yok"
               + ("" if not pat else " — TON: %s" % pat))
+
+    # ── ⑨ ÖN MADDE REGİSTERİ ───────────────────────────────────────────────
+    print("\n── ⑨ ön madde registeri ──")
+    front = load_front_matter(rep)
+    if not front:
+        print("  ⊘ ön madde henüz yazılmadı — BOŞ KOŞTU")
+        rep.facts["frontMatterSections"] = 0
+    else:
+        fb = _block([t for _, t in front])
+        rep.facts["frontMatter"] = fb
+        rep.facts["frontMatterSections"] = len(front)
+        rf9 = reg.get("frontMatter", {})
+        print("  %d bölüm · %d kelime · ort %.2f kelime/cümle · FK %.2f"
+              % (len(front), fb["words"], fb["avgSentenceWords"], fb["fkGrade"]))
+
+        rep.check(rf9.get("avgWordsMin", 9.0) <= fb["avgSentenceWords"]
+                  <= rf9.get("avgWordsMax", 16.0),
+                  "ön madde ortalaması bantta (%.2f ∈ [%.1f, %.1f])"
+                  % (fb["avgSentenceWords"], rf9.get("avgWordsMin", 9.0),
+                     rf9.get("avgWordsMax", 16.0)))
+        rep.check(fb["fkGrade"] <= rf9.get("fkGradeMax", 6.5),
+                  "ön madde okuma seviyesi tavanın altında (%.2f ≤ %.1f)"
+                  % (fb["fkGrade"], rf9.get("fkGradeMax", 6.5)))
+        rep.check(fb["maxSentenceWords"] <= rf9.get("maxSentenceWords", 28),
+                  "en uzun ön madde cümlesi sınırda (%d ≤ %d kelime)"
+                  % (fb["maxSentenceWords"], rf9.get("maxSentenceWords", 28)))
+
+        # ⭑ DEĞİŞMEZ, BİR KAT YUKARIDA ⭑
+        # Ön madde kitabın İLK okunan metnidir. Aktivite içeriğinden zorsa
+        # çocuk daha ilk sayfada durur ve durduğu yer bir aktivite bile
+        # değildir. Kurucu talimatı Faz 5 § 8 bunu adıyla şart koşuyor.
+        if fnr["sentences"]:
+            rep.check(fb["fkGrade"] <= fnr["fkGrade"] + 0.5,
+                      "ön madde, tanıttığı içerikten DAHA ZOR DEĞİL "
+                      "(%.2f ≤ %.2f + 0,5)" % (fb["fkGrade"], fnr["fkGrade"]))
+
+        # Ön madde de yasak kalıptan ve küçümseyen tondan muaf değildir.
+        fblob = " ".join(t for _, t in front)
+        fhits = [p for p in cfg.get("style", {}).get("forbiddenPatterns", [])
+                 if p.lower().replace(" … ", " ") in fblob.lower()]
+        rep.check(not fhits, "ön maddede yasak kalıp yok"
+                  + ("" if not fhits else " — KALIP: %s" % fhits))
+        fpat = [p for p in PATRONISING if re.search(p, fblob, re.IGNORECASE)]
+        rep.check(not fpat, "ön maddede küçümseyen hitap yok"
+                  + ("" if not fpat else " — TON: %s" % fpat))
+
+        # Jenerik AI açılışları: kurucu talimatı § 7 dördünü adıyla yasaklıyor.
+        openers = [r"^\s*welcome\s+to\b", r"^\s*get\s+ready\s+to\b",
+                   r"^\s*embark\s+on\b", r"^\s*discover\b",
+                   r"^\s*let'?s\s+(?:go|begin|start)\b"]
+        bad_open = []
+        for sid, text in front:
+            first = text.strip().split("\n")[0]
+            for o in openers:
+                if re.search(o, first, re.IGNORECASE):
+                    bad_open.append(sid)
+                    break
+        rep.check(not bad_open, "ön madde jenerik açılış kalıbı kullanmıyor"
+                  + ("" if not bad_open else " — AÇILIŞ: %s" % bad_open))
 
     print("\n" + "=" * 74)
     if rep.errors:

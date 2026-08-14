@@ -232,7 +232,6 @@
       "hints",
       "expectedResult",
       "answer",
-      "answerNote",
       "sealInstruction",
       "parentNote",
       "safetyNotes",
@@ -240,7 +239,10 @@
       "glossaryEntry",
       "openingText",
       "terrainLine",
-      "heading"
+      "heading",
+      "bodyText",
+      "prints",
+      "pagePrints"
     ],
     "testOnlyPath": "01_SOURCE/pilot_tr/",
     "turkishPilotMayNeverEnter": [
@@ -256,6 +258,37 @@
     "testOnlyPaths": [
       "01_SOURCE/pilot_tr/",
       "03_EDITORIAL/child_tests_raw/"
+    ],
+    "editorialFields": [
+      "answerNote",
+      "editorialNote",
+      "batchNote",
+      "note",
+      "comment",
+      "recoveryNote",
+      "purpose",
+      "answerShape",
+      "expectedResultNote"
+    ],
+    "$comment_fields": [
+      "commercialFields → SAYFAYA BASILAN alanlar. Hepsi İNGİLİZCE olmalıdır.",
+      "editorialFields  → sayfaya ÇIKMAYAN tasarım notları. Türkçe SERBEST.",
+      "",
+      "Ayrım bir üslup tercihi değil bir OKUR tercihidir: birini çocuk okur,",
+      "ötekini ajan okur. İkisini aynı kefeye koymak ya Türkçe notları yasaklar",
+      "(gereksiz) ya da İngilizce zorunluluğunu gevşetir (tehlikeli).",
+      "",
+      "⭑ FAZ 5: bodyText · prints · pagePrints EKLENDİ ⭑",
+      "Üçü de sayfaya basılır ve üçü de Faz 4'e kadar HİÇ taranmamıştı:",
+      "taranan alan 814 → 1.487'ye çıktı. 673 basılı dize dört faz boyunca",
+      "dil kapısının DIŞINDA durdu.",
+      "",
+      "⭑ FAZ 5 · answerNote commercialFields'ten ÇIKARILDI ⭑",
+      "Alan config'te TİCARİ yazıyordu ama qa_language onu gömülü listesinde",
+      "ATLIYORDU. İki kaynak dört faz boyunca farklı şey söyledi ve kimse",
+      "ölçmüyordu. Gerçek doğru walker'daydı: answerNote bir tasarım notudur",
+      "ve Türkçedir. Yeni § ① denetimi bir alanın hem ticari hem editoryal",
+      "olmasını KIRMIZI yakıyor."
     ]
   },
   "audience": {
@@ -525,6 +558,25 @@
       },
       "hint": {
         "fkGradeMax": 4.5
+      },
+      "frontMatter": {
+        "$comment": [
+          "FAZ 5'TE DOĞDU — ön madde kitabın İLK okunan metnidir.",
+          "",
+          "Bir aktivite sayfası değildir: ne talimat ne field note. Kendi",
+          "bandı yoksa hiç ölçülmez, ve ölçülmeyen bir metin kitabın en zor",
+          "metni olabilir.",
+          "",
+          "Bant field note'un ÜSTÜNDE ama dar bir payla (5,9 → 6,5):",
+          "ön madde açıklayıcı bir metindir ve field note'tan biraz daha",
+          "uzun cümle taşır. Pay 0,5 sınıftır ve bir DEĞİŞMEZLE kilitlidir:",
+          "  fk(ön madde) ≤ fk(field note) + 0,5",
+          "Yani bant tek başına gevşek değildir; değişmez onu içeriğe bağlar."
+        ],
+        "avgWordsMin": 9.0,
+        "avgWordsMax": 16.0,
+        "maxSentenceWords": 28,
+        "fkGradeMax": 6.5
       }
     },
     "readabilityInvariant": "fk(instruction) < fk(fieldNote)"

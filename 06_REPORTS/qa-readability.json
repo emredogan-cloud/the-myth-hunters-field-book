@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checks": 11,
+  "checks": 18,
   "errors": [],
   "warnings": [],
   "facts": {
@@ -1233,6 +1233,14 @@
         "fkGrade": 3.74,
         "maxSentenceWords": 18
       }
-    }
+    },
+    "frontMatter": {
+      "words": 1372,
+      "sentences": 128,
+      "avgSentenceWords": 10.72,
+      "fkGrade": 4.1,
+      "maxSentenceWords": 28
+    },
+    "frontMatterSections": 7
   }
 }

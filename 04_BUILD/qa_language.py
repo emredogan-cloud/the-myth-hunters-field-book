@@ -122,20 +122,31 @@ def turkishness(text: str) -> tuple[int, int]:
             len(TURKISH_WORDS.findall(text)))
 
 
-def walk_commercial(doc, fields, path="", out=None):
-    """Ticari alanları BULUR. `$` ile başlayan anahtarlar ve `…Note` biten
-    editorial alanlar ATLANIR: onlar sayfaya çıkmaz."""
+EDITORIAL_FALLBACK = ("answerNote", "editorialNote", "batchNote",
+                      "note", "comment")
+
+
+def walk_commercial(doc, fields, path="", out=None, editorial=None):
+    """Ticari alanları BULUR. `$` ile başlayan anahtarlar ve EDİTORYAL
+    alanlar ATLANIR: onlar sayfaya çıkmaz.
+
+    ⚠ Editoryal liste artık `project_config § language.editorialFields`ten
+    gelir. Faz 5'e kadar buraya GÖMÜLÜYDÜ ve yeni bir editoryal alan
+    doğduğunda iki yerde birden değişmesi gerekiyordu (D17). Config yoksa
+    eski gömülü liste yedek olarak kullanılır — kapı bir config alanının
+    yokluğunda sessizce her şeyi taramaya başlamaz."""
     if out is None:
         out = []
+    if editorial is None:
+        editorial = set(EDITORIAL_FALLBACK)
     if isinstance(doc, dict):
         for k, v in doc.items():
-            if k.startswith("$") or k in ("answerNote", "editorialNote",
-                                          "batchNote", "note", "comment"):
+            if k.startswith("$") or k in editorial:
                 continue
-            walk_commercial(v, fields, "%s.%s" % (path, k), out)
+            walk_commercial(v, fields, "%s.%s" % (path, k), out, editorial)
     elif isinstance(doc, list):
         for i, v in enumerate(doc):
-            walk_commercial(v, fields, "%s[%d]" % (path, i), out)
+            walk_commercial(v, fields, "%s[%d]" % (path, i), out, editorial)
     elif isinstance(doc, str):
         key = path.rsplit(".", 1)[-1].split("[")[0]
         if key in fields:
@@ -148,7 +159,15 @@ def check_commercial_layer(cfg, rep):
     lang = cfg.get("language", {})
     fields = set(lang.get("commercialFields", []))
     layers = lang.get("commercialLayers", [])
+    editorial = set(lang.get("editorialFields") or EDITORIAL_FALLBACK)
     rep.facts["commercialFields"] = len(fields)
+    rep.facts["editorialFields"] = len(editorial)
+
+    # Bir alan HEM ticari HEM editoryal olamaz: olursa hangi kuralın
+    # geçerli olduğu okuyana göre değişir ve kapı sessizce taraf tutar.
+    both = sorted(fields & editorial)
+    rep.check(not both, "hiçbir alan hem ticari hem editoryal değil"
+              + ("" if not both else " — ÇAKIŞAN: %s" % both))
 
     scanned = 0
     hits = []
@@ -161,7 +180,7 @@ def check_commercial_layer(cfg, rep):
         doc = load(path, rep, required=False)
         if doc is None:
             continue
-        for where, text in walk_commercial(doc, fields):
+        for where, text in walk_commercial(doc, fields, editorial=editorial):
             scanned += 1
             letters, words = turkishness(text)
             # Tek bir özgü harf bir kültürel addan gelebilir; SÖZCÜK gelmez.
