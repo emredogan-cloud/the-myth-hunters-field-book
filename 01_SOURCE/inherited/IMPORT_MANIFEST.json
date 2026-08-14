@@ -19,7 +19,7 @@
   "generatedBy": "04_BUILD/import_from_world_myths.py",
   "counts": {
     "culture": 22,
-    "status_inherited-provisional": 35,
+    "status_inherited-provisional": 28,
     "tier_A": 47,
     "tier_B": 16,
     "tier_C": 13,
@@ -28,13 +28,13 @@
     "answerSourceEligible": 39,
     "activityExcluded": 2,
     "forbiddenLayerFlagged": 20,
-    "status_inherited-verified": 41,
+    "status_inherited-verified": 48,
     "status_new-researched": 0,
     "revalidatedAtPhase2": 7,
-    "inherited-provisional": 35,
-    "inherited-verified": 41,
+    "inherited-provisional": 28,
+    "inherited-verified": 48,
     "new-researched": 0,
-    "revalidatedAtPhase4": 10
+    "revalidatedAtPhase4": 17
   },
   "records": [
     {
@@ -242,7 +242,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "68783ac6e5a8c445f9e77808104d618761a800467457fdc9e478e63b4b0aec7c",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -256,9 +256,18 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "construction",
+        "declipherment",
+        "geography",
+        "naming",
+        "signClasses",
+        "signMeaning",
+        "technicalTerms",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -329,7 +338,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "b486e8fcbcd01b3b627a2cdf4a41f76e1dc65a19ccc098f5f05563c63b68453d",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -343,9 +352,23 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "archaeology",
+        "architecturalTerms",
+        "astronomy",
+        "dating",
+        "descent",
+        "excavationHistory",
+        "iconography",
+        "letterCount",
+        "namesInUse",
+        "structure",
+        "subjectMatter",
+        "technique",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -732,7 +755,7 @@
       "sourceSha256": "39e6cf953ba8903afc516f1cdc9c22527515b91effa5036134cddaa7b771a7f2",
       "recordSha256": "021cf8241e0332802f22c71d65a5d084cb38bd5391cb38561d15f262998efb70",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -746,9 +769,18 @@
         "mapPoint",
         "cardText"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "geography",
+        "naming",
+        "numberSystem",
+        "objectFunction",
+        "survival",
+        "technique",
+        "toolAndMethod",
+        "writingSystem"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -1642,7 +1674,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1664,9 +1696,14 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "dating",
+        "manuscript",
+        "purpose",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -1933,7 +1970,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -1955,9 +1992,13 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "materials",
+        "placeNames",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -2048,7 +2089,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -2070,9 +2111,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "durations",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",
@@ -3434,7 +3478,7 @@
       "indexPath": "01_RESEARCH/story_index.json",
       "indexSha256": "7f1eaecdc99ee49c70998034bd31184a2e2bf38438b7711f1143d5050175cc24",
       "importedAt": "2026-08-13",
-      "status": "inherited-provisional",
+      "status": "inherited-verified",
       "reviewStatus": "screened",
       "inheritedFields": [
         "id",
@@ -3456,9 +3500,12 @@
         "themes",
         "motifs"
       ],
-      "revalidatedFields": [],
-      "revalidatedAt": null,
-      "revalidatedBy": null,
+      "revalidatedFields": [
+        "eventOrder",
+        "storyDetail"
+      ],
+      "revalidatedAt": "2026-08-14",
+      "revalidatedBy": "phase4-agent · 01_SOURCE/research/middle-sea-revalidation.json",
       "adaptationStatus": "not-adapted",
       "restrictionStatus": "open",
       "eligibilityTier": "A",

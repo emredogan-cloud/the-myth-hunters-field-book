@@ -1427,9 +1427,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader labels six parts of a Nile boat using a word bank.",
@@ -1450,13 +1450,17 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-NILE-BOAT"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "egyptian-cartouche-key",
@@ -1464,9 +1468,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader writes a name in hieroglyphs inside a cartouche.",
@@ -1486,14 +1490,18 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 3
+      "sealSlot": 3,
+      "claimRefs": [
+        "CLM-MS-CARTOUCHE"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "egyptian-hieroglyph-classes",
@@ -1501,9 +1509,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader sorts signs into sound-signs, word-signs and silent markers.",
@@ -1523,13 +1531,17 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 8,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
       ],
-      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer."
+      "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
+      "claimRefs": [
+        "CLM-MS-HIEROGLYPH-CLASSES"
+      ],
+      "layout": "sort-columns"
     },
     {
       "activityId": "egyptian-island-make",
@@ -1614,9 +1626,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader marks Upper and Lower Egypt on the Nile and explains why Upper is south.",
@@ -1636,14 +1648,18 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
       ],
       "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
-      "sealSlot": 4
+      "sealSlot": 4,
+      "claimRefs": [
+        "CLM-MS-NILE-DIRECTION"
+      ],
+      "layout": "map-trace"
     },
     {
       "activityId": "egyptian-sailor-sequence",
@@ -1651,9 +1667,9 @@
       "culture": "egyptian",
       "region": "middle-sea",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader puts the sailor's voyage events into order.",
@@ -1673,7 +1689,7 @@
       ],
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -1681,7 +1697,11 @@
         "story-egyptian-shipwrecked-sailor"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-egyptian-shipwrecked-sailor"
+      "sourceStory": "story-egyptian-shipwrecked-sailor",
+      "claimRefs": [
+        "CLM-MS-SAILOR"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "greek-alphabet-key",
@@ -1689,9 +1709,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader uses a Greek alphabet key to write four names.",
@@ -1711,14 +1731,18 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 1
+      "sealSlot": 1,
+      "claimRefs": [
+        "CLM-MS-GREEK-ALPHABET"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "greek-column-orders",
@@ -1726,9 +1750,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader labels three column capitals as Doric, Ionic and Corinthian.",
@@ -1755,7 +1779,11 @@
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-COLUMN-ORDERS"
+      ],
+      "layout": "plate-compare"
     },
     {
       "activityId": "greek-constellation-plate",
@@ -1763,9 +1791,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader finds three constellations on a star chart and names the story each carries.",
@@ -1786,13 +1814,17 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-CONSTELLATIONS"
+      ],
+      "layout": "data-table"
     },
     {
       "activityId": "greek-crete-palace-map",
@@ -1800,9 +1832,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader finds the route from gate to centre on a plan of the Knossos palace.",
@@ -1822,13 +1854,17 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir."
+      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
+      "claimRefs": [
+        "CLM-MS-KNOSSOS"
+      ],
+      "layout": "map-overlay"
     },
     {
       "activityId": "greek-god-domains",
@@ -1872,9 +1908,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader traces the flight between two islands and marks the sea named after it.",
@@ -1894,7 +1930,7 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
@@ -1903,7 +1939,11 @@
       ],
       "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
       "sourceStory": "story-greek-icarus",
-      "sealSlot": 2
+      "sealSlot": 2,
+      "claimRefs": [
+        "CLM-MS-ICARUS"
+      ],
+      "layout": "map-trace"
     },
     {
       "activityId": "greek-labyrinth-cipher",
@@ -1911,9 +1951,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader follows the one true path through a plan and reads the letters along it.",
@@ -1933,13 +1973,17 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-MS-LABYRINTH-COIN"
+      ],
+      "layout": "key-build"
     },
     {
       "activityId": "greek-labyrinth-make",
@@ -2020,9 +2064,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader orders four events that explain the return of winter.",
@@ -2042,7 +2086,7 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 5,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -2050,7 +2094,11 @@
         "story-greek-persephone"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-greek-persephone"
+      "sourceStory": "story-greek-persephone",
+      "claimRefs": [
+        "CLM-MS-PERSEPHONE"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "greek-vase-plate",
@@ -2058,9 +2106,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader finds four story details on a black-figure vase.",
@@ -2081,13 +2129,17 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-VASE"
+      ],
+      "layout": "plate-label"
     },
     {
       "activityId": "greek-weaving-motifs",
@@ -2133,9 +2185,9 @@
       "culture": "greek",
       "region": "middle-sea",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader sketches a pair of wings and labels what they are made of.",
@@ -2156,7 +2208,7 @@
       ],
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
@@ -2164,7 +2216,11 @@
         "story-greek-icarus"
       ],
       "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
-      "sourceStory": "story-greek-icarus"
+      "sourceStory": "story-greek-icarus",
+      "claimRefs": [
+        "CLM-MS-ICARUS"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "mesopotamian-base-sixty",
@@ -2172,9 +2228,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader writes four numbers in base sixty and finds why an hour has sixty minutes.",
@@ -2194,13 +2250,17 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 8,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
-      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır."
+      "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
+      "claimRefs": [
+        "CLM-MS-BASE-SIXTY"
+      ],
+      "layout": "key-build"
     },
     {
       "activityId": "mesopotamian-cuneiform-key",
@@ -2208,9 +2268,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "cipher",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader uses a cuneiform key to read four words.",
@@ -2230,14 +2290,18 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "cipher-key",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 7,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
       "revalidationPlan": "Yazı sistemi tablosu ve okunan her sözcük iki bağımsız akademik kaynakla karşılaştırılır (dilbilgisi/paleografi el kitabı + müze veya arşiv kaydı). Çocuğun deftere yazacağı her işaret tek tek doğrulanır.",
-      "sealSlot": 5
+      "sealSlot": 5,
+      "claimRefs": [
+        "CLM-MS-CUNEIFORM"
+      ],
+      "layout": "key-decode"
     },
     {
       "activityId": "mesopotamian-eagle-height-plate",
@@ -2276,8 +2340,7 @@
         "story-meso-etana-eagle"
       ],
       "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
-      "sourceStory": "story-meso-etana-eagle",
-      "sealSlot": 6
+      "sourceStory": "story-meso-etana-eagle"
     },
     {
       "activityId": "mesopotamian-plant-quest-steps",
@@ -2285,9 +2348,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "sort",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader orders the stages of the search for the plant.",
@@ -2307,7 +2370,7 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "sorting-grid",
-      "writingSpaceLines": 3,
+      "writingSpaceLines": 6,
       "pageWeight": 0.75,
       "openEnded": false,
       "inheritedRecords": [
@@ -2315,7 +2378,11 @@
         "story-meso-gilgamesh-plant"
       ],
       "revalidationPlan": "Eşleştirmenin her iki tarafı ayrı ayrı doğrulanır; iddia iki bağımsız kaynakta aynı biçimde geçmiyorsa aday düşer.",
-      "sourceStory": "story-meso-gilgamesh-plant"
+      "sourceStory": "story-meso-gilgamesh-plant",
+      "claimRefs": [
+        "CLM-MS-GILGAMESH-PLANT"
+      ],
+      "layout": "sort-cards"
     },
     {
       "activityId": "mesopotamian-seal-cylinder-plate",
@@ -2323,9 +2390,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "observe",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader matches four cylinder seals to the impressions they print.",
@@ -2346,13 +2413,18 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "observation-plate",
-      "writingSpaceLines": 4,
+      "writingSpaceLines": 5,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
-      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır."
+      "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
+      "claimRefs": [
+        "CLM-MS-CYLINDER-SEAL"
+      ],
+      "layout": "plate-label",
+      "sealSlot": 6
     },
     {
       "activityId": "mesopotamian-tablet-order",
@@ -2396,9 +2468,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "map",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader marks four cities between the Tigris and the Euphrates.",
@@ -2418,13 +2490,17 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "region-map",
-      "writingSpaceLines": 2,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
-      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir."
+      "revalidationPlan": "Yer adları, koordinatlar ve rota noktaları güncel bir atlas ve kültürün kendi resmî yer adı kaydıyla karşılaştırılır; diakritikler ayrıca denetlenir.",
+      "claimRefs": [
+        "CLM-MS-MESOPOTAMIA-NAME"
+      ],
+      "layout": "map-overlay"
     },
     {
       "activityId": "mesopotamian-your-seal-make",
@@ -2432,9 +2508,9 @@
       "culture": "mesopotamian",
       "region": "middle-sea",
       "type": "make",
-      "status": "candidate",
+      "status": "written",
       "editorialStatus": "culture-screened",
-      "inheritanceStatus": "inherited-provisional",
+      "inheritanceStatus": "inherited-verified",
       "restrictionStatus": "open",
       "attributionRequired": false,
       "objective": "Reader designs a cylinder seal and draws the picture it would print.",
@@ -2455,13 +2531,17 @@
       ],
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "writing-frame",
-      "writingSpaceLines": 8,
+      "writingSpaceLines": 4,
       "pageWeight": 1.0,
       "openEnded": true,
       "inheritedRecords": [
         "culture-mesopotamian"
       ],
-      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır."
+      "revalidationPlan": "Açık uçlu; cevap üretmez. Yalnızca kültürel çerçeve ve atıf doğrulanır.",
+      "claimRefs": [
+        "CLM-MS-CYLINDER-SEAL"
+      ],
+      "layout": "make-frame"
     },
     {
       "activityId": "akan-adinkra-match",

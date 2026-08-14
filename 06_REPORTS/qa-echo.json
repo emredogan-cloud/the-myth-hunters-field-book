@@ -4,21 +4,21 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "activities": 84,
+    "activities": 104,
     "maskedTerms": 162,
-    "openerShapes": 80,
-    "missionShapes": 74,
+    "openerShapes": 100,
+    "missionShapes": 90,
     "fieldNoteJaccardMax": 0.333,
     "singleSourceCultures": [
       "andean (1 hikâye → 3 sayfa)"
     ],
     "refrainsDeclared": 6,
     "refrainCounts": {
-      "into the star box": 24,
-      "number them from first to last": 10,
+      "into the star box": 30,
+      "number them from first to last": 12,
       "draw a line from each": 9,
       "write each label on the line beside its part": 2,
-      "read the four cards": 7,
+      "read the four cards": 8,
       "read the five cards": 2
     }
   }

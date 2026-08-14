@@ -4,11 +4,11 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "activities": 84,
-    "pagesAddressingReader": 84,
+    "activities": 104,
+    "pagesAddressingReader": 104,
     "instructionMaxWords": 18,
-    "writingLinesTotal": 400,
+    "writingLinesTotal": 511,
     "writingLinesMax": 8,
-    "pagesWithPrintSpec": 84
+    "pagesWithPrintSpec": 104
   }
 }

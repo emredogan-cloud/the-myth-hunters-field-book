@@ -397,10 +397,28 @@ def check_claim_chain(acts, claims, files, records, rep):
               + ("" if not thin else " — ZAYIF: %s" % thin[:5]))
 
     # (e) iddianın dayandığı devralma kaydı doğrulanmış olmalı
+    #
+    # ⚠ FAZ 4'TE DARALTILDI — VE DARALTMA BİR GEVŞETME DEĞİL.
+    #
+    # İlk hâl BÜTÜN iddiaları denetliyordu, REDDEDİLMİŞ olanlar dâhil. Ama
+    # reddedilmiş bir iddia tam olarak DOĞRULANAMADIĞI için reddedilmiştir:
+    # kaydı da doğrulanmamış kalır ve kalmalıdır. Kapı bu hâliyle ajanı
+    # şuna zorluyordu — doğrulanmamış bir kaydı DOĞRULANMIŞ ilan et, ya da
+    # reddin kaydını sil. İkisi de yalandır.
+    #
+    #     Bir kapı, DÜRÜST OLMAYI imkânsız kılıyorsa düzeltilmesi
+    #     gereken kapıdır. (Faz 3 § 20.1'in aynısı, bir kat derinde.)
+    #
+    # Daraltma güvenliği düşürmez: reddedilmiş bir iddiayı hiçbir aktivite
+    # KULLANAMAZ — bunu (c) zaten mekanik olarak engelliyor. `selftest § ⑦c`
+    # her iki yönü de sınıyor: reddedilen iddia kaydı yükseltmiyor VE
+    # KULLANILAN bir iddia hâlâ doğrulanmış kayıt istiyor.
     unverified = []
     for cid, c in claims.items():
         rid = c.get("inheritedRecord")
         if not rid:
+            continue
+        if c.get("verdict") == "rejected":
             continue
         rec = records.get(rid)
         if rec is None:

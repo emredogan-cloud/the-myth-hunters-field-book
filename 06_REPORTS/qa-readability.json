@@ -4,11 +4,11 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 5581,
-    "sentences": 622,
-    "avgSentenceWords": 8.97,
-    "fkGrade": 3.3,
-    "longWordRatio": 0.04,
+    "words": 7017,
+    "sentences": 763,
+    "avgSentenceWords": 9.2,
+    "fkGrade": 3.42,
+    "longWordRatio": 0.041,
     "perActivity": [
       {
         "activityId": "maya-bar-dot-numbers",
@@ -702,11 +702,11 @@
       },
       {
         "activityId": "norse-apples-sequence",
-        "words": 62,
+        "words": 65,
         "sentences": 7,
-        "avgSentenceWords": 8.86,
-        "fkGrade": 2.71,
-        "longWordRatio": 0.0,
+        "avgSentenceWords": 9.29,
+        "fkGrade": 3.1,
+        "longWordRatio": 0.015,
         "fieldNoteWords": 27,
         "steps": 3
       },
@@ -849,28 +849,228 @@
         "longWordRatio": 0.029,
         "fieldNoteWords": 25,
         "steps": 3
+      },
+      {
+        "activityId": "greek-alphabet-key",
+        "words": 66,
+        "sentences": 6,
+        "avgSentenceWords": 11.0,
+        "fkGrade": 5.33,
+        "longWordRatio": 0.076,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "greek-icarus-flight-map",
+        "words": 77,
+        "sentences": 7,
+        "avgSentenceWords": 11.0,
+        "fkGrade": 4.18,
+        "longWordRatio": 0.026,
+        "fieldNoteWords": 27,
+        "steps": 3
+      },
+      {
+        "activityId": "greek-labyrinth-cipher",
+        "words": 115,
+        "sentences": 10,
+        "avgSentenceWords": 11.5,
+        "fkGrade": 3.77,
+        "longWordRatio": 0.035,
+        "fieldNoteWords": 27,
+        "steps": 4
+      },
+      {
+        "activityId": "greek-crete-palace-map",
+        "words": 64,
+        "sentences": 7,
+        "avgSentenceWords": 9.14,
+        "fkGrade": 3.28,
+        "longWordRatio": 0.047,
+        "fieldNoteWords": 24,
+        "steps": 3
+      },
+      {
+        "activityId": "greek-column-orders",
+        "words": 53,
+        "sentences": 6,
+        "avgSentenceWords": 8.83,
+        "fkGrade": 4.78,
+        "longWordRatio": 0.075,
+        "fieldNoteWords": 26,
+        "steps": 2
+      },
+      {
+        "activityId": "greek-constellation-plate",
+        "words": 103,
+        "sentences": 10,
+        "avgSentenceWords": 10.3,
+        "fkGrade": 5.27,
+        "longWordRatio": 0.058,
+        "fieldNoteWords": 23,
+        "steps": 4
+      },
+      {
+        "activityId": "greek-vase-plate",
+        "words": 66,
+        "sentences": 5,
+        "avgSentenceWords": 13.2,
+        "fkGrade": 4.75,
+        "longWordRatio": 0.03,
+        "fieldNoteWords": 26,
+        "steps": 2
+      },
+      {
+        "activityId": "greek-seasons-six-seeds",
+        "words": 59,
+        "sentences": 6,
+        "avgSentenceWords": 9.83,
+        "fkGrade": 4.05,
+        "longWordRatio": 0.017,
+        "fieldNoteWords": 28,
+        "steps": 2
+      },
+      {
+        "activityId": "greek-wing-design-make",
+        "words": 63,
+        "sentences": 6,
+        "avgSentenceWords": 10.5,
+        "fkGrade": 4.05,
+        "longWordRatio": 0.079,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "egyptian-cartouche-key",
+        "words": 60,
+        "sentences": 6,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 3.26,
+        "longWordRatio": 0.067,
+        "fieldNoteWords": 23,
+        "steps": 2
+      },
+      {
+        "activityId": "egyptian-nile-map",
+        "words": 81,
+        "sentences": 7,
+        "avgSentenceWords": 11.57,
+        "fkGrade": 4.66,
+        "longWordRatio": 0.025,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "egyptian-hieroglyph-classes",
+        "words": 96,
+        "sentences": 10,
+        "avgSentenceWords": 9.6,
+        "fkGrade": 2.17,
+        "longWordRatio": 0.021,
+        "fieldNoteWords": 24,
+        "steps": 4
+      },
+      {
+        "activityId": "egyptian-boat-plate",
+        "words": 58,
+        "sentences": 5,
+        "avgSentenceWords": 11.6,
+        "fkGrade": 3.38,
+        "longWordRatio": 0.017,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "egyptian-sailor-sequence",
+        "words": 57,
+        "sentences": 7,
+        "avgSentenceWords": 8.14,
+        "fkGrade": 4.77,
+        "longWordRatio": 0.105,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "mesopotamian-cuneiform-key",
+        "words": 75,
+        "sentences": 7,
+        "avgSentenceWords": 10.71,
+        "fkGrade": 3.54,
+        "longWordRatio": 0.027,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "mesopotamian-base-sixty",
+        "words": 105,
+        "sentences": 11,
+        "avgSentenceWords": 9.55,
+        "fkGrade": 4.32,
+        "longWordRatio": 0.057,
+        "fieldNoteWords": 26,
+        "steps": 4
+      },
+      {
+        "activityId": "mesopotamian-seal-cylinder-plate",
+        "words": 56,
+        "sentences": 6,
+        "avgSentenceWords": 9.33,
+        "fkGrade": 3.64,
+        "longWordRatio": 0.036,
+        "fieldNoteWords": 24,
+        "steps": 2
+      },
+      {
+        "activityId": "mesopotamian-your-seal-make",
+        "words": 60,
+        "sentences": 6,
+        "avgSentenceWords": 10.0,
+        "fkGrade": 4.44,
+        "longWordRatio": 0.1,
+        "fieldNoteWords": 25,
+        "steps": 2
+      },
+      {
+        "activityId": "mesopotamian-plant-quest-steps",
+        "words": 64,
+        "sentences": 7,
+        "avgSentenceWords": 9.14,
+        "fkGrade": 2.17,
+        "longWordRatio": 0.016,
+        "fieldNoteWords": 28,
+        "steps": 3
+      },
+      {
+        "activityId": "mesopotamian-two-rivers-map",
+        "words": 55,
+        "sentences": 6,
+        "avgSentenceWords": 9.17,
+        "fkGrade": 3.22,
+        "longWordRatio": 0.018,
+        "fieldNoteWords": 21,
+        "steps": 2
       }
     ],
     "registers": {
       "instruction": {
-        "words": 3054,
-        "sentences": 407,
-        "avgSentenceWords": 7.5,
-        "fkGrade": 2.24,
+        "words": 3877,
+        "sentences": 501,
+        "avgSentenceWords": 7.74,
+        "fkGrade": 2.4,
         "maxSentenceWords": 16
       },
       "fieldNote": {
-        "words": 2157,
-        "sentences": 176,
-        "avgSentenceWords": 12.26,
-        "fkGrade": 5.22,
+        "words": 2665,
+        "sentences": 214,
+        "avgSentenceWords": 12.45,
+        "fkGrade": 5.34,
         "maxSentenceWords": 29
       },
       "hint": {
-        "words": 370,
-        "sentences": 39,
-        "avgSentenceWords": 9.49,
-        "fkGrade": 3.83,
+        "words": 475,
+        "sentences": 48,
+        "avgSentenceWords": 9.9,
+        "fkGrade": 3.7,
         "maxSentenceWords": 18
       }
     }

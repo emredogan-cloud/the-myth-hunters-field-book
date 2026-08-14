@@ -3,17 +3,17 @@
   "checks": 6,
   "errors": [],
   "warnings": [
-    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 4/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
+    "ciltsiz telifi dayanaktan +0.07 $ YÜKSEK (5.55 $ vs 5.48 $) — sayfa modeli KÜÇÜLDÜ. 5/6 bölge GERÇEK içerikle ölçüldü. Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan bölgeler ölçülünce dayanak gözden geçirilir. Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
   ],
   "facts": {
-    "regionsMeasured": 4,
+    "regionsMeasured": 5,
     "frontMatter": 8,
     "backMatter": 14,
     "structuralPerRegion": 2,
     "finalQuest": 5,
-    "activityPages": 103.8,
-    "regionsTotal": 115.8,
-    "modelRaw": 142.8,
+    "activityPages": 104.0,
+    "regionsTotal": 116.0,
+    "modelRaw": 143.0,
     "modelPages": 143,
     "modelPagesSignatureAligned": 144,
     "regions": [
@@ -30,12 +30,12 @@
       {
         "region": "middle-sea",
         "quota": 20,
-        "avgPageWeight": 0.875,
-        "weightSource": "havuz",
-        "lockedActivities": 0,
-        "activityPages": 17.5,
+        "avgPageWeight": 0.887,
+        "weightSource": "ÖLÇÜLDÜ",
+        "lockedActivities": 20,
+        "activityPages": 17.8,
         "structuralPages": 2,
-        "totalPages": 19.5
+        "totalPages": 19.8
       },
       {
         "region": "sun-savanna",

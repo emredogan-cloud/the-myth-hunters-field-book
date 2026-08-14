@@ -866,6 +866,93 @@ def part7b_design_constraint(rep: Report, tmp: str, base: dict) -> None:
     rep.check(code != 0, "⭑ FIELD NOTE'TA KARŞILANMAYAN BEYAN YAKALANIR", out)
 
 
+def _rec_used(d, rid, skip_claim):
+    """Bu kaydı BAŞKA (reddedilmemiş) bir iddia da kullanıyor mu."""
+    for k, doc in d.items():
+        if not k.endswith("-revalidation.json"):
+            continue
+        for c in doc.get("claims", []):
+            if c.get("claimId") == skip_claim:
+                continue
+            if c.get("inheritedRecord") == rid and c.get("verdict") != "rejected":
+                return True
+    return False
+
+
+def part7c_rejected_claim(rep: Report, tmp: str, base: dict) -> None:
+    """⑦c REDDEDİLMİŞ BİR İDDİA BİR KAYDI DOĞRULAYAMAZ — VE TERSİ.
+
+    ⭑ FAZ 4'TE DOĞDU ⭑
+
+    `validate_research § ⑩(e)` bütün iddiaların devralma kaydını
+    doğrulanmış istiyordu. Faz 4 iki iddiayı REDDETTİ ve kapı ajanı bir
+    açmaza soktu: doğrulanamayan bir kaydı doğrulanmış ilan et, ya da
+    reddin kaydını sil. Kapı daraltıldı; bu bölüm daraltmanın bir DELİK
+    açmadığını kanıtlar."""
+    print("\n⑦c REDDEDİLMİŞ iddia kaydı doğrulayamaz (ve kullanılan iddia hâlâ istiyor)")
+    files = [f for f in os.listdir(os.path.join(ROOT, "01_SOURCE", "research"))
+             if f.endswith("-revalidation.json")]
+    if not files:
+        print("  ⊘ doğrulama künyesi yok — atlandı")
+        return
+
+    def run_with(mutate):
+        d = copy.deepcopy(base)
+        mutate(d)
+        return run_gate(VALIDATE_RESEARCH, d, tmp)
+
+    # (a) temiz gerçek veri geçer
+    code, out = run_gate(VALIDATE_RESEARCH, base, tmp)
+    rep.check(code == 0, "gerçek doğrulama künyeleri GEÇER", out)
+
+    # (b) REDDEDİLMİŞ bir iddianın kaydı provisional kalabilir
+    RKEY = [k for k in base if k.endswith("-revalidation.json")]
+    MKEY = "01_SOURCE/inherited/IMPORT_MANIFEST.json"
+
+    def make_rejected(d):
+        """Bir iddiayı reddet VE kaydını provisional'a düşür: reddedilmiş bir
+        iddianın doğrulanmamış kaydı kapıyı kırmızı yakmamalıdır."""
+        for k in RKEY:
+            for c in d[k]["claims"]:
+                if c.get("verdict") != "rejected" and c.get("inheritedRecord"):
+                    c["verdict"] = "rejected"
+                    c["usedBy"] = []
+                    c["usedIn"] = []
+                    rid = c["inheritedRecord"]
+                    # Reddedilen iddiaya dayanan sayfa kitaptan DÜŞER —
+                    # gerçekte de öyle olur (Faz 3 § 8.2 ④, Faz 4 § CLM-NI-NINE-WORLDS).
+                    for a in d["01_SOURCE/activity_index.json"]["activities"]:
+                        refs = a.get("claimRefs") or []
+                        if c["claimId"] in refs:
+                            a["claimRefs"] = [r for r in refs if r != c["claimId"]]
+                            if not a["claimRefs"]:
+                                a["status"] = "candidate"
+                                a.pop("sealSlot", None)
+                    for r in d[MKEY]["records"]:
+                        if r["recordId"] == rid and not _rec_used(d, rid, c["claimId"]):
+                            r["status"] = "inherited-provisional"
+                    return
+    code, out = run_with(make_rejected)
+    rep.check(code == 0, "reddedilmiş iddia kaydı provisional bırakabilir", out)
+
+    # (c) ⭑ KULLANILAN bir iddia hâlâ DOĞRULANMIŞ kayıt İSTİYOR ⭑
+    def break_record(d):
+        used = None
+        for k in RKEY:
+            for c in d[k]["claims"]:
+                if c.get("verdict") != "rejected" and c.get("inheritedRecord"):
+                    used = c["inheritedRecord"]
+                    break
+            if used:
+                break
+        for r in d[MKEY]["records"]:
+            if r["recordId"] == used:
+                r["status"] = "inherited-provisional"
+    code, out = run_with(break_record)
+    rep.check(code != 0,
+              "⭑ KULLANILAN İDDİANIN DOĞRULANMAMIŞ KAYDI YAKALANIR", out)
+
+
 def part8_page_budget(rep: Report, tmp: str, base: dict) -> None:
     print("\n⑧ SAYFA BÜTÇESİ kapısı ısırıyor mu")
 
@@ -2061,6 +2148,8 @@ def main() -> int:
                 part7_research_gate(rep, tmp, base)
             if os.path.isfile(VALIDATE_RESEARCH):
                 part7b_design_constraint(rep, tmp, base)
+            if os.path.isfile(VALIDATE_RESEARCH):
+                part7c_rejected_claim(rep, tmp, base)
             if os.path.isfile(PAGE_BUDGET):
                 part8_page_budget(rep, tmp, base)
         if os.path.isfile(QA_READABILITY):
