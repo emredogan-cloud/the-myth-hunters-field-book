@@ -426,6 +426,86 @@ def check_refrains(acts, cfg, rep):
               + ("" if not undeclared else " — BEYANSIZ: %s" % undeclared[:5]))
 
 
+def check_front_matter_echo(book, cfg, rep):
+    """⑦ ÖN MADDE ↔ ARKA MADDE — İKİ OKUR, İKİ METİN (Faz 5 · bulgu E1).
+
+    Faz 4 arka maddeye `how-to-use` ve `hint-rule` koymuştu ve ikisi de
+    ÇOCUĞA sesleniyordu. Faz 5 çocuğa bakan işletim bilgisini ÖN MADDEYE
+    taşıdı ve o üç sayfanın OKURUNU değiştirdi (`audience: adult`).
+
+        Bir kullanım kılavuzu, kullanımdan SONRA gelirse
+        bir kılavuz değil bir ÖZETTİR.
+
+    Ama bir okur ayrımı beyan edilerek KURULMAZ, yazılarak kurulur. İki
+    bölüm aynı cümleleri taşımaya devam ederse ayrım bir etiketten ibaret
+    kalır ve kitap aynı şeyi iki kez basar.
+
+    Bu denetim o ayrımın GERÇEKTEN yazıldığını ölçer — ve E1 kararını
+    geri alınamaz kılar: biri ötekine yaklaşırsa kapı yanar.
+    """
+    print("\n── ⑦ ön madde ↔ arka madde ayrımı (E1) ──")
+    fm = (book.get("frontMatter") or {}).get("sections") or []
+    bm = (book.get("backMatter") or {}).get("sections") or []
+    if not fm or not bm:
+        print("  ⊘ ön veya arka madde yok — boş koştu")
+        return
+
+    thr = cfg.get("fieldNoteJaccardMax", 0.55)
+
+    def bag(text):
+        return {w for w in re.findall(r"[a-z']+", (text or "").lower())
+                if len(w) > 3}
+
+    front = {}
+    for s in fm:
+        if s.get("role", "teaching") != "teaching":
+            continue
+        front[s.get("id")] = bag(s.get("bodyText"))
+    back = {}
+    for s in bm:
+        back[s.get("id")] = bag((s.get("purpose") or "") + " " +
+                                " ".join(s.get("prints") or []))
+
+    worst, pair = 0.0, None
+    for fk, fv in front.items():
+        for bk, bv in back.items():
+            v = jaccard(fv, bv)
+            if v > worst:
+                worst, pair = v, (fk, bk)
+    rep.facts["frontBackOverlapMax"] = round(worst, 3)
+    rep.facts["frontBackOverlapPair"] = list(pair) if pair else None
+    print("  en yüksek örtüşme %.3f  %s" % (worst, pair))
+    rep.check(worst <= thr,
+              "ön madde ile arka madde AYNI metni basmıyor (%.3f ≤ %.2f)"
+              % (worst, thr)
+              + ("" if worst <= thr else " — ÇAKIŞAN: %s" % (pair,)))
+
+    # Ön maddenin kendi içinde de tekrar olamaz: sekiz sayfa aynı şeyi
+    # dört kez anlatırsa çocuk hangisinin kural olduğunu bilemez.
+    ks = list(front)
+    worst_in, pair_in = 0.0, None
+    for i in range(len(ks)):
+        for j in range(i + 1, len(ks)):
+            v = jaccard(front[ks[i]], front[ks[j]])
+            if v > worst_in:
+                worst_in, pair_in = v, (ks[i], ks[j])
+    rep.facts["frontInternalOverlapMax"] = round(worst_in, 3)
+    print("  ön madde iç örtüşmesi %.3f  %s" % (worst_in, pair_in))
+    rep.check(worst_in <= thr,
+              "ön madde bölümleri birbirini tekrar etmiyor (%.3f ≤ %.2f)"
+              % (worst_in, thr)
+              + ("" if worst_in <= thr else " — ÇAKIŞAN: %s" % (pair_in,)))
+
+    # Ve okur ayrımı BEYAN edilmiş olmalı: beyansız bir ayrım, bir sonraki
+    # yazarın farkında olmadan geri alabileceği bir ayrımdır.
+    noaud = [s.get("id") for s in bm if not s.get("audience")]
+    rep.check(not noaud, "her arka madde bölümü okurunu beyan ediyor"
+              + ("" if not noaud else " — BEYANSIZ: %s" % noaud))
+    adults = [s.get("id") for s in bm if s.get("audience") == "adult"]
+    rep.check(len(adults) >= 1,
+              "arka madde en az bir YETİŞKİN bölümü taşıyor (%d)" % len(adults))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -468,6 +548,7 @@ def main() -> int:
     check_openers(acts, terms, cfg, rep)
     check_mission_shapes(acts, terms, cfg, rep)
     check_flattening(acts, rep)
+    check_front_matter_echo(book_doc, cfg, rep)
     check_similarity(acts, terms, cfg, rep)
     check_single_source(acts, cultures, terms, cfg, rep)
     check_refrains(acts, cfg, rep)

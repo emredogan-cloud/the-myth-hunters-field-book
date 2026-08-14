@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checks": 7,
+  "checks": 11,
   "errors": [],
   "warnings": [],
   "facts": {
@@ -8,6 +8,12 @@
     "maskedTerms": 162,
     "openerShapes": 116,
     "missionShapes": 101,
+    "frontBackOverlapMax": 0.238,
+    "frontBackOverlapPair": [
+      "when-you-are-stuck",
+      "hint-rule"
+    ],
+    "frontInternalOverlapMax": 0.197,
     "fieldNoteJaccardMax": 0.333,
     "singleSourceCultures": [
       "andean (1 hikâye → 3 sayfa)",

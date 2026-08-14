@@ -2480,6 +2480,38 @@ def part18_answerkey(rep: Report, tmp: str, base: dict) -> None:
         code, out = run(mutate_book=demo_is_star)
         rep.check(code != 0, "⭑ ÖRNEK SÖZCÜK GERÇEK BİR YILDIZ SÖZCÜĞÜ OLAMAZ", out)
 
+    # (i2) ⭑ E1 · İKİ OKUR, İKİ METİN ⭑ — arka madde çocuğa geri dönerse
+    #      ayrım bir etiketten ibaret kalır ve kitap aynı şeyi iki kez basar.
+    if os.path.isfile(QA_ECHO):
+        def echo_run(mutate):
+            d = copy.deepcopy(base)
+            d[BOOK_REL] = copy.deepcopy(book)
+            mutate(d[BOOK_REL])
+            return run_gate(QA_ECHO, d, tmp)
+
+        def duplicate_back(b):
+            fmsec = {x["id"]: x for x in b["frontMatter"]["sections"]}
+            src = fmsec["when-you-are-stuck"]["bodyText"]
+            for x in b["backMatter"]["sections"]:
+                if x["id"] == "hint-rule":
+                    x["purpose"] = src
+                    x["prints"] = [src, src, src]
+
+        code, out = echo_run(duplicate_back)
+        rep.check(code != 0,
+                  "⭑ ARKA MADDE ÖN MADDEYİ TEKRAR EDERSE KAPI KIRMIZI (E1)", out)
+
+        def strip_audience(b):
+            for x in b["backMatter"]["sections"]:
+                x.pop("audience", None)
+
+        code, out = echo_run(strip_audience)
+        rep.check(code != 0, "⭑ OKUR BEYANI DÜŞERSE KAPI KIRMIZI", out)
+
+        code, out = echo_run(lambda b: None)
+        rep.check(code == 0, "⭑ AYRIK YAZILMIŞ ÖN/ARKA MADDE GEÇER "
+                             "(yanlış pozitif yok)", out)
+
     # (j) ⭑ YANLIŞ POZİTİF TESTİ ⭑ — rota sayfası bölge ADINI basmak
     #     ZORUNDADIR ve iki bölge adı bir mühür sözcüğüyle aynı yazılır.
     #     Kapı bunu sızıntı sanarsa rota sayfası yazılamaz hâle gelir.
