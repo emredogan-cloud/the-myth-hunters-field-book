@@ -5,7 +5,102 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
-## [Yayımlanmamış] — 2026-08-14 · Faz 4 · A11 kapandı, eşikler TÜRETİLİYOR
+## [0.4.0] — 2026-08-14 · Faz 4 · manuscript ÖZÜNDE TAMAM
+
+**120 aktivite · 22 kültür · 6 bölge · 37 mühür yuvası · final görev ·
+arka madde.** Yol haritası Faz 4 § 1: *"Manuscript'i özünde tamamlamak."*
+
+```
+FAZ 4 ÜRETİMİ           ✅ TAMAM      120 sayfa · 6 bölge
+A11 ÇELİŞKİSİ           ✅ KAPANDI    K29 · eşikler artık TÜRETİLİYOR
+KURUCU AŞMASI           ✅ GENİŞLEDİ  K30 · tavan phase1'de KALDI
+DIŞ ÇOCUK DOĞRULAMASI   ⏳ BEKLİYOR   0 oturum · A10 AÇIK
+```
+
+### Eklendi — içerik
+
+- **60 yeni sayfa**: `north-ice` 24 (FROST) · `middle-sea` 20 (SCRIBE) ·
+  `sun-savanna` 16 (MESSAGE). Üç bölge de zorluk profilini **tam**
+  karşılıyor ve üçü de ≥9 ayrı düzen kullanıyor.
+- **Final görev · The Cartographer's Seal · 5 sayfa.** Yeni bir mekanik
+  icat edilmedi: altı çentik harfi rota sırasıyla tek sözcüğü kuruyor.
+  Kurtarma korundu — bir kare bir bölge, sözcük anlamlı, hasar yarıçapı 1.
+- **Arka madde · 14 sayfa · 6 bölüm** — yol haritasının adıyla istediği
+  dördü (ipucu kuralı, cevap anahtarı, 22 kültürlük sözlük, World Myths
+  köprüsü) + kullanım kılavuzu + kaynak künyeleri.
+- **Cevap anahtarı 120/120** · KORUMALI. 105 kapalı cevap + 15 açık uçlu
+  **ölçüt**. ⭑ Altı mühür sözcüğü anahtarda **yok ve olmayacak**: mühür
+  sözcüğü çocuğun kendi kendini doğrulama aygıtıdır.
+- **`04_BUILD/qa_answerkey.py`** — 25 denetim · yol haritası Faz 4 § 8
+- Üç doğrulama künyesi: `north-ice` (21 iddia) · `middle-sea` (18) ·
+  `sun-savanna` (12)
+
+### Araştırma — 51 yeni iddia · ÜÇ RET
+
+23 devralma kaydı yükseltildi (31 → **54**/76). Üç iddia **reddedildi** ve
+üçü de aynı sınıftan: **doğru ama METNİ EKSİK.**
+
+| İddia | Neden düştü | Sonuç |
+|---|---|---|
+| Yggdrasil'in dokuz dünyası | kaynaklar sayıyı anar, **listeyi vermez** | `norse-nine-worlds-map` düştü |
+| Etana'nın yükseklikleri | *"incomplete state of the texts"* | `eagle-height-plate` düştü · **yuva 6 taşındı** |
+| tablet yakalama-satırı | iki bağımsız kaynakta yok | `tablet-order` düştü |
+
+Yedi düzeltme: kantele tel sayısı **değişken** · Persephone süresi
+**kaynağa göre değişiyor** · labirentin tek yolu **paranın tasarımıdır** ·
+nehir teknesinde omurga **doğrulanamadı** · Ananse **üç** yaratık ·
+Yoruba sayı adları **yazılamadı** · kuş sayma sayfası **kültürel bilgi
+taşımıyordu** (K4).
+
+### Düzeltildi — kapılar
+
+- **`qa_age § ⑨` SINIF OLARAK düzeltildi.** Aynı kusur üçüncü kez geldi
+  (`māori` → `việt` → `Yorùbá`): eşleyici düz alt-dize arıyordu ve doğru
+  yazılmış bir halk adını *"atıfsız"* sayıyordu. Liste büyütmek yerine
+  eşleyici **Unicode katlaması** yapıyor. Tuzağın yönü tehlikeliydi:
+  kapıyı susturmanın en ucuz yolu bir halkın adını yanlış yazmaktı.
+- **`validate_research § ⑩(e)` daraltıldı** — reddedilmiş bir iddia
+  kaydını doğrulayamaz. Kapı ajanı bir açmaza sokuyordu: doğrulanamayan
+  bir kaydı doğrulanmış ilan et, ya da reddin kaydını sil.
+- **`qa_answerkey § ⑤` iki kez daraltıldı** ve yerine gerçek bir değişmez
+  kondu (⑤c): hiçbir yıldız sözcüğü kendi bölgesinin mühür sözcüğü
+  olamaz — olsaydı altı sayfalık toplama işi anlamsızlaşırdı.
+- `page_budget` uyarısı **koşullara göre** konuşuyor: 6/6 ölçüldüğünde
+  *"bekle"* değil *"KARAR VER"* diyor.
+
+### İç editoryal inceleme — 10 bulgu, ikisi bloklayıcı
+
+**INTERNAL EDITORIAL VALIDATION — NOT CHILD VALIDATION.**
+
+- **A1** `mesopotamian-base-sixty` **aritmetik olarak yapılamazdı**:
+  120 = 2×60 + 0 sıfır işareti ister (sayfa yasaklıyor), 3600 iki
+  sütuna hiç sığmaz. **On dokuz kapının hiçbiri göremezdi** — kapılar
+  sayıların biçimini ölçüyor, **temsil edilebilirliğini** değil.
+- **A2** `akan-day-name-pairs` on dört adı levhada **saymıyordu**.
+- B1–B4: dört field note çocuğun **bulacağı** şeyi söylüyordu.
+
+### Ölçüldü
+
+| | Faz 3 | **Faz 4** |
+|---|---:|---:|
+| Sayfa | 60 | **120** |
+| Ölçülen bölge | 3/6 | **6/6** |
+| Sayfa modeli | 144 | **144** (ort ağırlık 0,867 · yayılım %5) |
+| Kelime | 7.414 | **18.628** (+ ön madde ~4.000 → ~22.600) |
+| `pagePrints` | 255 | **568** |
+| Görsel şartnamesi | 60 | **120** · 700 etiket · **0 varlık** |
+| `selftest` | 151 | **178** |
+
+### ⚠ YENİ AÇIK KALEM — A12
+
+**148 mi 144 mü.** Faz 3 § 19.1 *"altı bölge ölçülünce dayanak gözden
+geçirilir ve o KURUCU KARARIDIR"* demişti; o an geldi. Ajan hiçbir
+seçenek seçmedi: sayfa kısılmadı, hedef sessizce değişmedi. Ölçüm
+**K32**'de kayıtlı.
+
+---
+
+## [Yayımlanmamış → 0.4.0'a dâhil] — Faz 4 · A11 kapandı, eşikler TÜRETİLİYOR
 
 **Kurucu A11'i yanıtladı: Faz 3 eşiği 60'tır, 80 değil.**
 

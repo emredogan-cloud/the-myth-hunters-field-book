@@ -24,6 +24,7 @@ Durum tablosu · **14 Ağustos 2026 · Faz 4**
 | ~~A11~~ | ~~`gates.requirements.phase3` 80 mi 60 mı~~ | — | — | ✅ **KAPANDI → K29** · kurucu **60** dedi |
 | ~~A4~~ | ~~168 adaydan 120'sinin nihai seçimi~~ | — | — | ✅ **KAPANDI → K31** · Faz 4 kalan 60'ı seçti |
 | **A10** | gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **ERTELENDİ (K27 · K30)** · oturum **YAPILMADI** |
+| **A12** | **YENİ** — 148 mi 144 mü · dayanak gözden geçirmesi | ORTA | Faz 5 sayfa planı | AÇIK · **6/6 bölge ölçüldü (K32)** |
 | **A9** | fizikî prova siparişi ve değerlendirmesi | ORTA | Faz 5–6 | AÇIK · **KURUCUYA AİT** |
 | **A5** | Ciltli hediye sürümü v1.0'a girecek mi | DÜŞÜK | Faz 4 | AÇIK (varsayım: hayır) |
 | **A6** | Yazar biyografisi metni | ORTA | Faz 5 | AÇIK |
@@ -64,6 +65,28 @@ girmez — `validate_structure.py § check_child_privacy` denetler.
 
 Kurucu **60**'ı onayladı ve 80'i *"tutarsız bir artık gereklilik"*
 olarak nitelendirdi. Ayrıntı ve kök neden: **K29**.
+
+### A12 · 148 mi 144 mü — **YENİ · AÇIK**
+
+Faz 3 § 19.1 şunu yazmıştı: *"Kalan üç bölge ölçüldüğünde dayanak gözden
+geçirilir ve o **KURUCU KARARIDIR**."* Faz 4 kalan üç bölgeyi ölçtü ve
+o an geldi.
+
+```
+0,844  0,863  0,865  0,865  0,875  0,887   → ortalama 0,867 · yayılım %5
+model 144 sayfa · telif 5,55 $ · dayanak 5,48 $ · fark +0,07 $
+```
+
+| Seçenek | Sonuç |
+|---|---|
+| **148 kalır** (mevcut) | dayanak 0,07 $ muhafazakâr kalır · içerik değişmez |
+| **144'e çekilir** | dayanak ölçümle aynı olur · BRIEF § 7 güncellenir |
+| **148'e doldurulur** | ön madde 8 → 12 sayfa · **içerik ekleme gerekir** |
+
+**Ajan hiçbirini seçmedi.** Kurucu talimatı § 22: *"Do NOT shorten
+content merely to reach 148. Do NOT silently increase the target."*
+Sayfa kısılmadı, hedef sessizce değişmedi. Karar: **K32**'de kayıtlı
+ölçüm, seçim kurucuda.
 
 ### A9 · Fizikî prova — KURUCUYA AİT · **YENİ**
 
@@ -755,3 +778,34 @@ jaguar-condor 16 + monsoon 24 + great-ocean 20 + north-ice 24
 (**PROGRESSION_ARCHITECTURE § 6**): bir sayfa çocuk testinde düşerse
 yerine aynı bölge × aynı tipten biri geçer. Faz 3 bu yedeği bir kez
 gerçekten kullandı (`korean-sky-rope-plate` → `korean-hangul-build`).
+
+---
+
+### K32 · Sayfa modeli ALTI bölgeyle ölçüldü — dayanak kararı kurucuya taşındı
+
+**14 Ağustos 2026 · Faz 4.**
+
+Faz 2 bir bölge ölçtü, Faz 3 üç, Faz 4 **altı**:
+
+| Bölge | Ağırlık | Faz |
+|---|---:|---|
+| jaguar-condor | 0,844 | 2 |
+| great-ocean | 0,863 | 3 |
+| monsoon | 0,865 | 3 |
+| north-ice | 0,865 | **4** |
+| sun-savanna | 0,875 | **4** |
+| middle-sea | 0,887 | **4** |
+
+Ortalama **0,867** · yayılım **0,043** (en ağır bölge en hafifinden
+yalnızca %5 ağır). Faz 3'ün *"kalan üç bölge de 0,857'de gelirse model
+yine 144 eder"* tahmini tuttu: **model 144.**
+
+`page_budget.py` uyarısı buna göre değiştirildi ve artık *"bekle"*
+demiyor: **"BÜTÜN BÖLGELER ÖLÇÜLDÜ (6/6): dayanağın gözden geçirilmesi
+artık bir KURUCU KARARIDIR."**
+
+> **Bir uyarı koşullar değişince aynı şeyi söylemeye devam ederse,
+> söylediği şey doğru olsa bile YANLIŞ ZAMANI gösterir.**
+
+Karar kurucuya taşındı: **A12**. 148 hedefi o karara kadar **yerinde
+kalır** (K19 yeniden açılmadı).
