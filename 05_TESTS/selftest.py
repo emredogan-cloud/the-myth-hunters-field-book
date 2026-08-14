@@ -33,6 +33,7 @@ On dört bölüm:
   ⑯  TASARIM DİZGESİ kapısı ısırıyor mu          (Faz 3'te doğdu)
   ⑰  KAPI EŞİKLERİ TÜRETİLİYOR mu                (Faz 4'te doğdu · A11)
   ⑱  CEVAP ANAHTARI kapısı ısırıyor mu           (Faz 4'te doğdu)
+  ⑲  SAYFA HEDEFİ karar zinciri kopuyor mu       (Faz 5'te doğdu · A12)
 
 ④ doğrudan Bestiarium'un üç ölü kuralına ve World Myths'in K14 kararına
 cevaptır: takip edilmeyen bir dosya için yazılmış muafiyet ÖLÜ MUAFİYETTİR
@@ -2109,6 +2110,100 @@ def part17_gate_derivation(rep: Report, tmp: str) -> None:
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+# FAZ 5 · ⑲ SAYFA HEDEFİ KARAR ZİNCİRİ (A12 · K33 · validate_spec § ⑦)
+#
+# Sayfa hedefi bu projede üç kez değişti: 144 (bootstrap) → 148 (K19) →
+# 144 (K33). Üç değerin ikisi AYNI SAYIDIR ve dayanakları taban tabana zıt:
+# birincisi hiçbir bölge ölçülmeden yazılmış bir tahmin, üçüncüsü altı
+# bölgenin altısı ölçüldükten sonra alınmış bir karar.
+#
+#     Aynı sayı, iki farklı dayanakla, iki farklı şeydir.
+#     Yalnızca DEĞERİ saklayan bir kayıt bu ikisini ayırt edemez.
+#
+# Ve sayfa hedefi masum bir sayı değildir: 14,99 $ fiyat noktasının
+# kendisidir. Sessizce kayan bir hedef, sessizce kayan bir marjdır.
+#
+# ⚠ BU BÖLÜM KAPININ İLK HÂLİNDE İKİ DELİK BULDU ve ikisi de buradaki
+# kurguyla kapatıldı: `basis: ""` denetimden geçiyordu (alan VARDI ama
+# BOŞTU) ve ARADAN bir kayıt düşürmek denetimden geçiyordu — yani kapı
+# tam olarak engellemeye çalıştığı şeyi kaçırıyordu.
+# ═══════════════════════════════════════════════════════════════════════════
+def part19_page_target_history(rep: Report, tmp: str) -> None:
+    print("\n⑲ sayfa hedefi karar zinciri kopmuyor mu (A12 · K33)")
+
+    base = without_override(clean_config())
+    hist = base.get("scope", {}).get("pageTargetHistory")
+    if not hist:
+        rep.check(False, "scope.pageTargetHistory yok — ⑲ sınanamıyor")
+        return
+
+    games = clean_games(base)
+
+    # temiz config → GEÇER (yanlış pozitif yok)
+    code, out = run_spec_with(base, games, "phase1", tmp)
+    rep.check(code == 0, "kesintisiz karar zinciri GEÇER", out)
+
+    # (a) geçmiş tamamen silinemez
+    d = copy.deepcopy(base)
+    d["scope"].pop("pageTargetHistory")
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ GEÇMİŞ SİLİNİRSE KAPI KIRMIZI", out)
+
+    # (b) ⭑ HEDEF SESSİZCE DEĞİŞEMEZ ⭑ — kurucu talimatı § 21'in mekanik hâli:
+    #     "Do NOT silently change the founder-approved 144-page target."
+    d = copy.deepcopy(base)
+    d["scope"]["pageTarget"] = 148
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ HEDEF GEÇMİŞTEN AYRILIRSA YAKALANIR (144 → 148)", out)
+
+    # (c) dayanağı BOŞALTILMIŞ bir kayıt, silinmiş bir kayıt kadar zararlıdır:
+    #     sayı durur, NEDEN'i kaybolur.
+    d = copy.deepcopy(base)
+    d["scope"]["pageTargetHistory"][-1]["basis"] = ""
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ DAYANAĞI BOŞALTILMIŞ KAYIT YAKALANIR", out)
+
+    # (d) ⭑ ARADAN bir kayıt düşürmek ⭑ — en sinsi biçim: 148 hiç var
+    #     olmamış gibi görünür ve iki 144 tek bir karara çöker.
+    d = copy.deepcopy(base)
+    d["scope"]["pageTargetHistory"] = [
+        e for e in d["scope"]["pageTargetHistory"] if e.get("value") != 148]
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ARADAN DÜŞÜRÜLEN KAYIT ZİNCİRİ KOPARIR", out)
+
+    # (e) köken de düşürülemez: geçmiş 'bootstrap' kaydından başlar
+    d = copy.deepcopy(base)
+    d["scope"]["pageTargetHistory"] = d["scope"]["pageTargetHistory"][1:]
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ KÖKEN KAYDI DÜŞÜRÜLÜRSE KAPI KIRMIZI", out)
+
+    # (f) yürürlükteki kayıt düşürülemez
+    d = copy.deepcopy(base)
+    d["scope"]["pageTargetHistory"] = d["scope"]["pageTargetHistory"][:-1]
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ YÜRÜRLÜKTEKİ KAYIT DÜŞÜRÜLÜRSE KAPI KIRMIZI", out)
+
+    # (g) aşılmış bir kayıt 'yürürlükte' gösterilemez
+    d = copy.deepcopy(base)
+    d["scope"]["pageTargetHistory"][1]["supersededBy"] = None
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ AŞILMIŞ KAYIT YÜRÜRLÜKTE GÖSTERİLEMEZ", out)
+
+    # (h) zincir var olmayan bir karara işaret edemez
+    d = copy.deepcopy(base)
+    d["scope"]["pageTargetHistory"][0]["supersededBy"] = "K99"
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ZİNCİR YANLIŞ KARARA İŞARET EDERSE KIRMIZI", out)
+
+    # (i) telif dayanağı sayfa modelinden AYRILAMAZ. Bu ikisinin ayrılması
+    #     BRIEF § 7'nin sessizce yalan söylemeye başladığı andır.
+    d = copy.deepcopy(base)
+    d["production"]["royaltyBaseline"]["paperbackHistory"][-1]["pages"] = 148
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ TELİF DAYANAĞI SAYFA MODELİNDEN AYRILAMAZ", out)
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 # FAZ 4 · ⑱ CEVAP ANAHTARI · FİNAL GÖREV · ARKA MADDE (qa_answerkey)
 #
 # Bu kapının iki ayrı yoldan yanlış olma ihtimali var ve ikisi de sınanmalı:
@@ -2320,6 +2415,7 @@ def main() -> int:
         # ⑭–⑯ Faz 3 kapıları · ⑰ Faz 4
         part14_phase_override(rep, tmp)
         part17_gate_derivation(rep, tmp)
+        part19_page_target_history(rep, tmp)
         p3 = [("qa_echo.py", QA_ECHO), ("qa_design.py", QA_DESIGN)]
         p3_present = [n for n, q in p3 if os.path.isfile(q)]
         if p3_present and not real_data_available():

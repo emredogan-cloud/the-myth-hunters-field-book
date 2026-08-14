@@ -266,21 +266,31 @@ def check_royalty(cfg, pages, rep):
             coverage = ("%d/%d bölge GERÇEK içerikle ölçüldü"
                         % (measured, total_regions))
             if got > hyp:
-                # ⚠ FAZ 4: ALTI BÖLGENİN ALTISI DA ÖLÇÜLDÜ.
-                # Faz 3 § 19.1 şunu yazmıştı: "Kalan üç bölge ölçüldüğünde
-                # dayanak gözden geçirilir ve o KURUCU KARARIDIR." O an geldi
-                # ve uyarı artık BEKLE demiyor, KARAR VER diyor. Bir uyarı
-                # koşullar değişince aynı şeyi söylemeye devam ederse,
-                # söylediği şey doğru olsa bile YANLIŞ ZAMANI gösterir.
-                tail = ("BÜTÜN BÖLGELER ÖLÇÜLDÜ (%d/%d): dayanağın gözden "
-                        "geçirilmesi artık bir KURUCU KARARIDIR."
-                        % (measured, total_regions)
+                # ⚠ FAZ 5: A12 KAPANDI — KURUCU 144'Ü ONAYLADI (K33).
+                #
+                # Faz 4'te bu dal "dayanağın gözden geçirilmesi artık bir
+                # KURUCU KARARIDIR" diyordu ve doğruydu: o an karar
+                # bekliyordu. Karar geldi ve dayanak ölçümle hizalandı, yani
+                # bu dal artık NORMAL koşulda hiç yanmaz — yanarsa dayanak
+                # ile model YENİDEN ayrılmış demektir ve söylenecek şey
+                # başkadır.
+                #
+                # Bir uyarı, beklediği karar alındıktan sonra hâlâ o kararı
+                # BEKLİYOR gibi konuşursa, okuyanı kapanmış bir kalemi
+                # yeniden açmaya çağırır.
+                decision = (cfg.get("scope", {}).get("pageTargetDecision")
+                            or "kayıtsız")
+                tail = ("A12 KAPANDI (%s): dayanak ÖLÇÜLMÜŞ modelle "
+                        "hizalanmıştı ve şimdi yeniden AYRILDI — sebebi "
+                        "bulunmalıdır." % decision
                         if measured >= total_regions and total_regions else
                         "Bir bölgeden bütün kitaba genelleme YAPILMAZ; kalan "
                         "bölgeler ölçülünce dayanak gözden geçirilir.")
                 rep.warn("ciltsiz telifi dayanaktan %+.2f $ YÜKSEK "
                          "(%.2f $ vs %.2f $) — sayfa modeli KÜÇÜLDÜ. %s. %s "
-                         "Kabul edilmiş 148 kararı (K19) bu uyarıyla AÇILMAZ."
+                         "Hedef SESSİZCE değiştirilmez: değişiklik "
+                         "scope.pageTargetHistory'ye bir kayıt EKLER "
+                         "(validate_spec § ⑦)."
                          % (got - hyp, got, hyp, coverage, tail))
             else:
                 rep.warn("ciltsiz telifi dayanaktan %+.2f $ DÜŞÜK "

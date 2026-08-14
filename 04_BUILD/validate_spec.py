@@ -63,6 +63,31 @@ Config'teki sayılar artık bir KOPYADIR. Kopya sürüklenirse kapı kırmızı
 yanar ve hangi yönde sürüklendiğini söyler. `selftest § ⑰` bunu kusurlu
 kurguyla sınıyor: 80 yazılı bir config KIRMIZI, 60 yazılı olan YEŞİL.
 
+⑦ FAZ 5'TE DOĞDU — SAYFA HEDEFİ BİR TAHMİN DEĞİL BİR KARARDIR (A12 · K33):
+
+Sayfa hedefi bu projede üç kez değişti ve her kez FARKLI bir dayanağı
+vardı: 144 (bootstrap · hiçbir bölge ölçülmemişti) → 148 (K19 · Faz 1
+modeli) → 144 (K33 · 6/6 bölge GERÇEK içerikle ölçüldü).
+
+    Bir hedefin DEĞERİ bir şey söyler; DAYANAĞI başka bir şey.
+    Yalnızca değeri saklayan bir kayıt, üçüncü değişiklikte
+    hangi ölçümün hangi sayıyı ürettiğini SÖYLEYEMEZ.
+
+Ve sayfa hedefi bu projede masum bir sayı değildir: fiyat modelinin
+kendisidir. 144 yerine 160 sayfa, 14,99 $ fiyat noktasını savunulamaz
+hâle getirir. Sessizce kayan bir hedef, sessizce kayan bir marjdır.
+
+Bu yüzden § ⑦ üç şeyi birden denetler:
+
+    · `pageTargetHistory` DURUYOR ve her kayıt dayanağını taşıyor
+    · yürürlükteki hedef geçmişin SON kaydıyla aynı
+    · dolgu YASAK: model hedefin altındaysa hedef yukarı çekilemez
+
+Üçüncüsü kurucu talimatı Faz 5 § 3'ün mekanik hâlidir: *"Do NOT add
+filler material merely to reach 148. Do NOT remove substantive content
+merely to reduce below 144."* `selftest § ⑲` bunu kusurlu kurguyla
+sınıyor: geçmişi silinmiş bir config KIRMIZI, taşıyan YEŞİL.
+
 TASARIM: yalnızca Python standart kütüphanesi (karar K7).
 
 Çıkış kodları:  0 = geçti   1 = kapı kırmızı   2 = kullanım hatası
@@ -461,6 +486,89 @@ def check_gate_derivation(cfg, rep):
                       % (ch.get("gate"), ch.get("field")))
 
 
+def check_page_target_history(cfg, rep):
+    """⑦ SAYFA HEDEFİ — kararın kendisi kadar DAYANAĞI da kayıtlı mı (A12 · K33).
+
+    Bu kapı sayfa hedefinin DOĞRU olduğunu iddia etmez — doğruluğu
+    `page_budget.py` ölçer. Bu kapı hedefin bir KARAR olarak durduğunu
+    denetler: kim, ne zaman, hangi ölçüme dayanarak.
+    """
+    print("\n── sayfa hedefi ve karar geçmişi (A12 · K33) ──")
+    scope = cfg.get("scope", {})
+    target = scope.get("pageTarget")
+    hist = scope.get("pageTargetHistory", [])
+
+    rep.facts["pageTarget"] = target
+    rep.facts["pageTargetDecision"] = scope.get("pageTargetDecision")
+    rep.facts["pageTargetHistoryLength"] = len(hist)
+
+    # (a) Hedef bir karara bağlı olmalı. Sahipsiz bir sayı bir tahmindir.
+    rep.check(isinstance(target, int) and target > 0,
+              "sayfa hedefi tanımlı (%s)" % target)
+    rep.check(bool(scope.get("pageTargetDecision")),
+              "sayfa hedefi bir KARARA bağlı (%s)" % scope.get("pageTargetDecision"))
+
+    # (b) Tarihî kayıt silinemez. K29'un § ⑥(g)'de kurduğu disiplinin
+    #     aynısı: eski değeri unutan bir sistem aynı hatayı tekrarlar.
+    #
+    #     ⚠ 'value' dışındaki alanlar BOŞ OLAMAZ, yalnızca VAR olamaz.
+    #     İlk hâl `is not None` kullanıyordu ve basis="" denetimden geçiyordu:
+    #     dayanağı boşaltılmış bir kayıt, kaydın kendisi kadar zararlıdır —
+    #     sayı durur, NEDEN'i kaybolur.
+    rep.check(bool(hist), "sayfa hedefi değişikliklerinin tarihî kaydı duruyor (%d)"
+              % len(hist))
+    for entry in hist:
+        who = entry.get("decision", "?")
+        rep.check(entry.get("value") is not None,
+                  "sayfa hedefi kaydı 'value' alanını taşıyor (%s)" % who)
+        for field in ("decision", "decidedAt", "decidedBy", "basis"):
+            rep.check(bool(str(entry.get(field) or "").strip()),
+                      "sayfa hedefi kaydı '%s' alanını DOLU taşıyor (%s)"
+                      % (field, who))
+
+    # (c) Geçmiş KESİNTİSİZ bir zincirdir ve zincir bir kayıt silinince kopar.
+    #
+    #     İlk hâl yalnızca son kaydı denetliyordu ve ARADAN bir kayıt
+    #     düşürmek denetimden geçiyordu — yani tam olarak engellemeye
+    #     çalıştığı şey: bir supersession'ın izinin silinmesi. Zincir kuralı
+    #     bunu imkânsız kılar: her kayıt kendisini aşan kararı gösterir ve o
+    #     karar BİR SONRAKİ kaydın kendisidir.
+    if hist:
+        rep.check(str(hist[0].get("decision") or "") == "bootstrap",
+                  "geçmiş kökeninden başlıyor (ilk kayıt 'bootstrap' · %s)"
+                  % hist[0].get("decision"))
+        broken = []
+        for cur, nxt in zip(hist, hist[1:]):
+            if cur.get("supersededBy") != nxt.get("decision"):
+                broken.append("%s→%s (kayıtta %s)"
+                              % (cur.get("decision"), cur.get("supersededBy"),
+                                 nxt.get("decision")))
+        rep.check(not broken, "geçmiş zinciri kesintisiz" +
+                  ("" if not broken else " — KOPUK: %s" % broken))
+
+        last = hist[-1]
+        rep.check(last.get("value") == target,
+                  "yürürlükteki hedef geçmişin son kaydıyla aynı (%s == %s · %s)"
+                  % (target, last.get("value"), last.get("decision")))
+        rep.check(not str(last.get("supersededBy") or "").strip(),
+                  "geçmişin son kaydı yürürlükte (supersededBy boş · %s)"
+                  % last.get("decision"))
+
+    # (d) Telif dayanağı da aynı disipline tabi: sayfa hedefi değişince
+    #     dayanak da değişir ve ESKİSİ kayıtta kalır.
+    rb = cfg.get("production", {}).get("royaltyBaseline", {})
+    rb_hist = rb.get("paperbackHistory", [])
+    rep.check(bool(rb_hist), "telif dayanağının tarihî kaydı duruyor (%d)"
+              % len(rb_hist))
+    if rb_hist:
+        rep.check(rb_hist[-1].get("value") == rb.get("paperback"),
+                  "yürürlükteki telif dayanağı geçmişin son kaydıyla aynı "
+                  "(%s == %s)" % (rb.get("paperback"), rb_hist[-1].get("value")))
+        rep.check(rb_hist[-1].get("pages") == target,
+                  "telif dayanağı yürürlükteki sayfa hedefiyle aynı modelden "
+                  "geliyor (%s == %s)" % (rb_hist[-1].get("pages"), target))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -492,6 +600,7 @@ def main():
     check_gate_scope(cfg, gate, rep)
     check_phase_override(cfg, gate, rep)
     check_gate_derivation(cfg, rep)
+    check_page_target_history(cfg, rep)
 
     print("\n" + "=" * 74)
     if rep.warnings:

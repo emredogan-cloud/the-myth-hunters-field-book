@@ -3,13 +3,15 @@
 > **Projeye yeni giren her ajanın ve her insanın okuyacağı ilk belgedir.**
 > Hafızası olmayan bir ajan buradan başlar.
 >
-> Son güncelleme: **14 Ağustos 2026** · Faz: **4 TAMAM** · Kapı: `phase1`
+> Son güncelleme: **14 Ağustos 2026** · Faz: **5 SÜRÜYOR** · Kapı: `phase1`
 >
 > ⚠ **Kapı ile faz AYRIŞMIŞTIR ve bu bilinçlidir.** Kurucu Faz 3'ü, Faz
-> 2'nin çocuk oturumu (**A10**) yapılmadan başlattı — karar **K27** — ve
-> Faz 4'ü de aynı aşmayla açtı — karar **K30**.
-> Aşma kayıtlıdır, gizli değildir ve `validate_spec § ⑤` tarafından
-> mekanik olarak kilitlenmiştir.
+> 2'nin çocuk oturumu (**A10**) yapılmadan başlattı — karar **K27** —,
+> Faz 4'ü aynı aşmayla açtı — karar **K30** — ve Faz 5'i de aynı aşmayla
+> açtı — karar **K34**.
+> Aşma **üç kez uzadı ve tavan bir kez bile kalkmadı.** Kayıtlıdır, gizli
+> değildir ve `validate_spec § ⑤` tarafından mekanik olarak
+> kilitlenmiştir.
 
 ---
 
@@ -66,23 +68,24 @@ Fırsat skoru **6,0/10** — üçünün en düşüğü, **ve bu bilinçlidir**.
 
 | | |
 |---|---|
-| Faz | **4 · TAMAM** — kurucu aşmasıyla (K27 · K30) |
+| Faz | **5 · SÜRÜYOR** — kurucu aşmasıyla (K27 · K30 · **K34**) |
 | Kapı (`.gate`) | `phase1` — **bilerek yükseltilmedi** |
 | Aday aktivite | **168** / ≥160 ✅ |
 | Kilitli / yazılmış | **120** / 120 — **altı bölgenin altısı** ✅ |
 | Devralınan kayıt | **76**; **54'ü yeniden doğrulandı** (Faz 3: 31) |
 | Doğrulanmış iddia | **108** · 92 teyit · 13 düzeltme · **3 RET** |
 | Kültür · bölge | **22** · **6** ✅ · yazılmış bölge **6/6** ✅ |
-| Sayfa modeli | **144** ölçüldü (hedef 148 ±%6) ✅ · **6/6 bölge gerçek** · karar **A12** |
+| Sayfa modeli | **144** ölçüldü = hedef **144** · sapma **%0** · **6/6 bölge gerçek** · ✅ **A12 → K33** |
 | Görsel şartnamesi | **120** · 700 etiket · üretilmiş varlık **0** |
 | Kapı öz-testi | **178 denetim yeşil** |
 | Çocuk testi | ⏳ **2 testçi · 0 OTURUM · DIŞ DOĞRULAMA BEKLİYOR** |
-| **Sonraki adım** | Faz 4 raporu → **DUR**. Faz 5 kurucu talimatı ister. |
+| **Sonraki adım** | Faz 5 raporu → **DUR**. Faz 6 kurucu talimatı ister. |
 
 ⚠ **FAZ 2 HÂLÂ KAPANMADI — VE 120 SAYFA ONU KAPATMAZ.**
 
-Kurucu Faz 3'ü ve Faz 4'ü A10 beklenmeden başlattı (**K27** · **K30**).
-Bu bir **sıra** kararıdır, bir **sonuç** değil:
+Kurucu Faz 3'ü, Faz 4'ü ve Faz 5'i A10 beklenmeden başlattı
+(**K27** · **K30** · **K34**). Bu bir **sıra** kararıdır, bir **sonuç**
+değil:
 
 ```
 TEKNİK ÜRETİM          ✅ TAMAM     120 sayfa · 6 bölge · final görev · arka madde
@@ -94,6 +97,7 @@ DIŞ ÇOCUK DOĞRULAMASI  ⏳ BEKLİYOR  0 oturum
 kilitliyor**: `validate_spec § ⑤` aşma etkinken kapının yükselmesine
 izin vermiyor. Yani aşma, kapıyı açmak için **kullanılamaz**.
 
+Faz 5 raporu: [`06_REPORTS/PHASE_5_REPORT.md`](06_REPORTS/PHASE_5_REPORT.md)
 Faz 4 raporu: [`06_REPORTS/PHASE_4_REPORT.md`](06_REPORTS/PHASE_4_REPORT.md)
 Faz 3 raporu: [`06_REPORTS/PHASE_3_REPORT.md`](06_REPORTS/PHASE_3_REPORT.md)
 Faz 2 raporu: [`06_REPORTS/PHASE_2_REPORT.md`](06_REPORTS/PHASE_2_REPORT.md)
@@ -221,26 +225,28 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 | ~~A7~~ | ~~≥2 çocuk testçi~~ | — | ✅ **kapandı → K26** |
 | ~~A11~~ | ~~`gates.requirements.phase3` 80 mi 60 mı~~ | — | ✅ **kapandı → K29** · kurucu **60** dedi |
 | ~~A4~~ | ~~168 adaydan 120'sinin nihai seçimi~~ | — | ✅ **kapandı → K31** |
-| **A10** | **gerçek çocuk oturumu** | kurucu | **AÇIK · K27/K30 ile ERTELENDİ, kapanmadı** |
-| **A12** | **148 mi 144 mü** — dayanak | kurucu | **YENİ** · 6/6 bölge ölçüldü (K32) |
+| ~~A12~~ | ~~148 mi 144 mü — dayanak~~ | — | ✅ **kapandı → K33** · kurucu **144** dedi |
+| **A10** | **gerçek çocuk oturumu** | kurucu | **AÇIK · K27/K30/K34 ile ERTELENDİ, kapanmadı** |
 | **A9** | **fizikî prova** | kurucu | Faz 5–6 · **kurucuya ait** |
 | A5 | Ciltli hediye sürümü | kurucu | Faz 4 |
-| A6 | Yazar biyografisi metni | kurucu | Faz 5 |
+| A6 | Yazar biyografisi metni | kurucu | Faz 6 |
 | — | İki ebeveyn okuması | kurucu | Faz 5 |
-| — | ~150 görselin üretilmesi | kurucu | Faz 5 |
+| — | ~150 görselin **RAW üretimi** | kurucu | Faz 5 · hat hazır (**K35**) |
 | — | KDP paneli işlemleri | kurucu | Faz 6 sonrası |
 
 ---
 
 ## 11 · Sonraki izinli eylem
 
-> **FAZ 4 TAMAM — kurucu aşmasıyla (K27 · K30).**
+> **FAZ 5 SÜRÜYOR — kurucu aşmasıyla (K27 · K30 · K34).**
 >
 > Manuscript **özünde tamamdır**: 120 aktivite, 22 kültür, 6 bölge,
-> 37 mühür yuvası, final görev ve arka madde.
+> 37 mühür yuvası, final görev ve arka madde. Faz 5 ön maddeyi, görsel
+> hattını ve editoryal yakınsamayı ekler.
 >
 > ```
-> FAZ 4 YETKİSİ        ✅ VERİLDİ     (kurucu · K30)
+> FAZ 5 YETKİSİ        ✅ VERİLDİ     (kurucu · K34)
+> A12 SAYFA HEDEFİ     ✅ KAPANDI     144 (kurucu · K33)
 > A10 ÇOCUK OTURUMU    ❌ YAPILMADI   (0 oturum)
 > .gate                    phase1     (YÜKSELTİLMEDİ)
 > ```
@@ -248,8 +254,7 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 > **Aşma bir sonucu üretmez, bir sırayı değiştirir.** Kitap çocuk
 > doğrulamasından geçmiş **değildir** ve hiçbir belge öyle demez.
 >
-> İki kurucu kararı bekliyor:
-> **A10** (gerçek çocuk oturumu) ve **A12** (148 mi 144 mü).
+> Bir kurucu kararı hâlâ bekliyor: **A10** (gerçek çocuk oturumu).
 >
-> **Faz 5 kurucu talimatı olmadan BAŞLAMAZ.** Görsel üretilmedi
-> (0 / ~150), prova sipariş edilmedi, KDP'ye dokunulmadı.
+> **Faz 6 kurucu talimatı olmadan BAŞLAMAZ.** Prova sipariş edilmedi,
+> KDP'ye dokunulmadı.

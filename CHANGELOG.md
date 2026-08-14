@@ -5,6 +5,102 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [Yayınlanmamış] — 2026-08-14 · Faz 5 · editoryal yakınsama + görsel üretim
+
+```
+FAZ 5 YETKİSİ         ✅ VERİLDİ     kurucu · K34
+A12 SAYFA HEDEFİ      ✅ KAPANDI     144 · kurucu · K33
+A10 ÇOCUK OTURUMU     ❌ YAPILMADI   0 oturum · AÇIK
+.gate                     phase1     YÜKSELTİLMEDİ
+```
+
+### Değişti — A12 KAPANDI · sayfa hedefi **148 → 144** (K33)
+
+Kurucu kararı: **FINAL PAGE TARGET = 144 PAGES.** Model zaten 143 ham →
+144 forma hizalı ölçülmüştü (K32); karar bir sayıyı değiştirmedi,
+**bir tahmini bir ölçümle değiştirdi.**
+
+| | ESKİ | YENİ |
+|---|---:|---:|
+| `scope.pageTarget` | 148 | **144** |
+| Ciltsiz baskı | 3,52 $ | **3,45 $** |
+| Ciltsiz telif | 5,48 $ | **5,55 $** |
+| Başabaş ACOS | %36,5 | **%37,0** |
+| Model ↔ hedef sapması | −%2,7 | **%0** |
+
+148'e ulaşmak için **dolgu eklenmedi**; 144'ün altına inmek için
+**içerik çıkarılmadı**. Güncellenen: `project_config § scope` ·
+`§ production.royaltyBaseline` · `BRIEF § 7` · `PROJECT_CONTEXT` ·
+`BOOK_STATS` · `ROADMAP_PROGRESS` · `DECISIONS § K33`.
+
+### Eklendi — kayıt biçimi: **değer değil, DAYANAK saklanıyor**
+
+Hedef bu projede üç kez yazıldı ve **ikisi aynı sayıdır**: 144
+(bootstrap · hiçbir bölge ölçülmemişti) → 148 (K19) → **144** (K33 ·
+6/6 bölge ölçüldü). ① ile ③ aynı sayıdır ve **aynı şey değildir**.
+
+- `scope.pageTargetHistory` — üç kayıt, her biri dayanağıyla
+- `production.royaltyBaseline.paperbackHistory` — üç dayanak
+- Tekil `pageTargetBootstrapHypothesis` ve `bootstrapHypothesis` alanları
+  **kaldırıldı**: aynı sayı iki yerde durursa er geç iki farklı şey söyler
+
+### Eklendi — `validate_spec § ⑦` · sayfa hedefi karar zinciri
+
+Sayfa hedefi masum bir sayı değildir: **14,99 $ fiyat noktasının
+kendisidir.** Kapı dört şeyi denetler — geçmiş duruyor mu, her kayıt DOLU
+bir dayanak taşıyor mu, zincir kesintisiz mi, yürürlükteki hedef ve telif
+dayanağı son kayıtla aynı mı.
+
+`validate_spec`: 61 → **85 denetim**.
+
+### Eklendi — `selftest § ⑲` · on kurgu · ve kapının İKİ DELİĞİ
+
+Kapının ilk hâli iki kurguyu **kaçırdı** ve ikisi de burada bulundu:
+
+| Kurgu | İlk hâl | Neden |
+|---|---|---|
+| `basis: ""` | ❌ yeşil | `is not None` — alan VARDI, BOŞTU |
+| **aradan 148 kaydı düşürülür** | ❌ yeşil | yalnızca SON kayıt denetleniyordu |
+
+İkincisi kapının varlık sebebiydi. Düzeltme örneği değil **sınıfı**
+kapattı: zincir kuralı aradan da baştan da sondan da kayıt düşürmeyi
+imkânsız kılıyor.
+
+`selftest`: 178 → **188 denetim**.
+
+### Değişti — kurucu aşması Faz 5'e genişledi (K34), **tavan yine değişmedi**
+
+| Yetkilenen faz | Karar | Tavan |
+|---|---|---|
+| `phase3` | K27 | `phase1` |
+| `phase4` | K30 | `phase1` |
+| **`phase5`** | **K34** | **`phase1`** |
+
+`phaseOverride.extensionHistory` doğdu: tekil `extendedTo` alanı üçüncü
+genişletmede **K30'u ezecekti** — aşmanın ne kadar uzadığı, tam da
+uzadıkça görünmez olacaktı.
+
+`doesNotImply` beşinci maddeyi aldı: **"Faz 5 görsel üretiminin bitmesi
+A10'u kapatmaz."**
+
+### Değişti — `page_budget` uyarısı kapanmış bir kalemi işaret etmiyor
+
+Uyarı *"dayanağın gözden geçirilmesi artık bir KURUCU KARARIDIR"*
+diyordu; karar geldi. Bir uyarı beklediği karar alındıktan sonra hâlâ o
+kararı bekliyor gibi konuşursa, okuyanı **kapanmış bir kalemi yeniden
+açmaya** çağırır.
+
+### DEĞİŞMEYEN — çocuk doğrulaması
+
+```
+çocuk oturumu        0    uydurulmadı
+externalValidation   pending
+A10                  AÇIK
+.gate                phase1
+```
+
+**Kurucu aşması bir üretim yetkisidir, bir test kanıtı değildir.**
+
 ## [0.4.0] — 2026-08-14 · Faz 4 · manuscript ÖZÜNDE TAMAM
 
 **120 aktivite · 22 kültür · 6 bölge · 37 mühür yuvası · final görev ·

@@ -52,8 +52,8 @@
 | Final görev | 5 |
 | Arka madde | 14 |
 | **Model (forma hizalı)** | **144** |
-| Yol haritası hedefi | 148 |
-| Sapma | %-2.7 |
+| Yol haritası hedefi | 144 |
+| Sapma | %+0.0 |
 | Ciltsiz baskı maliyeti | 3.45 $ |
 | **Ciltsiz telif** | **5.55 $** |
 | Başabaş ACOS | %37.0 |
