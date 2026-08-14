@@ -4,15 +4,16 @@
   "errors": [],
   "warnings": [],
   "facts": {
+    "matterSource": "ÖLÇÜLDÜ (manuscript)",
     "regionsMeasured": 6,
-    "frontMatter": 8,
+    "frontMatter": 9,
     "backMatter": 14,
     "structuralPerRegion": 2,
     "finalQuest": 5,
     "activityPages": 104.0,
     "regionsTotal": 116.0,
-    "modelRaw": 143.0,
-    "modelPages": 143,
+    "modelRaw": 144.0,
+    "modelPages": 144,
     "modelPagesSignatureAligned": 144,
     "regions": [
       {

@@ -104,13 +104,67 @@ def load(path, rep, required=True):
         return None
 
 
-def build_model(cfg, acts, regions, rep):
+def measured_matter(rep):
+    """⭑ FAZ 5 — ÖN/ARKA MADDE VE FİNAL GÖREV ARTIK ÖLÇÜLÜR ⭑
+
+    Faz 1 bu üç sayıyı ELLE yazmıştı ve o gün doğruydular: manuscript
+    yoktu, tahmin etmekten başka yol da yoktu. Faz 4 arka maddeyi, Faz 5
+    ön maddeyi yazdı — ve o günden sonra elle yazılmış sayı bir TAHMİN
+    değil bir RİSK oldu.
+
+    ⚠ BULGU P1 — VE İKİ SAYININ NEDEN UYUŞMASI YETMEZ:
+
+    Faz 1 ön maddeyi 8 sayıyordu ve o 8'in ikisi 'title-and-copyright'tı.
+    Manuscript'in ön maddesi de 8 sayfaydı — ama içinde ne başlık ne telif
+    sayfası vardı.
+
+        İki liste TOPLAMDA uyuşuyordu ve BAŞKA BİR KİTABI tarif ediyordu.
+
+    Toplamın eşitliği bir doğrulama değildir. Bu yüzden model artık
+    manuscript'i OKUR; elle yazılmış tablo yalnızca manuscript YOKKEN
+    (CI · K10) kullanılan bir YEDEKTİR ve rapor hangisinin kullanıldığını
+    söyler.
+    """
     front = sum(FRONT_MATTER.values())
     back = sum(BACK_MATTER.values())
+    quest = FINAL_QUEST_PAGES
+    source = "tahmin (manuscript depoda yok)"
+
+    book_p = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
+    if os.path.isfile(book_p):
+        try:
+            with open(book_p, encoding="utf-8") as fh:
+                book = json.load(fh)
+        except (json.JSONDecodeError, OSError):
+            book = None
+        if book:
+            fm = book.get("frontMatter") or {}
+            bm = book.get("backMatter") or {}
+            fq = book.get("finalQuest") or {}
+            f_secs = fm.get("sections") or []
+            b_secs = bm.get("sections") or []
+            if f_secs and b_secs:
+                front = sum(s.get("pages", 0) for s in f_secs)
+                back = sum(s.get("pages", 0) for s in b_secs)
+                quest = fq.get("pages", quest)
+                source = "ÖLÇÜLDÜ (manuscript)"
+                # Bildirilen bütçe ile bölümlerin toplamı ayrılamaz.
+                for label, secs, budget in (("ön madde", f_secs, fm.get("pageBudget")),
+                                            ("arka madde", b_secs, bm.get("pageBudget"))):
+                    tot = sum(s.get("pages", 0) for s in secs)
+                    if budget is not None and tot != budget:
+                        rep.check(False, "%s bölüm toplamı bildirilen bütçeyle "
+                                  "aynı (%d ≠ %s)" % (label, tot, budget))
+    rep.facts["matterSource"] = source
+    return front, back, quest, source
+
+
+def build_model(cfg, acts, regions, rep):
+    front, back, quest, msource = measured_matter(rep)
     structural_per_region = sum(PER_REGION_STRUCTURAL.values())
 
     print("\n── sayfa modeli ──")
-    print("  ön madde                     %3d" % front)
+    print("  ön madde                     %3d   [%s]" % (front, msource))
 
     region_rows = []
     activity_pages_total = 0.0
@@ -160,10 +214,10 @@ def build_model(cfg, acts, regions, rep):
 
     regions_total = activity_pages_total + structural_per_region * len(regions)
     print("  bölgeler toplamı             %5.1f" % regions_total)
-    print("  final görev                  %3d" % FINAL_QUEST_PAGES)
-    print("  arka madde                   %3d" % back)
+    print("  final görev                  %3d" % quest)
+    print("  arka madde                   %3d   [%s]" % (back, msource))
 
-    raw = front + regions_total + FINAL_QUEST_PAGES + back
+    raw = front + regions_total + quest + back
     # Basılı kitap dörde bölünebilir bir forma sayısında biter.
     modeled = int(raw + 0.999)
     padded = modeled + (-modeled) % 4
@@ -177,7 +231,7 @@ def build_model(cfg, acts, regions, rep):
         "frontMatter": front,
         "backMatter": back,
         "structuralPerRegion": structural_per_region,
-        "finalQuest": FINAL_QUEST_PAGES,
+        "finalQuest": quest,
         "activityPages": round(activity_pages_total, 1),
         "regionsTotal": round(regions_total, 1),
         "modelRaw": round(raw, 1),

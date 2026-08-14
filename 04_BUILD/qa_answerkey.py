@@ -427,13 +427,26 @@ def check_front_matter(book, seal, rep):
     rep.facts["frontMatterSections"] = len(secs)
 
     # (a) Yol haritası Faz 5 § 2'nin adıyla istediği dört parça.
+    #
+    # ⚠ BÖLÜM ADIYLA DEĞİL, İŞİYLE ARANIR — ve bu bir incelik değil.
+    #
+    # İlk hâl `the-kit` diye bir bölüm ADI arıyordu. Bulgu P1 o bölümü
+    # `mission-order`ın ayak paneline katladı (sayfa modeli için) ve kapı
+    # kırmızı yandı — oysa içerik kaybolmamıştı, YERİ değişmişti.
+    #
+    #     Bir kapı bölüm ADINI şart koşarsa, yeniden düzenlemeyi
+    #     bir KAYIP sanar. Aranması gereken şey ad değil İŞTİR.
     ids = {s.get("id") for s in secs}
-    blob = json.dumps(fm, ensure_ascii=False).lower()
+    blob = " ".join([(s.get("bodyText") or "") + " " +
+                     " ".join(s.get("prints") or []) + " " +
+                     (s.get("purpose") or "") for s in secs]).lower()
     need = {
         "görev emri": "mission-order" in ids,
-        "araçlar": "the-kit" in ids,
+        "araçlar": all(w in blob for w in ("pencil", "eraser", "ruler")),
         "mühür sayfası": "star-box-and-seal" in ids,
         "ipucu kuralı": "when-you-are-stuck" in ids,
+        "başlık sayfası": "title-page" in ids,
+        "künye sayfası": "copyright-page" in ids,
     }
     missing = [k for k, v in need.items() if not v]
     rep.check(not missing, "yol haritasının istediği ön madde parçaları var"
@@ -454,10 +467,26 @@ def check_front_matter(book, seal, rep):
     thin = [s.get("id") for s in secs if len(s.get("prints") or []) < 3]
     rep.check(not thin, "her ön madde bölümü basacağı şeyi sayıyor"
               + ("" if not thin else " — BOŞ: %s" % thin))
+    # ⚠ ÜRETİM SAYFASI BİR ÖĞRETİM SAYFASI DEĞİLDİR.
+    # Bir başlık sayfası yirmi sözcük taşır ve DOĞRUSU budur; ona kırk
+    # sözcüklük bir taban dayatmak, onu doldurmaya iter. Rol alanı ikisini
+    # ayırır: `teaching` gövde ister, `production` istemez.
     nobody = [s.get("id") for s in secs
-              if len((s.get("bodyText") or "").split()) < 40]
-    rep.check(not nobody, "her ön madde bölümü gerçek bir gövde metni taşıyor"
+              if s.get("role", "teaching") == "teaching"
+              and len((s.get("bodyText") or "").split()) < 40]
+    rep.check(not nobody, "her ÖĞRETİM bölümü gerçek bir gövde metni taşıyor"
               + ("" if not nobody else " — İNCE: %s" % nobody))
+    noroleuse = [s.get("id") for s in secs
+                 if s.get("role") not in ("teaching", "production")]
+    rep.check(not noroleuse, "her ön madde bölümü rolünü beyan ediyor"
+              + ("" if not noroleuse else " — ROLSÜZ: %s" % noroleuse))
+    # Üretim sayfası bir kaçış kapısı olamaz: en çok ikisi olabilir
+    # (başlık ve künye). Üçüncüsü, gövdesiz bir sayfayı meşrulaştırma
+    # girişimidir.
+    prod = [s.get("id") for s in secs if s.get("role") == "production"]
+    rep.check(len(prod) <= 2,
+              "üretim sayfası ikiyi aşmıyor (%d)" % len(prod)
+              + ("" if len(prod) <= 2 else " — FAZLA: %s" % prod))
 
     # (d) ⭑ MÜHÜR SESSİZLİĞİ — ÖN MADDEDE ⭑
     #

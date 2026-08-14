@@ -8,7 +8,7 @@
   "facts": {
     "commercialFields": 17,
     "editorialFields": 9,
-    "commercialStringsScanned": 1481,
+    "commercialStringsScanned": 1488,
     "testOnlyPaths": [
       "01_SOURCE/pilot_tr",
       "03_EDITORIAL/child_tests_raw"

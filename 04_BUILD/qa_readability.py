@@ -225,8 +225,18 @@ def load_front_matter(rep):
         if not fm:
             continue
         secs = fm.get("sections", [])
+        # ⚠ YALNIZCA ÖĞRETİM SAYFALARI ÖLÇÜLÜR.
+        #
+        # Başlık ve künye sayfaları çocuğa okutulmak için yazılmaz: bir
+        # telif uyarısı hukukî bir cümledir ve uzundur. Onu çocuk
+        # registerine katmak iki şeyi birden bozar — bandı yalancı biçimde
+        # yukarı çeker VE düzeltmek için hukukî metni kısaltmaya iter.
+        #
+        #     Bir ölçüm, ölçmemesi gereken şeyi ölçerse,
+        #     düzeltilecek şey metin değil ÖLÇÜMDÜR.
         return [(s.get("id"), s.get("bodyText") or "") for s in secs
-                if (s.get("bodyText") or "").strip()]
+                if (s.get("bodyText") or "").strip()
+                and s.get("role", "teaching") == "teaching"]
     return []
 
 

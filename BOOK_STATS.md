@@ -47,7 +47,7 @@
 | | |
 |---|---:|
 | Aktivite sayfası (ölçülen ağırlıktan) | 104.0 |
-| Ön madde | 8 |
+| Ön madde | 9 |
 | Bölge başına yapı sayfası | 2 |
 | Final görev | 5 |
 | Arka madde | 14 |

@@ -2422,9 +2422,24 @@ def part18_answerkey(rep: Report, tmp: str, base: dict) -> None:
     code, out = run(mutate_book=lambda b: fm(b)[0].__setitem__("purpose", "x"))
     rep.check(code != 0, "⭑ GEREKÇESİZ ÖN MADDE BÖLÜMÜ YAKALANIR", out)
 
-    # (f) gövdesi boşaltılmış bölüm — başlık bir sayfa değildir
-    code, out = run(mutate_book=lambda b: fm(b)[0].__setitem__("bodyText", "Short."))
-    rep.check(code != 0, "⭑ GÖVDESİZ ÖN MADDE BÖLÜMÜ YAKALANIR", out)
+    # (f) gövdesi boşaltılmış ÖĞRETİM bölümü — başlık bir sayfa değildir
+    #     ⚠ Kurgu bir ÖĞRETİM sayfasını hedeflemek zorunda: üretim
+    #     sayfaları (başlık · künye) gövde taşımaz ve TAŞIMAMALIDIR.
+    def hollow_teaching(b):
+        for s in fm(b):
+            if s.get("role", "teaching") == "teaching":
+                s["bodyText"] = "Short."
+                return
+    code, out = run(mutate_book=hollow_teaching)
+    rep.check(code != 0, "⭑ GÖVDESİZ ÖĞRETİM BÖLÜMÜ YAKALANIR", out)
+
+    # (f2) üretim sayfası bir KAÇIŞ KAPISI olamaz: her bölümü 'production'
+    #      ilan etmek gövde şartını topluca susturmak olurdu.
+    def all_production(b):
+        for s in fm(b):
+            s["role"] = "production"
+    code, out = run(mutate_book=all_production)
+    rep.check(code != 0, "⭑ HER BÖLÜMÜ 'ÜRETİM' İLAN ETMEK YAKALANIR", out)
 
     # (g) ⭑ E2'NİN KENDİSİ ⭑ — örnek sözcük gerçek bir MÜHÜR sözcüğü olursa
     real_seal = next(((s.get("word") or "") for s in (seal.get("seals") or [])
