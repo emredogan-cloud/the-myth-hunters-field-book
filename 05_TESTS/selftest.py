@@ -31,6 +31,7 @@ On dört bölüm:
   ⑭  KURUCU FAZ AŞMASI bir KİLİT mi              (Faz 3'te doğdu)
   ⑮  TEKRAR (qa_echo) kapısı ısırıyor mu         (Faz 3'te doğdu)
   ⑯  TASARIM DİZGESİ kapısı ısırıyor mu          (Faz 3'te doğdu)
+  ⑰  KAPI EŞİKLERİ TÜRETİLİYOR mu                (Faz 4'te doğdu · A11)
 
 ④ doğrudan Bestiarium'un üç ölü kuralına ve World Myths'in K14 kararına
 cevaptır: takip edilmeyen bir dosya için yazılmış muafiyet ÖLÜ MUAFİYETTİR
@@ -314,17 +315,30 @@ def part3_gates_lock(rep: Report, tmp: str) -> None:
     code, out = run_spec_with(cfg, small, "phase1", tmp)
     rep.check(code != 0, "phase1 yetersiz adayla KIRMIZI (120 < 160)", out)
 
-    # phase2: 20 kilitli aktivite yoksa KIRMIZI
+    # phase2: kilitli aktivite yoksa KIRMIZI
     code, out = run_spec_with(cfg, clean_games(cfg, status="candidate"),
                               "phase2", tmp)
     rep.check(code != 0, "phase2 kilitli aktivite olmadan KIRMIZI", out)
 
-    # phase2: 20 yazılmış varsa geçer
+    # phase2 eşiği A11 · K29 ile TÜRETİLİYOR (jaguar-condor kotası = 16).
+    # Eşik artık elle yazılmadığı için test de sayıyı ELLE YAZMAZ: config'ten
+    # okur. Yoksa eşik değişince test sessizce yanlış şeyi ölçmeye başlar.
+    need = cfg["gates"]["requirements"]["phase2"]["activitiesWritten"]
+
+    # BİR EKSİK yazılmışsa KIRMIZI — eşiğin TAM YERİ sınanıyor
     g = clean_games(cfg, status="candidate")
-    for i in range(20):
+    for i in range(need - 1):
         g["activities"][i]["status"] = "written"
     code, out = run_spec_with(cfg, g, "phase2", tmp)
-    rep.check(code == 0, "phase2 20 yazılmış aktiviteyle geçer", out)
+    rep.check(code != 0, "phase2 eşiğin BİR ALTINDA KIRMIZI (%d < %d)"
+              % (need - 1, need), out)
+
+    # TAM eşik kadar yazılmışsa geçer
+    g = clean_games(cfg, status="candidate")
+    for i in range(need):
+        g["activities"][i]["status"] = "written"
+    code, out = run_spec_with(cfg, g, "phase2", tmp)
+    rep.check(code == 0, "phase2 tam eşikle geçer (%d)" % need, out)
 
     # phase4: 120 yazılmış aktivite yoksa KIRMIZI
     code, out = run_spec_with(cfg, g, "phase4", tmp)
@@ -1788,7 +1802,7 @@ def design_fixture():
 
 
 def part16_design(rep: Report, tmp: str, base: dict) -> None:
-    print("\n\u2470 TASARIM DİZGESİ kapısı ısırıyor mu")
+    print("\n\u246f TASARIM DİZGESİ kapısı ısırıyor mu")
 
     code, out = run_text_gate(QA_DESIGN, base, tmp, design_fixture())
     rep.check(code == 0, "temiz tasarım kurgusu GEÇER", out)
@@ -1902,6 +1916,110 @@ def part16_design(rep: Report, tmp: str, base: dict) -> None:
     rep.check(code == 0, "⭑ İKİ TARAFI DA BASILI EŞLEŞTİRME GEÇER", out)
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 4 · ⑰ KAPI EŞİKLERİ TÜRETİLEBİLİR Mİ (A11 · K29)
+#
+# Faz 3 raporu § 4.1 bir çelişki ÖLÇTÜ ve düzeltmedi: config Faz 3 için 80
+# kilitli aktivite istiyordu, yol haritası 60 diyordu. Kurucu 60'ı onayladı.
+#
+# Ama bir sayıyı elle düzeltmek, aynı sayının BİR DAHA sürüklenmesini
+# engellemez. Çelişkiyi ilk üreten şey 80'in kendisi değil, eşiklerin
+# ELLE YAZILMIŞ olmasıydı: bootstrap "6 bölge × 20" varsayıyordu, Faz 1
+# kotaları eşitsiz kurdu (K18) ve merdiven o gün sessizce yalanlandı.
+#
+#     Bir düzeltme, düzelttiği kusurun TEKRARINI engellemiyorsa,
+#     bir düzeltme değil bir ERTELEMEDİR.
+#
+# Bu bölüm türetmenin ısırdığını kanıtlar. En önemlisi (a): KURUCUNUN
+# REDDETTİĞİ 80 DEĞERİ, config'e geri yazıldığında kapı KIRMIZI yanmalıdır.
+# ═══════════════════════════════════════════════════════════════════════════
+def part17_gate_derivation(rep: Report, tmp: str) -> None:
+    print("\n⑰ kapı eşikleri üretim planından türüyor mu (A11 · K29)")
+
+    base = without_override(clean_config())
+    if "productionPlan" not in base.get("gates", {}):
+        rep.check(False, "gates.productionPlan yok — ⑰ sınanamıyor")
+        return
+
+    games = clean_games(base)
+
+    # temiz config → GEÇER (yanlış pozitif yok)
+    code, out = run_spec_with(base, games, "phase1", tmp)
+    rep.check(code == 0, "türetilmiş eşikler GEÇER", out)
+
+    # (a) ⭑ KURUCUNUN REDDETTİĞİ DEĞER ⭑ — 80 geri yazılırsa KIRMIZI
+    d = copy.deepcopy(base)
+    d["gates"]["requirements"]["phase3"]["activitiesLocked"] = 80
+    d["gates"]["requirements"]["phase3"]["activitiesWritten"] = 80
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ESKİ 80 DEĞERİ YAKALANIR (A11 · türetme 60 diyor)",
+              out)
+    rep.check("phase3" in out and "60" in out,
+              "kapı hangi basamağın sürüklendiğini SÖYLÜYOR", out)
+
+    # (b) phase2'nin eski 20'si de aynı sınıftandır ve aynı kapı yakalar
+    d = copy.deepcopy(base)
+    d["gates"]["requirements"]["phase2"]["activitiesLocked"] = 20
+    d["gates"]["requirements"]["phase2"]["activitiesWritten"] = 20
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ESKİ 20 DEĞERİ YAKALANIR (türetme 16 diyor)", out)
+
+    # (c) bir bölge iki fazda üretilirse kümülatif toplam sessizce şişer
+    d = copy.deepcopy(base)
+    d["gates"]["productionPlan"]["phase3"] = list(
+        d["gates"]["productionPlan"]["phase3"]) + ["north-ice"]
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ İKİ FAZDA ÜRETİLEN BÖLGE YAKALANIR", out)
+
+    # (d) bir bölge hiç planlanmazsa 120 vaadi tutmaz
+    d = copy.deepcopy(base)
+    d["gates"]["productionPlan"]["phase4"] = ["north-ice", "middle-sea"]
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ PLANSIZ KALAN BÖLGE YAKALANIR (sun-savanna)", out)
+
+    # (e) kota değişirse eşik ONUNLA BİRLİKTE değişmelidir. Bu, türetmenin
+    #     asıl işidir: mimari kayarsa kapı da kayar, sessizce ayrılmazlar.
+    d = copy.deepcopy(base)
+    for r in d["scope"]["regionsHypothesis"]:
+        if r["id"] == "north-ice":
+            r["activityQuota"] = 20
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ KOTA DEĞİŞİP EŞİK DEĞİŞMEZSE YAKALANIR", out)
+
+    # (f) eşikler geri gidemez — kapsam sessizce küçülemez
+    d = copy.deepcopy(base)
+    d["gates"]["productionPlan"]["phase2"] = []
+    d["gates"]["productionPlan"]["phase3"] = ["jaguar-condor", "monsoon",
+                                              "great-ocean"]
+    d["gates"]["requirements"]["phase2"]["activitiesLocked"] = 0
+    d["gates"]["requirements"]["phase2"]["activitiesWritten"] = 0
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code == 0, "planı kaydırmak TEK BAŞINA kusur değildir", out)
+    d["gates"]["requirements"]["phase5"]["activitiesWritten"] = 100
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ GERİ GİDEN EŞİK YAKALANIR (phase5 < phase4)", out)
+
+    # (g) TARİHÎ KAYIT SİLİNEMEZ. Eski değeri unutan bir sistem aynı
+    #     hatayı tekrarlar; bu yüzden kayıt bir belge değil bir KAPIDIR.
+    d = copy.deepcopy(base)
+    d["gates"]["requirementsHistory"] = []
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ SİLİNMİŞ TARİHÎ KAYIT YAKALANIR", out)
+
+    d = copy.deepcopy(base)
+    for entry in d["gates"]["requirementsHistory"]:
+        for ch in entry.get("changes", []):
+            ch.pop("old", None)
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ESKİ DEĞERİ DÜŞÜRÜLMÜŞ KAYIT YAKALANIR", out)
+
+    # (h) türetme kaynağının kendisi kaybolamaz
+    d = copy.deepcopy(base)
+    d["gates"].pop("productionPlan")
+    code, out = run_spec_with(d, games, "phase1", tmp)
+    rep.check(code != 0, "⭑ ÜRETİM PLANI SİLİNİRSE KAPI KIRMIZI", out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -1974,8 +2092,9 @@ def main() -> int:
         else:
             print("\n⑩–⑬ Faz 2 kapıları henüz doğmadı — ATLANDI")
 
-        # ⑭–⑯ Faz 3 kapıları
+        # ⑭–⑯ Faz 3 kapıları · ⑰ Faz 4
         part14_phase_override(rep, tmp)
+        part17_gate_derivation(rep, tmp)
         p3 = [("qa_echo.py", QA_ECHO), ("qa_design.py", QA_DESIGN)]
         p3_present = [n for n, q in p3 if os.path.isfile(q)]
         if p3_present and not real_data_available():

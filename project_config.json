@@ -87,11 +87,20 @@
     "phaseOverride": {
       "$comment": [
         "⭑ KURUCU FAZ AŞMA KAYDI — KARAR K27 · 13 Ağustos 2026 ⭑",
+        "⭑ FAZ 4'E GENİŞLETİLDİ — KARAR K30 · 14 Ağustos 2026 ⭑",
         "",
         "Kurucu talimatı: «Test aşamasını atlayıp tasarım (Faz 3) aşamasına",
         "geç.» Bu AÇIK bir kurucu aşmasıdır ve gizlenmez.",
         "",
-        "NE AÇAR:  Faz 3 tasarım/üretim işi A10 beklenmeden BAŞLAYABİLİR.",
+        "K30 · Faz 4 talimatı § 3: «CONTINUE PHASE 4 USING THE 60-ACTIVITY",
+        "PRODUCTION PATH» ve «A10 MUST NOT BLOCK PHASE 4». Aşma böylece",
+        "phase4'e genişletildi. GENİŞLEYEN yalnızca authorisedPhase'tir:",
+        "gateCeiling phase1'de KALIR çünkü A10 hâlâ yapılmadı. Aynı talimat",
+        "bunu ayrıca şart koşuyor: «A10 MUST NEVER BE MARKED PASS / CLOSED /",
+        "COMPLETED / VERIFIED unless the founder later supplies genuine",
+        "external test evidence.»",
+        "",
+        "NE AÇAR:  Faz 3 VE Faz 4 üretim işi A10 beklenmeden BAŞLAYABİLİR.",
         "NE AÇMAZ: A10 hâlâ AÇIK. Çocuk oturumu YAPILMADI.",
         "          externalValidation hâlâ 'pending'.",
         "          .gate hâlâ 'phase1' ve bu koşuda YÜKSELTİLMEZ.",
@@ -109,7 +118,7 @@
         "status yalnızca KURUCU beyanıyla değişir."
       ],
       "active": true,
-      "authorisedPhase": "phase3",
+      "authorisedPhase": "phase4",
       "gateCeiling": "phase1",
       "deferredBlocker": "A10",
       "deferredBlockerStatus": "open-not-performed",
@@ -117,17 +126,23 @@
       "declaredAt": "2026-08-13",
       "declaredBy": "kurucu talimatı · Faz 3 § 3",
       "decision": "K27",
+      "extendedTo": "phase4",
+      "extendedAt": "2026-08-14",
+      "extendedBy": "kurucu talimatı · Faz 4 § 3 ve § 4",
+      "extensionDecision": "K30",
       "doesNotImply": [
         "çocuk testi yapıldı",
         "kitap çocuk-doğrulandı",
         "Faz 2 PASS ölçütü sağlandı",
-        "kapı phase2'ye yükselebilir"
+        "kapı phase2'ye yükselebilir",
+        "Faz 4 üretiminin bitmesi A10'u kapatır"
       ],
       "documentedIn": [
         "DECISIONS.md",
         "PROJECT_CONTEXT.md",
         "ROADMAP_PROGRESS.md",
-        "06_REPORTS/PHASE_3_REPORT.md"
+        "06_REPORTS/PHASE_3_REPORT.md",
+        "06_REPORTS/PHASE_4_REPORT.md"
       ]
     },
     "physicalProof": {
@@ -627,6 +642,49 @@
     }
   },
   "gates": {
+    "$comment": [
+      "⭑ A11 → KARAR K29 · KURUCU · 14 Ağustos 2026 ⭑",
+      "",
+      "Faz 3 raporu § 4.1 ölçülmüş bir ÇELİŞKİ bildirmişti: bu blok Faz 3",
+      "için 80 kilitli aktivite istiyordu, yol haritası 60 diyordu. Kurucu",
+      "60'ı ONAYLADI ve 80'i 'tutarsız bir artık gereklilik' olarak",
+      "nitelendirdi.",
+      "",
+      "AMA KÖK NEDEN 80'İN KENDİSİ DEĞİLDİ.",
+      "",
+      "Eşikler bootstrap'ın '6 bölge × 20 aktivite' varsayımından ELLE",
+      "türetilmişti: 20 · 40 · 60 · 80 · 100 · 120. Faz 1 o varsayımı",
+      "yıktı ve bölge kotalarını ARZA göre eşitsiz kurdu (K18):",
+      "",
+      "   16 · 20 · 24 · 24 · 20 · 16  =  120",
+      "",
+      "Eşitsiz kotalarla 'üç bölge' otomatik olarak 60 etmez. Elle yazılmış",
+      "her merdiven basamağı o günden beri bir TAHMİNDİ ve iki basamağı",
+      "yanlıştı. Bir sayıyı düzeltmek, aynı sınıftaki ikincisini bırakmak",
+      "olurdu — kurucu talimatı § 31 bunu açıkça yasaklıyor:",
+      "'Do NOT leave an internally contradictory system.'",
+      "",
+      "Bu yüzden eşikler artık ELLE YAZILMIYOR, TÜRETİLİYOR:",
+      "",
+      "   productionPlan (hangi faz hangi bölgeyi üretir)",
+      "        × scope.regionsHypothesis[].activityQuota (K18 · kilitli)",
+      "        = requirements[faz].activitiesLocked",
+      "",
+      "validate_spec § ⑥ türetmeyi her koşuda YENİDEN HESAPLAR ve elle",
+      "yazılan sayıyla karşılaştırır. Artık iki doğruluk kaynağı yoktur:",
+      "aşağıdaki sayılar bir KOPYADIR ve kopya sürüklenirse kapı kırmızı",
+      "yanar.",
+      "",
+      "TARİHÎ KAYIT — silinmedi, taşındı:",
+      "  phase2  ESKİ 20  →  YENİ 16   (jaguar-condor kotası)",
+      "  phase3  ESKİ 80  →  YENİ 60   (16 + 24 + 20)  ⭑ KURUCU ONAYI",
+      "  phase4      120  →      120   (değişmedi — 60 + 24 + 20 + 16)",
+      "",
+      "phase2 kurucunun A11 sorusunda ADI GEÇMEDİ. Kurucu 80'i 'artık",
+      "gereklilik' diye niteledi; 20 aynı artığın bir basamak aşağısıdır",
+      "ve aynı düzeltme onu da kapsar. Değişiklik gizlenmiyor: bir kurucu",
+      "talimatıyla GERİ ALINABİLİR ve o hâlde türetme de gözden geçirilir."
+    ],
     "levels": [
       "phase0",
       "phase1",
@@ -635,6 +693,46 @@
       "phase4",
       "phase5",
       "release"
+    ],
+    "productionPlan": {
+      "$comment": [
+        "HANGİ FAZ HANGİ BÖLGEYİ ÜRETİR — eşiklerin TEK türetme kaynağı.",
+        "",
+        "Bölge listeleri KÜMÜLATİF DEĞİLDİR: her bölge tam olarak bir kez",
+        "geçer ve validate_spec § ⑥ bunu denetler. Kümülatif toplam koddan",
+        "hesaplanır, elle yazılmaz.",
+        "",
+        "phase2 → jaguar-condor: Faz 2 pilot bölgesini kısıt taramasının",
+        "         en yoğun olduğu yerden seçti.",
+        "phase3 → monsoon + great-ocean: yazılmamış iki EN AĞIR bölge",
+        "         (region_difficulty ölçümü · K28).",
+        "phase4 → kalan üç bölge · 24 + 20 + 16 = 60 yeni · kümülatif 120."
+      ],
+      "phase0": [],
+      "phase1": [],
+      "phase2": ["jaguar-condor"],
+      "phase3": ["monsoon", "great-ocean"],
+      "phase4": ["north-ice", "middle-sea", "sun-savanna"],
+      "phase5": [],
+      "release": []
+    },
+    "requirementsDerivedFrom": "productionPlan × scope.regionsHypothesis[].activityQuota",
+    "requirementsHistory": [
+      {
+        "decision": "K29",
+        "openItem": "A11",
+        "decidedAt": "2026-08-14",
+        "decidedBy": "kurucu talimatı · Faz 4 § 2 ve § 31",
+        "reason": "Yol haritasının tanımladığı Faz 3 kapsamı ve kurucu onaylı kapı düzeltmesi. Kök neden: eşikler bootstrap'ın '6 × 20' varsayımından elle türetilmişti; K18 kotaları eşitsiz kurdu.",
+        "changes": [
+          {"gate": "phase2", "field": "activitiesLocked", "old": 20, "new": 16},
+          {"gate": "phase2", "field": "activitiesWritten", "old": 20, "new": 16},
+          {"gate": "phase3", "field": "activitiesLocked", "old": 80, "new": 60},
+          {"gate": "phase3", "field": "activitiesWritten", "old": 80, "new": 60}
+        ],
+        "founderApproved": ["phase3"],
+        "derivedConsequence": ["phase2"]
+      }
     ],
     "requirements": {
       "phase0": {
@@ -649,13 +747,13 @@
       },
       "phase2": {
         "activitiesCandidate": 160,
-        "activitiesLocked": 20,
-        "activitiesWritten": 20
+        "activitiesLocked": 16,
+        "activitiesWritten": 16
       },
       "phase3": {
         "activitiesCandidate": 160,
-        "activitiesLocked": 80,
-        "activitiesWritten": 80
+        "activitiesLocked": 60,
+        "activitiesWritten": 60
       },
       "phase4": {
         "activitiesCandidate": 160,

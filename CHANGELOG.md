@@ -5,6 +5,60 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [Yayımlanmamış] — 2026-08-14 · Faz 4 · A11 kapandı, eşikler TÜRETİLİYOR
+
+**Kurucu A11'i yanıtladı: Faz 3 eşiği 60'tır, 80 değil.**
+
+### Kararlar
+
+- **K29** · **A11 KAPANDI.** `gates.requirements.phase3` **80 → 60**
+  (kurucu onayı). Ve kök neden kapatıldı: eşikler artık elle yazılmıyor,
+  `gates.productionPlan × scope.regionsHypothesis[].activityQuota`
+  formülünden **türetiliyor**. `validate_spec § ⑥` her koşuda yeniden
+  hesaplıyor.
+- **K30** · Kurucu aşması **Faz 4'e genişletildi**. `authorisedPhase`
+  `phase3` → `phase4`; `gateCeiling` **`phase1`'de kaldı**,
+  `externalValidation` **`pending`'de kaldı**, A10 **açık kaldı**.
+- **K31** · **A4 KAPANDI** — 120 aktivitenin nihai listesi tamam.
+
+### Değişti — eşik merdiveni
+
+| Kapı | ESKİ | YENİ | Not |
+|---|---:|---:|---|
+| `phase2` | 20 | **16** | türetme sonucu · `jaguar-condor` kotası |
+| `phase3` | **80** | **60** | ⭑ **kurucu onayı** · 16 + 24 + 20 |
+| `phase4` | 120 | 120 | değişmedi · 60 + 24 + 20 + 16 |
+
+**80 bir hata değil bir ARTIKTI.** Merdivenin tamamı bootstrap'ın
+*"6 bölge × 20"* varsayımından geliyordu (`20 · 40 · 60 · 80 · 100 · 120`);
+Faz 1 kotaları **eşitsiz** kurdu (K18 · `16 · 20 · 24 · 24 · 20 · 16`) ve
+merdiven o gün sessizce yalanlandı. İki basamağı yanlıştı.
+
+`phase2`'nin 20'si kurucunun sorusunda **adı geçmedi** ve türetme onu
+kaçınılmaz olarak yakaladı. Değişiklik `founderApproved` /
+`derivedConsequence` alanlarıyla **ayrı** kaydedildi ve geri alınabilir.
+
+> **Eski değerler SİLİNMEDİ.** `gates.requirementsHistory` onları makine
+> okunur biçimde taşıyor ve `validate_spec § ⑥(g)` kaydın silinmesini
+> kırmızı yakıyor.
+
+### Eklendi
+
+- **`validate_spec § ⑥`** — kapı eşiklerinin türetilmesi · 8 alt denetim
+- **`gates.productionPlan`** — hangi faz hangi bölgeyi üretir · türetmenin
+  tek kaynağı
+- **`gates.requirementsHistory`** — eşik değişikliklerinin tarihî kaydı
+- **`selftest § ⑰`** — 8 kusurlu kurgu · **eski 80 geri yazılırsa KIRMIZI**
+
+### Düzeltildi
+
+- `selftest` § ⑯ kendini ekrana **⑰** diye yazıyordu — gerçek bir ⑰
+  doğduğu gün çakışacaktı
+- `selftest § ③` phase2 eşiğini **elle yazıyordu** (20); artık config'ten
+  okuyor ve eşiğin **tam yerini** sınıyor (bir altı kırmızı, tam üstü yeşil)
+
+---
+
 ## [0.3.0] — 2026-08-13 · Faz 3 · iki bölge, iki kapı, bir tasarım dizgesi
 
 **Faz 3, A10 çocuk oturumu yapılmadan kurucu talimatıyla başlatıldı.**

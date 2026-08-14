@@ -216,10 +216,10 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 | ~~A2~~ | ~~Devralma politikası onayı~~ | — | ✅ **kapandı → K12** |
 | ~~A3~~ | ~~6 bölge ve mühür mimarisi onayı~~ | — | ✅ **kapandı → K18** |
 | ~~A8~~ | ~~148 sayfa kabul mü~~ | — | ✅ **kapandı → K19** |
-| **A4** | 168 adaydan 120'sinin nihai seçimi | kurucu | Faz 3 **60'ını** seçti · 60 kaldı |
 | ~~A7~~ | ~~≥2 çocuk testçi~~ | — | ✅ **kapandı → K26** |
-| **A10** | **gerçek çocuk oturumu** | kurucu | **AÇIK · K27 ile ERTELENDİ, kapanmadı** |
-| **A11** | `gates.requirements.phase3` 80 mi 60 mı | kurucu | **YENİ** · çelişki ölçüldü (K28) |
+| ~~A11~~ | ~~`gates.requirements.phase3` 80 mi 60 mı~~ | — | ✅ **kapandı → K29** · kurucu **60** dedi |
+| ~~A4~~ | ~~168 adaydan 120'sinin nihai seçimi~~ | — | ✅ **kapandı → K31** |
+| **A10** | **gerçek çocuk oturumu** | kurucu | **AÇIK · K27/K30 ile ERTELENDİ, kapanmadı** |
 | **A9** | **fizikî prova** | kurucu | Faz 5–6 · **kurucuya ait** |
 | A5 | Ciltli hediye sürümü | kurucu | Faz 4 |
 | A6 | Yazar biyografisi metni | kurucu | Faz 5 |
