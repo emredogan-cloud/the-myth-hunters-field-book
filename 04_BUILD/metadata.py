@@ -279,16 +279,30 @@ def main() -> int:
               "sırt yazısı kuralı sayfa sayısıyla tutarlı")
 
     print("\n── ③ iç blok ──")
-    rep.check(os.path.isfile(INTERIOR), "iç blok PDF üretilmiş (%s)"
-              % os.path.relpath(INTERIOR, ROOT))
-    ir = jload(INTERIOR_REPORT, {})
-    tp = (ir.get("facts") or {}).get("typesetPagesSignatureAligned")
-    if tp:
-        rep.check(tp == pages,
-                  "PDF sayfa sayısı dizgi ölçümüyle aynı (%s == %s)" % (pages, tp))
-    tgt = cfg["scope"]["pageTarget"]
-    rep.check(pages == tgt,
-              "sayfa sayısı onaylı hedefle aynı (%d == %d)" % (pages, tgt))
+    # ⚠ 08_OUTPUT ÜRETİLMİŞ ÇIKTIDIR VE DEPODA DURMAZ (.gitignore § ⑤).
+    #
+    # CI'da iç blok PDF'i YOKTUR ve olmaması bir kusur değildir: kaynaktan
+    # yeniden üretilebilir. Bir kapı, bir BUILD ÇIKTISININ yokluğunu bir
+    # kalite düşüşü sanmamalıdır — bu hata Faz 5'te `update_docs` ile bir
+    # kez yapıldı ve CI'ı kırmızı yaktı.
+    #
+    #     Üretilmemiş bir çıktı, bozuk bir çıktı değildir.
+    if os.path.isfile(INTERIOR):
+        rep.check(True, "iç blok PDF üretilmiş (%s)"
+                  % os.path.relpath(INTERIOR, ROOT))
+        ir = jload(INTERIOR_REPORT, {})
+        tp = (ir.get("facts") or {}).get("typesetPagesSignatureAligned")
+        if tp:
+            rep.check(tp == pages,
+                      "PDF sayfa sayısı dizgi ölçümüyle aynı (%s == %s)"
+                      % (pages, tp))
+        tgt = cfg["scope"]["pageTarget"]
+        rep.check(pages == tgt,
+                  "sayfa sayısı onaylı hedefle aynı (%d == %d)" % (pages, tgt))
+    else:
+        print("  ⊘ iç blok PDF yok (08_OUTPUT depoda durmaz) — ③ ATLANDI")
+        rep.warn("iç blok PDF bu makinede yok — sayfa sayısı "
+                 "scope.pageTarget'tan alındı, ÖLÇÜLMEDİ")
 
     print("\n── ④ beyan ──")
     if not md["aiDisclosure"]["founderConfirmed"]:
