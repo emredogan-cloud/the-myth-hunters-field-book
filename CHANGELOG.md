@@ -5,6 +5,126 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [Yayınlanmamış] — 2026-08-16 · **yükleme öncesi geçiş · Aşama 1**
+
+```
+AŞAMA                 1 / 2        prompt + denetim · ÜRETİM YOK
+METADATA "120 PAGES"  ✅ DÜZELTİLDİ + kapı eklendi (K41)
+YENİ PROMPT           ✅ 21 prompt · kapak 2 · A+ 12 · eksik levha 2 + set
+YENİ BULGU            ⛔ mobilya çiftlemesi — 99 sayfa (A15)
+GÖRSEL ÜRETİMİ        ⛔ KURUCUYA AİT — ajan üretmedi
+KDP PANELİ            ⛔ DOKUNULMADI
+.gate                     release   DEĞİŞMEDİ
+```
+
+Faz 6 *"KDP paketi hazır"* diyerek kapanmıştı. Bu geçiş aynı pakete
+**yükleyecek biri gibi** baktı: bir kalem kapandı, beşi açık kaldı ve
+biri raporda yazandan **büyük** çıktı.
+
+### Düzeltildi — metadata **"120 pages"** · ve sınıf kapatıldı (K41)
+
+`metadata.json § description` müşteriye *"One hundred and twenty pages"*
+diyordu; kitap **160 sayfa**. Sayı yanlış değildi — **bağlı değildi**:
+elle yazılmıştı ve K38 dizgiyi 160 ölçtüğünde onunla hareket etmedi.
+
+**Örnek düzeltilmedi, sınıf kapatıldı.** Açıklama artık bir kalıp; iki
+sayı da ölçümden geliyor (`activities` manuscript'ten sayılıyor, `pages`
+PDF'ten ölçülüyor) ve yeni kapı `metadata § ⑤` beş şeyi denetliyor —
+aralarında **`120 puzzle` ile `120 page` karışmasını** da.
+
+`metadata` kapısı **11 → 16 denetim**.
+
+### Eklendi — kütüphane § 9: kapak · A+ · iki eksik levha (K42)
+
+`IMAGE_PROMPT_LIBRARY.html` **332 → 745 satır**. Bölüm sona eklendi,
+§ 1–8'e dokunulmadı.
+
+Ve **elle değil, üreteçten**: dosya üretilmiştir ve `--check` bayatlık
+kapısı var. Elle eklenen bir bölüm bir sonraki üretimde silinirdi ve
+silinene kadar CI'ı kırmızı yakardı.
+
+| Ne | Adet |
+|---|---:|
+| Kapak sanatı promptu | 2 seçenek |
+| A+ modülü | 7 modül · **12 görsel** |
+| Eksik iç blok levhası | 2 |
+
+Kapak geometrisi hiçbir yerde elle yazılmadı; `metadata.json § cover`'dan
+okunuyor. Panel enleri **sarmaldan çıkarılıyor**, ayrı ayrı
+hesaplanmıyor: yuvarlama 1 px açık bırakıyordu.
+
+### ⭑ Bulundu — sayfa mobilyası **iki kez basılıyor** (A15) ⭑
+
+Faz 6 raporu *"`writingSpaceLines` ile `pagePrints` 63 sayfada
+uyuşmuyor"* demişti. **Sayı doğrulandı, teşhis eksikti.**
+
+İki alan aynı şeyi saymıyor — ve **ikisi de basılıyor**:
+
+| Çiftleme | Sayfa |
+|---|---:|
+| Yıldızlı kutu iki kez | **37 / 37** |
+| Yazma alanı iki kez | **75 / 120** |
+| Çiftlemesiz | **21 / 120** |
+
+Kök neden: `pagePrints` iki ayrı muhataba yazılmış tek bir liste ve
+ayrım **hiçbir yerde yazılı değil**. Faz 6 promptu doldururken listenin
+tamamını üretece verdi; üreteç sayfa mobilyasını da sanata çizdi, dizgi
+ise aynı mobilyayı kendi işi saymaya devam etti.
+
+> **37 mühür sayfasının 37'sinde çocuk iki yıldız kutusu görüyor.**
+> Faz 5 `A1` kutunun basılı SAYISINI düzeltmişti; kimse kutunun KAÇ KEZ
+> basıldığını sormamıştı.
+
+Doğrulama: `interior.pdf` s.125 raster'a çevrildi ve göz ile denetlendi.
+
+### Eklendi — `qa_design § ⑨` mobilya çiftlemesini ÖLÇÜYOR
+
+Şimdilik **uyarı** seviyesinde: kusur 99 sayfada bugün var ve denetimi
+hata olarak açmak, düzeltme kararı verilmeden CI'ı kırmızıya
+kilitlemek olurdu. Ölçüm kayda giriyor, sayı raporda duruyor.
+A15 uygulanınca **hataya yükseltilecek**.
+
+`qa_design` kapısı **19 → 20 denetim**.
+
+### Ölçüldü — 300 dpi: **158 varlığın 158'i ölçütün altında** (A16)
+
+| | |
+|---|---:|
+| Etkin çözünürlük ≥ 300 dpi | **0 / 158** |
+| Mevcut · gereken piksel | 120,4 MP · **481,5 MP** |
+| Gereken çarpan | **× 4,00** |
+
+**K39 silinmedi ve değiştirilmedi.** `minDpiHistory` hem 300'ü hem
+150'yi gerekçesiyle taşıyor. Ama:
+
+> **150 dpi bir proje içi indirilmiş eşiktir — KDP asgarisine uygunluk
+> kanıtı değildir.** `qa_assets` yeşil yanıyor çünkü ölçüt indirildi.
+
+### Ölçüldü — editoryal sızıntı kümesi **9 değil, 11**
+
+Faz 6 raporu *"dokuz sayfada field note cevabı söylüyor"* diyordu. Aynı
+kayıt yeniden okundu: aynı kusur **ipucu katmanında iki sayfada daha**
+var (`B14` · `B15`). Küme *"field note"* diye adlandırıldığı için ikisi
+öncelik listesinin dışında kalmıştı.
+
+> Bir sızıntı, hangi kutuda durduğuyla değil, **ne yaptığıyla** sınıflanır.
+
+### Eklendi — belgeler
+
+| Dosya | Ne |
+|---|---|
+| `06_REPORTS/KDP_PREFLIGHT_AUDIT.md` | altı kalemin ölçümü |
+| `07_ASSETS/FOUNDER_ASSET_DELIVERY.md` | 16 dosyalık teslim sözleşmesi |
+| `03_COVER/COVER_PRODUCTION_PLAN.md` | kapak hattı · 10 adım |
+| `03_APLUS/APLUS_PRODUCTION_PLAN.md` | A+ hattı · 8 adım |
+
+### Değişmedi — bilerek
+
+`.gate` (`release`) · `minDpiHistory` · `externalValidation`
+(`overridden-zero-sessions`) · K38/K39/K40 · § 1–8 · manuscript ·
+iç blok PDF · **hiçbir görsel**.
+
+
 ## [Yayınlanmamış] — 2026-08-14 · Faz 5 · editoryal yakınsama + görsel üretim
 
 ```

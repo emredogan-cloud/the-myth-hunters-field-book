@@ -37,7 +37,12 @@
     "gift for curious kids age 9",
     "homeschool world mythology"
   ],
-  "description": "Twenty-two peoples. One hundred and twenty pages. Six seals to earn. This is not a puzzle book with a mythology theme — every puzzle is built out of what a people actually made: a writing system, a counting system, a map of a real place, a message that had to travel. Children decode Younger Futhark and Inuktitut syllabics, count in Maya bars and dots, trace the Red River delta, and sort the Akan day names. Answers are checked against museums, archives and universities, and the back of the book says which ones. Screen-free, written in, and finished with a certificate.",
+  "description": "Twenty-two peoples. One hundred and twenty puzzles across one hundred and sixty pages. Six seals to earn. This is not a puzzle book with a mythology theme — every puzzle is built out of what a people actually made: a writing system, a counting system, a map of a real place, a message that had to travel. Children decode Younger Futhark and Inuktitut syllabics, count in Maya bars and dots, trace the Red River delta, and sort the Akan day names. Answers are checked against museums, archives and universities, and the back of the book says which ones. Screen-free, written in, and finished with a certificate.",
+  "descriptionFacts": {
+    "$comment": "Açıklamanın İDDİA ETTİĞİ sayılar. § ⑤ kapısı bunları ölçümle karşılaştırır; elle yazılmış bir sayı sessizce bayatlayamaz.",
+    "activities": 120,
+    "pages": 160
+  },
   "edition": {
     "format": "paperback",
     "trim": "8.50 x 11.00 in",

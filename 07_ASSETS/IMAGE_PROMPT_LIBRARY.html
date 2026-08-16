@@ -315,6 +315,420 @@ PRINT EXACTLY:
 <li><code>asset_inventory.py</code> koştur — envanter ÖLÇÜMDEN ÖNCE koşar, çünkü yanlış aktiviteye bağlanmış kusursuz bir görsel aktiviteyi çözülemez yapar.</li>
 </ol>
 <div class="note stop"><strong>AJAN GÖRSEL ÜRETMEZ.</strong><br>Faz 3 şartname üretir. Varlık üretimi yol haritasında Faz 5'tir ve kurucu talimatı olmadan başlamaz.</div>
+<h2>9 · NİHAİ KDP — KAPAK · A+ · EKSİK VARLIK PROMPTLARI</h2>
+<div class="note stop">
+<strong>BU BÖLÜM SONA EKLENDİ VE ÜSTÜNDEKİ HİÇBİR ŞEYİ SİLMEDİ.</strong><br>
+§ 1–8 iç bloğun <strong>donmuş</strong> şartname katmanıdır. Bu bölüm yükleme öncesi geçişte doğdu ve üç yeni varlık sınıfı taşır: <strong>kapak sanatı</strong>, <strong>A+ pazarlama görselleri</strong> ve <strong>iki eksik iç blok levhası</strong>.
+</div>
+<div class="note stop">
+<strong>ÜÇÜNÜN DE ORTAK KURALI: GÖRSELDE METİN YOK.</strong><br>
+Başlık, yazar adı, alt başlık, rozet yazısı, ISBN, barkod, fiyat, yaş bandı ve <em>her türlü harf</em> görselin DIŞINDADIR. Tipografi CLI katmanında, gömülü yazı tipiyle basılır.<br><br>Gerekçe § 4'ün aynısıdır ve kapakta daha da bağlayıcıdır: <strong>bir üretecin yazdığı başlık düzeltilemez, KDP metadata'sıyla harfi harfine eşleşmez ve gömülü bir yazım hatası bütün kapağı yeniden ürettirir.</strong>
+</div>
+<h3>9.1 · Kapak geometrisi — <em>ölçümden türetilir, elle yazılmaz</em></h3>
+<p>Bütün ölçüler <code>metadata.json § cover</code>'dan gelir ve o da <strong>ölçülen sayfa sayısından</strong> türer. Sayfa sayısı değişirse bu tablo kendiliğinden değişir — sırt hiçbir yerde elle yazılmaz.</p>
+<div class="scroll"><table>
+<tr><th>Ölçü</th><th>inç</th><th>piksel @300 dpi</th></tr>
+<tr><td><strong>Tam sarmal</strong> (arka+sırt+ön, bleed dâhil)</td><td>17.6103 × 11.2500</td><td><strong>5283 × 3375</strong></td></tr>
+<tr><td>Arka panel (bleed dâhil) — <em>soldaki</em></td><td>8.6250 × 11.2500</td><td>2587 × 3375</td></tr>
+<tr><td><strong>Sırt</strong> (160 sayfa)</td><td>0.3603 × 11.2500</td><td>108 × 3375</td></tr>
+<tr><td>Ön panel (bleed dâhil) — <em>sağdaki</em></td><td>8.6250 × 11.2500</td><td>2588 × 3375</td></tr>
+<tr><td><em>toplam denetimi</em></td><td>—</td><td><em>2587 + 108 + 2588 = 5283</em> ✓</td></tr>
+<tr><td>Trim</td><td>8.50 × 11.00</td><td>—</td></tr>
+<tr><td>Bleed · güvenli kenar</td><td>0.125 · 0.25</td><td>—</td></tr>
+<tr><td>Sırta yazı basılabilir mi</td><td colspan='2'>EVET</td></tr>
+</table></div>
+<div class="note stop">
+<strong>BU TABLO BİR TEYİT DEĞİL, BİR BAŞLANGIÇTIR.</strong><br>
+Nihai geometri <strong>KDP kapak şablonundan</strong> alınır: kurucu son sayfa sayısıyla şablonu indirir, CLI barkod kutusunu ve katlama payını <em>şablondan okur</em>. Hiçbir koordinat elle yazılmaz.<br><br>⚠ Sayfa sayısı yeniden üretimde değişirse <strong>sırt da değişir</strong> ve kapak yeniden dizilir.
+</div>
+<h3>9.2.1 · KAPAK SANATI — SEÇENEK 1 — “SAHA MASASI”</h3>
+<div class="scroll"><table>
+<tr><td><strong>Amaç</strong></td><td>Kitabı bir OYUN kitabı gibi değil, bir SAHA ARACI gibi gösterir. Alıcı ebeveyn/öğretmen; sinyal: ciddi, araştırmaya dayalı, ekransız.</td></tr>
+<tr><td><strong>Varlık kimliği</strong></td><td><code>kdp-cover-option-01</code></td></tr>
+<tr><td><strong>Dosya adı</strong></td><td><code>kdp-cover-option-01.png</code></td></tr>
+<tr><td><strong>HAM konum</strong></td><td><code>07_ASSETS/raw/kdp-cover-option-01.png</code> · <em>teslimden sonra DEĞİŞTİRİLMEZ</em></td></tr>
+<tr><td><strong>Nihai hedef</strong></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code> — tek PDF: arka + sırt + ön</td></tr>
+<tr><td><strong>Hedef ölçü</strong></td><td>5283 × 3375 px &nbsp;(17.6103 × 11.2500 in)</td></tr>
+<tr><td><strong>En-boy oranı</strong></td><td>1.5654 : 1 · yatay sarmal</td></tr>
+<tr><td><strong>Renk · çözünürlük</strong></td><td>RGB renkli · <strong>gerçek 300 dpi</strong> (iç bloğun 150 dpi ölçütü kapağa UYGULANMAZ)</td></tr>
+<tr><td><strong>CLI sonradan basacak</strong></td><td>ön: başlık + yazar · sırt: başlık + yazar · arka: tanıtım metni, yaş bandı, ekransız sinyali, yazar biyografisi · barkod alanı BOŞ</td></tr>
+</table></div>
+<div class="prompt" id="p901">A premium editorial illustration for the wrap-around cover of an illustrated non-fiction activity book for children aged 8 to 12.
+
+SUBJECT — an open field notebook resting on a working map table, viewed from slightly above. Arranged around it as a researcher would leave them at the end of a day: a folded regional map carrying faint pencil routes; a hand-inked compass rose on loose paper; a coastline study on tracing paper; small observation objects grouped as natural-history specimens (a shell, a seed head, a stone with a worn mark, a length of knotted cord); and a row of small EMPTY wax seal impressions pressed along one edge of the table.
+
+The notebook pages are ruled and gridded surfaces with pencil shading and measuring marks — but they carry NO readable writing and NO letterforms of any kind.
+
+STYLE — premium illustrated publishing art. Classic expedition field journal crossed with modern museum education design. Hand-drawn ink linework over flat painted colour. Not fantasy art, not cartoon, not anime, not photorealistic, not a games-box illustration.
+
+COLOUR — rich but restrained and natural: parchment, warm ochre, deep indigo blue, muted forest green, stone grey, iron-gall ink accents. No neon, no plastic toy palette, no heavy gradients.
+
+LIGHT — soft editorial studio light from the upper left, gentle contact shadows, no dramatic rim light and no glow.
+
+COMPOSITION — one strong focal object (the open notebook) with a clear silhouette that reads at thumbnail size. Detail density falls off toward the edges so the wrap survives cropping.
+
+CULTURAL CONSTRAINT:
+Cultural material must be SPECIFIC and restrained. Objects may suggest observation and craft — a measuring cord, a plain woven mat edge, a carved wooden rule. They may NOT be sacred, ceremonial or restricted objects, and they may NOT be blended into a generic ‘exotic’ ornamental pattern. Invented scripts, invented symbols and invented ‘tribal’ motifs are forbidden.
+
+TYPOGRAPHY RESERVE — leave these zones visually calm and uncluttered so type can be set over them later, but place NO text in them:
+- FRONT PANEL upper third: title zone
+- FRONT PANEL lower sixth: author zone
+- SPINE band, full height: title and author zone
+- BACK PANEL centre: blurb zone
+- BACK PANEL lower outer corner: a clear 2.0 × 1.2 in barcode block, light and empty
+
+
+NEGATIVE: NO TEXT of any kind anywhere in the image; no title, no subtitle, no author name, no publisher name; no badge wording, no sticker wording, no award wording; no ISBN, no barcode, no price, no age-range block; no typography, no lettering, no numerals, no calligraphy; no invented script, no fake writing, no rune-like or glyph-like marks; no logo, no watermark, no signature, no AI artefact mark; no readable writing on any notebook page, card, map or label; no sacred, ceremonial or restricted object; no generic ‘tribal’ ornament and no blended pan-cultural pattern; no weapon, no wound, no blood, no skull; no photorealistic human face; no identifiable real person; no modern branding, clothing, device or packaging; no neon, no plastic toy palette, no lens flare, no bokeh; no heavy vignette and no dark frame around the edges
+
+OUTPUT: PNG, RGB colour, 5283 × 3375 px, 1.5654 : 1, full-bleed wrap, 300 dpi at 17.6103 × 11.2500 in.<button class="copy" data-t="p901">promptu kopyala</button></div>
+<h3>9.2.2 · KAPAK SANATI — SEÇENEK 2 — “MİT HARİTASI PANOSU”</h3>
+<div class="scroll"><table>
+<tr><td><strong>Amaç</strong></td><td>Kitabın kapsamını tek bakışta verir: altı bölge, bir dünya. Sinyal: keşif, rota, kapsam.</td></tr>
+<tr><td><strong>Varlık kimliği</strong></td><td><code>kdp-cover-option-02</code></td></tr>
+<tr><td><strong>Dosya adı</strong></td><td><code>kdp-cover-option-02.png</code></td></tr>
+<tr><td><strong>HAM konum</strong></td><td><code>07_ASSETS/raw/kdp-cover-option-02.png</code> · <em>teslimden sonra DEĞİŞTİRİLMEZ</em></td></tr>
+<tr><td><strong>Nihai hedef</strong></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code> — tek PDF: arka + sırt + ön</td></tr>
+<tr><td><strong>Hedef ölçü</strong></td><td>5283 × 3375 px &nbsp;(17.6103 × 11.2500 in)</td></tr>
+<tr><td><strong>En-boy oranı</strong></td><td>1.5654 : 1 · yatay sarmal</td></tr>
+<tr><td><strong>Renk · çözünürlük</strong></td><td>RGB renkli · <strong>gerçek 300 dpi</strong> (iç bloğun 150 dpi ölçütü kapağa UYGULANMAZ)</td></tr>
+<tr><td><strong>CLI sonradan basacak</strong></td><td>ön: başlık + yazar · sırt: başlık + yazar · arka: tanıtım metni, yaş bandı, ekransız sinyali, yazar biyografisi · barkod alanı BOŞ</td></tr>
+</table></div>
+<div class="prompt" id="p902">A premium cinematic illustration for the wrap-around cover of an illustrated non-fiction activity book for children aged 8 to 12.
+
+SUBJECT — a large hand-drawn explorer&#x27;s field board: a single continuous map-like landscape that links six distinct geographic zones across one surface — sea ice and low winter light; a warm inland sea with terraced coast; open savanna with high grass and a broad river; mountain ridges under monsoon cloud; open ocean with island chains and a star-path; and high cloud forest above terraced slopes.
+
+Pinned and tucked across the board: route threads between zones, small blank observation cards, a knotted measuring cord, a sounding line, pale coastline overlays on tracing paper, and six small EMPTY seal impressions marking the six zones.
+
+The board carries pencil marks, route lines and measuring ticks — but NO readable writing, NO letterforms, NO numerals and NO invented script anywhere.
+
+STYLE — premium illustrated publishing art plus modern museum education plus classic expedition cartography. Ink linework over flat painted colour, visible paper texture.
+
+COLOUR — parchment ground with deep indigo sea, muted green, warm ochre, stone and iron-gall ink. Restrained and natural.
+
+COMPOSITION — readable at thumbnail size; the six zones must be distinguishable as separate places, not as one blended texture. Full-bleed wrap composition with the visual weight held toward the centre of each panel.
+
+CULTURAL CONSTRAINT:
+Cultural references must be specific, restrained, educational and respectful. No sacred or ceremonial object. No stereotyped ‘tribal’ world. No skulls, no weapons, no treasure chests, no glowing mystical symbols, no fake writing systems, no generic pirate treasure map.
+
+TYPOGRAPHY RESERVE — leave these zones visually calm and uncluttered so type can be set over them later, but place NO text in them:
+- FRONT PANEL upper third: title zone
+- FRONT PANEL lower sixth: author zone
+- SPINE band, full height: title and author zone
+- BACK PANEL centre: blurb zone
+- BACK PANEL lower outer corner: a clear 2.0 × 1.2 in barcode block, light and empty
+
+
+NEGATIVE: NO TEXT of any kind anywhere in the image; no title, no subtitle, no author name, no publisher name; no badge wording, no sticker wording, no award wording; no ISBN, no barcode, no price, no age-range block; no typography, no lettering, no numerals, no calligraphy; no invented script, no fake writing, no rune-like or glyph-like marks; no logo, no watermark, no signature, no AI artefact mark; no readable writing on any notebook page, card, map or label; no sacred, ceremonial or restricted object; no generic ‘tribal’ ornament and no blended pan-cultural pattern; no weapon, no wound, no blood, no skull; no photorealistic human face; no identifiable real person; no modern branding, clothing, device or packaging; no neon, no plastic toy palette, no lens flare, no bokeh; no heavy vignette and no dark frame around the edges
+
+OUTPUT: PNG, RGB colour, 5283 × 3375 px, 1.5654 : 1, full-bleed wrap, 300 dpi at 17.6103 × 11.2500 in.<button class="copy" data-t="p902">promptu kopyala</button></div>
+<div class="note stop">
+<strong>TEK BİR ÜRETEÇ 300 dpi SARMALI ÜRETEMEZ — VE BU GİZLENMEZ.</strong><br>
+5283 × 3375 piksel, yaygın üreteçlerin tek karede verdiğinin çok üstündedir. İki dürüst yol vardır:<br>① <strong>Panel panel üretim:</strong> ön ve arka panel AYRI üretilir (her biri 2588 × 3375 px), sırt CLI'da düz renk/doku olarak kurulur; CLI üçünü tek tuvalde birleştirir.<br>② <strong>Yerel yeniden çizim:</strong> üreteç maksimum kendi çözünürlüğünde üretir, CLI onu 300 dpi tuvale <em>gerçek</em> büyütmeyle taşır ve <strong>kaynak dpi'ı rapora yazar</strong>.<br><br>⛔ <strong>Yapılmayacak olan:</strong> pikseli değiştirmeden yalnızca DPI etiketini 300 yazmak. Etiket çözünürlük değildir.
+</div>
+<h3>9.3 · A+ İÇERİK MODÜL SETİ — 7 modül · 12 görsel</h3>
+<div class="note stop">
+<strong>A+ GÖRSELİ BİR MANUSCRIPT SAYFASI DEĞİLDİR.</strong><br>
+Ürün sayfası herkese açıktır: burada sızdırılan bir cevap, kitabın içindekinden <strong>daha geniş</strong> yayılır. Hiçbir A+ görseli cevap, çözülmüş bir sayfa, mühür harfi veya yıldız sözcüğü gösteremez. Bütün hücreler, kutular ve mühürler <strong>BOŞ</strong> çizilir.
+</div>
+<div class="note">
+<strong>METİN AMAZON'DA, GÖRSELDE DEĞİL.</strong><br>
+Amazon <em>Image &amp; Text Overlay</em> modüllerinde arka plan görseline metin eklenmemesini açıkça tavsiye ediyor: metin modülün kendi alanına girer, böylece dil ve kopya görsel yeniden üretilmeden değiştirilebilir. Her modülün <strong>metin-güvenli alanı</strong> aşağıda ayrıca yazılıdır.
+</div>
+<div class="scroll"><table>
+<tr><th>#</th><th>Modül</th><th>Amaç</th><th>Görsel</th><th>Ölçü</th><th>Dosya</th></tr>
+<tr><td>1</td><td><strong>HERO / KİTAP FİKRİ</strong><br><span class='tag'>Standard Image &amp; Text Overlay</span></td><td>Tek cümlelik vaat: bu bir mitoloji temalı bulmaca kitabı değil, gerçek kültürlerden türetilmiş bir saha görevi.</td><td>1</td><td>1940 × 600 px<br><span class='tag'>min kabul alanı 970 × 300</span></td><td><code>aplus-01-hero.png</code></td></tr>
+<tr><td>2</td><td><strong>ÇOCUK NE YAPIYOR</strong><br><span class='tag'>Standard Three Image &amp; Text</span></td><td>Eylemi gösterir: çöz · çiz · yaz. Üç kare, üç FARKLI eylem; aynı sahnenin üç açısı DEĞİL.</td><td>3</td><td>600 × 600 px<br><span class='tag'>kare · min 220 × 220</span></td><td><code>aplus-02-what-children-do-01…03.png</code></td></tr>
+<tr><td>3</td><td><strong>ALTI BÖLGE</strong><br><span class='tag'>Standard Image Header with Text</span></td><td>Kapsamı gösterir: altı bölge, yirmi iki halk, tek görev.</td><td>1</td><td>1940 × 600 px<br><span class='tag'>min kabul alanı 970 × 300</span></td><td><code>aplus-03-six-regions.png</code></td></tr>
+<tr><td>4</td><td><strong>GERÇEK KÜLTÜRLER / ARAŞTIRMA</strong><br><span class='tag'>Standard Single Image &amp; Sidebar</span></td><td>Farklılaştırıcı: cevaplar müze, arşiv ve üniversite kaynaklarıyla denetlendi. Sinyal: güvenilirlik.</td><td>1</td><td>600 × 600 px<br><span class='tag'>kare · min 220 × 220</span></td><td><code>aplus-04-real-cultures.png</code></td></tr>
+<tr><td>5</td><td><strong>EKRANSIZ DENEYİM</strong><br><span class='tag'>Standard Four Image &amp; Text</span></td><td>Satın alma gerekçesi: masa başı, ekransız, tek malzeme bir kurşun kalem.</td><td>4</td><td>600 × 600 px<br><span class='tag'>kare · min 220 × 220</span></td><td><code>aplus-05-screen-free-01…04.png</code></td></tr>
+<tr><td>6</td><td><strong>HARİTA · KOD · GÖZLEM</strong><br><span class='tag'>Standard Single Left Image</span></td><td>Aktivite TÜRLERİNİ gösterir: harita, şifre anahtarı, gözlem levhası, sıralama kartları — cevap göstermeden.</td><td>1</td><td>600 × 600 px<br><span class='tag'>kare · min 220 × 220</span></td><td><code>aplus-06-maps-and-codes.png</code></td></tr>
+<tr><td>7</td><td><strong>BİTİRME / SAHA YOLCULUĞU</strong><br><span class='tag'>Standard Image &amp; Text Overlay</span></td><td>Tamamlama vaadi: altı mühür, bir sertifika, bitirilmiş bir kitap. Sinyal: bu kitap BİTİRİLİR.</td><td>1</td><td>1940 × 600 px<br><span class='tag'>min kabul alanı 970 × 300</span></td><td><code>aplus-07-completion.png</code></td></tr>
+</table></div>
+<div class="note">
+<strong>HAM konum:</strong> <code>07_ASSETS/raw/aplus/</code> · <strong>nihai hedef:</strong> <code>08_OUTPUT/APLUS/</code> · <strong>dosya boyutu:</strong> her nihai görsel <strong>&lt; 3 MB</strong>.<br>⚠ KDP paneli bir A+ belgesine eklenebilecek modül sayısını sınırlar. Kurucu paneldeki güncel sınırı görür ve bu setten yukarıdan aşağıya seçer; sıralama <strong>öncelik sırasıdır</strong>.
+</div>
+<h4><code>aplus-01-hero</code> — HERO / KİTAP FİKRİ</h4>
+<p class='sub'><span class='tag'>Standard Image &amp; Text Overlay</span><span class='tag'>1940 × 600</span><span class='tag'>97:30 (geniş banner)</span><span class='tag'>1 görsel</span></p>
+<div class="prompt" id="p903">A premium marketing image for the Amazon A+ Content page of an illustrated non-fiction activity book for children aged 8 to 12.
+
+⭑ THIS IMAGE MUST CONTAIN NO TEXT. The copy is supplied separately through the Amazon module overlay.
+
+MODULE: Standard Image &amp; Text Overlay
+PURPOSE: Tek cümlelik vaat: bu bir mitoloji temalı bulmaca kitabı değil, gerçek kültürlerden türetilmiş bir saha görevi.
+
+SCENE:
+A wide banner scene: the closed field book lying on a working desk beside a folded map, a pencil, a measuring cord and three small EMPTY seal impressions. Shot slightly from above, calm and premium, like a publisher&#x27;s key visual.
+
+TEXT-SAFE AREA (leave visually calm, but place NO text there):
+Sol %45 SAKİN kalır — Amazon overlay metni oraya biner. Odak nesne sağ %55&#x27;te durur.
+
+VISUAL SYSTEM — all A+ images share one look so the page reads as a single product presentation: warm parchment and desk-wood ground, deep indigo and muted green accents, soft editorial studio light from the upper left, shallow contact shadows, matte paper texture. Photographic-illustrative hybrid, premium publishing quality. No two modules repeat the same composition.
+
+VISUAL HIERARCHY — one dominant object, one supporting group, one quiet ground. Nothing competes with the reserved text area.
+
+BACKGROUND — even, low-contrast and uncluttered behind the reserved text zone; detail is concentrated in the focal area.
+
+NEGATIVE: NO TEXT of any kind baked into the image; no headline, no body copy, no bullet text, no callout label; no title, no author name, no publisher name, no imprint; no badge, sticker, ribbon, star rating or award wording; no price, no ISBN, no barcode, no age-range block; no logo, no watermark, no signature; no readable writing on any page, card, map, spine or label; no invented script and no fake writing; no puzzle solution, no answer, no completed working, no seal letter; no screen, phone, tablet, laptop or television; no identifiable child&#x27;s face; hands only where a person appears; no stock-photo look, no lens flare, no heavy bokeh; no neon and no plastic toy palette
+
+OUTPUT: PNG or JPEG, RGB colour, 1940 × 600 px (97:30 (geniş banner)), 970 × 300 px kabul edilen asgari görsel alan, final file under 3 MB.<button class="copy" data-t="p903">promptu kopyala</button></div>
+<h4><code>aplus-02-what-children-do</code> — ÇOCUK NE YAPIYOR</h4>
+<p class='sub'><span class='tag'>Standard Three Image &amp; Text</span><span class='tag'>600 × 600</span><span class='tag'>1:1 (kare)</span><span class='tag'>3 görsel</span></p>
+<div class="prompt" id="p904">A premium marketing image for the Amazon A+ Content page of an illustrated non-fiction activity book for children aged 8 to 12.
+
+⭑ THIS IMAGE MUST CONTAIN NO TEXT. The copy is supplied separately through the Amazon module overlay.
+
+MODULE: Standard Three Image &amp; Text
+PURPOSE: Eylemi gösterir: çöz · çiz · yaz. Üç kare, üç FARKLI eylem; aynı sahnenin üç açısı DEĞİL.
+
+SCENE:
+Three separate square scenes, one per image, each showing a child&#x27;s hands only (no face) at a table:
+  (a) a pencil resting on an open ruled page mid-working;
+  (b) a pair of hands laying out small blank paper cards in a row;
+  (c) a hand pressing a small stamp beside a row of empty seal impressions.
+Same desk, same light, same palette across all three so they read as one set.
+
+TEXT-SAFE AREA (leave visually calm, but place NO text there):
+Kare görselin altına Amazon başlık+gövde metni gelir; görselin kendi alt %15&#x27;i sakin kalır.
+
+VISUAL SYSTEM — all A+ images share one look so the page reads as a single product presentation: warm parchment and desk-wood ground, deep indigo and muted green accents, soft editorial studio light from the upper left, shallow contact shadows, matte paper texture. Photographic-illustrative hybrid, premium publishing quality. No two modules repeat the same composition.
+
+VISUAL HIERARCHY — one dominant object, one supporting group, one quiet ground. Nothing competes with the reserved text area.
+
+BACKGROUND — even, low-contrast and uncluttered behind the reserved text zone; detail is concentrated in the focal area.
+
+NEGATIVE: NO TEXT of any kind baked into the image; no headline, no body copy, no bullet text, no callout label; no title, no author name, no publisher name, no imprint; no badge, sticker, ribbon, star rating or award wording; no price, no ISBN, no barcode, no age-range block; no logo, no watermark, no signature; no readable writing on any page, card, map, spine or label; no invented script and no fake writing; no puzzle solution, no answer, no completed working, no seal letter; no screen, phone, tablet, laptop or television; no identifiable child&#x27;s face; hands only where a person appears; no stock-photo look, no lens flare, no heavy bokeh; no neon and no plastic toy palette
+
+OUTPUT: PNG or JPEG, RGB colour, 600 × 600 px (1:1 (kare)), 220 × 220 px kabul edilen asgari görsel alan, final file under 3 MB.<button class="copy" data-t="p904">promptu kopyala</button></div>
+<h4><code>aplus-03-six-regions</code> — ALTI BÖLGE</h4>
+<p class='sub'><span class='tag'>Standard Image Header with Text</span><span class='tag'>1940 × 600</span><span class='tag'>97:30 (geniş banner)</span><span class='tag'>1 görsel</span></p>
+<div class="prompt" id="p905">A premium marketing image for the Amazon A+ Content page of an illustrated non-fiction activity book for children aged 8 to 12.
+
+⭑ THIS IMAGE MUST CONTAIN NO TEXT. The copy is supplied separately through the Amazon module overlay.
+
+MODULE: Standard Image Header with Text
+PURPOSE: Kapsamı gösterir: altı bölge, yirmi iki halk, tek görev.
+
+SCENE:
+A wide banner strip showing six distinct landscape vignettes in a single horizontal band, separated by thin ruled dividers: sea ice; warm inland sea coast; open savanna and river; monsoon mountain ridge; open ocean with island chain; high cloud-forest terraces. Each vignette carries one small EMPTY seal impression beneath it. Consistent palette and horizon line across all six.
+
+TEXT-SAFE AREA (leave visually calm, but place NO text there):
+Üst %30 sakin bir gökyüzü/parşömen bandı olarak boş bırakılır — modül başlığı oraya biner.
+
+VISUAL SYSTEM — all A+ images share one look so the page reads as a single product presentation: warm parchment and desk-wood ground, deep indigo and muted green accents, soft editorial studio light from the upper left, shallow contact shadows, matte paper texture. Photographic-illustrative hybrid, premium publishing quality. No two modules repeat the same composition.
+
+VISUAL HIERARCHY — one dominant object, one supporting group, one quiet ground. Nothing competes with the reserved text area.
+
+BACKGROUND — even, low-contrast and uncluttered behind the reserved text zone; detail is concentrated in the focal area.
+
+NEGATIVE: NO TEXT of any kind baked into the image; no headline, no body copy, no bullet text, no callout label; no title, no author name, no publisher name, no imprint; no badge, sticker, ribbon, star rating or award wording; no price, no ISBN, no barcode, no age-range block; no logo, no watermark, no signature; no readable writing on any page, card, map, spine or label; no invented script and no fake writing; no puzzle solution, no answer, no completed working, no seal letter; no screen, phone, tablet, laptop or television; no identifiable child&#x27;s face; hands only where a person appears; no stock-photo look, no lens flare, no heavy bokeh; no neon and no plastic toy palette
+
+OUTPUT: PNG or JPEG, RGB colour, 1940 × 600 px (97:30 (geniş banner)), 970 × 300 px kabul edilen asgari görsel alan, final file under 3 MB.<button class="copy" data-t="p905">promptu kopyala</button></div>
+<h4><code>aplus-04-real-cultures</code> — GERÇEK KÜLTÜRLER / ARAŞTIRMA</h4>
+<p class='sub'><span class='tag'>Standard Single Image &amp; Sidebar</span><span class='tag'>600 × 600</span><span class='tag'>1:1 (kare)</span><span class='tag'>1 görsel</span></p>
+<div class="prompt" id="p906">A premium marketing image for the Amazon A+ Content page of an illustrated non-fiction activity book for children aged 8 to 12.
+
+⭑ THIS IMAGE MUST CONTAIN NO TEXT. The copy is supplied separately through the Amazon module overlay.
+
+MODULE: Standard Single Image &amp; Sidebar
+PURPOSE: Farklılaştırıcı: cevaplar müze, arşiv ve üniversite kaynaklarıyla denetlendi. Sinyal: güvenilirlik.
+
+SCENE:
+A square still life of research materials on a desk: a stack of reference volumes seen edge-on with blank spines, an archive folder, a magnifier resting on a printed plate of abstract geometric marks (NOT letters), a card index box with blank cards, and a pair of cotton handling gloves. Quiet, scholarly, warm.
+
+TEXT-SAFE AREA (leave visually calm, but place NO text there):
+Sağ %35 sidebar metnine komşudur; kompozisyon SOLA yaslanır ve sağ kenar sakin kalır.
+
+VISUAL SYSTEM — all A+ images share one look so the page reads as a single product presentation: warm parchment and desk-wood ground, deep indigo and muted green accents, soft editorial studio light from the upper left, shallow contact shadows, matte paper texture. Photographic-illustrative hybrid, premium publishing quality. No two modules repeat the same composition.
+
+VISUAL HIERARCHY — one dominant object, one supporting group, one quiet ground. Nothing competes with the reserved text area.
+
+BACKGROUND — even, low-contrast and uncluttered behind the reserved text zone; detail is concentrated in the focal area.
+
+NEGATIVE: NO TEXT of any kind baked into the image; no headline, no body copy, no bullet text, no callout label; no title, no author name, no publisher name, no imprint; no badge, sticker, ribbon, star rating or award wording; no price, no ISBN, no barcode, no age-range block; no logo, no watermark, no signature; no readable writing on any page, card, map, spine or label; no invented script and no fake writing; no puzzle solution, no answer, no completed working, no seal letter; no screen, phone, tablet, laptop or television; no identifiable child&#x27;s face; hands only where a person appears; no stock-photo look, no lens flare, no heavy bokeh; no neon and no plastic toy palette
+
+OUTPUT: PNG or JPEG, RGB colour, 600 × 600 px (1:1 (kare)), 220 × 220 px kabul edilen asgari görsel alan, final file under 3 MB.<button class="copy" data-t="p906">promptu kopyala</button></div>
+<h4><code>aplus-05-screen-free</code> — EKRANSIZ DENEYİM</h4>
+<p class='sub'><span class='tag'>Standard Four Image &amp; Text</span><span class='tag'>600 × 600</span><span class='tag'>1:1 (kare)</span><span class='tag'>4 görsel</span></p>
+<div class="prompt" id="p907">A premium marketing image for the Amazon A+ Content page of an illustrated non-fiction activity book for children aged 8 to 12.
+
+⭑ THIS IMAGE MUST CONTAIN NO TEXT. The copy is supplied separately through the Amazon module overlay.
+
+MODULE: Standard Four Image &amp; Text
+PURPOSE: Satın alma gerekçesi: masa başı, ekransız, tek malzeme bir kurşun kalem.
+
+SCENE:
+Four separate square scenes, one per image, all on the same table in the same light:
+  (a) the closed book and one sharpened pencil, nothing else;
+  (b) an open page with a partly ruled working area and a pencil laid across it;
+  (c) a small kit group: pencil, eraser, a short ruler, a length of plain cord;
+  (d) the book propped closed at the end of a session beside a cooling cup and a switched-off lamp.
+No screen, no phone, no tablet appears in any of the four.
+
+TEXT-SAFE AREA (leave visually calm, but place NO text there):
+Her karenin alt %15&#x27;i metin için sakin kalır.
+
+VISUAL SYSTEM — all A+ images share one look so the page reads as a single product presentation: warm parchment and desk-wood ground, deep indigo and muted green accents, soft editorial studio light from the upper left, shallow contact shadows, matte paper texture. Photographic-illustrative hybrid, premium publishing quality. No two modules repeat the same composition.
+
+VISUAL HIERARCHY — one dominant object, one supporting group, one quiet ground. Nothing competes with the reserved text area.
+
+BACKGROUND — even, low-contrast and uncluttered behind the reserved text zone; detail is concentrated in the focal area.
+
+NEGATIVE: NO TEXT of any kind baked into the image; no headline, no body copy, no bullet text, no callout label; no title, no author name, no publisher name, no imprint; no badge, sticker, ribbon, star rating or award wording; no price, no ISBN, no barcode, no age-range block; no logo, no watermark, no signature; no readable writing on any page, card, map, spine or label; no invented script and no fake writing; no puzzle solution, no answer, no completed working, no seal letter; no screen, phone, tablet, laptop or television; no identifiable child&#x27;s face; hands only where a person appears; no stock-photo look, no lens flare, no heavy bokeh; no neon and no plastic toy palette
+
+OUTPUT: PNG or JPEG, RGB colour, 600 × 600 px (1:1 (kare)), 220 × 220 px kabul edilen asgari görsel alan, final file under 3 MB.<button class="copy" data-t="p907">promptu kopyala</button></div>
+<h4><code>aplus-06-maps-and-codes</code> — HARİTA · KOD · GÖZLEM</h4>
+<p class='sub'><span class='tag'>Standard Single Left Image</span><span class='tag'>600 × 600</span><span class='tag'>1:1 (kare)</span><span class='tag'>1 görsel</span></p>
+<div class="prompt" id="p908">A premium marketing image for the Amazon A+ Content page of an illustrated non-fiction activity book for children aged 8 to 12.
+
+⭑ THIS IMAGE MUST CONTAIN NO TEXT. The copy is supplied separately through the Amazon module overlay.
+
+MODULE: Standard Single Left Image
+PURPOSE: Aktivite TÜRLERİNİ gösterir: harita, şifre anahtarı, gözlem levhası, sıralama kartları — cevap göstermeden.
+
+SCENE:
+A square overhead composition of four page-like sheets fanned across a desk, each representing one kind of work: an outline coast map with a pencil route; a ruled key panel whose cells are EMPTY; an observation plate of a plain object with blank pointer lines; and a set of blank rectangular cards each carrying an empty square number box. Every cell, line and box is EMPTY.
+
+TEXT-SAFE AREA (leave visually calm, but place NO text there):
+Görsel modülün SOL yarısında durur; sağ kenar metne komşudur ve sakin kalır.
+
+VISUAL SYSTEM — all A+ images share one look so the page reads as a single product presentation: warm parchment and desk-wood ground, deep indigo and muted green accents, soft editorial studio light from the upper left, shallow contact shadows, matte paper texture. Photographic-illustrative hybrid, premium publishing quality. No two modules repeat the same composition.
+
+VISUAL HIERARCHY — one dominant object, one supporting group, one quiet ground. Nothing competes with the reserved text area.
+
+BACKGROUND — even, low-contrast and uncluttered behind the reserved text zone; detail is concentrated in the focal area.
+
+NEGATIVE: NO TEXT of any kind baked into the image; no headline, no body copy, no bullet text, no callout label; no title, no author name, no publisher name, no imprint; no badge, sticker, ribbon, star rating or award wording; no price, no ISBN, no barcode, no age-range block; no logo, no watermark, no signature; no readable writing on any page, card, map, spine or label; no invented script and no fake writing; no puzzle solution, no answer, no completed working, no seal letter; no screen, phone, tablet, laptop or television; no identifiable child&#x27;s face; hands only where a person appears; no stock-photo look, no lens flare, no heavy bokeh; no neon and no plastic toy palette
+
+OUTPUT: PNG or JPEG, RGB colour, 600 × 600 px (1:1 (kare)), 220 × 220 px kabul edilen asgari görsel alan, final file under 3 MB.<button class="copy" data-t="p908">promptu kopyala</button></div>
+<h4><code>aplus-07-completion</code> — BİTİRME / SAHA YOLCULUĞU</h4>
+<p class='sub'><span class='tag'>Standard Image &amp; Text Overlay</span><span class='tag'>1940 × 600</span><span class='tag'>97:30 (geniş banner)</span><span class='tag'>1 görsel</span></p>
+<div class="prompt" id="p909">A premium marketing image for the Amazon A+ Content page of an illustrated non-fiction activity book for children aged 8 to 12.
+
+⭑ THIS IMAGE MUST CONTAIN NO TEXT. The copy is supplied separately through the Amazon module overlay.
+
+MODULE: Standard Image &amp; Text Overlay
+PURPOSE: Tamamlama vaadi: altı mühür, bir sertifika, bitirilmiş bir kitap. Sinyal: bu kitap BİTİRİLİR.
+
+SCENE:
+A wide banner: the finished book closed on a desk at the end of the journey, with a completed row of six pressed seal impressions beside it and a blank certificate card resting under one corner. The seals are pressed and textured but carry NO letters. Warm low evening light, a sense of an expedition completed.
+
+TEXT-SAFE AREA (leave visually calm, but place NO text there):
+Sağ %45 SAKİN kalır — overlay metni oraya biner. Odak sol %55&#x27;te durur.
+
+VISUAL SYSTEM — all A+ images share one look so the page reads as a single product presentation: warm parchment and desk-wood ground, deep indigo and muted green accents, soft editorial studio light from the upper left, shallow contact shadows, matte paper texture. Photographic-illustrative hybrid, premium publishing quality. No two modules repeat the same composition.
+
+VISUAL HIERARCHY — one dominant object, one supporting group, one quiet ground. Nothing competes with the reserved text area.
+
+BACKGROUND — even, low-contrast and uncluttered behind the reserved text zone; detail is concentrated in the focal area.
+
+NEGATIVE: NO TEXT of any kind baked into the image; no headline, no body copy, no bullet text, no callout label; no title, no author name, no publisher name, no imprint; no badge, sticker, ribbon, star rating or award wording; no price, no ISBN, no barcode, no age-range block; no logo, no watermark, no signature; no readable writing on any page, card, map, spine or label; no invented script and no fake writing; no puzzle solution, no answer, no completed working, no seal letter; no screen, phone, tablet, laptop or television; no identifiable child&#x27;s face; hands only where a person appears; no stock-photo look, no lens flare, no heavy bokeh; no neon and no plastic toy palette
+
+OUTPUT: PNG or JPEG, RGB colour, 1940 × 600 px (97:30 (geniş banner)), 970 × 300 px kabul edilen asgari görsel alan, final file under 3 MB.<button class="copy" data-t="p909">promptu kopyala</button></div>
+<h3>9.4 · EKSİK İÇ BLOK VARLIKLARI — iki levha</h3>
+<div class="note stop">
+<strong>BU İKİSİ BASIMA GİREMEZ.</strong><br>
+Şu an iki sayfada <em>çapraz taramalı</em>, üzerinde <code>art not supplied — do not print</code> yazan dürüst yer tutucular duruyor. Yer tutucu sanat değildir ve öyle olduğunu iddia etmiyor — ama <strong>basıma girerse kitabı bozar</strong>.
+</div>
+<div class="note stop">
+<strong>BU İKİSİ KAPAK VE A+ DEĞİL, İÇ BLOKTUR.</strong><br>
+Kural takımı § 3'ün olumsuz listesi + § 7'nin kültürel kısıtlarıdır: <strong>gri tonlama · siyah çizgi · gölgesiz · 150 dpi ölçütü (K39)</strong>. Kapağın renkli/300 dpi kuralı buraya <em>uygulanmaz</em>.
+</div>
+<h4><code>yoruba-underdot-letters</code></h4>
+<div class="scroll"><table>
+<tr><td><strong>Amaç</strong></td><td>Print the dotted and undotted pairs side by side so the difference is seen, not told.</td></tr>
+<tr><td><strong>Neden bu sayfa hassas</strong></td><td>Bu sayfanın bütün iddiası TEK BİR İŞARETTİR: harfin ALTINDAKİ nokta. Bir üretecin uydurduğu ya da kaydırdığı bir nokta, sayfayı çözülemez yapar VE bir yazı sistemi hakkında yanlış bilgi basar.</td></tr>
+<tr><td><strong>Varlık kimliği</strong></td><td><code>fig-yoruba-underdot-letters</code></td></tr>
+<tr><td><strong>Dosya adı</strong></td><td><code>fig-yoruba-underdot-letters.png</code></td></tr>
+<tr><td><strong>HAM konum</strong></td><td><code>07_ASSETS/raw/fig-yoruba-underdot-letters.png</code><br><em>⚠ şu an YER TUTUCU duruyor; hat onu <code>07_ASSETS/rejected/</code> altına arşivler, ÜZERİNE YAZMAZ</em></td></tr>
+<tr><td><strong>Nihai hedef</strong></td><td><code>07_ASSETS/final/interior/fig-yoruba-underdot-letters.png</code></td></tr>
+<tr><td><strong>Hedef ölçü</strong></td><td>1050 × 600 px · 7.00 × 4.00 in @ 150 dpi</td></tr>
+<tr><td><strong>En-boy oranı · yön</strong></td><td>7:4 · landscape</td></tr>
+<tr><td><strong>Renk · düzen</strong></td><td>grayscale · <code>key-build</code></td></tr>
+<tr><td><strong>CLI sonradan basacak</strong></td><td>bütün glifler / kart metni / etiketler — gömülü yazı tipiyle, üreteçten DEĞİL</td></tr>
+</table></div>
+<div class="prompt" id="p910">Black ink line drawing on white, technical field-guide style, no shading, no colour. A PLATE for one page of a children&#x27;s activity book.
+
+⭑ GLİFLER ÜRETEÇTEN GELMEZ ⭑
+
+The Yorùbá letterforms are NOT generated by the image model. The model produces the PLATE ONLY: rules, boxes, cells, panels and writing lines. Every letter cell is left EMPTY and the CLI typography layer sets the real glyphs afterwards in an embedded font.
+
+Reason: an image model cannot be trusted to place a combining dot-below reliably, and on this page the dot IS the content. A hallucinated, shifted or missing dot does not make the plate slightly wrong — it makes the page unsolvable and the linguistic claim false.
+
+THE PLATE MUST PRINT THE FOLLOWING FURNITURE, AND NOTHING ELSE:
+{PRINT_LIST}
+
+EVERY CELL LISTED BELOW IS RESERVED AS AN EMPTY, CORRECTLY SIZED BOX. The generator leaves it blank; the typography layer fills it:
+{REQUIRED_LABELS}
+
+CONSTRAINTS:
+- The under-dots must be printed clearly and must not be mistaken for full stops.
+- No letter may be ringed in the image.
+- Print no Yorùbá word on this page; only single letters.
+- CULTURAL SAFETY: No sacred name may be the ANSWER to any cipher.
+
+NEGATIVE: no colour — the interior is printed black and white; no greyscale washes or gradients; line and solid black only; no photographic or realistic human faces; no text baked into the image except the labels listed in PRINT EXACTLY; no answer visible anywhere in the image; no decorative borders, frames, corner flourishes or drop shadows; no AI watermark, signature or logo; no modern branding, clothing or objects in a historical scene; no religious ritual shown as an action a reader could copy; no weapon in use, no wound, no blood, no body
+
+OUTPUT: PNG, grayscale, 1050 × 600 px, 7:4, 150 dpi minimum.<button class="copy" data-t="p910">promptu kopyala</button></div>
+<h4><code>korean-river-crossing-sort</code></h4>
+<div class="scroll"><table>
+<tr><td><strong>Amaç</strong></td><td>Print the cards out of order, each with an empty number box.</td></tr>
+<tr><td><strong>Neden bu sayfa hassas</strong></td><td>Bu sayfanın cevabı bir SIRADIR. Levhaya eklenen dekoratif bir nesne yeni bir olası cevap üretir; suya konan tek bir hayvan ise cevabı doğrudan basar.</td></tr>
+<tr><td><strong>Varlık kimliği</strong></td><td><code>fig-korean-river-crossing-sort</code></td></tr>
+<tr><td><strong>Dosya adı</strong></td><td><code>fig-korean-river-crossing-sort.png</code></td></tr>
+<tr><td><strong>HAM konum</strong></td><td><code>07_ASSETS/raw/fig-korean-river-crossing-sort.png</code><br><em>⚠ şu an YER TUTUCU duruyor; hat onu <code>07_ASSETS/rejected/</code> altına arşivler, ÜZERİNE YAZMAZ</em></td></tr>
+<tr><td><strong>Nihai hedef</strong></td><td><code>07_ASSETS/final/interior/fig-korean-river-crossing-sort.png</code></td></tr>
+<tr><td><strong>Hedef ölçü</strong></td><td>975 × 900 px · 6.50 × 6.00 in @ 150 dpi</td></tr>
+<tr><td><strong>En-boy oranı · yön</strong></td><td>13:12 · landscape</td></tr>
+<tr><td><strong>Renk · düzen</strong></td><td>grayscale · <code>sort-cards</code></td></tr>
+<tr><td><strong>CLI sonradan basacak</strong></td><td>bütün glifler / kart metni / etiketler — gömülü yazı tipiyle, üreteçten DEĞİL</td></tr>
+</table></div>
+<div class="prompt" id="p911">Black ink line drawing on white, technical field-guide style, no shading, no colour. A PLATE for one page of a children&#x27;s activity book.
+
+⭑ KART METNİ ÜRETEÇTEN GELMEZ ⭑
+
+The card sentences are NOT generated by the image model. The model produces the PLATE ONLY: the river, the two banks, the empty card rectangles, the empty square number boxes and the writing line. Each card is left EMPTY and the CLI typography layer sets the card text afterwards in an embedded font.
+
+Reason: the order of the cards is the answer. Text placed by the generator cannot be guaranteed to sit in a shuffled order, and a card that lands in its own numbered position hands the answer to the reader.
+
+THE PLATE MUST PRINT THE FOLLOWING FURNITURE, AND NOTHING ELSE:
+{PRINT_LIST}
+
+EVERY CELL LISTED BELOW IS RESERVED AS AN EMPTY, CORRECTLY SIZED BOX. The generator leaves it blank; the typography layer fills it:
+{REQUIRED_LABELS}
+
+CONSTRAINTS:
+- CULTURAL SAFETY: Do not imitate gut (Muism ritual) or mudang initiation.
+- CULTURAL SAFETY: Do not turn jesa (family ancestral rite) into an activity.
+- The cards must be printed in an order that is NOT the story order; no card may sit in its own numbered position.
+- The water must be drawn completely empty: nothing may be shown rising or gathering in it.
+
+NEGATIVE: no colour — the interior is printed black and white; no greyscale washes or gradients; line and solid black only; no photographic or realistic human faces; no text baked into the image except the labels listed in PRINT EXACTLY; no answer visible anywhere in the image; no decorative borders, frames, corner flourishes or drop shadows; no AI watermark, signature or logo; no modern branding, clothing or objects in a historical scene; no religious ritual shown as an action a reader could copy; no weapon in use, no wound, no blood, no body
+
+OUTPUT: PNG, grayscale, 975 × 900 px, 13:12, 150 dpi minimum.<button class="copy" data-t="p911">promptu kopyala</button></div>
+<div class="note stop">
+<strong>YUKARIDAKİ İKİ PROMPT YER TUTUCULUDUR (K10).</strong><br>
+<code>{PRINT_LIST}</code> ve <code>{REQUIRED_LABELS}</code> cevabın kendisini taşır — <code>yoruba</code>'nın etiket listesi <em>tam olarak</em> çocuğun yazacağı şeydir. Dolu hâl yalnızca <code>IMAGE_PROMPT_LIBRARY.local.html</code> dosyasındadır ve o dosya depoya girmez.
+</div>
+<h3>9.5 · Kurucunun üreteceği dosyalar — tam liste</h3>
+<p>Ayrıntılı teslim sözleşmesi: <code>07_ASSETS/FOUNDER_ASSET_DELIVERY.md</code>.</p>
+<div class="scroll"><table>
+<tr><th>Sınıf</th><th>Dosya</th><th>Ölçü</th><th>HAM konum</th><th>Nihai hedef</th></tr>
+<tr><td>kapak</td><td><code>kdp-cover-option-01.png</code></td><td>5283 × 3375</td><td><code>07_ASSETS/raw/</code></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code></td></tr>
+<tr><td>kapak</td><td><code>kdp-cover-option-02.png</code></td><td>5283 × 3375</td><td><code>07_ASSETS/raw/</code></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code></td></tr>
+<tr><td>A+</td><td><code>aplus-01-hero.png</code></td><td>1940 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>
+<tr><td>A+</td><td><code>aplus-02-what-children-do-01…03.png</code></td><td>600 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>
+<tr><td>A+</td><td><code>aplus-03-six-regions.png</code></td><td>1940 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>
+<tr><td>A+</td><td><code>aplus-04-real-cultures.png</code></td><td>600 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>
+<tr><td>A+</td><td><code>aplus-05-screen-free-01…04.png</code></td><td>600 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>
+<tr><td>A+</td><td><code>aplus-06-maps-and-codes.png</code></td><td>600 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>
+<tr><td>A+</td><td><code>aplus-07-completion.png</code></td><td>1940 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>
+<tr><td>iç blok</td><td><code>fig-yoruba-underdot-letters.png</code></td><td>1050 × 600</td><td><code>07_ASSETS/raw/</code></td><td><code>07_ASSETS/final/interior/fig-yoruba-underdot-letters.png</code></td></tr>
+<tr><td>iç blok</td><td><code>fig-korean-river-crossing-sort.png</code></td><td>975 × 900</td><td><code>07_ASSETS/raw/</code></td><td><code>07_ASSETS/final/interior/fig-korean-river-crossing-sort.png</code></td></tr>
+</table></div>
+<div class="note stop">
+<strong>AJAN GÖRSEL ÜRETMEZ — VE BU BÖLÜM DE ÜRETMEZ.</strong><br>
+Bu bölüm yalnızca <em>ne üretileceğini</em> ve <em>nereye konacağını</em> yazar. Ham üretim kurucuya aittir. Hat, kurucu <strong>DEVAM</strong> diyene kadar çalıştırılmaz.
+</div>
 </div>
 <script>
 document.querySelectorAll('.copy').forEach(function(b){

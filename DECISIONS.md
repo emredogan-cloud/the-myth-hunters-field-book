@@ -33,6 +33,93 @@ Durum tablosu · **14 Ağustos 2026 · Faz 5**
 | ~~A14~~ | ~~156 ham görsel hedefin altında~~ | — | — | ✅ **KAPANDI → K39** · kurucu **150 dpi** dedi |
 | — | İki ebeveyn okuması | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** |
 | — | ~150 görselin RAW üretimi | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** · hat hazır (K35) |
+| **A15** | **Sayfa mobilyası çiftlemesi — hangi taraf bırakacak** | **YÜKSEK** | **Aşama 2 · dizgiden ÖNCE** | **AÇIK · KURUCU KARARI** |
+| **A16** | **156 levha 300 dpi'da yeniden üretilecek mi** | **YÜKSEK** | **Aşama 2 · A15 ile BİRLİKTE** | **AÇIK · KURUCU KARARI** |
+| **A17** | Kapak sanatı · A+ · iki eksik levha **RAW üretimi** | **YÜKSEK** | Aşama 2 öncesi | AÇIK · **KURUCUYA AİT** · sözleşme yazıldı |
+
+---
+
+### A15 · Sayfa mobilyası iki kez basılıyor — **hangi taraf bırakacak**
+
+**Ölçüm:** yıldızlı kutu **37/37** mühür sayfasında, yazma alanı
+**75/120** sayfada **iki kez** basılıyor — bir kez levhanın içinde
+(sanata çizilmiş), bir kez `interior.py` tarafından. Çiftlemesiz sayfa
+**21/120**.
+
+Kök neden: `pagePrints` iki ayrı muhataba yazılmış tek bir liste ve
+**ayrım hiçbir yerde yazılı değil**:
+
+```
+LEVHANIN çizeceği   anahtar paneli · kart · harita · nesne
+DİZGİNİN çizeceği   yazma satırı · yıldızlı kutu · numara kutusu
+```
+
+Faz 6 promptu doldururken listenin **tamamını** üretece verdi.
+
+> ### 37 mühür sayfasının 37'sinde çocuk İKİ yıldız kutusu görüyor.
+
+**Kurucudan istenen karar — iki yol var ve ikisi de bedelli:**
+
+| Yol | Ne yapılır | Bedel |
+|---|---|---|
+| ① **Dizgi bırakır** | `pagePrints` maddelerine rol eklenir; `interior.py` levhanın çizdiğini çizmez | levhalar yeniden üretilmez · **ucuz** · levhalardaki gömülü metin kalır |
+| ② **Levha bırakır** | 156 levha mobilya olmadan **yeniden üretilir**; dizgi tek yetkili olur | **pahalı** · ama tipografi politikası (§ 4) geri gelir |
+
+⚠ **Seçim sayfa sayısını değiştirebilir** — ve sayfa sayısı değişirse
+**sırt değişir**, kapak yeniden dizilir.
+
+⚠ **A16 ile birlikte verilmelidir.** ② seçilirse levhalar zaten yeniden
+üretiliyor demektir ve 300 dpi'ı aynı koşuda almak neredeyse bedavadır.
+
+Ölçüm ve kanıt: [`06_REPORTS/KDP_PREFLIGHT_AUDIT.md § D`](06_REPORTS/KDP_PREFLIGHT_AUDIT.md)
+Mekanik takip: `qa_design § ⑨` (şimdilik **uyarı**; ② veya ① uygulanınca **hataya** yükseltilir)
+
+---
+
+### A16 · 300 dpi — **158 varlığın 158'i ölçütün altında**
+
+**K39 SİLİNMEDİ ve değiştirilmedi.** `production.minDpiHistory` hem
+300'ü hem 150'yi, gerekçesiyle birlikte taşıyor. Bu madde o kararı
+**iptal etmiyor**; onun **sonucunu ölçüyor**.
+
+| | |
+|---|---:|
+| Ölçülen varlık | **158 / 158** |
+| Etkin çözünürlük **≥ 300 dpi** | **0** |
+| Mevcut piksel · gereken piksel | 120,4 MP · **481,5 MP** |
+| Gereken çarpan | **× 4,00** |
+
+> ### 150 dpi bir PROJE İÇİ İNDİRİLMİŞ EŞİKTİR — KDP asgarisine uygunluk KANITI DEĞİLDİR.
+>
+> `qa_assets` yeşil yanıyor çünkü **ölçüt 150'ye indirildi**. Kapı kendi
+> ölçütünü doğruluyor, KDP'ninkini değil.
+
+**Kurucudan istenen karar:**
+
+| # | Seçenek | Bedel |
+|---|---|---|
+| ① | 156 levhayı yeniden üret (4× piksel) | zaman + üretim |
+| ② | 150 dpi'da kal · istisnayı nihai raporda **açıkça** yaz | baskı yumuşaklığı |
+| ③ | Yalnızca çizgi yoğunluğu yüksek sayfaları yeniden üret | karma · ölçümle seçilir |
+
+⛔ **Dördüncü bir seçenek yok:** piksel eklemeden DPI etiketini 300
+yapmak bir düzeltme değil, bir **yanlış beyandır**. Hat bunu yapmaz.
+
+⚠ **Kapak ve A+ bu maddenin DIŞINDADIR:** ikisi de yeni üretiliyor ve
+**gerçek 300 dpi**'da üretilecek. İki eksik levha da 300 dpi'da
+üretilebilir.
+
+---
+
+### A17 · Kurucu varlık teslimi — 16 dosya
+
+Kapak (2 seçenek) · A+ (12 görsel) · iki eksik iç blok levhası.
+Tam sözleşme, dosya adları, ölçüler ve hedefler:
+[`07_ASSETS/FOUNDER_ASSET_DELIVERY.md`](07_ASSETS/FOUNDER_ASSET_DELIVERY.md)
+Promptlar: `07_ASSETS/IMAGE_PROMPT_LIBRARY.html § 9`
+
+**Ajan bekliyor.** Kurucu dosyaları koyup **DEVAM** diyene kadar Aşama 2
+başlamaz.
 
 ---
 
@@ -1214,3 +1301,110 @@ Araç **hazırdır**; kurucu iki testçisiyle koşturursa kayıt
 **Aşma kaydı silinmedi.** Üç fazlık genişletme geçmişi (K27 · K30 · K34)
 ve tavanın üç faz boyunca `phase1`'de kaldığı olduğu gibi duruyor;
 `gateCeilingHistory` tavanın **ne zaman ve neden** kalktığını taşıyor.
+
+---
+
+## YÜKLEME ÖNCESİ GEÇİŞ KARARLARI — 16 Ağustos 2026
+
+> Faz 6 kapandıktan **sonra**, yükleme öncesi denetimde alınan kararlar.
+> Yeni bir faz değildir: paketi yükleyecek biri gibi bakan bir geçiştir.
+> Ölçüm raporu: [`06_REPORTS/KDP_PREFLIGHT_AUDIT.md`](06_REPORTS/KDP_PREFLIGHT_AUDIT.md)
+
+---
+
+### K41 · Metadata açıklamasındaki sayı **ELLE YAZILMAZ** — ölçümden türer
+
+**Ne yanlıştı.** `metadata.json § description` — müşterinin Amazon'da
+okuyacağı tek metin — *"Twenty-two peoples. One hundred and twenty
+pages."* diye başlıyordu. Kitap **160 sayfa**. Fark **40 sayfa**.
+
+**Kök neden: sayı yanlış değildi — BAĞLI DEĞİLDİ.** Cümle Faz 6'da elle
+yazıldı; `pageWeight` düzeltilip dizgi 160 ölçtüğünde (**K38**) açıklama
+ölçümle birlikte hareket etmedi, çünkü ölçüme bağlı değildi.
+
+> ### Elle yazılmış bir sayı, kaynağı değiştiği gün sessizce yalan söylemeye başlar.
+>
+> Bu, `pageWeight = 0,75`'in **birebir aynı** dersidir: o da ölçülmemiş,
+> **atanmıştı** ve beş faz yaşadı. Aynı sınıf, ikinci kez — ve bu kez
+> **müşteriye bakan yüzde**.
+
+**İki büyüklük AYRIDIR ve karıştırıldı:**
+
+```
+120  =  AKTİVİTE (bulmaca) sayısı   ← alt başlığın vaadi
+160  =  SAYFA sayısı                ← dizgiden ölçüldü
+```
+
+**Karar:** açıklama bir **kalıptır**; iki sayı da ölçümden gelir.
+`descriptionFacts` alanı açıklamanın **iddia ettiği** sayıları taşır ve
+yeni kapı **`metadata § ⑤`** onları ölçümle karşılaştırır.
+
+| Yeni denetim | Ne yakalar |
+|---|---|
+| sayfa iddiası = PDF ölçümü | bayat sayfa sayısı |
+| aktivite iddiası = manuscript sayımı | bayat aktivite sayısı |
+| ölçülen sayfa sayısı metinde geçiyor | sayının düşmesi |
+| aktivite sayısı `pages` diye anılmıyor | **120 puzzle ≠ 120 page** |
+| rakamlı bayat sayfa iddiası yok | `"120 pages"` biçiminin dönmesi |
+
+`metadata` kapısı **11 → 16 denetim**.
+
+**Yeni açıklama** — pazarlama dili **eklenmedi**, yanlış sözcük
+düzeltildi ve eksik gerçek yazıldı:
+
+```
+Twenty-two peoples. One hundred and twenty puzzles across one hundred
+and sixty pages. Six seals to earn. …
+```
+
+---
+
+### K42 · Prompt kütüphanesi **ELLE DEĞİL, ÜRETEÇTEN** genişletilir
+
+Talimat *"`IMAGE_PROMPT_LIBRARY.html` sonuna ekle"* diyordu. Dosya
+**üretilmiştir** ve `image_prompts.py --check` bayatlık kapısı her
+koşuda dosyayı üreteçle karşılaştırıyor.
+
+> ### Üretilmiş bir dosyaya elle eklenen bir bölüm, bir sonraki üretimde SİLİNİR — ve silinene kadar CI'ı kırmızı yakar.
+
+**Karar:** yeni bölüm (§ 9) **üretece** eklendi. Sonuç talimatın
+istediğiyle aynı — bölüm dosyanın sonunda, § 1–8'e dokunulmadan — ama
+**yeniden üretimde hayatta kalıyor** ve bayatlık kapısı yeşil kalıyor.
+
+`04_BUILD/image_prompts.py`: `COVER_OPTIONS` · `APLUS_MODULES` ·
+`MISSING_ASSETS` · `kdp_final_section()`. Kütüphane **332 → 745 satır**.
+
+**K10 ayrımı korundu ve GENİŞLETİLDİ.** İki eksik levhanın promptu
+takip edilen sürümde `{PRINT_LIST}` ve `{REQUIRED_LABELS}` yer
+tutucularıyla duruyor: `yoruba-underdot-letters`'ın etiket listesi
+*tam olarak* çocuğun yazacağı şeydir.
+
+**Kapak geometrisi hiçbir yerde elle yazılmadı** —
+`06_REPORTS/tracked/metadata.json § cover`'dan okunuyor. Panel
+enleri **hesaplanmıyor, sarmaldan çıkarılıyor**: ayrı ayrı yuvarlama
+1 px açık bırakıyordu (2588+108+2588 = 5284 ≠ 5283) ve bir piksel,
+birleştirici üç paneli yan yana koyduğunda tuvalin dışına taşar.
+
+---
+
+### K43 · Yeni varlık sınıfları **iç bloğun kurallarını miras ALMAZ**
+
+Kapak ve A+ yeni üretiliyor. Üçünün ayrı standardı var:
+
+| | KAPAK | A+ | EKSİK İÇ BLOK |
+|---|---|---|---|
+| Renk | RGB renkli | RGB renkli | gri tonlama |
+| Çözünürlük | **gerçek 300 dpi** | 300 dpi kaynak | 150 dpi (K39) |
+| Nihai biçim | tek PDF | PNG/JPEG < 3 MB | PNG |
+
+> ### K39 bir İÇ BLOK kararıdır. Yeni üretilen bir varlığın düşürülmüş bir ölçütü miras almasının hiçbir gerekçesi yok.
+
+**Ve üçünün ORTAK kuralı tektir:** görselde metin yok. Kapakta bu bir
+üslup tercihi değil bir zorunluluktur — bir üretecin yazdığı başlık
+düzeltilemez, KDP metadata'sıyla harfi harfine eşleşmez ve gömülü bir
+yazım hatası bütün kapağı yeniden ürettirir.
+
+**İki eksik levhada kural daha da ileri gider:** glifler ve kart metni
+üreteçten **hiç gelmez**. Üreteç yalnızca boş mobilyayı çizer.
+`yoruba`'da nokta içeriğin kendisidir; `korean`'da kartların sırası
+cevabın kendisidir. İkisi de bir üretece bırakılamaz.

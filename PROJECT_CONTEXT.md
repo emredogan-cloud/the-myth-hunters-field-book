@@ -232,24 +232,43 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 | ~~A12~~ | ~~148 mi 144 mü — dayanak~~ | — | ✅ **kapandı → K33** · kurucu **144** dedi |
 | **A10** | **gerçek çocuk oturumu** | kurucu | **AÇIK · K27/K30/K34 ile ERTELENDİ, kapanmadı** |
 | **A9** | **fizikî prova** | kurucu | Faz 5–6 · **kurucuya ait** |
+| **A15** | **mobilya çiftlemesi — hangi taraf bırakacak** | kurucu | **AŞAMA 2 ÖNCESİ · YÜKSEK** |
+| **A16** | **156 levha 300 dpi'da yeniden üretilecek mi** | kurucu | **A15 İLE BİRLİKTE · YÜKSEK** |
+| **A17** | **16 varlık dosyası** (kapak · A+ · 2 levha) | kurucu | **AŞAMA 2 ÖNCESİ · YÜKSEK** |
 | A5 | Ciltli hediye sürümü | kurucu | Faz 4 |
 | A6 | Yazar biyografisi metni | kurucu | Faz 6 |
 | — | İki ebeveyn okuması | kurucu | Faz 5 |
 | — | ~150 görselin **RAW üretimi** | kurucu | Faz 5 · hat hazır (**K35**) |
 | — | KDP paneli işlemleri | kurucu | Faz 6 sonrası |
 
+> **A15 ve A16 BİRLİKTE verilmelidir.** A15'in ② yolu seçilirse levhalar
+> zaten yeniden üretiliyor demektir ve 300 dpi'ı aynı koşuda almak
+> neredeyse bedavadır. Ayrı ayrı vermek, işi iki kez yapmaktır.
+
 ---
 
 ## 11 · Sonraki izinli eylem
 
-> **PROJE FAZ 6 SONUNDA. AJAN DURDU.**
+> **YÜKLEME ÖNCESİ GEÇİŞ · AŞAMA 1 BİTTİ. AJAN DURDU VE BEKLİYOR.**
+>
+> Faz 6 *"KDP paketi hazır"* diyerek kapanmıştı. Yükleme öncesi denetim
+> aynı pakete **yükleyecek biri gibi** baktı ve pakedin hazır
+> **olmadığını** ölçtü.
 >
 > ```
-> İÇ BLOK        ✅ 160 sayfa · 158 gerçek görsel · 08_OUTPUT/PAPERBACK/
-> METADATA       ✅ 06_REPORTS/tracked/metadata.json
-> KAPAK ÖLÇÜSÜ   ✅ 03_COVER/COVER_SPEC.md · sırt 0,3603"
-> KAPAK SANATI   ❌ KURUCUYA AİT
-> YER TUTUCU     ⚠ 2 varlık — basımdan önce DEĞİŞTİRİLMELİ
+> AŞAMA 1        ✅ prompt yazıldı · denetim yapıldı · ÜRETİM YOK
+> AŞAMA 2        ⏳ kurucu "DEVAM" diyene kadar BAŞLAMAZ
+>
+> İÇ BLOK        ✅ 160 sayfa · 08_OUTPUT/PAPERBACK/  ⚠ 2 yer tutucuyla
+> METADATA       ✅ DÜZELTİLDİ — "120 pages" → 120 puzzles / 160 pages (K41)
+> KAPAK ÖLÇÜSÜ   ✅ 03_COVER/COVER_SPEC.md · sırt 0,3603" · GEÇİCİ
+> PROMPTLAR      ✅ IMAGE_PROMPT_LIBRARY § 9 · kapak 2 · A+ 12 · levha 2
+>
+> KAPAK SANATI   ❌ KURUCUYA AİT — A17
+> YER TUTUCU     ⛔ 2 varlık — s.60 · s.120 — BASIMI BLOKE EDER
+> MOBİLYA        ⛔ 99 sayfada İKİ KEZ basılıyor — A15 · KURUCU KARARI
+> 300 dpi        ⛔ 158/158 ölçütün altında — A16 · KURUCU KARARI
+> EDİTORYAL      ⛔ 46 bulgu · 11 sayfada cevap sızıyor (9 değil)
 > ÇOCUK OTURUMU  ❌ 0 — A10 KARARLA kapandı (K40), kanıtla değil
 > ```
 >
@@ -257,6 +276,17 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 > `passed` yazmıyor ve yazmayacak. Kitap çocuk doğrulamasından
 > **geçmemiştir**.
 >
-> Nihai rapor: [`06_REPORTS/FINAL_RELEASE_REPORT.md`](06_REPORTS/FINAL_RELEASE_REPORT.md)
+> ⚠ **CI YEŞİL, KİTAP HAZIR DEĞİL.** Bir kapı ancak sorduğu soruyu
+> ölçer; mobilya çiftlemesini **hiçbir kapı sormamıştı**. Artık
+> `qa_design § ⑨` ölçüyor (uyarı olarak; A15 uygulanınca hataya
+> yükseltilecek).
 >
-> **KDP paneline dokunulmadı. Prova sipariş edilmedi. Yükleme kurucunundur.**
+> **Kurucudan bekleniyor:** A15 · A16 (birlikte verilmeli) ve A17'nin
+> 16 dosyası.
+>
+> Ölçüm raporu: [`06_REPORTS/KDP_PREFLIGHT_AUDIT.md`](06_REPORTS/KDP_PREFLIGHT_AUDIT.md)
+> Teslim sözleşmesi: [`07_ASSETS/FOUNDER_ASSET_DELIVERY.md`](07_ASSETS/FOUNDER_ASSET_DELIVERY.md)
+> Faz 6 raporu: [`06_REPORTS/FINAL_RELEASE_REPORT.md`](06_REPORTS/FINAL_RELEASE_REPORT.md)
+>
+> **KDP paneline dokunulmadı. Prova sipariş edilmedi. Hiçbir görsel
+> üretilmedi. Yükleme kurucunundur.**
