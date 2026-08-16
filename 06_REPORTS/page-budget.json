@@ -10,79 +10,79 @@
     "backMatter": 14,
     "structuralPerRegion": 2,
     "finalQuest": 5,
-    "activityPages": 104.0,
-    "regionsTotal": 116.0,
-    "modelRaw": 144.0,
-    "modelPages": 144,
-    "modelPagesSignatureAligned": 144,
+    "activityPages": 120.0,
+    "regionsTotal": 132.0,
+    "modelRaw": 160.0,
+    "modelPages": 160,
+    "modelPagesSignatureAligned": 160,
     "regions": [
       {
         "region": "north-ice",
         "quota": 24,
-        "avgPageWeight": 0.865,
+        "avgPageWeight": 1.0,
         "weightSource": "ÖLÇÜLDÜ",
         "lockedActivities": 24,
-        "activityPages": 20.8,
+        "activityPages": 24.0,
         "structuralPages": 2,
-        "totalPages": 22.8
+        "totalPages": 26.0
       },
       {
         "region": "middle-sea",
         "quota": 20,
-        "avgPageWeight": 0.887,
+        "avgPageWeight": 1.0,
         "weightSource": "ÖLÇÜLDÜ",
         "lockedActivities": 20,
-        "activityPages": 17.8,
+        "activityPages": 20.0,
         "structuralPages": 2,
-        "totalPages": 19.8
+        "totalPages": 22.0
       },
       {
         "region": "sun-savanna",
         "quota": 16,
-        "avgPageWeight": 0.875,
+        "avgPageWeight": 1.0,
         "weightSource": "ÖLÇÜLDÜ",
         "lockedActivities": 16,
-        "activityPages": 14.0,
+        "activityPages": 16.0,
         "structuralPages": 2,
-        "totalPages": 16.0
+        "totalPages": 18.0
       },
       {
         "region": "monsoon",
         "quota": 24,
-        "avgPageWeight": 0.865,
+        "avgPageWeight": 1.0,
         "weightSource": "ÖLÇÜLDÜ",
         "lockedActivities": 24,
-        "activityPages": 20.8,
+        "activityPages": 24.0,
         "structuralPages": 2,
-        "totalPages": 22.8
+        "totalPages": 26.0
       },
       {
         "region": "great-ocean",
         "quota": 20,
-        "avgPageWeight": 0.863,
+        "avgPageWeight": 1.0,
         "weightSource": "ÖLÇÜLDÜ",
         "lockedActivities": 20,
-        "activityPages": 17.2,
+        "activityPages": 20.0,
         "structuralPages": 2,
-        "totalPages": 19.2
+        "totalPages": 22.0
       },
       {
         "region": "jaguar-condor",
         "quota": 16,
-        "avgPageWeight": 0.844,
+        "avgPageWeight": 1.0,
         "weightSource": "ÖLÇÜLDÜ",
         "lockedActivities": 16,
-        "activityPages": 13.5,
+        "activityPages": 16.0,
         "structuralPages": 2,
-        "totalPages": 15.5
+        "totalPages": 18.0
       }
     ],
-    "pageTarget": 144,
+    "pageTarget": 160,
     "pageDeltaPct": 0.0,
-    "royalty_paperback": 5.55,
-    "printCost_paperback": 3.45,
-    "breakevenAcos_paperback": 37.0,
-    "royaltyBaseline": 5.55,
+    "royalty_paperback": 5.27,
+    "printCost_paperback": 3.72,
+    "breakevenAcos_paperback": 35.2,
+    "royaltyBaseline": 5.27,
     "royaltyDriftVsBaseline": 0.0
   }
 }

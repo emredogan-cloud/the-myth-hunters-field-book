@@ -25,10 +25,12 @@ Durum tablosu · **14 Ağustos 2026 · Faz 5**
 | ~~A11~~ | ~~`gates.requirements.phase3` 80 mi 60 mı~~ | — | — | ✅ **KAPANDI → K29** · kurucu **60** dedi |
 | ~~A4~~ | ~~168 adaydan 120'sinin nihai seçimi~~ | — | — | ✅ **KAPANDI → K31** · Faz 4 kalan 60'ı seçti |
 | ~~A12~~ | ~~148 mi 144 mü · dayanak gözden geçirmesi~~ | — | — | ✅ **KAPANDI → K33** · kurucu **144** dedi |
-| **A10** | gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **ERTELENDİ (K27 · K30 · K34)** · oturum **YAPILMADI** |
+| ~~A10~~ | ~~gerçek oturumun koşturulması~~ | — | — | ⚠ **KAPANDI → K40** · **KURUCU AŞMASI · SIFIR OTURUM** |
 | **A9** | fizikî prova siparişi ve değerlendirmesi | ORTA | Faz 5–6 | AÇIK · **KURUCUYA AİT** |
 | **A5** | Ciltli hediye sürümü v1.0'a girecek mi | DÜŞÜK | Faz 4 | AÇIK (varsayım: hayır) |
-| **A6** | Yazar biyografisi metni | ORTA | Faz 6 | AÇIK |
+| ~~A6~~ | ~~Yazar biyografisi metni~~ | — | — | ✅ **KAPANDI → K36** · kurucu metni |
+| ~~A13~~ | ~~dizilmiş sayfa 160, hedef 144~~ | — | — | ✅ **KAPANDI → K38** · kurucu **160** dedi |
+| ~~A14~~ | ~~156 ham görsel hedefin altında~~ | — | — | ✅ **KAPANDI → K39** · kurucu **150 dpi** dedi |
 | — | İki ebeveyn okuması | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** |
 | — | ~150 görselin RAW üretimi | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** · hat hazır (K35) |
 
@@ -71,6 +73,82 @@ olarak nitelendirdi. Ayrıntı ve kök neden: **K29**.
 
 Kurucu **144**'ü onayladı. Ayrıntı, ekonomik sonuç ve kayıt disiplini:
 **K33**.
+
+### A13 · Dizilmiş sayfa **160**, onaylı hedef **144** — **YENİ · AÇIK**
+
+Faz 6 gerçek dizgi motorunu (`interior.py`) kurdu ve sayfa sayısını beş
+fazda ilk kez **ölçtü**. Sonuç modeli yalanlıyor:
+
+```
+MODEL   (page_budget · pageWeight toplamı)   144
+ÖLÇÜM   (interior · dizilmiş PDF)            160     ← +16
+HEDEF   (K33 · kurucu)                       144
+```
+
+**Kök neden ölçüldü.** `pageWeight` Faz 1'de **tipe göre** atanmıştı:
+`cipher`/`sort` → 0,75 · `map`/`observe`/`make` → 1,0. 0,75 ağırlık
+*"iki hafif sayfa bir sayfayı paylaşır"* demektir. Ölçüm bunu yalanlıyor:
+
+| Ağırlık | Sayfa | Gerçek dikey ihtiyaç (ort.) |
+|---|---:|---:|
+| 1,00 | 56 | **8,01"** |
+| 0,75 | 64 | **8,57"** ← *daha AĞIR* |
+
+Kullanılabilir yükseklik **10,00"**. İki 0,75 sayfasının paylaşması için
+her birinin **≤ 5,00"** olması gerekir: **64 sayfanın 0'ı sığıyor.**
+
+> **`cipher` ve `sort` sayfaları hafif değildir.** Anahtar paneli, kart
+> bankası ve daha çok yazma satırı taşırlar. 0,75 ölçülmedi, **atandı**.
+
+Ve `DESIGN_SYSTEM § 1.1` zaten sayfa başına **tek** modül yığını
+tanımlıyor — paylaşım, dizgenin kendisiyle de çelişiyordu.
+
+| Seçenek | Sonuç |
+|---|---|
+| **160 kabul edilir** | telif **5,27 $** (−0,28 $) · başabaş ACOS %35,2 · içerik değişmez |
+| 144'e indirilir | **16 sayfa çıkar** = ~16 aktivite → alt başlıktaki **120 vaadi düşer** |
+| Düzen sıkılaştırılır | levha yüksekliği ve yazma satırı kısılır → **ürünün işlevi** bozulur |
+
+**Ajan hiçbirini seçmedi.** Sayfa kısılmadı, hedef sessizce değişmedi.
+
+### A14 · 156 ham görsel hedefin **altında** — **YENİ · AÇIK**
+
+Kurucu 158 ham görseli teslim etti. Ölçüm:
+
+```
+teslim edilen         156 dosya   (beklenen 158 · 2 EKSİK)
+çözünürlük            156/156'sı 1,57 MP — hepsi AYNI
+aktivite hedefini karşılayan   0 / 156
+```
+
+En küçük aktivite hedefi **2100×1200 = 2,52 MP**. Hiçbir dosya
+karşılamıyor. Zorlanırsa efektif çözünürlük **166–202 dpi** olur;
+şartname **300 dpi** diyor (`visualSpec.minDpi`).
+
+| Sınıf | Adet | 300 dpi'da üretilebilir mi |
+|---|---:|---|
+| kültür vinyeti (1350×900) | 22 | ✅ |
+| mühür damgası (900×900) | 6 | ✅ |
+| rozet (600×600) | 6 | ✅ |
+| **aktivite levhası** | **120** | ❌ |
+| **ön madde diyagramı** | **4** | ❌ |
+
+**Ve ikinci bir engel:** dosya adları `001.png`–`156.png`; envanterin
+beklediği `assetId` adlarıyla **hiçbiri eşleşmiyor** (0/158) ve dosyalar
+manifest sırasında **değil** (ölçüldü: `001` Inuktitut hecelemesi,
+manifest #1 Maya sayıları; `121` Irish vinyeti, manifest #121 Finnish).
+
+> ### Bir eşleme TAHMİN EDİLEMEZ. Yanlış aktiviteye bağlanmış kusursuz bir görsel, o sayfayı ÇÖZÜLEMEZ yapar.
+
+`asset_pipeline.py` yukarı örneklemeyi **reddeder** (K35) ve bu bilinçli:
+büyütmek çözünürlük kazandırmaz, yalnızca 300 dpi iddiasını yalan hâline
+getirir.
+
+| Seçenek | Sonuç |
+|---|---|
+| **124 görsel yeniden üretilir** | hedef ölçüde · hat hazır · envanter deterministik |
+| 300 dpi ölçütü düşürülür | **kurucu kararı** · dayanağı kayda geçer (A12 gibi) |
+| Yalnızca 34 üretilebilir | vinyet + damga + rozet basılır, aktivite levhaları **boş kalır** |
 
 ### A9 · Fizikî prova — KURUCUYA AİT · **YENİ**
 
@@ -957,3 +1035,182 @@ yapılmasını serbest bırakır.
 > **Şartnameyi ihlal eden görsel değiştirilir; şartname değiştirilmez.**
 > Şartnamenin kendisi kanıtlanabilir biçimde yanlışsa bu bir **tasarım
 > düzeltmesidir** ve kayda geçer (kurucu talimatı § 16).
+
+
+---
+
+## FAZ 6 KARARLARI — 16 Ağustos 2026
+
+### K36 · A6 kapandı — yazar biyografisi kurucu metnidir
+
+**16 Ağustos 2026 · Faz 6 talimatı § 2.**
+
+> *"Emre is a puzzle designer, mythologist, and game archivist dedicated
+> to preserving ancient cultures, codes, and stories for the next
+> generation."*
+
+21 kelime. Metin **kurucunun kendi cümlesidir** ve tek kelimesi
+değiştirilmedi. `authorBio` null iken Faz 6 kapısı kırmızı yanıyordu —
+World Myths'te KDP bir yer tutucu biyografiyi reddetmişti ve o ders bu
+projeye bir kapı olarak taşınmıştı.
+
+### K37 · Çocuk testi ARACI üretildi — A10 KAPANMADI
+
+**16 Ağustos 2026 · Faz 6 talimatı § 3.**
+
+Kurucu etkileşimli bir çocuk testi dosyası istedi ve üretildi:
+`01_SOURCE/pilot_tr/interactive_child_test.html` — on altı Türkçe pilot
+sayfası, sayfa başına gözlemci paneli, oturum kaydı üreteci.
+
+**A10 kapatılmadı ve `.gate` yükseltilmedi.** Gerekçe projenin kendi
+kuralıdır ve beş fazdır değişmedi:
+
+> ### PAKET ÜRETMEK, TEST YAPMAK DEĞİLDİR. (DECISIONS § A10 · Faz 2'den beri)
+
+Bir simülasyon bir çocuk değildir. Araç **testi yapmayı mümkün kılar**;
+testin **yapıldığını göstermez**. Bugün yapılan oturum sayısı **sıfırdır**
+ve `externalValidation` **`pending`** kaldı.
+
+    araç üretildi        ✅
+    oturum yapıldı       ❌  0
+    çocuk sayısı         ❌  0
+    externalValidation   ⏳  pending
+
+**A10 şu üçü birlikte olduğunda kapanır:** gerçek bir çocuk · gerçek bir
+oturum · `CHILD_TEST_LOG.md`'ye kaydedilmiş sonuç. Araç o kaydı tek
+düğmeyle üretiyor; kurucu iki testçisiyle koşturduğunda A10 **aynı gün**
+kapanır.
+
+Ajan bir simülasyonu bir oturum olarak kaydetmedi — çünkü kaydetseydi
+proje belgeleri **yanlış bir olguyu** taşırdı ve `validate_spec § ⑤`
+zaten bunu kırmızı yakacak biçimde kurulmuştu.
+
+
+---
+
+### K38 · A13 kapandı — sayfa **160** · ölçüm modeli yendi
+
+**16 Ağustos 2026 · Faz 6 talimatı § 1.**
+
+Kurucu gerçek dizgi ölçümünü kabul etti ve **hiçbir aktiviteyi kesmedi**.
+
+| | ESKİ | YENİ |
+|---|---:|---:|
+| `scope.pageTarget` | 144 | **160** |
+| Ciltsiz baskı | 3,45 $ | **3,72 $** |
+| Ciltsiz telif | 5,55 $ | **5,27 $** |
+| Başabaş ACOS | %37,0 | **%35,2** |
+
+**Kök neden düzeltildi, sayı değil.** `pageWeight` Faz 1'de **tipe göre**
+atanmıştı (`cipher`/`sort` → 0,75) ve bu *"iki hafif sayfa bir sayfayı
+paylaşır"* demekti. Ölçüm yalanladı:
+
+```
+ağırlık 1,00 (56 sayfa) → ortalama 8,01 inç dikey ihtiyaç
+ağırlık 0,75 (64 sayfa) → ortalama 8,57 inç   ← DAHA AĞIR
+kullanılabilir yükseklik 10,00 inç · paylaşım için gereken ≤5,00 inç
+64 hafif sayfanın SIFIRI sığıyor.
+```
+
+> ### `cipher` ve `sort` sayfaları hafif değildir. 0,75 ölçülmedi, ATANDI.
+
+168 adayın `pageWeight`i 1,0'a çekildi ve model artık dizgiyle **birebir**
+tutuyor: **160 = 160 · sapma %0,0**.
+
+**Alt başlıktaki 120 vaadi korundu.** Kurucu 16 sayfayı üstlendi.
+
+---
+
+### K39 · A14 kapandı — baskı ölçütü **300 → 150 dpi**
+
+**16 Ağustos 2026 · Faz 6 talimatı § 2.**
+
+Teslim edilen 156 ham görselin **hepsi 1,57 MP**. Aktivite hedeflerinde
+efektif çözünürlük 166–202 dpi çıkıyordu. Kurucu görselleri **yeniden
+üretmemeyi** ve ölçütü düşürmeyi seçti.
+
+> ### Bir ölçüt düşürülüyorsa, düşürüldüğü SÖYLENMELİDİR.
+
+`production.minDpiHistory` eski değeri, gerekçeyi **ve sonucunu** taşıyor:
+
+> *"İç blok çizgi sanatı 150–200 dpi bandında basılacak. KDP tavsiyesi
+> 300 dpi'dır; bu ölçüt düşürülmesi bir kurucu kararıdır ve baskı
+> yumuşaklığı KABUL EDİLMİŞTİR."*
+
+Fiziksel boy **değişmedi**; `targetPx` yarılandı (aynı inç, yarı piksel).
+
+#### 39.1 · ⭑ SIRALI EŞLEME UYGULANMADI — VE UYGULANAMAZDI ⭑
+
+Talimat *"001–156'yı manifestin ilk 156 girdisine sırayla eşle"* diyordu.
+**Bu eşleme ölçülerek yanlışlandı:**
+
+| Dosya | Gerçekte ne | Manifest sırası ne derdi |
+|---|---|---|
+| `001.png` | **Inuktitut hecelemesi** levhası | `fig-maya-bar-dot-numbers` |
+| `121.png` | **Irish** kültür vinyeti | `vig-finnish` |
+
+> **Yanlış aktiviteye bağlanmış kusursuz bir görsel, o sayfayı ÇÖZÜLEMEZ
+> yapar** — ve bir kültürü başka bir kültürün sanatıyla etiketler.
+
+**Doğru eşleme bulundu ve kanıtlandı:** dosyalar **manifest sırasında
+değil, PROMPT KÜTÜPHANESİ sırasında** (bölge sırası × sayfa sırası) ve
+aradan **iki** girdi eksik.
+
+```
+yönelim eşleşmesi   156 / 156   (%100)
+görsel çapa         001 → inuit-syllabic-signs   ✅
+görsel çapa         119 → vig-finnish            ✅
+görsel çapa         121 → vig-irish              ✅
+görsel çapa         141 → seal-north-ice         ✅
+eksik girdi         yoruba-underdot-letters · korean-river-crossing-sort
+```
+
+İki eksik varlık için **dürüst yer tutucu** üretildi: çapraz taramalı,
+üzerinde `PLACEHOLDER` ve `art not supplied — do not print` yazan kutular.
+Manifest'te `status: placeholder-art-missing`.
+
+#### 39.2 · Kutular sanata oturtuldu, sanat kutuya zorlanmadı
+
+46 varlıkta teslim edilen sanat kutudan kısaydı. Boşluk beyazla
+doldurulabilirdi (beyaz sayfada görünmez) ama kutu yanlış boy iddia
+etmeye devam ederdi. **Kutular daraltıldı**: yukarı örnekleme yok,
+kırpma yok, doluluk ≈%100.
+
+Bir varlık (`fig-korean-animal-plate`) hedeften 6×97 px küçüktü ve hat
+**büyütmeyi reddetti** — doğru davranış. Kutusu sanata oturtuldu.
+
+---
+
+### K40 · A10 kapandı — ⚠ **KURUCU AŞMASI · SIFIR OTURUM**
+
+**16 Ağustos 2026 · Faz 6 talimatı § 3.**
+
+```
+GERÇEK ÇOCUK OTURUMU     0
+TEST EDİLEN ÇOCUK        0
+externalValidation       overridden-zero-sessions   ← 'passed' DEĞİL
+.gate                    release
+```
+
+Kurucu, gerçek bir çocuk oturumu **yapılmadan** A10'u kapatmayı ve kapıyı
+yükseltmeyi **açıkça** seçti. Karar kayıtlıdır, gizli değildir ve
+**'passed' olarak yazılmamıştır**.
+
+> ### Bir kapanış KANITLA da olur KARARLA da. İkisi aynı şey değildir ve kayıt hangisi olduğunu söyler.
+
+`childTesters.closure.whatThisIsNot` beş maddeyi kalıcı olarak reddediyor:
+
+- *bir çocuk bu kitabı test etti*
+- *kitap çocuk-doğrulandı*
+- *talimatların anlaşıldığı ölçüldü*
+- *Faz 2'nin PASS ölçütü sağlandı*
+- *externalValidation 'passed' oldu*
+
+**Ne yapıldı:** `interactive_child_test.html` üretildi — on altı Türkçe
+pilot sayfası, sayfa başına gözlemci paneli, tek düğmeyle oturum kaydı.
+Araç **hazırdır**; kurucu iki testçisiyle koşturursa kayıt
+`CHILD_TEST_LOG.md`'ye girer ve alan `passed` olabilir.
+
+**Aşma kaydı silinmedi.** Üç fazlık genişletme geçmişi (K27 · K30 · K34)
+ve tavanın üç faz boyunca `phase1`'de kaldığı olduğu gibi duruyor;
+`gateCeilingHistory` tavanın **ne zaman ve neden** kalktığını taşıyor.

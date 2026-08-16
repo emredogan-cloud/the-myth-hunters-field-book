@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "checks": 6,
+  "errors": [],
+  "warnings": [],
+  "facts": {
+    "assetSource": "07_ASSETS/ASSET_MANIFEST.local.json",
+    "finalAssetsOnDisk": 158,
+    "output": "08_OUTPUT/PAPERBACK/interior.pdf",
+    "placeholderMode": false,
+    "typesetPagesRaw": 160,
+    "typesetPagesSignatureAligned": 160,
+    "overflowPages": [],
+    "thinWritingLines": [],
+    "modelVsTypesetDelta": 0
+  }
+}

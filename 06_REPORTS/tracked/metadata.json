@@ -1,0 +1,70 @@
+{
+  "$comment": [
+    "ÜRETİLMİŞTİR — 04_BUILD/metadata.py · ELLE DÜZENLEMEYİN.",
+    "",
+    "Bu dosya KDP paneline GİRİLECEK değerleri taşır. Paneli KURUCU",
+    "doldurur; ajan panele dokunmaz (yol haritası Faz 6 § 13).",
+    "",
+    "Sırt kalınlığı sayfa sayısından TÜRETİLİR; elle yazılmaz."
+  ],
+  "title": "The Myth Hunter's Field Book",
+  "subtitle": "A Screen-Free Quest Through 22 Cultures — 120 Puzzles, Maps, Codes and Challenges for Ages 8–12",
+  "author": "Emre Doğan",
+  "publisher": "Vâliçe Press",
+  "authorBio": "Emre is a puzzle designer, mythologist, and game archivist dedicated to preserving ancient cultures, codes, and stories for the next generation.",
+  "language": "en",
+  "isbn": {
+    "strategy": "kdp-free",
+    "paperback": null,
+    "note": "KDP ücretsiz ISBN verir; SAHTE ISBN YAZILMAZ."
+  },
+  "audience": {
+    "ageMin": 8,
+    "ageMax": 12,
+    "gradeRange": "3-7",
+    "bisacPrimary": "JNF001000",
+    "bisacSecondary": [
+      "JUV045000",
+      "JNF025000"
+    ]
+  },
+  "keywords": [
+    "screen free activity book kids 8-12",
+    "mythology puzzles for children",
+    "world cultures activity book",
+    "codes and ciphers for kids",
+    "maps and mazes puzzle book",
+    "gift for curious kids age 9",
+    "homeschool world mythology"
+  ],
+  "description": "Twenty-two peoples. One hundred and twenty pages. Six seals to earn. This is not a puzzle book with a mythology theme — every puzzle is built out of what a people actually made: a writing system, a counting system, a map of a real place, a message that had to travel. Children decode Younger Futhark and Inuktitut syllabics, count in Maya bars and dots, trace the Red River delta, and sort the Akan day names. Answers are checked against museums, archives and universities, and the back of the book says which ones. Screen-free, written in, and finished with a certificate.",
+  "edition": {
+    "format": "paperback",
+    "trim": "8.50 x 11.00 in",
+    "pages": 160,
+    "ink": "black",
+    "paper": "white",
+    "interiorPdf": "08_OUTPUT/PAPERBACK/interior.pdf"
+  },
+  "pricing": {
+    "list": 14.99,
+    "printCost": 3.72,
+    "royaltyBaseline": 5.27
+  },
+  "cover": {
+    "spineInches": 0.3603,
+    "spineTextAllowed": true,
+    "fullCoverWidthInches": 17.6103,
+    "fullCoverHeightInches": 11.25,
+    "bleedInches": 0.125,
+    "safeMarginInches": 0.25
+  },
+  "aiDisclosure": {
+    "founderConfirmed": false,
+    "note": "KDP panelindeki AI beyanı SEÇİMİNİ kurucu yapar."
+  },
+  "measuredFrom": {
+    "typesetPages": 160,
+    "source": "08_OUTPUT/PAPERBACK/interior.pdf"
+  }
+}

@@ -3,7 +3,7 @@
   "checks": 8,
   "errors": [],
   "warnings": [
-    "testçi onaylandı (2) ve materyal üretildi (2 dosya) — ama dış doğrulama hâlâ 'pending'. PAKET ÜRETMEK TEST YAPMAK DEĞİLDİR; bu alan yalnızca GERÇEK bir oturum CHILD_TEST_LOG.md'ye kaydedildiğinde değişir."
+    "testçi onaylandı (2) ve materyal üretildi (3 dosya) — ama dış doğrulama hâlâ 'overridden-zero-sessions'. PAKET ÜRETMEK TEST YAPMAK DEĞİLDİR; bu alan yalnızca GERÇEK bir oturum CHILD_TEST_LOG.md'ye kaydedildiğinde değişir."
   ],
   "facts": {
     "commercialFields": 17,
@@ -15,6 +15,6 @@
     ],
     "childTestersConfirmed": true,
     "childTestersAvailable": 2,
-    "testMaterialFiles": 2
+    "testMaterialFiles": 3
   }
 }

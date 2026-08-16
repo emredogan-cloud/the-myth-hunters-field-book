@@ -51,13 +51,13 @@
       "founderConfirmed": false,
       "$comment": "KDP panelindeki AI beyanı SEÇİMİNİ kurucu yapar."
     },
-    "authorBio": null,
-    "authorBio$comment": "null olduğu sürece Faz 6 kapısı KIRMIZIDIR (World Myths'te KDP yer tutucuyu reddetti).",
+    "authorBio": "Emre is a puzzle designer, mythologist, and game archivist dedicated to preserving ancient cultures, codes, and stories for the next generation.",
+    "authorBio$comment": "⭑ A6 KAPANDI — kurucu · 16 Ağustos 2026 (Faz 6 talimatı § 2). Faz 6 kapısı authorBio null iken KIRMIZI yanıyordu (World Myths'te KDP yer tutucu metni reddetti). Metin kurucunun kendi cümlesidir ve DEĞİŞTİRİLMEDİ.",
     "childTesters": {
       "founderConfirmed": true,
       "minTesters": 2,
       "availableTesters": 2,
-      "externalValidation": "pending",
+      "externalValidation": "overridden-zero-sessions",
       "packagePrepared": true,
       "testLanguageAllowed": [
         "tr"
@@ -79,10 +79,41 @@
         "",
         "testLanguageAllowed: testçiler Türkçe konuşuyor → materyal GEÇİCİ",
         "olarak Türkçe (K21). Ticari kitap İNGİLİZCE kalır ve Türkçe pilotun",
-        "geçmesi İngilizce sürümün geçtiği anlamına GELMEZ."
+        "geçmesi İngilizce sürümün geçtiği anlamına GELMEZ.",
+        "",
+        "⭑ FAZ 6 · A10 → K40 — SIFIR OTURUMLU KURUCU AŞMASIYLA KAPATILDI ⭑",
+        "",
+        "externalValidation 'passed' DEĞİLDİR ve olmayacaktır. Değeri",
+        "'overridden-zero-sessions' — yani kapandı ama KANITLA değil,",
+        "KARARLA kapandı. Bu ayrım kalıcıdır.",
+        "",
+        "    Gerçek çocuk oturumu: 0",
+        "    Test edilen çocuk    : 0",
+        "",
+        "Kurucu daha sonra gerçek bir oturum koşturursa, kayıt",
+        "CHILD_TEST_LOG.md'ye girer ve bu alan 'passed' olabilir."
       ],
       "confirmedAt": "2026-08-13",
-      "confirmedBy": "kurucu beyanı"
+      "confirmedBy": "kurucu beyanı",
+      "sessionsPerformed": 0,
+      "childrenTested": 0,
+      "closure": {
+        "decision": "K40",
+        "openItem": "A10",
+        "closedAt": "2026-08-16",
+        "closedBy": "kurucu · Faz 6 talimatı § 3",
+        "basis": "KURUCU AŞMASI — dış kanıt DEĞİL.",
+        "realChildSessions": 0,
+        "simulationTool": "01_SOURCE/pilot_tr/interactive_child_test.html",
+        "whatThisIsNot": [
+          "bir çocuk bu kitabı test etti",
+          "kitap çocuk-doğrulandı",
+          "talimatların anlaşıldığı ÖLÇÜLDÜ",
+          "Faz 2'nin PASS ölçütü sağlandı",
+          "externalValidation 'passed' oldu"
+        ],
+        "whatThisIs": "Kurucu, sıfır gerçek çocuk oturumuyla A10'u kapatmayı ve kapıyı yükseltmeyi AÇIKÇA seçti. Karar kayıtlıdır, gizli değildir ve 'passed' olarak YAZILMAMIŞTIR."
+      }
     },
     "phaseOverride": {
       "$comment": [
@@ -121,11 +152,11 @@
         "",
         "status yalnızca KURUCU beyanıyla değişir."
       ],
-      "active": true,
+      "active": false,
       "authorisedPhase": "phase5",
-      "gateCeiling": "phase1",
+      "gateCeiling": "release",
       "deferredBlocker": "A10",
-      "deferredBlockerStatus": "open-not-performed",
+      "deferredBlockerStatus": "closed-by-founder-override-zero-sessions",
       "reason": "A10 çocuk oturumu kurucu tarafından bilinçli olarak ertelendi",
       "declaredAt": "2026-08-13",
       "declaredBy": "kurucu talimatı · Faz 3 § 3",
@@ -172,6 +203,24 @@
           "by": "kurucu talimatı · Faz 5 § 4",
           "gateCeiling": "phase1"
         }
+      ],
+      "resolvedAt": "2026-08-16",
+      "resolvedBy": "kurucu · Faz 6 talimatı § 3",
+      "resolutionDecision": "K40",
+      "resolution": "Ertelenen blokaj A10, gerçek bir oturumla DEĞİL bir KURUCU KARARIYLA kapatıldı (K40). Aşma kaydı silinmedi: üç fazlık genişletme geçmişi ve tavan kaydı olduğu gibi duruyor.",
+      "gateCeilingHistory": [
+        {
+          "ceiling": "phase1",
+          "from": "K27",
+          "to": "K34",
+          "reason": "A10 açıkken kapı yükselemez"
+        },
+        {
+          "ceiling": "release",
+          "from": "K40",
+          "to": null,
+          "reason": "A10 kurucu kararıyla kapandı; tavan kalktı. Kapanış KANITLA değil KARARLA oldu ve childTesters.closure bunu taşıyor."
+        }
       ]
     },
     "physicalProof": {
@@ -184,7 +233,8 @@
         "iş sürer; prova hazır dosyaları ve kontrol listesi üretilir.",
         "status yalnızca KURUCU beyanıyla değişir."
       ]
-    }
+    },
+    "authorBioDecision": "A6 → K36 · kurucu · 16 Ağustos 2026"
   },
   "language": {
     "$comment": [
@@ -326,7 +376,13 @@
       "148 SİLİNMEDİ: pageTargetHistory onu makine okunur biçimde taşır",
       "ve validate_spec § ⑦ kaydın silinmesini KIRMIZI yakar.",
       "Dolgu YASAK: 148'e ulaşmak için içerik EKLENMEZ; 144'ün altına",
-      "inmek için içerik ÇIKARILMAZ (kurucu talimatı Faz 5 § 3)."
+      "inmek için içerik ÇIKARILMAZ (kurucu talimatı Faz 5 § 3).",
+      "",
+      "⭑ FAZ 6 / KARAR A13 → K38: pageTarget 144 → 160 ⭑",
+      "Bir MODEL ile bir ÖLÇÜM ayrıldı ve ÖLÇÜM kazandı. Kurucu 120",
+      "aktiviteyi korumayı ve 16 sayfayı üstlenmeyi seçti:",
+      "  telif 5,55 $ → 5,27 $ · başabaş ACOS %37,0 → %35,2",
+      "Alt başlıktaki 120 vaadi KORUNDU — sayfa kısılmadı."
     ],
     "locked": true,
     "lockedAtPhase": "phase1",
@@ -336,8 +392,8 @@
     "regions": 6,
     "activityTypesRequired": 5,
     "manuscriptWordTarget": 22000,
-    "pageTarget": 144,
-    "pageTargetDecision": "A12 → K33 · kurucu · 14 Ağustos 2026",
+    "pageTarget": 160,
+    "pageTargetDecision": "A13 → K38 · kurucu · 16 Ağustos 2026",
     "pageTolerancePct": 6,
     "activityTypes": [
       {
@@ -454,6 +510,15 @@
         "decidedAt": "2026-08-14",
         "decidedBy": "kurucu · Faz 5 talimatı § 3",
         "basis": "6/6 bölge GERÇEK içerikle ölçüldü (K32) · ham 143 → forma hizalı 144",
+        "supersededBy": "K38"
+      },
+      {
+        "value": 160,
+        "decision": "K38",
+        "openItem": "A13",
+        "decidedAt": "2026-08-16",
+        "decidedBy": "kurucu · Faz 6 talimatı § 1",
+        "basis": "GERÇEK DİZGİ ölçümü (interior.py · 160 sayfalık PDF). pageWeight 0,75 varsayımı ölçümle yalanlandı: cipher/sort sayfaları hafif DEĞİL, ortalama 8,57\" ile 1,0 ağırlıklılardan (8,01\") daha ağır. 64 hafif sayfanın 0'ı yarım sayfaya sığıyor.",
         "supersededBy": null
       }
     ]
@@ -742,10 +807,10 @@
         "",
         "paperbackHistory: eski dayanaklar silinmez, kayıtta durur."
       ],
-      "paperback": 5.55,
+      "paperback": 5.27,
       "driftWarnAt": 0.05,
       "driftFailAt": 0.25,
-      "decision": "A12 → K33 · kurucu · 14 Ağustos 2026",
+      "decision": "A13 → K38 · kurucu · 16 Ağustos 2026",
       "paperbackHistory": [
         {
           "value": 5.55,
@@ -763,6 +828,12 @@
           "value": 5.55,
           "decision": "K33",
           "pages": 144,
+          "supersededBy": "K38"
+        },
+        {
+          "value": 5.27,
+          "decision": "K38",
+          "pages": 160,
           "supersededBy": null
         }
       ]
@@ -794,7 +865,27 @@
       "$comment": "Faz 6 sonrası, 30 gün, TEK değişken: 14,99 $ vs 12,99 $. Raf çapası 9,99 $.",
       "variantA": 14.99,
       "variantB": 12.99
-    }
+    },
+    "minDpi": 150,
+    "minDpiDecision": "A14 → K39 · kurucu · 16 Ağustos 2026",
+    "minDpiHistory": [
+      {
+        "value": 300,
+        "decision": "Faz 1 bootstrap",
+        "basis": "KDP tavsiyesi · baskı standardı",
+        "supersededBy": "K39"
+      },
+      {
+        "value": 150,
+        "decision": "K39",
+        "openItem": "A14",
+        "decidedAt": "2026-08-16",
+        "decidedBy": "kurucu · Faz 6 talimatı § 2",
+        "basis": "Teslim edilen 156 ham görselin hepsi 1,57 MP. Aktivite hedeflerinde efektif çözünürlük 166–202 dpi. Kurucu ölçütü düşürmeyi ve görselleri yeniden ÜRETMEMEYİ seçti.",
+        "consequence": "İç blok çizgi sanatı 150–200 dpi bandında basılacak. KDP tavsiyesi 300 dpi'dır; bu ÖLÇÜT DÜŞÜRÜLMESİ bir kurucu kararıdır ve baskı yumuşaklığı KABUL EDİLMİŞTİR.",
+        "supersededBy": null
+      }
+    ]
   },
   "gates": {
     "$comment": [

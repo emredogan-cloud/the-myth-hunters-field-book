@@ -56,15 +56,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        679
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maya-bar-dot-numbers.png",
@@ -88,15 +88,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maya-ballcourt-plate.png",
@@ -120,15 +120,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maya-number-make.png",
@@ -152,15 +152,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-aztec-chinampa-plate.png",
@@ -184,15 +184,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-aztec-town-sign-make.png",
@@ -216,15 +216,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        688
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maya-number-add.png",
@@ -248,15 +248,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        710
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maya-ballcourt-sort.png",
@@ -280,15 +280,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        690
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-aztec-place-glyphs.png",
@@ -312,15 +312,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-aztec-lake-city-map.png",
@@ -344,15 +344,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        711
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-andean-khipu-knots.png",
@@ -376,15 +376,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        767
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maya-maize-stages-sort.png",
@@ -408,15 +408,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-andean-altitude-map.png",
@@ -440,15 +440,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        799
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-andean-flood-warning-sort.png",
@@ -472,15 +472,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-aztec-maize-journey-sort.png",
@@ -504,15 +504,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        777
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maya-place-glyphs.png",
@@ -536,15 +536,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        808
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-aztec-number-signs.png",
@@ -568,15 +568,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-chinese-pictograph-key.png",
@@ -600,15 +600,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-turkic-yurt-plate.png",
@@ -632,15 +632,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-vietnamese-dragon-boat-plate.png",
@@ -664,15 +664,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-persian-script-direction.png",
@@ -696,15 +696,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1191
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-chinese-strokes-plate.png",
@@ -728,15 +728,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        853
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-vietnamese-tone-hunt.png",
@@ -760,15 +760,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        903,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-chinese-five-colours-sort.png",
@@ -792,15 +792,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        794
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-persian-joined-letters.png",
@@ -824,15 +824,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-chinese-sky-patch-make.png",
@@ -856,15 +856,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        803
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-hindu-devanagari-key.png",
@@ -888,15 +888,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-turkic-steppe-map.png",
@@ -920,15 +920,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        887,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-chinese-zodiac-plate.png",
@@ -952,15 +952,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-persian-alborz-map.png",
@@ -984,15 +984,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        677
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-hindu-river-names-sort.png",
@@ -1016,15 +1016,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-turkic-stone-mark-make.png",
@@ -1048,15 +1048,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-vietnamese-red-river-map.png",
@@ -1080,15 +1080,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        704
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-turkic-one-eyed-giants.png",
@@ -1112,15 +1112,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-hindu-ganga-course-map.png",
@@ -1144,15 +1144,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-persian-garden-make.png",
@@ -1176,15 +1176,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        671
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-persian-great-birds-sort.png",
@@ -1208,15 +1208,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-turkic-orkhon-direction.png",
@@ -1240,15 +1240,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        703
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-chinese-compound-characters.png",
@@ -1272,15 +1272,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        546
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-vietnamese-mountain-water-sort.png",
@@ -1304,15 +1304,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        809
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-chinese-chase-the-sun.png",
@@ -1336,15 +1336,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        699
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-japanese-kana-key.png",
@@ -1368,15 +1368,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        969,
+        1178
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-korean-animal-plate.png",
@@ -1400,15 +1400,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maori-bird-plate.png",
@@ -1432,15 +1432,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-hawaiian-place-name-make.png",
@@ -1464,15 +1464,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-japanese-two-alphabets.png",
@@ -1496,15 +1496,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-korean-hangul-shapes.png",
@@ -1528,15 +1528,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-japanese-box-make.png",
@@ -1560,15 +1560,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        770,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maori-sky-earth-sort.png",
@@ -1592,15 +1592,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-hawaiian-island-chain-map.png",
@@ -1624,15 +1624,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        764
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-korean-founding-order.png",
@@ -1656,15 +1656,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maori-macron-length.png",
@@ -1688,15 +1688,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-korean-peninsula-map.png",
@@ -1720,15 +1720,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        691
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-japanese-cave-sequence.png",
@@ -1752,15 +1752,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-korean-hangul-build.png",
@@ -1784,15 +1784,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-maori-fish-island-map.png",
@@ -1816,15 +1816,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-japanese-eight-of-everything.png",
@@ -1848,15 +1848,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-korean-hangul-place-names.png",
@@ -1880,15 +1880,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1146
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-hawaiian-day-length-plate.png",
@@ -1912,15 +1912,15 @@
       "orientation": "landscape",
       "aspectRatio": "13:12",
       "targetDimensions": [
-        1950,
-        1800
+        975,
+        900
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-korean-river-crossing-sort.png",
@@ -1929,7 +1929,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-korean-river-crossing-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-korean-river-crossing-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#korean-river-crossing-sort",
-      "status": "specified-not-produced",
+      "status": "placeholder-art-missing",
       "requiredLabelCount": 0,
       "restrictionCount": 7,
       "privateSha256": "7ba0a94d9e63698262aa271353a72a57250757b21c6d379399bbe6d415ae2e61"
@@ -1944,15 +1944,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-japanese-turtle-time-plate.png",
@@ -1976,15 +1976,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-inuit-syllabic-signs.png",
@@ -2008,15 +2008,15 @@
       "orientation": "landscape",
       "aspectRatio": "7:5",
       "targetDimensions": [
-        2100,
-        1500
+        1050,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-inuit-sea-creatures-plate.png",
@@ -2040,15 +2040,15 @@
       "orientation": "landscape",
       "aspectRatio": "7:5",
       "targetDimensions": [
-        2100,
-        1500
+        1050,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-inuit-loon-flight-map.png",
@@ -2072,15 +2072,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-inuit-ice-window-draw.png",
@@ -2104,15 +2104,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-norse-futhark-key.png",
@@ -2136,15 +2136,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-norse-runestone-read.png",
@@ -2168,15 +2168,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-norse-weekday-names.png",
@@ -2200,15 +2200,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-norse-binding-riddle.png",
@@ -2232,15 +2232,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-norse-who-owns-what.png",
@@ -2264,15 +2264,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-norse-apples-sequence.png",
@@ -2296,15 +2296,15 @@
       "orientation": "landscape",
       "aspectRatio": "5:3",
       "targetDimensions": [
-        2250,
-        1350
+        1125,
+        675
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-norse-ship-plate.png",
@@ -2328,15 +2328,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-norse-kenning-make.png",
@@ -2360,15 +2360,15 @@
       "orientation": "landscape",
       "aspectRatio": "7:5",
       "targetDimensions": [
-        2100,
-        1500
+        1050,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-finnish-kantele-strings.png",
@@ -2392,15 +2392,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-finnish-spoken-to-printed.png",
@@ -2424,15 +2424,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-finnish-vowel-harmony.png",
@@ -2456,15 +2456,15 @@
       "orientation": "landscape",
       "aspectRatio": "14:9",
       "targetDimensions": [
-        2100,
-        1350
+        1050,
+        625
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-finnish-alliteration.png",
@@ -2488,15 +2488,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-finnish-lakes-map.png",
@@ -2520,15 +2520,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-finnish-instrument-make.png",
@@ -2552,15 +2552,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-irish-ogham-key.png",
@@ -2584,15 +2584,15 @@
       "orientation": "landscape",
       "aspectRatio": "5:3",
       "targetDimensions": [
-        2250,
-        1350
+        1125,
+        634
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-irish-ogham-read.png",
@@ -2616,15 +2616,15 @@
       "orientation": "landscape",
       "aspectRatio": "5:3",
       "targetDimensions": [
-        2250,
-        1350
+        1125,
+        631
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-irish-stone-plate.png",
@@ -2648,15 +2648,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-irish-name-changes.png",
@@ -2680,15 +2680,15 @@
       "orientation": "landscape",
       "aspectRatio": "14:9",
       "targetDimensions": [
-        2100,
-        1350
+        1050,
+        675
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-irish-swans-count.png",
@@ -2712,15 +2712,15 @@
       "orientation": "landscape",
       "aspectRatio": "5:3",
       "targetDimensions": [
-        2250,
-        1350
+        1125,
+        675
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-irish-salmon-river-map.png",
@@ -2744,15 +2744,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-greek-alphabet-key.png",
@@ -2776,15 +2776,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-greek-icarus-flight-map.png",
@@ -2808,15 +2808,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-greek-labyrinth-cipher.png",
@@ -2840,15 +2840,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-greek-crete-palace-map.png",
@@ -2872,15 +2872,15 @@
       "orientation": "landscape",
       "aspectRatio": "14:9",
       "targetDimensions": [
-        2100,
-        1350
+        1050,
+        675
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-greek-column-orders.png",
@@ -2904,15 +2904,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-greek-constellation-plate.png",
@@ -2936,15 +2936,15 @@
       "orientation": "landscape",
       "aspectRatio": "5:3",
       "targetDimensions": [
-        2250,
-        1350
+        1125,
+        675
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-greek-vase-plate.png",
@@ -2968,15 +2968,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-greek-seasons-six-seeds.png",
@@ -3000,15 +3000,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-greek-wing-design-make.png",
@@ -3032,15 +3032,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-egyptian-cartouche-key.png",
@@ -3064,15 +3064,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:15",
       "targetDimensions": [
-        1650,
-        2250
+        825,
+        1125
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-egyptian-nile-map.png",
@@ -3096,15 +3096,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-egyptian-hieroglyph-classes.png",
@@ -3128,15 +3128,15 @@
       "orientation": "landscape",
       "aspectRatio": "5:3",
       "targetDimensions": [
-        2250,
-        1350
+        1125,
+        675
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-egyptian-boat-plate.png",
@@ -3160,15 +3160,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        780,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-egyptian-sailor-sequence.png",
@@ -3192,15 +3192,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-mesopotamian-cuneiform-key.png",
@@ -3224,15 +3224,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        993
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-mesopotamian-base-sixty.png",
@@ -3256,15 +3256,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-mesopotamian-seal-cylinder-plate.png",
@@ -3288,15 +3288,15 @@
       "orientation": "landscape",
       "aspectRatio": "15:8",
       "targetDimensions": [
-        2250,
-        1200
+        1125,
+        560
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-mesopotamian-your-seal-make.png",
@@ -3320,15 +3320,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        759,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-mesopotamian-plant-quest-steps.png",
@@ -3352,15 +3352,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:15",
       "targetDimensions": [
-        1650,
-        2250
+        825,
+        1125
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-mesopotamian-two-rivers-map.png",
@@ -3384,15 +3384,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-yoruba-tone-marks.png",
@@ -3416,15 +3416,15 @@
       "orientation": "landscape",
       "aspectRatio": "7:4",
       "targetDimensions": [
-        2100,
-        1200
+        1050,
+        600
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-yoruba-underdot-letters.png",
@@ -3433,7 +3433,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-yoruba-underdot-letters.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-yoruba-underdot-letters.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#yoruba-underdot-letters",
-      "status": "specified-not-produced",
+      "status": "placeholder-art-missing",
       "requiredLabelCount": 10,
       "restrictionCount": 4,
       "privateSha256": "b3fa4f66da1105f52e0785c0082480cb6579968b08050bf8b4006142c1658f2d"
@@ -3448,15 +3448,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:15",
       "targetDimensions": [
-        1650,
-        2250
+        825,
+        1125
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-yoruba-river-map.png",
@@ -3480,15 +3480,15 @@
       "orientation": "landscape",
       "aspectRatio": "14:9",
       "targetDimensions": [
-        2100,
-        1350
+        1050,
+        675
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-yoruba-counting-to-twenty.png",
@@ -3512,15 +3512,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-yoruba-sentence-name-make.png",
@@ -3544,15 +3544,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:15",
       "targetDimensions": [
-        1650,
-        2250
+        825,
+        1125
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-akan-day-names.png",
@@ -3576,15 +3576,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:15",
       "targetDimensions": [
-        1650,
-        2250
+        825,
+        1125
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-akan-day-name-pairs.png",
@@ -3608,15 +3608,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-akan-story-trade.png",
@@ -3640,15 +3640,15 @@
       "orientation": "landscape",
       "aspectRatio": "15:8",
       "targetDimensions": [
-        2250,
-        1200
+        1125,
+        567
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-akan-goldweight-plate.png",
@@ -3672,15 +3672,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-akan-talking-drum-plate.png",
@@ -3704,15 +3704,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        2250,
-        1500
+        1125,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-akan-story-web-map.png",
@@ -3736,15 +3736,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-akan-spider-draw.png",
@@ -3768,15 +3768,15 @@
       "orientation": "landscape",
       "aspectRatio": "7:5",
       "targetDimensions": [
-        2100,
-        1500
+        1050,
+        750
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-zulu-click-letters.png",
@@ -3800,15 +3800,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-zulu-two-messengers.png",
@@ -3832,15 +3832,15 @@
       "orientation": "landscape",
       "aspectRatio": "14:9",
       "targetDimensions": [
-        2100,
-        1350
+        1050,
+        675
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-zulu-chameleon-plate.png",
@@ -3864,15 +3864,15 @@
       "orientation": "portrait",
       "aspectRatio": "11:14",
       "targetDimensions": [
-        1650,
-        2100
+        825,
+        1050
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "fig-zulu-messenger-make.png",
@@ -3896,15 +3896,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-finnish.png",
@@ -3928,15 +3928,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        399
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-inuit.png",
@@ -3960,15 +3960,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        415
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-irish.png",
@@ -3992,15 +3992,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-norse.png",
@@ -4024,15 +4024,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        423
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-egyptian.png",
@@ -4056,15 +4056,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        421
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-greek.png",
@@ -4088,15 +4088,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        417
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-mesopotamian.png",
@@ -4120,15 +4120,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-akan.png",
@@ -4152,15 +4152,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        422
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-yoruba.png",
@@ -4184,15 +4184,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-zulu.png",
@@ -4216,15 +4216,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-chinese.png",
@@ -4248,15 +4248,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-hindu.png",
@@ -4280,15 +4280,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-persian.png",
@@ -4312,15 +4312,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-turkic.png",
@@ -4344,15 +4344,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-vietnamese.png",
@@ -4376,15 +4376,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-hawaiian.png",
@@ -4408,15 +4408,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-japanese.png",
@@ -4440,15 +4440,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-korean.png",
@@ -4472,15 +4472,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-maori.png",
@@ -4504,15 +4504,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        424
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-andean.png",
@@ -4536,15 +4536,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-aztec.png",
@@ -4568,15 +4568,15 @@
       "orientation": "landscape",
       "aspectRatio": "3:2",
       "targetDimensions": [
-        1350,
-        900
+        675,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "vig-maya.png",
@@ -4600,15 +4600,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        900,
-        900
+        450,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "seal-north-ice.png",
@@ -4632,15 +4632,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        900,
-        900
+        450,
+        369
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "seal-middle-sea.png",
@@ -4664,15 +4664,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        900,
-        900
+        427,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "seal-sun-savanna.png",
@@ -4696,15 +4696,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        900,
-        900
+        450,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "seal-monsoon.png",
@@ -4728,15 +4728,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        900,
-        900
+        450,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "seal-great-ocean.png",
@@ -4760,15 +4760,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        900,
-        900
+        450,
+        450
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "seal-jaguar-condor.png",
@@ -4792,15 +4792,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        600,
-        600
+        300,
+        300
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "badge-star-1.png",
@@ -4824,15 +4824,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        600,
-        600
+        300,
+        300
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "badge-star-2.png",
@@ -4856,15 +4856,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        600,
-        600
+        300,
+        300
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "badge-star-3.png",
@@ -4888,15 +4888,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        600,
-        600
+        300,
+        70
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "badge-star-box.png",
@@ -4920,15 +4920,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        600,
-        600
+        300,
+        300
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "badge-seal-counter.png",
@@ -4952,15 +4952,15 @@
       "orientation": "square",
       "aspectRatio": "1:1",
       "targetDimensions": [
-        600,
-        600
+        300,
+        300
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "badge-field-researcher.png",
@@ -4984,15 +4984,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "front-how-a-page-works.png",
@@ -5016,15 +5016,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "front-star-box-and-seal.png",
@@ -5048,15 +5048,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        917,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "front-the-route.png",
@@ -5080,15 +5080,15 @@
       "orientation": "portrait",
       "aspectRatio": "13:17",
       "targetDimensions": [
-        1950,
-        2550
+        975,
+        1275
       ],
       "safeArea": {
         "bleed": 3.2,
         "gutter": 9.5,
         "outer": 12.7
       },
-      "minDpi": 300,
+      "minDpi": 150,
       "format": "png",
       "colour": "grayscale",
       "filename": "front-when-you-are-stuck.png",
