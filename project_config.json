@@ -51,8 +51,8 @@
       "founderConfirmed": false,
       "$comment": "KDP panelindeki AI beyanı SEÇİMİNİ kurucu yapar."
     },
-    "authorBio": null,
-    "authorBio$comment": "null olduğu sürece Faz 6 kapısı KIRMIZIDIR (World Myths'te KDP yer tutucuyu reddetti).",
+    "authorBio": "Emre is a puzzle designer, mythologist, and game archivist dedicated to preserving ancient cultures, codes, and stories for the next generation.",
+    "authorBio$comment": "⭑ A6 KAPANDI — kurucu · 16 Ağustos 2026 (Faz 6 talimatı § 2). Faz 6 kapısı authorBio null iken KIRMIZI yanıyordu (World Myths'te KDP yer tutucu metni reddetti). Metin kurucunun kendi cümlesidir ve DEĞİŞTİRİLMEDİ.",
     "childTesters": {
       "founderConfirmed": true,
       "minTesters": 2,
@@ -184,7 +184,8 @@
         "iş sürer; prova hazır dosyaları ve kontrol listesi üretilir.",
         "status yalnızca KURUCU beyanıyla değişir."
       ]
-    }
+    },
+    "authorBioDecision": "A6 → K36 · kurucu · 16 Ağustos 2026"
   },
   "language": {
     "$comment": [

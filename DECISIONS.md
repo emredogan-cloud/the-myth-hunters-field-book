@@ -28,7 +28,9 @@ Durum tablosu · **14 Ağustos 2026 · Faz 5**
 | **A10** | gerçek oturumun koşturulması | **YÜKSEK** | Faz 2 kapanışı | AÇIK · **ERTELENDİ (K27 · K30 · K34)** · oturum **YAPILMADI** |
 | **A9** | fizikî prova siparişi ve değerlendirmesi | ORTA | Faz 5–6 | AÇIK · **KURUCUYA AİT** |
 | **A5** | Ciltli hediye sürümü v1.0'a girecek mi | DÜŞÜK | Faz 4 | AÇIK (varsayım: hayır) |
-| **A6** | Yazar biyografisi metni | ORTA | Faz 6 | AÇIK |
+| ~~A6~~ | ~~Yazar biyografisi metni~~ | — | — | ✅ **KAPANDI → K36** · kurucu metni |
+| **A13** | **YENİ** — dizilmiş sayfa **160**, hedef **144** | **YÜKSEK** | Faz 6 baskı | AÇIK · **ölçüldü, karar kurucuda** |
+| **A14** | **YENİ** — 156 ham görsel **hedefin altında** (1,57 MP) | **YÜKSEK** | Faz 6 baskı | AÇIK · **ölçüldü, karar kurucuda** |
 | — | İki ebeveyn okuması | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** |
 | — | ~150 görselin RAW üretimi | ORTA | Faz 5 | AÇIK · **KURUCUYA AİT** · hat hazır (K35) |
 
@@ -71,6 +73,82 @@ olarak nitelendirdi. Ayrıntı ve kök neden: **K29**.
 
 Kurucu **144**'ü onayladı. Ayrıntı, ekonomik sonuç ve kayıt disiplini:
 **K33**.
+
+### A13 · Dizilmiş sayfa **160**, onaylı hedef **144** — **YENİ · AÇIK**
+
+Faz 6 gerçek dizgi motorunu (`interior.py`) kurdu ve sayfa sayısını beş
+fazda ilk kez **ölçtü**. Sonuç modeli yalanlıyor:
+
+```
+MODEL   (page_budget · pageWeight toplamı)   144
+ÖLÇÜM   (interior · dizilmiş PDF)            160     ← +16
+HEDEF   (K33 · kurucu)                       144
+```
+
+**Kök neden ölçüldü.** `pageWeight` Faz 1'de **tipe göre** atanmıştı:
+`cipher`/`sort` → 0,75 · `map`/`observe`/`make` → 1,0. 0,75 ağırlık
+*"iki hafif sayfa bir sayfayı paylaşır"* demektir. Ölçüm bunu yalanlıyor:
+
+| Ağırlık | Sayfa | Gerçek dikey ihtiyaç (ort.) |
+|---|---:|---:|
+| 1,00 | 56 | **8,01"** |
+| 0,75 | 64 | **8,57"** ← *daha AĞIR* |
+
+Kullanılabilir yükseklik **10,00"**. İki 0,75 sayfasının paylaşması için
+her birinin **≤ 5,00"** olması gerekir: **64 sayfanın 0'ı sığıyor.**
+
+> **`cipher` ve `sort` sayfaları hafif değildir.** Anahtar paneli, kart
+> bankası ve daha çok yazma satırı taşırlar. 0,75 ölçülmedi, **atandı**.
+
+Ve `DESIGN_SYSTEM § 1.1` zaten sayfa başına **tek** modül yığını
+tanımlıyor — paylaşım, dizgenin kendisiyle de çelişiyordu.
+
+| Seçenek | Sonuç |
+|---|---|
+| **160 kabul edilir** | telif **5,27 $** (−0,28 $) · başabaş ACOS %35,2 · içerik değişmez |
+| 144'e indirilir | **16 sayfa çıkar** = ~16 aktivite → alt başlıktaki **120 vaadi düşer** |
+| Düzen sıkılaştırılır | levha yüksekliği ve yazma satırı kısılır → **ürünün işlevi** bozulur |
+
+**Ajan hiçbirini seçmedi.** Sayfa kısılmadı, hedef sessizce değişmedi.
+
+### A14 · 156 ham görsel hedefin **altında** — **YENİ · AÇIK**
+
+Kurucu 158 ham görseli teslim etti. Ölçüm:
+
+```
+teslim edilen         156 dosya   (beklenen 158 · 2 EKSİK)
+çözünürlük            156/156'sı 1,57 MP — hepsi AYNI
+aktivite hedefini karşılayan   0 / 156
+```
+
+En küçük aktivite hedefi **2100×1200 = 2,52 MP**. Hiçbir dosya
+karşılamıyor. Zorlanırsa efektif çözünürlük **166–202 dpi** olur;
+şartname **300 dpi** diyor (`visualSpec.minDpi`).
+
+| Sınıf | Adet | 300 dpi'da üretilebilir mi |
+|---|---:|---|
+| kültür vinyeti (1350×900) | 22 | ✅ |
+| mühür damgası (900×900) | 6 | ✅ |
+| rozet (600×600) | 6 | ✅ |
+| **aktivite levhası** | **120** | ❌ |
+| **ön madde diyagramı** | **4** | ❌ |
+
+**Ve ikinci bir engel:** dosya adları `001.png`–`156.png`; envanterin
+beklediği `assetId` adlarıyla **hiçbiri eşleşmiyor** (0/158) ve dosyalar
+manifest sırasında **değil** (ölçüldü: `001` Inuktitut hecelemesi,
+manifest #1 Maya sayıları; `121` Irish vinyeti, manifest #121 Finnish).
+
+> ### Bir eşleme TAHMİN EDİLEMEZ. Yanlış aktiviteye bağlanmış kusursuz bir görsel, o sayfayı ÇÖZÜLEMEZ yapar.
+
+`asset_pipeline.py` yukarı örneklemeyi **reddeder** (K35) ve bu bilinçli:
+büyütmek çözünürlük kazandırmaz, yalnızca 300 dpi iddiasını yalan hâline
+getirir.
+
+| Seçenek | Sonuç |
+|---|---|
+| **124 görsel yeniden üretilir** | hedef ölçüde · hat hazır · envanter deterministik |
+| 300 dpi ölçütü düşürülür | **kurucu kararı** · dayanağı kayda geçer (A12 gibi) |
+| Yalnızca 34 üretilebilir | vinyet + damga + rozet basılır, aktivite levhaları **boş kalır** |
 
 ### A9 · Fizikî prova — KURUCUYA AİT · **YENİ**
 
@@ -957,3 +1035,52 @@ yapılmasını serbest bırakır.
 > **Şartnameyi ihlal eden görsel değiştirilir; şartname değiştirilmez.**
 > Şartnamenin kendisi kanıtlanabilir biçimde yanlışsa bu bir **tasarım
 > düzeltmesidir** ve kayda geçer (kurucu talimatı § 16).
+
+
+---
+
+## FAZ 6 KARARLARI — 16 Ağustos 2026
+
+### K36 · A6 kapandı — yazar biyografisi kurucu metnidir
+
+**16 Ağustos 2026 · Faz 6 talimatı § 2.**
+
+> *"Emre is a puzzle designer, mythologist, and game archivist dedicated
+> to preserving ancient cultures, codes, and stories for the next
+> generation."*
+
+21 kelime. Metin **kurucunun kendi cümlesidir** ve tek kelimesi
+değiştirilmedi. `authorBio` null iken Faz 6 kapısı kırmızı yanıyordu —
+World Myths'te KDP bir yer tutucu biyografiyi reddetmişti ve o ders bu
+projeye bir kapı olarak taşınmıştı.
+
+### K37 · Çocuk testi ARACI üretildi — A10 KAPANMADI
+
+**16 Ağustos 2026 · Faz 6 talimatı § 3.**
+
+Kurucu etkileşimli bir çocuk testi dosyası istedi ve üretildi:
+`01_SOURCE/pilot_tr/interactive_child_test.html` — on altı Türkçe pilot
+sayfası, sayfa başına gözlemci paneli, oturum kaydı üreteci.
+
+**A10 kapatılmadı ve `.gate` yükseltilmedi.** Gerekçe projenin kendi
+kuralıdır ve beş fazdır değişmedi:
+
+> ### PAKET ÜRETMEK, TEST YAPMAK DEĞİLDİR. (DECISIONS § A10 · Faz 2'den beri)
+
+Bir simülasyon bir çocuk değildir. Araç **testi yapmayı mümkün kılar**;
+testin **yapıldığını göstermez**. Bugün yapılan oturum sayısı **sıfırdır**
+ve `externalValidation` **`pending`** kaldı.
+
+    araç üretildi        ✅
+    oturum yapıldı       ❌  0
+    çocuk sayısı         ❌  0
+    externalValidation   ⏳  pending
+
+**A10 şu üçü birlikte olduğunda kapanır:** gerçek bir çocuk · gerçek bir
+oturum · `CHILD_TEST_LOG.md`'ye kaydedilmiş sonuç. Araç o kaydı tek
+düğmeyle üretiyor; kurucu iki testçisiyle koşturduğunda A10 **aynı gün**
+kapanır.
+
+Ajan bir simülasyonu bir oturum olarak kaydetmedi — çünkü kaydetseydi
+proje belgeleri **yanlış bir olguyu** taşırdı ve `validate_spec § ⑤`
+zaten bunu kırmızı yakacak biçimde kurulmuştu.

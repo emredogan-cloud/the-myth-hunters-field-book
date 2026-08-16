@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "checks": 4,
+  "errors": [],
+  "warnings": [
+    "⭑ DİZİLMİŞ SAYFA HEDEF BANDININ DIŞINDA: 160 ∉ [135, 153] (hedef 144 · K33). Bu bir MODEL değil bir ÖLÇÜMDÜR ve hedefi değiştirmek KURUCU kararıdır → AÇIK KALEM A13.",
+    "dizgi modelden +16 sayfa ayrıldı (144 ↔ 160) — model bir TAHMİN, dizgi bir ÖLÇÜMDÜR ve ölçüm kazanır"
+  ],
+  "facts": {
+    "assetSource": "07_ASSETS/ASSET_MANIFEST.local.json",
+    "finalAssetsOnDisk": 0,
+    "output": "08_OUTPUT/PAPERBACK/interior-PLACEHOLDER.pdf",
+    "placeholderMode": true,
+    "typesetPagesRaw": 160,
+    "typesetPagesSignatureAligned": 160,
+    "overflowPages": [],
+    "thinWritingLines": [],
+    "pageTargetConflict": {
+      "typeset": 160,
+      "target": 144,
+      "band": [
+        135,
+        153
+      ],
+      "openItem": "A13"
+    },
+    "modelVsTypesetDelta": 16
+  }
+}
