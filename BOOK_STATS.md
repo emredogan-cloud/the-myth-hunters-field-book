@@ -2,7 +2,7 @@
 
 <!-- ÜRETİLMİŞTİR — 04_BUILD/update_docs.py · ELLE DÜZENLEMEYİN -->
 
-> Kapı: `phase1` · Bu dosya **ölçümden üretilir**; hiçbir sayı elle yazılmaz.
+> Kapı: `release` · Bu dosya **ölçümden üretilir**; hiçbir sayı elle yazılmaz.
 
 ## 1. Tek bakışta
 
@@ -46,17 +46,17 @@
 
 | | |
 |---|---:|
-| Aktivite sayfası (ölçülen ağırlıktan) | 104.0 |
+| Aktivite sayfası (ölçülen ağırlıktan) | 120.0 |
 | Ön madde | 9 |
 | Bölge başına yapı sayfası | 2 |
 | Final görev | 5 |
 | Arka madde | 14 |
-| **Model (forma hizalı)** | **144** |
-| Yol haritası hedefi | 144 |
+| **Model (forma hizalı)** | **160** |
+| Yol haritası hedefi | 160 |
 | Sapma | %+0.0 |
-| Ciltsiz baskı maliyeti | 3.45 $ |
-| **Ciltsiz telif** | **5.55 $** |
-| Başabaş ACOS | %37.0 |
+| Ciltsiz baskı maliyeti | 3.72 $ |
+| **Ciltsiz telif** | **5.27 $** |
+| Başabaş ACOS | %35.2 |
 
 ## 5. Bölge × tip matrisi
 

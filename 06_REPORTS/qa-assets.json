@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checks": 33,
+  "checks": 40,
   "errors": [],
   "warnings": [],
   "facts": {
@@ -14,8 +14,8 @@
       "total": 158
     },
     "roadmapDelta": 8,
-    "processedOnDisk": 0,
-    "dimensionChecked": 0,
+    "processedOnDisk": 158,
+    "dimensionChecked": 158,
     "requiredLabels": 732,
     "measurementPages": 43,
     "measurementConstrained": 43,

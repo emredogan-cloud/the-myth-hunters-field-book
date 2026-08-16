@@ -90,19 +90,32 @@ PROCESSED = "07_ASSETS/processed/interior/"
 FINAL = "07_ASSETS/final/interior/"
 REJECTED = "07_ASSETS/rejected/"
 
-# Vinyet ve rozet ölçüleri: iç blok 8,5×11 inç · 300 dpi.
+# Vinyet ve rozet ölçüleri: iç blok 8,5×11 inç · ⭑ 150 dpi (K39) ⭑
+# Fiziksel boy DEĞİŞMEDİ; 300 dpi'lık piksel sayıları yarılandı.
 # Vinyet bir bölüm başı süsü değil, kültürün BAĞLAM sanatıdır (§ 18) ve
 # sayfanın üçte birinden küçüktür.
-VIGNETTE_PX = [1350, 900]
+VIGNETTE_PX = [675, 450]
 VIGNETTE_ASPECT = "3:2"
-SEAL_PX = [900, 900]
+SEAL_PX = [450, 450]
 SEAL_ASPECT = "1:1"
-BADGE_PX = [600, 600]
+BADGE_PX = [300, 300]
 BADGE_ASPECT = "1:1"
-FRONT_PX = [1950, 2550]
+FRONT_PX = [975, 1275]
 FRONT_ASPECT = "13:17"
 
 SAFE_AREA = {"bleed": 3.2, "gutter": 9.5, "outer": 12.7}
+
+# ⭑ FAZ 6 · K39 — BASKI ÇÖZÜNÜRLÜK ÖLÇÜTÜ 300 → 150 dpi ⭑
+#
+# Bu bir kalite İYİLEŞTİRMESİ değil, kabul edilmiş bir DÜŞÜŞTÜR ve öyle
+# kaydedilir. Kurucu teslim edilen 1,57 MP'lik görselleri yeniden
+# ÜRETMEMEYİ ve ölçütü düşürmeyi seçti (A14 → K39).
+#
+#     Bir ölçüt düşürülüyorsa, düşürüldüğü SÖYLENMELİDİR.
+#
+# `project_config § production.minDpiHistory` eski değeri ve gerekçeyi
+# taşır; `qa_assets § ⑤` yeni ölçüte göre denetler.
+MIN_DPI = 150
 
 BASE_RESTRICTIONS = [
     "No answer may be visible anywhere in the image.",
@@ -131,7 +144,15 @@ def entry(**kw):
     return e
 
 
+OVERRIDES = os.path.join(ROOT, "07_ASSETS", "target_overrides.json")
+
+
 def build() -> dict:
+    # ⭑ FAZ 6 — TESLİM EDİLEN SANATA GÖRE DARALTILMIŞ KUTULAR ⭑
+    # Bir kutu sanattan uzunsa fark beyazla doldurulur; beyaz zemin beyaz
+    # sayfada görünmez ama kutu YANLIŞ boyu iddia etmeye devam eder.
+    # Doğrusu kutuyu sanata oturtmaktır: yukarı örnekleme YOK, kırpma YOK.
+    _ovr = jload(OVERRIDES, {}) or {}
     book = jload(BOOK, {}) or {}
     acts_doc = jload(ACTS, {"activities": []}) or {"activities": []}
     design = {a["activityId"]: a for a in acts_doc.get("activities", [])}
@@ -213,9 +234,9 @@ def build() -> dict:
             requiredLabels=[c.get("name", c["id"])],
             orientation="landscape",
             aspectRatio=VIGNETTE_ASPECT,
-            targetDimensions=list(VIGNETTE_PX),
+            targetDimensions=list(_ovr.get(aid, VIGNETTE_PX)),
             safeArea=dict(SAFE_AREA),
-            minDpi=300,
+            minDpi=MIN_DPI,
             format="png",
             colour="grayscale",
             filename=fn,
@@ -253,9 +274,9 @@ def build() -> dict:
             requiredLabels=[],
             orientation="square",
             aspectRatio=SEAL_ASPECT,
-            targetDimensions=list(SEAL_PX),
+            targetDimensions=list(_ovr.get(aid, SEAL_PX)),
             safeArea=dict(SAFE_AREA),
-            minDpi=300,
+            minDpi=MIN_DPI,
             format="png",
             colour="grayscale",
             filename=fn,
@@ -304,9 +325,9 @@ def build() -> dict:
             requiredLabels=[],
             orientation="square",
             aspectRatio=BADGE_ASPECT,
-            targetDimensions=list(BADGE_PX),
+            targetDimensions=list(_ovr.get(aid, BADGE_PX)),
             safeArea=dict(SAFE_AREA),
-            minDpi=300,
+            minDpi=MIN_DPI,
             format="png",
             colour="grayscale",
             filename=fn,
@@ -346,9 +367,9 @@ def build() -> dict:
             requiredLabels=list(s.get("prints") or [])[:0] or [],
             orientation="portrait",
             aspectRatio=FRONT_ASPECT,
-            targetDimensions=list(FRONT_PX),
+            targetDimensions=list(_ovr.get(aid, FRONT_PX)),
             safeArea=dict(SAFE_AREA),
-            minDpi=300,
+            minDpi=MIN_DPI,
             format="png",
             colour="grayscale",
             filename=fn,

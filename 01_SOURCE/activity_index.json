@@ -129,7 +129,7 @@
       "culturalContext": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-finnish"
@@ -290,7 +290,7 @@
       "culturalContext": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-finnish",
@@ -328,7 +328,7 @@
       "culturalContext": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 8,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-finnish"
@@ -368,7 +368,7 @@
       "culturalContext": "Kalevala derlenmiş bir kitaptır: kim derledi, kimden dinledi",
       "visualClass": "cipher-key",
       "writingSpaceLines": 7,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-finnish"
@@ -570,7 +570,7 @@
       "culturalContext": "Buzun altındaki dünya: aynı denizin iki adı, iki hikâyesi",
       "visualClass": "cipher-key",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-inuit"
@@ -611,7 +611,7 @@
       "culturalContext": "Buzun altındaki dünya: aynı denizin iki adı, iki hikâyesi",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-inuit"
@@ -685,7 +685,7 @@
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 5,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-irish",
@@ -766,7 +766,7 @@
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "cipher-key",
       "writingSpaceLines": 5,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-irish"
@@ -807,7 +807,7 @@
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "cipher-key",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-irish"
@@ -847,7 +847,7 @@
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-irish"
@@ -965,7 +965,7 @@
       "culturalContext": "Ogham çentikleri bir kenar boyunca okunur — yazı her zaman soldan sağa değildir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 5,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-irish",
@@ -1007,7 +1007,7 @@
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse",
@@ -1049,7 +1049,7 @@
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 8,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse",
@@ -1091,7 +1091,7 @@
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "cipher-key",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse"
@@ -1287,7 +1287,7 @@
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "cipher-key",
       "writingSpaceLines": 7,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse"
@@ -1369,7 +1369,7 @@
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 5,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse"
@@ -1410,7 +1410,7 @@
       "culturalContext": "Rünler bir alfabedir, bir büyü değil: taşa kazınan ad",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-norse"
@@ -1491,7 +1491,7 @@
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "cipher-key",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
@@ -1532,7 +1532,7 @@
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 8,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian"
@@ -1611,7 +1611,7 @@
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian",
@@ -1690,7 +1690,7 @@
       "culturalContext": "Kartuş bir çerçeve değil bir imzadır: içindeki ad bir kraldır",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-egyptian",
@@ -1732,7 +1732,7 @@
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "cipher-key",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
@@ -1895,7 +1895,7 @@
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
@@ -1974,7 +1974,7 @@
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "cipher-key",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
@@ -2051,7 +2051,7 @@
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek"
@@ -2087,7 +2087,7 @@
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 5,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek",
@@ -2170,7 +2170,7 @@
       "culturalContext": "Girit labirenti gerçek bir sarayın planından türer — mit ile kazı yan yana",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-greek",
@@ -2251,7 +2251,7 @@
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "cipher-key",
       "writingSpaceLines": 8,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
@@ -2291,7 +2291,7 @@
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "cipher-key",
       "writingSpaceLines": 7,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
@@ -2371,7 +2371,7 @@
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian",
@@ -2455,7 +2455,7 @@
       "culturalContext": "Saatin 60 dakikası buradan gelir: bir sayı sistemi dört bin yıl yaşar",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-mesopotamian"
@@ -2572,7 +2572,7 @@
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
@@ -2608,7 +2608,7 @@
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 8,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
@@ -2649,7 +2649,7 @@
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "cipher-key",
       "writingSpaceLines": 5,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan"
@@ -2810,7 +2810,7 @@
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan",
@@ -2974,7 +2974,7 @@
       "culturalContext": "Ananse hikâyeleri bir kişinin değil bir ağın adıdır: 'anansesem' hikâye demektir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-akan",
@@ -3012,7 +3012,7 @@
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 7,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba"
@@ -3089,7 +3089,7 @@
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba",
@@ -3211,7 +3211,7 @@
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "cipher-key",
       "writingSpaceLines": 5,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba"
@@ -3252,7 +3252,7 @@
       "culturalContext": "Bir nokta bir sözcüğü değiştirir: Yoruba'da imlâ anlamdır",
       "visualClass": "cipher-key",
       "writingSpaceLines": 5,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-yoruba"
@@ -3333,7 +3333,7 @@
       "culturalContext": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-zulu"
@@ -3375,7 +3375,7 @@
       "culturalContext": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-zulu"
@@ -3488,7 +3488,7 @@
       "culturalContext": "Üç harf üç ayrı ses: c, q ve x birer şıklamadır, birer ünsüz",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 6,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-zulu",
@@ -3531,7 +3531,7 @@
       "culturalContext": "Bir karakter bir resimden doğar ve resim hâlâ içinde durur",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-chinese",
@@ -3606,7 +3606,7 @@
       "culturalContext": "Bir karakter bir resimden doğar ve resim hâlâ içinde durur",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-chinese",
@@ -3646,7 +3646,7 @@
       "culturalContext": "Bir karakter bir resimden doğar ve resim hâlâ içinde durur",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-chinese"
@@ -3685,7 +3685,7 @@
       "culturalContext": "Bir karakter bir resimden doğar ve resim hâlâ içinde durur",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-chinese",
@@ -3727,7 +3727,7 @@
       "culturalContext": "Bir karakter bir resimden doğar ve resim hâlâ içinde durur",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-chinese"
@@ -3922,7 +3922,7 @@
       "culturalContext": "Ganj bir nehirdir ve bir yolculuktur: kaynaktan denize kaç ülke",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-hindu"
@@ -4003,7 +4003,7 @@
       "culturalContext": "Ganj bir nehirdir ve bir yolculuktur: kaynaktan denize kaç ülke",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-hindu"
@@ -4200,7 +4200,7 @@
       "culturalContext": "Şehnâme bin yıl önce tek bir şairin elinden çıktı ve adı biliniyor: Firdevsî",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-persian",
@@ -4245,7 +4245,7 @@
       "culturalContext": "Şehnâme bin yıl önce tek bir şairin elinden çıktı ve adı biliniyor: Firdevsî",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-persian"
@@ -4283,7 +4283,7 @@
       "culturalContext": "Şehnâme bin yıl önce tek bir şairin elinden çıktı ve adı biliniyor: Firdevsî",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-persian"
@@ -4321,7 +4321,7 @@
       "culturalContext": "Şehnâme bin yıl önce tek bir şairin elinden çıktı ve adı biliniyor: Firdevsî",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-persian"
@@ -4357,7 +4357,7 @@
       "culturalContext": "Tek gözlü dev üç kültürde birden var — aynı korku, üç ayrı ad",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-turkic",
@@ -4395,7 +4395,7 @@
       "culturalContext": "Tek gözlü dev üç kültürde birden var — aynı korku, üç ayrı ad",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-turkic",
@@ -4438,7 +4438,7 @@
       "culturalContext": "Tek gözlü dev üç kültürde birden var — aynı korku, üç ayrı ad",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-turkic"
@@ -4477,7 +4477,7 @@
       "culturalContext": "Tek gözlü dev üç kültürde birden var — aynı korku, üç ayrı ad",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-turkic"
@@ -4670,7 +4670,7 @@
       "culturalContext": "Aynı harfler, altı farklı ton, altı farklı sözcük",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-vietnamese",
@@ -4754,7 +4754,7 @@
       "culturalContext": "Aynı harfler, altı farklı ton, altı farklı sözcük",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-vietnamese"
@@ -4791,7 +4791,7 @@
       "culturalContext": "Aynı harfler, altı farklı ton, altı farklı sözcük",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-vietnamese"
@@ -4953,7 +4953,7 @@
       "culturalContext": "Aynı harfler, bir işaretle başka sözcük: ʻokina bir harftir, bir kesme işareti değil",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-hawaiian"
@@ -5071,7 +5071,7 @@
       "culturalContext": "İki alfabe aynı sesleri yazar — hangisi hangi işe bakar",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-japanese",
@@ -5148,7 +5148,7 @@
       "culturalContext": "İki alfabe aynı sesleri yazar — hangisi hangi işe bakar",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-japanese",
@@ -5223,7 +5223,7 @@
       "culturalContext": "İki alfabe aynı sesleri yazar — hangisi hangi işe bakar",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-japanese"
@@ -5303,7 +5303,7 @@
       "culturalContext": "İki alfabe aynı sesleri yazar — hangisi hangi işe bakar",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-japanese"
@@ -5419,7 +5419,7 @@
       "culturalContext": "Hangul 1443'te tasarlandı ve tasarımcısı biliniyor — alfabeler her zaman eski değildir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-korean",
@@ -5460,7 +5460,7 @@
       "culturalContext": "Hangul 1443'te tasarlandı ve tasarımcısı biliniyor — alfabeler her zaman eski değildir",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-korean"
@@ -5499,7 +5499,7 @@
       "culturalContext": "Hangul 1443'te tasarlandı ve tasarımcısı biliniyor — alfabeler her zaman eski değildir",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-korean"
@@ -5539,7 +5539,7 @@
       "culturalContext": "Hangul 1443'te tasarlandı ve tasarımcısı biliniyor — alfabeler her zaman eski değildir",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-korean"
@@ -5619,7 +5619,7 @@
       "culturalContext": "Hangul 1443'te tasarlandı ve tasarımcısı biliniyor — alfabeler her zaman eski değildir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-korean",
@@ -5781,7 +5781,7 @@
       "culturalContext": "Kuzey Adası'nın adı bir balıktır: Te Ika-a-Māui, haritada hâlâ görülür",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-maori"
@@ -5859,7 +5859,7 @@
       "culturalContext": "Kuzey Adası'nın adı bir balıktır: Te Ika-a-Māui, haritada hâlâ görülür",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-maori",
@@ -5976,7 +5976,7 @@
       "culturalContext": "Düğümün yeri sayıyı söyler: ip bir defterdir",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-andean",
@@ -6017,7 +6017,7 @@
       "culturalContext": "Düğümün yeri sayıyı söyler: ip bir defterdir",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-andean"
@@ -6133,7 +6133,7 @@
       "culturalContext": "Bir kent adı bir resimdir: tepe, su, taş — hepsi okunur",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-aztec",
@@ -6209,7 +6209,7 @@
       "culturalContext": "Bir kent adı bir resimdir: tepe, su, taş — hepsi okunur",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-aztec",
@@ -6250,7 +6250,7 @@
       "culturalContext": "Bir kent adı bir resimdir: tepe, su, taş — hepsi okunur",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-aztec"
@@ -6288,7 +6288,7 @@
       "culturalContext": "Bir kent adı bir resimdir: tepe, su, taş — hepsi okunur",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-aztec"
@@ -6405,7 +6405,7 @@
       "culturalContext": "Sıfırı yazan üç uygarlıktan biri: bir kabuk işareti, bir hiçlik",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-maya",
@@ -6446,7 +6446,7 @@
       "culturalContext": "Sıfırı yazan üç uygarlıktan biri: bir kabuk işareti, bir hiçlik",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-maya"
@@ -6558,7 +6558,7 @@
       "culturalContext": "Sıfırı yazan üç uygarlıktan biri: bir kabuk işareti, bir hiçlik",
       "visualClass": "sorting-grid",
       "writingSpaceLines": 3,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-maya",
@@ -6599,7 +6599,7 @@
       "culturalContext": "Sıfırı yazan üç uygarlıktan biri: bir kabuk işareti, bir hiçlik",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-maya"
@@ -6676,7 +6676,7 @@
       "culturalContext": "Sıfırı yazan üç uygarlıktan biri: bir kabuk işareti, bir hiçlik",
       "visualClass": "cipher-key",
       "writingSpaceLines": 4,
-      "pageWeight": 0.75,
+      "pageWeight": 1.0,
       "openEnded": false,
       "inheritedRecords": [
         "culture-maya"
@@ -6724,5 +6724,26 @@
       "revalidationPlan": "Levhadaki her etiket ve sayı bir müze envanteri veya hakemli bir yayınla karşılaştırılır.",
       "sourceStory": "story-maya-hurakan-storm"
     }
+  ],
+  "$comment_pageWeight": [
+    "⭑ FAZ 6 · K38 — pageWeight 0,75 ÖLÇÜMLE YALANLANDI ve 1,0'a çekildi ⭑",
+    "",
+    "Faz 1'de ağırlık TİPE göre atanmıştı: cipher/sort → 0,75 · diğerleri → 1,0.",
+    "0,75 'iki hafif sayfa bir sayfayı paylaşır' demektir. Faz 6'da gerçek dizgi",
+    "(interior.py) bunu ölçtü ve yalanladı:",
+    "",
+    "    ağırlık 1,00 (56 sayfa) → ortalama 8,01 inç dikey ihtiyaç",
+    "    ağırlık 0,75 (64 sayfa) → ortalama 8,57 inç  ← DAHA AĞIR",
+    "",
+    "Kullanılabilir yükseklik 10,00 inç. Paylaşım için her biri ≤5,00 inç",
+    "olmalı: 64 hafif sayfanın SIFIRI sığıyor.",
+    "",
+    "    cipher ve sort sayfaları HAFİF DEĞİLDİR: anahtar paneli, kart",
+    "    bankası ve daha çok yazma satırı taşırlar. 0,75 ölçülmedi, ATANDI.",
+    "",
+    "DESIGN_SYSTEM § 1.1 zaten sayfa başına TEK modül yığını tanımlıyor;",
+    "paylaşım dizgenin kendisiyle de çelişiyordu.",
+    "",
+    "Bir ATAMA ile bir ÖLÇÜM ayrıldığında ölçüm kazanır."
   ]
 }
