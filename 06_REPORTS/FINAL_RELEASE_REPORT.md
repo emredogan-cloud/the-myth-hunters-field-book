@@ -1,3 +1,27 @@
+> # ⚠ BU RAPOR AŞILDI — TARİHÎ KAYITTIR
+>
+> Faz 6 bu raporla *"KDP paketi hazır"* diyerek kapandı (`v1.0.0`).
+> **Paket hazır değildi.** Aşama 2 aynı pakete yükleyecek biri gibi
+> baktı ve **on bir kusur** buldu; dokuzu ancak nihai çıktıya
+> bakılarak görüldü.
+>
+> Aşağıdaki sayılar **16 Ağustos 2026'da ölçülmüştür** ve o günün
+> gerçeğidir. Bugünün gerçeği değildir:
+>
+> | | bu rapor | **güncel** |
+> |---|---:|---:|
+> | Sayfa | 160 | **156** |
+> | Sırt | 0,3603 in | **0,3513 in** |
+> | Telif | 5,27 $ | **5,34 $** |
+> | Gömülü yazı tipi | 0 / 3 | **4 / 4** |
+> | Yer tutucu | 2 | **0** |
+>
+> **Bu rapor DEĞİŞTİRİLMEDİ.** Bir ölçüm kaydı, sonradan yanlış
+> çıktığı için yeniden yazılmaz — aşıldığı SÖYLENİR.
+>
+> Güncel durum:
+> [`FINAL_BRUTAL_AUDIT_REPORT.md`](FINAL_BRUTAL_AUDIT_REPORT.md)
+
 # NİHAİ SÜRÜM RAPORU — Faz 6 · proje kapanışı
 
 > **The Myth Hunter's Field Book** · 16 Ağustos 2026
