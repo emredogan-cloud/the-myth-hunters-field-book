@@ -3,7 +3,7 @@
 > **Projeye yeni giren her ajanın ve her insanın okuyacağı ilk belgedir.**
 > Hafızası olmayan bir ajan buradan başlar.
 >
-> Son güncelleme: **14 Ağustos 2026** · Faz: **5 TAMAM** · Kapı: `phase1`
+> Son güncelleme: **16 Ağustos 2026** · Faz: **6 TAMAM** · Kapı: `release`
 >
 > ⚠ **Kapı ile faz AYRIŞMIŞTIR ve bu bilinçlidir.** Kurucu Faz 3'ü, Faz
 > 2'nin çocuk oturumu (**A10**) yapılmadan başlattı — karar **K27** —,
@@ -68,14 +68,14 @@ Fırsat skoru **6,0/10** — üçünün en düşüğü, **ve bu bilinçlidir**.
 
 | | |
 |---|---|
-| Faz | **5 · TAMAM** — kurucu aşmasıyla (K27 · K30 · **K34**) |
-| Kapı (`.gate`) | `phase1` — **bilerek yükseltilmedi** |
+| Faz | **6 · TAMAM** — KDP paketi hazır |
+| Kapı (`.gate`) | `release` — ⚠ **A10 KANITLA DEĞİL KARARLA kapandı (K40)** |
 | Aday aktivite | **168** / ≥160 ✅ |
 | Kilitli / yazılmış | **120** / 120 — **altı bölgenin altısı** ✅ |
 | Devralınan kayıt | **76**; **54'ü yeniden doğrulandı** (Faz 3: 31) |
 | Doğrulanmış iddia | **108** · 92 teyit · 13 düzeltme · **3 RET** |
 | Kültür · bölge | **22** · **6** ✅ · yazılmış bölge **6/6** ✅ |
-| Sayfa modeli | **144** ölçüldü = hedef **144** · sapma **%0** · **6/6 bölge gerçek** · ✅ **A12 → K33** |
+| Sayfa modeli | **160** DİZİLDİ = hedef **160** · sapma **%0** · ✅ **A13 → K38** |
 | Ön madde | **9 sayfa** · 8 bölüm · başlık ve künye dâhil ✅ |
 | Kelime | **21.283** / 22.000 ±%15 ✅ |
 | Görsel envanteri | **158** varlık (120 + 22 vinyet + 6 damga + 6 rozet + 4 ön madde) |
@@ -242,28 +242,21 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 
 ## 11 · Sonraki izinli eylem
 
-> **FAZ 5 TAMAM — kurucu aşmasıyla (K27 · K30 · K34).**
->
-> Manuscript **tamamdır**: 120 aktivite, 22 kültür, 6 bölge, 37 mühür
-> yuvası, final görev, arka madde ve **9 sayfalık ön madde**. Görsel
-> hattı kuruldu ve **dosya katmanında sınandı**; envanter **158 varlık**
-> olarak hesaplandı.
+> **PROJE FAZ 6 SONUNDA. AJAN DURDU.**
 >
 > ```
-> FAZ 5 ÜRETİMİ        ✅ TAMAM       ön madde · görsel hattı · yakınsama
-> A12 SAYFA HEDEFİ     ✅ KAPANDI     144 (kurucu · K33) · sapma %0,0
-> EDİTORYAL YAKINSAMA  ✅ KOŞTURULDU  66 bulgu · 13 bloklayıcının 13'ü düzeltildi
-> HAM GÖRSEL ÜRETİMİ   ⏳ KURUCUYA AİT 0 / 158 · hat HAZIR
-> A10 ÇOCUK OTURUMU    ❌ YAPILMADI   (0 oturum)
-> .gate                    phase1     (YÜKSELTİLMEDİ)
+> İÇ BLOK        ✅ 160 sayfa · 158 gerçek görsel · 08_OUTPUT/PAPERBACK/
+> METADATA       ✅ 06_REPORTS/tracked/metadata.json
+> KAPAK ÖLÇÜSÜ   ✅ 03_COVER/COVER_SPEC.md · sırt 0,3603"
+> KAPAK SANATI   ❌ KURUCUYA AİT
+> YER TUTUCU     ⚠ 2 varlık — basımdan önce DEĞİŞTİRİLMELİ
+> ÇOCUK OTURUMU  ❌ 0 — A10 KARARLA kapandı (K40), kanıtla değil
 > ```
 >
-> **Aşma bir sonucu üretmez, bir sırayı değiştirir.** Kitap çocuk
-> doğrulamasından geçmiş **değildir** ve hiçbir belge öyle demez.
+> **externalValidation = `overridden-zero-sessions`** — hiçbir yerde
+> `passed` yazmıyor ve yazmayacak. Kitap çocuk doğrulamasından
+> **geçmemiştir**.
 >
-> Kurucuya ait kalan işler: **A10** (gerçek çocuk oturumu) · **~158 ham
-> görselin üretimi** · **iki ebeveyn okuması** · **A9** (fizikî prova) ·
-> **A6** (yazar biyografisi).
+> Nihai rapor: [`06_REPORTS/FINAL_RELEASE_REPORT.md`](06_REPORTS/FINAL_RELEASE_REPORT.md)
 >
-> **Faz 6 kurucu talimatı olmadan BAŞLAMAZ.** Prova sipariş edilmedi,
-> KDP'ye dokunulmadı.
+> **KDP paneline dokunulmadı. Prova sipariş edilmedi. Yükleme kurucunundur.**
