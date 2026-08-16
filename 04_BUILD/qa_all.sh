@@ -176,6 +176,18 @@ run "KAPILARIN KENDİ TESTİ"     $PY 05_TESTS/selftest.py
   run_optional "Kindle EPUB güncel"     $VENV_PY 04_BUILD/epub.py --check
 [ -f 04_BUILD/covers.py ] && \
   run_optional "kapak üretimi güncel"   $VENV_PY 04_BUILD/covers.py --check
+
+# ── AŞAMA 2 · yeni kapılar ────────────────────────────────────────────────
+# Hepsi kaynağı YOKKEN boş koşar: manuscript ve ham görsel depoda durmaz.
+[ -f 04_BUILD/furniture_roles.py ] && \
+  run_optional "mobilya rolleri güncel"  $VENV_PY 04_BUILD/furniture_roles.py --check
+[ -f 04_BUILD/editorial_fixes.py ] && \
+  run_optional "editoryal düzeltmeler uygulanmış" \
+    $VENV_PY 04_BUILD/editorial_fixes.py --check
+[ -f 04_BUILD/asset_intake.py ] && \
+  run_optional "teslim haritası doğru"   $VENV_PY 04_BUILD/asset_intake.py --verify
+[ -f 04_BUILD/plate_typeset.py ] && \
+  run_optional "dizilmiş levhalar güncel" $VENV_PY 04_BUILD/plate_typeset.py --check
 [ -f 04_BUILD/metadata.py ] && \
   run "KDP metadata paketi"     $PY 04_BUILD/metadata.py --check
 

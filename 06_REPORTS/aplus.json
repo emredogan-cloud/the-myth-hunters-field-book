@@ -1,0 +1,160 @@
+{
+  "status": "pass",
+  "checks": 32,
+  "errors": [],
+  "warnings": [
+    "aplus-02-what-children-do: oluk bulunamadı, eşit üçe bölündü"
+  ],
+  "facts": {
+    "modules": 7,
+    "images": 11,
+    "droppedPanels": {
+      "aplus-05-screen-free": "kit paneli — CETVEL gösteriyor, kitapta cetvel kullanan 0 sayfa var (B22)"
+    }
+  },
+  "rows": [
+    {
+      "module": "Standard Image & Text Overlay",
+      "moduleId": "aplus-01-hero",
+      "file": "aplus-01-hero.jpg",
+      "purpose": "HERO — kitabın ne olduğu tek bakışta",
+      "headline": "Not a puzzle book with a mythology theme",
+      "body": "Every puzzle is built out of what a people actually made: a writing system, a counting system, a map of a real place, a message that had to travel. 120 puzzles across 22 cultures.",
+      "panelCopy": null,
+      "dimensions": "1940 × 600",
+      "bytes": 412614,
+      "jpegQuality": 95,
+      "sha256": "e47666a738f322a3515ef4a7d2396219d23dadb8660bfae195daf18e3675482b"
+    },
+    {
+      "module": "Standard Three Image & Text",
+      "moduleId": "aplus-02-what-children-do",
+      "file": "aplus-02-what-children-do-01.jpg",
+      "purpose": "ÇOCUK NE YAPIYOR — çöz · diz · mühürle",
+      "headline": "Work it out. Write it down. Earn the seal.",
+      "body": "Children decode, sort and draw their way through the book — then press a seal at the end of every region.",
+      "panelCopy": "Decode and write",
+      "dimensions": "600 × 600",
+      "bytes": 115784,
+      "jpegQuality": 95,
+      "sha256": "ba161000acf178981cc5f201a2f0770de9254dcf3846cdfc40acb5a41a2d67fc"
+    },
+    {
+      "module": "Standard Three Image & Text",
+      "moduleId": "aplus-02-what-children-do",
+      "file": "aplus-02-what-children-do-02.jpg",
+      "purpose": "ÇOCUK NE YAPIYOR — çöz · diz · mühürle",
+      "headline": "Work it out. Write it down. Earn the seal.",
+      "body": "Children decode, sort and draw their way through the book — then press a seal at the end of every region.",
+      "panelCopy": "Sort the evidence",
+      "dimensions": "600 × 600",
+      "bytes": 123938,
+      "jpegQuality": 95,
+      "sha256": "70fba9716e4ee93e771d1f08af407aefdc424bcabe7f22de90ec7966feb77f82"
+    },
+    {
+      "module": "Standard Three Image & Text",
+      "moduleId": "aplus-02-what-children-do",
+      "file": "aplus-02-what-children-do-03.jpg",
+      "purpose": "ÇOCUK NE YAPIYOR — çöz · diz · mühürle",
+      "headline": "Work it out. Write it down. Earn the seal.",
+      "body": "Children decode, sort and draw their way through the book — then press a seal at the end of every region.",
+      "panelCopy": "Earn the seal",
+      "dimensions": "600 × 600",
+      "bytes": 126630,
+      "jpegQuality": 95,
+      "sha256": "013fef5bda4b5de3e40eb6efd2d715e588a0e49a718a91d3859b139edbd337e2"
+    },
+    {
+      "module": "Standard Image Header with Text",
+      "moduleId": "aplus-03-six-regions",
+      "file": "aplus-03-six-regions.jpg",
+      "purpose": "KAPSAM — altı bölge, yirmi iki halk",
+      "headline": "Six regions. 22 peoples. One quest.",
+      "body": "From sea ice to cloud forest, the route crosses six regions and 22 cultures — each named by its own name.",
+      "panelCopy": null,
+      "dimensions": "1940 × 600",
+      "bytes": 450712,
+      "jpegQuality": 95,
+      "sha256": "7b297bdd8d787a476e6ae5317cf2633f618db90c4ce46e4a7dd80f50a1143290"
+    },
+    {
+      "module": "Standard Single Image & Sidebar",
+      "moduleId": "aplus-04-real-cultures",
+      "file": "aplus-04-real-cultures.jpg",
+      "purpose": "GÜVENİLİRLİK — cevaplar kaynaklarla denetlendi",
+      "headline": "Checked against museums, archives and universities",
+      "body": "Every cultural claim in the book was revalidated against primary and institutional sources, and the back of the book says which ones.",
+      "panelCopy": null,
+      "dimensions": "600 × 600",
+      "bytes": 142977,
+      "jpegQuality": 95,
+      "sha256": "744f0b65829c37b26e55fbdc30a8d9940483672dcc387fdefef813e484a7644c"
+    },
+    {
+      "module": "Standard Three Image & Text",
+      "moduleId": "aplus-05-screen-free",
+      "file": "aplus-05-screen-free-01.jpg",
+      "purpose": "SATIN ALMA GEREKÇESİ — masa başı, ekransız",
+      "headline": "A pencil. That is the whole kit.",
+      "body": "No screen, no app, no batteries. 156 pages a child writes in, at a table, with a pencil.",
+      "panelCopy": "Closed and ready",
+      "dimensions": "600 × 600",
+      "bytes": 140850,
+      "jpegQuality": 95,
+      "sha256": "9513ce2b8428e414097c34d527577101724077c53b9a70cbf78af5c477dc2d34"
+    },
+    {
+      "module": "Standard Three Image & Text",
+      "moduleId": "aplus-05-screen-free",
+      "file": "aplus-05-screen-free-02.jpg",
+      "purpose": "SATIN ALMA GEREKÇESİ — masa başı, ekransız",
+      "headline": "A pencil. That is the whole kit.",
+      "body": "No screen, no app, no batteries. 156 pages a child writes in, at a table, with a pencil.",
+      "panelCopy": "Open and working",
+      "dimensions": "600 × 600",
+      "bytes": 121198,
+      "jpegQuality": 95,
+      "sha256": "feb60ffd770877782177d18bdfd909b324ae41c4a6f7f30bbc764990db2bee65"
+    },
+    {
+      "module": "Standard Three Image & Text",
+      "moduleId": "aplus-05-screen-free",
+      "file": "aplus-05-screen-free-03.jpg",
+      "purpose": "SATIN ALMA GEREKÇESİ — masa başı, ekransız",
+      "headline": "A pencil. That is the whole kit.",
+      "body": "No screen, no app, no batteries. 156 pages a child writes in, at a table, with a pencil.",
+      "panelCopy": "Finished for today",
+      "dimensions": "600 × 600",
+      "bytes": 120202,
+      "jpegQuality": 95,
+      "sha256": "7e3faa9028812dde2a505713b3d486c792a87e7427a81198f86a916b4f4326be"
+    },
+    {
+      "module": "Standard Single Left Image",
+      "moduleId": "aplus-06-maps-and-codes",
+      "file": "aplus-06-maps-and-codes.jpg",
+      "purpose": "AKTİVİTE TÜRLERİ — harita · kod · gözlem · sıralama",
+      "headline": "Maps, keys, plates and cards",
+      "body": "Four kinds of work, 120 times over: trace a real coast, build a key, label a plate, put an account back in order.",
+      "panelCopy": null,
+      "dimensions": "600 × 600",
+      "bytes": 151097,
+      "jpegQuality": 95,
+      "sha256": "387953e32bf44e75ed484d0e228ac2dfc3bec4b80927c12980f32db3b717af29"
+    },
+    {
+      "module": "Standard Image & Text Overlay",
+      "moduleId": "aplus-07-completion",
+      "file": "aplus-07-completion.jpg",
+      "purpose": "TAMAMLAMA — bu kitap BİTİRİLİR",
+      "headline": "Six seals, and a certificate at the end",
+      "body": "The book is a single quest with an ending. Six regions, six seals, and a final page that only opens when all six are in.",
+      "panelCopy": null,
+      "dimensions": "1940 × 600",
+      "bytes": 360150,
+      "jpegQuality": 95,
+      "sha256": "5706c237a50efd03a3327928f48b9e9869bef6f525b0ed6f572f3ce692860034"
+    }
+  ]
+}

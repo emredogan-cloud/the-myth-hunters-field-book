@@ -5,6 +5,222 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [Yayınlanmamış] — 2026-08-16 · **Aşama 2 · nihai üretim ve sert denetim**
+
+```
+KURUCU VARLIKLARI     ✅ 11 dosya teslim edildi ve kabul edildi
+SAYFA                 160 → 156   (arka madde yeniden dizildi)
+YAZI TİPİ             0/3 → 4/4 GÖMÜLÜ
+KDP ÖN UÇUŞ           ✅ 61 denetim
+KAPI                  22 → 26 · qa_all yeşil · CI ortamı yeşil
+KDP PANELİ            ⛔ DOKUNULMADI
+```
+
+Faz 6 *"KDP paketi hazır"* diyerek kapanmıştı. Aşama 2 aynı pakete
+**yükleyecek biri gibi** baktı ve **on bir kusur** buldu — dokuzu ancak
+çıktı render edilerek görüldü. Kaynak kapıları hepsinde yeşildi.
+
+Nihai denetim: [`06_REPORTS/FINAL_BRUTAL_AUDIT_REPORT.md`](06_REPORTS/FINAL_BRUTAL_AUDIT_REPORT.md)
+
+### ⭑ Bulundu — sayfa mobilyası İKİ KEZ basılıyordu (K45)
+
+```
+yıldızlı kutu iki kez   37 / 37 mühür sayfası
+yazma alanı iki kez     75 / 120 sayfa
+```
+
+Faz 6 raporu *"63 sayfada uyuşmuyor"* demişti; sayı doğruydu, **teşhis
+yanlıştı**. `pagePrints` iki ayrı muhataba yazılmış tek bir listeydi.
+Rol ölçüldü, `book.json § furniture` alanına donduruldu, dizgi artık
+levhanın bastığını basmıyor ve `qa_design § ⑨` **kapıya yükseltildi**.
+
+### ⭑ Bulundu — arka madde İÇERİK değil ŞARTNAMEYDİ (K44)
+
+On üç sayfanın **yedisi birebir kopyaydı** (`pages: N` bir bütçeydi,
+dizgi onu tekrar sandı) ve basılan şey içerik değil tarifti. Gerçek 22
+sözlük girdisi, 115 kurum ve 120 cevap **hiç dizilmemişti**.
+
+> Arka kapak *"the back of the book says which ones"* diye söz veriyordu
+> ve kitabın arkası hangileri olduğunu söylemiyordu.
+
+Arka madde artık ölçülmüş veriden türetiliyor ve akıyor.
+**Sayfa 160 → 156** · sırt · kapak · maliyet · telif kendiliğinden
+yeniden türedi.
+
+### ⭑ Bulundu — sıfır gömülü yazı tipi ve `M■ori` (K46)
+
+Faz 6 base-14 `Helvetica` ile dizmişti: KDP gömülü yazı tipi ister ve
+WinAnsi `A13`'ün eklediği on dört işareti **düşürüyordu**. Ön maddede,
+imlâ kuralını öğreten sayfada, `Māori` kelimesi bir kutu olarak
+basılıyordu.
+
+### Düzeltildi — 11 sızıntı · 2 olgusal hata · 1 eksik cevap
+
+`04_BUILD/editorial_fixes.py` · 23 idempotent düzeltme. Sızıntı kümesi
+Faz 6'nın saydığı dokuz değil **on bir**: aynı kusur **ipucu
+katmanında** iki sayfada daha duruyordu.
+
+Olgusal: `ㅇ silent` (hece sonunda /ng/) · halkalı fok buza çıkar.
+İkisi de levhanın içinde basılı ve levha değiştirilemez — düzeltme
+**dizgi katmanından** yapıldı.
+
+⚠ **Kapılar üç düzeltmemi reddetti ve üçünde de haklıydılar:**
+`validate_research` bir field note'un kaynaklı iddiayı taşımak
+zorunda olduğunu, `qa_language` atıf gereken sayfanın kültür adını
+anması gerektiğini, `qa_echo` bir görev satırı kalıbının tavanı
+aştığını söyledi.
+
+### Düzeltildi — başlık sayfası
+
+Kitabın **birinci sayfası** başlık olarak `Title Page` yazıyor ve
+başlık/alt başlık/yayınevini tek bir gövde paragrafına eritiyordu.
+Kaynak doğruydu; onu düzleştiren dizgiydi.
+
+### Eklendi — varlık kabulü, levha dizgisi, kapak, A+
+
+| Araç | Ne yapar |
+|---|---|
+| `asset_intake.py` | teslimi **sha256'ya bağlı** haritayla kabul eder |
+| `plate_typeset.py` | answer-critical glif ve kart metnini **dizgi** basar |
+| `covers.py` | tek PDF · vektör tipografi · barkod alanı boş |
+| `aplus.py` | birleşik teslimi böler · 11 görsel · modül haritası |
+| `kdp_preflight.py` | **61 denetim** · çıktıdan kaynağa |
+| `furniture_roles.py` | mobilya rolünü ölçer ve dondurur |
+| `editorial_fixes.py` | 23 düzeltme · idempotent |
+
+### Değişmedi — bilerek
+
+`.gate` (`release`) · `minDpiHistory` · **`externalValidation`
+(`overridden-zero-sessions`)** · K38/K39/K40 · aktivite sayısı (120) ·
+kültür (22) · bölge (6) · liste fiyatı.
+
+### Açık kalan — kurucuya ait
+
+Kapak sanatı **89 dpi** (K48 · yukarı örneklenmedi) · iç blok 150 dpi
+(K39) · fizikî prova (A9) · **gerçek çocuk oturumu (A10 · 0 oturum)** ·
+KDP paneli · AI beyanı.
+
+
+## [Yayınlanmamış] — 2026-08-16 · **yükleme öncesi geçiş · Aşama 1**
+
+```
+AŞAMA                 1 / 2        prompt + denetim · ÜRETİM YOK
+METADATA "120 PAGES"  ✅ DÜZELTİLDİ + kapı eklendi (K41)
+YENİ PROMPT           ✅ 21 prompt · kapak 2 · A+ 12 · eksik levha 2 + set
+YENİ BULGU            ⛔ mobilya çiftlemesi — 99 sayfa (A15)
+GÖRSEL ÜRETİMİ        ⛔ KURUCUYA AİT — ajan üretmedi
+KDP PANELİ            ⛔ DOKUNULMADI
+.gate                     release   DEĞİŞMEDİ
+```
+
+Faz 6 *"KDP paketi hazır"* diyerek kapanmıştı. Bu geçiş aynı pakete
+**yükleyecek biri gibi** baktı: bir kalem kapandı, beşi açık kaldı ve
+biri raporda yazandan **büyük** çıktı.
+
+### Düzeltildi — metadata **"120 pages"** · ve sınıf kapatıldı (K41)
+
+`metadata.json § description` müşteriye *"One hundred and twenty pages"*
+diyordu; kitap **160 sayfa**. Sayı yanlış değildi — **bağlı değildi**:
+elle yazılmıştı ve K38 dizgiyi 160 ölçtüğünde onunla hareket etmedi.
+
+**Örnek düzeltilmedi, sınıf kapatıldı.** Açıklama artık bir kalıp; iki
+sayı da ölçümden geliyor (`activities` manuscript'ten sayılıyor, `pages`
+PDF'ten ölçülüyor) ve yeni kapı `metadata § ⑤` beş şeyi denetliyor —
+aralarında **`120 puzzle` ile `120 page` karışmasını** da.
+
+`metadata` kapısı **11 → 16 denetim**.
+
+### Eklendi — kütüphane § 9: kapak · A+ · iki eksik levha (K42)
+
+`IMAGE_PROMPT_LIBRARY.html` **332 → 745 satır**. Bölüm sona eklendi,
+§ 1–8'e dokunulmadı.
+
+Ve **elle değil, üreteçten**: dosya üretilmiştir ve `--check` bayatlık
+kapısı var. Elle eklenen bir bölüm bir sonraki üretimde silinirdi ve
+silinene kadar CI'ı kırmızı yakardı.
+
+| Ne | Adet |
+|---|---:|
+| Kapak sanatı promptu | 2 seçenek |
+| A+ modülü | 7 modül · **12 görsel** |
+| Eksik iç blok levhası | 2 |
+
+Kapak geometrisi hiçbir yerde elle yazılmadı; `metadata.json § cover`'dan
+okunuyor. Panel enleri **sarmaldan çıkarılıyor**, ayrı ayrı
+hesaplanmıyor: yuvarlama 1 px açık bırakıyordu.
+
+### ⭑ Bulundu — sayfa mobilyası **iki kez basılıyor** (A15) ⭑
+
+Faz 6 raporu *"`writingSpaceLines` ile `pagePrints` 63 sayfada
+uyuşmuyor"* demişti. **Sayı doğrulandı, teşhis eksikti.**
+
+İki alan aynı şeyi saymıyor — ve **ikisi de basılıyor**:
+
+| Çiftleme | Sayfa |
+|---|---:|
+| Yıldızlı kutu iki kez | **37 / 37** |
+| Yazma alanı iki kez | **75 / 120** |
+| Çiftlemesiz | **21 / 120** |
+
+Kök neden: `pagePrints` iki ayrı muhataba yazılmış tek bir liste ve
+ayrım **hiçbir yerde yazılı değil**. Faz 6 promptu doldururken listenin
+tamamını üretece verdi; üreteç sayfa mobilyasını da sanata çizdi, dizgi
+ise aynı mobilyayı kendi işi saymaya devam etti.
+
+> **37 mühür sayfasının 37'sinde çocuk iki yıldız kutusu görüyor.**
+> Faz 5 `A1` kutunun basılı SAYISINI düzeltmişti; kimse kutunun KAÇ KEZ
+> basıldığını sormamıştı.
+
+Doğrulama: `interior.pdf` s.125 raster'a çevrildi ve göz ile denetlendi.
+
+### Eklendi — `qa_design § ⑨` mobilya çiftlemesini ÖLÇÜYOR
+
+Şimdilik **uyarı** seviyesinde: kusur 99 sayfada bugün var ve denetimi
+hata olarak açmak, düzeltme kararı verilmeden CI'ı kırmızıya
+kilitlemek olurdu. Ölçüm kayda giriyor, sayı raporda duruyor.
+A15 uygulanınca **hataya yükseltilecek**.
+
+`qa_design` kapısı **19 → 20 denetim**.
+
+### Ölçüldü — 300 dpi: **158 varlığın 158'i ölçütün altında** (A16)
+
+| | |
+|---|---:|
+| Etkin çözünürlük ≥ 300 dpi | **0 / 158** |
+| Mevcut · gereken piksel | 120,4 MP · **481,5 MP** |
+| Gereken çarpan | **× 4,00** |
+
+**K39 silinmedi ve değiştirilmedi.** `minDpiHistory` hem 300'ü hem
+150'yi gerekçesiyle taşıyor. Ama:
+
+> **150 dpi bir proje içi indirilmiş eşiktir — KDP asgarisine uygunluk
+> kanıtı değildir.** `qa_assets` yeşil yanıyor çünkü ölçüt indirildi.
+
+### Ölçüldü — editoryal sızıntı kümesi **9 değil, 11**
+
+Faz 6 raporu *"dokuz sayfada field note cevabı söylüyor"* diyordu. Aynı
+kayıt yeniden okundu: aynı kusur **ipucu katmanında iki sayfada daha**
+var (`B14` · `B15`). Küme *"field note"* diye adlandırıldığı için ikisi
+öncelik listesinin dışında kalmıştı.
+
+> Bir sızıntı, hangi kutuda durduğuyla değil, **ne yaptığıyla** sınıflanır.
+
+### Eklendi — belgeler
+
+| Dosya | Ne |
+|---|---|
+| `06_REPORTS/KDP_PREFLIGHT_AUDIT.md` | altı kalemin ölçümü |
+| `07_ASSETS/FOUNDER_ASSET_DELIVERY.md` | 16 dosyalık teslim sözleşmesi |
+| `03_COVER/COVER_PRODUCTION_PLAN.md` | kapak hattı · 10 adım |
+| `03_APLUS/APLUS_PRODUCTION_PLAN.md` | A+ hattı · 8 adım |
+
+### Değişmedi — bilerek
+
+`.gate` (`release`) · `minDpiHistory` · `externalValidation`
+(`overridden-zero-sessions`) · K38/K39/K40 · § 1–8 · manuscript ·
+iç blok PDF · **hiçbir görsel**.
+
+
 ## [Yayınlanmamış] — 2026-08-14 · Faz 5 · editoryal yakınsama + görsel üretim
 
 ```

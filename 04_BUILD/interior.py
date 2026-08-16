@@ -91,6 +91,159 @@ BOTTOM = 12.7 * MM
 WRITING_LINE_MM = 7.0
 WRITING_LINE = WRITING_LINE_MM * MM
 
+# ═══════════════════════════════════════════════════════════════════════════
+# YAZI TİPİ — GÖMÜLÜR, VE BU İKİ AYRI KUSURU BİRDEN KAPATIR
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Faz 6 iç bloğu base-14 `Helvetica` ile dizdi. Ölçüldü:
+#
+#     pdffonts interior.pdf
+#       Helvetica       Type 1   WinAnsi   emb=no
+#       Helvetica-Bold  Type 1   WinAnsi   emb=no
+#       ZapfDingbats    Type 1   ...       emb=no
+#
+# ① HİÇBİR YAZI TİPİ GÖMÜLÜ DEĞİLDİ. KDP ciltsiz iç bloğu bütün yazı
+#    tiplerinin gömülü olmasını ister; gömülmemiş bir yazı tipi
+#    basımevinin ikamesiyle basılır ve satır sonları kayar.
+#
+# ② WinAnsi KİTABIN KENDİ İMLÂSINI TAŞIYAMIYORDU. Faz 5'in `A13`
+#    düzeltmesi on dört ad geçişine işaret eklemişti — `Yorùbá`,
+#    `Òṣun-Òṣogbo`, `Skíðblaðnir`, `Mjölnir`, `Cú Chulainn`, `Whangārei`.
+#    Bu kod noktaları WinAnsi'de YOKTUR ve dizgide DÜŞTÜ. Basılan:
+#
+#        M■ori          ← ön maddede · imlâ kuralını ÖĞRETEN sayfada
+#
+#    Kaynak doğruydu, dizgi onu basamıyordu.
+#
+#     ⭑ Bir kitabın "işaretler önemlidir" diyen sayfası,
+#       işareti basamıyordu. ⭑
+#
+# DejaVu Sans Latin Genişletilmiş Ek'i (U+1E00–U+1EFF) ve `★` (U+2605)
+# kapsar. Yazı tipleri `07_ASSETS/fonts/` altındadır ve depoya girmez
+# (.gitignore § ④); build makinesinde yoksa sistem yolları denenir.
+FONT_DIR = os.path.join(ROOT, "07_ASSETS", "fonts")
+SYS_FONT_DIRS = [
+    "/usr/share/fonts/truetype/dejavu",
+    "/usr/local/share/fonts/dejavu",
+]
+FONT_FILES = {
+    "Body": "DejaVuSans.ttf",
+    "Body-Bold": "DejaVuSans-Bold.ttf",
+    "Body-Italic": "DejaVuSans-Oblique.ttf",
+}
+
+# ⭑ CJK YEDEĞİ — CEVAP ANAHTARI HANGUL VE KANJİ TAŞIYOR ⭑
+#
+# Cevap anahtarı gerçek cevapları basar ve bazıları Latin DEĞİLDİR:
+# 서울 · 광주 · 済州 · ひらがな · カタカナ. DejaVu bu blokları
+# KAPSAMAZ ve ilk dizgide hepsi TOFU (boş kutu) olarak bastı.
+#
+#     Bir cevabın basılamaması, o cevabın yanlış basılmasıdır.
+#
+# reportlab kendiliğinden yedek yazı tipine düşmez; bu yüzden CJK
+# taşıyan satırlar AYRI bir yazı tipiyle dizilir.
+# ⚠ Noto CJK KULLANILAMADI: `.ttc` dosyaları PostScript (CFF) dış hat
+# taşıyor ve reportlab onları gömemiyor ("postscript outlines are not
+# supported"). Gömülemeyen bir yazı tipi bu kitap için YOK demektir.
+# Droid Sans Fallback TrueType'tır ve CJK + kana KAPSAR.
+CJK_CANDIDATES = [
+    ("/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf", None),
+]
+FONT_CJK = "Body-CJK"
+
+
+# Kayıtlı yazı tiplerinin gerçekten BASABİLDİĞİ kod noktaları.
+# Bir karakteri "basıyoruz" sanıp tofu bırakmak, basmamaktan kötüdür.
+CMAPS: dict = {}
+
+
+def renderable(txt, fonts):
+    """Basılabilen metni ve DÜŞÜRÜLEN karakter sayısını döner.
+
+    ⭑ HANGUL BU MAKİNEDE BASILAMIYOR — VE BU GİZLENMEZ ⭑
+
+    Cevap anahtarı Korece yer adlarını hem hangul hem romanizasyonla
+    taşıyor: `서울 Seoul · 부산 Busan`. Sistemde gömülebilir (TrueType)
+    hiçbir yazı tipi hangul kapsamıyor: Noto CJK CFF dış hatlı,
+    Droid Sans Fallback ise hangul taşımıyor.
+
+        Basılamayan bir karakteri yine de basmak,
+        sayfaya BOŞ KUTU koymaktır — ve boş kutu, eksik bilgiden
+        daha kötüdür: yanlış basılmış gibi görünür.
+
+    Bu yüzden basılamayan koşular DÜŞÜRÜLÜR, romanizasyon KALIR ve
+    cevap anahtarı sayfası bunu okura AÇIKÇA söyler. Düşen karakter
+    sayısı rapora yazılır; sessiz bir kayıp yoktur."""
+    if not txt:
+        return txt, 0
+    ok, dropped = [], 0
+    for ch in txt:
+        if ch in " \t·—-–,.:;()[]/'\"":
+            ok.append(ch)
+            continue
+        if any(ord(ch) in CMAPS.get(f, ()) for f in fonts) or not CMAPS:
+            ok.append(ch)
+        else:
+            dropped += 1
+    out = " ".join("".join(ok).split())
+    return out, dropped
+
+
+def has_cjk(txt):
+    """Latin dışı CJK/Hangul/Kana taşıyor mu."""
+    return any(
+        0x2E80 <= ord(ch) <= 0x9FFF or 0xAC00 <= ord(ch) <= 0xD7AF
+        or 0x3040 <= ord(ch) <= 0x30FF or 0xF900 <= ord(ch) <= 0xFAFF
+        for ch in (txt or ""))
+# Kayıt başarısız olursa base-14'e düşülür — ama SESSİZCE DEĞİL:
+# `rep.facts["fontsEmbedded"]` false olur ve `§ ⑥` kapısı KIRMIZI yanar.
+FONT, FONT_B, FONT_I = "Body", "Body-Bold", "Body-Italic"
+
+
+def register_fonts(rep):
+    """Gömülebilir TTF'leri kaydeder. (başarılı_mı, kaynak_dizin) döner."""
+    from reportlab.pdfbase import pdfmetrics
+    from reportlab.pdfbase.ttfonts import TTFont
+    for d in [FONT_DIR] + SYS_FONT_DIRS:
+        if all(os.path.isfile(os.path.join(d, f)) for f in FONT_FILES.values()):
+            try:
+                for name, fn in FONT_FILES.items():
+                    pdfmetrics.registerFont(TTFont(name, os.path.join(d, fn)))
+                # ⚠ MUTLAK YOL RAPORA YAZILMAZ.
+                # `06_REPORTS/interior.json` TAKİP EDİLEN bir dosyadır ve
+                # ilk hâl oraya `/home/<kullanıcı>/…` yazıyordu. Bir build
+                # makinesinin dizin ağacı public depoda durmaz — ön uçuş
+                # denetimi bunu sızıntı olarak yakaladı.
+                rep.facts["fontDir"] = (os.path.relpath(d, ROOT)
+                                        if d.startswith(ROOT) else d)
+                rep.facts["fontsEmbedded"] = True
+                # CJK yedeği — bulunamazsa dizgi yine koşar ama
+                # `§ ⑥` bunu SÖYLER; sessizce tofu basılmaz.
+                rep.facts["cjkFont"] = None
+                for cp, idx in CJK_CANDIDATES:
+                    if os.path.isfile(cp):
+                        try:
+                            ft = (TTFont(FONT_CJK, cp) if idx is None
+                                  else TTFont(FONT_CJK, cp, subfontIndex=idx))
+                            pdfmetrics.registerFont(ft)
+                            rep.facts["cjkFont"] = os.path.basename(cp)
+                            CMAPS[FONT_CJK] = set(ft.face.charToGlyph)
+                            break
+                        except Exception:                      # noqa: BLE001
+                            continue
+                for nm, fn in FONT_FILES.items():
+                    try:
+                        CMAPS[nm] = set(
+                            TTFont(nm + "-probe",
+                                   os.path.join(d, fn)).face.charToGlyph)
+                    except Exception:                          # noqa: BLE001
+                        pass
+                return True, d
+            except Exception as exc:                       # noqa: BLE001
+                rep.facts["fontError"] = str(exc)
+    rep.facts["fontsEmbedded"] = False
+    return False, None
+
 
 def jload(p, default=None):
     if not os.path.isfile(p):
@@ -139,6 +292,31 @@ def build(rep, write=True):
     book = jload(BOOK)
     if not book:
         return None
+
+    # ⭑ YAZI TİPİ KAYDI ÖLÇÜMDEN ÖNCE GELİR ⭑
+    # `stringWidth` kayıtlı yazı tipinin metriklerini kullanır: kayıt
+    # yapılmadan ölçülen bir sayfa sayısı BAŞKA bir yazı tipinin sayfa
+    # sayısıdır. Kayıt burada, ilk `text_block` çağrısından önce.
+    ok, fdir = register_fonts(rep)
+    if ok:
+        # ⚠ TUVALİN VARSAYILAN YAZI TİPİ DE DEĞİŞTİRİLMELİDİR.
+        #
+        # Bütün `setFont` çağrıları DejaVu'ya çevrildikten sonra bile
+        # `pdffonts` çıktısında gömülmemiş bir `Helvetica` kalmıştı:
+        # reportlab tuvali `rl_config.canvas_basefontname` ile açar ve o
+        # ad sayfa kaynak sözlüğüne HİÇ KULLANILMASA DA yazılır.
+        #
+        #     Kullanılmayan ama BEYAN EDİLEN bir yazı tipi de
+        #     gömülmemiş bir yazı tipidir — ve denetim onu görür.
+        from reportlab import rl_config
+        rl_config.canvas_basefontname = FONT
+    if not ok:
+        rep.warn("gömülebilir yazı tipi BULUNAMADI — base-14'e düşülüyor; "
+                 "iç blok KDP'ye HAZIR DEĞİL (§ ⑥ kırmızı yanacak)")
+        globals()["FONT"] = "Helvetica"
+        globals()["FONT_B"] = "Helvetica-Bold"
+        globals()["FONT_I"] = "Helvetica-Oblique"
+
     index = jload(ACTS, {"activities": []})
     design = {a["activityId"]: a for a in index.get("activities", [])}
     regions = jload(REGIONS, {"regions": []}).get("regions", [])
@@ -158,7 +336,8 @@ def build(rep, write=True):
     rep.facts["placeholderMode"] = placeholder_mode
 
     c = canvas.Canvas(path, pagesize=(TRIM_W, TRIM_H)) if write else None
-    state = {"page": 0, "overflow": [], "thin": [], "unsafe": []}
+    state = {"page": 0, "overflow": [], "thin": [], "unsafe": [],
+             "droppedGlyphs": 0}
 
     def inner(page_no):
         """Tek sayfada iç kenar SAĞDA mı SOLDA mı — gutter tarafı değişir."""
@@ -170,7 +349,7 @@ def build(rep, write=True):
             c.showPage()
         return state["page"]
 
-    def text_block(x, y, w, txt, size, leading, font="Helvetica"):
+    def text_block(x, y, w, txt, size, leading, font=FONT):
         """Basit sarma. Yüksekliği döner; c yoksa yalnız ÖLÇER."""
         if not txt:
             return 0
@@ -191,6 +370,40 @@ def build(rep, write=True):
                 c.drawString(x, y - i * leading, ln)
         return len(lines) * leading
 
+    def wrap_lines(txt, font, size, w):
+        """Salt sarma — çizmez, satır listesi döner."""
+        words, line, out = (txt or "").split(), "", []
+        for word in words:
+            t = (line + " " + word).strip()
+            if pdfmetrics.stringWidth(t, font, size) <= w:
+                line = t
+            else:
+                out.append(line)
+                line = word
+        if line:
+            out.append(line)
+        return out
+
+    def measure_block(w, txt, size, leading, font=FONT):
+        """`text_block`'un ÇİZMEYEN ikizi — yalnızca yükseklik döner.
+
+        Levha kutusunu büyütebilmek için altında ne kadar yer
+        gerektiğini ÖNCEDEN bilmek gerekiyor. Tahmin edilmez: aynı
+        sarma mantığıyla ölçülür."""
+        if not txt:
+            return 0
+        words, line, n = txt.split(), "", 0
+        for word in words:
+            t = (line + " " + word).strip()
+            if pdfmetrics.stringWidth(t, font, size) <= w:
+                line = t
+            else:
+                n += 1
+                line = word
+        if line:
+            n += 1
+        return n * leading
+
     def asset_box(x, y, w, h, aid, label):
         """Görsel yerleşimi. final/ varsa GERÇEK varlık, yoksa YER TUTUCU."""
         a = assets.get(aid)
@@ -203,23 +416,83 @@ def build(rep, write=True):
                 c.setDash(3, 3)
                 c.rect(x, y - h, w, h)
                 c.setDash()
-                c.setFont("Helvetica-Oblique", 7)
+                c.setFont(FONT_I, 7)
                 c.drawCentredString(x + w / 2, y - h / 2, label[:70])
         return h
 
+    def para_block(x, y, w, txt, size, leading, font=FONT, gap=0.55):
+        """Paragrafları ve satır sonlarını KORUYARAK dizer.
+
+        ⭑ İLK HÂL `\\n\\n`'i İKİ BOŞLUKLA DEĞİŞTİRİYORDU ⭑
+
+        Sonuç kitabın BİRİNCİ SAYFASINDA görüldü: başlık, alt başlık ve
+        yayınevi tek bir gövde paragrafına eriyordu —
+
+            THE MYTH HUNTER'S FIELD BOOK A Screen-Free Quest Through
+            22 Cultures 120 Puzzles, Maps, Codes and Challenges for
+            Ages 8-12 <imprint>      ← üçü tek paragrafa erimiş
+
+        Kaynak DOĞRUYDU: manuscript satır yapısını `\\n\\n` ile taşıyor.
+        Onu düzleştiren dizgiydi.
+
+            Bir kaynağın taşıdığı yapıyı silen dizgi,
+            kaynağı düzeltmekle onarılamaz.
+        """
+        total = 0.0
+        for para in (txt or "").split("\n\n"):
+            for line in para.split("\n"):
+                used = text_block(x, y - total, w, line.strip(), size, leading,
+                                  font)
+                total += used or leading
+            total += leading * gap
+        return total
+
     # ── ÖN MADDE ───────────────────────────────────────────────────────────
+    #
+    # ⚠ `heading` BİR İÇ KİMLİKTİR, HER SAYFADA BASILAMAZ.
+    # İlk hâl onu koşulsuz basıyordu ve kapak içi sayfada okur
+    # **"Title Page"** başlığını görüyordu. Künye sayfası ve başlık
+    # sayfası kendi tipografilerini ister.
+    SILENT_HEADINGS = {"title-page"}
     for s in (book.get("frontMatter") or {}).get("sections", []):
         for _ in range(s.get("pages", 1)):
             p = new_page()
             x = inner(p)
             w = TRIM_W - GUTTER - OUTER
             y = TRIM_H - TOP
-            if c:
-                c.setFont("Helvetica-Bold", 15)
+
+            if s["id"] == "title-page":
+                # ⭑ BAŞLIK SAYFASI — kitabın ilk izlenimi ⭑
+                # Satırlar manuscript'ten gelir; hiyerarşi burada kurulur.
+                parts = [ln.strip() for ln in (s.get("bodyText") or "").split("\n")
+                         if ln.strip()]
+                title = parts[0] if parts else book.get("meta", {}).get("title", "")
+                subs = parts[1:-1] if len(parts) > 2 else []
+                imprint = parts[-1] if len(parts) > 1 else ""
+                yy = TRIM_H * 0.70
+                for ln in wrap_lines(title, FONT_B, 26, w):
+                    if c:
+                        c.setFont(FONT_B, 26)
+                        c.drawCentredString(x + w / 2, yy, ln)
+                    yy -= 32
+                yy -= 14
+                for sline in subs:
+                    for ln in wrap_lines(sline, FONT_I, 12.5, w * 0.86):
+                        if c:
+                            c.setFont(FONT_I, 12.5)
+                            c.drawCentredString(x + w / 2, yy, ln)
+                        yy -= 17
+                    yy -= 4
+                if c and imprint:
+                    c.setFont(FONT, 11)
+                    c.drawCentredString(x + w / 2, BOTTOM + 46, imprint)
+                continue
+
+            if c and s["id"] not in SILENT_HEADINGS:
+                c.setFont(FONT_B, 15)
                 c.drawString(x, y, s.get("heading", ""))
             y -= 26
-            used = text_block(x, y, w, (s.get("bodyText") or "").replace("\n\n", "  "),
-                              10.5, 14.5)
+            used = para_block(x, y, w, s.get("bodyText"), 10.5, 14.5)
             y -= used
             if s.get("visualNeed"):
                 y -= asset_box(x, y - 8, w, 150, "front-%s" % s["id"],
@@ -244,9 +517,9 @@ def build(rep, write=True):
         p = new_page()
         x, w, y = inner(p), TRIM_W - GUTTER - OUTER, TRIM_H - TOP
         if c and op:
-            c.setFont("Helvetica-Bold", 19)
+            c.setFont(FONT_B, 19)
             c.drawString(x, y, op.get("heading", rname.get(rid, rid)))
-            c.setFont("Helvetica-Oblique", 10)
+            c.setFont(FONT_I, 10)
             c.drawString(x, y - 20, (op.get("terrainLine") or "")[:110])
         if op:
             text_block(x, y - 46, w, op.get("openingText", ""), 10.5, 15)
@@ -258,39 +531,99 @@ def build(rep, write=True):
             y = TRIM_H - TOP
             # ① görev satırı  ② zorluk
             if c:
-                c.setFont("Helvetica-Bold", 12)
+                c.setFont(FONT_B, 12)
                 c.drawString(x, y, a.get("prompt", ""))
                 d = design.get(a["activityId"], {}).get("difficulty", 1)
-                c.setFont("Helvetica", 12)
+                c.setFont(FONT, 12)
                 c.drawRightString(x + w, y, "★" * int(d or 1))
             y -= 22
             # ③ levha — visualSpec ölçüsünde
+            #
+            # ⭑ MOBİLYA ROLÜ LEVHANIN BOYUNU DA DEĞİŞTİRİR ⭑
+            #
+            # Mobilya çiftlemesi giderildiğinde (dizgi artık levhanın
+            # bastığını basmıyor) sayfanın alt yarısı BOŞ kaldı — 75
+            # sayfada dört inçe yakın ölü alan. Boş alan yalnızca çirkin
+            # değil: o sayfalarda ÇOCUĞUN YAZDIĞI SATIRLAR levhanın
+            # içindedir ve levha küçük kalırsa satırlar da küçük kalır.
+            #
+            #     Ölü alan, küçültülmüş bir yazma alanıdır.
+            #
+            # Bu yüzden levha, altında GERÇEKTEN gereken yer ölçüldükten
+            # sonra kalan yüksekliği alır. Tavan hâlâ vardır (sayfanın
+            # %72'si): levha sayfayı tamamen yutmamalı.
             vs = a.get("visualSpec") or {}
             tpx = vs.get("targetPx") or [1650, 1200]
             box_w = w
-            box_h = min(box_w * (tpx[1] / tpx[0]), TRIM_H * 0.46)
+            furn_pre = a.get("furniture") or {}
+            # ⚠ REZERV HESABI İLK YAZILDIĞINDA YANLIŞTI VE KAPI YAKALADI.
+            #
+            # İlk hâl field note'u ayrıca ölçüp yazma bloğunun payına da
+            # ekliyordu; oysa yazma bloğu kendi içinde field note ve
+            # ebeveyn notu için 58 pt'lik SABİT bir pay zaten düşüyor.
+            # Sonuç: levha 25 sayfada yazma satırlarının yerini yedi ve
+            # satır yüksekliği 7 mm ölçütünün altına indi.
+            #
+            #     Kapı, levhayı büyütme hevesini 25 sayfada durdurdu —
+            #     ve durdurduğu şey ÇOCUĞUN YAZMA ALANIYDI.
+            #
+            # Doğrusu: dizgi yazma satırı çiziyorsa rezerv
+            # `satır × 7 mm + 58`; çizmiyorsa field note ayrıca ölçülür.
+            need = 0.0
+            for i, st in enumerate(a.get("steps") or [], 1):
+                need += measure_block(w - 90, "%d. %s" % (i, st), 10, 13.5)
+            if a.get("sealSlot") and furn_pre.get("starBox", "typeset") != "plate":
+                need += 26
+            typeset_lines = (0 if furn_pre.get("writingLines") == "plate"
+                             else (a.get("writingSpaceLines") or 0))
+            if typeset_lines:
+                need += typeset_lines * WRITING_LINE + 58
+            else:
+                need += measure_block(w, "Field note: " + (a.get("fieldNote") or ""),
+                                      9, 12)
+                if a.get("parentNote"):
+                    need += measure_block(w, a["parentNote"], 8, 11) + 8
+            avail = (y - BOTTOM) - need - 22        # 22 pt nefes payı
+            box_h = min(box_w * (tpx[1] / tpx[0]), max(avail, TRIM_H * 0.30),
+                        TRIM_H * 0.72)
             y -= asset_box(x, y, box_w, box_h, vs.get("assetId", ""),
                            "[ %s ]" % vs.get("assetId", "?")) + 14
             # ④ adımlar
             if c:
-                c.setFont("Helvetica", 10)
+                c.setFont(FONT, 10)
             for i, st in enumerate(a.get("steps") or [], 1):
                 y -= text_block(x, y, w - 90, "%d. %s" % (i, st), 10, 13.5)
             y -= 6
+            # ⭑ MOBİLYA BEYAN EDİLMİŞ ROLE GÖRE ÇİZİLİR ⭑
+            #
+            # `pagePrints` iki muhataba yazılmış tek bir listeydi ve
+            # ayrım yazılı değildi: levha da mobilyayı çizdi, dizgi de.
+            # Ölçüldü — yıldızlı kutu 37/37 sayfada, yazma alanı
+            # 75/120 sayfada İKİ KEZ basılıyordu.
+            #
+            #     Levha bir mobilyayı zaten basıyorsa, DİZGİ onu basmaz.
+            #
+            # Rol prozadan her koşuda yeniden çıkarılmaz; bir kez
+            # ölçülüp `furniture` alanına DONDURULMUŞTUR
+            # (`04_BUILD/furniture_roles.py`). Beyan yoksa eski davranış
+            # sürer — sessiz bir değişiklik yapılmaz.
+            furn = a.get("furniture") or {}
+
             # ⑧ yıldızlı kutu
-            if a.get("sealSlot"):
+            if a.get("sealSlot") and furn.get("starBox", "typeset") != "plate":
                 n = len(a.get("sealStarWord") or "")
                 bw = 15
                 if c:
                     for i in range(n):
                         c.rect(x + i * bw, y - 17, bw, 17)
-                    c.setFont("Helvetica", 7.5)
+                    c.setFont(FONT, 7.5)
                     c.drawString(x + n * bw + 8, y - 12,
                                  "★%d → seal slot %d" % (a.get("sealStarIndex", 1),
                                                          a["sealSlot"]))
                 y -= 26
             # ⑦ yazma alanı — ÖLÇÜLEN KAPI
-            lines = a.get("writingSpaceLines") or 0
+            lines = (0 if furn.get("writingLines") == "plate"
+                     else (a.get("writingSpaceLines") or 0))
             if lines:
                 avail = y - BOTTOM - 58            # field note + ebeveyn notu payı
                 per = avail / lines if lines else 0
@@ -309,26 +642,26 @@ def build(rep, write=True):
                               "Field note: " + (a.get("fieldNote") or ""), 9, 12)
             # ⑩ ebeveyn notu
             if a.get("parentNote") and c:
-                c.setFont("Helvetica-Oblique", 7.5)
+                c.setFont(FONT_I, 7.5)
                 c.drawString(x, BOTTOM + 8, "For an adult: " + a["parentNote"][:120])
             if y - fn_h < BOTTOM:
                 state["overflow"].append(a["activityId"])
             # sayfa numarası
             if c:
-                c.setFont("Helvetica", 8)
+                c.setFont(FONT, 8)
                 c.drawRightString(TRIM_W - inner(p), BOTTOM - 12, str(p))
 
         # bölge mühür sayfası
         p = new_page()
         x, y = inner(p), TRIM_H - TOP
         if c:
-            c.setFont("Helvetica-Bold", 15)
+            c.setFont(FONT_B, 15)
             c.drawString(x, y, "%s — Seal" % rname.get(rid, rid))
         slots = sorted({a["sealSlot"] for a in pool if a.get("sealSlot")})
         if c:
             for i, sl in enumerate(slots):
                 c.rect(x + i * 34, y - 74, 30, 30)
-                c.setFont("Helvetica", 7.5)
+                c.setFont(FONT, 7.5)
                 c.drawCentredString(x + i * 34 + 15, y - 86, "slot %d" % sl)
         asset_box(x, y - 110, 120, 120, "seal-%s" % rid, "[ seal-%s ]" % rid)
 
@@ -338,9 +671,9 @@ def build(rep, write=True):
         p = new_page()
         x, w, y = inner(p), TRIM_W - GUTTER - OUTER, TRIM_H - TOP
         if c:
-            c.setFont("Helvetica-Bold", 14)
+            c.setFont(FONT_B, 14)
             c.drawString(x, y, q.get("heading", ""))
-            c.setFont("Helvetica", 11)
+            c.setFont(FONT, 11)
         y -= 24
         y -= text_block(x, y, w, q.get("prompt", ""), 11, 14) + 8
         for i, st in enumerate(q.get("steps") or [], 1):
@@ -349,22 +682,190 @@ def build(rep, write=True):
                    9, 12)
 
     # ── ARKA MADDE ─────────────────────────────────────────────────────────
-    for s in (book.get("backMatter") or {}).get("sections", []):
-        for _ in range(s.get("pages", 1)):
+    # ═══════════════════════════════════════════════════════════════════════
+    # ARKA MADDE — ⭑ ŞARTNAME DEĞİL, İÇERİK ⭑
+    # ═══════════════════════════════════════════════════════════════════════
+    #
+    # İlk hâl iki ayrı kusuru birden taşıyordu ve ikisi de basılı sayfada
+    # görülüyordu:
+    #
+    #  ① AYNI SAYFA N KEZ BASILIYORDU. `pages: 4` bir SAYFA BÜTÇESİDİR
+    #     ("bu bölüm dört sayfa tutar"), bir TEKRAR TALİMATI değil. Döngü
+    #     onu tekrar sanıyordu: sözlük dört özdeş sayfa, cevap anahtarı
+    #     dört özdeş sayfa. On üç arka madde sayfasının yedisi BİREBİR
+    #     kopyaydı.
+    #
+    #  ② BASILAN ŞEY İÇERİK DEĞİL ŞARTNAMEYDİ. `prints` alanı sayfanın NE
+    #     BASACAĞINI tarif eder — *"twenty-two entries, one per culture,
+    #     in route order"*. Bu bir sözlük değil, bir sözlüğün TARİFİDİR.
+    #     Gerçek yirmi iki girdi, gerçek yüz yirmi cevap ve gerçek kurum
+    #     listesi hiç dizilmemişti.
+    #
+    #     Arka kapak *"the back of the book says which ones"* diye söz
+    #     veriyor ve kitabın arkası hangileri olduğunu SÖYLEMİYORDU.
+    #
+    # Veri zaten ÖLÇÜLMÜŞ hâlde duruyor: `culture_index` yirmi iki kültür,
+    # `answers/answer_key.json` yüz yirmi cevap, `research/*-revalidation`
+    # kurumlar. Arka madde artık ONLARDAN TÜRETİLİR ve sayfalara AKAR.
+    def flow(section, rows, size=9.2, leading=12.4, head_size=14):
+        """Satırları gerektiği kadar sayfaya AKITIR — tekrar etmez."""
+        pages_used = 0
+        i = 0
+        first = True
+        while i < len(rows) or first:
             p = new_page()
+            pages_used += 1
             x, w, y = inner(p), TRIM_W - GUTTER - OUTER, TRIM_H - TOP
             if c:
-                c.setFont("Helvetica-Bold", 14)
-                c.drawString(x, y, s.get("heading", ""))
-            y -= 24
-            for pr in s.get("prints") or []:
-                y -= text_block(x, y, w, "· " + pr, 9.5, 13)
+                c.setFont(FONT_B, head_size)
+                c.drawString(x, y, section.get("heading", "")
+                             + ("" if first else " (continued)"))
+            y -= 22
+            first = False
+            while i < len(rows):
+                kind, text = rows[i]
+                f = FONT_B if kind == "b" else (FONT_I if kind == "i" else FONT)
+                if has_cjk(text) and rep.facts.get("cjkFont"):
+                    f = FONT_CJK
+                text, drop = renderable(text, [f])
+                if drop:
+                    state["droppedGlyphs"] = state.get("droppedGlyphs", 0) + drop
+                sz = size + (0.8 if kind == "b" else 0)
+                need = measure_block(w, text, sz, leading, f) or leading
+                if y - need < BOTTOM:
+                    break
+                y -= text_block(x, y, w, text, sz, leading, f)
+                if kind == "b":
+                    y -= 2
+                i += 1
+            if i >= len(rows):
+                break
+        return pages_used
+
+    cultures_doc = jload(os.path.join(ROOT, "01_SOURCE", "culture_index.json"), {})
+    akey = jload(os.path.join(ROOT, "01_SOURCE", "answers", "answer_key.json"), {})
+    rorder2 = {r["id"]: r.get("order", 99) for r in regions}
+
+    def glossary_rows():
+        """⚠ `culture_index.writingSystem` TÜRKÇEDİR VE BASILAMAZ.
+
+        İlk hâl onu doğrudan bastı ve sözlüğün yarısı Türkçe çıktı —
+        *"Fince ünlü uyumu ve bileşik sözcük yapısı"* — İngilizce bir
+        kitabın arkasında. `qa_language` ticari dili İngilizce olarak
+        kilitliyor (K21) ve Türkçe bir sayfa nihai çıktıya KARIŞAMAZ.
+        Alanın İngilizce karşılığı YOKTUR; uydurulmaz.
+
+            Bir alanın çevirisi yoksa, o alan basılmaz —
+            yerine ÖLÇÜLEBİLEN bir şey basılır.
+
+        Sözlük bu yüzden yalnızca İngilizce ve ölçülmüş veriden kurulur:
+        ad · bölge · kitapta kaç sayfa · yaşayan gelenek mi."""
+        per = {}
+        for a in acts:
+            cu = design.get(a["activityId"], {}).get("culture")
+            per[cu] = per.get(cu, 0) + 1
+        cs = sorted(cultures_doc.get("cultures", []),
+                    key=lambda x: (rorder2.get(x.get("region"), 99), x["name"]))
+        rows = [("i", "Twenty-two peoples, in the order the route meets them. "
+                      "The marks over and under the letters are part of the "
+                      "names and are printed as they are written.")]
+        last = None
+        for cu in cs:
+            if cu.get("region") != last:
+                last = cu.get("region")
+                rows.append(("b", rname.get(last, last)))
+            n = per.get(cu["id"], 0)
+            rows.append(("n", "%s — %d page%s in this book. %s" % (
+                cu["name"], n, "" if n == 1 else "s",
+                "Still spoken or practised today."
+                if cu.get("livingTradition") else
+                "Known from written and excavated record.")))
+        return rows
+
+    def answer_rows():
+        rows = [("i", "One entry per activity page, in page order. Draw-and-write "
+                      "pages give what a finished page must show, not a single "
+                      "right answer. The six seal words are not printed here: "
+                      "they check themselves, and printing them would remove "
+                      "the only self-check in the book. Korean place names "
+                      "are given in their romanised form here; the hangul "
+                      "itself is printed on the activity page.")]
+        for e in sorted(akey.get("entries", []), key=lambda x: x.get("pageOrder", 0)):
+            body = (e.get("answer") if not e.get("openEnded")
+                    else "a finished page shows: " + (e.get("whatAFinishedPageShows") or ""))
+            rows.append(("n", "%d.  %s" % (e.get("pageOrder", 0), body)))
+        return rows
+
+    def source_rows():
+        import glob as _glob
+        import re as _re
+        rows = [("i", "Every answer in this book was checked against at least "
+                      "two independent published sources. Three claims could "
+                      "not be checked twice; those pages were redesigned. If "
+                      "you find a mistake, the record of where the fact came "
+                      "from is printed here so you can prove it.")]
+        for f in sorted(_glob.glob(os.path.join(ROOT, "01_SOURCE", "research",
+                                                "*-revalidation.json"))):
+            rid = os.path.basename(f).replace("-revalidation.json", "")
+            doc = jload(f, {})
+            names = set()
+
+            def walk(o):
+                if isinstance(o, dict):
+                    if isinstance(o.get("ref"), str):
+                        names.add(_re.split(r"\s+[—–-]\s+|\s*\(", o["ref"])[0].strip())
+                    for v in o.values():
+                        walk(v)
+                elif isinstance(o, list):
+                    for v in o:
+                        walk(v)
+            walk(doc)
+            good = sorted(n for n in names if 3 < len(n) < 70)
+            if not good:
+                continue
+            rows.append(("b", rname.get(rid, rid)))
+            rows.append(("n", " · ".join(good)))
+        return rows
+
+    BUILDERS = {"glossary": glossary_rows, "answer-key": answer_rows,
+                "sources": source_rows}
+    for s in (book.get("backMatter") or {}).get("sections", []):
+        build_rows = BUILDERS.get(s["id"])
+        rows = build_rows() if build_rows else [("n", "· " + p)
+                                                for p in (s.get("prints") or [])]
+        used = flow(s, rows)
+        state.setdefault("backMatterPages", {})[s["id"]] = used
 
     # ── FORMA HİZASI ───────────────────────────────────────────────────────
+    # ⭑ FORMA DOLGUSU BOŞ SAYFA DEĞİL, KULLANILABİLİR SAYFA OLMALI ⭑
+    #
+    # Ciltsiz baskı sayfa sayısını dörde tamamlar. İlk hâl bunu GERÇEKTEN
+    # BOŞ sayfalarla yapıyordu ve ön uçuş denetimi sayfa 156'yı "kaza
+    # eseri boş sayfa" olarak yakaladı — haklı olarak: bir okur boş bir
+    # sayfayı bir BASIM HATASI sanar.
+    #
+    #     Üzerine yazılan bir kitapta boş bir sayfa israftır:
+    #     çocuğun zaten yazacak yere ihtiyacı var.
+    #
+    # Dolgu sayfaları artık cetvelli birer NOT sayfasıdır.
     raw_pages = state["page"]
     padded = raw_pages + (-raw_pages) % 4
     for _ in range(padded - raw_pages):
-        new_page()
+        pg = new_page()
+        if c:
+            xx = inner(pg)
+            ww = TRIM_W - GUTTER - OUTER
+            c.setFont(FONT_B, 14)
+            c.drawString(xx, TRIM_H - TOP, "Field Notes")
+            c.setFont(FONT_I, 9.5)
+            c.drawString(xx, TRIM_H - TOP - 18,
+                         "Anything you worked out on the way, and anything "
+                         "you want to look up later.")
+            yy = TRIM_H - TOP - 46
+            while yy > BOTTOM + WRITING_LINE:
+                c.line(xx, yy, xx + ww, yy)
+                yy -= WRITING_LINE * 1.35
+    state["padPages"] = padded - raw_pages
     if c:
         c.showPage()
         c.save()
@@ -484,6 +985,17 @@ def main() -> int:
     print("\n── ④ baskı sınırları ──")
     rep.check(pages % 4 == 0, "sayfa sayısı dörde bölünüyor (%d)" % pages)
     rep.check(pages >= 110, "KDP asgari sayfa sağlanıyor (%d ≥ 110)" % pages)
+
+    # ── ⑥ YAZI TİPİ GÖMÜLÜ MÜ — KDP ZORUNLULUĞU ──────────────────────────
+    #
+    # Faz 6 bu denetimi hiç yapmadı ve iç blok sıfır gömülü yazı tipiyle
+    # "teslime hazır" ilan edildi. Gömülmemiş bir yazı tipi iki şey
+    # yapar: basımevi kendi ikamesini kullanır (satır sonları kayar) ve
+    # WinAnsi dışındaki her işaret DÜŞER — `M■ori` tam olarak buydu.
+    print("\n── ⑥ yazı tipi ──")
+    rep.check(bool(rep.facts.get("fontsEmbedded")),
+              "bütün yazı tipleri GÖMÜLEBİLİR TTF (%s)"
+              % (rep.facts.get("fontDir") or "BULUNAMADI"))
 
     print("\n" + "=" * 74)
     if rep.warnings:

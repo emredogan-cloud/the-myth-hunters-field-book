@@ -21,6 +21,7 @@ Yedi denetim:
   ⑥ BÖLGE ÇEŞİTLİLİĞİ — bir bölge tek düzene çökmüş mü
   ⑦ VARLIK KİMLİĞİ   — assetId tekil mi, dosya adı ve hedef sözleşmeye uyuyor mu
   ⑧ EŞLEŞTİRME       — eşleştirmenin İKİ TARAFI da basılı mı  ⭑FAZ 3⭑
+  ⑨ MOBİLYA ÇİFTLEMESİ — levha ve dizgi AYNI kutuyu iki kez mi basıyor ⭑YÜKLEME ÖNCESİ⭑
 
 ⑥ NEDEN VAR — VE BU KAPININ EN ÖZGÜN DENETİMİDİR:
 
@@ -396,6 +397,126 @@ def check_matching_relation(acts, rep):
     rep.facts["uncolocatedPairs"] = len(uncolocated)
 
 
+WRITING_LINE_RE = re.compile(
+    r"\b([a-z]+|\d+)\s+(?:empty\s+|ruled\s+|blank\s+)*writing\s+lines?\b", re.I)
+# ⚠ § ②'nin STAR_BOX_RE'si ile AYNI AD KULLANILMAZ: o kalıp kare ve yuva
+# numarasını YAKALAR, bu kalıp yalnızca kutunun levhada ANILDIĞINI arar.
+# İki ayrı soru, iki ayrı ad — aynı ada iki kalıp koymak § ②'yi sessizce
+# bozar ve ilk koşuda bozdu.
+PLATE_STAR_BOX_RE = re.compile(r"\bstar box\b", re.I)
+NUMWORD = {"no": 0, "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4,
+           "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
+           "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14,
+           "a": 1, "an": 1}
+
+
+def check_furniture_duplication(acts, rep):
+    """⑨ SAYFA MOBİLYASI İKİ KEZ BASILIYOR MU — ⭑ YÜKLEME ÖNCESİ GEÇİŞ ⭑
+
+    ⭑ BU DENETİMİN VAR OLMA SEBEBİ ⭑
+
+    `pagePrints` iki AYRI muhatabı olan tek bir liste:
+
+        LEVHANIN çizeceği   anahtar paneli · kart · harita · nesne
+        DİZGİNİN çizeceği   yazma satırı · yıldızlı kutu · numara kutusu
+
+    Ayrım hiçbir yerde YAZILI DEĞİL. Faz 6 promptu doldururken listenin
+    TAMAMINI üretece verdi; üreteç sayfa mobilyasını da sanatın içine
+    çizdi. `interior.py` ise aynı mobilyayı kendi işi saymaya devam etti.
+
+    Sonuç ölçüldü: **37 mühür sayfasının 37'sinde yıldızlı kutu iki kez**,
+    **120 sayfanın 75'inde yazma alanı iki kez** basılıyor.
+
+        Doğru bir sayı, iki kez basılınca doğru kalmıyor.
+
+    Faz 5 `A1` yıldızlı kutunun BASILI SAYISINI düzeltmişti. Kimse
+    kutunun KAÇ KEZ basıldığını sormamıştı — `qa_design § ②` kutunun
+    VAR olduğunu doğruluyor, İKİ TANE olmadığını değil.
+
+    ⚠ NEDEN UYARI, NEDEN HATA DEĞİL — VE BU GEÇİCİDİR
+
+    Kusur 99 sayfada BUGÜN var. Denetimi hata olarak açmak, düzeltme
+    kararı verilmeden CI'ı kırmızıya kilitlemek olurdu — ve bu kapıyı
+    gevşetme baskısı yaratır. Ölçüm kayda giriyor, sayı raporda duruyor
+    ve kusur GÖRÜNÜR hâle geliyor.
+
+        Aşama 2 `pagePrints` maddelerine rol ekleyince
+        (`plate` / `typeset`) bu denetim HATAYA yükseltilir.
+
+    Ölçüm hiçbir koşulda gizlenmez: sıfırsa da yazılır.
+    """
+    dup_star, dup_write, clean = [], [], 0
+    for a in acts:
+        prints = a.get("pagePrints") or []
+        blob = " | ".join(prints)
+        plate_star = bool(PLATE_STAR_BOX_RE.search(blob))
+        typeset_star = bool(a.get("sealSlot"))
+        plate_lines = 0
+        for m in WRITING_LINE_RE.finditer(blob):
+            w = m.group(1).lower()
+            plate_lines += int(w) if w.isdigit() else NUMWORD.get(w, 1)
+        typeset_lines = int(a.get("writingSpaceLines") or 0)
+        if plate_star and typeset_star:
+            dup_star.append(a["activityId"])
+        if plate_lines and typeset_lines:
+            dup_write.append("%s (levha %d ⇄ dizgi %d)"
+                             % (a["activityId"], plate_lines, typeset_lines))
+        if not (plate_star and typeset_star) and not (plate_lines and typeset_lines):
+            clean += 1
+
+    rep.facts["furnitureDuplicateStarBox"] = len(dup_star)
+    rep.facts["furnitureDuplicateWritingBlock"] = len(dup_write)
+    rep.facts["furnitureClean"] = clean
+
+    print("\n── ⑨ sayfa mobilyası rol ayrımı ──")
+    print("  levha yıldızlı kutu basıyor : %3d / %d sayfa"
+          % (len(dup_star), len(acts)))
+    print("  levha yazma satırı basıyor  : %3d / %d sayfa"
+          % (len(dup_write), len(acts)))
+
+    # ⭑ ARTIK BİR UYARI DEĞİL, BİR KAPI ⭑
+    #
+    # Aşama 1'de bu bölüm yalnızca ÖLÇÜYORDU: kusur 99 sayfada vardı ve
+    # denetimi hata olarak açmak, düzeltme kararı verilmeden CI'ı
+    # kırmızıya kilitlemek olurdu. Aşama 2'de kök düzeltme uygulandı
+    # (`04_BUILD/furniture_roles.py` → `book.json § furniture` →
+    # `interior.py`), bu yüzden ölçüm artık BAĞLAYICI.
+    #
+    # Denetlenen şey çiftlemenin YOKLUĞU değil, ROLÜN BEYAN EDİLMİŞ
+    # olmasıdır: her sayfa, mobilyasını kimin bastığını SÖYLEMEK
+    # zorundadır. Beyan yoksa dizgi eski davranışa döner ve çiftleme
+    # sessizce geri gelir.
+    undeclared, mismatched = [], []
+    for a in acts:
+        f = a.get("furniture")
+        if not f:
+            undeclared.append(a["activityId"])
+            continue
+        prints = " | ".join(a.get("pagePrints") or [])
+        plate_star = bool(PLATE_STAR_BOX_RE.search(prints))
+        want_star = ("plate" if plate_star
+                     else ("typeset" if a.get("sealSlot") else "none"))
+        pl = 0
+        for m in WRITING_LINE_RE.finditer(prints):
+            wd = m.group(1).lower()
+            pl += int(wd) if wd.isdigit() else NUMWORD.get(wd, 1)
+        want_lines = ("plate" if pl
+                      else ("typeset" if (a.get("writingSpaceLines") or 0)
+                            else "none"))
+        if f.get("starBox") != want_star or f.get("writingLines") != want_lines:
+            mismatched.append(a["activityId"])
+
+    rep.check(not undeclared,
+              "her sayfa mobilya rolünü BEYAN ediyor (%d/%d)"
+              % (len(acts) - len(undeclared), len(acts))
+              + ("" if not undeclared else " — BEYANSIZ: %s" % undeclared[:5]))
+    rep.check(not mismatched,
+              "beyan edilen rol ÖLÇÜMLE aynı"
+              + ("" if not mismatched else " — UYUŞMAZ: %s" % mismatched[:5]))
+    print("  beyanı ölçümle tutan        : %3d / %d sayfa"
+          % (len(acts) - len(undeclared) - len(mismatched), len(acts)))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -441,6 +562,7 @@ def main() -> int:
     check_region_variety(acts, cfg, rep)
     check_asset_identity(acts, cfg, rep)
     check_matching_relation(acts, rep)
+    check_furniture_duplication(acts, rep)
 
     print("\n" + "=" * 74)
     if rep.warnings:

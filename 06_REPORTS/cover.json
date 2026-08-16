@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "checks": 5,
+  "errors": [],
+  "warnings": [
+    "kapak sanatı 300 dpi ALTINDA (89 dpi) — yukarı örnekleme YAPILMADI; tipografi vektör olduğu için METİN keskin. KURUCU EYLEMİ: sanatı ≥5280 × 3375 px yeniden üret."
+  ],
+  "facts": {
+    "artPixels": [
+      1569,
+      1003
+    ],
+    "requiredPixels": [
+      5280,
+      3375
+    ],
+    "effectiveDpi": 89.1,
+    "artSha256": "68428bf6aa81b7f3f58140e8baf8d9bf37dd2881aa724aa726e74222374bdb33",
+    "fontDir": "07_ASSETS/fonts",
+    "spineUsableInches": 0.2263,
+    "spineFontPt": 12.71,
+    "backScrimHeightInches": 3.92,
+    "backTextBottomInches": 4.655,
+    "barcodeTopInches": 1.575,
+    "barcodeZoneInches": {
+      "x": 6.25,
+      "y": 0.375,
+      "w": 2.0,
+      "h": 1.2,
+      "note": "boş bırakıldı · KDP kendi barkodunu basar"
+    },
+    "output": "08_OUTPUT/PAPERBACK/cover.pdf",
+    "pages": 156
+  }
+}

@@ -1901,7 +1901,20 @@ def _ds_page(aid, layout, seal=None, star=None, idx=None, labels=("alpha", "beta
              "destination": "07_ASSETS/processed/interior/",
              "status": "specified-not-produced"},
          }
+    # ⭑ MOBİLYA ROLÜ KURGUDA DA BEYAN EDİLİR ⭑
+    #
+    # `qa_design § ⑨` her sayfanın mobilyasını KİMİN bastığını beyan
+    # etmesini şart koşuyor (Aşama 2 · A15). Beyansız bir kurgu, temiz
+    # olduğu hâlde kapıyı kırmızı yakar ve selftest bunu bir KÖRLÜK
+    # olarak bildirir — nitekim ilk koşuda iki bölümde tam olarak bunu
+    # bildirdi.
+    #
+    #     Bir kapı sertleştiğinde, onun temiz kurgusu da sertleşir.
+    p["furniture"] = {"starBox": "none", "writingLines": "typeset",
+                      "plateWritingLines": 0,
+                      "$measuredBy": "04_BUILD/furniture_roles.py"}
     if seal:
+        p["furniture"]["starBox"] = "plate"   # levha basıyor → dizgi basmaz
         p.update({"sealSlot": seal, "sealStarWord": star, "sealStarIndex": idx,
                   "sealContribution": star[idx - 1].upper()})
         p["answer"] = "alpha · beta · star box: " + star

@@ -42,6 +42,7 @@ ROOT = os.path.dirname(HERE)
 
 CONFIG = os.path.join(ROOT, "project_config.json")
 BOOK = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
+ACTIVITY_INDEX = os.path.join(ROOT, "01_SOURCE", "activity_index.json")
 INTERIOR = os.path.join(ROOT, "08_OUTPUT", "PAPERBACK", "interior.pdf")
 INTERIOR_REPORT = os.path.join(ROOT, "06_REPORTS", "interior.json")
 OUT = os.path.join(ROOT, "06_REPORTS", "tracked", "metadata.json")
@@ -55,6 +56,66 @@ SPINE_TEXT_MIN_PAGES = 79  # bu sayfanın altında sırta yazı basılmaz
 
 PLACEHOLDER = re.compile(r"\b(lorem ipsum|tbd|todo|xxx|placeholder|coming soon)\b",
                          re.I)
+
+# ⭑ AÇIKLAMADAKİ SAYILAR ELLE YAZILMAZ — VE BU BİR ÜSLUP MESELESİ DEĞİL ⭑
+#
+# Faz 6 açıklaması şu cümleyle üretildi ve cümle ELLE YAZILMIŞTI:
+#
+#     "Twenty-two peoples. One hundred and twenty pages."
+#
+# Sayı doğruydu — YAZILDIĞI GÜN. `pageWeight` düzeltilip dizgi 144 yerine
+# 160 ölçtüğünde (K38) açıklama ölçümle birlikte HAREKET ETMEDİ, çünkü
+# ölçüme bağlı değildi. Sonuç: müşteriye bakan tek metin, kitabın
+# fiziksel gerçeğiyle 40 sayfa çelişiyordu.
+#
+# Ve iki büyüklük gerçekten AYRIDIR:
+#     120 = AKTİVİTE (bulmaca) sayısı   ← alt başlığın vaadi
+#     160 = SAYFA sayısı (dizgiden ölçüldü)
+# İkisini aynı sözcükle anmak bir pazarlama tercihi değil, bir HATADIR.
+#
+#     Bir açıklama sayı iddia ediyorsa, o sayı ÖLÇÜMDEN gelmelidir.
+#
+# Aşağıdaki kalıp sayıları `%d` ile taşır ve `§ ⑤` kapısı açıklamanın
+# iddia ettiği her sayıyı ölçümle karşılaştırır. Elle yazılmış bir sayı
+# artık sessizce bayatlayamaz: CI'ı KIRMIZI yakar.
+DESCRIPTION_TEMPLATE = (
+    "Twenty-two peoples. {activities_word} puzzles across {pages_word} pages. "
+    "Six seals to earn. This is not a puzzle book with a mythology theme — "
+    "every puzzle is built out of what a people actually made: a writing "
+    "system, a counting system, a map of a real place, a message that had to "
+    "travel. Children decode Younger Futhark and Inuktitut syllabics, count "
+    "in Maya bars and dots, trace the Red River delta, and sort the Akan day "
+    "names. Answers are checked against museums, archives and universities, "
+    "and the back of the book says which ones. Screen-free, written in, and "
+    "finished with a certificate."
+)
+
+# Açıklama sayıyı RAKAMLA değil SÖZCÜKLE anar (pazarlama dili). Kapının
+# sayıyı yeniden okuyabilmesi için karşılık tablosu burada durur; tablo
+# yoksa kapı rakama düşer ve yine denetler.
+NUMBER_WORDS = {
+    100: "one hundred", 110: "one hundred and ten", 120: "one hundred and twenty",
+    130: "one hundred and thirty", 140: "one hundred and forty",
+    144: "one hundred and forty-four", 148: "one hundred and forty-eight",
+    150: "one hundred and fifty", 160: "one hundred and sixty",
+    168: "one hundred and sixty-eight", 176: "one hundred and seventy-six",
+    180: "one hundred and eighty", 192: "one hundred and ninety-two",
+    200: "two hundred",
+}
+
+
+def number_word(n):
+    """Sayıyı pazarlama diline çevirir; karşılığı yoksa RAKAM basar.
+
+    Uydurma bir sözcük üretmez: tablo dışındaki bir sayı için '160' yazmak,
+    yanlış bir 'one hundred and sixty-two' yazmaktan iyidir."""
+    return NUMBER_WORDS.get(int(n), str(int(n)))
+
+
+def description_for(activities, pages):
+    return DESCRIPTION_TEMPLATE.format(
+        activities_word=number_word(activities).capitalize(),
+        pages_word=number_word(pages))
 
 
 class Report:
@@ -93,10 +154,44 @@ def pdf_pages(path):
     return n or None
 
 
+def _royalty(cfg, pages):
+    """liste × oran − baskı maliyeti. KDP formülü, tek yerde."""
+    pc = cfg["production"]["kdpPrintCost"]
+    ed = next(e for e in cfg["production"]["editionsHypothesis"]
+              if e["id"] == "paperback")
+    rate = (pc["royaltyRateAtOrAbove999"] if ed["list"] >= 9.99
+            else pc["royaltyRateBelow999"])
+    cost = pc["paperbackLargeTrimBW"]["fixed"] + pages * pc["paperbackLargeTrimBW"]["perPage"]
+    return round(ed["list"] * rate - cost, 2)
+
+
 def build(cfg, book, pages, rep):
     pr, fo, au = cfg["project"], cfg["founder"], cfg["audience"]
     spine = round(pages * SPINE_PER_PAGE, 4)
     tw, th = cfg["production"]["trimPaperback"]["w"], cfg["production"]["trimPaperback"]["h"]
+    # AKTİVİTE sayısı manuscript'ten SAYILIR; SAYFA sayısı PDF'ten ÖLÇÜLÜR.
+    # İkisi ayrı büyüklüktür ve açıklama ikisini ayrı sözcükle anmak zorundadır.
+    #
+    # ⚠ MANUSCRIPT DEPODA DURMAZ (K10) — VE BU BİR SIFIR DEĞİLDİR.
+    #
+    # CI'da `book.json` yoktur. Naif bir `len(book.activities)` orada 0
+    # verir ve açıklama *"0 puzzles"* diye üretilirdi — üstelik kapılar
+    # yeşil kalarak, çünkü 0 == 0. Bu, Faz 5/6'da CI'ı iki kez kırmızı
+    # yakan hatanın aynası: bir KAYNAĞIN YOKLUĞU bir ÖLÇÜM sanılıyor.
+    #
+    #     Üretilmemiş bir çıktı bozuk bir çıktı değildir —
+    #     ve OLMAYAN bir kaynak SIFIR bir kaynak değildir.
+    #
+    # Yedek kaynak takip edilen `activity_index.json`: orada `written`
+    # durumundaki kayıtlar tam olarak yazılmış sayfalardır.
+    activities = len((book or {}).get("activities") or [])
+    if not activities:
+        idx = jload(ACTIVITY_INDEX, {}) or {}
+        activities = sum(1 for a in idx.get("activities", [])
+                         if a.get("status") == "written")
+        if activities:
+            print("  aktivite kaynağı: activity_index (manuscript depoda yok) → %d"
+                  % activities)
 
     md = {
         "$comment": [
@@ -129,17 +224,14 @@ def build(cfg, book, pages, rep):
             "gift for curious kids age 9",
             "homeschool world mythology",
         ],
-        "description": (
-            "Twenty-two peoples. One hundred and twenty pages. Six seals to "
-            "earn. This is not a puzzle book with a mythology theme — every "
-            "puzzle is built out of what a people actually made: a writing "
-            "system, a counting system, a map of a real place, a message that "
-            "had to travel. Children decode Younger Futhark and Inuktitut "
-            "syllabics, count in Maya bars and dots, trace the Red River "
-            "delta, and sort the Akan day names. Answers are checked against "
-            "museums, archives and universities, and the back of the book "
-            "says which ones. Screen-free, written in, and finished with a "
-            "certificate."),
+        "description": description_for(activities, pages),
+        "descriptionFacts": {
+            "$comment": ("Açıklamanın İDDİA ETTİĞİ sayılar. § ⑤ kapısı bunları "
+                         "ölçümle karşılaştırır; elle yazılmış bir sayı "
+                         "sessizce bayatlayamaz."),
+            "activities": activities,
+            "pages": pages,
+        },
         "edition": {
             "format": "paperback", "trim": "%.2f x %.2f in" % (tw, th),
             "pages": pages, "ink": cfg["production"]["ink"],
@@ -153,7 +245,13 @@ def build(cfg, book, pages, rep):
                                ["paperbackLargeTrimBW"]["fixed"]
                                + pages * cfg["production"]["kdpPrintCost"]
                                ["paperbackLargeTrimBW"]["perPage"], 2),
-            "royaltyBaseline": cfg["production"]["royaltyBaseline"]["paperback"],
+            # ⭑ TELİF ELLE YAZILMAZ, HESAPLANIR ⭑
+            # Sayfa sayısı 160 → 156 olunca baskı maliyeti düştü ama
+            # `royaltyBaseline` bir CONFIG SABİTİYDİ ve yerinde kaldı:
+            # metadata 3,65 $ baskı maliyeti ile 5,27 $ telif iddia
+            # ediyordu. İkisi aynı formülün iki ucudur ve ayrı
+            # duramazlar.
+            "royaltyBaseline": _royalty(cfg, pages),
         },
         "cover": {
             "spineInches": spine,
@@ -303,6 +401,41 @@ def main() -> int:
         print("  ⊘ iç blok PDF yok (08_OUTPUT depoda durmaz) — ③ ATLANDI")
         rep.warn("iç blok PDF bu makinede yok — sayfa sayısı "
                  "scope.pageTarget'tan alındı, ÖLÇÜLMEDİ")
+
+    print("\n── ⑤ açıklamanın iddia ettiği sayılar ──")
+    # ⭑ MÜŞTERİYE BAKAN TEK METİN, KİTABIN GERÇEĞİYLE ÇELİŞEMEZ ⭑
+    #
+    # Faz 6 açıklaması "One hundred and twenty pages" diyordu; dizgi 160
+    # ölçmüştü. Sayı yanlış DEĞİLDİ — BAĞLI DEĞİLDİ. Bu kapı bağı kurar:
+    # açıklamada geçen her büyüklük ölçümle karşılaştırılır ve iki
+    # büyüklüğün BİRBİRİNE karışması ayrıca yakalanır.
+    desc = md["description"]
+    facts = md["descriptionFacts"]
+    rep.check(facts["pages"] == pages,
+              "açıklamanın sayfa iddiası ölçümle aynı (%d == %d)"
+              % (facts["pages"], pages))
+    # Kaynak build() ile AYNI olmak zorunda: manuscript varsa o, yoksa
+    # takip edilen indeks. İki yerde iki farklı kaynak okumak, CI'da
+    # 120 ile 0'ı karşılaştırıp kapıyı kırmızı yakardı.
+    counted = len((book or {}).get("activities") or []) or sum(
+        1 for a in (jload(ACTIVITY_INDEX, {}) or {}).get("activities", [])
+        if a.get("status") == "written")
+    rep.check(facts["activities"] == counted,
+              "açıklamanın aktivite iddiası kaynakla aynı (%d == %d)"
+              % (facts["activities"], counted))
+    rep.check(number_word(pages) in desc.lower(),
+              "ölçülen sayfa sayısı açıklamada geçiyor (%s)" % number_word(pages))
+    # Karışma denetimi: aktivite sayısı 'pages' sözcüğünün yanında geçemez.
+    wrong = re.search(r"%s\s+pages" % re.escape(number_word(facts["activities"])),
+                      desc, re.I) if facts["activities"] != pages else None
+    rep.check(wrong is None,
+              "aktivite sayısı SAYFA diye anılmıyor (120 puzzle ≠ 120 page)")
+    # Ve rakamla yazılmış bayat bir sayfa iddiası da yakalanır.
+    stale = [m for m in re.findall(r"\b(\d{2,4})\s+pages\b", desc, re.I)
+             if int(m) != pages]
+    rep.check(not stale,
+              "açıklamada bayat rakamlı sayfa iddiası yok"
+              + ("" if not stale else " — %s" % stale))
 
     print("\n── ④ beyan ──")
     if not md["aiDisclosure"]["founderConfirmed"]:

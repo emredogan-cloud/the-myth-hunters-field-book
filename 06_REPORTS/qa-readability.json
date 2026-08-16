@@ -4,11 +4,11 @@
   "errors": [],
   "warnings": [],
   "facts": {
-    "words": 8175,
-    "sentences": 878,
-    "avgSentenceWords": 9.31,
-    "fkGrade": 3.52,
-    "longWordRatio": 0.043,
+    "words": 8202,
+    "sentences": 875,
+    "avgSentenceWords": 9.37,
+    "fkGrade": 3.58,
+    "longWordRatio": 0.044,
     "perActivity": [
       {
         "activityId": "maya-bar-dot-numbers",
@@ -72,12 +72,12 @@
       },
       {
         "activityId": "maya-ballcourt-sort",
-        "words": 62,
-        "sentences": 9,
-        "avgSentenceWords": 6.89,
-        "fkGrade": 1.56,
-        "longWordRatio": 0.0,
-        "fieldNoteWords": 29,
+        "words": 67,
+        "sentences": 8,
+        "avgSentenceWords": 8.38,
+        "fkGrade": 3.53,
+        "longWordRatio": 0.03,
+        "fieldNoteWords": 34,
         "steps": 3
       },
       {
@@ -142,12 +142,12 @@
       },
       {
         "activityId": "aztec-maize-journey-sort",
-        "words": 77,
+        "words": 83,
         "sentences": 9,
-        "avgSentenceWords": 8.56,
-        "fkGrade": 3.68,
-        "longWordRatio": 0.013,
-        "fieldNoteWords": 21,
+        "avgSentenceWords": 9.22,
+        "fkGrade": 4.78,
+        "longWordRatio": 0.036,
+        "fieldNoteWords": 27,
         "steps": 3
       },
       {
@@ -512,11 +512,11 @@
       },
       {
         "activityId": "maori-macron-length",
-        "words": 61,
+        "words": 64,
         "sentences": 8,
-        "avgSentenceWords": 7.62,
-        "fkGrade": 3.83,
-        "longWordRatio": 0.066,
+        "avgSentenceWords": 8.0,
+        "fkGrade": 3.57,
+        "longWordRatio": 0.047,
         "fieldNoteWords": 28,
         "steps": 3
       },
@@ -562,22 +562,22 @@
       },
       {
         "activityId": "japanese-eight-of-everything",
-        "words": 77,
+        "words": 79,
         "sentences": 9,
-        "avgSentenceWords": 8.56,
-        "fkGrade": 4.3,
-        "longWordRatio": 0.078,
-        "fieldNoteWords": 22,
+        "avgSentenceWords": 8.78,
+        "fkGrade": 3.96,
+        "longWordRatio": 0.076,
+        "fieldNoteWords": 28,
         "steps": 3
       },
       {
         "activityId": "korean-hangul-place-names",
-        "words": 87,
-        "sentences": 10,
-        "avgSentenceWords": 8.7,
-        "fkGrade": 2.72,
+        "words": 88,
+        "sentences": 9,
+        "avgSentenceWords": 9.78,
+        "fkGrade": 3.24,
         "longWordRatio": 0.057,
-        "fieldNoteWords": 30,
+        "fieldNoteWords": 31,
         "steps": 3
       },
       {
@@ -602,32 +602,32 @@
       },
       {
         "activityId": "japanese-turtle-time-plate",
-        "words": 93,
+        "words": 96,
         "sentences": 10,
-        "avgSentenceWords": 9.3,
-        "fkGrade": 3.26,
-        "longWordRatio": 0.032,
+        "avgSentenceWords": 9.6,
+        "fkGrade": 3.52,
+        "longWordRatio": 0.031,
         "fieldNoteWords": 31,
         "steps": 4
       },
       {
         "activityId": "inuit-syllabic-signs",
-        "words": 73,
+        "words": 78,
         "sentences": 7,
-        "avgSentenceWords": 10.43,
-        "fkGrade": 4.48,
-        "longWordRatio": 0.082,
-        "fieldNoteWords": 26,
+        "avgSentenceWords": 11.14,
+        "fkGrade": 4.64,
+        "longWordRatio": 0.09,
+        "fieldNoteWords": 31,
         "steps": 3
       },
       {
         "activityId": "inuit-sea-creatures-plate",
-        "words": 62,
+        "words": 66,
         "sentences": 6,
-        "avgSentenceWords": 10.33,
-        "fkGrade": 5.57,
-        "longWordRatio": 0.129,
-        "fieldNoteWords": 25,
+        "avgSentenceWords": 11.0,
+        "fkGrade": 5.51,
+        "longWordRatio": 0.121,
+        "fieldNoteWords": 31,
         "steps": 2
       },
       {
@@ -762,13 +762,13 @@
       },
       {
         "activityId": "finnish-alliteration",
-        "words": 73,
-        "sentences": 8,
-        "avgSentenceWords": 9.12,
-        "fkGrade": 2.19,
-        "longWordRatio": 0.027,
+        "words": 66,
+        "sentences": 7,
+        "avgSentenceWords": 9.43,
+        "fkGrade": 2.57,
+        "longWordRatio": 0.03,
         "fieldNoteWords": 25,
-        "steps": 4
+        "steps": 3
       },
       {
         "activityId": "finnish-lakes-map",
@@ -872,10 +872,10 @@
       },
       {
         "activityId": "greek-labyrinth-cipher",
-        "words": 117,
+        "words": 116,
         "sentences": 10,
-        "avgSentenceWords": 11.7,
-        "fkGrade": 3.9,
+        "avgSentenceWords": 11.6,
+        "fkGrade": 3.99,
         "longWordRatio": 0.034,
         "fieldNoteWords": 29,
         "steps": 4
@@ -902,11 +902,11 @@
       },
       {
         "activityId": "greek-constellation-plate",
-        "words": 103,
+        "words": 98,
         "sentences": 10,
-        "avgSentenceWords": 10.3,
-        "fkGrade": 5.27,
-        "longWordRatio": 0.058,
+        "avgSentenceWords": 9.8,
+        "fkGrade": 4.73,
+        "longWordRatio": 0.061,
         "fieldNoteWords": 23,
         "steps": 4
       },
@@ -942,12 +942,12 @@
       },
       {
         "activityId": "egyptian-cartouche-key",
-        "words": 60,
+        "words": 65,
         "sentences": 6,
-        "avgSentenceWords": 10.0,
-        "fkGrade": 3.26,
-        "longWordRatio": 0.067,
-        "fieldNoteWords": 23,
+        "avgSentenceWords": 10.83,
+        "fkGrade": 3.52,
+        "longWordRatio": 0.062,
+        "fieldNoteWords": 28,
         "steps": 2
       },
       {
@@ -1032,12 +1032,12 @@
       },
       {
         "activityId": "mesopotamian-plant-quest-steps",
-        "words": 64,
+        "words": 62,
         "sentences": 7,
-        "avgSentenceWords": 9.14,
-        "fkGrade": 2.17,
-        "longWordRatio": 0.016,
-        "fieldNoteWords": 28,
+        "avgSentenceWords": 8.86,
+        "fkGrade": 3.28,
+        "longWordRatio": 0.032,
+        "fieldNoteWords": 31,
         "steps": 3
       },
       {
@@ -1172,22 +1172,22 @@
       },
       {
         "activityId": "zulu-click-letters",
-        "words": 60,
+        "words": 65,
         "sentences": 6,
-        "avgSentenceWords": 10.0,
-        "fkGrade": 4.24,
-        "longWordRatio": 0.083,
-        "fieldNoteWords": 23,
+        "avgSentenceWords": 10.83,
+        "fkGrade": 4.43,
+        "longWordRatio": 0.077,
+        "fieldNoteWords": 28,
         "steps": 2
       },
       {
         "activityId": "zulu-two-messengers",
-        "words": 96,
+        "words": 99,
         "sentences": 10,
-        "avgSentenceWords": 9.6,
-        "fkGrade": 4.38,
-        "longWordRatio": 0.104,
-        "fieldNoteWords": 26,
+        "avgSentenceWords": 9.9,
+        "fkGrade": 5.2,
+        "longWordRatio": 0.111,
+        "fieldNoteWords": 29,
         "steps": 4
       },
       {
@@ -1213,24 +1213,24 @@
     ],
     "registers": {
       "instruction": {
-        "words": 4561,
-        "sentences": 576,
-        "avgSentenceWords": 7.92,
-        "fkGrade": 2.53,
+        "words": 4549,
+        "sentences": 575,
+        "avgSentenceWords": 7.91,
+        "fkGrade": 2.54,
         "maxSentenceWords": 17
       },
       "fieldNote": {
-        "words": 3078,
-        "sentences": 248,
-        "avgSentenceWords": 12.41,
-        "fkGrade": 5.4,
+        "words": 3123,
+        "sentences": 246,
+        "avgSentenceWords": 12.7,
+        "fkGrade": 5.58,
         "maxSentenceWords": 29
       },
       "hint": {
-        "words": 536,
+        "words": 530,
         "sentences": 54,
-        "avgSentenceWords": 9.93,
-        "fkGrade": 3.74,
+        "avgSentenceWords": 9.81,
+        "fkGrade": 3.56,
         "maxSentenceWords": 18
       }
     },

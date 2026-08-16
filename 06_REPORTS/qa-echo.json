@@ -6,7 +6,7 @@
   "facts": {
     "activities": 120,
     "maskedTerms": 162,
-    "openerShapes": 116,
+    "openerShapes": 117,
     "missionShapes": 101,
     "frontBackOverlapMax": 0.238,
     "frontBackOverlapPair": [

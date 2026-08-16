@@ -50,13 +50,13 @@
 | Ön madde | 9 |
 | Bölge başına yapı sayfası | 2 |
 | Final görev | 5 |
-| Arka madde | 14 |
-| **Model (forma hizalı)** | **160** |
-| Yol haritası hedefi | 160 |
+| Arka madde | 9 |
+| **Model (forma hizalı)** | **156** |
+| Yol haritası hedefi | 156 |
 | Sapma | %+0.0 |
-| Ciltsiz baskı maliyeti | 3.72 $ |
-| **Ciltsiz telif** | **5.27 $** |
-| Başabaş ACOS | %35.2 |
+| Ciltsiz baskı maliyeti | 3.65 $ |
+| **Ciltsiz telif** | **5.34 $** |
+| Başabaş ACOS | %35.6 |
 
 ## 5. Bölge × tip matrisi
 

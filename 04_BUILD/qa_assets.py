@@ -77,6 +77,7 @@ SEAL_KEY = os.path.join(ROOT, "01_SOURCE", "answers", "seal_key.json")
 CONFIG = os.path.join(ROOT, "project_config.json")
 
 PROC_DIR = os.path.join(ROOT, "07_ASSETS", "processed", "interior")
+TYPESET_DIR = os.path.join(ROOT, "07_ASSETS", "typeset")
 FINAL_DIR = os.path.join(ROOT, "07_ASSETS", "final", "interior")
 REJECT_DIR = os.path.join(ROOT, "07_ASSETS", "rejected")
 
@@ -329,11 +330,23 @@ def check_raw_integrity(man, rep):
         if not m.get("sourceSha256"):
             noprov.append(a["assetId"])
             continue
-        raw = os.path.join(ROOT, a["rawLocation"])
-        if os.path.isfile(raw):
+        # ⭑ KAYNAK HER ZAMAN RAW DEĞİLDİR — DİZİLMİŞ LEVHA DA BİR KAYNAKTIR ⭑
+        #
+        # İki levhanın answer-critical metnini üreteç basamaz (glif altı
+        # nokta · kart sırası) ve `plate_typeset.py` onu ham dosyanın
+        # ÜSTÜNE değil, `07_ASSETS/typeset/` altına türetilmiş bir
+        # kopyaya basar. Hat o kopyayı kaynak alır.
+        #
+        # Bu denetim yalnızca RAW'a bakarken iki levhayı SÜRÜKLENMİŞ
+        # sanıyordu — oysa sürüklenme yoktu, KAYNAK BAŞKAYDI.
+        #
+        #     Bir köken denetimi, kökenin NE OLDUĞUNU bilmek zorundadır.
+        ts = os.path.join(TYPESET_DIR, a["filename"])
+        src = ts if os.path.isfile(ts) else os.path.join(ROOT, a["rawLocation"])
+        if os.path.isfile(src):
             import hashlib
             h = hashlib.sha256()
-            with open(raw, "rb") as fh:
+            with open(src, "rb") as fh:
                 for chunk in iter(lambda: fh.read(65536), b""):
                     h.update(chunk)
             if h.hexdigest() != m["sourceSha256"]:

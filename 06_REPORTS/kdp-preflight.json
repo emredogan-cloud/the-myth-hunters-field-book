@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "checks": 61,
+  "errors": [],
+  "warnings": [
+    "kapak sanatı 89 dpi — KDP 300 dpi bekler. Yukarı örnekleme YAPILMADI; tipografi vektör. KURUCU EYLEMİ: sanatı yeniden üret."
+  ],
+  "facts": {
+    "interiorPages": 156,
+    "interiorTrim": [
+      8.5,
+      11.0
+    ],
+    "interiorFonts": 4,
+    "interiorFontsEmbedded": 4,
+    "interiorBytes": 40595691,
+    "interiorImageObjects": 598,
+    "interiorBlankPages": [],
+    "interiorFaintPages": 0,
+    "interiorTextChars": 89456,
+    "coverPages": 1,
+    "coverSize": [
+      17.6013,
+      11.25
+    ],
+    "coverFontsEmbedded": "4/4",
+    "coverArtDpi": 89.1,
+    "aplusImages": 11,
+    "cultures": 22,
+    "regions": 6,
+    "finalSealWordOccurrences": 1,
+    "scannedPagesBeforeAnswerKey": 151,
+    "verbatimAnswerLeaks": 0,
+    "trackedFiles": 125,
+    "manifestPlaceholders": [],
+    "finalAssetsMissing": []
+  }
+}

@@ -82,6 +82,7 @@ RAW_DIR = os.path.join(ROOT, "07_ASSETS", "raw")
 PROC_DIR = os.path.join(ROOT, "07_ASSETS", "processed", "interior")
 FINAL_DIR = os.path.join(ROOT, "07_ASSETS", "final", "interior")
 REJECT_DIR = os.path.join(ROOT, "07_ASSETS", "rejected")
+TYPESET_DIR = os.path.join(ROOT, "07_ASSETS", "typeset")
 
 # Oran toleransı: %1,5. GPT Image çıktısı hedef oranı tam tutturmaz ve
 # kırpma bir milimetrelik farkı zaten yutar. Bundan büyük bir sapma ise
@@ -312,9 +313,21 @@ def main() -> int:
             return 2
 
     # RAW envanteri
+    #
+    # ⭑ DİZİLMİŞ LEVHA VARSA KAYNAK ODUR — VE RAW YİNE DEĞİŞMEZ ⭑
+    #
+    # İki levhanın answer-critical metnini üreteç basamaz (glif altı
+    # nokta · kart sırası) ve `plate_typeset.py` onu ham dosyanın
+    # ÜSTÜNE değil, `07_ASSETS/typeset/` altına TÜRETİLMİŞ bir kopyaya
+    # basar. Hat o kopyayı kaynak alır.
+    #
+    #     Ham kurucunundur ve tek yönlü kalır (K35).
+    #     Dizilmiş levha da bir TÜRETİLMİŞ ÇIKTIDIR ve ham'dan
+    #     her zaman yeniden üretilebilir.
     present = []
     for a in assets:
-        rp = os.path.join(ROOT, a["rawLocation"])
+        ts = os.path.join(TYPESET_DIR, a["filename"])
+        rp = ts if os.path.isfile(ts) else os.path.join(ROOT, a["rawLocation"])
         if os.path.isfile(rp):
             present.append((a, rp))
 

@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checks": 19,
+  "checks": 21,
   "errors": [],
   "warnings": [
     "ilişki tek bir maddede durmuyor — bir ÇIKARIM tasarımı olabilir, insan bakmalı: [\"andean-altitude-map → 'maize 2300-3500 m → quechua…'\", \"andean-altitude-map → 'potato 3500-4000 m → suni…'\", \"andean-altitude-map → 'llama 4000-4800 m → puna…'\", \"andean-altitude-map → 'pepper tree 500-2300 m → yunga…'\", \"persian-joined-letters → 'joins on one side only: the start …'\", \"japanese-two-alphabets → 'angular set: katakana…'\"]"
@@ -33,6 +33,9 @@
       "sun-savanna": 9
     },
     "matchingPagesChecked": 11,
-    "uncolocatedPairs": 14
+    "uncolocatedPairs": 14,
+    "furnitureDuplicateStarBox": 37,
+    "furnitureDuplicateWritingBlock": 75,
+    "furnitureClean": 21
   }
 }

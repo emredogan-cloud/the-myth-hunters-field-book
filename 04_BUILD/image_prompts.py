@@ -156,6 +156,307 @@ CLASS_TEMPLATES = {
         "no puzzle content.\n\n{PRINT_LIST}"),
 }
 
+# ═══════════════════════════════════════════════════════════════════════════
+# FAZ 6+ · NİHAİ KDP VARLIKLARI — kapak · A+ · iki eksik levha
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# ⭑ BU BÖLÜM SONA EKLENİR VE ÖNCEKİ HİÇBİR ŞEYİ SİLMEZ ⭑
+#
+# Kütüphanenin § 1–8'i iç bloğun şartname katmanıdır ve Faz 5'te
+# donduruldu. Yükleme öncesi geçiş üç yeni varlık sınıfı istiyor ve
+# üçü de iç blok DEĞİLDİR:
+#
+#     KAPAK   → renkli · 300 dpi · tek PDF · sarmal (arka+sırt+ön)
+#     A+      → renkli · pazarlama · Amazon modül ölçüleri
+#     EKSİK   → iç blok · gri tonlama · 150 dpi (K39) · iki levha
+#
+# Üçünün ORTAK kuralı tektir ve § 4'ün aynısıdır:
+#
+#     GÖRSELE METİN GÖMÜLMEZ. Tipografi dizgi katmanında basılır.
+#
+# Kapakta bu kural bir üslup tercihi değil bir ZORUNLULUKTUR: bir
+# üretecin yazdığı başlık düzeltilemez, KDP metadata'sıyla harfi harfine
+# eşleşmez ve gömülü bir yazım hatası kapağı yeniden ürettirir.
+
+# Kapak sanatı — iki seçenek. Metin YOK; tipografi CLI katmanında.
+COVER_OPTIONS = [
+    {
+        "id": "kdp-cover-option-01",
+        "title": "SEÇENEK 1 — “SAHA MASASI”",
+        "purpose": ("Kitabı bir OYUN kitabı gibi değil, bir SAHA ARACI gibi "
+                    "gösterir. Alıcı ebeveyn/öğretmen; sinyal: ciddi, "
+                    "araştırmaya dayalı, ekransız."),
+        "concept": (
+            "A premium editorial illustration for the wrap-around cover of an "
+            "illustrated non-fiction activity book for children aged 8 to 12.\n\n"
+            "SUBJECT — an open field notebook resting on a working map table, "
+            "viewed from slightly above. Arranged around it as a researcher "
+            "would leave them at the end of a day: a folded regional map "
+            "carrying faint pencil routes; a hand-inked compass rose on loose "
+            "paper; a coastline study on tracing paper; small observation "
+            "objects grouped as natural-history specimens (a shell, a seed "
+            "head, a stone with a worn mark, a length of knotted cord); and a "
+            "row of small EMPTY wax seal impressions pressed along one edge of "
+            "the table.\n\n"
+            "The notebook pages are ruled and gridded surfaces with pencil "
+            "shading and measuring marks — but they carry NO readable writing "
+            "and NO letterforms of any kind.\n\n"
+            "STYLE — premium illustrated publishing art. Classic expedition "
+            "field journal crossed with modern museum education design. Hand-"
+            "drawn ink linework over flat painted colour. Not fantasy art, not "
+            "cartoon, not anime, not photorealistic, not a games-box "
+            "illustration.\n\n"
+            "COLOUR — rich but restrained and natural: parchment, warm ochre, "
+            "deep indigo blue, muted forest green, stone grey, iron-gall ink "
+            "accents. No neon, no plastic toy palette, no heavy gradients.\n\n"
+            "LIGHT — soft editorial studio light from the upper left, gentle "
+            "contact shadows, no dramatic rim light and no glow.\n\n"
+            "COMPOSITION — one strong focal object (the open notebook) with a "
+            "clear silhouette that reads at thumbnail size. Detail density "
+            "falls off toward the edges so the wrap survives cropping."),
+        "cultureNote": (
+            "Cultural material must be SPECIFIC and restrained. Objects may "
+            "suggest observation and craft — a measuring cord, a plain woven "
+            "mat edge, a carved wooden rule. They may NOT be sacred, "
+            "ceremonial or restricted objects, and they may NOT be blended "
+            "into a generic ‘exotic’ ornamental pattern. Invented scripts, "
+            "invented symbols and invented ‘tribal’ motifs are forbidden."),
+    },
+    {
+        "id": "kdp-cover-option-02",
+        "title": "SEÇENEK 2 — “MİT HARİTASI PANOSU”",
+        "purpose": ("Kitabın kapsamını tek bakışta verir: altı bölge, bir "
+                    "dünya. Sinyal: keşif, rota, kapsam."),
+        "concept": (
+            "A premium cinematic illustration for the wrap-around cover of an "
+            "illustrated non-fiction activity book for children aged 8 to 12.\n\n"
+            "SUBJECT — a large hand-drawn explorer's field board: a single "
+            "continuous map-like landscape that links six distinct geographic "
+            "zones across one surface — sea ice and low winter light; a warm "
+            "inland sea with terraced coast; open savanna with high grass and "
+            "a broad river; mountain ridges under monsoon cloud; open ocean "
+            "with island chains and a star-path; and high cloud forest above "
+            "terraced slopes.\n\n"
+            "Pinned and tucked across the board: route threads between zones, "
+            "small blank observation cards, a knotted measuring cord, a "
+            "sounding line, pale coastline overlays on tracing paper, and six "
+            "small EMPTY seal impressions marking the six zones.\n\n"
+            "The board carries pencil marks, route lines and measuring ticks — "
+            "but NO readable writing, NO letterforms, NO numerals and NO "
+            "invented script anywhere.\n\n"
+            "STYLE — premium illustrated publishing art plus modern museum "
+            "education plus classic expedition cartography. Ink linework over "
+            "flat painted colour, visible paper texture.\n\n"
+            "COLOUR — parchment ground with deep indigo sea, muted green, warm "
+            "ochre, stone and iron-gall ink. Restrained and natural.\n\n"
+            "COMPOSITION — readable at thumbnail size; the six zones must be "
+            "distinguishable as separate places, not as one blended texture. "
+            "Full-bleed wrap composition with the visual weight held toward "
+            "the centre of each panel."),
+        "cultureNote": (
+            "Cultural references must be specific, restrained, educational and "
+            "respectful. No sacred or ceremonial object. No stereotyped "
+            "‘tribal’ world. No skulls, no weapons, no treasure chests, no "
+            "glowing mystical symbols, no fake writing systems, no generic "
+            "pirate treasure map."),
+    },
+]
+
+# Kapak için ORTAK olumsuz kısıtlar — iç blok listesinden AYRIDIR.
+# İç blok gri tonlama ve çizgi sanatıdır; kapak renklidir. İki listeyi
+# birleştirmek kapağı yanlışlıkla siyah-beyaz ürettirir.
+COVER_NEGATIVE = [
+    "NO TEXT of any kind anywhere in the image",
+    "no title, no subtitle, no author name, no publisher name",
+    "no badge wording, no sticker wording, no award wording",
+    "no ISBN, no barcode, no price, no age-range block",
+    "no typography, no lettering, no numerals, no calligraphy",
+    "no invented script, no fake writing, no rune-like or glyph-like marks",
+    "no logo, no watermark, no signature, no AI artefact mark",
+    "no readable writing on any notebook page, card, map or label",
+    "no sacred, ceremonial or restricted object",
+    "no generic ‘tribal’ ornament and no blended pan-cultural pattern",
+    "no weapon, no wound, no blood, no skull",
+    "no photorealistic human face; no identifiable real person",
+    "no modern branding, clothing, device or packaging",
+    "no neon, no plastic toy palette, no lens flare, no bokeh",
+    "no heavy vignette and no dark frame around the edges",
+]
+
+# A+ modül seti — pazarlama katmanı. İç blok kısıtları BURAYA UYGULANMAZ.
+#
+# ⚠ A+ GÖRSELİ BİR MANUSCRIPT SAYFASI DEĞİLDİR ve bu ayrım mekanik bir
+# sonuç doğurur: A+ görselinde CEVAP, MÜHÜR SÖZCÜĞÜ ve ÇÖZÜM GÖSTERİLEMEZ.
+# Bir pazarlama görselinde sızdırılan bir cevap, kitabın içindekinden
+# DAHA GENİŞ yayılır: ürün sayfası herkese açıktır.
+APLUS_MODULES = [
+    {
+        "id": "aplus-01-hero", "module": "Standard Image & Text Overlay",
+        "name": "HERO / KİTAP FİKRİ", "shape": "banner", "count": 1,
+        "purpose": ("Tek cümlelik vaat: bu bir mitoloji temalı bulmaca kitabı "
+                    "değil, gerçek kültürlerden türetilmiş bir saha görevi."),
+        "scene": (
+            "A wide banner scene: the closed field book lying on a working "
+            "desk beside a folded map, a pencil, a measuring cord and three "
+            "small EMPTY seal impressions. Shot slightly from above, calm and "
+            "premium, like a publisher's key visual."),
+        "safeArea": ("Sol %45 SAKİN kalır — Amazon overlay metni oraya biner. "
+                     "Odak nesne sağ %55'te durur."),
+    },
+    {
+        "id": "aplus-02-what-children-do", "module": "Standard Three Image & Text",
+        "name": "ÇOCUK NE YAPIYOR", "shape": "square", "count": 3,
+        "purpose": ("Eylemi gösterir: çöz · çiz · yaz. Üç kare, üç FARKLI eylem; "
+                    "aynı sahnenin üç açısı DEĞİL."),
+        "scene": (
+            "Three separate square scenes, one per image, each showing a "
+            "child's hands only (no face) at a table:\n"
+            "  (a) a pencil resting on an open ruled page mid-working;\n"
+            "  (b) a pair of hands laying out small blank paper cards in a row;\n"
+            "  (c) a hand pressing a small stamp beside a row of empty seal "
+            "impressions.\n"
+            "Same desk, same light, same palette across all three so they read "
+            "as one set."),
+        "safeArea": ("Kare görselin altına Amazon başlık+gövde metni gelir; "
+                     "görselin kendi alt %15'i sakin kalır."),
+    },
+    {
+        "id": "aplus-03-six-regions", "module": "Standard Image Header with Text",
+        "name": "ALTI BÖLGE", "shape": "banner", "count": 1,
+        "purpose": "Kapsamı gösterir: altı bölge, yirmi iki halk, tek görev.",
+        "scene": (
+            "A wide banner strip showing six distinct landscape vignettes in a "
+            "single horizontal band, separated by thin ruled dividers: sea ice; "
+            "warm inland sea coast; open savanna and river; monsoon mountain "
+            "ridge; open ocean with island chain; high cloud-forest terraces. "
+            "Each vignette carries one small EMPTY seal impression beneath it. "
+            "Consistent palette and horizon line across all six."),
+        "safeArea": ("Üst %30 sakin bir gökyüzü/parşömen bandı olarak boş "
+                     "bırakılır — modül başlığı oraya biner."),
+    },
+    {
+        "id": "aplus-04-real-cultures", "module": "Standard Single Image & Sidebar",
+        "name": "GERÇEK KÜLTÜRLER / ARAŞTIRMA", "shape": "square", "count": 1,
+        "purpose": ("Farklılaştırıcı: cevaplar müze, arşiv ve üniversite "
+                    "kaynaklarıyla denetlendi. Sinyal: güvenilirlik."),
+        "scene": (
+            "A square still life of research materials on a desk: a stack of "
+            "reference volumes seen edge-on with blank spines, an archive "
+            "folder, a magnifier resting on a printed plate of abstract "
+            "geometric marks (NOT letters), a card index box with blank cards, "
+            "and a pair of cotton handling gloves. Quiet, scholarly, warm."),
+        "safeArea": ("Sağ %35 sidebar metnine komşudur; kompozisyon SOLA "
+                     "yaslanır ve sağ kenar sakin kalır."),
+    },
+    {
+        "id": "aplus-05-screen-free", "module": "Standard Four Image & Text",
+        "name": "EKRANSIZ DENEYİM", "shape": "square", "count": 4,
+        "purpose": ("Satın alma gerekçesi: masa başı, ekransız, tek malzeme "
+                    "bir kurşun kalem."),
+        "scene": (
+            "Four separate square scenes, one per image, all on the same table "
+            "in the same light:\n"
+            "  (a) the closed book and one sharpened pencil, nothing else;\n"
+            "  (b) an open page with a partly ruled working area and a pencil "
+            "laid across it;\n"
+            "  (c) a small kit group: pencil, eraser, a short ruler, a length "
+            "of plain cord;\n"
+            "  (d) the book propped closed at the end of a session beside a "
+            "cooling cup and a switched-off lamp.\n"
+            "No screen, no phone, no tablet appears in any of the four."),
+        "safeArea": "Her karenin alt %15'i metin için sakin kalır.",
+    },
+    {
+        "id": "aplus-06-maps-and-codes", "module": "Standard Single Left Image",
+        "name": "HARİTA · KOD · GÖZLEM", "shape": "square", "count": 1,
+        "purpose": ("Aktivite TÜRLERİNİ gösterir: harita, şifre anahtarı, "
+                    "gözlem levhası, sıralama kartları — cevap göstermeden."),
+        "scene": (
+            "A square overhead composition of four page-like sheets fanned "
+            "across a desk, each representing one kind of work: an outline "
+            "coast map with a pencil route; a ruled key panel whose cells are "
+            "EMPTY; an observation plate of a plain object with blank pointer "
+            "lines; and a set of blank rectangular cards each carrying an empty "
+            "square number box. Every cell, line and box is EMPTY."),
+        "safeArea": ("Görsel modülün SOL yarısında durur; sağ kenar metne "
+                     "komşudur ve sakin kalır."),
+    },
+    {
+        "id": "aplus-07-completion", "module": "Standard Image & Text Overlay",
+        "name": "BİTİRME / SAHA YOLCULUĞU", "shape": "banner", "count": 1,
+        "purpose": ("Tamamlama vaadi: altı mühür, bir sertifika, bitirilmiş "
+                    "bir kitap. Sinyal: bu kitap BİTİRİLİR."),
+        "scene": (
+            "A wide banner: the finished book closed on a desk at the end of "
+            "the journey, with a completed row of six pressed seal impressions "
+            "beside it and a blank certificate card resting under one corner. "
+            "The seals are pressed and textured but carry NO letters. Warm low "
+            "evening light, a sense of an expedition completed."),
+        "safeArea": ("Sağ %45 SAKİN kalır — overlay metni oraya biner. Odak "
+                     "sol %55'te durur."),
+    },
+]
+
+APLUS_NEGATIVE = [
+    "NO TEXT of any kind baked into the image",
+    "no headline, no body copy, no bullet text, no callout label",
+    "no title, no author name, no publisher name, no imprint",
+    "no badge, sticker, ribbon, star rating or award wording",
+    "no price, no ISBN, no barcode, no age-range block",
+    "no logo, no watermark, no signature",
+    "no readable writing on any page, card, map, spine or label",
+    "no invented script and no fake writing",
+    "no puzzle solution, no answer, no completed working, no seal letter",
+    "no screen, phone, tablet, laptop or television",
+    "no identifiable child's face; hands only where a person appears",
+    "no stock-photo look, no lens flare, no heavy bokeh",
+    "no neon and no plastic toy palette",
+]
+
+# İki eksik iç blok levhası. Bunlar KAPAK/A+ değil, İÇ BLOKTUR:
+# gri tonlama · çizgi sanatı · 150 dpi ölçütü (K39) · § 3'ün olumsuz listesi.
+MISSING_ASSETS = [
+    {
+        "activityId": "yoruba-underdot-letters",
+        "assetId": "fig-yoruba-underdot-letters",
+        "why": (
+            "Bu sayfanın bütün iddiası TEK BİR İŞARETTİR: harfin ALTINDAKİ "
+            "nokta. Bir üretecin uydurduğu ya da kaydırdığı bir nokta, sayfayı "
+            "çözülemez yapar VE bir yazı sistemi hakkında yanlış bilgi basar."),
+        "typeset": (
+            "⭑ GLİFLER ÜRETEÇTEN GELMEZ ⭑\n\n"
+            "The Yorùbá letterforms are NOT generated by the image model. The "
+            "model produces the PLATE ONLY: rules, boxes, cells, panels and "
+            "writing lines. Every letter cell is left EMPTY and the CLI "
+            "typography layer sets the real glyphs afterwards in an embedded "
+            "font.\n\n"
+            "Reason: an image model cannot be trusted to place a combining "
+            "dot-below reliably, and on this page the dot IS the content. A "
+            "hallucinated, shifted or missing dot does not make the plate "
+            "slightly wrong — it makes the page unsolvable and the linguistic "
+            "claim false."),
+    },
+    {
+        "activityId": "korean-river-crossing-sort",
+        "assetId": "fig-korean-river-crossing-sort",
+        "why": (
+            "Bu sayfanın cevabı bir SIRADIR. Levhaya eklenen dekoratif bir "
+            "nesne yeni bir olası cevap üretir; suya konan tek bir hayvan ise "
+            "cevabı doğrudan basar."),
+        "typeset": (
+            "⭑ KART METNİ ÜRETEÇTEN GELMEZ ⭑\n\n"
+            "The card sentences are NOT generated by the image model. The model "
+            "produces the PLATE ONLY: the river, the two banks, the empty card "
+            "rectangles, the empty square number boxes and the writing line. "
+            "Each card is left EMPTY and the CLI typography layer sets the "
+            "card text afterwards in an embedded font.\n\n"
+            "Reason: the order of the cards is the answer. Text placed by the "
+            "generator cannot be guaranteed to sit in a shuffled order, and a "
+            "card that lands in its own numbered position hands the answer to "
+            "the reader."),
+    },
+]
+
 NEGATIVE = [
     "no colour — the interior is printed black and white",
     "no greyscale washes or gradients; line and solid black only",
@@ -266,6 +567,430 @@ def english_constraints(restrictions, culture_id, cmap):
             continue
         out.append(r)
     return out
+
+
+def cover_geometry():
+    """Kapak ölçüsünü ÖLÇÜLMÜŞ metadata'dan okur — elle yazmaz.
+
+    ⭑ SIRT GENİŞLİĞİ BU DOSYADA HESAPLANMAZ ⭑
+
+    `metadata.py` sırtı sayfa sayısından türetiyor ve `COVER_SPEC.md`'yi
+    o yazıyor. Aynı sayıyı burada ikinci kez hesaplamak, bir gün
+    ikisinin ayrışması demektir — ve ayrıştığı gün kapak YANLIŞ SIRTLA
+    basılır. Tek kaynak: `06_REPORTS/tracked/metadata.json`.
+    """
+    md = jload(os.path.join(ROOT, "06_REPORTS", "tracked", "metadata.json"))
+    if not md:
+        return None
+    cv, ed = md.get("cover") or {}, md.get("edition") or {}
+    try:
+        tw, th = (float(x) for x in re.findall(r"[\d.]+", ed.get("trim", ""))[:2])
+    except ValueError:
+        return None
+    bleed = cv["bleedInches"]
+    g = {
+        "pages": ed.get("pages"),
+        "trimW": tw, "trimH": th,
+        "spine": cv["spineInches"],
+        "fullW": cv["fullCoverWidthInches"],
+        "fullH": cv["fullCoverHeightInches"],
+        "bleed": bleed,
+        "safe": cv["safeMarginInches"],
+        "spineText": cv.get("spineTextAllowed"),
+        # Panel eni = trim + DIŞ kenar bleed'i. İç kenar sırta bakar ve
+        # bleed almaz: orada kâğıt kesilmez, katlanır.
+        "panelW": round(tw + bleed, 4),
+        "panelH": round(th + 2 * bleed, 4),
+    }
+    # ⭑ PANELLER TOPLAMI SARMALA BİREBİR EŞİT OLMAK ZORUNDA ⭑
+    #
+    # Her ölçüyü ayrı ayrı yuvarlamak 1 px açık bırakıyordu:
+    #     2588 + 108 + 2588 = 5284   ama sarmal 5283
+    # Bir piksel bir hata gibi görünmez — ta ki birleştirici üç paneli yan
+    # yana koyup tuvalin dışına taşana kadar. Panel enleri bu yüzden
+    # HESAPLANMAZ, sarmaldan ÇIKARILIR: toplam her zaman tutar.
+    g["fullPx"] = int(round(g["fullW"] * 300))
+    g["fullPxH"] = int(round(g["fullH"] * 300))
+    g["panelPxH"] = g["fullPxH"]
+    g["spinePx"] = int(round(g["spine"] * 300))
+    g["backPx"] = (g["fullPx"] - g["spinePx"]) // 2
+    g["frontPx"] = g["fullPx"] - g["spinePx"] - g["backPx"]
+    g["panelPx"] = g["frontPx"]
+    assert g["backPx"] + g["spinePx"] + g["frontPx"] == g["fullPx"]
+    return g
+
+
+def missing_prompt_body(spec, book_act, populated):
+    """İki eksik levhanın promptu.
+
+    ⚠ TAKİP EDİLEN SÜRÜM `pagePrints` VE `requiredLabels` TAŞIMAZ (K10).
+    § 6'nın yaptığı ayrımın aynısı: yer tutucu takip edilene, dolu hâl
+    yalnızca yerele girer. Bu iki sayfada kural DAHA da bağlayıcı —
+    yoruba'nın etiket listesi cevabın kendisidir."""
+    vs = (book_act or {}).get("visualSpec") or {}
+    if populated and book_act:
+        plist = "\n".join("- " + p for p in (book_act.get("pagePrints") or []))
+        labels = ", ".join(vs.get("requiredLabels") or []) or "(etiket yok)"
+    else:
+        plist = "{PRINT_LIST}"
+        labels = "{REQUIRED_LABELS}"
+    return (
+        "Black ink line drawing on white, technical field-guide style, no "
+        "shading, no colour. A PLATE for one page of a children's activity "
+        "book.\n\n"
+        + spec["typeset"] + "\n\n"
+        "THE PLATE MUST PRINT THE FOLLOWING FURNITURE, AND NOTHING ELSE:\n"
+        + plist + "\n\n"
+        "EVERY CELL LISTED BELOW IS RESERVED AS AN EMPTY, CORRECTLY SIZED BOX. "
+        "The generator leaves it blank; the typography layer fills it:\n"
+        + labels)
+
+
+def kdp_final_section(populated, book, cmap, inv_by_id):
+    """§ 9 — NİHAİ KDP: kapak · A+ · iki eksik levha.
+
+    Bölüm kütüphanenin SONUNA eklenir. § 1–8 iç bloğun donmuş şartname
+    katmanıdır ve bu geçiş onlara dokunmaz."""
+    g = cover_geometry()
+    acts = {a["activityId"]: a for a in (book or {}).get("activities", [])}
+    L, pid = [], 900
+
+    L += ["<h2>9 · NİHAİ KDP — KAPAK · A+ · EKSİK VARLIK PROMPTLARI</h2>",
+          '<div class="note stop">',
+          "<strong>BU BÖLÜM SONA EKLENDİ VE ÜSTÜNDEKİ HİÇBİR ŞEYİ SİLMEDİ.</strong><br>",
+          "§ 1–8 iç bloğun <strong>donmuş</strong> şartname katmanıdır. Bu bölüm "
+          "yükleme öncesi geçişte doğdu ve üç yeni varlık sınıfı taşır: "
+          "<strong>kapak sanatı</strong>, <strong>A+ pazarlama görselleri</strong> "
+          "ve <strong>iki eksik iç blok levhası</strong>.",
+          "</div>",
+          '<div class="note stop">',
+          "<strong>ÜÇÜNÜN DE ORTAK KURALI: GÖRSELDE METİN YOK.</strong><br>",
+          "Başlık, yazar adı, alt başlık, rozet yazısı, ISBN, barkod, fiyat, "
+          "yaş bandı ve <em>her türlü harf</em> görselin DIŞINDADIR. Tipografi "
+          "CLI katmanında, gömülü yazı tipiyle basılır.<br><br>"
+          "Gerekçe § 4'ün aynısıdır ve kapakta daha da bağlayıcıdır: "
+          "<strong>bir üretecin yazdığı başlık düzeltilemez, KDP "
+          "metadata'sıyla harfi harfine eşleşmez ve gömülü bir yazım hatası "
+          "bütün kapağı yeniden ürettirir.</strong>",
+          "</div>"]
+
+    # ── 9.1 kapak geometrisi ──────────────────────────────────────────────
+    L += ["<h3>9.1 · Kapak geometrisi — <em>ölçümden türetilir, elle yazılmaz</em></h3>"]
+    if not g:
+        L += ['<div class="note stop"><strong>KAPAK GEOMETRİSİ OKUNAMADI.</strong><br>'
+              "<code>06_REPORTS/tracked/metadata.json</code> yok. "
+              "<code>./04_BUILD/metadata.py</code> koşturun.</div>"]
+    else:
+        L += ["<p>Bütün ölçüler <code>metadata.json § cover</code>'dan gelir ve o "
+              "da <strong>ölçülen sayfa sayısından</strong> türer. Sayfa sayısı "
+              "değişirse bu tablo kendiliğinden değişir — sırt hiçbir yerde "
+              "elle yazılmaz.</p>",
+              '<div class="scroll"><table>',
+              "<tr><th>Ölçü</th><th>inç</th><th>piksel @300 dpi</th></tr>",
+              "<tr><td><strong>Tam sarmal</strong> (arka+sırt+ön, bleed dâhil)</td>"
+              "<td>%.4f × %.4f</td><td><strong>%d × %d</strong></td></tr>"
+              % (g["fullW"], g["fullH"], g["fullPx"], g["fullPxH"]),
+              "<tr><td>Arka panel (bleed dâhil) — <em>soldaki</em></td>"
+              "<td>%.4f × %.4f</td><td>%d × %d</td></tr>"
+              % (g["panelW"], g["panelH"], g["backPx"], g["panelPxH"]),
+              "<tr><td><strong>Sırt</strong> (%s sayfa)</td><td>%.4f × %.4f</td>"
+              "<td>%d × %d</td></tr>"
+              % (g["pages"], g["spine"], g["panelH"], g["spinePx"], g["panelPxH"]),
+              "<tr><td>Ön panel (bleed dâhil) — <em>sağdaki</em></td>"
+              "<td>%.4f × %.4f</td><td>%d × %d</td></tr>"
+              % (g["panelW"], g["panelH"], g["frontPx"], g["panelPxH"]),
+              "<tr><td><em>toplam denetimi</em></td><td>—</td>"
+              "<td><em>%d + %d + %d = %d</em> ✓</td></tr>"
+              % (g["backPx"], g["spinePx"], g["frontPx"], g["fullPx"]),
+              "<tr><td>Trim</td><td>%.2f × %.2f</td><td>—</td></tr>"
+              % (g["trimW"], g["trimH"]),
+              "<tr><td>Bleed · güvenli kenar</td><td>%.3f · %.2f</td><td>—</td></tr>"
+              % (g["bleed"], g["safe"]),
+              "<tr><td>Sırta yazı basılabilir mi</td><td colspan='2'>%s</td></tr>"
+              % ("EVET" if g["spineText"] else "HAYIR"),
+              "</table></div>",
+              '<div class="note stop">',
+              "<strong>BU TABLO BİR TEYİT DEĞİL, BİR BAŞLANGIÇTIR.</strong><br>",
+              "Nihai geometri <strong>KDP kapak şablonundan</strong> alınır: "
+              "kurucu son sayfa sayısıyla şablonu indirir, CLI barkod kutusunu "
+              "ve katlama payını <em>şablondan okur</em>. Hiçbir koordinat elle "
+              "yazılmaz.<br><br>"
+              "⚠ Sayfa sayısı yeniden üretimde değişirse <strong>sırt da "
+              "değişir</strong> ve kapak yeniden dizilir.",
+              "</div>"]
+
+    # ── 9.2 · kapak promptları ────────────────────────────────────────────
+    for i, co in enumerate(COVER_OPTIONS, 1):
+        pid += 1
+        px = ("%d × %d px" % (g["fullPx"], g["fullPxH"])) if g else "(geometri yok)"
+        inch = ("%.4f × %.4f in" % (g["fullW"], g["fullH"])) if g else "—"
+        ratio = ("%.4f : 1" % (g["fullW"] / g["fullH"])) if g else "—"
+        L += ["<h3>9.2.%d · KAPAK SANATI — %s</h3>" % (i, esc(co["title"])),
+              '<div class="scroll"><table>',
+              "<tr><td><strong>Amaç</strong></td><td>%s</td></tr>" % esc(co["purpose"]),
+              "<tr><td><strong>Varlık kimliği</strong></td><td><code>%s</code></td></tr>"
+              % esc(co["id"]),
+              "<tr><td><strong>Dosya adı</strong></td><td><code>%s.png</code></td></tr>"
+              % esc(co["id"]),
+              "<tr><td><strong>HAM konum</strong></td>"
+              "<td><code>07_ASSETS/raw/%s.png</code> · <em>teslimden sonra "
+              "DEĞİŞTİRİLMEZ</em></td></tr>" % esc(co["id"]),
+              "<tr><td><strong>Nihai hedef</strong></td>"
+              "<td><code>08_OUTPUT/PAPERBACK/cover.pdf</code> — tek PDF: "
+              "arka + sırt + ön</td></tr>",
+              "<tr><td><strong>Hedef ölçü</strong></td><td>%s &nbsp;(%s)</td></tr>"
+              % (px, inch),
+              "<tr><td><strong>En-boy oranı</strong></td><td>%s · yatay sarmal</td></tr>"
+              % ratio,
+              "<tr><td><strong>Renk · çözünürlük</strong></td>"
+              "<td>RGB renkli · <strong>gerçek 300 dpi</strong> "
+              "(iç bloğun 150 dpi ölçütü kapağa UYGULANMAZ)</td></tr>",
+              "<tr><td><strong>CLI sonradan basacak</strong></td>"
+              "<td>ön: başlık + yazar · sırt: başlık + yazar · arka: tanıtım "
+              "metni, yaş bandı, ekransız sinyali, yazar biyografisi · "
+              "barkod alanı BOŞ</td></tr>",
+              "</table></div>"]
+        body = (co["concept"]
+                + "\n\nCULTURAL CONSTRAINT:\n" + co["cultureNote"]
+                + "\n\nTYPOGRAPHY RESERVE — leave these zones visually calm and "
+                  "uncluttered so type can be set over them later, but place NO "
+                  "text in them:\n"
+                  "- FRONT PANEL upper third: title zone\n"
+                  "- FRONT PANEL lower sixth: author zone\n"
+                  "- SPINE band, full height: title and author zone\n"
+                  "- BACK PANEL centre: blurb zone\n"
+                  "- BACK PANEL lower outer corner: a clear 2.0 × 1.2 in "
+                  "barcode block, light and empty\n"
+                + "\n\nNEGATIVE: " + "; ".join(COVER_NEGATIVE)
+                + ("\n\nOUTPUT: PNG, RGB colour, %d × %d px, %s, full-bleed "
+                   "wrap, 300 dpi at %.4f × %.4f in."
+                   % (g["fullPx"], g["fullPxH"], ratio, g["fullW"], g["fullH"])
+                   if g else "\n\nOUTPUT: PNG, RGB colour, highest native "
+                             "resolution available."))
+        L += ['<div class="prompt" id="p%d">%s'
+              '<button class="copy" data-t="p%d">promptu kopyala</button></div>'
+              % (pid, esc(body), pid)]
+
+    L += ['<div class="note stop">',
+          "<strong>TEK BİR ÜRETEÇ 300 dpi SARMALI ÜRETEMEZ — VE BU GİZLENMEZ."
+          "</strong><br>",
+          "%s piksel, yaygın üreteçlerin tek karede verdiğinin çok üstündedir. "
+          "İki dürüst yol vardır:<br>"
+          "① <strong>Panel panel üretim:</strong> ön ve arka panel AYRI "
+          "üretilir (her biri %s px), sırt CLI'da düz renk/doku olarak "
+          "kurulur; CLI üçünü tek tuvalde birleştirir.<br>"
+          "② <strong>Yerel yeniden çizim:</strong> üreteç maksimum kendi "
+          "çözünürlüğünde üretir, CLI onu 300 dpi tuvale <em>gerçek</em> "
+          "büyütmeyle taşır ve <strong>kaynak dpi'ı rapora yazar</strong>.<br><br>"
+          "⛔ <strong>Yapılmayacak olan:</strong> pikseli değiştirmeden yalnızca "
+          "DPI etiketini 300 yazmak. Etiket çözünürlük değildir."
+          % (("%d × %d" % (g["fullPx"], g["fullPxH"])) if g else "Gereken",
+             ("%d × %d" % (g["panelPx"], g["panelPxH"])) if g else "panel ölçüsü"),
+          "</div>"]
+
+    # ── 9.3 · A+ modül seti ───────────────────────────────────────────────
+    total_imgs = sum(m["count"] for m in APLUS_MODULES)
+    L += ["<h3>9.3 · A+ İÇERİK MODÜL SETİ — %d modül · %d görsel</h3>"
+          % (len(APLUS_MODULES), total_imgs),
+          '<div class="note stop">',
+          "<strong>A+ GÖRSELİ BİR MANUSCRIPT SAYFASI DEĞİLDİR.</strong><br>",
+          "Ürün sayfası herkese açıktır: burada sızdırılan bir cevap, kitabın "
+          "içindekinden <strong>daha geniş</strong> yayılır. Hiçbir A+ görseli "
+          "cevap, çözülmüş bir sayfa, mühür harfi veya yıldız sözcüğü "
+          "gösteremez. Bütün hücreler, kutular ve mühürler <strong>BOŞ</strong> "
+          "çizilir.",
+          "</div>",
+          '<div class="note">',
+          "<strong>METİN AMAZON'DA, GÖRSELDE DEĞİL.</strong><br>",
+          "Amazon <em>Image &amp; Text Overlay</em> modüllerinde arka plan "
+          "görseline metin eklenmemesini açıkça tavsiye ediyor: metin modülün "
+          "kendi alanına girer, böylece dil ve kopya görsel yeniden "
+          "üretilmeden değiştirilebilir. Her modülün <strong>metin-güvenli "
+          "alanı</strong> aşağıda ayrıca yazılıdır.",
+          "</div>",
+          '<div class="scroll"><table>',
+          "<tr><th>#</th><th>Modül</th><th>Amaç</th><th>Görsel</th>"
+          "<th>Ölçü</th><th>Dosya</th></tr>"]
+    for n, m in enumerate(APLUS_MODULES, 1):
+        if m["shape"] == "banner":
+            dim, note = "1940 × 600 px", "min kabul alanı 970 × 300"
+        else:
+            dim, note = "600 × 600 px", "kare · min 220 × 220"
+        names = (("%s.png" % m["id"]) if m["count"] == 1
+                 else "%s-01…%02d.png" % (m["id"], m["count"]))
+        L.append("<tr><td>%d</td><td><strong>%s</strong><br>"
+                 "<span class='tag'>%s</span></td><td>%s</td>"
+                 "<td>%d</td><td>%s<br><span class='tag'>%s</span></td>"
+                 "<td><code>%s</code></td></tr>"
+                 % (n, esc(m["name"]), esc(m["module"]), esc(m["purpose"]),
+                    m["count"], dim, esc(note), esc(names)))
+    L += ["</table></div>",
+          '<div class="note">',
+          "<strong>HAM konum:</strong> <code>07_ASSETS/raw/aplus/</code> · "
+          "<strong>nihai hedef:</strong> <code>08_OUTPUT/APLUS/</code> · "
+          "<strong>dosya boyutu:</strong> her nihai görsel <strong>&lt; 3 MB</strong>."
+          "<br>⚠ KDP paneli bir A+ belgesine eklenebilecek modül sayısını "
+          "sınırlar. Kurucu paneldeki güncel sınırı görür ve bu setten "
+          "yukarıdan aşağıya seçer; sıralama <strong>öncelik sırasıdır</strong>.",
+          "</div>"]
+
+    for m in APLUS_MODULES:
+        pid += 1
+        if m["shape"] == "banner":
+            w, h, ar = 1940, 600, "97:30 (geniş banner)"
+            minarea = "970 × 300 px kabul edilen asgari görsel alan"
+        else:
+            w, h, ar = 600, 600, "1:1 (kare)"
+            minarea = "220 × 220 px kabul edilen asgari görsel alan"
+        L += ["<h4><code>%s</code> — %s</h4>" % (esc(m["id"]), esc(m["name"])),
+              "<p class='sub'><span class='tag'>%s</span>"
+              "<span class='tag'>%d × %d</span><span class='tag'>%s</span>"
+              "<span class='tag'>%d görsel</span></p>"
+              % (esc(m["module"]), w, h, esc(ar), m["count"])]
+        body = (
+            "A premium marketing image for the Amazon A+ Content page of an "
+            "illustrated non-fiction activity book for children aged 8 to 12.\n\n"
+            "⭑ THIS IMAGE MUST CONTAIN NO TEXT. The copy is supplied separately "
+            "through the Amazon module overlay.\n\n"
+            "MODULE: " + m["module"] + "\n"
+            "PURPOSE: " + m["purpose"] + "\n\n"
+            "SCENE:\n" + m["scene"] + "\n\n"
+            "TEXT-SAFE AREA (leave visually calm, but place NO text there):\n"
+            + m["safeArea"] + "\n\n"
+            "VISUAL SYSTEM — all A+ images share one look so the page reads as "
+            "a single product presentation: warm parchment and desk-wood "
+            "ground, deep indigo and muted green accents, soft editorial studio "
+            "light from the upper left, shallow contact shadows, matte paper "
+            "texture. Photographic-illustrative hybrid, premium publishing "
+            "quality. No two modules repeat the same composition.\n\n"
+            "VISUAL HIERARCHY — one dominant object, one supporting group, one "
+            "quiet ground. Nothing competes with the reserved text area.\n\n"
+            "BACKGROUND — even, low-contrast and uncluttered behind the "
+            "reserved text zone; detail is concentrated in the focal area.\n\n"
+            "NEGATIVE: " + "; ".join(APLUS_NEGATIVE) + "\n\n"
+            "OUTPUT: PNG or JPEG, RGB colour, %d × %d px (%s), %s, final file "
+            "under 3 MB." % (w, h, ar, minarea))
+        L += ['<div class="prompt" id="p%d">%s'
+              '<button class="copy" data-t="p%d">promptu kopyala</button></div>'
+              % (pid, esc(body), pid)]
+
+    # ── 9.4 · iki eksik levha ─────────────────────────────────────────────
+    L += ["<h3>9.4 · EKSİK İÇ BLOK VARLIKLARI — iki levha</h3>",
+          '<div class="note stop">',
+          "<strong>BU İKİSİ BASIMA GİREMEZ.</strong><br>",
+          "Şu an iki sayfada <em>çapraz taramalı</em>, üzerinde "
+          "<code>art not supplied — do not print</code> yazan dürüst yer "
+          "tutucular duruyor. Yer tutucu sanat değildir ve öyle olduğunu "
+          "iddia etmiyor — ama <strong>basıma girerse kitabı bozar</strong>.",
+          "</div>",
+          '<div class="note stop">',
+          "<strong>BU İKİSİ KAPAK VE A+ DEĞİL, İÇ BLOKTUR.</strong><br>",
+          "Kural takımı § 3'ün olumsuz listesi + § 7'nin kültürel kısıtlarıdır: "
+          "<strong>gri tonlama · siyah çizgi · gölgesiz · 150 dpi ölçütü "
+          "(K39)</strong>. Kapağın renkli/300 dpi kuralı buraya "
+          "<em>uygulanmaz</em>.",
+          "</div>"]
+    for spec in MISSING_ASSETS:
+        pid += 1
+        a = acts.get(spec["activityId"])
+        vs = (a or {}).get("visualSpec") or {}
+        inv = inv_by_id.get(spec["assetId"], {})
+        tpx = vs.get("targetPx") or inv.get("targetDimensions") or [0, 0]
+        dpi = vs.get("minDpi", inv.get("minDpi", 150))
+        phys = ("%.2f × %.2f in" % (tpx[0] / dpi, tpx[1] / dpi)) if dpi else "—"
+        L += ["<h4><code>%s</code></h4>" % esc(spec["activityId"]),
+              '<div class="scroll"><table>',
+              "<tr><td><strong>Amaç</strong></td><td>%s</td></tr>"
+              % esc(vs.get("purpose") or inv.get("purpose") or "—"),
+              "<tr><td><strong>Neden bu sayfa hassas</strong></td><td>%s</td></tr>"
+              % esc(spec["why"]),
+              "<tr><td><strong>Varlık kimliği</strong></td><td><code>%s</code></td></tr>"
+              % esc(spec["assetId"]),
+              "<tr><td><strong>Dosya adı</strong></td><td><code>%s</code></td></tr>"
+              % esc(vs.get("filename") or inv.get("filename") or "—"),
+              "<tr><td><strong>HAM konum</strong></td><td><code>%s</code><br>"
+              "<em>⚠ şu an YER TUTUCU duruyor; hat onu "
+              "<code>07_ASSETS/rejected/</code> altına arşivler, ÜZERİNE "
+              "YAZMAZ</em></td></tr>" % esc(inv.get("rawLocation") or "—"),
+              "<tr><td><strong>Nihai hedef</strong></td><td><code>%s</code></td></tr>"
+              % esc(inv.get("finalLocation") or "—"),
+              "<tr><td><strong>Hedef ölçü</strong></td>"
+              "<td>%d × %d px · %s @ %s dpi</td></tr>"
+              % (tpx[0], tpx[1], phys, dpi),
+              "<tr><td><strong>En-boy oranı · yön</strong></td><td>%s · %s</td></tr>"
+              % (esc(vs.get("aspect") or inv.get("aspectRatio") or "—"),
+                 esc(vs.get("orientation") or inv.get("orientation") or "—")),
+              "<tr><td><strong>Renk · düzen</strong></td>"
+              "<td>%s · <code>%s</code></td></tr>"
+              % (esc(vs.get("colour", "grayscale")), esc(vs.get("layout") or "—")),
+              "<tr><td><strong>CLI sonradan basacak</strong></td>"
+              "<td>bütün glifler / kart metni / etiketler — gömülü yazı "
+              "tipiyle, üreteçten DEĞİL</td></tr>",
+              "</table></div>"]
+        extra_r = english_constraints(
+            vs.get("restrictions") or inv.get("restrictions") or [],
+            (jload(ACTS, {}) or {}).get("activities") and next(
+                (d.get("culture") for d in (jload(ACTS, {}) or {})
+                 .get("activities", []) if d.get("activityId")
+                 == spec["activityId"]), None), cmap)
+        body = (missing_prompt_body(spec, a, populated)
+                + "\n\nCONSTRAINTS:\n"
+                + "\n".join("- " + r for r in extra_r)
+                + "\n\nNEGATIVE: " + "; ".join(NEGATIVE)
+                + "\n\nOUTPUT: PNG, %s, %d × %d px, %s, %s dpi minimum."
+                % (vs.get("colour", "grayscale"), tpx[0], tpx[1],
+                   vs.get("aspect", ""), dpi))
+        L += ['<div class="prompt" id="p%d">%s'
+              '<button class="copy" data-t="p%d">promptu kopyala</button></div>'
+              % (pid, esc(body), pid)]
+
+    if not populated:
+        L += ['<div class="note stop">',
+              "<strong>YUKARIDAKİ İKİ PROMPT YER TUTUCULUDUR (K10).</strong><br>",
+              "<code>{PRINT_LIST}</code> ve <code>{REQUIRED_LABELS}</code> "
+              "cevabın kendisini taşır — <code>yoruba</code>'nın etiket listesi "
+              "<em>tam olarak</em> çocuğun yazacağı şeydir. Dolu hâl yalnızca "
+              "<code>IMAGE_PROMPT_LIBRARY.local.html</code> dosyasındadır ve o "
+              "dosya depoya girmez.",
+              "</div>"]
+
+    # ── 9.5 · teslim tablosu ──────────────────────────────────────────────
+    L += ["<h3>9.5 · Kurucunun üreteceği dosyalar — tam liste</h3>",
+          "<p>Ayrıntılı teslim sözleşmesi: "
+          "<code>07_ASSETS/FOUNDER_ASSET_DELIVERY.md</code>.</p>",
+          '<div class="scroll"><table>',
+          "<tr><th>Sınıf</th><th>Dosya</th><th>Ölçü</th><th>HAM konum</th>"
+          "<th>Nihai hedef</th></tr>"]
+    for co in COVER_OPTIONS:
+        L.append("<tr><td>kapak</td><td><code>%s.png</code></td><td>%s</td>"
+                 "<td><code>07_ASSETS/raw/</code></td>"
+                 "<td><code>08_OUTPUT/PAPERBACK/cover.pdf</code></td></tr>"
+                 % (esc(co["id"]),
+                    ("%d × %d" % (g["fullPx"], g["fullPxH"])) if g else "—"))
+    for m in APLUS_MODULES:
+        dim = "1940 × 600" if m["shape"] == "banner" else "600 × 600"
+        names = (("%s.png" % m["id"]) if m["count"] == 1
+                 else "%s-01…%02d.png" % (m["id"], m["count"]))
+        L.append("<tr><td>A+</td><td><code>%s</code></td><td>%s</td>"
+                 "<td><code>07_ASSETS/raw/aplus/</code></td>"
+                 "<td><code>08_OUTPUT/APLUS/</code></td></tr>"
+                 % (esc(names), dim))
+    for spec in MISSING_ASSETS:
+        inv = inv_by_id.get(spec["assetId"], {})
+        vs = (acts.get(spec["activityId"]) or {}).get("visualSpec") or {}
+        tpx = vs.get("targetPx") or inv.get("targetDimensions") or [0, 0]
+        L.append("<tr><td>iç blok</td><td><code>%s</code></td><td>%d × %d</td>"
+                 "<td><code>07_ASSETS/raw/</code></td><td><code>%s</code></td></tr>"
+                 % (esc(inv.get("filename") or spec["assetId"] + ".png"),
+                    tpx[0], tpx[1], esc(inv.get("finalLocation") or "—")))
+    L += ["</table></div>",
+          '<div class="note stop">',
+          "<strong>AJAN GÖRSEL ÜRETMEZ — VE BU BÖLÜM DE ÜRETMEZ.</strong><br>",
+          "Bu bölüm yalnızca <em>ne üretileceğini</em> ve <em>nereye "
+          "konacağını</em> yazar. Ham üretim kurucuya aittir. Hat, kurucu "
+          "<strong>DEVAM</strong> diyene kadar çalıştırılmaz.",
+          "</div>"]
+    return L
 
 
 def load_assets():
@@ -578,8 +1303,14 @@ def build(populated: bool = False) -> str:
           "</ol>",
           '<div class="note stop"><strong>AJAN GÖRSEL ÜRETMEZ.</strong><br>'
           "Faz 3 şartname üretir. Varlık üretimi yol haritasında Faz 5'tir ve "
-          "kurucu talimatı olmadan başlamaz.</div>",
-          "</div>", SCRIPT, "</body>", "</html>", ""]
+          "kurucu talimatı olmadan başlamaz.</div>"]
+
+    # ── § 9 — YÜKLEME ÖNCESİ GEÇİŞ · SONA EKLENİR ─────────────────────────
+    # Bölüm en sona girer ve § 1–8'e dokunmaz: iç bloğun şartname katmanı
+    # Faz 5'te donduruldu, bu geçiş onun ÜSTÜNE yazar, YERİNE değil.
+    L += kdp_final_section(populated, book, cmap, by_id)
+
+    L += ["</div>", SCRIPT, "</body>", "</html>", ""]
     return "\n".join(L)
 
 

@@ -392,7 +392,7 @@
     "regions": 6,
     "activityTypesRequired": 5,
     "manuscriptWordTarget": 22000,
-    "pageTarget": 160,
+    "pageTarget": 156,
     "pageTargetDecision": "A13 → K38 · kurucu · 16 Ağustos 2026",
     "pageTolerancePct": 6,
     "activityTypes": [
@@ -519,7 +519,17 @@
         "decidedAt": "2026-08-16",
         "decidedBy": "kurucu · Faz 6 talimatı § 1",
         "basis": "GERÇEK DİZGİ ölçümü (interior.py · 160 sayfalık PDF). pageWeight 0,75 varsayımı ölçümle yalanlandı: cipher/sort sayfaları hafif DEĞİL, ortalama 8,57\" ile 1,0 ağırlıklılardan (8,01\") daha ağır. 64 hafif sayfanın 0'ı yarım sayfaya sığıyor.",
-        "supersededBy": null
+        "supersededBy": "K44"
+      },
+      {
+        "value": 156,
+        "decision": "K44",
+        "decidedAt": "2026-08-16",
+        "decidedBy": "Aşama 2 · ÖLÇÜM (kurucu onayı bekliyor)",
+        "basis": "Arka madde YENIDEN dizildi. Iki kusur giderildi: (1) `pages: N` alani bir SAYFA BUTCESIYDI, dizgi onu TEKRAR sanip ayni sayfayi N kez basiyordu — on uc arka madde sayfasinin yedisi birebir kopyaydi; (2) basilan sey ICERIK degil SARTNAMEYDI — gercek yirmi iki sozluk girdisi, yuz yirmi cevap ve kurum listesi hic dizilmemisti. Ikisi de duzeltildi ve dizgi 156 olctu.",
+        "consequence": "Sirt 0,3603 → 0,3513 in · baski maliyeti 3,72 → 3,65 $ · ciltsiz telif 5,27 → 5,34 $. Kapak geometrisi yeniden uretildi.",
+        "supersededBy": null,
+        "openItem": null
       }
     ]
   },
@@ -805,12 +815,19 @@
         "kendisidir. Sapma sıfıra indi — uyarı sustu çünkü SAPMA YOK,",
         "eşik gevşetildiği için değil. Eşikler DEĞİŞMEDİ.",
         "",
-        "paperbackHistory: eski dayanaklar silinmez, kayıtta durur."
+        "paperbackHistory: eski dayanaklar silinmez, kayıtta durur.",
+        "",
+        "⭑ K44: 160 → 156 sayfa ⭑",
+        "Arka madde yeniden dizildi (tekrar eden sayfalar ve",
+        "sartname-yerine-icerik kusuru giderildi). Baski maliyeti",
+        "3,72 → 3,65 $ dustu; telif 5,27 → 5,34 $ yukseldi.",
+        "metadata.py bu sayiyi artik TURETIYOR; config degeri",
+        "modelin karsilastirma dayanagidir."
       ],
-      "paperback": 5.27,
+      "paperback": 5.34,
       "driftWarnAt": 0.05,
       "driftFailAt": 0.25,
-      "decision": "A13 → K38 · kurucu · 16 Ağustos 2026",
+      "decision": "K44 · Asama 2 · olcum · 16 Agustos 2026",
       "paperbackHistory": [
         {
           "value": 5.55,
@@ -834,6 +851,12 @@
           "value": 5.27,
           "decision": "K38",
           "pages": 160,
+          "supersededBy": "K44"
+        },
+        {
+          "value": 5.34,
+          "decision": "K44",
+          "pages": 156,
           "supersededBy": null
         }
       ]
