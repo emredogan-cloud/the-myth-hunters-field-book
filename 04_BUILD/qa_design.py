@@ -468,19 +468,53 @@ def check_furniture_duplication(acts, rep):
     rep.facts["furnitureDuplicateWritingBlock"] = len(dup_write)
     rep.facts["furnitureClean"] = clean
 
-    print("\n── ⑨ sayfa mobilyası çiftlemesi (ÖLÇÜM · yükleme öncesi) ──")
-    print("  yıldızlı kutu iki kez  : %3d / %d sayfa" % (len(dup_star), len(acts)))
-    print("  yazma alanı iki kez    : %3d / %d sayfa" % (len(dup_write), len(acts)))
-    print("  çiftlemesiz            : %3d / %d sayfa" % (clean, len(acts)))
-    if dup_star or dup_write:
-        rep.warn("sayfa mobilyası %d sayfada iki kez basılıyor — "
-                 "KDP_PREFLIGHT_AUDIT § D · Aşama 2'de HATAYA yükseltilecek"
-                 % (len(acts) - clean))
-    # Ölçümün KOŞTUĞU denetlenir; sonucu bir sayıdır, bir yargı değil.
-    rep.check(len(dup_star) + len(dup_write) + clean >= 0
-              and rep.facts["furnitureClean"] is not None,
-              "sayfa mobilyası çiftlemesi ÖLÇÜLDÜ (%d temiz · %d çiftlemeli)"
-              % (clean, len(acts) - clean))
+    print("\n── ⑨ sayfa mobilyası rol ayrımı ──")
+    print("  levha yıldızlı kutu basıyor : %3d / %d sayfa"
+          % (len(dup_star), len(acts)))
+    print("  levha yazma satırı basıyor  : %3d / %d sayfa"
+          % (len(dup_write), len(acts)))
+
+    # ⭑ ARTIK BİR UYARI DEĞİL, BİR KAPI ⭑
+    #
+    # Aşama 1'de bu bölüm yalnızca ÖLÇÜYORDU: kusur 99 sayfada vardı ve
+    # denetimi hata olarak açmak, düzeltme kararı verilmeden CI'ı
+    # kırmızıya kilitlemek olurdu. Aşama 2'de kök düzeltme uygulandı
+    # (`04_BUILD/furniture_roles.py` → `book.json § furniture` →
+    # `interior.py`), bu yüzden ölçüm artık BAĞLAYICI.
+    #
+    # Denetlenen şey çiftlemenin YOKLUĞU değil, ROLÜN BEYAN EDİLMİŞ
+    # olmasıdır: her sayfa, mobilyasını kimin bastığını SÖYLEMEK
+    # zorundadır. Beyan yoksa dizgi eski davranışa döner ve çiftleme
+    # sessizce geri gelir.
+    undeclared, mismatched = [], []
+    for a in acts:
+        f = a.get("furniture")
+        if not f:
+            undeclared.append(a["activityId"])
+            continue
+        prints = " | ".join(a.get("pagePrints") or [])
+        plate_star = bool(PLATE_STAR_BOX_RE.search(prints))
+        want_star = ("plate" if plate_star
+                     else ("typeset" if a.get("sealSlot") else "none"))
+        pl = 0
+        for m in WRITING_LINE_RE.finditer(prints):
+            wd = m.group(1).lower()
+            pl += int(wd) if wd.isdigit() else NUMWORD.get(wd, 1)
+        want_lines = ("plate" if pl
+                      else ("typeset" if (a.get("writingSpaceLines") or 0)
+                            else "none"))
+        if f.get("starBox") != want_star or f.get("writingLines") != want_lines:
+            mismatched.append(a["activityId"])
+
+    rep.check(not undeclared,
+              "her sayfa mobilya rolünü BEYAN ediyor (%d/%d)"
+              % (len(acts) - len(undeclared), len(acts))
+              + ("" if not undeclared else " — BEYANSIZ: %s" % undeclared[:5]))
+    rep.check(not mismatched,
+              "beyan edilen rol ÖLÇÜMLE aynı"
+              + ("" if not mismatched else " — UYUŞMAZ: %s" % mismatched[:5]))
+    print("  beyanı ölçümle tutan        : %3d / %d sayfa"
+          % (len(acts) - len(undeclared) - len(mismatched), len(acts)))
 
 
 def main() -> int:

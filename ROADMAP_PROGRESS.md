@@ -34,7 +34,7 @@
 | Sayfa basım maddesi (`pagePrints`) | **570** | — |
 | Görsel şartnamesi | **120** | ~150 |
 | Görsel varlık (üretilmiş) | **0** | ~150 |
-| Kelime | **9.570** | ~22.000 |
+| Kelime | **9.597** | ~22.000 |
 
 ---
 

@@ -58,13 +58,22 @@ PER_REGION_STRUCTURAL = {
     "seal-page": 1,              # mühür kutusu ve çentik
 }
 FINAL_QUEST_PAGES = 5
+# ⭑ ASAMA 2 · MODEL ÖLÇÜME HİZALANDI ⭑
+#
+# Bu sözlük Faz 1'de bir TAHMİNDİ ve on dört sayfa varsayıyordu. Arka
+# madde Aşama 2'de gerçekten dizildi ve dokuz sayfa ÖLÇÜLDÜ: `pages: N`
+# alanı bir sayfa bütçesiydi, dizgi onu TEKRAR sanıyordu ve on üç
+# sayfanın yedisi birebir kopyaydı. Akış dizgisine geçildi.
+#
+#     Model yamanmadı — ölçüm modeli yalanladı ve model ölçüme uydu.
+#     (Aynı ders: `pageWeight` 0,75 · K38.)
 BACK_MATTER = {
-    "hint-ladder": 3,
-    "answer-key": 5,
-    "culture-glossary": 3,
-    "pronunciation-guide": 1,
+    "how-to-use": 1,
+    "hint-rule": 1,
+    "culture-glossary": 1,
+    "sources": 1,
+    "answer-key": 4,
     "world-myths-bridge": 1,
-    "certificate": 1,
 }
 
 

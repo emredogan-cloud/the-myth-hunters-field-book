@@ -73,7 +73,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maya-bar-dot-numbers.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maya-bar-dot-numbers.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maya-bar-dot-numbers",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 9,
       "restrictionCount": 6,
       "privateSha256": "90ad41a8b856b40d797106af408622212ef4ab9d896ac51963d594266503c24f"
@@ -105,7 +105,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maya-ballcourt-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maya-ballcourt-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maya-ballcourt-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 6,
       "privateSha256": "134ddcd21b07d100cc161b2936d223ea51b732fc61253ec1621feef3dad5e975"
@@ -137,7 +137,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maya-number-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maya-number-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maya-number-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 6,
       "privateSha256": "f293012de8edd449fb99caeeb8de5a9cd61bda1560c3d4a0a4c8477100787d38"
@@ -169,7 +169,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-aztec-chinampa-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-aztec-chinampa-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#aztec-chinampa-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 6,
       "privateSha256": "a01ea85219a0bc552b4244d51276592c300304fd72271c00ed9fdd9bd5ae340a"
@@ -201,7 +201,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-aztec-town-sign-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-aztec-town-sign-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#aztec-town-sign-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 6,
       "privateSha256": "a9f2d6b5026798a116a167a510113c55661b51619bb10329668f593b8f23670c"
@@ -233,7 +233,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maya-number-add.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maya-number-add.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maya-number-add",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 6,
       "privateSha256": "3db523283d3a6cc1ed83f35aa0ba8463fe6f38ef1964b8afce73abdbb5d6eb9e"
@@ -265,7 +265,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maya-ballcourt-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maya-ballcourt-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maya-ballcourt-sort",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 7,
       "privateSha256": "80644b65985332f616303e993528227074823218f8284c8e4f2fc86966c77293"
@@ -297,7 +297,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-aztec-place-glyphs.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-aztec-place-glyphs.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#aztec-place-glyphs",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 9,
       "restrictionCount": 6,
       "privateSha256": "0c2a89b5e14f8a53bd99ade7c312016ff92a230090e8466f90d451f10292a6db"
@@ -329,7 +329,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-aztec-lake-city-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-aztec-lake-city-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#aztec-lake-city-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 6,
       "privateSha256": "aed817d57571a44ddf12234d580e7977fb3275498607ca0fbb55c7f0bb281c28"
@@ -361,7 +361,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-andean-khipu-knots.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-andean-khipu-knots.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#andean-khipu-knots",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 8,
       "privateSha256": "dddde684d8654063cb6f07a6d702a2ec55d5b4a0a630ca63b2d6f26ebd6dfa3d"
@@ -393,7 +393,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maya-maize-stages-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maya-maize-stages-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maya-maize-stages-sort",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 8,
       "privateSha256": "0a49a4063076ae35cdc34834128c2673708eba8eebb910ed76bb5de52b0debc3"
@@ -425,7 +425,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-andean-altitude-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-andean-altitude-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#andean-altitude-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 8,
       "restrictionCount": 6,
       "privateSha256": "a0572b97a57c2ab9986148b085e1d5843e8d8440b12f1b21867541fef093137a"
@@ -457,7 +457,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-andean-flood-warning-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-andean-flood-warning-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#andean-flood-warning-sort",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 9,
       "privateSha256": "00b8d1ab3c0e9f36b38bcef563aa18326a649720e4b91390b88fd10159ed7345"
@@ -489,7 +489,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-aztec-maize-journey-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-aztec-maize-journey-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#aztec-maize-journey-sort",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 8,
       "privateSha256": "a2b4739e139f3a8f1bafc9ae6a464ec454d984630077d2071ba678045d367a43"
@@ -521,7 +521,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maya-place-glyphs.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maya-place-glyphs.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maya-place-glyphs",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 6,
       "privateSha256": "bac654e972de50017b33fb70924e53c3eaf5d6e49f618eb05175263b2d3dd8d4"
@@ -553,7 +553,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-aztec-number-signs.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-aztec-number-signs.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#aztec-number-signs",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 8,
       "privateSha256": "87f4f253681aa0ca4ed5c049e9d20764f899538735ac5dc13402d5018a1d6c3d"
@@ -585,7 +585,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-chinese-pictograph-key.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-chinese-pictograph-key.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#chinese-pictograph-key",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 15,
       "restrictionCount": 6,
       "privateSha256": "6e779f8ef6bf64e780e2a5e6ca4adb6bba9ca2a3ac764280947897d273dd7e72"
@@ -617,7 +617,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-turkic-yurt-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-turkic-yurt-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#turkic-yurt-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 9,
       "restrictionCount": 5,
       "privateSha256": "8b888f0f5709848773840b432d5c2ccfb716090d2351192b136d54e1d8b5e837"
@@ -649,7 +649,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-vietnamese-dragon-boat-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-vietnamese-dragon-boat-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vietnamese-dragon-boat-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 5,
       "privateSha256": "511cbf525ab659a65236c7a6722f6e7143af88841762b589e70911ac512a90c3"
@@ -681,7 +681,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-persian-script-direction.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-persian-script-direction.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#persian-script-direction",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 7,
       "privateSha256": "ea55ee41af3b0fbcfb9af9668438eee975e8d1b5eec34c45dffe9b9b00bd0f0c"
@@ -713,7 +713,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-chinese-strokes-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-chinese-strokes-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#chinese-strokes-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 7,
       "restrictionCount": 8,
       "privateSha256": "bd05a9966de46cff9b8324d9f935dc5c11603c553c1fe154cb0219689771d2af"
@@ -745,7 +745,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-vietnamese-tone-hunt.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-vietnamese-tone-hunt.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vietnamese-tone-hunt",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 11,
       "restrictionCount": 5,
       "privateSha256": "506f879d24f9e1f0947e511148a6a1155b5964a03713ef0671e2fc97be96c95e"
@@ -777,7 +777,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-chinese-five-colours-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-chinese-five-colours-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#chinese-five-colours-sort",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 10,
       "restrictionCount": 6,
       "privateSha256": "b15a1fad1c0814491b41bd21afcad4fb0918d7e8292af0ad8fce15172bcc5ad7"
@@ -809,7 +809,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-persian-joined-letters.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-persian-joined-letters.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#persian-joined-letters",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 5,
       "privateSha256": "c1dda57bd2b7896f7e3aa31c3768f087856d4651574bd7b5aba1123c8cb41e57"
@@ -841,7 +841,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-chinese-sky-patch-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-chinese-sky-patch-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#chinese-sky-patch-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 6,
       "privateSha256": "a86b436353a15a0c6c3b391974b3bbb76edefe8a573e9534a1c0035d74acfff5"
@@ -873,7 +873,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-hindu-devanagari-key.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-hindu-devanagari-key.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#hindu-devanagari-key",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 12,
       "restrictionCount": 6,
       "privateSha256": "223d798f74217d697c8c9fcb8d2c4a5d57381920d085a8a4d1d884ce03b9d777"
@@ -905,7 +905,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-turkic-steppe-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-turkic-steppe-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#turkic-steppe-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 5,
       "privateSha256": "9c13cee0036a7525008640f6d307aa59f7474c0a40a8ead6aefa0f98556017c8"
@@ -937,7 +937,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-chinese-zodiac-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-chinese-zodiac-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#chinese-zodiac-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 16,
       "restrictionCount": 8,
       "privateSha256": "f1720b42912ebd7609b2920869e4ad447e063af43750d2680291ad00fa9659fc"
@@ -969,7 +969,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-persian-alborz-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-persian-alborz-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#persian-alborz-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 5,
       "privateSha256": "9bd7153a2a13e43642977b3853dbda876d45c5172f2508dc624b00733b67f03e"
@@ -1001,7 +1001,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-hindu-river-names-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-hindu-river-names-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#hindu-river-names-sort",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 10,
       "restrictionCount": 6,
       "privateSha256": "8f7ac95a8b18a2755360b88dda038726340093e8667cad1630ad0bd6ae7dc5b4"
@@ -1033,7 +1033,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-turkic-stone-mark-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-turkic-stone-mark-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#turkic-stone-mark-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "2cae47f7e0567be15cc4cb4ab2bfd170a45336e7ca9e6569b6fdb740a54c57a5"
@@ -1065,7 +1065,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-vietnamese-red-river-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-vietnamese-red-river-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vietnamese-red-river-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 5,
       "privateSha256": "b93c6cc521781e729229bc1510faf507f4710a411dcfee8b03fdcf8830c03e44"
@@ -1097,7 +1097,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-turkic-one-eyed-giants.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-turkic-one-eyed-giants.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#turkic-one-eyed-giants",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 7,
       "restrictionCount": 8,
       "privateSha256": "1a68fc7ec121d107da1e62df8e766fe5da99a3c7e11c9becab73d896e6ff0e39"
@@ -1129,7 +1129,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-hindu-ganga-course-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-hindu-ganga-course-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#hindu-ganga-course-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 7,
       "privateSha256": "0094f8131040798cf29005c8dfacac231d1f7b8cbce8c839717097e44ac92c1e"
@@ -1161,7 +1161,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-persian-garden-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-persian-garden-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#persian-garden-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "766ce52172aaf7ba9dc9ec5a4c3f0e0ccf42ca0ae675f9be99ac43bbbf312f83"
@@ -1193,7 +1193,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-persian-great-birds-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-persian-great-birds-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#persian-great-birds-sort",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 8,
       "restrictionCount": 5,
       "privateSha256": "b8b9e7aa3cfd2b4c18134a1aaac65ad51e8710c2e8a10af4865b8ba7f7aef5c1"
@@ -1225,7 +1225,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-turkic-orkhon-direction.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-turkic-orkhon-direction.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#turkic-orkhon-direction",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 7,
       "privateSha256": "a8ef77048bc4bdbf994b86df5eb3deb6d6def16bff9c22afa32ad6322e9a0931"
@@ -1257,7 +1257,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-chinese-compound-characters.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-chinese-compound-characters.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#chinese-compound-characters",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 14,
       "restrictionCount": 6,
       "privateSha256": "511e0299895d92e245cd56a63294ce8c6de167feed6a20598045a1a202250ba5"
@@ -1289,7 +1289,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-vietnamese-mountain-water-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-vietnamese-mountain-water-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vietnamese-mountain-water-sort",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 7,
       "privateSha256": "43f1d88556bc4df6207597fff8316d222b9880a0f943dbc0cb452978a2cee15b"
@@ -1321,7 +1321,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-chinese-chase-the-sun.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-chinese-chase-the-sun.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#chinese-chase-the-sun",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 8,
       "privateSha256": "fe8f8569f1ee79d2e319df257ac9a3855aa018736d08d998bb2bbad6106221e3"
@@ -1353,7 +1353,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-japanese-kana-key.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-japanese-kana-key.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#japanese-kana-key",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 15,
       "restrictionCount": 6,
       "privateSha256": "63c171944435e784303edb6496f7e9ae3ec350f4542df1c640834d199802d2ea"
@@ -1385,7 +1385,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-korean-animal-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-korean-animal-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#korean-animal-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 8,
       "privateSha256": "4e53562aa2bb446df585e4458e675e0ae1dac8d2fa656d32be0e4374dd7e3132"
@@ -1417,7 +1417,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maori-bird-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maori-bird-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maori-bird-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 6,
       "privateSha256": "f0c6014ddb4f95796de09f07c5096dae6c9b7f25c0603fcf13126b0edbeeec76"
@@ -1449,7 +1449,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-hawaiian-place-name-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-hawaiian-place-name-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#hawaiian-place-name-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 6,
       "privateSha256": "6830de2fb1085043e396a5aba91e197c6d4fe551f08e2e9eb673d6b13c26bb89"
@@ -1481,7 +1481,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-japanese-two-alphabets.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-japanese-two-alphabets.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#japanese-two-alphabets",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 14,
       "restrictionCount": 6,
       "privateSha256": "77f699b6f54b27391bc48c26f4c6b1e41aeb8c6c5f61d6df88714771ee3632fe"
@@ -1513,7 +1513,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-korean-hangul-shapes.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-korean-hangul-shapes.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#korean-hangul-shapes",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 10,
       "restrictionCount": 7,
       "privateSha256": "4ef80d9381adaeafc7f16f5213bdef2597194a299f65c45499a32bd7e0fc3b25"
@@ -1545,7 +1545,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-japanese-box-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-japanese-box-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#japanese-box-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 6,
       "privateSha256": "830cc8f683a9a1af17afca48d69e20305f6e8baaa367c3ce979c1340983f7ee1"
@@ -1577,7 +1577,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maori-sky-earth-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maori-sky-earth-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maori-sky-earth-sort",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 9,
       "privateSha256": "74ff7c6bcf6aa6f6532656af625832ef345819858a08e3b88efb649ee1b86c9e"
@@ -1609,7 +1609,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-hawaiian-island-chain-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-hawaiian-island-chain-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#hawaiian-island-chain-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 8,
       "restrictionCount": 10,
       "privateSha256": "f71c9fd31d55869f005f6e55a8986dce56c089f1665cf9f361157af93abef360"
@@ -1641,7 +1641,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-korean-founding-order.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-korean-founding-order.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#korean-founding-order",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 7,
       "privateSha256": "d4785a6b4b4762c56d8e224ebbd2da0fe579f2caf9ae7f24534170f4de1e1203"
@@ -1673,7 +1673,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maori-macron-length.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maori-macron-length.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maori-macron-length",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 6,
       "privateSha256": "054dc047932e6ebcf7f851d1436d1dd42fce6c5aad8f81ae044c9df3dce14f8d"
@@ -1705,7 +1705,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-korean-peninsula-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-korean-peninsula-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#korean-peninsula-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 7,
       "restrictionCount": 5,
       "privateSha256": "2c3be2b49d96ff31a885fbcc24c876c72c7065362e75cf63e80a21ebd5f09d8c"
@@ -1737,7 +1737,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-japanese-cave-sequence.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-japanese-cave-sequence.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#japanese-cave-sequence",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 9,
       "privateSha256": "61c0961eeb2d162b7b21cec8d7be1c2a7cdc6f42d8986ee59ea368466dd5d623"
@@ -1769,7 +1769,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-korean-hangul-build.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-korean-hangul-build.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#korean-hangul-build",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 14,
       "restrictionCount": 5,
       "privateSha256": "8dde961621369c88e35f574bafcda4853f20eb663c37235a9ad7a8140be51ecf"
@@ -1801,7 +1801,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-maori-fish-island-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-maori-fish-island-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#maori-fish-island-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 7,
       "privateSha256": "ad4dbd251243f098a0f1659fa1acb8ff78ce6ccea1fc44cd99decc3d9ff05633"
@@ -1833,7 +1833,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-japanese-eight-of-everything.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-japanese-eight-of-everything.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#japanese-eight-of-everything",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 9,
       "privateSha256": "79976aa72cc0509a8b3cff53fc3650fa07f5c5e4796361519ae22b1ba99c702c"
@@ -1865,7 +1865,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-korean-hangul-place-names.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-korean-hangul-place-names.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#korean-hangul-place-names",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 17,
       "restrictionCount": 7,
       "privateSha256": "035d7a72dcb0402fe527e125fdae9c1e5b104a6963de7362cc0edafd7e367392"
@@ -1897,7 +1897,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-hawaiian-day-length-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-hawaiian-day-length-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#hawaiian-day-length-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 8,
       "privateSha256": "714af561295c709e0b361cbd39198683d707be7484d378a4e423e5cff89b5605"
@@ -1929,7 +1929,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-korean-river-crossing-sort.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-korean-river-crossing-sort.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#korean-river-crossing-sort",
-      "status": "placeholder-art-missing",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 7,
       "privateSha256": "7ba0a94d9e63698262aa271353a72a57250757b21c6d379399bbe6d415ae2e61"
@@ -1961,7 +1961,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-japanese-turtle-time-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-japanese-turtle-time-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#japanese-turtle-time-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 9,
       "privateSha256": "9724f13b23ef4a391b6919aabf440227852f14e05595bb5af1e096ea44e4dac8"
@@ -1993,7 +1993,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-inuit-syllabic-signs.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-inuit-syllabic-signs.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#inuit-syllabic-signs",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 13,
       "restrictionCount": 5,
       "privateSha256": "77f5ac137ab88d58807e95c036fdf7261e04c34a237d73cb2b58c422f08e42af"
@@ -2025,7 +2025,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-inuit-sea-creatures-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-inuit-sea-creatures-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#inuit-sea-creatures-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 6,
       "privateSha256": "20949e0297e34c61af53ff966967d280dc88ec8b27dfb978ce9df5e2ee40acb1"
@@ -2057,7 +2057,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-inuit-loon-flight-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-inuit-loon-flight-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#inuit-loon-flight-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 5,
       "privateSha256": "46f1180f0760e4eefc33c2f593c7a04b3ba8b064a77bd601953abcbe17f3923c"
@@ -2089,7 +2089,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-inuit-ice-window-draw.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-inuit-ice-window-draw.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#inuit-ice-window-draw",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 5,
       "privateSha256": "9ee13601b6e7a9817e232bf83e73c14026122600df0131214c4791e623ad3272"
@@ -2121,7 +2121,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-norse-futhark-key.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-norse-futhark-key.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#norse-futhark-key",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 9,
       "restrictionCount": 6,
       "privateSha256": "cb48643f441fba0a1fcfb231917a16985021fb61981ce261eb542700bac5176b"
@@ -2153,7 +2153,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-norse-runestone-read.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-norse-runestone-read.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#norse-runestone-read",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 4,
       "privateSha256": "85fd717e422807d17f55b07c85388ff90820a833936f9978247578311d09719e"
@@ -2185,7 +2185,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-norse-weekday-names.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-norse-weekday-names.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#norse-weekday-names",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 16,
       "restrictionCount": 4,
       "privateSha256": "48705130d616e07fd525e234a62970d63d25f93096de93af9e6613e08c6f49ad"
@@ -2217,7 +2217,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-norse-binding-riddle.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-norse-binding-riddle.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#norse-binding-riddle",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 4,
       "privateSha256": "cf87a8d7860ad987e14a9f0d7cbbce3735ca10c5bbac53caca251fa13cec1709"
@@ -2249,7 +2249,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-norse-who-owns-what.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-norse-who-owns-what.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#norse-who-owns-what",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 4,
       "privateSha256": "eb4bd293d5124bcf978f44b76b1332a0e113becf72c3df42181ddc352b8040e0"
@@ -2281,7 +2281,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-norse-apples-sequence.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-norse-apples-sequence.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#norse-apples-sequence",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 4,
       "privateSha256": "c9c8075a839080d7d3943f02c97b112837ea5f6f3cbcb964392e2dbd8266e0da"
@@ -2313,7 +2313,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-norse-ship-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-norse-ship-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#norse-ship-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 7,
       "restrictionCount": 4,
       "privateSha256": "77337796cc5aed02e78a77a0acb752f00b4fc2f99de708e4400a7f0bdf4acab3"
@@ -2345,7 +2345,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-norse-kenning-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-norse-kenning-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#norse-kenning-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 3,
       "privateSha256": "7e37bdadeb6ecffe3aa19a11edd423d58bc43eeb486bf41c8953f45225888f1d"
@@ -2377,7 +2377,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-finnish-kantele-strings.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-finnish-kantele-strings.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#finnish-kantele-strings",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 8,
       "restrictionCount": 4,
       "privateSha256": "cbd2130a009e912069f878746eb3d838f330b5cdc696ca5b7fef0bdd89f4c810"
@@ -2409,7 +2409,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-finnish-spoken-to-printed.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-finnish-spoken-to-printed.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#finnish-spoken-to-printed",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 4,
       "privateSha256": "dc34da77701b9f6e92558c1c97d59ed02f64722b8d0d664701054ac409cc366e"
@@ -2441,7 +2441,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-finnish-vowel-harmony.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-finnish-vowel-harmony.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#finnish-vowel-harmony",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 11,
       "restrictionCount": 4,
       "privateSha256": "269c4190383674b82c0079529ec679093d987f1b55039d9e49997411f38b364e"
@@ -2473,7 +2473,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-finnish-alliteration.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-finnish-alliteration.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#finnish-alliteration",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 4,
       "privateSha256": "f02ab20ecd8c89ef86546a338c0ced827109dbb74e65fedf3f5f589710c6536e"
@@ -2505,7 +2505,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-finnish-lakes-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-finnish-lakes-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#finnish-lakes-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 12,
       "restrictionCount": 4,
       "privateSha256": "a3d2ddf2823baf4e8539ce223b508f1689ffdfab8b767824d6727ba0bbbbc98b"
@@ -2537,7 +2537,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-finnish-instrument-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-finnish-instrument-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#finnish-instrument-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 3,
       "privateSha256": "05fea10f9ab118a3f7fd4e2865301d08a870a1adcfab7ad7322e8e14ff282b3b"
@@ -2569,7 +2569,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-irish-ogham-key.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-irish-ogham-key.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#irish-ogham-key",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 7,
       "restrictionCount": 5,
       "privateSha256": "769bc25d270333a1331c199f2972d87e9d569cb015671a69212a209cc47797d5"
@@ -2601,7 +2601,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-irish-ogham-read.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-irish-ogham-read.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#irish-ogham-read",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 5,
       "privateSha256": "cce537621a2425bb84cbf9f0b21a440fea08821cdaad816132fdf733cd2090c2"
@@ -2633,7 +2633,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-irish-stone-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-irish-stone-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#irish-stone-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 4,
       "privateSha256": "3bbe612d2c73cea354f6ca0a4cdf99b54edbb7236c40899473e4baa9b27758e0"
@@ -2665,7 +2665,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-irish-name-changes.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-irish-name-changes.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#irish-name-changes",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 4,
       "privateSha256": "0eb229dd64a46b874c461828415b288051f121da6ecdffd3b1db912132749588"
@@ -2697,7 +2697,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-irish-swans-count.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-irish-swans-count.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#irish-swans-count",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 4,
       "privateSha256": "cb0a10eb6e64f1e7386c015ec2850e941a197fcc18ca9ca66e4f17a5c18a0460"
@@ -2729,7 +2729,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-irish-salmon-river-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-irish-salmon-river-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#irish-salmon-river-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 4,
       "privateSha256": "09a420b51cfc31472f99711e1439d93f33316a33022f6017770d45f5bee0e93c"
@@ -2761,7 +2761,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-greek-alphabet-key.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-greek-alphabet-key.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#greek-alphabet-key",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 7,
       "restrictionCount": 4,
       "privateSha256": "21d89b73ed1ec1149ee20afa25c505d46f42cae9eb08f52cdf3b58f493160e04"
@@ -2793,7 +2793,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-greek-icarus-flight-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-greek-icarus-flight-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#greek-icarus-flight-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 4,
       "privateSha256": "bec5f69ef32ba95e0be71b02bba884638661309902d2789aaa1e9a571b8b472e"
@@ -2825,7 +2825,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-greek-labyrinth-cipher.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-greek-labyrinth-cipher.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#greek-labyrinth-cipher",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 4,
       "privateSha256": "d54c62db4fc8526ff82dfe660a188850280f0815c341367d57c515c89e50c605"
@@ -2857,7 +2857,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-greek-crete-palace-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-greek-crete-palace-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#greek-crete-palace-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 4,
       "privateSha256": "668c73da68c80db986e7d4fdeb1d7daa50b5a3b49463ef8809d377d0b5968a43"
@@ -2889,7 +2889,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-greek-column-orders.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-greek-column-orders.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#greek-column-orders",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 4,
       "privateSha256": "bc7a180e16bed8a6c66935aa014e579950ebae8ebe7a484f0e27fcdef5a1fe21"
@@ -2921,7 +2921,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-greek-constellation-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-greek-constellation-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#greek-constellation-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 8,
       "restrictionCount": 4,
       "privateSha256": "4b115fec7bfab3eef75279571e8aaebea49a63f2203a7a1515d8fefd76173a4b"
@@ -2953,7 +2953,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-greek-vase-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-greek-vase-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#greek-vase-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 10,
       "restrictionCount": 4,
       "privateSha256": "26894a3eafe6346eb8b932388be47ca5accef379b95d2c85adce5c50d9e751fd"
@@ -2985,7 +2985,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-greek-seasons-six-seeds.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-greek-seasons-six-seeds.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#greek-seasons-six-seeds",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 4,
       "privateSha256": "83b78cec3621e6bd4ae8d5a574bfa5969227fc023285a8a70b6350898941f460"
@@ -3017,7 +3017,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-greek-wing-design-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-greek-wing-design-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#greek-wing-design-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 3,
       "privateSha256": "c148b690b112b4c21050e95fb4127e96dc9d85f9c0e785d917cd96b0da408388"
@@ -3049,7 +3049,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-egyptian-cartouche-key.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-egyptian-cartouche-key.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#egyptian-cartouche-key",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 10,
       "restrictionCount": 4,
       "privateSha256": "ce066b9c1a491c2ad5423f53a1ab815cfe7d364aed9a94659110c6d94b484d13"
@@ -3081,7 +3081,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-egyptian-nile-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-egyptian-nile-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#egyptian-nile-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 4,
       "privateSha256": "b37a1db97ccb5d905439ce9180dcc7274d68b99a885fa142c816ebbe3ea64f0c"
@@ -3113,7 +3113,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-egyptian-hieroglyph-classes.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-egyptian-hieroglyph-classes.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#egyptian-hieroglyph-classes",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 4,
       "privateSha256": "70730217a5e8b8807e7eb3671ca53871df2f617f09b25b2096ba9b362ea28cb5"
@@ -3145,7 +3145,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-egyptian-boat-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-egyptian-boat-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#egyptian-boat-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 4,
       "privateSha256": "f8b4f93b7a52cf99436d6541ab3714d7146d21ea491c2b33915c15f834b81d0f"
@@ -3177,7 +3177,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-egyptian-sailor-sequence.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-egyptian-sailor-sequence.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#egyptian-sailor-sequence",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 4,
       "privateSha256": "0da39dd5e26bd9a400899ea48941d18d6291c9109a7a43fd5b99eebc6227026b"
@@ -3209,7 +3209,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-mesopotamian-cuneiform-key.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-mesopotamian-cuneiform-key.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#mesopotamian-cuneiform-key",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 4,
       "privateSha256": "71771153797ab27f8525a0ba1a50a68427c9b0f86f78a221458f54be601d61ae"
@@ -3241,7 +3241,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-mesopotamian-base-sixty.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-mesopotamian-base-sixty.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#mesopotamian-base-sixty",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 9,
       "restrictionCount": 4,
       "privateSha256": "6b5fe96b3d67b1f4b869ec36f4c7e5519f23bbdbe8cbe56dc59f99d9610813b0"
@@ -3273,7 +3273,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-mesopotamian-seal-cylinder-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-mesopotamian-seal-cylinder-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#mesopotamian-seal-cylinder-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 13,
       "restrictionCount": 4,
       "privateSha256": "086c1df3c1a2c553835dd213abd4e5e35d23e1f8fd249ce518af4ce984a1e036"
@@ -3305,7 +3305,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-mesopotamian-your-seal-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-mesopotamian-your-seal-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#mesopotamian-your-seal-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 3,
       "privateSha256": "aedd9beb2c46799d92ece48d7aac7353b2fcdd8e7f60dceb880c6c873a33295b"
@@ -3337,7 +3337,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-mesopotamian-plant-quest-steps.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-mesopotamian-plant-quest-steps.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#mesopotamian-plant-quest-steps",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 4,
       "privateSha256": "276dcc1c77582aa015fce7aa28f02305146a0bc22406382ca55101103209d892"
@@ -3369,7 +3369,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-mesopotamian-two-rivers-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-mesopotamian-two-rivers-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#mesopotamian-two-rivers-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 4,
       "privateSha256": "d9849860850b43cf41d86ee3c7b6221a25c86c57168ddae5056a483003a2ce37"
@@ -3401,7 +3401,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-yoruba-tone-marks.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-yoruba-tone-marks.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#yoruba-tone-marks",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 5,
       "privateSha256": "8ac2679687a9a45308c827fe3c97307f08176b4fb91dc5cb6c7d944e9e43950d"
@@ -3433,7 +3433,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-yoruba-underdot-letters.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-yoruba-underdot-letters.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#yoruba-underdot-letters",
-      "status": "placeholder-art-missing",
+      "status": "final",
       "requiredLabelCount": 10,
       "restrictionCount": 4,
       "privateSha256": "b3fa4f66da1105f52e0785c0082480cb6579968b08050bf8b4006142c1658f2d"
@@ -3465,7 +3465,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-yoruba-river-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-yoruba-river-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#yoruba-river-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 6,
       "restrictionCount": 4,
       "privateSha256": "f77c00b291918c7f2fd4f1fa5764b6b434e5569196218d07e23afd90bf2d0012"
@@ -3497,7 +3497,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-yoruba-counting-to-twenty.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-yoruba-counting-to-twenty.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#yoruba-counting-to-twenty",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 11,
       "restrictionCount": 4,
       "privateSha256": "6e3c571b0e54d916ff4beb6fe336320a1612964ffd3b01d9a8c26a265ba2f7d1"
@@ -3529,7 +3529,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-yoruba-sentence-name-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-yoruba-sentence-name-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#yoruba-sentence-name-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 3,
       "privateSha256": "51d8575754594d4e16d4eb7ec93364d1644a4b9016f26f3ac5920f550c558b74"
@@ -3561,7 +3561,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-akan-day-names.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-akan-day-names.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#akan-day-names",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 24,
       "restrictionCount": 4,
       "privateSha256": "9cb0cd068fc1b32f007583dab7729f8251bfd518c2c9ef1310e4cff0b6bce23d"
@@ -3593,7 +3593,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-akan-day-name-pairs.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-akan-day-name-pairs.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#akan-day-name-pairs",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 18,
       "restrictionCount": 4,
       "privateSha256": "510bd382d613410099b413502c1e73d3f4598bf9b66f4c2d7887b00c5c5c49ab"
@@ -3625,7 +3625,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-akan-story-trade.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-akan-story-trade.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#akan-story-trade",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 8,
       "restrictionCount": 4,
       "privateSha256": "a1cf7015c5f00aeddbf6db82771d44380299defdac5585e0eba804aeb731952c"
@@ -3657,7 +3657,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-akan-goldweight-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-akan-goldweight-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#akan-goldweight-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 8,
       "restrictionCount": 4,
       "privateSha256": "3a6cdfb04272ebca8df2c07a5e42796daa0b0989690228feea4b061832e2de6f"
@@ -3689,7 +3689,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-akan-talking-drum-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-akan-talking-drum-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#akan-talking-drum-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 9,
       "restrictionCount": 5,
       "privateSha256": "691194366dec6baafcb19c98a99bdc564db9ba39407a38b535f7883e5c216058"
@@ -3721,7 +3721,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-akan-story-web-map.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-akan-story-web-map.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#akan-story-web-map",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 4,
       "restrictionCount": 4,
       "privateSha256": "cfe389f23592c2b7dbf7453ac5fe131838d81b86fb8eb2995ad583dc4053fc6b"
@@ -3753,7 +3753,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-akan-spider-draw.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-akan-spider-draw.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#akan-spider-draw",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 2,
       "restrictionCount": 3,
       "privateSha256": "233fcb868511c680c8140af64f62c86fb2bd0a533017cc222ab6331abd1b55df"
@@ -3785,7 +3785,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-zulu-click-letters.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-zulu-click-letters.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#zulu-click-letters",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 11,
       "restrictionCount": 4,
       "privateSha256": "674c6fa78657b62e691725830ab58b96747d2604ffc2f6d073b6d9c6d751fe34"
@@ -3817,7 +3817,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-zulu-two-messengers.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-zulu-two-messengers.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#zulu-two-messengers",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 5,
       "privateSha256": "c8e6eda397eb13a7ad73b43597d8e77498301acb4089bada36ac1d2b110e8fb4"
@@ -3849,7 +3849,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-zulu-chameleon-plate.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-zulu-chameleon-plate.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#zulu-chameleon-plate",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 5,
       "restrictionCount": 4,
       "privateSha256": "d8d7d69784a8d5d8328144ad8f6605eac6c34ae05ad868cd59129238931a96ee"
@@ -3881,7 +3881,7 @@
       "finalLocation": "07_ASSETS/final/interior/fig-zulu-messenger-make.png",
       "rejectedLocation": "07_ASSETS/rejected/fig-zulu-messenger-make.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#zulu-messenger-make",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 3,
       "restrictionCount": 3,
       "privateSha256": "8dbd22c250a078e4e34993a566704d559c67293a57aa840d56298a788e92c430"
@@ -3913,7 +3913,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-finnish.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-finnish.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-finnish",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 7,
       "privateSha256": "18a1d9a4e6866706e0ad66f6e1db21a2b8252d5ccb7308f8ee3d3e39fad2f68e"
@@ -3945,7 +3945,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-inuit.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-inuit.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-inuit",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 9,
       "privateSha256": "e0f5774d15939f694d0669ad62f78d1b72b7e477ed709ed51f0a4734903dbf33"
@@ -3977,7 +3977,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-irish.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-irish.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-irish",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 7,
       "privateSha256": "83623145c99d6cf521a1e5b5c017afb2004feac85548c10cdf7b65d0d5aa7cc3"
@@ -4009,7 +4009,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-norse.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-norse.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-norse",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 7,
       "privateSha256": "58bff0a30323c834d3cae2f3ec1c0282783529d656f07d5501a1d0d8234fd02a"
@@ -4041,7 +4041,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-egyptian.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-egyptian.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-egyptian",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 8,
       "privateSha256": "c8bb1a456343be80a90660afa61c71892ec98728449412615c25a1387abd564a"
@@ -4073,7 +4073,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-greek.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-greek.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-greek",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 7,
       "privateSha256": "f7e999d8ab096bc99a2fa0e98bbfce02836e0861e787222787cecb2934ac48c9"
@@ -4105,7 +4105,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-mesopotamian.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-mesopotamian.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-mesopotamian",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 7,
       "privateSha256": "1d3b42ebd5cbcd715c27aa6d5ed7a21cad4b05e988d824c2598c3669381756cd"
@@ -4137,7 +4137,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-akan.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-akan.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-akan",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 9,
       "privateSha256": "64c60a9ceb0cff6bf73b4643cee1bc569c520721f347d0b2a23c101a5cb12ce3"
@@ -4169,7 +4169,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-yoruba.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-yoruba.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-yoruba",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 9,
       "privateSha256": "caa8d7b637c11aa6a4a8e178354af30e75d8853d5933f0cc5ce1187af956c597"
@@ -4201,7 +4201,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-zulu.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-zulu.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-zulu",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 8,
       "privateSha256": "75d527b2f42ef44b07e6c4c0ba3dba4f4e12b022d02413f1b6327d44f6225151"
@@ -4233,7 +4233,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-chinese.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-chinese.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-chinese",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 9,
       "privateSha256": "99586d4fd14c58f5885e5f0891715021e1db203fb5d6a6b79aec46f2010a4bd0"
@@ -4265,7 +4265,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-hindu.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-hindu.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-hindu",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 10,
       "privateSha256": "fdf87f09dff4e31599d2c8fb76bff00d67430fb8ec0ae2db2a7c135c33d22340"
@@ -4297,7 +4297,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-persian.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-persian.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-persian",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 8,
       "privateSha256": "98afe088cbd3c04b70aeeb81a4dc77436bb01bb347d8ed2f285939cdd7400b95"
@@ -4329,7 +4329,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-turkic.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-turkic.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-turkic",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 8,
       "privateSha256": "72d125bb3b26bb7bafa38ad18a216d18b7c3c86cd0d6713719b444a49812aee4"
@@ -4361,7 +4361,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-vietnamese.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-vietnamese.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-vietnamese",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 8,
       "privateSha256": "27f41635bd47616944ff8eba7a20a68460ce0f5bdf1217cab85de336e6bdae7c"
@@ -4393,7 +4393,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-hawaiian.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-hawaiian.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-hawaiian",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 10,
       "privateSha256": "fef0134c2bc41770f3f51f8590fb2c9d293770db8c4f143490885c95e5435425"
@@ -4425,7 +4425,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-japanese.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-japanese.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-japanese",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 9,
       "privateSha256": "eee6984812d8897d2ca9180bfff4476b45729400f43b98ff5fbfc1613b3c1334"
@@ -4457,7 +4457,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-korean.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-korean.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-korean",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 8,
       "privateSha256": "8959e3a3dc78fcc83cbd2ee64820aa2dc4afb25b581c1a9653c92dabab16064e"
@@ -4489,7 +4489,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-maori.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-maori.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-maori",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 10,
       "privateSha256": "374b809e15463754034854853007279bf3c3897dde8816725b2761469e9cadd1"
@@ -4521,7 +4521,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-andean.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-andean.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-andean",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 9,
       "privateSha256": "0e25302d9cb269bfb9b7c8c1402648e99b6f23b8c6d9c6861c82f1d965a69fc0"
@@ -4553,7 +4553,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-aztec.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-aztec.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-aztec",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 8,
       "privateSha256": "2a179140dc1beb0bb582119cff80f6ce31492f7ca15e4134a30ad2e8047c0130"
@@ -4585,7 +4585,7 @@
       "finalLocation": "07_ASSETS/final/interior/vig-maya.png",
       "rejectedLocation": "07_ASSETS/rejected/vig-maya.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#vig-maya",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 1,
       "restrictionCount": 9,
       "privateSha256": "a6d9c6abf5a019e6a42c7b16533f5462ce810f1d6c3fc28e66e299ed11afa700"
@@ -4617,7 +4617,7 @@
       "finalLocation": "07_ASSETS/final/interior/seal-north-ice.png",
       "rejectedLocation": "07_ASSETS/rejected/seal-north-ice.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#seal-north-ice",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 6,
       "privateSha256": "b8d7b6ed17bd78057b568b383d3c5a03be981fae40ef110d3f024d4dc8fb4755"
@@ -4649,7 +4649,7 @@
       "finalLocation": "07_ASSETS/final/interior/seal-middle-sea.png",
       "rejectedLocation": "07_ASSETS/rejected/seal-middle-sea.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#seal-middle-sea",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 6,
       "privateSha256": "994d7e984bcd08522d92ee81abe8385f0dec242ceb4af7d7eafd4fe8dd5037d8"
@@ -4681,7 +4681,7 @@
       "finalLocation": "07_ASSETS/final/interior/seal-sun-savanna.png",
       "rejectedLocation": "07_ASSETS/rejected/seal-sun-savanna.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#seal-sun-savanna",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 6,
       "privateSha256": "b13453cd2aa57dec6f7a955c8afa2ab3ac6e955332045d1052bfa2a63cff19bb"
@@ -4713,7 +4713,7 @@
       "finalLocation": "07_ASSETS/final/interior/seal-monsoon.png",
       "rejectedLocation": "07_ASSETS/rejected/seal-monsoon.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#seal-monsoon",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 6,
       "privateSha256": "f012f0ec88c802b32349ff5253bcceda07517b6ffb8869e3442f9bff7a9dca5f"
@@ -4745,7 +4745,7 @@
       "finalLocation": "07_ASSETS/final/interior/seal-great-ocean.png",
       "rejectedLocation": "07_ASSETS/rejected/seal-great-ocean.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#seal-great-ocean",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 6,
       "privateSha256": "4dcec32f74974bdaf9c16241a5a94ba9b9d7e2e78342f3479e0b33e2bfa8709d"
@@ -4777,7 +4777,7 @@
       "finalLocation": "07_ASSETS/final/interior/seal-jaguar-condor.png",
       "rejectedLocation": "07_ASSETS/rejected/seal-jaguar-condor.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#seal-jaguar-condor",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 6,
       "privateSha256": "149538dc755c511f37c0d4a9d25aa71df9f3abcdab4e7a818395c2be74f26342"
@@ -4809,7 +4809,7 @@
       "finalLocation": "07_ASSETS/final/interior/badge-star-1.png",
       "rejectedLocation": "07_ASSETS/rejected/badge-star-1.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#badge-star-1",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "ac1b2815b735eb08301f734010425773b54fcaa9ffe923ed1a966506c08f47d7"
@@ -4841,7 +4841,7 @@
       "finalLocation": "07_ASSETS/final/interior/badge-star-2.png",
       "rejectedLocation": "07_ASSETS/rejected/badge-star-2.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#badge-star-2",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "2395f20f3cddbcb52a36f3f8336bb2e647c684af367a12f8570374c55d7d039b"
@@ -4873,7 +4873,7 @@
       "finalLocation": "07_ASSETS/final/interior/badge-star-3.png",
       "rejectedLocation": "07_ASSETS/rejected/badge-star-3.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#badge-star-3",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "19908900725e2b740315bb6cde89708f3ab67a517cf102c2b4dd1f586d586325"
@@ -4905,7 +4905,7 @@
       "finalLocation": "07_ASSETS/final/interior/badge-star-box.png",
       "rejectedLocation": "07_ASSETS/rejected/badge-star-box.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#badge-star-box",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "0a10b8104b6551fc009f39df62a7547534288797f91efc4cb7e21cf8acfb640c"
@@ -4937,7 +4937,7 @@
       "finalLocation": "07_ASSETS/final/interior/badge-seal-counter.png",
       "rejectedLocation": "07_ASSETS/rejected/badge-seal-counter.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#badge-seal-counter",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "663dd8b8a9b6f708097e8a3ff61b7ace5440c2fabbbc0013dfe1cf279ff41d1d"
@@ -4969,7 +4969,7 @@
       "finalLocation": "07_ASSETS/final/interior/badge-field-researcher.png",
       "rejectedLocation": "07_ASSETS/rejected/badge-field-researcher.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#badge-field-researcher",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "16a290f4822a328eaf8dde26468b85cf2e0d7ee2ab724ef1608f64d50bd1feef"
@@ -5001,7 +5001,7 @@
       "finalLocation": "07_ASSETS/final/interior/front-how-a-page-works.png",
       "rejectedLocation": "07_ASSETS/rejected/front-how-a-page-works.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#front-how-a-page-works",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "f9c35e06ced5a131a180d1cb2aeb4c0db36e1c92ef4569522a577b331109de25"
@@ -5033,7 +5033,7 @@
       "finalLocation": "07_ASSETS/final/interior/front-star-box-and-seal.png",
       "rejectedLocation": "07_ASSETS/rejected/front-star-box-and-seal.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#front-star-box-and-seal",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "245eab4c95ed705e8ff9990a5b1a1d257098d36d4dbe741326e2616a31c244f3"
@@ -5065,7 +5065,7 @@
       "finalLocation": "07_ASSETS/final/interior/front-the-route.png",
       "rejectedLocation": "07_ASSETS/rejected/front-the-route.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#front-the-route",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "c4e025624a300c99bd0301738ef2a2c7a6575143604cb1c525d5a95ffb7751ed"
@@ -5097,7 +5097,7 @@
       "finalLocation": "07_ASSETS/final/interior/front-when-you-are-stuck.png",
       "rejectedLocation": "07_ASSETS/rejected/front-when-you-are-stuck.png",
       "promptRef": "07_ASSETS/IMAGE_PROMPT_LIBRARY.html#front-when-you-are-stuck",
-      "status": "specified-not-produced",
+      "status": "final",
       "requiredLabelCount": 0,
       "restrictionCount": 5,
       "privateSha256": "401f9480645534d846f01e5eb3d6b37487c4cc98d217c57f53121faccf1bd95c"

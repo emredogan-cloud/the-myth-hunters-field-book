@@ -37,29 +37,29 @@
     "gift for curious kids age 9",
     "homeschool world mythology"
   ],
-  "description": "Twenty-two peoples. One hundred and twenty puzzles across one hundred and sixty pages. Six seals to earn. This is not a puzzle book with a mythology theme — every puzzle is built out of what a people actually made: a writing system, a counting system, a map of a real place, a message that had to travel. Children decode Younger Futhark and Inuktitut syllabics, count in Maya bars and dots, trace the Red River delta, and sort the Akan day names. Answers are checked against museums, archives and universities, and the back of the book says which ones. Screen-free, written in, and finished with a certificate.",
+  "description": "Twenty-two peoples. One hundred and twenty puzzles across 156 pages. Six seals to earn. This is not a puzzle book with a mythology theme — every puzzle is built out of what a people actually made: a writing system, a counting system, a map of a real place, a message that had to travel. Children decode Younger Futhark and Inuktitut syllabics, count in Maya bars and dots, trace the Red River delta, and sort the Akan day names. Answers are checked against museums, archives and universities, and the back of the book says which ones. Screen-free, written in, and finished with a certificate.",
   "descriptionFacts": {
     "$comment": "Açıklamanın İDDİA ETTİĞİ sayılar. § ⑤ kapısı bunları ölçümle karşılaştırır; elle yazılmış bir sayı sessizce bayatlayamaz.",
     "activities": 120,
-    "pages": 160
+    "pages": 156
   },
   "edition": {
     "format": "paperback",
     "trim": "8.50 x 11.00 in",
-    "pages": 160,
+    "pages": 156,
     "ink": "black",
     "paper": "white",
     "interiorPdf": "08_OUTPUT/PAPERBACK/interior.pdf"
   },
   "pricing": {
     "list": 14.99,
-    "printCost": 3.72,
-    "royaltyBaseline": 5.27
+    "printCost": 3.65,
+    "royaltyBaseline": 5.34
   },
   "cover": {
-    "spineInches": 0.3603,
+    "spineInches": 0.3513,
     "spineTextAllowed": true,
-    "fullCoverWidthInches": 17.6103,
+    "fullCoverWidthInches": 17.6013,
     "fullCoverHeightInches": 11.25,
     "bleedInches": 0.125,
     "safeMarginInches": 0.25
@@ -69,7 +69,7 @@
     "note": "KDP panelindeki AI beyanı SEÇİMİNİ kurucu yapar."
   },
   "measuredFrom": {
-    "typesetPages": 160,
+    "typesetPages": 156,
     "source": "08_OUTPUT/PAPERBACK/interior.pdf"
   }
 }

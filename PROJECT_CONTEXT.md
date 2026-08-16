@@ -68,38 +68,35 @@ Fırsat skoru **6,0/10** — üçünün en düşüğü, **ve bu bilinçlidir**.
 
 | | |
 |---|---|
-| Faz | **6 · TAMAM** — KDP paketi hazır |
+| Faz | **6 TAMAM + AŞAMA 2 TAMAM** — KDP yüklemeye hazır |
 | Kapı (`.gate`) | `release` — ⚠ **A10 KANITLA DEĞİL KARARLA kapandı (K40)** |
 | Aday aktivite | **168** / ≥160 ✅ |
 | Kilitli / yazılmış | **120** / 120 — **altı bölgenin altısı** ✅ |
 | Devralınan kayıt | **76**; **54'ü yeniden doğrulandı** (Faz 3: 31) |
 | Doğrulanmış iddia | **108** · 92 teyit · 13 düzeltme · **3 RET** |
 | Kültür · bölge | **22** · **6** ✅ · yazılmış bölge **6/6** ✅ |
-| Sayfa modeli | **160** DİZİLDİ = hedef **160** · sapma **%0** · ✅ **A13 → K38** |
-| Ön madde | **9 sayfa** · 8 bölüm · başlık ve künye dâhil ✅ |
+| Sayfa modeli | **156** DİZİLDİ = hedef **156** · sapma **%0** · ✅ **K44** |
+| Ön madde · arka madde | **9** + **9** sayfa · arka madde Aşama 2'de GERÇEK içerikle dizildi ✅ |
 | Kelime | **21.283** / 22.000 ±%15 ✅ |
 | Görsel envanteri | **158** varlık (120 + 22 vinyet + 6 damga + 6 rozet + 4 ön madde) |
-| Görsel şartnamesi | **725 zorunlu etiket** · **üretilmiş varlık 0** — ham üretim kurucuya ait |
+| **Nihai görsel varlık** | **158 / 158** ✅ · iki yer tutucu Aşama 2'de gerçek levhayla değişti |
 | Görsel hattı | ✅ kuruldu ve **dosya katmanında sınandı** (K35) |
-| Kapı öz-testi | **234 denetim yeşil** |
+| Kapı öz-testi | **230 denetim yeşil** · 26 kapı · **KDP ön uçuş 61** |
 | Çocuk testi | ⏳ **2 testçi · 0 OTURUM · DIŞ DOĞRULAMA BEKLİYOR** |
-| **Sonraki adım** | Faz 5 raporu → **DUR**. Faz 6 kurucu talimatı ister. |
+| **Sonraki adım** | **YOK — AJAN DURDU.** Yükleme kurucunundur (§ 11). |
 
-⚠ **FAZ 2 HÂLÂ KAPANMADI — VE 120 SAYFA ONU KAPATMAZ.**
-
-Kurucu Faz 3'ü, Faz 4'ü ve Faz 5'i A10 beklenmeden başlattı
-(**K27** · **K30** · **K34**). Bu bir **sıra** kararıdır, bir **sonuç**
-değil:
+⚠ **TEKNİK ÜRETİM İLE ÇOCUK DOĞRULAMASI TOPLANMAZ.**
 
 ```
-TEKNİK ÜRETİM          ✅ TAMAM     120 sayfa · 6 bölge · final görev · arka madde
-DIŞ ÇOCUK DOĞRULAMASI  ⏳ BEKLİYOR  0 oturum
+TEKNİK ÜRETİM          ✅ TAMAM     156 sayfa · 158 görsel · kapak · A+
+DIŞ ÇOCUK DOĞRULAMASI  ❌ 0 OTURUM
                        ← bu ikisi TOPLANMAZ
 ```
 
-`.gate` bu yüzden `phase1`'de duruyor ve aşma kaydı onu **oraya
-kilitliyor**: `validate_spec § ⑤` aşma etkinken kapının yükselmesine
-izin vermiyor. Yani aşma, kapıyı açmak için **kullanılamaz**.
+Kurucu Faz 3'ü, Faz 4'ü ve Faz 5'i A10 beklenmeden başlattı
+(**K27** · **K30** · **K34**) ve A10'u **kararla** kapattı (**K40**).
+`externalValidation` bu yüzden `passed` değil
+`overridden-zero-sessions`'tır ve öyle kalacaktır.
 
 Faz 5 raporu: [`06_REPORTS/PHASE_5_REPORT.md`](06_REPORTS/PHASE_5_REPORT.md)
 Faz 4 raporu: [`06_REPORTS/PHASE_4_REPORT.md`](06_REPORTS/PHASE_4_REPORT.md)
@@ -232,9 +229,9 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 | ~~A12~~ | ~~148 mi 144 mü — dayanak~~ | — | ✅ **kapandı → K33** · kurucu **144** dedi |
 | **A10** | **gerçek çocuk oturumu** | kurucu | **AÇIK · K27/K30/K34 ile ERTELENDİ, kapanmadı** |
 | **A9** | **fizikî prova** | kurucu | Faz 5–6 · **kurucuya ait** |
-| **A15** | **mobilya çiftlemesi — hangi taraf bırakacak** | kurucu | **AŞAMA 2 ÖNCESİ · YÜKSEK** |
-| **A16** | **156 levha 300 dpi'da yeniden üretilecek mi** | kurucu | **A15 İLE BİRLİKTE · YÜKSEK** |
-| **A17** | **16 varlık dosyası** (kapak · A+ · 2 levha) | kurucu | **AŞAMA 2 ÖNCESİ · YÜKSEK** |
+| ~~A15~~ | ~~mobilya çiftlemesi~~ | — | ✅ **KAPANDI → K45** · dizgi bıraktı |
+| **A16** | **156 levha 300 dpi** · **kapak 89 dpi (K48)** | kurucu | **AÇIK · KURUCU KARARI** |
+| ~~A17~~ | ~~varlık teslimi~~ | — | ✅ **KAPANDI** · 11 dosya kabul edildi |
 | A5 | Ciltli hediye sürümü | kurucu | Faz 4 |
 | A6 | Yazar biyografisi metni | kurucu | Faz 6 |
 | — | İki ebeveyn okuması | kurucu | Faz 5 |
@@ -249,44 +246,47 @@ grep -n "AÇIK KARAR" DECISIONS.md    # kurucudan yanıt bekleyenler
 
 ## 11 · Sonraki izinli eylem
 
-> **YÜKLEME ÖNCESİ GEÇİŞ · AŞAMA 1 BİTTİ. AJAN DURDU VE BEKLİYOR.**
+> **AŞAMA 2 TAMAM. PROJE KDP YÜKLEMEYE HAZIR. AJAN DURDU.**
 >
-> Faz 6 *"KDP paketi hazır"* diyerek kapanmıştı. Yükleme öncesi denetim
-> aynı pakete **yükleyecek biri gibi** baktı ve pakedin hazır
-> **olmadığını** ölçtü.
+> Kurucu bütün varlıkları teslim etti; Aşama 2 üretimi tamamladı ve
+> nihai çıktılardan kaynağa doğru **sert bir denetim** yaptı.
 >
 > ```
-> AŞAMA 1        ✅ prompt yazıldı · denetim yapıldı · ÜRETİM YOK
-> AŞAMA 2        ⏳ kurucu "DEVAM" diyene kadar BAŞLAMAZ
+> İÇ BLOK        ✅ 156 sayfa · 158 gerçek görsel · 4/4 yazı tipi GÖMÜLÜ
+> KAPAK          ✅ tek PDF · arka+sırt+ön · vektör tipografi
+> A+ PAKETİ      ✅ 11 görsel · modül haritası · kopya
+> METADATA       ✅ 120 puzzle / 156 sayfa · sırt 0,3513"
+> EL KİTABI      ✅ 08_OUTPUT/KDP_UPLOAD_HANDBOOK.md
+> ÖN UÇUŞ        ✅ 61 denetim · qa_all yeşil · CI ortamı yeşil
 >
-> İÇ BLOK        ✅ 160 sayfa · 08_OUTPUT/PAPERBACK/  ⚠ 2 yer tutucuyla
-> METADATA       ✅ DÜZELTİLDİ — "120 pages" → 120 puzzles / 160 pages (K41)
-> KAPAK ÖLÇÜSÜ   ✅ 03_COVER/COVER_SPEC.md · sırt 0,3603" · GEÇİCİ
-> PROMPTLAR      ✅ IMAGE_PROMPT_LIBRARY § 9 · kapak 2 · A+ 12 · levha 2
->
-> KAPAK SANATI   ❌ KURUCUYA AİT — A17
-> YER TUTUCU     ⛔ 2 varlık — s.60 · s.120 — BASIMI BLOKE EDER
-> MOBİLYA        ⛔ 99 sayfada İKİ KEZ basılıyor — A15 · KURUCU KARARI
-> 300 dpi        ⛔ 158/158 ölçütün altında — A16 · KURUCU KARARI
-> EDİTORYAL      ⛔ 46 bulgu · 11 sayfada cevap sızıyor (9 değil)
+> KAPAK 300 dpi  ⚠ sanat 89 dpi — KURUCU KARARI (K48)
 > ÇOCUK OTURUMU  ❌ 0 — A10 KARARLA kapandı (K40), kanıtla değil
+> FİZİKÎ PROVA   ❌ A9 — kurucuya ait
+> KDP PANELİ     ⛔ DOKUNULMADI
 > ```
+>
+> **Aşama 2 on bir kusur buldu ve dokuzu ancak ÇIKTIYA BAKARAK
+> görüldü** — kaynak kapıları hepsinde yeşildi. En büyükleri:
+>
+> - sayfa mobilyası **37 + 75 sayfada iki kez** basılıyordu (K45)
+> - arka madde **içerik değil şartnameydi**, yedi sayfa kopyaydı (K44)
+> - **sıfır** yazı tipi gömülüydü ve `Māori` bir kutu olarak basılıyordu (K46)
+>
+> Sayfa sayısı ölçümle **160 → 156** düştü; sırt, kapak, maliyet ve
+> telif kendiliğinden yeniden türedi. Hiçbir sayı elle taşınmadı.
 >
 > **externalValidation = `overridden-zero-sessions`** — hiçbir yerde
-> `passed` yazmıyor ve yazmayacak. Kitap çocuk doğrulamasından
-> **geçmemiştir**.
+> `passed` yazmıyor. Kitap çocuk doğrulamasından **geçmemiştir** ve
+> hiçbir kapak/A+/KDP satırı aksini iddia etmiyor.
 >
-> ⚠ **CI YEŞİL, KİTAP HAZIR DEĞİL.** Bir kapı ancak sorduğu soruyu
-> ölçer; mobilya çiftlemesini **hiçbir kapı sormamıştı**. Artık
-> `qa_design § ⑨` ölçüyor (uyarı olarak; A15 uygulanınca hataya
-> yükseltilecek).
+> Nihai denetim: [`06_REPORTS/FINAL_BRUTAL_AUDIT_REPORT.md`](06_REPORTS/FINAL_BRUTAL_AUDIT_REPORT.md)
+> Yükleme kılavuzu: [`08_OUTPUT/KDP_UPLOAD_HANDBOOK.md`](08_OUTPUT/KDP_UPLOAD_HANDBOOK.md)
+> Prova kılavuzu: [`08_OUTPUT/PROOF_HANDOFF.md`](08_OUTPUT/PROOF_HANDOFF.md)
 >
-> **Kurucudan bekleniyor:** A15 · A16 (birlikte verilmeli) ve A17'nin
-> 16 dosyası.
+> ```
+> FINAL STATUS:  KDP UPLOAD READY
+> NOT:           KDP PUBLISHED
+> ```
 >
-> Ölçüm raporu: [`06_REPORTS/KDP_PREFLIGHT_AUDIT.md`](06_REPORTS/KDP_PREFLIGHT_AUDIT.md)
-> Teslim sözleşmesi: [`07_ASSETS/FOUNDER_ASSET_DELIVERY.md`](07_ASSETS/FOUNDER_ASSET_DELIVERY.md)
-> Faz 6 raporu: [`06_REPORTS/FINAL_RELEASE_REPORT.md`](06_REPORTS/FINAL_RELEASE_REPORT.md)
->
-> **KDP paneline dokunulmadı. Prova sipariş edilmedi. Hiçbir görsel
-> üretilmedi. Yükleme kurucunundur.**
+> **Yükleme kurucunundur. Ajan panele dokunmadı, Previewer'ı
+> çalıştırmadı, prova sipariş etmedi ve hiçbir şey yayımlamadı.**

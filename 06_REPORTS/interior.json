@@ -1,15 +1,18 @@
 {
   "status": "pass",
-  "checks": 6,
+  "checks": 7,
   "errors": [],
   "warnings": [],
   "facts": {
+    "fontDir": "07_ASSETS/fonts",
+    "fontsEmbedded": true,
+    "cjkFont": "DroidSansFallbackFull.ttf",
     "assetSource": "07_ASSETS/ASSET_MANIFEST.local.json",
     "finalAssetsOnDisk": 158,
     "output": "08_OUTPUT/PAPERBACK/interior.pdf",
     "placeholderMode": false,
-    "typesetPagesRaw": 160,
-    "typesetPagesSignatureAligned": 160,
+    "typesetPagesRaw": 155,
+    "typesetPagesSignatureAligned": 156,
     "overflowPages": [],
     "thinWritingLines": [],
     "modelVsTypesetDelta": 0

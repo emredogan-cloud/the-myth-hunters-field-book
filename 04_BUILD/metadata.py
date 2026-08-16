@@ -154,6 +154,17 @@ def pdf_pages(path):
     return n or None
 
 
+def _royalty(cfg, pages):
+    """liste × oran − baskı maliyeti. KDP formülü, tek yerde."""
+    pc = cfg["production"]["kdpPrintCost"]
+    ed = next(e for e in cfg["production"]["editionsHypothesis"]
+              if e["id"] == "paperback")
+    rate = (pc["royaltyRateAtOrAbove999"] if ed["list"] >= 9.99
+            else pc["royaltyRateBelow999"])
+    cost = pc["paperbackLargeTrimBW"]["fixed"] + pages * pc["paperbackLargeTrimBW"]["perPage"]
+    return round(ed["list"] * rate - cost, 2)
+
+
 def build(cfg, book, pages, rep):
     pr, fo, au = cfg["project"], cfg["founder"], cfg["audience"]
     spine = round(pages * SPINE_PER_PAGE, 4)
@@ -234,7 +245,13 @@ def build(cfg, book, pages, rep):
                                ["paperbackLargeTrimBW"]["fixed"]
                                + pages * cfg["production"]["kdpPrintCost"]
                                ["paperbackLargeTrimBW"]["perPage"], 2),
-            "royaltyBaseline": cfg["production"]["royaltyBaseline"]["paperback"],
+            # ⭑ TELİF ELLE YAZILMAZ, HESAPLANIR ⭑
+            # Sayfa sayısı 160 → 156 olunca baskı maliyeti düştü ama
+            # `royaltyBaseline` bir CONFIG SABİTİYDİ ve yerinde kaldı:
+            # metadata 3,65 $ baskı maliyeti ile 5,27 $ telif iddia
+            # ediyordu. İkisi aynı formülün iki ucudur ve ayrı
+            # duramazlar.
+            "royaltyBaseline": _royalty(cfg, pages),
         },
         "cover": {
             "spineInches": spine,

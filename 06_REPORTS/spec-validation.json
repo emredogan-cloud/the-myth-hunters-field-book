@@ -1,11 +1,11 @@
 {
   "status": "pass",
   "gate": "release",
-  "checks": 81,
+  "checks": 86,
   "errors": [],
   "warnings": [],
   "facts": {
-    "royalty_paperback": 5.27,
+    "royalty_paperback": 5.34,
     "activities_total": 168,
     "cultures_total": 22,
     "activities_candidate": 48,
@@ -25,8 +25,8 @@
     "derived_phase4": 120,
     "derived_phase5": 120,
     "derived_release": 120,
-    "pageTarget": 160,
+    "pageTarget": 156,
     "pageTargetDecision": "A13 → K38 · kurucu · 16 Ağustos 2026",
-    "pageTargetHistoryLength": 4
+    "pageTargetHistoryLength": 5
   }
 }

@@ -328,11 +328,11 @@ Başlık, yazar adı, alt başlık, rozet yazısı, ISBN, barkod, fiyat, yaş ba
 <p>Bütün ölçüler <code>metadata.json § cover</code>'dan gelir ve o da <strong>ölçülen sayfa sayısından</strong> türer. Sayfa sayısı değişirse bu tablo kendiliğinden değişir — sırt hiçbir yerde elle yazılmaz.</p>
 <div class="scroll"><table>
 <tr><th>Ölçü</th><th>inç</th><th>piksel @300 dpi</th></tr>
-<tr><td><strong>Tam sarmal</strong> (arka+sırt+ön, bleed dâhil)</td><td>17.6103 × 11.2500</td><td><strong>5283 × 3375</strong></td></tr>
+<tr><td><strong>Tam sarmal</strong> (arka+sırt+ön, bleed dâhil)</td><td>17.6013 × 11.2500</td><td><strong>5280 × 3375</strong></td></tr>
 <tr><td>Arka panel (bleed dâhil) — <em>soldaki</em></td><td>8.6250 × 11.2500</td><td>2587 × 3375</td></tr>
-<tr><td><strong>Sırt</strong> (160 sayfa)</td><td>0.3603 × 11.2500</td><td>108 × 3375</td></tr>
+<tr><td><strong>Sırt</strong> (156 sayfa)</td><td>0.3513 × 11.2500</td><td>105 × 3375</td></tr>
 <tr><td>Ön panel (bleed dâhil) — <em>sağdaki</em></td><td>8.6250 × 11.2500</td><td>2588 × 3375</td></tr>
-<tr><td><em>toplam denetimi</em></td><td>—</td><td><em>2587 + 108 + 2588 = 5283</em> ✓</td></tr>
+<tr><td><em>toplam denetimi</em></td><td>—</td><td><em>2587 + 105 + 2588 = 5280</em> ✓</td></tr>
 <tr><td>Trim</td><td>8.50 × 11.00</td><td>—</td></tr>
 <tr><td>Bleed · güvenli kenar</td><td>0.125 · 0.25</td><td>—</td></tr>
 <tr><td>Sırta yazı basılabilir mi</td><td colspan='2'>EVET</td></tr>
@@ -348,8 +348,8 @@ Nihai geometri <strong>KDP kapak şablonundan</strong> alınır: kurucu son sayf
 <tr><td><strong>Dosya adı</strong></td><td><code>kdp-cover-option-01.png</code></td></tr>
 <tr><td><strong>HAM konum</strong></td><td><code>07_ASSETS/raw/kdp-cover-option-01.png</code> · <em>teslimden sonra DEĞİŞTİRİLMEZ</em></td></tr>
 <tr><td><strong>Nihai hedef</strong></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code> — tek PDF: arka + sırt + ön</td></tr>
-<tr><td><strong>Hedef ölçü</strong></td><td>5283 × 3375 px &nbsp;(17.6103 × 11.2500 in)</td></tr>
-<tr><td><strong>En-boy oranı</strong></td><td>1.5654 : 1 · yatay sarmal</td></tr>
+<tr><td><strong>Hedef ölçü</strong></td><td>5280 × 3375 px &nbsp;(17.6013 × 11.2500 in)</td></tr>
+<tr><td><strong>En-boy oranı</strong></td><td>1.5646 : 1 · yatay sarmal</td></tr>
 <tr><td><strong>Renk · çözünürlük</strong></td><td>RGB renkli · <strong>gerçek 300 dpi</strong> (iç bloğun 150 dpi ölçütü kapağa UYGULANMAZ)</td></tr>
 <tr><td><strong>CLI sonradan basacak</strong></td><td>ön: başlık + yazar · sırt: başlık + yazar · arka: tanıtım metni, yaş bandı, ekransız sinyali, yazar biyografisi · barkod alanı BOŞ</td></tr>
 </table></div>
@@ -380,7 +380,7 @@ TYPOGRAPHY RESERVE — leave these zones visually calm and uncluttered so type c
 
 NEGATIVE: NO TEXT of any kind anywhere in the image; no title, no subtitle, no author name, no publisher name; no badge wording, no sticker wording, no award wording; no ISBN, no barcode, no price, no age-range block; no typography, no lettering, no numerals, no calligraphy; no invented script, no fake writing, no rune-like or glyph-like marks; no logo, no watermark, no signature, no AI artefact mark; no readable writing on any notebook page, card, map or label; no sacred, ceremonial or restricted object; no generic ‘tribal’ ornament and no blended pan-cultural pattern; no weapon, no wound, no blood, no skull; no photorealistic human face; no identifiable real person; no modern branding, clothing, device or packaging; no neon, no plastic toy palette, no lens flare, no bokeh; no heavy vignette and no dark frame around the edges
 
-OUTPUT: PNG, RGB colour, 5283 × 3375 px, 1.5654 : 1, full-bleed wrap, 300 dpi at 17.6103 × 11.2500 in.<button class="copy" data-t="p901">promptu kopyala</button></div>
+OUTPUT: PNG, RGB colour, 5280 × 3375 px, 1.5646 : 1, full-bleed wrap, 300 dpi at 17.6013 × 11.2500 in.<button class="copy" data-t="p901">promptu kopyala</button></div>
 <h3>9.2.2 · KAPAK SANATI — SEÇENEK 2 — “MİT HARİTASI PANOSU”</h3>
 <div class="scroll"><table>
 <tr><td><strong>Amaç</strong></td><td>Kitabın kapsamını tek bakışta verir: altı bölge, bir dünya. Sinyal: keşif, rota, kapsam.</td></tr>
@@ -388,8 +388,8 @@ OUTPUT: PNG, RGB colour, 5283 × 3375 px, 1.5654 : 1, full-bleed wrap, 300 dpi a
 <tr><td><strong>Dosya adı</strong></td><td><code>kdp-cover-option-02.png</code></td></tr>
 <tr><td><strong>HAM konum</strong></td><td><code>07_ASSETS/raw/kdp-cover-option-02.png</code> · <em>teslimden sonra DEĞİŞTİRİLMEZ</em></td></tr>
 <tr><td><strong>Nihai hedef</strong></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code> — tek PDF: arka + sırt + ön</td></tr>
-<tr><td><strong>Hedef ölçü</strong></td><td>5283 × 3375 px &nbsp;(17.6103 × 11.2500 in)</td></tr>
-<tr><td><strong>En-boy oranı</strong></td><td>1.5654 : 1 · yatay sarmal</td></tr>
+<tr><td><strong>Hedef ölçü</strong></td><td>5280 × 3375 px &nbsp;(17.6013 × 11.2500 in)</td></tr>
+<tr><td><strong>En-boy oranı</strong></td><td>1.5646 : 1 · yatay sarmal</td></tr>
 <tr><td><strong>Renk · çözünürlük</strong></td><td>RGB renkli · <strong>gerçek 300 dpi</strong> (iç bloğun 150 dpi ölçütü kapağa UYGULANMAZ)</td></tr>
 <tr><td><strong>CLI sonradan basacak</strong></td><td>ön: başlık + yazar · sırt: başlık + yazar · arka: tanıtım metni, yaş bandı, ekransız sinyali, yazar biyografisi · barkod alanı BOŞ</td></tr>
 </table></div>
@@ -420,10 +420,10 @@ TYPOGRAPHY RESERVE — leave these zones visually calm and uncluttered so type c
 
 NEGATIVE: NO TEXT of any kind anywhere in the image; no title, no subtitle, no author name, no publisher name; no badge wording, no sticker wording, no award wording; no ISBN, no barcode, no price, no age-range block; no typography, no lettering, no numerals, no calligraphy; no invented script, no fake writing, no rune-like or glyph-like marks; no logo, no watermark, no signature, no AI artefact mark; no readable writing on any notebook page, card, map or label; no sacred, ceremonial or restricted object; no generic ‘tribal’ ornament and no blended pan-cultural pattern; no weapon, no wound, no blood, no skull; no photorealistic human face; no identifiable real person; no modern branding, clothing, device or packaging; no neon, no plastic toy palette, no lens flare, no bokeh; no heavy vignette and no dark frame around the edges
 
-OUTPUT: PNG, RGB colour, 5283 × 3375 px, 1.5654 : 1, full-bleed wrap, 300 dpi at 17.6103 × 11.2500 in.<button class="copy" data-t="p902">promptu kopyala</button></div>
+OUTPUT: PNG, RGB colour, 5280 × 3375 px, 1.5646 : 1, full-bleed wrap, 300 dpi at 17.6013 × 11.2500 in.<button class="copy" data-t="p902">promptu kopyala</button></div>
 <div class="note stop">
 <strong>TEK BİR ÜRETEÇ 300 dpi SARMALI ÜRETEMEZ — VE BU GİZLENMEZ.</strong><br>
-5283 × 3375 piksel, yaygın üreteçlerin tek karede verdiğinin çok üstündedir. İki dürüst yol vardır:<br>① <strong>Panel panel üretim:</strong> ön ve arka panel AYRI üretilir (her biri 2588 × 3375 px), sırt CLI'da düz renk/doku olarak kurulur; CLI üçünü tek tuvalde birleştirir.<br>② <strong>Yerel yeniden çizim:</strong> üreteç maksimum kendi çözünürlüğünde üretir, CLI onu 300 dpi tuvale <em>gerçek</em> büyütmeyle taşır ve <strong>kaynak dpi'ı rapora yazar</strong>.<br><br>⛔ <strong>Yapılmayacak olan:</strong> pikseli değiştirmeden yalnızca DPI etiketini 300 yazmak. Etiket çözünürlük değildir.
+5280 × 3375 piksel, yaygın üreteçlerin tek karede verdiğinin çok üstündedir. İki dürüst yol vardır:<br>① <strong>Panel panel üretim:</strong> ön ve arka panel AYRI üretilir (her biri 2588 × 3375 px), sırt CLI'da düz renk/doku olarak kurulur; CLI üçünü tek tuvalde birleştirir.<br>② <strong>Yerel yeniden çizim:</strong> üreteç maksimum kendi çözünürlüğünde üretir, CLI onu 300 dpi tuvale <em>gerçek</em> büyütmeyle taşır ve <strong>kaynak dpi'ı rapora yazar</strong>.<br><br>⛔ <strong>Yapılmayacak olan:</strong> pikseli değiştirmeden yalnızca DPI etiketini 300 yazmak. Etiket çözünürlük değildir.
 </div>
 <h3>9.3 · A+ İÇERİK MODÜL SETİ — 7 modül · 12 görsel</h3>
 <div class="note stop">
@@ -713,8 +713,8 @@ OUTPUT: PNG, grayscale, 975 × 900 px, 13:12, 150 dpi minimum.<button class="cop
 <p>Ayrıntılı teslim sözleşmesi: <code>07_ASSETS/FOUNDER_ASSET_DELIVERY.md</code>.</p>
 <div class="scroll"><table>
 <tr><th>Sınıf</th><th>Dosya</th><th>Ölçü</th><th>HAM konum</th><th>Nihai hedef</th></tr>
-<tr><td>kapak</td><td><code>kdp-cover-option-01.png</code></td><td>5283 × 3375</td><td><code>07_ASSETS/raw/</code></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code></td></tr>
-<tr><td>kapak</td><td><code>kdp-cover-option-02.png</code></td><td>5283 × 3375</td><td><code>07_ASSETS/raw/</code></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code></td></tr>
+<tr><td>kapak</td><td><code>kdp-cover-option-01.png</code></td><td>5280 × 3375</td><td><code>07_ASSETS/raw/</code></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code></td></tr>
+<tr><td>kapak</td><td><code>kdp-cover-option-02.png</code></td><td>5280 × 3375</td><td><code>07_ASSETS/raw/</code></td><td><code>08_OUTPUT/PAPERBACK/cover.pdf</code></td></tr>
 <tr><td>A+</td><td><code>aplus-01-hero.png</code></td><td>1940 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>
 <tr><td>A+</td><td><code>aplus-02-what-children-do-01…03.png</code></td><td>600 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>
 <tr><td>A+</td><td><code>aplus-03-six-regions.png</code></td><td>1940 × 600</td><td><code>07_ASSETS/raw/aplus/</code></td><td><code>08_OUTPUT/APLUS/</code></td></tr>

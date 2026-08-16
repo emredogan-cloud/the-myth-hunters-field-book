@@ -1,0 +1,126 @@
+{
+  "$comment": [
+    "LEVHA DİZGİ GEOMETRİSİ — Aşama 2 · 16 Ağustos 2026",
+    "",
+    "⭑ BU DOSYA GEOMETRİ TAŞIR, METİN TAŞIMAZ — VE BU BİR K10 GEREĞİDİR ⭑",
+    "",
+    "İki levhanın answer-critical metni (Yorùbá anahtarı, Korece kart",
+    "cümleleri) CEVABIN KENDİSİDİR ve public depoda duramaz. Bu yüzden",
+    "burada yalnızca HÜCRE KOORDİNATLARI durur; metin çalışma anında",
+    "`02_MANUSCRIPT/book.json` içindeki `pagePrints`ten TÜRETİLİR.",
+    "",
+    "    Bir kutunun nerede olduğu bir cevap değildir.",
+    "    İçine ne yazılacağı cevaptır.",
+    "",
+    "Koordinatlar HAM dosyanın piksel uzayındadır ve ham dosya sha256",
+    "ile sabitlenmiştir (DELIVERY_MAP.json). Ham değişirse geometri",
+    "geçersizdir ve `plate_typeset --check` KIRMIZI yanar.",
+    "",
+    "Kutular ÖLÇÜLDÜ, tahmin edilmedi: kapalı beyaz bölge etiketlemesi",
+    "(dıştan taşkın dolgu + bağlı bileşen) ile bulundu."
+  ],
+  "version": 1,
+  "coordinateSpace": "raw-pixels",
+  "plates": {
+    "fig-yoruba-underdot-letters": {
+      "rawSha256": "68cfcfdc5ef8ddd37e1737ed96c39e3354efe7aaec5b1716afbd33d007941f60",
+      "rawSize": [1659, 948],
+      "erase": [
+        {
+          "boxes": [
+            [143, 286, 178, 321], [392, 286, 427, 321], [650, 286, 685, 321],
+            [911, 286, 946, 321], [1177, 286, 1212, 321], [1445, 286, 1480, 321]
+          ],
+          "why": [
+            "ÖLÇÜLMÜŞ KUSUR — teslim edilen levha altı harf hücresinin HER BİRİNİN",
+            "altına boş bir daire çizmiş. Bu daireler `pagePrints`te YOKTUR.",
+            "",
+            "Ve bu sayfada zararsız değiller: sayfanın bütün görevi",
+            "*hangi harflerin ALTINDA nokta var* sorusudur. Altı harfin altına",
+            "basılmış altı özdeş daire, tam olarak o ayrımı bulandırır —",
+            "aranan işaretin bulunduğu yere ikinci bir işaret koyar.",
+            "",
+            "visualSpec § restrictions zaten şunu şart koşuyordu:",
+            "'The under-dots must be printed clearly and must not be mistaken",
+            "for full stops.'",
+            "",
+            "Daireler beyazla kapatılır. Sanata dokunulmaz; yalnızca",
+            "şartnamede olmayan ve cevabı bulandıran mobilya kaldırılır."
+          ]
+        },
+        {
+          "boxes": [[290, 801, 841, 881]],
+          "why": [
+            "Kural şeridindeki BOŞ uzun kutu. `pagePrints` kural şeridini",
+            "bir CÜMLE olarak tanımlıyor; kutu istemiyor. Boş bir kutu,",
+            "çocuğa 'buraya bir şey yaz' der ve hiçbir adım onu istemez."
+          ]
+        },
+        {
+          "boxes": [
+            [222, 482, 252, 512], [735, 486, 765, 516], [1215, 486, 1245, 516],
+            [71, 861, 99, 889]
+          ],
+          "why": [
+            "Aynı kusurun ikinci kümesi: ANAHTAR panelindeki üç glif hücresinin",
+            "ve kural şeridi gösterim glifinin altındaki daireler.",
+            "",
+            "İlk geçişte yalnızca harf şeridindeki altı daire silinmişti ve",
+            "levha o hâliyle TUTARSIZ kaldı: harf şeridinde daire yok, anahtar",
+            "panelinde var. Daha kötüsü, anahtar tam olarak *hangi harfin",
+            "altında nokta var* sorusunu cevaplayan yerdir — orada basılı bir",
+            "daire, aranan işaretin yanına ikinci bir işaret koyar.",
+            "",
+            "Bir kusur sınıfı bulunduğunda örneği değil SINIFI kapatmak",
+            "bu projenin kuralıdır (Faz 4 § 28)."
+          ]
+        }
+      ],
+      "cells": {
+        "letterStrip": [
+          [87, 73, 235, 266], [336, 74, 484, 266], [594, 74, 741, 266],
+          [855, 74, 1002, 266], [1121, 74, 1269, 266], [1389, 74, 1536, 266]
+        ],
+        "keyGlyph": [[202, 403, 271, 476], [715, 406, 784, 479], [1194, 406, 1263, 479]],
+        "keySound": [[399, 404, 585, 492], [914, 407, 1097, 495], [1390, 407, 1568, 493]],
+        "ruleDemoGlyph": [[57, 803, 112, 857]]
+      },
+      "fonts": {
+        "letterStrip": 132,
+        "keyGlyph": 46,
+        "keySound": 44,
+        "ruleDemoGlyph": 36
+      }
+    },
+    "fig-korean-river-crossing-sort": {
+      "rawSha256": "ee0ed4c7a93654c81a772b0185f8d85caa4f7bafc0e7d14f36be15b4a1d6a128",
+      "rawSize": [1305, 1205],
+      "erase": [],
+      "cells": {
+        "cardText": [
+          [150, 826, 620, 944], [778, 826, 1252, 944],
+          [146, 1008, 620, 1128], [778, 1008, 1252, 1128]
+        ]
+      },
+      "fonts": { "cardText": 27 },
+      "cardOrder": {
+        "permutation": [2, 4, 1, 3],
+        "why": [
+          "⭑ KARTLARIN SIRASI CEVABIN KENDİSİDİR ⭑",
+          "",
+          "`visualSpec § restrictions` iki şey şart koşuyor:",
+          "  ① kartlar hikâye sırasında BASILAMAZ",
+          "  ② hiçbir kart KENDİ numaralı yerinde duramaz",
+          "",
+          "permutation[i] = i. konumda basılacak hikâye adımının numarası.",
+          "[2,4,1,3] bir DERANGEMENT'tir: 2≠1 · 4≠2 · 1≠3 · 3≠4.",
+          "Blok takası (3,4,1,2) gibi düzenli bir örüntü DEĞİLDİR —",
+          "düzenli bir örüntü sıranın kendisini ele verebilir.",
+          "",
+          "Sıra burada DONDURULDU: rastgele üretilseydi her koşuda",
+          "değişir ve basılı kitap ile cevap anahtarı ayrışabilirdi."
+        ]
+      }
+    }
+  }
+}

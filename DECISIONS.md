@@ -1408,3 +1408,133 @@ yazım hatası bütün kapağı yeniden ürettirir.
 üreteçten **hiç gelmez**. Üreteç yalnızca boş mobilyayı çizer.
 `yoruba`'da nokta içeriğin kendisidir; `korean`'da kartların sırası
 cevabın kendisidir. İkisi de bir üretece bırakılamaz.
+
+---
+
+## AŞAMA 2 KARARLARI — 16 Ağustos 2026
+
+> Kurucu bütün varlıkları teslim etti ve Aşama 2'yi yetkilendirdi.
+> Nihai denetim: [`06_REPORTS/FINAL_BRUTAL_AUDIT_REPORT.md`](06_REPORTS/FINAL_BRUTAL_AUDIT_REPORT.md)
+
+---
+
+### K44 · Sayfa **160 → 156** · arka madde yeniden dizildi
+
+**A15 kapandı.** Arka madde iki kusuru birden taşıyordu ve ikisi de
+basılı sayfada görülüyordu:
+
+**① `pages: N` bir SAYFA BÜTÇESİDİR, bir TEKRAR TALİMATI DEĞİL.**
+Dizgi onu tekrar sanıyordu: `glossary pages: 4` → dört ÖZDEŞ sayfa.
+On üç arka madde sayfasının **yedisi birebir kopyaydı**.
+
+**② Basılan şey İÇERİK değil ŞARTNAMEYDİ.** `prints` alanı sayfanın ne
+basacağını *tarif eder* — *"twenty-two entries, one per culture"*. Bu
+bir sözlük değil, bir sözlüğün tarifidir.
+
+> ### Arka kapak "the back of the book says which ones" diye söz veriyordu ve kitabın arkası hangileri olduğunu SÖYLEMİYORDU.
+
+Veri zaten ölçülmüş hâlde duruyordu; arka madde artık ondan **türetilir
+ve akar**: 22 sözlük girdisi · 115 kurum · 120 cevap.
+
+**Sonuç zinciri — hiçbir sayı elle taşınmadı:**
+
+```
+sayfa 160 → 156   sırt 0,3603 → 0,3513 in
+                  kapak eni 17,6103 → 17,6013 in
+                  baskı 3,72 → 3,65 $
+                  telif 5,27 → 5,34 $
+                  ACOS %35,2 → %35,6
+```
+
+`royaltyBaseline` artık `metadata.py` içinde **TÜRETİLİYOR**; config
+değeri modelin karşılaştırma dayanağıdır.
+
+---
+
+### K45 · Sayfa mobilyası — **levha basıyorsa dizgi basmaz**
+
+**A15'in ikinci yarısı.** Ölçüm: yıldızlı kutu **37/37**, yazma alanı
+**75/120** sayfada **iki kez** basılıyordu.
+
+Kök neden: `pagePrints` iki ayrı muhataba yazılmış tek bir listeydi ve
+ayrım hiçbir yerde yazılı değildi.
+
+**Karar:** rol **ölçülür** (`04_BUILD/furniture_roles.py`) ve
+`book.json § furniture` alanına **dondurulur**; dizgi prozayı değil
+beyanı okur. `qa_design § ⑨` uyarıdan **kapıya** yükseltildi.
+
+156 levha üretilmiş durumda ve yeniden üretilemez; bu yüzden **dizgi
+bıraktı**. Ve bu yalnızca uygulanabilir olan değil DOĞRU olandır:
+levhanın satırları anlamlı konumdadır, dizginin bloğu konumsuzdur.
+
+**Yan kazanç:** serbest kalan dikey alan levhaya verildi — çocuğun
+yazma satırları levhanın içinde ve levha artık **daha büyük** basılıyor.
+
+---
+
+### K46 · Yazı tipi **GÖMÜLÜR** — ve bu iki kusuru birden kapattı
+
+Faz 6 iç bloğu base-14 `Helvetica` ile dizdi. `pdffonts`:
+
+```
+Helvetica  Type 1  WinAnsi  emb=no      ← sıfır gömülü yazı tipi
+```
+
+**① KDP bütün yazı tiplerinin gömülü olmasını ister.**
+
+**② WinAnsi kitabın kendi imlâsını taşıyamıyordu.** Faz 5'in `A13`
+düzeltmesi on dört ad geçişine işaret eklemişti ve dizgi onları
+DÜŞÜRÜYORDU:
+
+```
+basılan:  M■ori     ← ön maddede · imlâ kuralını ÖĞRETEN sayfada
+```
+
+> ### Bir kitabın "işaretler önemlidir" diyen sayfası, işareti basamıyordu.
+
+DejaVu Sans (Latin Genişletilmiş Ek + `★`) ve cevap anahtarındaki
+kana/kanji için Droid Sans Fallback gömüldü. `interior § ⑥` artık
+gömülülüğü **her koşuda** ölçüyor.
+
+⚠ **Hangul kapatılamadı:** sistemde gömülebilir hiçbir yazı tipi hangul
+kapsamıyor (Noto CJK CFF dış hatlı). Cevap anahtarı Korece adları
+romanizasyonla veriyor ve sayfa bunu **okura açıkça söylüyor**.
+
+---
+
+### K47 · Kapak **Seçenek 1** — ölçülerek seçildi
+
+Talimat *"artistic preference ile seçme"* diyordu. İki seçenek de
+metinsiz ve güvenliydi; fark **tipografinin oturacağı alanların
+sakinliğiyle** ölçüldü (bölge gri tonlama standart sapması).
+
+| | Seçenek 1 | Seçenek 2 |
+|---|---:|---:|
+| Arka kapak tanıtım alanı | **20,3** | 43,3 |
+| Toplam | **151,7** | 160,6 |
+
+Arka kapak belirleyici oldu: en yoğun metin oradadır ve iki kat fark
+doksan kelimelik bir metin için okunurluk farkıdır. Ön panelin altında
+zaten **altı mühür izi** basılı — kitabın mekaniği tam olarak altı
+mühürdür.
+
+Seçilmeyen sanat **silinmedi**: `07_ASSETS/raw/kdp-cover-option-02.png`
+duruyor ve `03_COVER/COVER_SELECTION.json` neden seçilmediğini taşıyor.
+
+---
+
+### K48 · Kapak sanatı **89 dpi** — YUKARI ÖRNEKLENMEDİ
+
+Teslim edilen kapak **1569 × 1003 px**; 300 dpi için **5280 × 3375 px**
+gerekiyordu — **×3,37 eksik**.
+
+> ⛔ Piksel eklemeden DPI etiketini 300 yapmak bir düzeltme değil,
+> bir **YANLIŞ BEYANDIR**.
+
+**Karar:** sanat kendi çözünürlüğünde yerleştirildi, gerçek dpi
+`06_REPORTS/cover.json` içine **sayı olarak** yazıldı ve bütün tipografi
+**vektör** yapıldı — başlık, yazar, sırt ve arka kapak metni
+çözünürlükten bağımsız olarak keskin basar.
+
+**AÇIK · KURUCU EYLEMİ:** baskı kalitesi için kapak sanatı yeniden
+üretilmeli. Tek komut yeter; sırt ve geometri kendiliğinden türer.

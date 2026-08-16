@@ -55,6 +55,9 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
+FINAL_DIR_ABS = os.path.join(ROOT, "07_ASSETS", "final", "interior")
+PROC_DIR_ABS = os.path.join(ROOT, "07_ASSETS", "processed", "interior")
+RAW_DIR_ABS = os.path.join(ROOT, "07_ASSETS", "raw")
 
 BOOK = os.path.join(ROOT, "02_MANUSCRIPT", "book.json")
 ACTS = os.path.join(ROOT, "01_SOURCE", "activity_index.json")
@@ -147,6 +150,31 @@ def entry(**kw):
 OVERRIDES = os.path.join(ROOT, "07_ASSETS", "target_overrides.json")
 
 
+# ⭑ DURUM ŞARTNAMEDEN DEĞİL DİSKTEN OKUNUR ⭑
+#
+# Bu dosyanın kendi ilkesi şunu söylüyor ve `status` alanı onu
+# çiğniyordu:
+#
+#     Envanter bir NİYETTİR; disk bir OLGUDUR.
+#
+# `status` `visualSpec.status`ten kopyalanıyordu ve o alan üretimden
+# sonra hiç güncellenmedi: 158 varlığın 156'sı `specified-not-produced`,
+# ikisi `placeholder-art-missing` diyordu — oysa 158'inin de nihai
+# dosyası diskte duruyordu. Yer tutucular Aşama 2'de gerçek sanatla
+# değiştirildikten SONRA bile manifest hâlâ "yer tutucu" diyordu.
+#
+#     Kendini güncellemeyen bir durum alanı bir gün yalan söyler —
+#     ve tam olarak söyledi.
+def disk_status(filename, spec_status=None):
+    """Katman haritasından ÖLÇÜLEN durum."""
+    for layer, name in ((FINAL_DIR_ABS, "final"),
+                        (PROC_DIR_ABS, "processed"),
+                        (RAW_DIR_ABS, "raw-only")):
+        if os.path.isfile(os.path.join(layer, filename)):
+            return name
+    return spec_status or "specified-not-produced"
+
+
 def build() -> dict:
     # ⭑ FAZ 6 — TESLİM EDİLEN SANATA GÖRE DARALTILMIŞ KUTULAR ⭑
     # Bir kutu sanattan uzunsa fark beyazla doldurulur; beyaz zemin beyaz
@@ -196,7 +224,7 @@ def build() -> dict:
             rejectedLocation=REJECTED + vs["filename"],
             promptRef=vs.get("promptDependency"),
             restrictions=list(vs.get("restrictions") or []),
-            status=vs.get("status", "specified-not-produced"),
+            status=disk_status(vs["filename"], vs.get("status")),
         ))
 
     # ── ② KÜLTÜR VİNYETLERİ ────────────────────────────────────────────────
@@ -246,7 +274,7 @@ def build() -> dict:
             rejectedLocation=REJECTED + fn,
             promptRef="07_ASSETS/IMAGE_PROMPT_LIBRARY.html#" + aid,
             restrictions=restr,
-            status="specified-not-produced",
+            status=disk_status(fn),
         ))
 
     # ── ③ MÜHÜR DAMGALARI ──────────────────────────────────────────────────
@@ -292,7 +320,7 @@ def build() -> dict:
                 "The notch on the stamp edge must be visible and unnumbered in "
                 "the artwork; the number is set in type.",
             ],
-            status="specified-not-produced",
+            status=disk_status(fn),
         ))
 
     # ── ④ İLERLEME ROZETLERİ ───────────────────────────────────────────────
@@ -342,7 +370,7 @@ def build() -> dict:
                 "⭑ No letters inside the star box squares: they are filled by "
                 "the reader.",
             ],
-            status="specified-not-produced",
+            status=disk_status(fn),
         ))
 
     # ── ⑤ ÖN MADDE GÖRSELLERİ ──────────────────────────────────────────────
@@ -384,7 +412,7 @@ def build() -> dict:
                 "activity page from the book.",
                 "⭑ It must carry no seal word, no star word and no answer.",
             ],
-            status="specified-not-produced",
+            status=disk_status(fn),
         ))
 
     counts = collections.Counter(a["assetClass"] for a in assets)

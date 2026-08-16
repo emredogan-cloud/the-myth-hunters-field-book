@@ -70,6 +70,17 @@
 # değildir.
 07_ASSETS/raw/*
 07_ASSETS/processed/**/*
+
+# ⭑ AŞAMA 2 · DİZİLMİŞ LEVHA KATMANI — BEŞİNCİ KATMAN ⭑
+#
+# `plate_typeset.py` iki levhanın answer-critical metnini basıyor:
+# Yorùbá anahtarı (`ẹ says eh`) ve Korece kart SIRASI. İkisi de
+# CEVABIN KENDİSİDİR (K10) ve bu katman diğer dördü kadar gizlidir.
+#
+# ⚠ Bu satır olmadan `git add -A` iki levhayı DEPOYA SOKUYORDU.
+# Faz 5 dört katmanı saymıştı; Aşama 2 beşincisini doğurdu ve
+# .gitignore onunla birlikte büyümek zorundaydı.
+07_ASSETS/typeset/**/*
 07_ASSETS/final/**/*
 07_ASSETS/rejected/**/*
 07_ASSETS/print/**/*
@@ -109,6 +120,28 @@
 # 06_REPORTS/tracked/ altındadır (K18: rapor depoda durur, ürün durmaz).
 08_OUTPUT/**/*
 !08_OUTPUT/**/.gitkeep
+
+# ⭑ TESLİM BELGELERİ ÜRÜN DEĞİL, BELGEDİR ⭑
+#
+# `08_OUTPUT` üretilmiş çıktıdır ve depoda durmaz — ama Aşama 2 oraya
+# üç BELGE de yazdı: yükleme el kitabı, prova teslimi ve ön uçuş
+# raporu. Bunlar bir PDF değil, kurucunun panelde izleyeceği metindir
+# ve depoda durmaları gerekir.
+#
+#     Bir teslim kılavuzu, teslim ettiği şeyle birlikte silinmez.
+#
+# Cevap taşımazlar (K10): el kitabı KDP alan değerlerini, ön uçuş
+# raporu ÖLÇÜMLERİ, modül haritası pazarlama kopyasını taşır.
+#
+# ⚠ ÖNCE DİZİN GERİ ALINIR: `08_OUTPUT/**/*` alt DİZİNLERİ de dışlar ve
+# git dışlanmış bir dizine İNMEZ — içindeki bir dosyayı geri almak
+# tek başına çalışmaz.
+!08_OUTPUT/PAPERBACK/
+!08_OUTPUT/APLUS/
+!08_OUTPUT/*.md
+!08_OUTPUT/APLUS/APLUS_MODULE_MAP.md
+!08_OUTPUT/PAPERBACK/checksums.txt
+!08_OUTPUT/APLUS/checksums.txt
 
 09_ARCHIVE/*
 !09_ARCHIVE/.gitkeep

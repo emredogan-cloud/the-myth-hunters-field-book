@@ -7,14 +7,14 @@
     "matterSource": "ÖLÇÜLDÜ (manuscript)",
     "regionsMeasured": 6,
     "frontMatter": 9,
-    "backMatter": 14,
+    "backMatter": 9,
     "structuralPerRegion": 2,
     "finalQuest": 5,
     "activityPages": 120.0,
     "regionsTotal": 132.0,
-    "modelRaw": 160.0,
-    "modelPages": 160,
-    "modelPagesSignatureAligned": 160,
+    "modelRaw": 155.0,
+    "modelPages": 155,
+    "modelPagesSignatureAligned": 156,
     "regions": [
       {
         "region": "north-ice",
@@ -77,12 +77,12 @@
         "totalPages": 18.0
       }
     ],
-    "pageTarget": 160,
+    "pageTarget": 156,
     "pageDeltaPct": 0.0,
-    "royalty_paperback": 5.27,
-    "printCost_paperback": 3.72,
-    "breakevenAcos_paperback": 35.2,
-    "royaltyBaseline": 5.27,
+    "royalty_paperback": 5.34,
+    "printCost_paperback": 3.65,
+    "breakevenAcos_paperback": 35.6,
+    "royaltyBaseline": 5.34,
     "royaltyDriftVsBaseline": 0.0
   }
 }

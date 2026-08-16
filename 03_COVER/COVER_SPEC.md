@@ -8,12 +8,12 @@
 
 | | |
 |---|---:|
-| Sayfa | **160** |
+| Sayfa | **156** |
 | Trim | 8.50 x 11.00 in |
 | Kâğıt · mürekkep | white · black |
-| **Sırt kalınlığı** | **0.3603 in** |
+| **Sırt kalınlığı** | **0.3513 in** |
 | Sırta yazı basılabilir mi | EVET |
-| **Tam kapak (bleed dâhil)** | **17.6103 × 11.2500 in** |
+| **Tam kapak (bleed dâhil)** | **17.6013 × 11.2500 in** |
 | Bleed | 0.125 in |
 | Güvenli kenar | 0.25 in |
 

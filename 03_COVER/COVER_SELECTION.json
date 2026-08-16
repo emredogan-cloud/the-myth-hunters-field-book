@@ -1,0 +1,81 @@
+{
+  "$comment": [
+    "KAPAK SEÇİMİ — Aşama 2 · 16 Ağustos 2026",
+    "",
+    "⭑ SEÇİM ÖLÇÜLDÜ, BEĞENİLMEDİ ⭑",
+    "",
+    "Talimat açıktı: 'Do NOT choose purely by artistic preference.'",
+    "İki seçenek de metinsiz, temiz ve kültürel olarak güvenliydi;",
+    "aralarındaki fark BEĞENİ ile değil, TİPOGRAFİNİN OTURACAĞI",
+    "alanların sakinliğiyle ayrıldı.",
+    "",
+    "Ölçüm: her bölge gri tonlamaya çevrilip standart sapması alındı.",
+    "Yüksek sapma = yoğun desen = üstüne basılan metin okunmaz."
+  ],
+  "selected": "kdp-cover-option-01",
+  "rejected": "kdp-cover-option-02",
+  "measuredAt": "2026-08-16",
+  "measurement": {
+    "method": "bölge gri tonlama standart sapması (düşük = metin için sakin)",
+    "kdp-cover-option-01": {
+      "frontTitleZone": 36.1,
+      "frontAuthorZone": 45.0,
+      "backBlurbZone": 20.3,
+      "backBarcodeZone": 50.4,
+      "total": 151.7
+    },
+    "kdp-cover-option-02": {
+      "frontTitleZone": 35.6,
+      "frontAuthorZone": 43.6,
+      "backBlurbZone": 43.3,
+      "backBarcodeZone": 38.0,
+      "total": 160.6
+    }
+  },
+  "why": [
+    "① ARKA KAPAK BELİRLEYİCİ OLDU. Kapaktaki en yoğun metin arka",
+    "   kapaktadır: tanıtım metni, yaş bandı, özellik satırları ve yazar",
+    "   biyografisi. Seçenek 1'in arka paneli boş bir parşömen alanıdır",
+    "   (sapma 20,3); Seçenek 2'ninki manzara desenidir (43,3). İki kat",
+    "   fark, doksan kelimelik bir metin için okunurluk farkıdır.",
+    "",
+    "② ÖN PANEL TEMATİK OLARAK BİREBİR. Seçenek 1'in ön panelinin",
+    "   altında ALTI mühür izi basılı duruyor ve kitabın mekaniği tam",
+    "   olarak altı mühürdür. Bu bir tesadüf değil, prompt'un istediği",
+    "   şeydi — ve karşılanmış olması ölçülebilir bir uyumdur.",
+    "",
+    "③ SIRTTA İYİ BİR AYRIM VAR. Gerçek sırt bandı (piksel 768–800)",
+    "   Seçenek 1'de defterin koyu cilt kenarına denk geliyor; koyu ve",
+    "   düz bir sırt, üstüne basılan açık renk metni taşır.",
+    "",
+    "④ KÜÇÜK RESİMDE OKUNUR. Tek güçlü odak nesnesi (açık saha defteri)",
+    "   net bir siluet veriyor. Seçenek 2 daha fazla bilgi taşıyor ama",
+    "   altı bölgeye bölündüğü için küçük resimde tek bir odak vermiyor."
+  ],
+  "rejectedNotDeleted": [
+    "Seçilmeyen sanat SİLİNMEZ. `07_ASSETS/raw/kdp-cover-option-02.png`",
+    "olduğu yerde durur ve bu kayıt neden seçilmediğini taşır.",
+    "Bir ret, kaydı olmadan bir tercih değildir."
+  ],
+  "knownLimitation": {
+    "issue": "teslim edilen kapak sanatı 1569 × 1003 px",
+    "requiredForPrint": "5283 × 3375 px (17,6103 × 11,2500 in @ 300 dpi)",
+    "effectiveDpi": 89,
+    "shortfallFactor": 3.37,
+    "note": [
+      "⚠ BU BİR GİZLENMİŞ EKSİK DEĞİLDİR VE YUKARI ÖRNEKLEMEYLE",
+      "KAPATILMADI. Piksel eklemeden DPI etiketini 300 yapmak bir",
+      "düzeltme değil, bir YANLIŞ BEYANDIR.",
+      "",
+      "Hat sanatı KENDİ çözünürlüğünde yerleştirir ve gerçek dpi'ı",
+      "`06_REPORTS/cover.json` içine sayı olarak yazar.",
+      "",
+      "Azaltıcı önlem gerçektir: bütün TİPOGRAFİ vektördür ve",
+      "çözünürlükten bağımsız olarak keskin basar. Yumuşak kalan",
+      "yalnızca arka plan sanatıdır.",
+      "",
+      "KURUCU EYLEMİ: baskı kalitesi için kapak sanatı ≥5283 × 3375",
+      "px olarak YENİDEN ÜRETİLMELİDİR."
+    ]
+  }
+}

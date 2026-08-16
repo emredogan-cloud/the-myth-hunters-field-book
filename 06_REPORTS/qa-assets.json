@@ -1,8 +1,10 @@
 {
   "status": "pass",
-  "checks": 40,
+  "checks": 41,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "doluluk %85–%95 arasında olan 2 varlık — kırpma kaynaklı olabilir, bir insan bakmalı: ['fig-korean-river-crossing-sort (%94)', 'fig-yoruba-underdot-letters (%94)']"
+  ],
   "facts": {
     "manifestAssets": 158,
     "counts": {
@@ -19,6 +21,6 @@
     "requiredLabels": 732,
     "measurementPages": 43,
     "measurementConstrained": 43,
-    "rejected": 0
+    "rejected": 2
   }
 }
