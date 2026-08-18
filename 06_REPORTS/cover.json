@@ -145,7 +145,6 @@
     "spineDriftAfterInches": 0.0033,
     "spineInkVCentreInches": 5.635,
     "spineInkWidthInches": 0.16,
-    "preview": "08_OUTPUT/PAPERBACK/cover-preview.png",
     "barcodeZoneInches": {
       "x": 6.375,
       "y": 0.375,

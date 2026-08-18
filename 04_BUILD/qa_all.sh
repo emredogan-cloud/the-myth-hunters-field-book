@@ -172,6 +172,11 @@ run "KAPILARIN KENDİ TESTİ"     $PY 05_TESTS/selftest.py
   run_optional "ham varlık envanteri"   $VENV_PY 04_BUILD/asset_inventory.py --check
 [ -f 04_BUILD/interior.py ] && \
   run_optional "iç blok güncel"         $VENV_PY 04_BUILD/interior.py --check
+# ⭑ KDP PREVIEWER SINIFI KAPI ⭑ — gerçek Previewer'ın bulduğu hatayı
+# yerelde bulan kapı. Kural sayfa sayısından TÜRETİLİR; elle yazılmaz.
+# (08_OUTPUT depoda durmadığı için PDF yoksa BOŞ koşar ve yeşil kalır.)
+[ -f 04_BUILD/qa_margins.py ] && \
+  run_optional "KDP KENAR BOŞLUKLARI"   $VENV_PY 04_BUILD/qa_margins.py --quiet
 [ -f 04_BUILD/epub.py ] && \
   run_optional "Kindle EPUB güncel"     $VENV_PY 04_BUILD/epub.py --check
 [ -f 04_BUILD/covers.py ] && \

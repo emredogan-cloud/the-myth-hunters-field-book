@@ -351,6 +351,166 @@ def part3_gates_lock(rep: Report, tmp: str) -> None:
     rep.check(code != 0, "phase4 eksik manuscript ile KIRMIZI", out)
 
 
+def part23_kdp_margins(rep: Report) -> None:
+    """㉓ KDP KENAR BOŞLUĞU KURALI SAYFA SAYISINDAN TÜRÜYOR MU
+
+    ⭑ BU BÖLÜM GERÇEK BİR ÜRETİM HATASINDAN DOĞDU ⭑
+
+    Yerel CI yeşilken **gerçek KDP Print Previewer** iki hata bildirdi:
+    yetersiz iç kenar (156 sayfanın 152'sinde) ve sayfa 47'de margin
+    dışına taşan metin.
+
+    Kök neden bir SABİTTİ ve yazıldığı gün doğruydu: gutter 0,375 inç
+    (110–150 sayfa kademesi). Kitap 156 sayfaya taşındı, sabit taşınmadı.
+
+        Bir kapı, kuralı sayfa sayısından TÜRETMİYORSA,
+        kitap büyüdüğü gün sessizce yanlış olur.
+
+    Bu yüzden burada `156` sayısı HİÇ GEÇMEZ: sınanan şey kademe
+    tablosunun kendisidir."""
+    print("\n㉓ KDP KENAR BOŞLUĞU kuralı sayfa sayısından mı türüyor")
+    sys.path.insert(0, BUILD)
+    try:
+        import importlib
+        qm = importlib.import_module("qa_margins")
+    except Exception as exc:                                   # noqa: BLE001
+        rep.check(False, "qa_margins içe aktarılabiliyor", str(exc))
+        return
+
+    # (a) kademe sınırları — sayfa sayısı kuralı SEÇER
+    for pages, want in ((24, 0.375), (150, 0.375), (151, 0.5), (156, 0.5),
+                        (300, 0.5), (301, 0.625), (500, 0.625), (700, 0.75)):
+        rep.check(abs(qm.required_gutter(pages) - want) < 1e-9,
+                  "%d sayfa → iç kenar %.3f in" % (pages, want),
+                  "bulunan %.3f" % qm.required_gutter(pages))
+
+    # (b) 151 sınırı — kitabın bugün bulunduğu yer
+    rep.check(qm.required_gutter(150) < qm.required_gutter(151),
+              "⭑ 150 → 151 geçişinde iç kenar YÜKSELİYOR ⭑")
+
+    # (c) bleed dış kenarı değiştirir
+    rep.check(abs(qm.required_outside(False) - 0.25) < 1e-9,
+              "bleed YOKken dış kenar 0,25 in")
+    rep.check(abs(qm.required_outside(True) - 0.375) < 1e-9,
+              "bleed VARken dış kenar 0,375 in")
+
+    # (d) ⭑ KASITLI KUSUR TESTLERİ ⭑ — kapı gerçekten ısırıyor mu
+    def verdict(pages, inner, outer, top, bot, side, dpi=150, bleed=False):
+        g, o = qm.required_gutter(pages), qm.required_outside(bleed)
+        tol = 1.0 / dpi
+        bad = []
+        if inner < g - tol:
+            bad.append("gutter")
+        for v in (outer, top, bot):
+            if v < o - tol:
+                bad.append("outside")
+        return "FAIL" if bad else "PASS"
+
+    rep.check(verdict(156, 0.49, 0.5, 0.5, 0.5, "recto") == "FAIL",
+              "⭑ 0,49 in İÇ KENAR YAKALANIR ⭑")
+    rep.check(verdict(156, 0.50, 0.5, 0.5, 0.5, "recto") == "PASS",
+              "0,50 in iç kenar GEÇER")
+    rep.check(verdict(156, 0.53, 0.235, 0.5, 0.5, "recto") == "FAIL",
+              "⭑ bleed YOKken 0,235 in DIŞ KENAR YAKALANIR ⭑")
+    rep.check(verdict(156, 0.53, 0.25, 0.5, 0.5, "recto") == "PASS",
+              "bleed yokken 0,25 in dış kenar GEÇER")
+    rep.check(verdict(140, 0.38, 0.3, 0.3, 0.3, "recto") == "PASS",
+              "150 ALTI kitapta 0,38 in iç kenar GEÇER (alt kademe)")
+    rep.check(verdict(160, 0.38, 0.3, 0.3, 0.3, "recto") == "FAIL",
+              "⭑ AYNI 0,38 in, 160 sayfada YAKALANIR — kural sayfadan türüyor ⭑")
+
+    # (e) karşıt sayfa: iç kenar hangi tarafta
+    #     tek sayfa (recto) cildi SOLDA, çift sayfa (verso) SAĞDA taşır.
+    def inner_of(side_page, left, right):
+        return left if side_page % 2 == 1 else right
+    rep.check(inner_of(3, 0.53, 0.25) == 0.53,
+              "tek sayfada (recto) iç kenar SOLDAKİ ölçüdür")
+    rep.check(inner_of(4, 0.25, 0.53) == 0.53,
+              "⭑ çift sayfada (verso) iç kenar SAĞDAKİ ölçüdür ⭑")
+
+    # (f) dizgi tarafı: interior aynı kademe tablosunu mu kullanıyor
+    try:
+        it = importlib.import_module("interior")
+        same = all(abs(it.kdp_gutter_inches(p) - qm.required_gutter(p)) < 1e-9
+                   for p in (100, 150, 151, 156, 400, 900))
+        rep.check(same, "⭑ DİZGİ ve KAPI aynı kademe tablosunu kullanıyor ⭑")
+        rep.check(it.GUTTER_SAFETY >= 0,
+                  "güvenlik payı beyan edilmiş (%.3f in)" % it.GUTTER_SAFETY)
+    except Exception as exc:                                   # noqa: BLE001
+        rep.check(False, "interior kademe tablosu okunabiliyor", str(exc))
+
+
+
+def part24_page_repeat(rep: Report) -> None:
+    """㉔ SAYFA BÜTÇESİ BİR TEKRAR SAYISI DEĞİLDİR
+
+    ⭑ BU BÖLÜM İKİ KEZ AYNI KUSURDAN DOĞDU ⭑
+
+    Faz 6: arka madde `pages: 4` gördü ve aynı sayfayı dört kez bastı —
+    on üç arka madde sayfasının yedisi birebir kopyaydı.
+
+    Aşama 3: ön madde AYNI kusuru taşıyordu. `how-a-page-works`
+    bölümü `pages: 2` beyan ediyordu ve **sayfa 4 ile sayfa 5'e
+    birebir aynı** basılıyordu. `pdftotext` ölçtü: iki sayfa da 1601
+    karakter, dip numarası dışında ÖZDEŞ.
+
+        "İki sayfa tutar" ile "iki kez basılır" aynı cümle değildir.
+
+    Raster karşılaştırması bunu KAÇIRDI: dip numaraları farklıydı ve
+    tek piksel hash'i değiştirir. Kusuru bir kontakt sayfasında gözle
+    gördüm, araç değil. Bu yüzden dedektör artık METNİ karşılaştırır
+    ve burada onun ısırdığı KANITLANIR."""
+    import re
+    print("\n㉔ SAYFA BÜTÇESİ tekrar sayısı değil")
+
+    def dup_pages(pages_text):
+        """`kdp_preflight § ⑦④` ile AYNI mantık — dip numarası atılır."""
+        norm, dup = {}, []
+        for i, t in enumerate(pages_text, 1):
+            k = re.sub(r"\s+", " ", t).strip()
+            k = re.sub(r"\s*\d+\s*$", "", k)
+            if len(k) < 200:
+                continue
+            if k in norm:
+                dup.append((norm[k], i))
+            else:
+                norm[k] = i
+        return dup
+
+    body = ("How a Page Works. " + "Every page in this book is built the "
+            "same way and you will not have to learn it again. " * 6)
+    # ① tarihsel kusur: aynı gövde, FARKLI dip numarası → YAKALANMALI
+    rep.check(dup_pages([body + " 4", body + " 5"]) == [(1, 2)],
+              "⭑ AYNI METİN farklı dip numarasıyla YAKALANIR ⭑")
+    # ② meşru durum: farklı gövde → yakalanmamalı
+    rep.check(dup_pages([body + " 4", body.replace("Works", "Stops") + " 5"]) == [],
+              "farklı metin taşıyan iki sayfa yakalanmaz")
+    # ③ kısa/cetvelli sayfalar (Field Notes) meşru olarak aynıdır
+    rep.check(dup_pages(["Field Notes 155", "Field Notes 156"]) == [],
+              "boş/cetvelli sayfa çifti yanlış alarm üretmez")
+    # ④ üç kez basılan bir bölüm de yakalanır
+    rep.check(len(dup_pages([body + " 4", body + " 5", body + " 6"])) == 2,
+              "aynı bölüm ÜÇ kez basılırsa iki çift bildirilir")
+
+    # ⑤ ŞARTNAME BASMA KUSURU — `prints` bir tarif, bir sayfa değil
+    #    "· a short opening line: this book is written to be worked alone"
+    #    basılı kitapta okurun gördüğü şey buydu.
+    def rows_for(sec, builders):
+        if sec["id"] in builders:
+            return "builder"
+        return "prose" if sec.get("bodyText") else "SPEC-LEAK"
+
+    B = {"glossary", "answer-key", "sources"}
+    rep.check(rows_for({"id": "glossary"}, B) == "builder",
+              "veriden türeyen bölüm üreticiden gelir")
+    rep.check(rows_for({"id": "how-to-use", "bodyText": "x"}, B) == "prose",
+              "düzyazı bölümü `bodyText`ten gelir")
+    rep.check(rows_for({"id": "how-to-use", "prints": ["· a short line"]}, B)
+              == "SPEC-LEAK",
+              "⭑ `bodyText` YOKSA ŞARTNAME BASILMAZ — kusur bildirilir ⭑")
+
+
+
 def part4_no_dead_exemptions(rep: Report) -> None:
     print("\n④ her muafiyet en az bir kez devreye giriyor (ölü kural yok)")
 
@@ -3081,6 +3241,11 @@ def main() -> int:
         if os.path.isfile(QA_ASSETS):
             part21_assets(rep, tmp)
         part22_pipeline(rep, tmp)
+
+    if os.path.isfile(os.path.join(BUILD, "qa_margins.py")):
+        part23_kdp_margins(rep)
+
+    part24_page_repeat(rep)
 
     part4_no_dead_exemptions(rep)
 

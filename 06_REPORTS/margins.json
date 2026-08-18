@@ -1,0 +1,3145 @@
+{
+  "status": "pass",
+  "facts": {
+    "pages": 156,
+    "trimInches": [
+      8.5,
+      11.0
+    ],
+    "bleed": false,
+    "requiredGutter": 0.5,
+    "requiredOutside": 0.25,
+    "tier": "151-300",
+    "measuredAtDpi": 150,
+    "inkThreshold": 200,
+    "measurementToleranceInches": 0.00667,
+    "pagesMeasured": 156,
+    "violations": 0,
+    "minInner": 0.5067,
+    "minOuter": 0.4867,
+    "minTop": 0.3,
+    "minBottom": 0.3333
+  },
+  "pages": [
+    {
+      "page": 1,
+      "side": "recto",
+      "box": [
+        127,
+        455,
+        1153,
+        1484
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.8467,
+      "outer": 0.8133,
+      "top": 3.0333,
+      "bottom": 1.1067,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 2,
+      "side": "verso",
+      "box": [
+        75,
+        51,
+        1194,
+        391
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.54,
+      "outer": 0.5,
+      "top": 0.34,
+      "bottom": 8.3933,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 3,
+      "side": "recto",
+      "box": [
+        79,
+        51,
+        1197,
+        887
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.52,
+      "top": 0.34,
+      "bottom": 5.0867,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 4,
+      "side": "verso",
+      "box": [
+        75,
+        51,
+        1188,
+        1224
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.58,
+      "outer": 0.5,
+      "top": 0.34,
+      "bottom": 2.84,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 5,
+      "side": "recto",
+      "box": [
+        79,
+        51,
+        1192,
+        1182
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5533,
+      "top": 0.34,
+      "bottom": 3.12,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 6,
+      "side": "verso",
+      "box": [
+        75,
+        51,
+        1187,
+        1105
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5867,
+      "outer": 0.5,
+      "top": 0.34,
+      "bottom": 3.6333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 7,
+      "side": "recto",
+      "box": [
+        79,
+        51,
+        1183,
+        951
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.6133,
+      "top": 0.34,
+      "bottom": 4.66,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 8,
+      "side": "verso",
+      "box": [
+        75,
+        51,
+        1193,
+        717
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5467,
+      "outer": 0.5,
+      "top": 0.34,
+      "bottom": 6.22,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 9,
+      "side": "recto",
+      "box": [
+        79,
+        45,
+        1190,
+        421
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5667,
+      "top": 0.3,
+      "bottom": 8.1933,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 10,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 11,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 12,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 13,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 14,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 15,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 16,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 17,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 18,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 19,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 20,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 21,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 22,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 23,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 24,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 25,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 26,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 27,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 28,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 29,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5067,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 30,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 31,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5067,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 32,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 33,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1201,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.4933,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 34,
+      "side": "verso",
+      "box": [
+        74,
+        51,
+        497,
+        555
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 5.1867,
+      "outer": 0.4933,
+      "top": 0.34,
+      "bottom": 7.3,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 35,
+      "side": "recto",
+      "box": [
+        79,
+        45,
+        1190,
+        394
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5667,
+      "top": 0.3,
+      "bottom": 8.3733,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 36,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 37,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1201,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.4933,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 38,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 39,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1201,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.4933,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 40,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 41,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 42,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 43,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 44,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 45,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 46,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 47,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 48,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 49,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 50,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 51,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 52,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 53,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 54,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 55,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 56,
+      "side": "verso",
+      "box": [
+        74,
+        51,
+        493,
+        532
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 5.2133,
+      "outer": 0.4933,
+      "top": 0.34,
+      "bottom": 7.4533,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 57,
+      "side": "recto",
+      "box": [
+        79,
+        45,
+        1199,
+        394
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5067,
+      "top": 0.3,
+      "bottom": 8.3733,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 58,
+      "side": "verso",
+      "box": [
+        75,
+        55,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3667,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 59,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 60,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 61,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 62,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 63,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 64,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 65,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 66,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 67,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1201,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.4933,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 68,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 69,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 70,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 71,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 72,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 73,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 74,
+      "side": "verso",
+      "box": [
+        74,
+        51,
+        564,
+        555
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 4.74,
+      "outer": 0.4933,
+      "top": 0.34,
+      "bottom": 7.3,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 75,
+      "side": "recto",
+      "box": [
+        78,
+        45,
+        1187,
+        425
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.52,
+      "outer": 0.5867,
+      "top": 0.3,
+      "bottom": 8.1667,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 76,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 77,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 78,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 79,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 80,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 81,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 82,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 83,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 84,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 85,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5067,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 86,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 87,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 88,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 89,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 90,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 91,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 92,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 93,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 94,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 95,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 96,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 97,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 98,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 99,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 100,
+      "side": "verso",
+      "box": [
+        74,
+        51,
+        612,
+        555
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 4.42,
+      "outer": 0.4933,
+      "top": 0.34,
+      "bottom": 7.3,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 101,
+      "side": "recto",
+      "box": [
+        79,
+        45,
+        1170,
+        394
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.7,
+      "top": 0.3,
+      "bottom": 8.3733,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 102,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 103,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 104,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 105,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 106,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 107,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 108,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 109,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 110,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 111,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 112,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 113,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 114,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 115,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 116,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 117,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 118,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 119,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 120,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 121,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 122,
+      "side": "verso",
+      "box": [
+        74,
+        51,
+        495,
+        555
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 5.2,
+      "outer": 0.4933,
+      "top": 0.34,
+      "bottom": 7.3,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 123,
+      "side": "recto",
+      "box": [
+        76,
+        45,
+        1196,
+        394
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5267,
+      "top": 0.3,
+      "bottom": 8.3733,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 124,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 125,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 126,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 127,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5133,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 128,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 129,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 130,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 131,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 132,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 133,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 134,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 135,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 136,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 137,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 138,
+      "side": "verso",
+      "box": [
+        75,
+        56,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 139,
+      "side": "recto",
+      "box": [
+        79,
+        56,
+        1200,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5,
+      "top": 0.3733,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 140,
+      "side": "verso",
+      "box": [
+        73,
+        51,
+        527,
+        554
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 4.9867,
+      "outer": 0.4867,
+      "top": 0.34,
+      "bottom": 7.3067,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 141,
+      "side": "recto",
+      "box": [
+        79,
+        53,
+        1194,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.54,
+      "top": 0.3533,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 142,
+      "side": "verso",
+      "box": [
+        75,
+        53,
+        1198,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5133,
+      "outer": 0.5,
+      "top": 0.3533,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 143,
+      "side": "recto",
+      "box": [
+        78,
+        53,
+        1201,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.52,
+      "outer": 0.4933,
+      "top": 0.3533,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 144,
+      "side": "verso",
+      "box": [
+        74,
+        53,
+        1199,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5067,
+      "outer": 0.4933,
+      "top": 0.3533,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 145,
+      "side": "recto",
+      "box": [
+        79,
+        53,
+        1194,
+        1600
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.54,
+      "top": 0.3533,
+      "bottom": 0.3333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 146,
+      "side": "verso",
+      "box": [
+        75,
+        53,
+        1173,
+        649
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.68,
+      "outer": 0.5,
+      "top": 0.3533,
+      "bottom": 6.6733,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 147,
+      "side": "recto",
+      "box": [
+        79,
+        53,
+        1196,
+        594
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.5267,
+      "top": 0.3533,
+      "bottom": 7.04,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 148,
+      "side": "verso",
+      "box": [
+        74,
+        53,
+        1126,
+        899
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.9933,
+      "outer": 0.4933,
+      "top": 0.3533,
+      "bottom": 5.0067,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 149,
+      "side": "recto",
+      "box": [
+        78,
+        53,
+        1196,
+        1364
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.52,
+      "outer": 0.5267,
+      "top": 0.3533,
+      "bottom": 1.9067,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 150,
+      "side": "verso",
+      "box": [
+        75,
+        53,
+        1192,
+        1545
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5533,
+      "outer": 0.5,
+      "top": 0.3533,
+      "bottom": 0.7,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 151,
+      "side": "recto",
+      "box": [
+        80,
+        53,
+        1195,
+        1545
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5333,
+      "outer": 0.5333,
+      "top": 0.3533,
+      "bottom": 0.7,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 152,
+      "side": "verso",
+      "box": [
+        75,
+        53,
+        1194,
+        1542
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.54,
+      "outer": 0.5,
+      "top": 0.3533,
+      "bottom": 0.72,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 153,
+      "side": "recto",
+      "box": [
+        80,
+        53,
+        1196,
+        925
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5333,
+      "outer": 0.5267,
+      "top": 0.3533,
+      "bottom": 4.8333,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 154,
+      "side": "verso",
+      "box": [
+        75,
+        53,
+        1155,
+        296
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.8,
+      "outer": 0.5,
+      "top": 0.3533,
+      "bottom": 9.0267,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 155,
+      "side": "recto",
+      "box": [
+        78,
+        53,
+        1200,
+        1511
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.52,
+      "outer": 0.5,
+      "top": 0.3533,
+      "bottom": 0.9267,
+      "verdict": "PASS",
+      "why": []
+    },
+    {
+      "page": 156,
+      "side": "verso",
+      "box": [
+        74,
+        53,
+        1196,
+        1511
+      ],
+      "rasterPx": [
+        1275,
+        1650
+      ],
+      "inner": 0.5267,
+      "outer": 0.4933,
+      "top": 0.3533,
+      "bottom": 0.9267,
+      "verdict": "PASS",
+      "why": []
+    }
+  ]
+}

@@ -5,6 +5,74 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [Yayınlanmamış] — 2026-08-18c · **KDP Previewer kenar boşluğu düzeltmesi + tam belge denetimi**
+
+```
+GUTTER         ✅ 0,374 → 0,53 in · kademe SAYFA SAYISINDAN türüyor (K56)
+SAYFA 47       ✅ görev satırı sarılıyor — sınıfın tamamı (13 sayfa) kapandı
+İHLAL          ✅ 152/156 → 0/156 · ölçüldü, beyan edilmedi
+SANAT DPI      ✅ 122 → 150 taban · beyan ölçümle DÜZELTİLDİ (K58)
+SAYFA 4 ⇄ 5    ✅ birebir kopya sayfa kaldırıldı (K59)
+FİNAL GÖREV    ✅ beş sayfa aparatına kavuştu — kullanılabilir (K60)
+ARKA MADDE     ✅ üç sayfa şartname yerine DÜZYAZI basıyor (K61)
+SAYFA SAYISI   ✅ 156 (değişmedi) · sırt 0,3513 in · kapak GEOMETRİSİ AYNI
+KAPILAR        ✅ selftest 230 → 258 · ön uçuş 61 → 75
+KDP            ⛔ DOKUNULMADI — yükleme yok, Previewer onayı yok, prova yok
+```
+
+### Düzeltildi — gerçek Previewer'ın bildirdiği iki hata (K56 · K57)
+
+Yerel CI **yeşilken** gerçek Amazon KDP Print Previewer yetersiz iç
+kenar (156 sayfanın 152'sinde) ve sayfa 47'de margin dışına taşan metin
+bildirdi. İkisi de gerçekti.
+
+Kök nedenler ayrıydı: biri sayfa sayısı değişince taşınmayan bir sabit,
+öteki sarma yapmayan bir `drawString`. Sayfa 47 tek bir sayfa değil, 13
+sayfayı kapsayan bir kusur sınıfıydı.
+
+Yeni kapı `04_BUILD/qa_margins.py` her sayfanın **gerçek mürekkep
+kutusunu** ölçer ve kuralı sayfa sayısından türetir. Adli rapor:
+`08_OUTPUT/KDP_MARGIN_FORENSIC_REPORT.md` — 156 satır, dört mesafe,
+tek hüküm.
+
+⚠ Bu araç KDP Print Previewer'ı **taklit veya simüle etmez**. KDP'nin
+yayımlanmış kurallarını modelleyip basılı dosyayı onlara karşı ölçer.
+
+### Düzeltildi — tam belge görsel denetiminin bulduğu üç kusur
+
+Previewer hatalarıyla ilgisi olmayan, **kontakt sayfasında gözle**
+bulunan üç kusur:
+
+- **sayfa 4 ⇄ 5 birebir kopyaydı** (K59) — ön madde `pages: 2`'yi bir
+  tekrar sayısı sanıyordu. Raster dedektörü kaçırmıştı; dedektör artık
+  metni karşılaştırıyor.
+- **final görev sayfalarının ortası boştu** (K60) — beş sayfa yapacak
+  bir şey içermiyordu.
+- **üç arka madde sayfası şartname basıyordu** (K61).
+
+### Ölçüldü — beyanı yalanlayan bir sayı (K58)
+
+`PROOF_HANDOFF.md` "158 görselin hepsi 150 dpi" diyordu; `pdfimages`
+72 yerleştirmeyi **122–149 ppi**'da buldu. Dizgi görselleri kutusuna
+dolduruyor, şartnamedeki fiziksel boyu aşıyordu. Taban kondu, belge
+düzeltildi.
+
+### Eklendi — paket mührü (K62)
+
+`checksums.txt` üretilmiyor ve denetlenmiyordu. `--seal` mühürler,
+bayrağsız koşu doğrular. Eklendiği ilk koşuda gerçek bir bayatlık
+yakaladı.
+
+### Açık kalan — kurucu maddesi
+
+- `world-myths-bridge` sayfası kardeş kitabın hangi kültürlerin tam
+  bölümünü taşıdığını **listelemiyor**: veri bu depoda yok ve
+  uydurulmadı (K61).
+- İç blok 150 dpi'dır ve KDP'nin 300 dpi **tavsiyesini karşılamaz**
+  (K39 kurucu kararı) — Previewer bunu uyarı gösterebilir.
+- Çocuk testi hâlâ **sıfır oturum**. Hiçbir kapak satırı, A+ modülü
+  veya KDP alanı aksini iddia etmiyor.
+
 ## [Yayınlanmamış] — 2026-08-18b · **kapak çözünürlük değişimi + A+ karşılaştırmalı denetim**
 
 ```

@@ -1702,3 +1702,180 @@ modül **metinsiz** çıkmış ve hiçbir kapı görmemişti çünkü doğrulama
 yalnızca ölçü, renk ve dosya boyutuna bakıyordu. Artık başlık · gövde ·
 alt metin · yuva başlığı · yuva gövdesi **boş olamaz**.
 `aplus` kapısı **32 → 77 denetim**.
+
+---
+
+### K56 · Gutter **sayfa sayısından türetilir** — sabit yazılmaz
+
+**Gerçek KDP Print Previewer** yerel CI yeşilken iki hata bildirdi:
+
+```
+Insufficient gutter. Books with 156 pages require at least 0.5" (12.700mm)
+for the gutter / inside margin and at least 0.25" (6.35mm) for the
+outside, top and bottom margins.
+```
+
+Kök neden bir sabitti ve **yazıldığı gün doğruydu**:
+
+```python
+GUTTER = 9.5 * MM        # = 0,3740 in  ← 110–150 sayfa kademesi
+```
+
+Kitap 144 → 160 → 156 sayfaya taşındı; sabit taşınmadı. 156 sayfa
+151–300 kademesindedir ve 0,5 inç ister. Açık 0,1260 in (3,20 mm) ve
+**156 sayfanın 152'sini** kırıyordu.
+
+> ### Sayfa sayısından TÜREMESİ gereken bir ölçü elle yazıldığında, sayfa sayısı değiştiği gün sessizce yanlış olur.
+
+Bu, `metadata § açıklama`nın "120 sayfa" yazmasıyla (K41) **birebir aynı
+sınıftır**. Çözüm de aynı: kademe tablosu + ölçüm.
+
+`interior.py` artık kademeyi sayfa sayısından türetir ve **yakınsar**:
+seçilen gutter sayfa sayısını değiştirirse kademe yeniden hesaplanır.
+Beyan edilmiş `GUTTER_SAFETY = 0,03 in` bir cilt payıdır — kapı
+susturmak için konmuş bir dolgu **değildir** ve raporda ayrı yazılır.
+
+**Ve ölçüm aracının kendisi kalibre edildi.** Düzeltmeden sonra 90
+sayfa hâlâ 0,4933'te "ihlal" görünüyordu. Üç çözünürlük × üç eşik
+ölçüldü: eşik 246 çözünürlükle 0,5'e yakınsıyordu — yani ölçülen şey
+metin değil **kenar yumuşatma halesiydi**.
+
+> ### Bir ölçüm aracı kendi artefaktını ölçüyorsa, düzeltilmesi gereken ölçülen şey değil ARAÇTIR.
+
+Eşik 200'e indirildi, bir piksellik tolerans açıkça tanındı. Düzen
+DEĞİŞTİRİLMEDİ. `qa_margins.py` · 156 sayfanın 156'sı geçiyor.
+
+---
+
+### K57 · Sayfa 47 bir sayfa değil, bir **kusur sınıfıydı**
+
+Previewer'ın ikinci hatası tek bir sayfayı adıyla andı:
+*"This text is outside the margins."* — **sayfa 47**.
+
+Kusur `drawString`'di: sarma yapmaz. `egyptian-nile-map` görev cümlesi
+7,918 in ölçüyor, sütun 7,626 in. Ölçülen dış kenar **0,2200 in**
+(asgari 0,2500).
+
+Metni kaydırmak yeterdi ve **yanlış olurdu**: aynı kusur 8 sayfada daha
+vardı ve geniş gutter'la 13'e çıkacaktı.
+
+> ### Previewer bir sayfa söyler. Kusur bir SINIFTIR.
+
+Görev satırı artık sarılır ve zorluk yıldızlarına genişlik ayrılır.
+
+---
+
+### K58 · İç blok sanatı **şartnamedeki boyunu aşamaz** — ölçek çözünürlük üretmez
+
+`PROOF_HANDOFF.md` şunu yazıyordu: *"158 iç blok görselinin **hepsi**
+150 dpi etkin çözünürlükte."* `pdfimages -list` bunu yalanladı:
+131 yerleştirmenin **72'si 122–149 ppi** basılıyordu.
+
+Kök neden dizgideydi: her görsel kutusuna DOLDURULUYORDU.
+
+```
+825 × 1050 px  →  şartname 5,50 × 7,00 in @150 dpi
+                  basılan  6,20 × 7,89 in @133 dpi
+```
+
+> ### Bir görselin fiziksel boyu şartnamede YAZILIDIR. Dizgi onu icat edemez.
+
+`ART_DPI_FLOOR = 150` kondu: görsel kutusundan küçük kalabilir, boyunu
+aşamaz. Ölçüm (bağımsız araçla): en düşük **150 ppi**, taban altı **0**.
+Beyan artık ölçümden gelir ve `PROOF_HANDOFF § ②` düzeltildi.
+
+⚠ 150 dpi bir **proje içi indirilmiş eşiktir** (K39) ve KDP'nin 300 dpi
+tavsiyesine uygunluk kanıtı **değildir**. Ön uçuş bunu açık uyarı olarak
+bildirir.
+
+---
+
+### K59 · Sayfa bütçesi bir **tekrar sayısı** değildir — ikinci kez
+
+Faz 6 bunu arka maddede öğrenmişti: `pages: 4` gördü, aynı sayfayı dört
+kez bastı. Düzeltme yapıldı — **ama yalnızca arka maddeye**.
+
+Ön madde aynı kusuru taşımaya devam etti ve basılı kitapta duruyordu:
+`how-a-page-works` bölümü `pages: 2` beyan ediyor ve **sayfa 4 ile
+sayfa 5'e birebir aynı** basılıyordu. `pdftotext` ölçtü: ikisi de 1601
+karakter, dip numarası dışında özdeş.
+
+> ### Bir kusur sınıfı kapatılırken örneği değil SINIFI kapatılır.
+
+Ön madde artık `flow()` ile **akar**; levha yalnızca son metin
+sayfasına konur. Ham sayfa 155 → 154; forma hizası nihai sayıyı **156**
+bıraktı, kapak geometrisi değişmedi.
+
+**Ve dedektör kusuru kaçırmıştı.** Raster karşılaştırması iki sayfayı
+farklı gördü çünkü dip numaraları farklıydı. Kusuru gözle bir kontakt
+sayfasında buldum, araçla değil.
+
+> ### Bir yinelenen sayfayı numarasından tanıyamazsınız — numarası zaten farklıdır. METNİ aynıdır.
+
+`kdp_preflight § ⑦` artık önce METNİ karşılaştırır (dip numarası
+atılarak), sonra raster'ı. `selftest ㉔` ısırdığını kanıtlar.
+
+---
+
+### K60 · Final görev sayfaları **talimat listesiydi** — aparat basılmıyordu
+
+Görsel denetim kitabın son beş sayfasını açtı ve ortaları **boştu**.
+Adımlar sayfada basılı olmayan şeylere işaret ediyordu:
+
+```
+"Write each region's name in its box on the route map."
+                               ↑ kutu yok   ↑ harita yok
+"Write your name on the certificate line."
+                         ↑ sertifika yok, çizgi yok
+```
+
+Çocuk kitabın FİNALİNE varıyor ve yapacak bir şey bulamıyordu.
+`pagePrints` her sayfanın ne basacağını **yazıyordu**; hiçbiri
+basılmıyordu. Bu, K59'un ve arka madde ②'nin aynı sınıfı.
+
+Beş aparat ölçülmüş veriden kuruldu: rota şeridi · çentikli mühür
+tablosu · harf kareleri · 22 × 6 tasnif ızgarası · sertifika.
+
+**Ve çocuk eli kapısı ısırdı**: `The Notch` on iki satır beyan ediyor,
+aparatı zaten on iki kutu basıyordu; ikisi birden basılınca satır
+başına 6,8 mm kalıyordu.
+
+> ### Bir kutu da bir yazma yeridir. Mobilya iki kez basılmaz (K45).
+
+Aparat artık kaç yazma yeri taşıdığını bildirir; ruled çizgi yalnızca
+FARK kadar basılır.
+
+---
+
+### K61 · Üç arka madde sayfası hâlâ **şartname basıyordu**
+
+`glossary` · `answer-key` · `sources` üreticiye bağlanmıştı. Diğer üçü
+yedek yolda kalmıştı ve `prints` alanını madde madde basıyordu:
+
+```
+· a short opening line: this book is written to be worked alone,
+  and a child who is stuck has met a page, not a limit
+```
+
+Bu bir sayfa değil, bir sayfanın **tarifidir** — ve okurun gördüğü
+şey buydu. Üç sayfaya gerçek düzyazı yazıldı; yedek yol **kaldırıldı**:
+`bodyText` yoksa sayfa şartname basmaz, taşma bildirir.
+
+⚠ `world-myths-bridge` sayfası kardeş kitabın **hangi kültürlerin tam
+bölümünü taşıdığını** listelemiyor. `prints` bunu istiyor; veri bu
+depoda yok ve **uydurulmadı** (başka bir ürün hakkında olgusal iddia).
+Kurucu maddesi olarak bırakıldı.
+
+---
+
+### K62 · Paket **mühürlenir** — checksums.txt süs değildir
+
+`08_OUTPUT/PAPERBACK/checksums.txt` elle yazılmıştı: hiçbir betik
+tazelemiyor, hiçbir kapı denetlemiyordu. İç blok yeniden kurulduğu an
+sessizce yalan söylemeye başlıyordu.
+
+> ### Denetleyenin mühürlemesi döngüseldir. Mühür AÇIKÇA istenir, denetim KENDİLİĞİNDEN koşar.
+
+`kdp_preflight.py --seal` mühürler; bayrağsız koşu **doğrular** ve bayat
+mühürde kırmızı yanar. Kapı eklendiği ilk koşuda gerçek bir bayatlık
+yakaladı.

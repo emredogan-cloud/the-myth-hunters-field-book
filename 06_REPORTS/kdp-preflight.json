@@ -1,8 +1,10 @@
 {
   "status": "pass",
-  "checks": 61,
+  "checks": 77,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "iç blok görselleri KDP'nin 300 dpi TAVSİYESİNİN altında (en düşük 150 dpi) — K39 kurucu kararı; Previewer bunu uyarı olarak gösterebilir"
+  ],
   "facts": {
     "interiorPages": 156,
     "interiorTrim": [
@@ -11,11 +13,11 @@
     ],
     "interiorFonts": 4,
     "interiorFontsEmbedded": 4,
-    "interiorBytes": 40595691,
+    "interiorBytes": 40599891,
     "interiorImageObjects": 598,
     "interiorBlankPages": [],
     "interiorFaintPages": 0,
-    "interiorTextChars": 89456,
+    "interiorTextChars": 91423,
     "coverPages": 1,
     "coverSize": [
       17.6013,
@@ -27,10 +29,25 @@
     "cultures": 22,
     "regions": 6,
     "finalSealWordOccurrences": 1,
-    "scannedPagesBeforeAnswerKey": 151,
+    "scannedPagesBeforeAnswerKey": 150,
     "verbatimAnswerLeaks": 0,
     "trackedFiles": 147,
     "manifestPlaceholders": [],
-    "finalAssetsMissing": []
+    "finalAssetsMissing": [],
+    "marginMinInner": 0.5067,
+    "marginMinOuter": 0.4867,
+    "interiorPageSizes": [
+      "612 x 792"
+    ],
+    "placedImages": 130,
+    "placedImageMinPpi": 150.0,
+    "placedImageDpiFloor": 150.0,
+    "duplicateTextPages": [],
+    "duplicateRenderedPages": [],
+    "interiorReplacementChars": 0,
+    "proofPageRefsBad": [],
+    "interiorBleedDeclared": false,
+    "paperbackSealStale": [],
+    "handbookStaleHashes": []
   }
 }

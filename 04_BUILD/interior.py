@@ -55,6 +55,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -73,11 +74,86 @@ REPORT = os.path.join(ROOT, "06_REPORTS", "interior.json")
 MM = 72.0 / 25.4                    # 1 mm cinsinden punto
 TRIM_W, TRIM_H = 8.5 * 72, 11.0 * 72
 
-# ── KDP büyük trim iç blok kenar boşlukları ────────────────────────────────
-# Gutter (iç kenar) 110–150 sayfa için 0,375 inç; dış/üst/alt 0,25 inç asgari.
-# Projede `visualSpec.safeAreaMm` 9,5 mm gutter ve 12,7 mm dış diyor ve o
-# değerler DAHA GENİŞTİR — kitabın kendi şartnamesi kazanır.
-GUTTER = 9.5 * MM
+# ═══════════════════════════════════════════════════════════════════════════
+# KDP KENAR BOŞLUKLARI — İÇ KENAR SAYFA SAYISINDAN TÜRETİLİR
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# ⭑ BU SABİT YAZILDIĞI GÜN DOĞRUYDU VE SESSİZCE YANLIŞ OLDU ⭑
+#
+# Eski hâl:
+#
+#     # Gutter (iç kenar) 110–150 sayfa için 0,375 inç
+#     GUTTER = 9.5 * MM        # = 0,374 in
+#
+# Yorum kendi kademesini de yazıyordu: **110–150 sayfa**. Kitap 144 →
+# 160 → 156 sayfaya taşındı ve sabit taşınmadı. 156 sayfa KDP'nin
+# **151–300** kademesindedir ve **0,5 inç** ister.
+#
+# Gerçek KDP Print Previewer bunu buldu; yerel CI yeşildi:
+#
+#     "Insufficient gutter. Books with 156 pages require at least 0.5\"
+#      (12.700mm) for the gutter / inside margin…"
+#
+# Ölçüm: **156 sayfanın 152'si** iç kenarı ihlal ediyordu (0,367–0,447 in).
+#
+#     Sayfa sayısından TÜREMESİ gereken bir ölçü elle yazılırsa,
+#     sayfa sayısı değiştiği gün sessizce yanlış olur.
+#
+# `metadata § açıklama` ile birebir aynı sınıf (K41). Çözüm de aynı:
+# sayı artık TÜRETİLİYOR ve `qa_margins` onu basılı sayfadan ölçüyor.
+#
+# ⚠ İÇ KENAR SAYFA SAYISINA, SAYFA SAYISI DİZGİYE BAĞLI.
+# Bu döngüseldir ve YAKINSAMAYLA çözülür: dizgi bir kademeyle koşar,
+# gerçek sayfa sayısını ölçer, kademe değiştiyse YENİDEN koşar.
+GUTTER_TIERS = [
+    (24, 150, 0.375),
+    (151, 300, 0.500),
+    (301, 500, 0.625),
+    (501, 700, 0.750),
+    (701, 828, 0.875),
+]
+# Bleed YOK: dış/üst/alt asgarisi 0,25 in. Proje 0,5 in kullanıyor ve
+# bu DAHA GENİŞTİR — kitabın kendi şartnamesi kazanır (ve KDP'yi aşar).
+OUTSIDE_MIN_NO_BLEED = 0.25
+OUTSIDE_MIN_WITH_BLEED = 0.375
+
+
+def kdp_gutter_inches(pages):
+    """KDP iç kenar asgarisi — kademe SAYFA SAYISI seçer, insan değil."""
+    for lo, hi, val in GUTTER_TIERS:
+        if lo <= pages <= hi:
+            return val
+    return GUTTER_TIERS[-1][2] if pages > 828 else GUTTER_TIERS[0][2]
+
+
+# ⭑ ASGARİNİN TAM ÜSTÜNDE OTURMAK KIRILGANDIR ⭑
+#
+# Ölçüm, dizginin KDP asgarisine (0,5 in) TAM oturduğunu gösterdi. Bu
+# uyumludur — ama sıfır paylıdır ve iki gerçek risk taşır:
+#
+#   ① KDP ">= 0,5" mi ">0,5" mi uyguluyor bilinmiyor; tam sınırda
+#      duran bir sayfa, aracın yuvarlamasına bağımlı hâle gelir.
+#   ② 156 sayfalık tutkallı bir ciltte "binding creep" vardır: orta
+#      formalarda iç kenar GÖRSEL olarak daralır.
+#
+# Bu yüzden asgarinin üstüne KÜÇÜK ve BEYAN EDİLMİŞ bir pay eklenir.
+# Sütun 7,500 → 7,470 inç olur (%0,4 daralma) ve hiçbir yazma alanı,
+# levha ya da kart bundan zarar görmez (`qa_margins` + yazma alanı
+# kapısı ikisini de ölçüyor).
+#
+#     Bu bir kapıyı susturma payı DEĞİLDİR — ölçüm zaten geçiyordu.
+#     Bu, ciltlenmiş bir kitabın gerçeğine ayrılmış paydır.
+GUTTER_SAFETY = 0.03
+
+# ⭑ İÇ BLOK SANATI İÇİN ETKİN ÇÖZÜNÜRLÜK TABANI ⭑
+# K39 kurucu kararı: iç blok 150 dpi. Bu bir PROJE İÇİ indirilmiş
+# eşiktir ve KDP'nin 300 dpi tavsiyesine uygunluk KANITI DEĞİLDİR —
+# ama beyan edildiği için TUTULMAK ZORUNDADIR. Dizgi bir görseli bu
+# tabanın altına düşürecek kadar büyütemez.
+ART_DPI_FLOOR = 150.0
+
+# Çalışma anında `build()` tarafından sayfa sayısından yeniden atanır.
+GUTTER = 0.5 * 72
 OUTER = 12.7 * MM
 TOP = 12.7 * MM
 BOTTOM = 12.7 * MM
@@ -338,6 +414,8 @@ def build(rep, write=True):
     c = canvas.Canvas(path, pagesize=(TRIM_W, TRIM_H)) if write else None
     state = {"page": 0, "overflow": [], "thin": [], "unsafe": [],
              "droppedGlyphs": 0}
+    # Her yerleştirmenin ETKİN çözünürlüğü — beyan değil ÖLÇÜM.
+    art_dpi = []
 
     def inner(page_no):
         """Tek sayfada iç kenar SAĞDA mı SOLDA mı — gutter tarafı değişir."""
@@ -405,13 +483,42 @@ def build(rep, write=True):
         return n * leading
 
     def asset_box(x, y, w, h, aid, label):
-        """Görsel yerleşimi. final/ varsa GERÇEK varlık, yoksa YER TUTUCU."""
+        """Görsel yerleşimi. final/ varsa GERÇEK varlık, yoksa YER TUTUCU.
+
+        ⭑ ÖLÇEK YUKARI ÇEKMEK ÇÖZÜNÜRLÜK ÜRETMEZ ⭑
+
+        İlk hâl her görseli kutusuna DOLDURUYORDU. Kutu, varlığın
+        şartnamedeki fiziksel boyundan büyük olduğunda görsel yukarı
+        ölçekleniyor ve etkin çözünürlük düşüyordu. `pdfimages -list`
+        ölçtü: 158 görselin 72'si **122–149 ppi** basılıyordu.
+
+            825 × 1050 px  →  şartname 5,50 × 7,00 in @150 dpi
+                              basılan  6,20 × 7,89 in @133 dpi
+
+        Aynı anda `PROOF_HANDOFF.md` şunu yazıyordu: "158 iç blok
+        görselinin HEPSİ 150 dpi etkin çözünürlükte". Ölçüm bunu
+        yalanladı — beyan ile gerçeğin ayrışması bu projede birinci
+        sınıf kusurdur (K41).
+
+            Bir görselin fiziksel boyu şartnamede YAZILIDIR.
+            Dizgi onu icat edemez.
+
+        Bu yüzden ölçek `72/ART_DPI_FLOOR` ile sınırlanır: görsel
+        kutusundan küçük kalabilir ama şartnamedeki boyunu AŞAMAZ.
+        Kutu yine aynı yeri ayırır; görsel ortalanır."""
         a = assets.get(aid)
         fp = os.path.join(FINAL_DIR, a["filename"]) if a else None
         if c:
             if fp and os.path.isfile(fp):
-                c.drawImage(ImageReader(fp), x, y - h, width=w, height=h,
-                            preserveAspectRatio=True, anchor="c", mask="auto")
+                ir = ImageReader(fp)
+                pw, phx = ir.getSize()
+                s_fit = min(w / float(pw), h / float(phx))
+                s_max = 72.0 / ART_DPI_FLOOR          # 1 px = 0,48 pt
+                s_use = min(s_fit, s_max)
+                dw, dh = pw * s_use, phx * s_use
+                art_dpi.append((aid, round(72.0 / s_use, 1)))
+                c.drawImage(ir, x + (w - dw) / 2.0, y - h + (h - dh) / 2.0,
+                            width=dw, height=dh, mask="auto")
             else:
                 c.setDash(3, 3)
                 c.rect(x, y - h, w, h)
@@ -447,6 +554,19 @@ def build(rep, write=True):
             total += leading * gap
         return total
 
+    def measure_para(x_w, txt, size, leading, font=FONT, gap=0.55):
+        """`para_block`'un ÇİZMEYEN ikizi — bir paragrafın yüksekliği.
+
+        Ön maddeyi akıtabilmek için bir paragrafın sayfaya SIĞIP
+        sığmadığını çizmeden bilmek gerekir."""
+        total = 0
+        for para in (txt or "").split("\n\n"):
+            for line in para.split("\n"):
+                total += measure_block(x_w, line.strip(), size, leading,
+                                       font) or leading
+            total += leading * gap
+        return total
+
     # ── ÖN MADDE ───────────────────────────────────────────────────────────
     #
     # ⚠ `heading` BİR İÇ KİMLİKTİR, HER SAYFADA BASILAMAZ.
@@ -454,51 +574,103 @@ def build(rep, write=True):
     # **"Title Page"** başlığını görüyordu. Künye sayfası ve başlık
     # sayfası kendi tipografilerini ister.
     SILENT_HEADINGS = {"title-page"}
-    for s in (book.get("frontMatter") or {}).get("sections", []):
-        for _ in range(s.get("pages", 1)):
+
+    def front_section(s):
+        """Bir ön madde bölümünü AKITIR — TEKRAR ETMEZ.
+
+        ⭑ İLK HÂL BÖLÜMÜ `pages` KADAR TEKRAR BASIYORDU ⭑
+
+            for _ in range(s.get("pages", 1)):     # ← kusur
+
+        `pages` bir SAYFA BÜTÇESİDİR: "bu bölüm iki sayfa tutar".
+        Döngü onu bir TEKRAR SAYISI gibi okudu ve `how-a-page-works`
+        bölümünün 1593 karakterlik gövdesi ile levhası **sayfa 4 ve
+        sayfa 5'e birebir aynı** basıldı. `pdftotext` ölçtü: iki
+        sayfanın metni 1601 karakter ve özdeş.
+
+            Bir bütçe, bir tekrar sayısı değildir.
+            "İki sayfa tutar" ile "iki kez basılır" aynı cümle değildir.
+
+        Bu, Faz 6'nın arka bölümde 7 sayfayı iki kez basmasıyla AYNI
+        sınıftır ve `flow()` orada zaten doğru çözümü taşıyordu —
+        ön madde onu kullanmıyordu.
+
+        Levha yalnızca SON metin sayfasına konur; oraya sığmazsa
+        kendi sayfasına geçer. Boş sayfa üretmez."""
+        paras = [pp for pp in (s.get("bodyText") or "").split("\n\n")
+                 if pp.strip()]
+        used, first, i = 0, True, 0
+        fig_h = 150
+        while True:
             p = new_page()
-            x = inner(p)
-            w = TRIM_W - GUTTER - OUTER
-            y = TRIM_H - TOP
-
-            if s["id"] == "title-page":
-                # ⭑ BAŞLIK SAYFASI — kitabın ilk izlenimi ⭑
-                # Satırlar manuscript'ten gelir; hiyerarşi burada kurulur.
-                parts = [ln.strip() for ln in (s.get("bodyText") or "").split("\n")
-                         if ln.strip()]
-                title = parts[0] if parts else book.get("meta", {}).get("title", "")
-                subs = parts[1:-1] if len(parts) > 2 else []
-                imprint = parts[-1] if len(parts) > 1 else ""
-                yy = TRIM_H * 0.70
-                for ln in wrap_lines(title, FONT_B, 26, w):
-                    if c:
-                        c.setFont(FONT_B, 26)
-                        c.drawCentredString(x + w / 2, yy, ln)
-                    yy -= 32
-                yy -= 14
-                for sline in subs:
-                    for ln in wrap_lines(sline, FONT_I, 12.5, w * 0.86):
-                        if c:
-                            c.setFont(FONT_I, 12.5)
-                            c.drawCentredString(x + w / 2, yy, ln)
-                        yy -= 17
-                    yy -= 4
-                if c and imprint:
-                    c.setFont(FONT, 11)
-                    c.drawCentredString(x + w / 2, BOTTOM + 46, imprint)
-                continue
-
+            used += 1
+            x, w, y = inner(p), TRIM_W - GUTTER - OUTER, TRIM_H - TOP
             if c and s["id"] not in SILENT_HEADINGS:
                 c.setFont(FONT_B, 15)
-                c.drawString(x, y, s.get("heading", ""))
+                c.drawString(x, y, s.get("heading", "")
+                             + ("" if first else " (continued)"))
             y -= 26
-            used = para_block(x, y, w, s.get("bodyText"), 10.5, 14.5)
-            y -= used
+            first = False
+            while i < len(paras):
+                need = measure_para(w, paras[i], 10.5, 14.5)
+                if y - need < BOTTOM and y < TRIM_H - TOP - 26:
+                    break
+                y -= para_block(x, y, w, paras[i], 10.5, 14.5)
+                i += 1
+            if i < len(paras):
+                continue
             if s.get("visualNeed"):
-                y -= asset_box(x, y - 8, w, 150, "front-%s" % s["id"],
+                if y - fig_h - 20 < BOTTOM:
+                    p = new_page()
+                    used += 1
+                    x, w, y = inner(p), TRIM_W - GUTTER - OUTER, TRIM_H - TOP
+                    if c:
+                        c.setFont(FONT_B, 15)
+                        c.drawString(x, y, s.get("heading", "") + " (continued)")
+                    y -= 26
+                y -= asset_box(x, y - 8, w, fig_h, "front-%s" % s["id"],
                                "[ %s ]" % s["id"]) + 12
             if y < BOTTOM:
                 state["overflow"].append("front:%s" % s["id"])
+            state.setdefault("frontPages", {})[s["id"]] = used
+            return used
+
+    def title_page(s):
+        """⭑ BAŞLIK SAYFASI — kitabın ilk izlenimi ⭑
+
+        Satırlar manuscript'ten gelir; hiyerarşi burada kurulur. Bu
+        sayfa akıtılmaz: tek sayfadır ve kendi tipografisini ister."""
+        p = new_page()
+        x, w = inner(p), TRIM_W - GUTTER - OUTER
+        parts = [ln.strip() for ln in (s.get("bodyText") or "").split("\n")
+                 if ln.strip()]
+        title = parts[0] if parts else book.get("meta", {}).get("title", "")
+        subs = parts[1:-1] if len(parts) > 2 else []
+        imprint = parts[-1] if len(parts) > 1 else ""
+        yy = TRIM_H * 0.70
+        for ln in wrap_lines(title, FONT_B, 26, w):
+            if c:
+                c.setFont(FONT_B, 26)
+                c.drawCentredString(x + w / 2, yy, ln)
+            yy -= 32
+        yy -= 14
+        for sline in subs:
+            for ln in wrap_lines(sline, FONT_I, 12.5, w * 0.86):
+                if c:
+                    c.setFont(FONT_I, 12.5)
+                    c.drawCentredString(x + w / 2, yy, ln)
+                yy -= 17
+            yy -= 4
+        if c and imprint:
+            c.setFont(FONT, 11)
+            c.drawCentredString(x + w / 2, BOTTOM + 46, imprint)
+        state.setdefault("frontPages", {})[s["id"]] = 1
+
+    for s in (book.get("frontMatter") or {}).get("sections", []):
+        if s["id"] in SILENT_HEADINGS:
+            title_page(s)
+        else:
+            front_section(s)
 
     # ── BÖLGELER ───────────────────────────────────────────────────────────
     acts = book.get("activities", [])
@@ -530,13 +702,34 @@ def build(rep, write=True):
             x, w = inner(p), TRIM_W - GUTTER - OUTER
             y = TRIM_H - TOP
             # ① görev satırı  ② zorluk
+            #
+            # ⭑ GÖREV SATIRI SARILMIYORDU — VE TAŞIYORDU ⭑
+            #
+            # `drawString` sarma yapmaz: sütundan uzun bir görev satırı
+            # sağ kenardan TAŞAR. KDP Previewer bunu sayfa 47'de
+            # "This text is outside the margins" olarak bildirdi.
+            #
+            # Ölçüm: `egyptian-nile-map`'in görev satırı 7,918 inç ve
+            # sütun 7,626 inçti — 0,29 inç dışarı taşıyordu. Ölçülen dış
+            # kenar 0,2200 in (asgari 0,2500).
+            #
+            #     Sarılmayan bir satır, uzun bir cümle yazıldığı gün
+            #     sayfanın dışına çıkar.
+            #
+            # Ve yıldızlar sağa dayalı basıldığı için satırın onlara
+            # ÇARPMAMASI da gerekir: sütun genişliğinden yıldız payı
+            # düşülür.
+            d = design.get(a["activityId"], {}).get("difficulty", 1)
+            stars = "★" * int(d or 1)
+            star_w = pdfmetrics.stringWidth(stars, FONT, 12) + 10
+            plines = wrap_lines(a.get("prompt", ""), FONT_B, 12, w - star_w)
             if c:
                 c.setFont(FONT_B, 12)
-                c.drawString(x, y, a.get("prompt", ""))
-                d = design.get(a["activityId"], {}).get("difficulty", 1)
+                for i, ln in enumerate(plines):
+                    c.drawString(x, y - i * 15, ln)
                 c.setFont(FONT, 12)
-                c.drawRightString(x + w, y, "★" * int(d or 1))
-            y -= 22
+                c.drawRightString(x + w, y, stars)
+            y -= 22 + max(0, len(plines) - 1) * 15
             # ③ levha — visualSpec ölçüsünde
             #
             # ⭑ MOBİLYA ROLÜ LEVHANIN BOYUNU DA DEĞİŞTİRİR ⭑
@@ -665,8 +858,182 @@ def build(rep, write=True):
                 c.drawCentredString(x + i * 34 + 15, y - 86, "slot %d" % sl)
         asset_box(x, y - 110, 120, 120, "seal-%s" % rid, "[ seal-%s ]" % rid)
 
-    # ── FİNAL GÖREV ────────────────────────────────────────────────────────
+    # ═══════════════════════════════════════════════════════════════════════
+    # FİNAL GÖREV — ⭑ TALİMAT DEĞİL, APARAT ⭑
+    # ═══════════════════════════════════════════════════════════════════════
+    #
+    # ⭑ KİTABIN SON BEŞ SAYFASI KULLANILAMAZ HÂLDEYDİ ⭑
+    #
+    # İlk hâl başlığı, görev satırını, adımları ve saha notunu basıyor,
+    # sonra duruyordu. Oysa adımlar sayfada BASILI OLMAYAN şeylere işaret
+    # ediyordu:
+    #
+    #     "Write each region's name in its box on the route map."
+    #                                    ↑ kutu yok   ↑ harita yok
+    #     "Write your name on the certificate line."
+    #                              ↑ sertifika yok, çizgi yok
+    #
+    # Sayfanın ortası boştu. Çocuk kitabın FİNALİNE varıyor ve yapacak
+    # bir şey bulamıyordu.
+    #
+    #     Bir sayfanın ne basacağı `pagePrints`te YAZILIDIR.
+    #     Basılmadıysa sayfa bir talimat listesidir, bir sayfa değil.
+    #
+    # Bu, arka maddede bir kez düzeltilmiş kusurun (§ ARKA MADDE ②) aynısı
+    # ve düzeltme final göreve HİÇ UĞRAMAMIŞTI. Aparat artık `pagePrints`
+    # ve ÖLÇÜLMÜŞ veriden (bölge sırası, kültür dizini, mühür kaydı)
+    # kurulur — elle çizilmez.
+    #
+    # ⚠ K10: mühür SÖZCÜKLERİ ve notch HARFLERİ cevaptır ve BASILMAZ.
+    # Yalnızca `pagePrints`in açıkça istediği notch NUMARASI basılır —
+    # o bir veridir, cevap değil: harfi veren şey sözcüktür ve sözcük
+    # çocuğun kendi topladığı mühürdedir.
     fq = book.get("finalQuest") or {}
+    route = [r for r in sorted(regions, key=lambda z: z.get("order", 99))]
+    seal_doc = jload(os.path.join(ROOT, "01_SOURCE", "answers",
+                                  "seal_key.json"), {}) or {}
+    notch = {sl.get("region"): sl.get("notchPosition")
+             for sl in (seal_doc.get("seals") or [])}
+
+    def fq_route(x, y, w):
+        """Altı numaralı durak, noktalı yol, ad kutusu ve mühür halkası."""
+        top = y
+        cols, cw = 3, w / 3.0
+        for i, r in enumerate(route[:6]):
+            cx = x + (i % cols) * cw + cw / 2.0
+            cy = top - (i // cols) * 150
+            if c:
+                c.circle(cx, cy - 10, 9, stroke=1, fill=0)
+                c.setFont(FONT_B, 9)
+                c.drawCentredString(cx, cy - 13, str(i + 1))
+                c.rect(cx - cw / 2.0 + 12, cy - 52, cw - 24, 22)
+                c.circle(cx, cy - 82, 17, stroke=1, fill=0)
+                c.setFont(FONT, 6.5)
+                c.drawCentredString(cx, cy - 104, "seal %d" % (i + 1))
+        if c:                                   # duraklar arası noktalı yol
+            c.setDash(2, 3)
+            for i in range(5):
+                a_c = x + (i % cols) * cw + cw / 2.0
+                b_c = x + ((i + 1) % cols) * cw + cw / 2.0
+                ay = top - (i // cols) * 150 - 10
+                by = top - ((i + 1) // cols) * 150 - 10
+                if (i // cols) == ((i + 1) // cols):
+                    c.line(a_c + 10, ay, b_c - 10, by)
+                else:
+                    c.line(a_c, ay - 112, b_c, by + 12)
+            c.setDash()
+        return 150 * 2 + 6, 6          # altı ad kutusu = altı yazma yeri
+
+    def fq_notch(x, y, w):
+        """Altı mühür taslağı · kenarında çentik · numarası · iki kutu."""
+        top, cols, cw = y, 3, w / 3.0
+        for i, r in enumerate(route[:6]):
+            cx = x + (i % cols) * cw + cw / 2.0
+            cy = top - (i // cols) * 158
+            n = notch.get(r["id"])
+            if c:
+                c.circle(cx - 22, cy - 26, 22, stroke=1, fill=0)
+                c.setLineWidth(2)               # çentik: kenarda tek kesik
+                c.line(cx - 22, cy - 4, cx - 22, cy - 12)
+                c.setLineWidth(1)
+                if n:
+                    c.setFont(FONT_B, 10)
+                    c.drawString(cx + 6, cy - 30, str(n))
+                c.setFont(FONT, 6.5)
+                c.drawCentredString(cx, cy - 58, rname.get(r["id"], r["id"])[:22])
+                c.rect(cx - cw / 2.0 + 14, cy - 86, (cw - 34) / 2.0, 20)
+                c.rect(cx + 2, cy - 86, (cw - 34) / 2.0, 20)
+                c.setFont(FONT, 5.8)
+                c.drawString(cx - cw / 2.0 + 14, cy - 95, "notch number")
+                c.drawString(cx + 2, cy - 95, "letters in the word")
+        return 158 * 2 + 4, 12        # altı mühür × iki kutu = on iki yer
+
+    def fq_key_build(x, y, w):
+        """Altı büyük boş harf karesi · üstünde bölge · altında numara."""
+        sq, gap = 52, (w - 6 * 52) / 5.0
+        for i, r in enumerate(route[:6]):
+            bx = x + i * (sq + gap)
+            if c:
+                c.setFont(FONT, 5.6)
+                c.drawCentredString(bx + sq / 2.0, y - 8,
+                                    rname.get(r["id"], r["id"])[:20])
+                c.setLineWidth(1.4)
+                c.rect(bx, y - 20 - sq, sq, sq)
+                c.setLineWidth(1)
+                c.setFont(FONT_B, 9)
+                c.drawCentredString(bx + sq / 2.0, y - 34 - sq, str(i + 1))
+        if c:                                   # altına uzun yazma çizgisi
+            c.line(x, y - 62 - sq, x + w, y - 62 - sq)
+            c.rect(x + w / 2.0 - 60, y - 150 - sq, 120, 62)
+            c.setFont(FONT, 6.5)
+            c.drawCentredString(x + w / 2.0, y - 162 - sq,
+                                "the cartographer's seal")
+        return 176 + sq, 1            # kareler altındaki uzun çizgi
+
+    def fq_sorting(x, y, w):
+        """Yirmi iki kültür × altı motif · her hücrede boş kutu."""
+        motifs = ["a writing", "a journey", "the year", "a named", "a counting",
+                  "a message"]
+        motifs2 = ["system", "by water", "turning", "real place", "system",
+                   "that travels"]
+        names = []
+        for r in route:
+            for cu in sorted({design.get(a["activityId"], {}).get("culture")
+                              for a in by_region.get(r["id"], [])} - {None}):
+                if cu not in names:
+                    names.append(cu)
+        lab_w, cell = w * 0.30, (w * 0.70) / 6.0
+        rh = 14.6
+        if c:
+            c.setFont(FONT_B, 5.9)
+            for j in range(6):
+                cx = x + lab_w + j * cell
+                c.drawCentredString(cx + cell / 2.0, y - 6, motifs[j])
+                c.drawCentredString(cx + cell / 2.0, y - 13, motifs2[j])
+        yy = y - 20
+        for i, cu in enumerate(names[:22]):
+            if c:
+                c.setFont(FONT, 7.2)
+                c.drawString(x, yy - rh + 4, cu.replace("-", " ").title()[:26])
+                for j in range(6):
+                    c.rect(x + lab_w + j * cell + cell / 2.0 - 7,
+                           yy - rh + 2, 14, 11)
+            yy -= rh
+        if c:                                   # toplam satırı
+            c.setFont(FONT_B, 7.2)
+            c.drawString(x, yy - rh + 4, "total")
+            for j in range(6):
+                c.rect(x + lab_w + j * cell + cell / 2.0 - 13, yy - rh - 2,
+                       26, 13)
+        return (y - (yy - rh)) + 22, 0
+
+    def fq_certificate(x, y, w):
+        """Çerçeveli sertifika · ad · tarih · bölge kutusu · altı halka."""
+        h = 214
+        if c:
+            c.setLineWidth(1.6)
+            c.rect(x + 10, y - h, w - 20, h)
+            c.setLineWidth(0.6)
+            c.rect(x + 16, y - h + 6, w - 32, h - 12)
+            c.setLineWidth(1)
+            c.setFont(FONT_B, 15)
+            c.drawCentredString(x + w / 2.0, y - 34, "FIELD RESEARCHER")
+            c.setFont(FONT, 8)
+            c.drawString(x + 40, y - 76, "name")
+            c.line(x + 76, y - 78, x + w - 190, y - 78)
+            c.drawString(x + 40, y - 106, "date")
+            c.line(x + 76, y - 108, x + w - 190, y - 108)
+            c.drawCentredString(x + w - 79, y - 62, "regions completed")
+            c.rect(x + w - 110, y - 118, 62, 44)
+            for i in range(6):                  # alt kenarda altı halka
+                c.circle(x + w / 2.0 - 100 + i * 40, y - h + 34, 13,
+                         stroke=1, fill=0)
+        return h + 8, 3               # ad çizgisi · tarih çizgisi · kutu
+
+    FQ_APPARATUS = {"map-trace": fq_route, "data-table": None,
+                    "key-build": fq_key_build, "make-frame": fq_certificate}
+    FQ_BY_ID = {"The Notch": fq_notch, "The Great Sorting Table": fq_sorting}
+
     for q in fq.get("quest", []):
         p = new_page()
         x, w, y = inner(p), TRIM_W - GUTTER - OUTER, TRIM_H - TOP
@@ -675,11 +1042,66 @@ def build(rep, write=True):
             c.drawString(x, y, q.get("heading", ""))
             c.setFont(FONT, 11)
         y -= 24
-        y -= text_block(x, y, w, q.get("prompt", ""), 11, 14) + 8
+        y -= text_block(x, y, w, q.get("prompt", ""), 11, 14) + 6
         for i, st in enumerate(q.get("steps") or [], 1):
             y -= text_block(x, y, w, "%d. %s" % (i, st), 10, 13.5)
+        y -= 10
+
+        draw = FQ_BY_ID.get(q.get("heading")) or FQ_APPARATUS.get(q.get("layout"))
+        provided = 0
+        if draw:
+            used_h, provided = draw(x, y, w)
+            y -= used_h
+        else:
+            state["overflow"].append("finalQuest:%s" % q.get("heading"))
+
+        # `pagePrints`in şerit/altlık satırları — sayfanın kendi sözü
+        strips = [t for t in (q.get("pagePrints") or [])
+                  if re.match(r"^(a caption strip|a footer|a rule strip|"
+                              r"a self-check strip|a closing line|"
+                              r"a worked example)", t)]
+        for t in strips:
+            body = t.split(":", 1)[1].strip() if ":" in t else t
+            if y - 24 < BOTTOM + 46:
+                break
+            y -= text_block(x, y, w, body[:1].upper() + body[1:], 8, 11) + 3
+
+        # ⭑ APARAT YAZMA YERİNİ ZATEN TAŞIYORSA ÇİZGİ TEKRARLANMAZ ⭑
+        #
+        # `The Notch` on iki satır BEYAN ediyor ve aparatı zaten on iki
+        # kutu basıyor. İkisi birden basılınca satır başına 6,8 mm
+        # kalıyordu ve çocuk eli kapısı (≥7 mm) KIRMIZI yandı — doğru
+        # yandı: sayfa aynı yazma yerini iki kez istiyordu.
+        #
+        #     Bir kutu da bir yazma yeridir.
+        #     Mobilya iki kez basılmaz (K45).
+        lines = max(0, (q.get("writingSpaceLines") or 0) - provided)
+        if lines:
+            # ⚠ Aktivite sayfası çizgileri kalan boşluğa YAYAR; final görev
+            # sayfasında kalan boşluk büyük olduğu için aynı davranış
+            # çizgileri sayfaya dağıtıyor ve kazara çizilmiş gibi
+            # gösteriyordu. Burada adım SABİTTİR ve aparatın hemen altına
+            # oturur.
+            avail = y - (BOTTOM + 46)
+            per = max(WRITING_LINE, 9.0 * MM)
+            if avail < lines * WRITING_LINE:
+                state["thin"].append("finalQuest:%s (%.1f mm × %d satır)"
+                                     % (q.get("heading"),
+                                        (avail / lines) / MM, lines))
+            if c:
+                for i in range(lines):
+                    yy = y - (i + 1) * per
+                    if yy > BOTTOM + 46:
+                        c.line(x, yy, x + w, yy)
+            y -= min(avail, lines * per)
+
         text_block(x, BOTTOM + 40, w, "Field note: " + (q.get("fieldNote") or ""),
                    9, 12)
+        if c:
+            c.setFont(FONT, 8)
+            c.drawRightString(TRIM_W - inner(p), BOTTOM - 12, str(p))
+        if y < BOTTOM:
+            state["overflow"].append("finalQuest:%s" % q.get("heading"))
 
     # ── ARKA MADDE ─────────────────────────────────────────────────────────
     # ═══════════════════════════════════════════════════════════════════════
@@ -737,6 +1159,8 @@ def build(rep, write=True):
                 y -= text_block(x, y, w, text, sz, leading, f)
                 if kind == "b":
                     y -= 2
+                if kind == "p":                 # düzyazı paragrafı: nefes payı
+                    y -= leading * 0.55
                 i += 1
             if i >= len(rows):
                 break
@@ -829,10 +1253,40 @@ def build(rep, write=True):
 
     BUILDERS = {"glossary": glossary_rows, "answer-key": answer_rows,
                 "sources": source_rows}
+
+    def prose_rows(s):
+        """⭑ `prints` BİR ŞARTNAMEDİR VE BASILAMAZ ⭑
+
+        Üç arka madde sayfası (`how-to-use`, `hint-rule`,
+        `world-myths-bridge`) hiçbir üreticiye bağlı değildi ve yedek
+        yol `prints` alanını madde madde BASIYORDU:
+
+            · a short opening line: this book is written to be worked
+              alone, and a child who is stuck has met a page, not a limit
+
+        Bu bir sayfa değil, bir sayfanın TARİFİDİR — ve basılı kitapta
+        okurun gördüğü şey buydu. § ARKA MADDE ② bu kusuru bir kez
+        kapatmıştı ama yalnızca veriden türeyen üç bölüm için; düzyazı
+        bölümleri yedek yolda kalmıştı.
+
+            Bir kusur sınıfı kapatılırken örneği değil SINIFI kapatılır.
+
+        Metin artık `bodyText`ten gelir. `bodyText` yoksa sayfa
+        ŞARTNAME basmaz — taşma olarak bildirilir ve kapı KIRMIZI yanar."""
+        txt = s.get("bodyText")
+        if not txt:
+            state["overflow"].append("backMatter:%s (bodyText yok)" % s["id"])
+            return []
+        rows = []
+        for para in txt.split("\n\n"):
+            para = para.strip()
+            if para:
+                rows.append(("p", para))
+        return rows
+
     for s in (book.get("backMatter") or {}).get("sections", []):
         build_rows = BUILDERS.get(s["id"])
-        rows = build_rows() if build_rows else [("n", "· " + p)
-                                                for p in (s.get("prints") or [])]
+        rows = build_rows() if build_rows else prose_rows(s)
         used = flow(s, rows)
         state.setdefault("backMatterPages", {})[s["id"]] = used
 
@@ -870,11 +1324,21 @@ def build(rep, write=True):
         c.showPage()
         c.save()
 
+    # ⭑ ETKİN ÇÖZÜNÜRLÜK BEYAN EDİLMEZ, ÖLÇÜLÜR ⭑
+    # `PROOF_HANDOFF.md` "hepsi 150 dpi" yazıyordu; `pdfimages` 122 ppi
+    # ölçtü. Artık sayı buradan gelir ve belgeler onu KOPYALAR.
+    dpis = [d for _, d in art_dpi]
     rep.facts.update({
         "typesetPagesRaw": raw_pages,
         "typesetPagesSignatureAligned": padded,
         "overflowPages": state["overflow"],
         "thinWritingLines": state["thin"],
+        "artPlacements": len(art_dpi),
+        "artDpiFloor": ART_DPI_FLOOR,
+        "artDpiMin": round(min(dpis), 1) if dpis else None,
+        "artDpiMax": round(max(dpis), 1) if dpis else None,
+        "artBelowFloor": sorted({a for a, d in art_dpi
+                                 if d < ART_DPI_FLOOR - 0.5}),
     })
     return padded
 
@@ -907,7 +1371,40 @@ def main() -> int:
         print("=" * 74)
         return 2
 
-    pages = build(rep, write=not args.measure_only)
+    # ⭑ İÇ KENAR ↔ SAYFA SAYISI YAKINSAMASI ⭑
+    #
+    # İç kenar sayfa sayısına, sayfa sayısı dizgiye bağlı. Döngüyü
+    # kırmanın yolu tahmin etmek değil, YAKINSAMAK: bir kademeyle diz,
+    # gerçek sayfa sayısını ölç, kademe değiştiyse yeniden diz.
+    #
+    #     Bir sayının kendi sonucuna bağlı olması onu tahmin edilebilir
+    #     yapmaz — ölçülebilir yapar.
+    #
+    # Kademe sınırı 150/151'dir ve kitap oraya yakın olabilir; bu yüzden
+    # yakınsama SESSİZ DEĞİL, kayıtlıdır ve yakınsamazsa KIRMIZI yanar.
+    global GUTTER
+    seed = (jload(CONFIG, {}) or {}).get("scope", {}).get("pageTarget", 156)
+    history, pages = [], None
+    for attempt in range(4):
+        GUTTER = (kdp_gutter_inches(seed) + GUTTER_SAFETY) * 72.0
+        pages = build(rep, write=not args.measure_only)
+        if pages is None:
+            break
+        history.append({"attempt": attempt + 1, "assumedPages": seed,
+                        "gutterInches": round(GUTTER / 72.0, 4),
+                        "measuredPages": pages})
+        if kdp_gutter_inches(pages) == kdp_gutter_inches(seed):
+            break
+        seed = pages
+    rep.facts["gutterConvergence"] = history
+    rep.facts["gutterInches"] = round(GUTTER / 72.0, 4)
+    rep.facts["gutterKdpMinimum"] = kdp_gutter_inches(pages or 156)
+    rep.facts["gutterSafetyInches"] = GUTTER_SAFETY
+    rep.facts["gutterTierPages"] = pages
+    if pages is not None:
+        rep.check((kdp_gutter_inches(pages) + GUTTER_SAFETY) * 72.0 == GUTTER,
+                  "iç kenar ölçülen sayfa sayısıyla YAKINSADI "
+                  "(%d sayfa → %.3f in)" % (pages, GUTTER / 72.0))
     if pages is None:
         print("  ⛔ dizgi yapılamadı")
         return 1

@@ -46,30 +46,64 @@ bak. Aranan şey:
 **Karar:** yumuşaklık kabul edilebilir mi? Değilse kapak sanatı
 yeniden üretilir (`KDP_UPLOAD_HANDBOOK § 5`).
 
-### ② İç blok görselleri — 150 dpi
+### ② İç blok görselleri — ölçülen 150–612 dpi
 
-158 iç blok görselinin **hepsi** 150 dpi etkin çözünürlükte
-(kurucu kararı **K39**; KDP tavsiyesi 300 dpi).
+> ⚠ **BU BÖLÜM 18 Ağustos 2026'da DÜZELTİLDİ.** Önceki hâli şunu
+> yazıyordu: *"158 iç blok görselinin **hepsi** 150 dpi etkin
+> çözünürlükte."* **Bu doğru değildi.** `pdfimages -list` ile ölçüldü:
+> 131 yerleştirmenin **72'si 122–149 ppi** basılıyordu.
+>
+> Kök neden dizgideydi: her görsel kutusuna DOLDURULUYORDU ve kutu
+> varlığın şartnamedeki fiziksel boyundan büyük olduğunda görsel
+> yukarı ölçekleniyordu.
+>
+> ```
+> 825 × 1050 px  →  şartname 5,50 × 7,00 in @150 dpi
+>                   basılan  6,20 × 7,89 in @133 dpi
+> ```
+>
+> Ölçek yukarı çekmek çözünürlük ÜRETMEZ; yalnızca beyanı yalanlar.
+> Dizgi düzeltildi (`interior.py § asset_box`, `ART_DPI_FLOOR`):
+> görsel kutusundan küçük kalabilir ama şartnamedeki boyunu aşamaz.
+
+**Bugünkü ÖLÇÜM** (`pdfimages -list`, bağımsız araç):
+
+| ölçü | değer |
+|---|---|
+| yerleştirme sayısı | **131** (158 varlık dosyasının 131'i basılıyor) |
+| en düşük etkin çözünürlük | **150 dpi** |
+| en yüksek etkin çözünürlük | 612 dpi |
+| tabanın altında kalan | **0** |
+
+Taban **150 dpi**'dır (kurucu kararı **K39**). Bu bir proje içi
+indirilmiş eşiktir ve **KDP'nin 300 dpi tavsiyesine uygunluk kanıtı
+DEĞİLDİR** — Previewer bunu uyarı olarak gösterebilir.
 
 **Provada bakılacak sayfalar** — en ince çizgili levhalar:
 
 | Sayfa | Neden |
 |---|---|
-| **11** | Inuktitut hece anahtarı — ince işaretler, döndürülmüş formlar |
-| **26** | Fin dizesi — küçük punto, yoğun metin |
-| **39** | Girit labirenti — tek piksel genişliğinde uzun yol |
-| **42** | Takımyıldız levhası — nokta ızgarası, ince bağlantı çizgileri |
-| **60** | **Yorùbá alt-nokta** — noktanın kendisi İÇERİK · ↓ § 2 |
-| **113** | Māori makron — çizginin görünmesi ŞART |
-| **121** | Korece nehir — geniş açık alan + ince kıyı çizgisi |
-| **149** | Sözlük — 9 pt yoğun metin bloğu |
-| **151–154** | Cevap anahtarı — en küçük punto, kana glifleri |
+| **10** | Inuktitut hece anahtarı — ince işaretler · `one Inuktitut sign` |
+| **25** | Fin dizesi — küçük punto, yoğun metin · `old Finnish line` |
+| **38** | Girit labirenti — tek piksel genişliğinde yol · `the design on a coin` |
+| **41** | Takımyıldız levhası — nokta ızgarası · `four star groups` |
+| **59** | **Yorùbá alt-nokta** — noktanın kendisi İÇERİK · `dot under a letter` · ↓ § 2 |
+| **112** | Māori makron — çizginin görünmesi ŞART · `one small bar does to a vowel` |
+| **120** | Korece nehir — geniş açık alan + ince kıyı · `Korean escape in order` |
+| **148** | Sözlük — 9 pt yoğun metin bloğu · `The Twenty-Two Cultures` |
+| **150–153** | Cevap anahtarı — en küçük punto, kana glifleri · `Answer Key` |
+
+> ⚠ **BU NUMARALAR 18 Ağustos 2026'da BİR AZALDI.** Ön maddede birebir
+> kopya basılan bir sayfa (eski s.5) kaldırıldı (K59) ve 4'ten sonraki
+> her folyo kaydı. Numaralar elle düzeltilmedi, **ölçülerek** bulundu —
+> ve artık `kdp_preflight § ⑧` her satırın arkasındaki `kod` ifadesini
+> o sayfanın metninde ARIYOR: numara kayarsa kapı kırmızı yanar.
 
 ---
 
 ## 2 · Bu kitaba ÖZGÜ üç kontrol
 
-### ⭑ Sayfa 60 — nokta görünüyor mu ⭑
+### ⭑ Sayfa 59 — nokta görünüyor mu ⭑
 
 Sayfanın bütün iddiası harfin **altındaki noktadır**:
 `e ẹ o ọ s ṣ`. Bu noktalar dizgi katmanında gömülü yazı tipiyle
@@ -78,7 +112,7 @@ basıldı (üretecin uydurmasına bırakılmadı).
 **Basılı kâğıtta nokta ile lekeyi ayırt edebiliyor musunuz?**
 Ayırt edilemiyorsa sayfa çözülemez ve punto büyütülmelidir.
 
-### ⭑ Sayfa 113 — makron görünüyor mu ⭑
+### ⭑ Sayfa 112 — makron görünüyor mu ⭑
 
 `kererū` `tūī` `Māori` — üstteki çizgi kaybolursa sayfa çöker.
 

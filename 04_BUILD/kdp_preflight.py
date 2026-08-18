@@ -28,6 +28,7 @@ olarak kurucuya kalır.
 
   ./04_BUILD/kdp_preflight.py            denetle ve rapor yaz
   ./04_BUILD/kdp_preflight.py --quick    boş sayfa taramasını atla
+  ./04_BUILD/kdp_preflight.py --seal     paketi mühürle (checksums.txt)
 
 Çıkış kodları:  0 = geçti   1 = KIRMIZI   2 = bağımlılık yok
 """
@@ -422,10 +423,302 @@ def check_placeholders(rep):
                  % (len(ph), ph))
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+def check_previewer_class(rep, quick):
+    """⑦ PREVIEWER SINIFI — gerçek Previewer'ın bulduğu hata SINIFLARI.
+
+    ⭑ BU BÖLÜM BİR ÜRETİM HATASINDAN DOĞDU ⭑
+
+    Yerel CI yeşilken **gerçek Amazon KDP Print Previewer** iki hata
+    bildirdi: yetersiz iç kenar (156 sayfanın 152'sinde) ve sayfa 47'de
+    margin dışına taşan metin. Hiçbir yerel kapı bunları sormamıştı.
+
+        Bir kapı, sorduğu soruyu ölçer. Sormadığı soru yeşil görünür.
+
+    O yüzden burada tek bir sayfa değil, Previewer'ın soracağı SORU
+    SINIFLARI sorulur: kenar boşluğu · sayfa ölçüsü tekbiçimliliği ·
+    yinelenen sayfa · yerleştirilmiş görselin ETKİN çözünürlüğü ·
+    kenara değen mürekkep · eksik glif.
+
+    ⚠ Bu bölüm KDP Previewer'ı taklit veya simüle ETMEZ. Previewer bir
+    Amazon hizmetidir ve yalnızca panelde koşar. Burada yapılan,
+    Previewer'ın YAYIMLANMIŞ kurallarını modelleyip basılı dosyayı
+    onlara karşı ölçmektir. Nihai hüküm yalnızca Previewer'a aittir.
+    """
+    print("\n── ⑦ PREVIEWER SINIFI ──")
+    if not os.path.isfile(INTERIOR):
+        return
+    pages = rep.facts.get("interiorPages")
+
+    # ① KENAR BOŞLUĞU — `qa_margins.py` ölçtü, burada TAZELİĞİ denetlenir.
+    #    Bayat bir ölçüm, ölçüm değildir.
+    mg = jload(os.path.join(ROOT, "06_REPORTS", "margins.json"))
+    if rep.check(bool(mg), "kenar boşluğu ölçümü var (06_REPORTS/margins.json)"):
+        mf = mg.get("facts", {})
+        rep.check(mf.get("pages") == pages,
+                  "kenar ölçümü BU PDF'e ait (%s ⇄ %s sayfa)"
+                  % (mf.get("pages"), pages))
+        rep.check(mg.get("status") == "pass" and mf.get("violations") == 0,
+                  "hiçbir sayfa KDP kenar boşluğunu ihlal etmiyor (%s ihlal)"
+                  % mf.get("violations"))
+        # Kural sayfa sayısından TÜREMİŞ mi — elle yazılmış olmasın.
+        tier = {(24, 150): 0.375, (151, 300): 0.5, (301, 500): 0.625,
+                (501, 700): 0.75, (701, 828): 0.875}
+        want = next((v for (lo, hi), v in tier.items()
+                     if pages and lo <= pages <= hi), None)
+        rep.check(want is not None
+                  and abs(mf.get("requiredGutter", -1) - want) < 1e-9,
+                  "iç kenar ölçütü %s sayfadan TÜREDİ (%s in)"
+                  % (pages, want))
+        rep.facts["marginMinInner"] = mf.get("minInner")
+        rep.facts["marginMinOuter"] = mf.get("minOuter")
+
+    # ② SAYFA ÖLÇÜSÜ TEKBİÇİMLİ Mİ — tek bir yatay sayfa Previewer'ı kırar.
+    code, info = run(["pdfinfo", "-l", str(pages or 1), INTERIOR])
+    sizes = set(re.findall(r"Page\s+\d+ size:\s+([\d.]+ x [\d.]+)", info))
+    if not sizes:                       # tek ölçü varsa pdfinfo tekil yazar
+        sizes = set(re.findall(r"Page size:\s+([\d.]+ x [\d.]+)", info))
+    rep.facts["interiorPageSizes"] = sorted(sizes)
+    rep.check(len(sizes) == 1,
+              "bütün sayfalar AYNI ölçüde (%d farklı ölçü)" % len(sizes)
+              + ("" if len(sizes) == 1 else " — %s" % sorted(sizes)[:4]))
+
+    # ③ YERLEŞTİRİLMİŞ GÖRSELİN ETKİN ÇÖZÜNÜRLÜĞÜ
+    #    ⚠ Ölçülen şey dosyanın piksel sayısı DEĞİL, sayfada BASILDIĞI
+    #    boya bölünmüş hâlidir. `interior.py` bunu kendi kaydeder; burada
+    #    BAĞIMSIZ bir araçla (`pdfimages`) doğrulanır — kendi ölçümünü
+    #    kendi doğrulayan bir hat, hiçbir şey doğrulamaz.
+    if run(["which", "pdfimages"])[0] == 0:
+        code, lst = run(["pdfimages", "-list", INTERIOR])
+        ppi = []
+        for line in lst.splitlines()[2:]:
+            f = line.split()
+            if len(f) >= 14:
+                try:
+                    ppi.append((int(f[0]), float(f[12])))
+                except ValueError:
+                    pass
+        if ppi:
+            floor = float((jload(os.path.join(ROOT, "06_REPORTS",
+                                              "interior.json"), {}) or {})
+                          .get("facts", {}).get("artDpiFloor") or 150.0)
+            low = sorted({pg for pg, v in ppi if v < floor - 1})
+            rep.facts["placedImages"] = len(ppi)
+            rep.facts["placedImageMinPpi"] = round(min(v for _, v in ppi), 1)
+            rep.facts["placedImageDpiFloor"] = floor
+            rep.check(not low,
+                      "yerleştirilen %d görselin hepsi ≥ %.0f dpi (en düşük "
+                      "%.0f)" % (len(ppi), floor, min(v for _, v in ppi))
+                      + ("" if not low else " — TABAN ALTI sayfalar: %s"
+                         % low[:10]))
+            # KDP'nin kendi tavsiyesi 300 dpi'dır ve bu kitap onu
+            # KARŞILAMAZ (K39 kurucu kararı). Kırmızı değil, AÇIK uyarı.
+            if min(v for _, v in ppi) < 300:
+                rep.warn("iç blok görselleri KDP'nin 300 dpi TAVSİYESİNİN "
+                         "altında (en düşük %.0f dpi) — K39 kurucu kararı; "
+                         "Previewer bunu uyarı olarak gösterebilir"
+                         % min(v for _, v in ppi))
+
+    # ④ YİNELENEN SAYFA — İKİ ARAÇLA, ÇÜNKÜ BİRİ YETMEDİ
+    #
+    # ⭑ RASTER KARŞILAŞTIRMASI KUSURU KAÇIRDI ⭑
+    #
+    # `how-a-page-works` bölümü sayfa 4 ve 5'e BİREBİR AYNI basılıyordu.
+    # Raster karşılaştırması bunu göremedi: iki sayfanın dip numarası
+    # (4 ve 5) farklıydı ve tek bir piksel farkı hash'i değiştirir.
+    # Kusuru gözle bir kontakt sayfasında gördüm, araç değil.
+    #
+    #     Bir yinelenen sayfayı numarasından tanıyamazsınız —
+    #     numarası zaten farklıdır. METNİ aynıdır.
+    #
+    # Bu yüzden önce METİN karşılaştırılır (dip numarası atılarak),
+    # sonra raster. İkisi farklı kusurları yakalar: metin, aynı sözü
+    # iki kez basmayı; raster, aynı çizimi iki kez basmayı.
+    code, alltxt = run(["pdftotext", "-layout", INTERIOR, "-"])
+    ptexts = alltxt.split("\f")
+    norm, tdup = {}, []
+    for i, t in enumerate(ptexts[:pages or 0], 1):
+        k = re.sub(r"\s+", " ", t).strip()
+        k = re.sub(r"\s*\d+\s*$", "", k)          # dip numarasını at
+        if len(k) < 200:                           # kısa/boş sayfa: meşru
+            continue
+        if k in norm:
+            tdup.append((norm[k], i))
+        else:
+            norm[k] = i
+    rep.facts["duplicateTextPages"] = tdup
+    rep.check(not tdup, "aynı METNİ basan sayfa çifti yok"
+              + ("" if not tdup else " — %s" % tdup[:6]))
+
+    # ④b raster — aynı ÇİZİMİ iki kez basmayı yakalar
+    if not quick:
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            run(["pdftoppm", "-r", "24", "-gray", "-png", INTERIOR,
+                 os.path.join(td, "p")])
+            seen, dups = {}, []
+            for i, f in enumerate(sorted(os.listdir(td)), 1):
+                with open(os.path.join(td, f), "rb") as fh:
+                    h = hashlib.sha256(fh.read()).hexdigest()
+                if h in seen:
+                    dups.append((seen[h], i))
+                else:
+                    seen[h] = i
+            # Boş/az mürekkepli sayfalar meşru olarak birbirinin aynısıdır
+            # (Field Notes cetvelli sayfaları). Kusur, DOLU bir sayfanın
+            # tekrarıdır.
+            blanks = set(rep.facts.get("interiorBlankPages") or [])
+            real = [d for d in dups if d[0] not in blanks and d[1] not in blanks]
+            rep.facts["duplicateRenderedPages"] = real
+            rep.check(not real, "aynı görünen DOLU sayfa çifti yok"
+                      + ("" if not real else " — %s" % real[:6]))
+
+    # ⑤ EKSİK GLİF (tofu) — metin katmanında yer tutucu karakter
+    code, txt = run(["pdftotext", INTERIOR, "-"])
+    tofu = txt.count("\ufffd") + txt.count("\u25a1")
+    rep.facts["interiorReplacementChars"] = tofu
+    rep.check(tofu == 0, "eksik glif yer tutucusu yok (%d)" % tofu)
+
+    # ⭑ PROVA SAYFA NUMARALARI — KAYABİLİRLER, VE KAYDILAR ⭑
+    #
+    # `PROOF_HANDOFF § 1` kurucuya "şu sayfalara bak" diyen bir tablo
+    # taşıyor. Ön maddedeki kopya sayfa kaldırılınca (K59) 4'ten sonraki
+    # her folyo bir azaldı ve tablonun DOKUZ SATIRI da yanlış sayfayı
+    # gösterir oldu. Hiçbir kapı fark etmedi.
+    #
+    #     Bir belgedeki sayfa numarası, kitap her yeniden dizildiğinde
+    #     yeniden DOĞRULANMASI gereken bir iddiadır.
+    #
+    # Her satır artık o sayfada GERÇEKTEN geçen bir ifadeyi `kod` olarak
+    # taşır; burada o ifade o sayfanın metninde aranır.
+    ph = os.path.join(ROOT, "08_OUTPUT", "PROOF_HANDOFF.md")
+    if os.path.isfile(ph) and ptexts:
+        with open(ph, encoding="utf-8") as fh:
+            pht = fh.read()
+        bad = []
+        for m in re.finditer(r"^\|\s*\*\*(\d+)(?:[–-]\d+)?\*\*\s*\|(.+)\|\s*$",
+                             pht, re.M):
+            n = int(m.group(1))
+            marks = re.findall(r"`([^`]+)`", m.group(2))
+            if not marks:
+                continue
+            page = ptexts[n - 1] if 0 < n <= len(ptexts) else ""
+            flat = re.sub(r"\s+", " ", page)
+            for mk in marks:
+                if re.sub(r"\s+", " ", mk) not in flat:
+                    bad.append("s.%d ⊄ %r" % (n, mk))
+        rep.facts["proofPageRefsBad"] = bad
+        rep.check(not bad, "prova sayfa numaraları GERÇEK sayfaları gösteriyor"
+                  + ("" if not bad else " — KAYMIŞ: %s" % bad[:6]))
+
+    # ⑥ BLEED BEYANI ⇄ GERÇEK
+    cfg = jload(os.path.join(ROOT, "project_config.json"), {}) or {}
+    bleed = bool(cfg.get("production", {}).get("interiorBleed", False))
+    rep.facts["interiorBleedDeclared"] = bleed
+    if mg:
+        rep.check(mg.get("facts", {}).get("bleed") == bleed,
+                  "bleed beyanı ölçümle aynı (%s)" % ("VAR" if bleed else "YOK"))
+
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+PB_FILES = ("interior.pdf", "cover.pdf", "metadata.json")
+PB_SUMS = os.path.join(ROOT, "08_OUTPUT", "PAPERBACK", "checksums.txt")
+
+
+def seal_paperback():
+    """⭑ PAKETİ MÜHÜRLE — açık bir OPERATÖR eylemi ⭑
+
+    `checksums.txt` elle yazılmıştı ve hiçbir betik onu tazelemiyor,
+    hiçbir kapı onu denetlemiyordu. Bir dosya ne üretiliyor ne
+    denetleniyorsa, taşıdığı sayı bir SÜSTÜR: iç blok yeniden
+    kurulduğu an sessizce yalan söylemeye başlar.
+
+        Denetleyenin mühürlemesi döngüseldir.
+        O yüzden mühür AÇIKÇA istenir, denetim KENDİLİĞİNDEN koşar.
+
+    Bu yüzden `--seal` ayrı bir bayraktır: `kdp_preflight.py` varsayılan
+    hâlinde yalnızca DOĞRULAR ve bayat mühürde KIRMIZI yanar."""
+    src = os.path.join(ROOT, "06_REPORTS", "tracked", "metadata.json")
+    dst = os.path.join(ROOT, "08_OUTPUT", "PAPERBACK", "metadata.json")
+    if os.path.isfile(src):
+        with open(src, encoding="utf-8") as fh:
+            blob = fh.read()
+        with open(dst, "w", encoding="utf-8") as fh:
+            fh.write(blob)
+    lines = []
+    for n in PB_FILES:
+        fp = os.path.join(ROOT, "08_OUTPUT", "PAPERBACK", n)
+        if os.path.isfile(fp):
+            lines.append("%s  %s" % (sha256(fp), n))
+    with open(PB_SUMS, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(lines) + "\n")
+    print("  mühürlendi: %s" % os.path.relpath(PB_SUMS, ROOT))
+    for l in lines:
+        print("    %s" % l)
+
+
+def check_seal(rep):
+    """⑧ PAKET MÜHRÜ — checksums.txt gerçekten BU dosyaları mı anlatıyor."""
+    print("\n── ⑧ PAKET MÜHRÜ ──")
+    if not os.path.isfile(INTERIOR):
+        return
+    if not rep.check(os.path.isfile(PB_SUMS), "checksums.txt var"):
+        return
+    want = {}
+    with open(PB_SUMS, encoding="utf-8") as fh:
+        for line in fh:
+            f = line.split()
+            if len(f) == 2:
+                want[f[1]] = f[0]
+    rep.check(set(want) == set(PB_FILES),
+              "mühür üç dosyayı da anıyor (%s)" % ", ".join(sorted(want)))
+    stale = []
+    for n, h in want.items():
+        fp = os.path.join(ROOT, "08_OUTPUT", "PAPERBACK", n)
+        if not os.path.isfile(fp) or sha256(fp) != h:
+            stale.append(n)
+    rep.facts["paperbackSealStale"] = stale
+    rep.check(not stale, "mühür TAZE — dosyalar mühürlendiği gibi"
+              + ("" if not stale else " — BAYAT: %s "
+                 "(`kdp_preflight.py --seal` ile tazeleyin)" % stale))
+    # ⭑ EL KİTABI DA BAYATLAR ⭑
+    # `KDP_UPLOAD_HANDBOOK § 0` yüklenecek dosyaların sha256 önekini ELLE
+    # taşıyordu ve iç blok yeniden kurulduğunda kimse onu güncellemedi:
+    # kurucunun "doğru dosyayı yüklüyor muyum" diye baktığı tablo yanlış
+    # bir özet gösteriyordu.
+    #
+    #     Bir belgede duran her sayı, kaynağı değiştiğinde yalan olur.
+    #     O yüzden sayı ya ÜRETİLİR ya DENETLENİR.
+    hb = os.path.join(ROOT, "08_OUTPUT", "KDP_UPLOAD_HANDBOOK.md")
+    if os.path.isfile(hb):
+        with open(hb, encoding="utf-8") as fh:
+            hbt = fh.read()
+        wrong = []
+        for n in PB_FILES:
+            fp = os.path.join(ROOT, "08_OUTPUT", "PAPERBACK", n)
+            if os.path.isfile(fp) and ("PAPERBACK/%s`" % n) in hbt:
+                if sha256(fp)[:16] not in hbt:
+                    wrong.append(n)
+        rep.facts["handbookStaleHashes"] = wrong
+        rep.check(not wrong, "el kitabındaki sha256 önekleri GERÇEK dosyalarla "
+                  "uyuşuyor" + ("" if not wrong else " — BAYAT: %s" % wrong))
+
+    # Pakete konan metadata, izlenen metadata ile AYNI olmalı.
+    src = os.path.join(ROOT, "06_REPORTS", "tracked", "metadata.json")
+    dst = os.path.join(ROOT, "08_OUTPUT", "PAPERBACK", "metadata.json")
+    if os.path.isfile(src) and os.path.isfile(dst):
+        rep.check(sha256(src) == sha256(dst),
+                  "paketteki metadata.json izlenen sürümle AYNI")
+
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--quick", action="store_true")
+    ap.add_argument("--seal", action="store_true",
+                    help="paketi mühürle (checksums.txt tazele)")
     args = ap.parse_args()
 
     print("=" * 74)
@@ -444,6 +737,11 @@ def main() -> int:
     check_consistency(rep, txt)
     check_leaks(rep, txt)
     check_placeholders(rep)
+    check_previewer_class(rep, args.quick)
+    if args.seal:
+        print("\n── MÜHÜRLEME ──")
+        seal_paperback()
+    check_seal(rep)
 
     os.makedirs(os.path.dirname(REPORT), exist_ok=True)
     with open(REPORT, "w", encoding="utf-8") as fh:

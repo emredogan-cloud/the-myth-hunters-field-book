@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checks": 7,
+  "checks": 8,
   "errors": [],
   "warnings": [],
   "facts": {
@@ -11,10 +11,27 @@
     "finalAssetsOnDisk": 158,
     "output": "08_OUTPUT/PAPERBACK/interior.pdf",
     "placeholderMode": false,
-    "typesetPagesRaw": 155,
+    "typesetPagesRaw": 154,
     "typesetPagesSignatureAligned": 156,
     "overflowPages": [],
     "thinWritingLines": [],
+    "artPlacements": 130,
+    "artDpiFloor": 150.0,
+    "artDpiMin": 150.0,
+    "artDpiMax": 612.0,
+    "artBelowFloor": [],
+    "gutterConvergence": [
+      {
+        "attempt": 1,
+        "assumedPages": 156,
+        "gutterInches": 0.53,
+        "measuredPages": 156
+      }
+    ],
+    "gutterInches": 0.53,
+    "gutterKdpMinimum": 0.5,
+    "gutterSafetyInches": 0.03,
+    "gutterTierPages": 156,
     "modelVsTypesetDelta": 0
   }
 }

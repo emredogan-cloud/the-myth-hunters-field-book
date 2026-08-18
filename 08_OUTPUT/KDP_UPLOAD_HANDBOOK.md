@@ -18,8 +18,8 @@
 
 | Dosya | Ne | sha256 (ilk 16) |
 |---|---|---|
-| `08_OUTPUT/PAPERBACK/interior.pdf` | iç blok · **156 sayfa** · 40,6 MB | `a0e7bd1dc88ffc41` |
-| `08_OUTPUT/PAPERBACK/cover.pdf` | kapak · **tek PDF** · arka+sırt+ön · 4,93 MB | `803e080566b7614c` |
+| `08_OUTPUT/PAPERBACK/interior.pdf` | iç blok · **156 sayfa** · 40,6 MB | `c51045c443a235db` |
+| `08_OUTPUT/PAPERBACK/cover.pdf` | kapak · **tek PDF** · arka+sırt+ön · 52,6 MB | `c90f910349892d3b` |
 | `08_OUTPUT/PAPERBACK/metadata.json` | panele girilecek DEĞERLER | `5ffee7d6ac204430` |
 | `08_OUTPUT/PAPERBACK/checksums.txt` | doğrulama | — |
 | `08_OUTPUT/APLUS/` | 11 A+ görseli + modül haritası | ayrı dosyada |
@@ -162,7 +162,8 @@ yardımıyla üretilmiştir. Beyanı buna göre doldurun.
 > **17,6013 × 11,2500 in**, sırt **0,3513 in** (156 sayfadan türetildi),
 > 0,125 in bleed, bütün yazı tipleri gömülü.
 
-⚠ **Kapak sanatı 82 dpi** — ↓ § 5. Bu bir KURUCU KARARIDIR.
+✅ **Kapak sanatı 329 dpi** (sırt hizalama kırpmasından sonra ölçüldü) —
+KDP 300 dpi ölçütünü karşılıyor. ↓ § 5.
 
 ### ⑥ Previewer
 
@@ -172,6 +173,38 @@ Denetim listesi: [`08_OUTPUT/FINAL_KDP_PREFLIGHT.md § Previewer`](FINAL_KDP_PRE
 
 > Previewer bir Amazon hizmetidir ve yalnızca panelde koşar.
 > **Ajan onu ÇALIŞTIRMADI ve çalıştırdığını iddia etmiyor.**
+
+#### ⭑ ÖNCEKİ PREVIEWER KOŞUSUNUN BULDUĞU İKİ HATA — KAYNAKTA DÜZELTİLDİ ⭑
+
+Bu kitap daha önce gerçek Previewer'da açıldı ve iki hata bildirdi:
+
+```
+Insufficient gutter. Books with 156 pages require at least 0.5" (12.700mm)
+for the gutter / inside margin and at least 0.25" (6.35mm) for the
+outside, top and bottom margins.
+```
+```
+This text is outside the margins.        (sayfa 47)
+```
+
+İkisi de **gerçekti** ve **kaynakta** düzeltildi — nihai PDF elle
+yamalanmadı (K56 · K57). Bugünkü ölçüm:
+
+| ölçü | değer |
+|---|---|
+| iç kenar (gutter) | **0,5300 in** kullanıldı · KDP asgarisi 0,5000 |
+| ölçülen en dar iç kenar | **0,5067 in** |
+| ölçülen en dar dış / üst / alt | 0,4800 / 0,3000 / 0,3333 in |
+| ihlal eden sayfa | **0 / 156** |
+| sayfa 47 | iç 0,5267 · dış 0,5000 · üst 0,3733 · alt 0,3333 → **geçiyor** |
+
+Adli döküm: [`KDP_MARGIN_FORENSIC_REPORT.md`](KDP_MARGIN_FORENSIC_REPORT.md)
+— 156 satır, sayfa başına dört mesafe ve tek hüküm.
+
+> ⚠ Yerel `qa_margins.py` KDP Previewer'ı **taklit veya simüle etmez**.
+> KDP'nin yayımlanmış kurallarını modelleyip basılı dosyayı onlara karşı
+> ölçer. **Nihai hüküm yalnızca Previewer'ındır** ve onu yalnızca kurucu
+> çalıştırabilir.
 
 ### ⑦ Pricing · Territories · Royalty
 
