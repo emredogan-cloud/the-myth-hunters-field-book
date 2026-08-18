@@ -60,9 +60,13 @@
   "knownLimitation": {
     "issue": "teslim edilen kapak sanatı 1569 × 1003 px",
     "requiredForPrint": "5283 × 3375 px (17,6103 × 11,2500 in @ 300 dpi)",
-    "effectiveDpi": 89,
-    "shortfallFactor": 3.37,
+    "effectiveDpi": 82.2,
+    "shortfallFactor": 3.65,
     "note": [
+      "⚠ GÜNCEL: sanat, cilt şeridini GERÇEK SIRTA hizalamak için",
+      "oranı bozulmadan yeniden çerçevelendi (kadraj kaydı). Piksel",
+      "EKLENMEDİ, kırpıldı: etkin dpi 89 → 82.",
+      "",
       "⚠ BU BİR GİZLENMİŞ EKSİK DEĞİLDİR VE YUKARI ÖRNEKLEMEYLE",
       "KAPATILMADI. Piksel eklemeden DPI etiketini 300 yapmak bir",
       "düzeltme değil, bir YANLIŞ BEYANDIR.",
@@ -76,6 +80,75 @@
       "",
       "KURUCU EYLEMİ: baskı kalitesi için kapak sanatı ≥5283 × 3375",
       "px olarak YENİDEN ÜRETİLMELİDİR."
+    ],
+    "reframedForSpineAlignment": [
+      1448,
+      925
+    ]
+  },
+  "typography": {
+    "approach": "artwork-first · letterform halo · no opaque panels",
+    "opaquePanels": 0,
+    "removedInThisRound": [
+      "front title white box",
+      "front author white box",
+      "back copy white panel",
+      "spine white strip"
+    ],
+    "contrastMethod": "blurred glyph mask used as the alpha of a soft wash — follows the letters, has no edge, art stays visible",
+    "inkChosenBy": "measured background luminance under each block (light ground → dark ink, dark ground → light ink)",
+    "measuredContrastWCAG": {
+      "front-title": [
+        12.7,
+        217.7
+      ],
+      "front-subtitle": [
+        8.77,
+        181.8
+      ],
+      "front-author": [
+        14.45,
+        34.7
+      ],
+      "spine": [
+        12.25,
+        47.1
+      ],
+      "back-0": [
+        13.07,
+        220.6
+      ],
+      "back-1": [
+        12.55,
+        216.4
+      ],
+      "back-2": [
+        13.03,
+        220.3
+      ],
+      "back-3": [
+        12.49,
+        215.9
+      ],
+      "back-4": [
+        12.08,
+        212.5
+      ]
+    },
+    "spineOptical": {
+      "driftBefore": 0.01,
+      "correction": -0.01,
+      "driftAfter": 0.0033,
+      "method": "render with and without spine text, diff the two, measure the ink bbox — not a calculation"
+    },
+    "artBindingAlignedTo": {
+      "before": 0.4614,
+      "after": 0.5
+    },
+    "backColumnMeasured": [
+      1.635,
+      7.875,
+      6.24
     ]
   }
 }

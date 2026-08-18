@@ -289,7 +289,8 @@ def check_aplus(rep):
     # `06_REPORTS/aplus.json § rows[].headline|body|panelCopy`.
     aj = jload(os.path.join(ROOT, "06_REPORTS", "aplus.json"), {})
     copy = " ".join(
-        " ".join(str(r.get(k) or "") for k in ("headline", "body", "panelCopy"))
+        " ".join(str(r.get(k) or "")
+                 for k in ("headline", "body", "panelCopy", "panelBody"))
         for r in (aj.get("rows") or []))
     md = jload(META)
     if copy:

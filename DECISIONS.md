@@ -1538,3 +1538,85 @@ gerekiyordu — **×3,37 eksik**.
 
 **AÇIK · KURUCU EYLEMİ:** baskı kalitesi için kapak sanatı yeniden
 üretilmeli. Tek komut yeter; sırt ve geometri kendiliğinden türer.
+
+---
+
+### K49 · Kapak tipografisi — **SANAT KAHRAMAN, PANEL YOK**
+
+Kurucu ilk kapağı reddetti. Gerekçe tek cümleydi ve doğruydu:
+
+> Kapak bir illüstrasyon değil, üstüne **beyaz UI kutuları** yapıştırılmış
+> bir görüntü gibi duruyordu.
+
+Dört opak panel kaldırıldı: başlık kutusu · yazar kutusu · arka kapak
+paneli · sırt şeridi. **Şu an opak panel sayısı 0** ve `covers.py` bunu
+her koşuda kaydediyor; `--check` panelli eski sürümü BAYAT sayıyor.
+
+Yerine üç ÖLÇÜLEN araç geldi:
+
+| # | Araç | Nasıl ölçülür |
+|---|---|---|
+| ① | mürekkep rengi | bloğun altındaki sanatın ortalama parlaklığı |
+| ② | harf halesi | glif maskesi bulanıklaştırılıp yumuşak bir yıkamanın ALFASI olur |
+| ③ | okunurluk | **yalnızca mürekkebin basılacağı piksellerin** parlaklığı → WCAG oranı |
+
+> ### Ortalama bir zemin, bir harfin altındaki zemin değildir.
+>
+> ② ve ③ birlikte çalışır: eşiğin altında kalan blok için hale
+> güçlendirilir ve katman yeniden kurulur (en çok dört kez). Ölçülen en
+> düşük oran **8,77 : 1** (eşik 3,0).
+
+Kontrast desteğinin kenarı yoktur: harita, kıyı çizgisi ve pusula gülü
+halenin içinden görünmeye devam eder.
+
+---
+
+### K50 · Sanat **gerçek sırta** hizalandı — süreklilik ölçüldü
+
+Kurucunun sanatının kot cilt şeridi gerçek sırttan **%2,86 solda**
+duruyordu; şerit arka kapağın üstüne düşüyor ve kapak üç ayrı tasarım
+bloğu gibi okunuyordu.
+
+```
+cilt şeridi merkezi   0,4614  →  0,5000
+sırt merkezi          0,5000
+```
+
+Oran bozulmadan yeniden çerçevelendi — **yalnızca kadraj kaydı, yukarı
+örnekleme YOK**. Bedeli dürüstçe kayıtlı: etkin dpi **89 → 82**.
+
+> Bir sürekliliği "sağladık" demek, ölçmekten farklıdır.
+> `covers.py § ②` hizayı her koşuda ölçer ve sapma 0,004'ü aşarsa
+> KIRMIZI yanar.
+
+---
+
+### K51 · Sırt yazısı **optik** ortalandı — hesapla değil ÖLÇÜMLE
+
+Kapak iki kez render edilir (sırt yazısıyla ve yazısız) ve fark alınır.
+Fark tam olarak mürekkebin kendisidir; gerçek kutusu ölçülür.
+
+```
+sapma (önce)        -0,0100 in
+optik düzeltme      -0,0100 in
+sapma (sonra)       +0,0033 in     ← ölçüt ±0,004
+mürekkep genişliği   0,1600 in     ← sırt bandı 0,3513 in
+```
+
+> ### Bir şeyin ortada OLDUĞUNU varsaymak, ortada olduğunu ölçmek değildir.
+
+---
+
+### K52 · A+ modül haritası **MODÜL MERKEZLİ** oldu
+
+*Standard Three Image & Text* modülü Amazon'da TEK bir modül başlığı ve
+**üç ayrı yuva metni** verir. Harita görsel merkezliydi ve aynı başlığı
+ile aynı gövdeyi üç satıra da yazıyordu — kurucu paneli doldururken
+hangi metnin nereye gideceğini bilemezdi.
+
+> ### Bir eşleme belgesi, panelde HANGİ ALANA ne gireceğini tek anlamlı söylemiyorsa eşleme yapmıyor demektir.
+
+Harita artık **MODÜL → GÖRSEL → BAŞLIK → GÖVDE** sırasıyla kuruluyor ve
+çok görselli iki modülün her yuvası kendi başlığını ve kendi gövdesini
+taşıyor. Onaylı kopya **yeniden yazılmadı**; yalnızca eksik yuva metni
+eklendi ve `kdp_preflight` iddia taraması onu da kapsıyor.

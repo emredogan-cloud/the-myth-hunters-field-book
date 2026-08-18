@@ -162,7 +162,7 @@ yardımıyla üretilmiştir. Beyanı buna göre doldurun.
 > **17,6013 × 11,2500 in**, sırt **0,3513 in** (156 sayfadan türetildi),
 > 0,125 in bleed, bütün yazı tipleri gömülü.
 
-⚠ **Kapak sanatı 89 dpi** — ↓ § 5. Bu bir KURUCU KARARIDIR.
+⚠ **Kapak sanatı 82 dpi** — ↓ § 5. Bu bir KURUCU KARARIDIR.
 
 ### ⑥ Previewer
 
@@ -270,16 +270,17 @@ Hiçbir KDP alanı, hiçbir A+ satırı ve hiçbir kapak cümlesi bu kitabın
 
 ## 5 · ⚠ YÜKLEMEDEN ÖNCE BİLİNMESİ GEREKEN TEK EKSİK
 
-### Kapak sanatı 89 dpi — KDP 300 dpi bekler
+### Kapak sanatı 82 dpi — KDP 300 dpi bekler
 
 | | |
 |---|---:|
 | Teslim edilen kapak sanatı | **1569 × 1003 px** |
+| Sırta hizalamak için yeniden çerçevelendi | **1448 × 925 px** |
 | 17,6013 × 11,2500 in için gereken | **5280 × 3375 px** |
-| **Etkin çözünürlük** | **89 dpi** |
-| Eksik çarpan | **×3,37** |
+| **Etkin çözünürlük** | **82 dpi** |
+| Eksik çarpan | **×3.65** |
 
-**Ne YAPILDI:** sanat kendi çözünürlüğünde yerleştirildi ve gerçek dpi
+**Ne YAPILDI:** sanat, cilt şeridinin merkezi GERÇEK SIRTA gelecek biçimde oranı bozulmadan yeniden çerçevelendi (kadraj kaydı; yukarı örnekleme yok — bu yüzden etkin dpi 89'dan 82'e düştü) ve kendi çözünürlüğünde yerleştirildi ve gerçek dpi
 `06_REPORTS/cover.json` içine sayı olarak yazıldı. Bütün tipografi
 **vektördür**: başlık, yazar, sırt ve arka kapak metni çözünürlükten
 bağımsız olarak keskin basar. Yumuşak kalan yalnızca **arka plan

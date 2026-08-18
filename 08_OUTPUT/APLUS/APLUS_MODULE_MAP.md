@@ -2,12 +2,16 @@
 
 <!-- ÜRETİLMİŞTİR — 04_BUILD/aplus.py · ELLE DÜZENLEMEYİN -->
 
-> Kurucu bu tabloyu KDP **Marketing → A+ Content** ekranında satır satır uygular.
+> Kurucu bu belgeyi KDP **Marketing → A+ Content Manager** ekranında modül modül uygular.
 > Görseller `08_OUTPUT/APLUS/` altındadır ve **yüklenmedi**.
+
+```
+MODÜL  →  GÖRSEL  →  BAŞLIK  →  GÖVDE
+```
 
 ## ⭑ METİN GÖRSELE GÖMÜLÜ DEĞİLDİR ⭑
 
-Aşağıdaki *başlık* ve *gövde* metinleri Amazon'un kendi modül alanlarına girilir. Arka plan görselleri **metinsizdir** ve öyle kalmalıdır: gömülü metin düzeltilemez, mobilde okunmaz ve dil değişirse yeniden çizim ister.
+Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Arka plan görselleri metinsizdir ve öyle kalmalıdır: gömülü metin düzeltilemez, mobilde okunmaz ve dil değişirse yeniden çizim ister.
 
 ## ⚠ BU METİNLERİN İDDİA ETMEDİĞİ ŞEYLER
 
@@ -15,212 +19,293 @@ Aşağıdaki *başlık* ve *gövde* metinleri Amazon'un kendi modül alanlarına
 - **çocuk testi** — `externalValidation = overridden-zero-sessions`; sıfır oturum, sıfır testçi. Hiçbir A+ satırı bunun aksini söylemez.
 - bir bulmaca cevabı, çözülmüş bir sayfa veya bir mühür harfi
 
-## Modüller
+---
 
-### `aplus-01-hero.jpg` — Standard Image & Text Overlay
+## 1 · HERO — kitabın ne olduğu tek bakışta
 
 | | |
 |---|---|
-| **Amaç** | HERO — kitabın ne olduğu tek bakışta |
-| **Ölçü** | 1940 × 600 px |
-| **Dosya boyutu** | 0.41 MB (JPEG q95) |
-| **sha256** | `e47666a738f322a3515ef4a7d2396219` |
+| **Modül tipi** | `Standard Image & Text Overlay` |
+| **Görsel sayısı** | 1 |
+| **Modül kimliği** | `aplus-01-hero` |
 
-**Başlık (Amazon alanına girilir):**
+**MODÜL BAŞLIĞI** — Amazon'daki *headline* alanına:
 
 > Not a puzzle book with a mythology theme
 
-**Gövde (Amazon alanına girilir):**
+**MODÜL GÖVDESİ** — Amazon'daki *body text* alanına:
 
 > Every puzzle is built out of what a people actually made: a writing system, a counting system, a map of a real place, a message that had to travel. 120 puzzles across 22 cultures.
 
-### `aplus-02-what-children-do-01.jpg` — Standard Three Image & Text
+### Görsel
 
 | | |
 |---|---|
-| **Amaç** | ÇOCUK NE YAPIYOR — çöz · diz · mühürle |
-| **Ölçü** | 600 × 600 px |
-| **Dosya boyutu** | 0.12 MB (JPEG q95) |
-| **sha256** | `ba161000acf178981cc5f201a2f0770d` |
-| **Panel etiketi** | Decode and write |
+| Dosya | `aplus-01-hero.jpg` |
+| Ölçü | 1940 × 600 px |
+| Boyut | 0.41 MB (JPEG q95) |
+| sha256 | `e47666a738f322a3515ef4a7d2396219` |
 
-**Başlık (Amazon alanına girilir):**
+---
+
+## 2 · ÇOCUK NE YAPIYOR — çöz · diz · mühürle
+
+| | |
+|---|---|
+| **Modül tipi** | `Standard Three Image & Text` |
+| **Görsel sayısı** | 3 |
+| **Modül kimliği** | `aplus-02-what-children-do` |
+
+**MODÜL BAŞLIĞI** — Amazon'daki *headline* alanına:
 
 > Work it out. Write it down. Earn the seal.
 
-**Gövde (Amazon alanına girilir):**
+**MODÜL GÖVDESİ** — Amazon'daki *body text* alanına:
 
 > Children decode, sort and draw their way through the book — then press a seal at the end of every region.
 
-### `aplus-02-what-children-do-02.jpg` — Standard Three Image & Text
+### Görseller ve KENDİ metin alanları
+
+> ⚠ Bu modül **3 ayrı görsel yuvası** taşır ve her yuvanın KENDİ başlığı ve gövdesi vardır. Modül başlığı yalnızca **bir kez** girilir; aşağıdakiler yuvaların içine girer.
+
+#### Yuva 1 — `aplus-02-what-children-do-01.jpg`
 
 | | |
 |---|---|
-| **Amaç** | ÇOCUK NE YAPIYOR — çöz · diz · mühürle |
-| **Ölçü** | 600 × 600 px |
-| **Dosya boyutu** | 0.12 MB (JPEG q95) |
-| **sha256** | `70fba9716e4ee93e771d1f08af407aef` |
-| **Panel etiketi** | Sort the evidence |
+| Ölçü | 600 × 600 px |
+| Boyut | 0.12 MB (JPEG q95) |
+| sha256 | `ba161000acf178981cc5f201a2f0770d` |
 
-**Başlık (Amazon alanına girilir):**
+**Yuva başlığı:**
 
-> Work it out. Write it down. Earn the seal.
+> Decode and write
 
-**Gövde (Amazon alanına girilir):**
+**Yuva gövdesi:**
 
-> Children decode, sort and draw their way through the book — then press a seal at the end of every region.
+> A key is printed on the page and a line is ruled beneath it. Every answer comes from the plate — never from something a child is expected to already know.
 
-### `aplus-02-what-children-do-03.jpg` — Standard Three Image & Text
+#### Yuva 2 — `aplus-02-what-children-do-02.jpg`
 
 | | |
 |---|---|
-| **Amaç** | ÇOCUK NE YAPIYOR — çöz · diz · mühürle |
-| **Ölçü** | 600 × 600 px |
-| **Dosya boyutu** | 0.13 MB (JPEG q95) |
-| **sha256** | `013fef5bda4b5de3e40eb6efd2d715e5` |
-| **Panel etiketi** | Earn the seal |
+| Ölçü | 600 × 600 px |
+| Boyut | 0.12 MB (JPEG q95) |
+| sha256 | `70fba9716e4ee93e771d1f08af407aef` |
 
-**Başlık (Amazon alanına girilir):**
+**Yuva başlığı:**
 
-> Work it out. Write it down. Earn the seal.
+> Sort the evidence
 
-**Gövde (Amazon alanına girilir):**
+**Yuva gövdesi:**
 
-> Children decode, sort and draw their way through the book — then press a seal at the end of every region.
+> Cards arrive out of order with empty number boxes. The reader puts an account back the way it happened, then checks it against the page itself.
 
-### `aplus-03-six-regions.jpg` — Standard Image Header with Text
+#### Yuva 3 — `aplus-02-what-children-do-03.jpg`
 
 | | |
 |---|---|
-| **Amaç** | KAPSAM — altı bölge, yirmi iki halk |
-| **Ölçü** | 1940 × 600 px |
-| **Dosya boyutu** | 0.45 MB (JPEG q95) |
-| **sha256** | `7b297bdd8d787a476e6ae5317cf2633f` |
+| Ölçü | 600 × 600 px |
+| Boyut | 0.13 MB (JPEG q95) |
+| sha256 | `013fef5bda4b5de3e40eb6efd2d715e5` |
 
-**Başlık (Amazon alanına girilir):**
+**Yuva başlığı:**
+
+> Earn the seal
+
+**Yuva gövdesi:**
+
+> Six regions, six seals. The star box on each page collects one letter at a time until a region's seal word is complete.
+
+---
+
+## 3 · KAPSAM — altı bölge, yirmi iki halk
+
+| | |
+|---|---|
+| **Modül tipi** | `Standard Image Header with Text` |
+| **Görsel sayısı** | 1 |
+| **Modül kimliği** | `aplus-03-six-regions` |
+
+**MODÜL BAŞLIĞI** — Amazon'daki *headline* alanına:
 
 > Six regions. 22 peoples. One quest.
 
-**Gövde (Amazon alanına girilir):**
+**MODÜL GÖVDESİ** — Amazon'daki *body text* alanına:
 
 > From sea ice to cloud forest, the route crosses six regions and 22 cultures — each named by its own name.
 
-### `aplus-04-real-cultures.jpg` — Standard Single Image & Sidebar
+### Görsel
 
 | | |
 |---|---|
-| **Amaç** | GÜVENİLİRLİK — cevaplar kaynaklarla denetlendi |
-| **Ölçü** | 600 × 600 px |
-| **Dosya boyutu** | 0.14 MB (JPEG q95) |
-| **sha256** | `744f0b65829c37b26e55fbdc30a8d994` |
+| Dosya | `aplus-03-six-regions.jpg` |
+| Ölçü | 1940 × 600 px |
+| Boyut | 0.45 MB (JPEG q95) |
+| sha256 | `7b297bdd8d787a476e6ae5317cf2633f` |
 
-**Başlık (Amazon alanına girilir):**
+---
+
+## 4 · GÜVENİLİRLİK — cevaplar kaynaklarla denetlendi
+
+| | |
+|---|---|
+| **Modül tipi** | `Standard Single Image & Sidebar` |
+| **Görsel sayısı** | 1 |
+| **Modül kimliği** | `aplus-04-real-cultures` |
+
+**MODÜL BAŞLIĞI** — Amazon'daki *headline* alanına:
 
 > Checked against museums, archives and universities
 
-**Gövde (Amazon alanına girilir):**
+**MODÜL GÖVDESİ** — Amazon'daki *body text* alanına:
 
 > Every cultural claim in the book was revalidated against primary and institutional sources, and the back of the book says which ones.
 
-### `aplus-05-screen-free-01.jpg` — Standard Three Image & Text
+### Görsel
 
 | | |
 |---|---|
-| **Amaç** | SATIN ALMA GEREKÇESİ — masa başı, ekransız |
-| **Ölçü** | 600 × 600 px |
-| **Dosya boyutu** | 0.14 MB (JPEG q95) |
-| **sha256** | `9513ce2b8428e414097c34d527577101` |
-| **Panel etiketi** | Closed and ready |
+| Dosya | `aplus-04-real-cultures.jpg` |
+| Ölçü | 600 × 600 px |
+| Boyut | 0.14 MB (JPEG q95) |
+| sha256 | `744f0b65829c37b26e55fbdc30a8d994` |
 
-**Başlık (Amazon alanına girilir):**
+---
+
+## 5 · SATIN ALMA GEREKÇESİ — masa başı, ekransız
+
+| | |
+|---|---|
+| **Modül tipi** | `Standard Three Image & Text` |
+| **Görsel sayısı** | 3 |
+| **Modül kimliği** | `aplus-05-screen-free` |
+
+**MODÜL BAŞLIĞI** — Amazon'daki *headline* alanına:
 
 > A pencil. That is the whole kit.
 
-**Gövde (Amazon alanına girilir):**
+**MODÜL GÖVDESİ** — Amazon'daki *body text* alanına:
 
 > No screen, no app, no batteries. 156 pages a child writes in, at a table, with a pencil.
 
-### `aplus-05-screen-free-02.jpg` — Standard Three Image & Text
+### Görseller ve KENDİ metin alanları
+
+> ⚠ Bu modül **3 ayrı görsel yuvası** taşır ve her yuvanın KENDİ başlığı ve gövdesi vardır. Modül başlığı yalnızca **bir kez** girilir; aşağıdakiler yuvaların içine girer.
+
+#### Yuva 1 — `aplus-05-screen-free-01.jpg`
 
 | | |
 |---|---|
-| **Amaç** | SATIN ALMA GEREKÇESİ — masa başı, ekransız |
-| **Ölçü** | 600 × 600 px |
-| **Dosya boyutu** | 0.12 MB (JPEG q95) |
-| **sha256** | `feb60ffd770877782177d18bdfd909b3` |
-| **Panel etiketi** | Open and working |
+| Ölçü | 600 × 600 px |
+| Boyut | 0.14 MB (JPEG q95) |
+| sha256 | `9513ce2b8428e414097c34d527577101` |
 
-**Başlık (Amazon alanına girilir):**
+**Yuva başlığı:**
 
-> A pencil. That is the whole kit.
+> Closed and ready
 
-**Gövde (Amazon alanına girilir):**
+**Yuva gövdesi:**
 
-> No screen, no app, no batteries. 156 pages a child writes in, at a table, with a pencil.
+> One book and one pencil. Nothing to charge, nothing to install and nothing that needs a grown-up's password.
 
-### `aplus-05-screen-free-03.jpg` — Standard Three Image & Text
+#### Yuva 2 — `aplus-05-screen-free-02.jpg`
 
 | | |
 |---|---|
-| **Amaç** | SATIN ALMA GEREKÇESİ — masa başı, ekransız |
-| **Ölçü** | 600 × 600 px |
-| **Dosya boyutu** | 0.12 MB (JPEG q95) |
-| **sha256** | `7e3faa9028812dde2a505713b3d486c7` |
-| **Panel etiketi** | Finished for today |
+| Ölçü | 600 × 600 px |
+| Boyut | 0.12 MB (JPEG q95) |
+| sha256 | `feb60ffd770877782177d18bdfd909b3` |
 
-**Başlık (Amazon alanına girilir):**
+**Yuva başlığı:**
 
-> A pencil. That is the whole kit.
+> Open and working
 
-**Gövde (Amazon alanına girilir):**
+**Yuva gövdesi:**
 
-> No screen, no app, no batteries. 156 pages a child writes in, at a table, with a pencil.
+> Ruled writing space on every page, measured against the hand of an eight-year-old rather than an adult's.
 
-### `aplus-06-maps-and-codes.jpg` — Standard Single Left Image
+#### Yuva 3 — `aplus-05-screen-free-03.jpg`
 
 | | |
 |---|---|
-| **Amaç** | AKTİVİTE TÜRLERİ — harita · kod · gözlem · sıralama |
-| **Ölçü** | 600 × 600 px |
-| **Dosya boyutu** | 0.15 MB (JPEG q95) |
-| **sha256** | `387953e32bf44e75ed484d0e228ac2df` |
+| Ölçü | 600 × 600 px |
+| Boyut | 0.12 MB (JPEG q95) |
+| sha256 | `7e3faa9028812dde2a505713b3d486c7` |
 
-**Başlık (Amazon alanına girilir):**
+**Yuva başlığı:**
+
+> Finished for today
+
+**Yuva gövdesi:**
+
+> A quest with an ending. When the sixth seal is in, the last page opens and the certificate is filled in.
+
+---
+
+## 6 · AKTİVİTE TÜRLERİ — harita · kod · gözlem · sıralama
+
+| | |
+|---|---|
+| **Modül tipi** | `Standard Single Left Image` |
+| **Görsel sayısı** | 1 |
+| **Modül kimliği** | `aplus-06-maps-and-codes` |
+
+**MODÜL BAŞLIĞI** — Amazon'daki *headline* alanına:
 
 > Maps, keys, plates and cards
 
-**Gövde (Amazon alanına girilir):**
+**MODÜL GÖVDESİ** — Amazon'daki *body text* alanına:
 
 > Four kinds of work, 120 times over: trace a real coast, build a key, label a plate, put an account back in order.
 
-### `aplus-07-completion.jpg` — Standard Image & Text Overlay
+### Görsel
 
 | | |
 |---|---|
-| **Amaç** | TAMAMLAMA — bu kitap BİTİRİLİR |
-| **Ölçü** | 1940 × 600 px |
-| **Dosya boyutu** | 0.36 MB (JPEG q95) |
-| **sha256** | `5706c237a50efd03a3327928f48b9e98` |
+| Dosya | `aplus-06-maps-and-codes.jpg` |
+| Ölçü | 600 × 600 px |
+| Boyut | 0.15 MB (JPEG q95) |
+| sha256 | `387953e32bf44e75ed484d0e228ac2df` |
 
-**Başlık (Amazon alanına girilir):**
+---
+
+## 7 · TAMAMLAMA — bu kitap BİTİRİLİR
+
+| | |
+|---|---|
+| **Modül tipi** | `Standard Image & Text Overlay` |
+| **Görsel sayısı** | 1 |
+| **Modül kimliği** | `aplus-07-completion` |
+
+**MODÜL BAŞLIĞI** — Amazon'daki *headline* alanına:
 
 > Six seals, and a certificate at the end
 
-**Gövde (Amazon alanına girilir):**
+**MODÜL GÖVDESİ** — Amazon'daki *body text* alanına:
 
 > The book is a single quest with an ending. Six regions, six seals, and a final page that only opens when all six are in.
+
+### Görsel
+
+| | |
+|---|---|
+| Dosya | `aplus-07-completion.jpg` |
+| Ölçü | 1940 × 600 px |
+| Boyut | 0.36 MB (JPEG q95) |
+| sha256 | `5706c237a50efd03a3327928f48b9e98` |
 
 ---
 
 ## Kurucuya kalan
 
-1. KDP → kitap → **Marketing** → **A+ Content Manager**
-2. **Create A+ Content** · dil: English
-3. Yukarıdaki modülleri **sırayla** ekle
-4. Her modüle kendi görselini yükle ve metnini yapıştır
-5. **Preview** · sonra **Submit for approval**
-6. Amazon moderasyonu birkaç iş günü sürer
+1. KDP → kitabın satırında **⋯** → **Marketing**
+2. Marketplace **Amazon.com** → **A+ Content** → **Manage A+ Content**
+3. **Start creating A+ content** · **Basic** · dil **English**
+4. Yukarıdaki modülleri **numara sırasıyla** ekle
+5. Her modülün **başlığını** ve **gövdesini** kendi alanına yapıştır
+6. Çok görselli modüllerde her **yuvaya** kendi görselini, kendi başlığını ve kendi gövdesini gir
+7. **Preview** → **Submit for approval**
 
-> ⚠ **Panel bir A+ belgesindeki modül sayısını sınırlar.** Sınır bu setten azsa yukarıdan aşağıya seçin: sıra **öncelik sırasıdır** (01 · 03 · 05 en yüksek ticari sinyali taşır).
+> ⚠ **Panel bir A+ belgesindeki modül sayısını sınırlar.** Sınır bu setten azsa modülleri **yukarıdan aşağıya** seçin: sıra öncelik sırasıdır (1 · 3 · 5 en yüksek ticari sinyali taşır).
 
 > **AJAN AMAZON'A HİÇBİR ŞEY YÜKLEMEDİ.**

@@ -5,6 +5,62 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [Yayınlanmamış] — 2026-08-18 · **kapak ve A+ tipografi düzeltmesi**
+
+```
+KAPAK          ✅ dört opak panel KALDIRILDI · sanat kahraman
+SIRT           ✅ sanat gerçek sırta hizalandı · optik ortalama ÖLÇÜLDÜ
+A+             ✅ modül haritası MODÜL MERKEZLİ · yuva metinleri eklendi
+YENİ SANAT     ⛔ üretilmedi — mevcut varlıklar yeniden kullanıldı
+KDP            ⛔ DOKUNULMADI
+```
+
+Kurucu kapağı reddetti: *"üstüne beyaz UI kutuları yapıştırılmış bir
+görüntü."* Haklıydı.
+
+### Kaldırıldı — dört opak panel (K49)
+
+başlık kutusu · yazar kutusu · arka kapak paneli · sırt şeridi.
+Opak panel sayısı **0**; `covers.py --check` panelli sürümü bayat sayar.
+
+### Eklendi — ölçülen tipografi (K49)
+
+mürekkep rengi zeminden türetilir · kontrast desteği **harflerin
+biçimidir** (bulanık glif maskesi, kenarsız) · okunurluk **yalnızca
+mürekkebin basılacağı piksellerden** ölçülür ve eşik altındaki blok
+için hale güçlendirilip katman yeniden kurulur.
+
+En düşük ölçülen karşıtlık **8,77 : 1** (eşik 3,0).
+
+### Düzeltildi — sanat gerçek sırta hizalandı (K50)
+
+Cilt şeridi sırttan %2,86 soldaydı; kapak üç ayrı blok gibi okunuyordu.
+Oran bozulmadan yeniden çerçevelendi (kadraj kaydı, **yukarı örnekleme
+yok**): etkin dpi 89 → 82, ve bu kayıtlı.
+
+### Düzeltildi — sırt optik ortalama (K51)
+
+İki render'ın farkı alınarak mürekkep kutusu ölçüldü: sapma −0,0100 →
+**+0,0033 in**.
+
+### Düzeltildi — arka kapak sütunu ölçülerek bulundu
+
+Metin eğreltiotunun üstüne düşüyordu. İki geçişli tarama: önce blok
+yüksekliği, sonra o bandda en geniş açıklık → **x 1,635 .. 7,875 in**,
+zemin ortalama 208,7 · sapma 6,1.
+
+### Düzeltildi — A+ modül haritası (K52)
+
+Görsel merkezliydi ve üç görselli modüllerde aynı kopyayı üç kez
+tekrarlıyordu. Artık **MODÜL → GÖRSEL → BAŞLIK → GÖVDE**; iki çok
+görselli modülün altı yuvasına kendi başlığı ve gövdesi yazıldı.
+
+### Değişmedi
+
+`.gate` · 156 sayfa · sırt 0,3513 in · iç blok · metadata · 11 A+
+görselinin **kendisi** · onaylı kopya · externalValidation.
+
+
 ## [Yayınlanmamış] — 2026-08-16 · **Aşama 2 · nihai üretim ve sert denetim**
 
 ```

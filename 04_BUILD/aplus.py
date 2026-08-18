@@ -84,7 +84,16 @@ MODULES = [
      "headline": "Work it out. Write it down. Earn the seal.",
      "body": ("Children decode, sort and draw their way through the book — "
               "then press a seal at the end of every region."),
-     "panelCopy": ["Decode and write", "Sort the evidence", "Earn the seal"]},
+     "panelCopy": ["Decode and write", "Sort the evidence", "Earn the seal"],
+     "panelBody": [
+         "A key is printed on the page and a line is ruled beneath it. Every "
+         "answer comes from the plate — never from something a child is "
+         "expected to already know.",
+         "Cards arrive out of order with empty number boxes. The reader puts "
+         "an account back the way it happened, then checks it against the "
+         "page itself.",
+         "Six regions, six seals. The star box on each page collects one "
+         "letter at a time until a region's seal word is complete."]},
     {"id": "aplus-03-six-regions", "module": "Standard Image Header with Text",
      "shape": "banner", "panels": 1,
      "purpose": "KAPSAM — altı bölge, yirmi iki halk",
@@ -104,7 +113,14 @@ MODULES = [
      "headline": "A pencil. That is the whole kit.",
      "body": ("No screen, no app, no batteries. {pages} pages a child writes "
               "in, at a table, with a pencil."),
-     "panelCopy": ["Closed and ready", "Open and working", "Finished for today"]},
+     "panelCopy": ["Closed and ready", "Open and working", "Finished for today"],
+     "panelBody": [
+         "One book and one pencil. Nothing to charge, nothing to install and "
+         "nothing that needs a grown-up's password.",
+         "Ruled writing space on every page, measured against the hand of an "
+         "eight-year-old rather than an adult's.",
+         "A quest with an ending. When the sixth seal is in, the last page "
+         "opens and the certificate is filled in."]},
     {"id": "aplus-06-maps-and-codes", "module": "Standard Single Left Image",
      "shape": "square", "panels": 1,
      "purpose": "AKTİVİTE TÜRLERİ — harita · kod · gözlem · sıralama",
@@ -324,6 +340,8 @@ def main() -> int:
                 "headline": m["headline"].format(**subs),
                 "body": m["body"].format(**subs),
                 "panelCopy": (m.get("panelCopy") or [None] * m["panels"])[n - 1],
+                "panelBody": (m.get("panelBody") or [None] * m["panels"])[n - 1],
+                "panelIndex": n, "panelsInModule": m["panels"],
                 "dimensions": "%d × %d" % target,
                 "bytes": size, "jpegQuality": q,
                 "sha256": sha256(out),
@@ -336,22 +354,43 @@ def main() -> int:
         print("=" * 74)
         return 1 if rep.errors else 0
 
-    # ── modül haritası ────────────────────────────────────────────────────
+    # ── modül haritası — MODÜL MERKEZLİ ────────────────────────────────
+    #
+    # ⭑ İLK HÂL GÖRSEL MERKEZLİYDİ VE KOPYAYI ÜÇ KEZ TEKRARLIYORDU ⭑
+    #
+    # "Standard Three Image & Text" modülü Amazon'da TEK bir modül
+    # başlığı ve ÜÇ ayrı görsel-altı metin alanı verir. Görsel merkezli
+    # tablo aynı başlığı ve aynı gövdeyi üç satıra da yazıyordu:
+    # kurucu paneli doldururken hangi metnin nereye gideceğini
+    # bilemezdi.
+    #
+    #     Bir eşleme belgesi, panelde HANGİ ALANA ne gireceğini
+    #     tek anlamlı söylemiyorsa eşleme yapmıyor demektir.
+    #
+    # Harita artık MODÜL → GÖRSEL → BAŞLIK → GÖVDE sırasıyla kurulur.
+    by_mod = {}
+    for r in rows:
+        by_mod.setdefault(r["moduleId"], []).append(r)
+
     lines = [
         "# A+ İÇERİK MODÜL HARİTASI — The Myth Hunter's Field Book",
         "",
         "<!-- ÜRETİLMİŞTİR — 04_BUILD/aplus.py · ELLE DÜZENLEMEYİN -->",
         "",
-        "> Kurucu bu tabloyu KDP **Marketing → A+ Content** ekranında "
-        "satır satır uygular.",
+        "> Kurucu bu belgeyi KDP **Marketing → A+ Content Manager** ekranında "
+        "modül modül uygular.",
         "> Görseller `08_OUTPUT/APLUS/` altındadır ve **yüklenmedi**.",
+        "",
+        "```",
+        "MODÜL  →  GÖRSEL  →  BAŞLIK  →  GÖVDE",
+        "```",
         "",
         "## ⭑ METİN GÖRSELE GÖMÜLÜ DEĞİLDİR ⭑",
         "",
-        "Aşağıdaki *başlık* ve *gövde* metinleri Amazon'un kendi modül "
-        "alanlarına girilir. Arka plan görselleri **metinsizdir** ve öyle "
-        "kalmalıdır: gömülü metin düzeltilemez, mobilde okunmaz ve dil "
-        "değişirse yeniden çizim ister.",
+        "Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** "
+        "girilir. Arka plan görselleri metinsizdir ve öyle kalmalıdır: "
+        "gömülü metin düzeltilemez, mobilde okunmaz ve dil değişirse "
+        "yeniden çizim ister.",
         "",
         "## ⚠ BU METİNLERİN İDDİA ETMEDİĞİ ŞEYLER",
         "",
@@ -360,48 +399,93 @@ def main() -> int:
         "sıfır oturum, sıfır testçi. Hiçbir A+ satırı bunun aksini söylemez.",
         "- bir bulmaca cevabı, çözülmüş bir sayfa veya bir mühür harfi",
         "",
-        "## Modüller",
-        "",
-    ]
-    for r in rows:
-        lines += [
-            "### `%s` — %s" % (r["file"], r["module"]),
-            "",
-            "| | |", "|---|---|",
-            "| **Amaç** | %s |" % r["purpose"],
-            "| **Ölçü** | %s px |" % r["dimensions"],
-            "| **Dosya boyutu** | %.2f MB (JPEG q%d) |" % (r["bytes"] / 1e6,
-                                                           r["jpegQuality"]),
-            "| **sha256** | `%s` |" % r["sha256"][:32],
-        ]
-        if r["panelCopy"]:
-            lines.append("| **Panel etiketi** | %s |" % r["panelCopy"])
-        lines += [
-            "",
-            "**Başlık (Amazon alanına girilir):**",
-            "",
-            "> %s" % r["headline"],
-            "",
-            "**Gövde (Amazon alanına girilir):**",
-            "",
-            "> %s" % r["body"],
-            "",
-        ]
-    lines += [
         "---",
         "",
+    ]
+    for n, m in enumerate(MODULES, 1):
+        rs = by_mod.get(m["id"]) or []
+        if not rs:
+            continue
+        head = m["headline"].format(**subs)
+        body = m["body"].format(**subs)
+        multi = len(rs) > 1
+        lines += [
+            "## %d · %s" % (n, m["purpose"]),
+            "",
+            "| | |",
+            "|---|---|",
+            "| **Modül tipi** | `%s` |" % m["module"],
+            "| **Görsel sayısı** | %d |" % len(rs),
+            "| **Modül kimliği** | `%s` |" % m["id"],
+            "",
+            "**MODÜL BAŞLIĞI** — Amazon'daki *headline* alanına:",
+            "",
+            "> %s" % head,
+            "",
+            "**MODÜL GÖVDESİ** — Amazon'daki *body text* alanına:",
+            "",
+            "> %s" % body,
+            "",
+        ]
+        if multi:
+            lines += [
+                "### Görseller ve KENDİ metin alanları",
+                "",
+                "> ⚠ Bu modül **%d ayrı görsel yuvası** taşır ve her yuvanın "
+                "KENDİ başlığı ve gövdesi vardır. Modül başlığı yalnızca **bir "
+                "kez** girilir; aşağıdakiler yuvaların içine girer." % len(rs),
+                "",
+            ]
+            for r in rs:
+                lines += [
+                    "#### Yuva %d — `%s`" % (r["panelIndex"], r["file"]),
+                    "",
+                    "| | |", "|---|---|",
+                    "| Ölçü | %s px |" % r["dimensions"],
+                    "| Boyut | %.2f MB (JPEG q%d) |" % (r["bytes"] / 1e6,
+                                                        r["jpegQuality"]),
+                    "| sha256 | `%s` |" % r["sha256"][:32],
+                    "",
+                    "**Yuva başlığı:**",
+                    "",
+                    "> %s" % (r["panelCopy"] or "—"),
+                    "",
+                    "**Yuva gövdesi:**",
+                    "",
+                    "> %s" % (r["panelBody"] or "—"),
+                    "",
+                ]
+        else:
+            r = rs[0]
+            lines += [
+                "### Görsel",
+                "",
+                "| | |", "|---|---|",
+                "| Dosya | `%s` |" % r["file"],
+                "| Ölçü | %s px |" % r["dimensions"],
+                "| Boyut | %.2f MB (JPEG q%d) |" % (r["bytes"] / 1e6,
+                                                    r["jpegQuality"]),
+                "| sha256 | `%s` |" % r["sha256"][:32],
+                "",
+            ]
+        lines += ["---", ""]
+
+    lines += [
         "## Kurucuya kalan",
         "",
-        "1. KDP → kitap → **Marketing** → **A+ Content Manager**",
-        "2. **Create A+ Content** · dil: English",
-        "3. Yukarıdaki modülleri **sırayla** ekle",
-        "4. Her modüle kendi görselini yükle ve metnini yapıştır",
-        "5. **Preview** · sonra **Submit for approval**",
-        "6. Amazon moderasyonu birkaç iş günü sürer",
+        "1. KDP → kitabın satırında **⋯** → **Marketing**",
+        "2. Marketplace **Amazon.com** → **A+ Content** → "
+        "**Manage A+ Content**",
+        "3. **Start creating A+ content** · **Basic** · dil **English**",
+        "4. Yukarıdaki modülleri **numara sırasıyla** ekle",
+        "5. Her modülün **başlığını** ve **gövdesini** kendi alanına yapıştır",
+        "6. Çok görselli modüllerde her **yuvaya** kendi görselini, kendi "
+        "başlığını ve kendi gövdesini gir",
+        "7. **Preview** → **Submit for approval**",
         "",
-        "> ⚠ **Panel bir A+ belgesindeki modül sayısını sınırlar.** Sınır "
-        "bu setten azsa yukarıdan aşağıya seçin: sıra **öncelik "
-        "sırasıdır** (01 · 03 · 05 en yüksek ticari sinyali taşır).",
+        "> ⚠ **Panel bir A+ belgesindeki modül sayısını sınırlar.** Sınır bu "
+        "setten azsa modülleri **yukarıdan aşağıya** seçin: sıra öncelik "
+        "sırasıdır (1 · 3 · 5 en yüksek ticari sinyali taşır).",
         "",
         "> **AJAN AMAZON'A HİÇBİR ŞEY YÜKLEMEDİ.**",
         "",

@@ -48,9 +48,15 @@ UYARI        1
 | Sahte ISBN · barkod | **yok** | ✅ |
 | Ek açıklama | **0** | ✅ |
 | Barkod alanı | 2,00 × 1,20 in **BOŞ** | ✅ |
-| **Sanat çözünürlüğü** | **89 dpi** | ⚠ **300 ALTINDA** |
+| **Sanat çözünürlüğü** | **82 dpi** | ⚠ **300 ALTINDA** |
+| Cilt şeridi ⇄ sırt hizası | **0.5000** (hedef 0.5000) | ✅ hizalı |
+| Opak tipografi paneli | **0** | ✅ yok |
+| Sırt mürekkebi optik sapma | **+0.0033 in** | ✅ ±0,004 içinde |
+| Sırt mürekkebi genişliği | **0.1600 in** | ✅ sırt 0,3513 içinde |
+| En düşük harf-altı karşıtlık | **8.77 : 1** | ✅ eşik 3,0 |
 
-> ⚠ Tek açık kalem. Yukarı örnekleme YAPILMADI; tipografi vektör olduğu
+> ⚠ Tek açık kalem. Sanat sırta hizalamak için yeniden çerçevelendi
+> (89 → 82 dpi · kadraj kaydı, yukarı örnekleme YOK); tipografi vektör olduğu
 > için METİN keskin. Ayrıntı ve kurucu seçenekleri:
 > [`KDP_UPLOAD_HANDBOOK § 5`](KDP_UPLOAD_HANDBOOK.md)
 

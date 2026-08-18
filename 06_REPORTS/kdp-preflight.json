@@ -3,7 +3,7 @@
   "checks": 61,
   "errors": [],
   "warnings": [
-    "kapak sanatı 89 dpi — KDP 300 dpi bekler. Yukarı örnekleme YAPILMADI; tipografi vektör. KURUCU EYLEMİ: sanatı yeniden üret."
+    "kapak sanatı 82 dpi — KDP 300 dpi bekler. Yukarı örnekleme YAPILMADI; tipografi vektör. KURUCU EYLEMİ: sanatı yeniden üret."
   ],
   "facts": {
     "interiorPages": 156,
@@ -23,15 +23,15 @@
       17.6013,
       11.25
     ],
-    "coverFontsEmbedded": "4/4",
-    "coverArtDpi": 89.1,
+    "coverFontsEmbedded": "5/5",
+    "coverArtDpi": 82.2,
     "aplusImages": 11,
     "cultures": 22,
     "regions": 6,
     "finalSealWordOccurrences": 1,
     "scannedPagesBeforeAnswerKey": 151,
     "verbatimAnswerLeaks": 0,
-    "trackedFiles": 125,
+    "trackedFiles": 146,
     "manifestPlaceholders": [],
     "finalAssetsMissing": []
   }

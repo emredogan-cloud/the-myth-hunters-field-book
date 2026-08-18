@@ -222,3 +222,99 @@ Yol haritası Faz 6 § 8 `covers.py --check`'i zaten şart koşuyordu; araç
 >
 > Kapak, **iç blok yeniden dizildikten sonra** kurulur: sırt o günkü
 > sayfa sayısından gelir.
+
+---
+
+# ⭑ EK — TİPOGRAFİ DÜZELTME TURU · 18 Ağustos 2026 ⭑
+
+Kurucu ilk kapağı reddetti. Gerekçe tek cümleydi ve doğruydu:
+
+> Kapak bir illüstrasyon değil, üstüne **beyaz UI kutuları** yapıştırılmış
+> bir görüntü gibi duruyordu.
+
+## Kaldırılan dört opak panel
+
+| Panel | Neyi örtüyordu |
+|---|---|
+| Başlık kutusu | ön panelin üst %22'si — haritayı tamamen gizliyordu |
+| Yazar kutusu | alt orta — sanatın kendi boş etiket kartıyla çakışıyordu |
+| Arka kapak paneli | arka panelin ~%40'ı — parşömeni yok ediyordu |
+| Sırt şeridi | sırtın tamamı — kot dokusunu kapatıyordu |
+
+**Şu an opak panel sayısı: 0.** `covers.py` bunu her koşuda kaydediyor
+ve `--check` eski sürümü BAYAT sayıyor.
+
+## Yerine geçen üç araç — üçü de ÖLÇÜLÜR
+
+### ① Mürekkep rengi zeminden türetilir
+
+Her blok için altındaki sanatın ortalama parlaklığı ölçülür:
+açık zemin → koyu mürekkep, koyu zemin → açık mürekkep. Ölçülen
+değerler `06_REPORTS/cover.json § zoneMeasurements` içinde.
+
+```
+front-title     zemin 163,4  → koyu mürekkep
+front-author    zemin  62,2  → açık mürekkep
+spine           zemin  59,1  → açık mürekkep
+back            zemin 208,7  → koyu mürekkep
+```
+
+### ② Kontrast desteği HARFLERİN BİÇİMİDİR
+
+Glifler bir maskeye çizilir, kalın bir Gauss bulanıklığından geçirilir
+ve o maske yumuşak bir yıkamanın **alfası** olur.
+
+> ### Kenarı yoktur, kutusu yoktur; altındaki harita, kıyı çizgisi ve pusula gülü halenin içinden GÖRÜNÜR.
+
+Basılan harfler bunun üstüne **vektör** olarak çizilir. PIL çizimi
+yalnızca ışımayı biçimlendirir, hiçbir zaman nihai tipografi değildir.
+
+### ③ Okunurluk GÖZLE DEĞİL, HARFLERİN ALTINDAN ölçülür
+
+Bir bloğun ortalama zemini iyi görünüp harflerin tam altı kötü
+olabilir. Ölçüm glif maskesini kurar ve **yalnızca mürekkebin
+basılacağı piksellerin** parlaklığını okur, sonra WCAG karşıtlık
+oranını verir. Eşiğin altında kalan blok için hale güçlendirilir ve
+katman yeniden kurulur (en çok dört kez).
+
+Ölçülen en düşük oran: **8,77 : 1** (eşik 3,0).
+
+## Sanat gerçek sırta hizalandı
+
+Kurucunun sanatının kot cilt şeridi gerçek sırttan **%2,86 solda**
+duruyordu: şerit arka kapağın üstüne düşüyor, kapak üç ayrı blok gibi
+okunuyordu.
+
+```
+cilt merkezi   0,4614  →  0,5000
+sırt merkezi   0,5000
+```
+
+Oran bozulmadan yeniden çerçevelendi (yalnızca kadraj kaydı; **yukarı
+örnekleme yok**). Bedeli dürüstçe kayıtlı: etkin dpi **89 → 82**.
+
+## Sırt optik olarak ortalandı — hesapla değil ÖLÇÜMLE
+
+Kapak iki kez render edilir (sırt yazısıyla ve yazısız), fark alınır.
+Fark tam olarak mürekkebin kendisidir; gerçek kutusu ölçülür.
+
+```
+sapma (önce)      -0,0100 in
+optik düzeltme    -0,0100 in
+sapma (sonra)     +0,0033 in     ← ölçüt ±0,004
+mürekkep genişliği 0,1600 in     ← sırt 0,3513 in
+```
+
+## Arka kapak sütunu ölçülerek bulundu
+
+Parşömen geniş görünür ama sol kenarında eğreltiotu, deniz kabuğu ve
+halat var. İlk yerleşim metni güvenli alanın tamamına yaydı ve gövde
+satırları eğreltiotunun üstüne düştü.
+
+İki geçişli ölçüm: önce blok yüksekliği kestirilir, sonra **o
+yüksekliğin bandında** en geniş kesintisiz açıklık aranır.
+
+```
+ölçülen sütun   x 1,635 .. 7,875 in   (6,24 in)
+zemin           ortalama 208,7 · sapma 6,1   ← temiz parşömen
+```

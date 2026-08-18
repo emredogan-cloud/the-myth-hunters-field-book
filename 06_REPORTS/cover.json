@@ -1,34 +1,157 @@
 {
   "status": "pass",
-  "checks": 5,
+  "checks": 12,
   "errors": [],
   "warnings": [
-    "kapak sanatı 300 dpi ALTINDA (89 dpi) — yukarı örnekleme YAPILMADI; tipografi vektör olduğu için METİN keskin. KURUCU EYLEMİ: sanatı ≥5280 × 3375 px yeniden üret."
+    "kapak sanatı 300 dpi ALTINDA (82 dpi) — yukarı örnekleme YAPILMADI; tipografi vektör. KURUCU EYLEMİ: sanatı ≥5280 × 3375 px yeniden üret."
   ],
   "facts": {
+    "fontDir": "07_ASSETS/fonts",
+    "artBindingFound": true,
+    "artBindingBefore": 0.4614,
+    "artBindingAfter": 0.5,
+    "artAlignCrop": [
+      0,
+      39,
+      1448,
+      964
+    ],
     "artPixels": [
-      1569,
-      1003
+      1448,
+      925
     ],
     "requiredPixels": [
       5280,
       3375
     ],
-    "effectiveDpi": 89.1,
+    "effectiveDpi": 82.2,
     "artSha256": "68428bf6aa81b7f3f58140e8baf8d9bf37dd2881aa724aa726e74222374bdb33",
-    "fontDir": "07_ASSETS/fonts",
+    "backColumnInches": [
+      1.635,
+      7.875,
+      6.24
+    ],
+    "backColumnMeasured": true,
+    "backProbeBandInches": [
+      4.337,
+      8.113
+    ],
+    "backTextBottomInches": 4.167,
+    "spineFontPt": 11.73,
     "spineUsableInches": 0.2263,
-    "spineFontPt": 12.71,
-    "backScrimHeightInches": 3.92,
-    "backTextBottomInches": 4.655,
-    "barcodeTopInches": 1.575,
+    "titleFontPt": 42.5,
+    "authorBaselineInches": 1.755,
+    "zoneMeasurements": {
+      "front-title": {
+        "mean": 163.4,
+        "sd": 32.3,
+        "ink": "dark"
+      },
+      "front-subtitle": {
+        "mean": 165.5,
+        "sd": 31.2,
+        "ink": "dark"
+      },
+      "front-author": {
+        "mean": 62.2,
+        "sd": 32.2,
+        "ink": "light"
+      },
+      "spine": {
+        "mean": 59.1,
+        "sd": 10.1,
+        "ink": "light"
+      },
+      "back-0": {
+        "mean": 208.7,
+        "sd": 6.1,
+        "ink": "dark"
+      },
+      "back-1": {
+        "mean": 208.7,
+        "sd": 6.1,
+        "ink": "dark"
+      },
+      "back-2": {
+        "mean": 208.7,
+        "sd": 6.1,
+        "ink": "dark"
+      },
+      "back-3": {
+        "mean": 208.7,
+        "sd": 6.1,
+        "ink": "dark"
+      },
+      "back-4": {
+        "mean": 208.7,
+        "sd": 6.1,
+        "ink": "dark"
+      }
+    },
+    "haloBlocks": 9,
+    "glyphContrast": {
+      "front-title": [
+        12.7,
+        217.7
+      ],
+      "front-subtitle": [
+        8.77,
+        181.8
+      ],
+      "front-author": [
+        14.45,
+        34.7
+      ],
+      "spine": [
+        12.25,
+        47.1
+      ],
+      "back-0": [
+        13.07,
+        220.6
+      ],
+      "back-1": [
+        12.55,
+        216.4
+      ],
+      "back-2": [
+        13.03,
+        220.3
+      ],
+      "back-3": [
+        12.49,
+        215.9
+      ],
+      "back-4": [
+        12.08,
+        212.5
+      ]
+    },
+    "contrastFloor": {
+      "large>=18pt": 3.0,
+      "body": 4.5
+    },
+    "spineInkBoxInches": [
+      8.7307,
+      8.8906
+    ],
+    "spineInkCentreInches": 8.8106,
+    "spineTargetCentreInches": 8.8006,
+    "spineDriftBeforeInches": 0.01,
+    "spineOpticalCorrectionInches": -0.01,
+    "spineDriftAfterInches": 0.0033,
+    "spineInkVCentreInches": 5.635,
+    "spineInkWidthInches": 0.16,
+    "preview": "08_OUTPUT/PAPERBACK/cover-preview.png",
     "barcodeZoneInches": {
-      "x": 6.25,
+      "x": 6.375,
       "y": 0.375,
       "w": 2.0,
       "h": 1.2,
       "note": "boş bırakıldı · KDP kendi barkodunu basar"
     },
+    "opaquePanels": 0,
+    "contrastMethod": "letterform halo (blurred glyph mask) — no rectangles",
     "output": "08_OUTPUT/PAPERBACK/cover.pdf",
     "pages": 156
   }
