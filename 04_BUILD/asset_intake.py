@@ -107,6 +107,25 @@ def verify(rep, doc):
     man = {a["assetId"]: a for a in (jload(MANIFEST, {}) or {}).get("assets", [])}
     print("\n── ① teslim haritası bütünlüğü ──")
     for d in doc["deliveries"]:
+        # ⭑ AŞILMIŞ BİR TESLİM raw/ ALTINDA DEĞİLDİR — VE OLMAMALI ⭑
+        #
+        # Kapak sanatı 18 Ağustos'ta daha yüksek çözünürlüklü sürümle
+        # değiştirildi; eskisi `rejected/` altına arşivlendi. Kayıt
+        # silinmedi, çünkü bir ret kaydı olmadan bir tercih değildir.
+        #
+        # Ama zincir yine de DOĞRULANIR: dosya arşivde, kaydettiği
+        # sha256 ile duruyor mu? "Arşivlendi" demek, kaybolmasına izin
+        # vermek değildir.
+        if d.get("supersededBy"):
+            arch = os.path.join(ROOT, d.get("archivedTo") or "")
+            rep.check(bool(d.get("archivedTo")) and os.path.isfile(arch),
+                      "AŞILMIŞ teslim arşivde duruyor: %s → %s"
+                      % (d["assetId"], d.get("archivedTo")))
+            if os.path.isfile(arch):
+                rep.check(sha256(arch) == d["sha256"],
+                          "arşivlenen dosya sha256'sını koruyor: %s"
+                          % d["assetId"])
+            continue
         p = os.path.join(ROOT, d["delivered"])
         if not rep.check(os.path.isfile(p), "teslim dosyası var: %s" % d["delivered"]):
             continue
@@ -124,7 +143,7 @@ def verify(rep, doc):
         rep.warn("Pillow yok — oran denetimi ATLANDI")
         return
     for d in doc["deliveries"]:
-        if d["class"] != "interior":
+        if d["class"] != "interior" or d.get("supersededBy"):
             continue
         a = man.get(d["assetId"])
         if not rep.check(a is not None,
@@ -153,7 +172,7 @@ def install(rep, doc):
     n_inst = n_arch = 0
     for d in doc["deliveries"]:
         canon = d.get("canonicalRaw")
-        if not canon or d["class"] == "aplus":
+        if not canon or d["class"] == "aplus" or d.get("supersededBy"):
             continue
         src = os.path.join(ROOT, d["delivered"])
         dst = os.path.join(ROOT, canon)

@@ -5,6 +5,54 @@ Her faz kendi girdisini ekler. Format: ters kronolojik.
 
 ---
 
+## [Yayınlanmamış] — 2026-08-18b · **kapak çözünürlük değişimi + A+ karşılaştırmalı denetim**
+
+```
+KAPAK SANATI   ✅ 89 → 329 dpi (kırpma sonrası) · KDP ölçütü KARŞILANDI
+DPI            ✅ uyarıdan KAPIYA yükseltildi
+A+ ALT METİN   ✅ 11/11 eklendi — eksikti
+A+ GÖMÜLÜ METİN ⛔ kardeş kitaptan KOPYALANMADI · gerekçesiyle
+YENİ SANAT     ⛔ üretilmedi · yeni kopya yazılmadı
+KDP            ⛔ DOKUNULMADI
+```
+
+### Değişti — kapak sanatı 4× super-resolution (K53)
+
+Kurucu aynı kompozisyonun 6276 × 4012 sürümünü teslim etti. **Dosya adı
+kanıt sayılmadı**: kabul ölçümden verildi — aynı kompozisyon (PSNR
+32,3 dB), saf bicubic tabana göre **4,66× kenar enerjisi** (gerçek
+detay), metin/filigran/logo/barkod yok, mühürler boş.
+
+Eski dosya silinmedi; `rejected/` altına arşivlendi ve intake artık
+arşivi de doğruluyor. `covers.py` 300 dpi'ı artık **kapı** olarak
+denetliyor.
+
+### Korundu — tipografi düzeltmeleri
+
+Opak panel **0**. Sırt optik ortalama yeniden ölçüldü (+0,0033 in).
+Daha keskin sanat karşıtlığı yükseltti: en düşük harf-altı oran
+8,77 → **11,29 : 1**.
+
+### Denetlendi — kardeş kitabın A+ uygulaması (K54)
+
+*World Myths* metni görsele basıyor ve modül alanlarını **boş
+bırakıyor**; gerekçesi playbook'unda yazılı: o projede üreteç kapakta
+kitabın adını yanlış yazmıştı.
+
+**O gerekçe burada yok** — bu kitabın metni de üreteçten gelmiyor.
+Kopyalanmadı; görseller metinsiz kalır, kopya modül alanlarına girer.
+
+### Eklendi — A+ alt metni (K55)
+
+11 görselin 11'ine betimleyici alt metin. Ayrıca hiçbir modül/yuva
+metinsiz kalamaz: `aplus` kapısı **32 → 77 denetim**.
+
+### Eklendi — A+ QA önizlemesi
+
+`08_OUTPUT/APLUS/preview/` · yedi modülün ürün sayfasındaki dizilişi.
+**Yüklenmez**; nihai görseller metinsiz kalır.
+
+
 ## [Yayınlanmamış] — 2026-08-18 · **kapak ve A+ tipografi düzeltmesi**
 
 ```

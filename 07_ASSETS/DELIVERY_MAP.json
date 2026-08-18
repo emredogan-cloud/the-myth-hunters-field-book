@@ -17,7 +17,8 @@
     "",
     "İki teslim dosyası kanonik olmayan adla geldi ('Pasted image').",
     "Kurucunun dosyası SİLİNMEZ ve DEĞİŞTİRİLMEZ: kanonik ada bir",
-    "KOPYA kurulur, orijinal olduğu yerde kalır."
+    "KOPYA kurulur, orijinal olduğu yerde kalır.",
+    "18 Ağustos 2026: kapak sanatı 4× super-resolution sürümüyle DEĞİŞTİRİLDİ. Eski dosya silinmedi, rejected/ altına gerekçesiyle arşivlendi. Tek kanonik kapak sanatı vardır."
   ],
   "version": 1,
   "deliveredAt": "2026-08-16",
@@ -26,7 +27,10 @@
     {
       "delivered": "07_ASSETS/raw/Pasted image.png",
       "sha256": "68cfcfdc5ef8ddd37e1737ed96c39e3354efe7aaec5b1716afbd33d007941f60",
-      "deliveredSize": [1659, 948],
+      "deliveredSize": [
+        1659,
+        948
+      ],
       "class": "interior",
       "assetId": "fig-yoruba-underdot-letters",
       "canonicalRaw": "07_ASSETS/raw/fig-yoruba-underdot-letters.png",
@@ -40,7 +44,10 @@
     {
       "delivered": "07_ASSETS/raw/Pasted image (2).png",
       "sha256": "ee0ed4c7a93654c81a772b0185f8d85caa4f7bafc0e7d14f36be15b4a1d6a128",
-      "deliveredSize": [1305, 1205],
+      "deliveredSize": [
+        1305,
+        1205
+      ],
       "class": "interior",
       "assetId": "fig-korean-river-crossing-sort",
       "canonicalRaw": "07_ASSETS/raw/fig-korean-river-crossing-sort.png",
@@ -55,34 +62,55 @@
     {
       "delivered": "07_ASSETS/raw/kdp-cover-option-01.png",
       "sha256": "68428bf6aa81b7f3f58140e8baf8d9bf37dd2881aa724aa726e74222374bdb33",
-      "deliveredSize": [1569, 1003],
+      "deliveredSize": [
+        1569,
+        1003
+      ],
       "class": "cover",
       "assetId": "kdp-cover-option-01",
       "canonicalRaw": "07_ASSETS/raw/kdp-cover-option-01.png",
-      "evidence": ["kanonik adla teslim edildi"]
+      "evidence": [
+        "kanonik adla teslim edildi",
+        "⚠ AŞILDI 18 Ağustos 2026 — 89 dpi yetersizdi."
+      ],
+      "supersededBy": "kdp-cover-option-01-4x-300dpi",
+      "archivedTo": "07_ASSETS/rejected/kdp-cover-option-01.superseded-89dpi.png"
     },
     {
       "delivered": "07_ASSETS/raw/kdp-cover-option-02.png",
       "sha256": "3907748dc358277e4351a266de401cbd8ca24a968979a811bd5e8eb3287b8575",
-      "deliveredSize": [1569, 1002],
+      "deliveredSize": [
+        1569,
+        1002
+      ],
       "class": "cover",
       "assetId": "kdp-cover-option-02",
       "canonicalRaw": "07_ASSETS/raw/kdp-cover-option-02.png",
-      "evidence": ["kanonik adla teslim edildi"]
+      "evidence": [
+        "kanonik adla teslim edildi"
+      ]
     },
     {
       "delivered": "07_ASSETS/raw/aplus/aplus-01-hero.png",
       "sha256": "19564cc672224b836b3b14db567fd26121710e26448f881a4109a916db4ba277",
-      "deliveredSize": [1667, 943],
+      "deliveredSize": [
+        1667,
+        943
+      ],
       "class": "aplus",
       "assetId": "aplus-01-hero",
       "panels": 1,
-      "evidence": ["tek sahne · banner modülüne kırpılacak"]
+      "evidence": [
+        "tek sahne · banner modülüne kırpılacak"
+      ]
     },
     {
       "delivered": "07_ASSETS/raw/aplus/aplus-02-what-children-do.png",
       "sha256": "fd7cf309a263a95186cb8cfcdaa7781969dee33be381a6e4f0a2170784279be1",
-      "deliveredSize": [1254, 1254],
+      "deliveredSize": [
+        1254,
+        1254
+      ],
       "class": "aplus",
       "assetId": "aplus-02-what-children-do",
       "panels": 3,
@@ -96,25 +124,38 @@
     {
       "delivered": "07_ASSETS/raw/aplus/aplus-03-six-regions.png",
       "sha256": "4d8e50a802ba1f83dedd29418859a24346d0e5a8bf528636203a10a159021ce1",
-      "deliveredSize": [1596, 985],
+      "deliveredSize": [
+        1596,
+        985
+      ],
       "class": "aplus",
       "assetId": "aplus-03-six-regions",
       "panels": 1,
-      "evidence": ["tek sahne · banner modülüne kırpılacak"]
+      "evidence": [
+        "tek sahne · banner modülüne kırpılacak"
+      ]
     },
     {
       "delivered": "07_ASSETS/raw/aplus/aplus-04-real-cultures.png",
       "sha256": "eac594c1510698130232a1da2e92efdb6ec7c53d5fac72c2a5709ccd63e3233f",
-      "deliveredSize": [1254, 1254],
+      "deliveredSize": [
+        1254,
+        1254
+      ],
       "class": "aplus",
       "assetId": "aplus-04-real-cultures",
       "panels": 1,
-      "evidence": ["tek kare sahne"]
+      "evidence": [
+        "tek kare sahne"
+      ]
     },
     {
       "delivered": "07_ASSETS/raw/aplus/aplus-05-screen-free.png",
       "sha256": "dc934fca9dc3d6217225beaa7e8a57403da76df97c9f7ce9d7d06faaab7af3d5",
-      "deliveredSize": [1254, 1254],
+      "deliveredSize": [
+        1254,
+        1254
+      ],
       "class": "aplus",
       "assetId": "aplus-05-screen-free",
       "panels": 4,
@@ -128,20 +169,54 @@
     {
       "delivered": "07_ASSETS/raw/aplus/aplus-06-maps-and-codes.png",
       "sha256": "d14dba1101afd1854011dc0dbe82e216e494855c913268c3f2ee961b09004bff",
-      "deliveredSize": [1254, 1254],
+      "deliveredSize": [
+        1254,
+        1254
+      ],
       "class": "aplus",
       "assetId": "aplus-06-maps-and-codes",
       "panels": 1,
-      "evidence": ["tek kare sahne"]
+      "evidence": [
+        "tek kare sahne"
+      ]
     },
     {
       "delivered": "07_ASSETS/raw/aplus/aplus-07-completion.png",
       "sha256": "8aecaca750c4bed553bb9be5330dfa93b679feb92eb5c316b944dec6c7b640fe",
-      "deliveredSize": [1726, 911],
+      "deliveredSize": [
+        1726,
+        911
+      ],
       "class": "aplus",
       "assetId": "aplus-07-completion",
       "panels": 1,
-      "evidence": ["tek sahne · banner modülüne kırpılacak"]
+      "evidence": [
+        "tek sahne · banner modülüne kırpılacak"
+      ]
+    },
+    {
+      "delivered": "07_ASSETS/raw/kdp-cover-option-01-4x-300dpi.png",
+      "sha256": "fac994f6310a417f7b769680582722833497a2248aa2a27c96dcf633f9100dd5",
+      "deliveredSize": [
+        6276,
+        4012
+      ],
+      "class": "cover",
+      "assetId": "kdp-cover-option-01-4x-300dpi",
+      "canonicalRaw": "07_ASSETS/raw/kdp-cover-option-01-4x-300dpi.png",
+      "supersedes": "kdp-cover-option-01",
+      "evidence": [
+        "⭑ KANONİK KAPAK SANATI ⭑",
+        "6276 × 4012 px · nihai kapakta ÖLÇÜLEN 356,6 dpi (≥300 ✓)",
+        "sırt hizalama kırpmasından SONRA 329,2 dpi (≥300 ✓)",
+        "aynı kompozisyon: yeni→eski ölçekte PSNR 32,3 dB",
+        "gerçek detay: kenar enerjisi saf bicubic tabana göre 4,66×",
+        "en-boy 1,56431 ↔ gereken 1,56456 (sapma %0,016)",
+        "cilt şeridi 0,4616 — eski 0,4614 ile aynı, hizalama birebir çalışır",
+        "metin · filigran · logo · barkod · ISBN: YOK",
+        "mühürler BOŞ · defter sayfaları boş · etiket kartları boş",
+        "gömülü dpi üstverisi 299,9994 — BEYAN olarak kaydedildi, kanıt sayılmadı"
+      ]
     }
   ]
 }

@@ -1620,3 +1620,85 @@ Harita artık **MODÜL → GÖRSEL → BAŞLIK → GÖVDE** sırasıyla kuruluyo
 çok görselli iki modülün her yuvası kendi başlığını ve kendi gövdesini
 taşıyor. Onaylı kopya **yeniden yazılmadı**; yalnızca eksik yuva metni
 eklendi ve `kdp_preflight` iddia taraması onu da kapsıyor.
+
+---
+
+### K53 · Kapak sanatı **4× super-resolution** sürümüyle değişti — ölçülerek
+
+Kurucu 18 Ağustos 2026'da `kdp-cover-option-01-4x-300dpi.png` teslim etti.
+
+> ### ⭑ DOSYA ADI BİR KANIT DEĞİLDİR ⭑
+>
+> Ad *"4x-300dpi"* diyor ve gömülü üstveri *299,9994* yazıyor. İkisi de
+> **iddiadır**. Kabul kararı ölçümden verildi:
+> `etkin dpi = piksel / gerçek fiziksel boy`.
+
+| | eski | **yeni** |
+|---|---:|---:|
+| piksel | 1569 × 1003 | **6276 × 4012** |
+| etkin dpi (17,6013 × 11,2500 in) | 89,1 | **356,6** |
+| sırt hizalama kırpması sonrası | — | **329,2** |
+
+Dört ayrı test yapıldı ve dördü de geçti:
+
+| Test | Ölçüm |
+|---|---|
+| aynı kompozisyon mu | yeni→eski ölçekte **PSNR 32,3 dB** → onaylı sanatın kendisi |
+| gerçek detay mı | kenar enerjisi saf bicubic tabana göre **4,66×** → super-resolution |
+| kompozisyon uyumu | cilt şeridi 0,4616 ↔ eski 0,4614 → hizalama birebir çalışır |
+| kirlilik | metin · filigran · logo · barkod · ISBN **yok**; mühürler BOŞ |
+
+**Eski dosya SİLİNMEDİ**, `rejected/` altına gerekçesiyle arşivlendi ve
+`asset_intake --verify` artık aşılmış teslimleri **arşivde** doğruluyor:
+kaybolan bir arşiv de bir kusurdur.
+
+**Ve eşik kapıya dönüştü:** `covers.py` etkin dpi < 300 ise KIRMIZI
+yanıyor.
+
+> ### Bir eşik, karşılanabilir hâle geldiği gün KAPIYA dönüşür.
+
+---
+
+### K54 · A+ metni görsele GÖMÜLMEZ — kardeş kitaptan bilinçli ayrım
+
+*The Great Book of World Myths*'in A+ uygulaması okundu ve görselleri
+açıldı. Ölçülen gerçek:
+
+| Soru | Cevap |
+|---|---|
+| metin görselin içinde mi | **EVET** — `aplus.py` PIL ile JPEG'e basıyor |
+| modül alanı dolduruluyor mu | **HAYIR, kasıtlı** — playbook *"headline/body BOŞ bırakılır"* diyor |
+| neden | o projede **üreteç kapakta kitabın adını yanlış yazmıştı**; bütün tipografi görsele deterministik basıldı |
+
+> ### Kardeş kitabın gerekçesi bu kitapta YOKTUR.
+>
+> Buradaki metin de üreteçten gelmiyor: `metadata.json` ölçümlerinden
+> türetiliyor ve Amazon onu kendi alanlarında **duyarlı** basıyor.
+> Aynı riski çözmek için aynı bedeli ödemeye gerek yok.
+
+Bedel gerçek: gömülü metin **düzeltilemez** (bu kitabın sayfa sayısı
+zaten 160 → 156 değişti), **mobilde ölçeklenmez**, **çevrilemez** ve
+Amazon overlay modüllerinde **iki kez** görünür.
+
+**Karar: kopyalanmadı.** Görseller metinsiz kalır, kopya modül
+alanlarına girer. Harita bunu açıkça uyarıyor — iki kitabın sözleşmesi
+birbirinin tersidir.
+
+---
+
+### K55 · A+ **alt metni** eksikti — ve bu gerçek bir kusurdu
+
+Karşılaştırma bir eksik buldu: kardeş projenin playbook'u her görsel
+için alt metni *"erişilebilirlik; zorunlu"* diye işaretliyor; bu
+projenin haritasında **hiç yoktu**.
+
+> ### Alt metin bir pazarlama alanı değildir: görmeyen bir okurun gördüğü TEK şeydir.
+
+11 görselin 11'ine betimleyici alt metin yazıldı — görseli TARİF eder,
+pazarlama cümlesini tekrarlamaz.
+
+**Ve bir kapı eklendi**, kardeş projenin pahalı dersinden: orada iki
+modül **metinsiz** çıkmış ve hiçbir kapı görmemişti çünkü doğrulama
+yalnızca ölçü, renk ve dosya boyutuna bakıyordu. Artık başlık · gövde ·
+alt metin · yuva başlığı · yuva gövdesi **boş olamaz**.
+`aplus` kapısı **32 → 77 denetim**.

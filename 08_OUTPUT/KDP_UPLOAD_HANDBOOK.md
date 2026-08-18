@@ -268,43 +268,27 @@ Hiçbir KDP alanı, hiçbir A+ satırı ve hiçbir kapak cümlesi bu kitabın
 
 ---
 
-## 5 · ⚠ YÜKLEMEDEN ÖNCE BİLİNMESİ GEREKEN TEK EKSİK
+## 5 · ✅ KAPAK ÇÖZÜNÜRLÜĞÜ — ÇÖZÜLDÜ
 
-### Kapak sanatı 82 dpi — KDP 300 dpi bekler
+Bu bir eksik DEĞİL artık. Kurucu 18 Ağustos 2026'da aynı kompozisyonun
+4× super-resolution sürümünü teslim etti ve ölçülerek kabul edildi.
 
-| | |
-|---|---:|
-| Teslim edilen kapak sanatı | **1569 × 1003 px** |
-| Sırta hizalamak için yeniden çerçevelendi | **1448 × 925 px** |
-| 17,6013 × 11,2500 in için gereken | **5280 × 3375 px** |
-| **Etkin çözünürlük** | **82 dpi** |
-| Eksik çarpan | **×3.65** |
+| | ESKİ | **YENİ** |
+|---|---:|---:|
+| Piksel | 1569 × 1003 | **6276 × 4012** |
+| Etkin dpi (tam kapak) | 89,1 | **356,6** |
+| Sırt hizalama kırpması sonrası | — | **329.2 dpi** |
+| KDP 300 dpi ölçütü | ✗ | **✅ KARŞILANDI** |
 
-**Ne YAPILDI:** sanat, cilt şeridinin merkezi GERÇEK SIRTA gelecek biçimde oranı bozulmadan yeniden çerçevelendi (kadraj kaydı; yukarı örnekleme yok — bu yüzden etkin dpi 89'dan 82'e düştü) ve kendi çözünürlüğünde yerleştirildi ve gerçek dpi
-`06_REPORTS/cover.json` içine sayı olarak yazıldı. Bütün tipografi
-**vektördür**: başlık, yazar, sırt ve arka kapak metni çözünürlükten
-bağımsız olarak keskin basar. Yumuşak kalan yalnızca **arka plan
-sanatıdır**.
+Kabul dosya adına göre değil ÖLÇÜME göre verildi: aynı kompozisyon
+(PSNR 32,3 dB), saf bicubic tabana göre **4,66× kenar enerjisi**
+(gerçek detay), metin/filigran/logo/barkod yok.
 
-**Ne YAPILMADI ve NEDEN:**
+Eski dosya silinmedi:
+`07_ASSETS/rejected/kdp-cover-option-01.superseded-89dpi.png`
 
-> ⛔ Piksel eklemeden DPI etiketini 300 yapmak bir düzeltme değil,
-> bir **YANLIŞ BEYANDIR**. Yukarı örnekleme çözünürlük kazandırmaz;
-> yalnızca dosyayı şişirir ve iddiayı yalan hâline getirir.
+> `covers.py` artık etkin dpi < 300 ise **KIRMIZI yanar**. Düşük
+> çözünürlüklü bir sanat geri konursa kapak sessizce basılmaz.
 
-**KURUCU SEÇENEKLERİ:**
-
-| # | Seçenek | Sonuç |
-|---|---|---|
-| ① | Kapak sanatını **≥5280 × 3375 px** yeniden üret, `covers.py` koştur | tam KDP uyumu |
-| ② | Mevcut kapakla yayımla | arka plan yumuşak basar · metin keskin · KDP genelde reddetmez ama **Previewer uyarı verebilir** |
-
-① seçilirse tek komut yeter:
-
-```bash
-# yeni sanatı 07_ASSETS/raw/kdp-cover-option-01.png üzerine koy, sonra:
-./04_BUILD/covers.py && ./04_BUILD/kdp_preflight.py
-```
-
-Sırt ve bütün geometri **sayfa sayısından yeniden türetilir**; elle
-hiçbir ölçü taşınmaz.
+⚠ İç blok görselleri hâlâ 150 dpi'dır (K39 · kurucu kararı) — bu ayrı
+bir kalemdir ve bu turda değişmedi.

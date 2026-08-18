@@ -2,9 +2,7 @@
   "status": "pass",
   "checks": 61,
   "errors": [],
-  "warnings": [
-    "kapak sanatı 82 dpi — KDP 300 dpi bekler. Yukarı örnekleme YAPILMADI; tipografi vektör. KURUCU EYLEMİ: sanatı yeniden üret."
-  ],
+  "warnings": [],
   "facts": {
     "interiorPages": 156,
     "interiorTrim": [
@@ -24,7 +22,7 @@
       11.25
     ],
     "coverFontsEmbedded": "5/5",
-    "coverArtDpi": 82.2,
+    "coverArtDpi": 329.2,
     "aplusImages": 11,
     "cultures": 22,
     "regions": 6,

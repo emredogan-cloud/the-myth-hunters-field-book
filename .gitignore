@@ -154,3 +154,25 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# ⑦ PORTFÖY GENELİ İŞLETME NOTLARI — DEPOYA GİRMEZ ─────────────────────────
+#
+# `ASSET_UPSCALING_REPORT.md` kurucunun 18 Ağustos 2026'da yerleştirdiği,
+# görsel yükseltme aracının nasıl kurulduğunu anlatan bir işletme notudur.
+# Faydalıdır ve DİSKTE KALIR — ama takip EDİLMEZ, iki ölçülmüş nedenle:
+#
+#   ① MUTLAK YEREL YOL taşıyor (`/home/<kullanıcı>/…`). `kdp_preflight § ⑤`
+#      tam olarak bunu arar ve takip edilseydi KIRMIZI yakardı — aynı
+#      sınıfı `06_REPORTS/interior.json` ile bir kez yaşadık.
+#
+#   ② ALTI PROJEYİ ADIYLA sayıyor (21 geçiş): Codex Bestiarium, Codex
+#      Mythologica, World Games, World Myths… Bu depo PUBLIC ve bu
+#      projenin birinci kuralı İZOLASYON (`PROJECT_CONTEXT § 6`:
+#      "ortak dosya, ortak build, ortak rapor YOK"). Pazar raporu da
+#      aynı gerekçeyle bu depoda değil (`PROJECT_CONTEXT § 1`).
+#
+#      Yayımlanmamış kitap adlarını taşıyan bir portföy haritası, bir
+#      ticari strateji belgesidir ve public bir depoda duramaz.
+#
+# Belge silinmedi; yalnızca sürüm kontrolünün dışında tutuldu.
+ASSET_UPSCALING_REPORT.md

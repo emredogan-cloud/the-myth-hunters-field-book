@@ -9,9 +9,19 @@
 MODÜL  →  GÖRSEL  →  BAŞLIK  →  GÖVDE
 ```
 
-## ⭑ METİN GÖRSELE GÖMÜLÜ DEĞİLDİR ⭑
+## ⭑ METİN GÖRSELE GÖMÜLÜ DEĞİLDİR — VE BU BİLİNÇLİ BİR AYRIMDIR ⭑
 
-Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Arka plan görselleri metinsizdir ve öyle kalmalıdır: gömülü metin düzeltilemez, mobilde okunmaz ve dil değişirse yeniden çizim ister.
+Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Arka plan görselleri metinsizdir ve öyle kalmalıdır: gömülü metin düzeltilemez, mobilde ölçeklenmez ve dil değişirse yeniden çizim ister.
+
+> ### ⚠ KARDEŞ KİTAPTAN FARKLI — ALANLARI BOŞ BIRAKMAYIN
+>
+> *The Great Book of World Myths* A+ metinlerini **görselin içine** bastı ve playbook'u modül alanlarını **boş bırakmayı** söyler. Gerekçesi oydu: o projede görsel üreteci kapakta kitabın adını **yanlış yazmıştı**, bu yüzden bütün tipografi görsele deterministik olarak basıldı.
+>
+> **O gerekçe bu kitapta YOKTUR.** Buradaki metinler de üreteçten gelmiyor: `metadata.json` ölçümlerinden türetiliyor ve Amazon onları kendi alanlarında **duyarlı** olarak basıyor.
+>
+> Amazon, *Image & Text Overlay* modüllerinde arka plan görseline metin eklenmemesini zaten tavsiye ediyor.
+>
+> **Bu kitapta modül alanları DOLDURULUR.** İki kitabın sözleşmesi birbirinin tersidir; kardeş kitabın alışkanlığıyla burada alanları boş bırakmak, ürün sayfasını **metinsiz** bırakır.
 
 ## ⚠ BU METİNLERİN İDDİA ETMEDİĞİ ŞEYLER
 
@@ -46,6 +56,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Boyut | 0.41 MB (JPEG q95) |
 | sha256 | `e47666a738f322a3515ef4a7d2396219` |
 
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> A closed navy field notebook with a gold compass emblem lying on a wooden desk beside a folded map, a pencil and a coil of rope.
+
 ---
 
 ## 2 · ÇOCUK NE YAPIYOR — çöz · diz · mühürle
@@ -76,6 +90,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Boyut | 0.12 MB (JPEG q95) |
 | sha256 | `ba161000acf178981cc5f201a2f0770d` |
 
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> A child's hands writing with a pencil on the ruled page of an open field notebook.
+
 **Yuva başlığı:**
 
 > Decode and write
@@ -92,6 +110,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Boyut | 0.12 MB (JPEG q95) |
 | sha256 | `70fba9716e4ee93e771d1f08af407aef` |
 
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> A child's hands arranging blank paper cards in a row on a wooden desk.
+
 **Yuva başlığı:**
 
 > Sort the evidence
@@ -107,6 +129,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Ölçü | 600 × 600 px |
 | Boyut | 0.13 MB (JPEG q95) |
 | sha256 | `013fef5bda4b5de3e40eb6efd2d715e5` |
+
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> A child's hand pressing a stamp beside a row of round seal impressions on a paper strip.
 
 **Yuva başlığı:**
 
@@ -143,6 +169,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Boyut | 0.45 MB (JPEG q95) |
 | sha256 | `7b297bdd8d787a476e6ae5317cf2633f` |
 
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> Six painted landscape panels in a row: sea ice, a warm coastal town, open savanna, monsoon mountains, an island sea and cloud forest terraces.
+
 ---
 
 ## 4 · GÜVENİLİRLİK — cevaplar kaynaklarla denetlendi
@@ -169,6 +199,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Ölçü | 600 × 600 px |
 | Boyut | 0.14 MB (JPEG q95) |
 | sha256 | `744f0b65829c37b26e55fbdc30a8d994` |
+
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> A stack of reference books, an archive folder, a magnifier and cotton handling gloves on a desk.
 
 ---
 
@@ -200,6 +234,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Boyut | 0.14 MB (JPEG q95) |
 | sha256 | `9513ce2b8428e414097c34d527577101` |
 
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> A closed navy field notebook with a gold compass emblem beside a single sharpened pencil.
+
 **Yuva başlığı:**
 
 > Closed and ready
@@ -216,6 +254,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Boyut | 0.12 MB (JPEG q95) |
 | sha256 | `feb60ffd770877782177d18bdfd909b3` |
 
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> An open field notebook showing blank ruled and gridded pages with a pencil resting across them.
+
 **Yuva başlığı:**
 
 > Open and working
@@ -231,6 +273,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Ölçü | 600 × 600 px |
 | Boyut | 0.12 MB (JPEG q95) |
 | sha256 | `7e3faa9028812dde2a505713b3d486c7` |
+
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> The closed field notebook beside a mug and a switched-off desk lamp at the end of a session.
 
 **Yuva başlığı:**
 
@@ -267,6 +313,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Boyut | 0.15 MB (JPEG q95) |
 | sha256 | `387953e32bf44e75ed484d0e228ac2df` |
 
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> Four activity sheets fanned across a desk: an outline coast map, a ruled key panel with empty cells, an observation plate and blank numbered cards.
+
 ---
 
 ## 7 · TAMAMLAMA — bu kitap BİTİRİLİR
@@ -293,6 +343,10 @@ Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** girilir. Ar
 | Ölçü | 1940 × 600 px |
 | Boyut | 0.36 MB (JPEG q95) |
 | sha256 | `5706c237a50efd03a3327928f48b9e98` |
+
+**Alt text** — *zorunlu · erişilebilirlik*:
+
+> The finished field notebook closed on a desk beside a blank certificate card and a folded map.
 
 ---
 

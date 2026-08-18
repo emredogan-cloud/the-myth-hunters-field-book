@@ -12,7 +12,7 @@
     "Ölçüm: her bölge gri tonlamaya çevrilip standart sapması alındı.",
     "Yüksek sapma = yoğun desen = üstüne basılan metin okunmaz."
   ],
-  "selected": "kdp-cover-option-01",
+  "selected": "kdp-cover-option-01-4x-300dpi",
   "rejected": "kdp-cover-option-02",
   "measuredAt": "2026-08-16",
   "measurement": {
@@ -150,5 +150,95 @@
       7.875,
       6.24
     ]
+  },
+  "canonicalArtwork": {
+    "file": "07_ASSETS/raw/kdp-cover-option-01-4x-300dpi.png",
+    "sha256": "fac994f6310a417f7b769680582722833497a2248aa2a27c96dcf633f9100dd5",
+    "pixels": [
+      6276,
+      4012
+    ],
+    "note": "TEK KANONİK KAPAK SANATI. Eski 1569×1003 sürüm rejected/ altına arşivlendi."
+  },
+  "assetAcceptance": {
+    "$comment": [
+      "⭑ DOSYA ADI BİR KANIT DEĞİLDİR ⭑",
+      "",
+      "Yeni dosyanın adı '4x-300dpi' diyor. Bu bir İDDİADIR. Kabul",
+      "kararı dosya adından değil ÖLÇÜMDEN verildi; gömülü dpi",
+      "üstverisi de (299,9994) tek başına kanıt sayılmadı.",
+      "",
+      "    Etkin çözünürlük = PİKSEL / GERÇEK FİZİKSEL BOY",
+      "",
+      "ve nihai fiziksel boy 17,6013 × 11,2500 inçtir."
+    ],
+    "decidedAt": "2026-08-18",
+    "old": {
+      "pixels": [
+        1569,
+        1003
+      ],
+      "effectiveDpi": 89.1,
+      "sha256": "68428bf6aa81b7f3f58140e8baf8d9bf37dd2881aa724aa726e74222374bdb33"
+    },
+    "new": {
+      "pixels": [
+        6276,
+        4012
+      ],
+      "effectiveDpi": 356.6,
+      "embeddedDpiMetadata": "299.9994 — BEYAN, ölçüm değil",
+      "sha256": "fac994f6310a417f7b769680582722833497a2248aa2a27c96dcf633f9100dd5"
+    },
+    "scaleFactor": [
+      4.0,
+      4.0
+    ],
+    "tests": {
+      "sameComposition": {
+        "method": "yeni görsel eski boyuta indirilip eskiyle karşılaştırıldı",
+        "psnrDb": 32.3,
+        "maeOf255": 4.17,
+        "verdict": "AYNI GÖRSEL — onaylı kompozisyondan türetilmiş, farklı bir sanat DEĞİL"
+      },
+      "realDetailAdded": {
+        "method": "kenar enerjisi: yeni dosya ↔ eskinin saf bicubic 4× büyütmesi",
+        "newEdgeStd": 28.594,
+        "naiveBicubicEdgeStd": 6.131,
+        "ratio": 4.66,
+        "verdict": "GERÇEK detay sentezlenmiş (super-resolution) — yalnızca yumuşak büyütme DEĞİL"
+      },
+      "aspectRatio": {
+        "new": 1.56431,
+        "required": 1.56456,
+        "deviationPct": 0.016,
+        "verdict": "uyumlu"
+      },
+      "bindingCompatibility": {
+        "old": 0.4614,
+        "new": 0.4616,
+        "verdict": "aynı kompozisyon — sırt hizalama kırpması birebir çalışır"
+      },
+      "alpha": {
+        "verdict": "her iki dosya da tam opak; şeffaflık yok"
+      },
+      "visualInspection": {
+        "at": "1:1 · pusula gülü · defter ızgarası · mühürler · kabuk · şerit",
+        "artifacts": "yok — halka/ringing veya aşırı keskinleştirme görülmedi",
+        "hallucinatedText": "yok — defter sayfaları boş, mühürler BOŞ, etiket kartları boş, şerit dokusu yalnızca kumaş örgüsü",
+        "embeddedTypography": "yok",
+        "watermark": "yok",
+        "logo": "yok",
+        "barcode": "yok",
+        "isbn": "yok"
+      },
+      "postCropDpi": {
+        "note": "sırt hizalama kırpması sonrası kalan çözünürlük",
+        "croppedWidthPx": 5794,
+        "effectiveDpi": 329.2,
+        "verdict": "kırpmadan SONRA da 300 dpi üstünde"
+      }
+    },
+    "result": "KABUL"
   }
 }

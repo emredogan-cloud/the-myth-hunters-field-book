@@ -69,6 +69,26 @@ MAX_BYTES = 3 * 1024 * 1024
 # ⚠ KOPYA ÖLÇÜLMÜŞ SAYILARDAN GELİR. Hiçbir satır ödül, onay,
 # 'bestseller' ya da ÇOCUK TESTİ iddia edemez: externalValidation
 # `overridden-zero-sessions` — sıfır oturum, sıfır testçi.
+# ⭑ ALT METİN — ZORUNLU VE EKSİKTİ ⭑
+#
+# Karşılaştırmalı denetim (World Myths · 18 Ağustos 2026) bir eksik
+# buldu: o projenin playbook'u her görsel için ALT METNİ ZORUNLU
+# tutuyor ("erişilebilirlik; zorunlu"), bu projenin modül haritasında
+# ise hiç yoktu.
+#
+#     Alt metin bir pazarlama alanı değildir: görmeyen bir okurun
+#     gördüğü TEK şeydir. Ve KDP paneli onu ayrı bir alan olarak sorar.
+#
+# Bu metinler görseli TARİF EDER; pazarlama cümlesini TEKRARLAMAZ.
+ALT_TEXT = {'aplus-01-hero': ['A closed navy field notebook with a gold compass emblem lying on a wooden desk beside a folded map, a pencil and a coil of rope.'],
+     'aplus-02-what-children-do': ["A child's hands writing with a pencil on the ruled page of an open field notebook.", "A child's hands arranging blank paper cards in a row on a wooden desk.", "A child's hand pressing a stamp beside a row of round seal impressions on a paper strip."],
+     'aplus-03-six-regions': ['Six painted landscape panels in a row: sea ice, a warm coastal town, open savanna, monsoon mountains, an island sea and cloud forest terraces.'],
+     'aplus-04-real-cultures': ['A stack of reference books, an archive folder, a magnifier and cotton handling gloves on a desk.'],
+     'aplus-05-screen-free': ['A closed navy field notebook with a gold compass emblem beside a single sharpened pencil.', 'An open field notebook showing blank ruled and gridded pages with a pencil resting across them.', 'The closed field notebook beside a mug and a switched-off desk lamp at the end of a session.'],
+     'aplus-06-maps-and-codes': ['Four activity sheets fanned across a desk: an outline coast map, a ruled key panel with empty cells, an observation plate and blank numbered cards.'],
+     'aplus-07-completion': ['The finished field notebook closed on a desk beside a blank certificate card and a folded map.']}
+
+
 MODULES = [
     {"id": "aplus-01-hero", "module": "Standard Image & Text Overlay",
      "shape": "banner", "panels": 1,
@@ -259,10 +279,110 @@ def save_under(im, path, limit=MAX_BYTES):
     return q
 
 
+
+def render_previews(rows, out_dir):
+    """⭑ YALNIZCA QA — AMAZON'A GİDEN BİR ŞEY DEĞİLDİR ⭑
+
+    Modülün ürün sayfasında NASIL görüneceğini yerel olarak gösterir:
+    görsel + modül başlığı + gövde + yuva metinleri.
+
+    ⚠ Bu önizlemeler YÜKLENMEZ. Amazon metni kendi alanlarında,
+    kendi tipografisiyle basar; buradaki dizgi yalnızca kurucunun
+    hiyerarşiyi ve uzunluğu görmesi içindir. Önizlemede metnin
+    görselin İÇİNDE görünmesi, nihai görselde metin olduğu anlamına
+    GELMEZ — nihai görseller metinsizdir ve öyle kalır.
+    """
+    from PIL import Image, ImageDraw, ImageFont
+    FD = os.path.join(ROOT, "07_ASSETS", "fonts")
+    SD = "/usr/share/fonts/truetype/dejavu"
+    d0 = FD if os.path.isfile(os.path.join(FD, "DejaVuSans-Bold.ttf")) else SD
+    try:
+        fb = ImageFont.truetype(os.path.join(d0, "DejaVuSans-Bold.ttf"), 30)
+        fr = ImageFont.truetype(os.path.join(d0, "DejaVuSans.ttf"), 20)
+        fs = ImageFont.truetype(os.path.join(d0, "DejaVuSans.ttf"), 16)
+    except OSError:
+        return 0
+    prev_dir = os.path.join(out_dir, "preview")
+    os.makedirs(prev_dir, exist_ok=True)
+    by = {}
+    for r in rows:
+        by.setdefault(r["moduleId"], []).append(r)
+    n = 0
+    for mid, rs in by.items():
+        W = 1240
+        imgs = []
+        for r in rs:
+            im = Image.open(os.path.join(out_dir, r["file"])).convert("RGB")
+            tw = (W - 40) if len(rs) == 1 else (W - 40 - 20 * (len(rs) - 1)) // len(rs)
+            imgs.append(im.resize((tw, int(im.height * tw / im.width)), Image.LANCZOS))
+        ih = max(i.height for i in imgs)
+
+        def wrap(txt, font, width):
+            words, line, out = txt.split(), "", []
+            tmp = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+            for w in words:
+                t = (line + " " + w).strip()
+                if tmp.textlength(t, font=font) <= width:
+                    line = t
+                else:
+                    out.append(line)
+                    line = w
+            if line:
+                out.append(line)
+            return out
+
+        head = wrap(rs[0]["headline"], fb, W - 80)
+        body = wrap(rs[0]["body"], fr, W - 80)
+        slot_h = 0
+        slots = []
+        if len(rs) > 1:
+            for r in rs:
+                cap = wrap(r.get("panelCopy") or "", fb, imgs[0].width - 10)
+                bod = wrap(r.get("panelBody") or "", fs, imgs[0].width - 10)
+                slots.append((cap, bod))
+            slot_h = 12 + max(len(c) * 28 + len(b) * 21 for c, b in slots)
+        H = 26 + len(head) * 38 + 10 + len(body) * 27 + 22 + ih + slot_h + 26
+        card = Image.new("RGB", (W, H), (255, 255, 255))
+        dr = ImageDraw.Draw(card)
+        y = 26
+        for ln in head:
+            dr.text((40, y), ln, font=fb, fill=(24, 24, 28))
+            y += 38
+        y += 10
+        for ln in body:
+            dr.text((40, y), ln, font=fr, fill=(70, 70, 76))
+            y += 27
+        y += 22
+        x = 20
+        for i, im in enumerate(imgs):
+            card.paste(im, (x, y))
+            if slots:
+                cap, bod = slots[i]
+                yy = y + ih + 12
+                for ln in cap:
+                    dr.text((x, yy), ln, font=fb, fill=(24, 24, 28))
+                    yy += 28
+                for ln in bod:
+                    dr.text((x, yy), ln, font=fs, fill=(80, 80, 86))
+                    yy += 21
+            x += im.width + 20
+        dr.rectangle([(0, 0), (W - 1, H - 1)], outline=(210, 210, 214))
+        # ⚠ Etiket ÖLÇÜLEREK yerleştirilir. Kardeş projenin A+ modülünde
+        # alt satır kırpılmıştı; aynı kusuru bir QA çıktısında tekrarlamak
+        # da aynı sınıftan bir dikkatsizliktir.
+        lbl = "LOCAL QA PREVIEW — not uploaded"
+        lw = dr.textlength(lbl, font=fs)
+        dr.text((W - lw - 14, 8), lbl, font=fs, fill=(190, 90, 60))
+        card.save(os.path.join(prev_dir, "%s.png" % mid))
+        n += 1
+    return n
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--preview", action="store_true")
     args = ap.parse_args()
 
     print("=" * 74)
@@ -342,11 +462,35 @@ def main() -> int:
                 "panelCopy": (m.get("panelCopy") or [None] * m["panels"])[n - 1],
                 "panelBody": (m.get("panelBody") or [None] * m["panels"])[n - 1],
                 "panelIndex": n, "panelsInModule": m["panels"],
+                "alt": (ALT_TEXT.get(m["id"]) or [""] * m["panels"])[
+                    min(n - 1, len(ALT_TEXT.get(m["id"]) or [""]) - 1)],
                 "dimensions": "%d × %d" % target,
                 "bytes": size, "jpegQuality": q,
                 "sha256": sha256(out),
             })
             rep.check(size <= MAX_BYTES, "%s < 3 MB (%.2f MB)" % (name, size / 1e6))
+
+    # ⭑ HİÇBİR MODÜL METİNSİZ KALAMAZ ⭑
+    #
+    # Kardeş projede iki modül metinsiz çıktı ve HİÇBİR KAPI GÖRMEDİ:
+    # doğrulama yalnızca ölçü, renk ve dosya boyutuna bakıyordu. Ürün
+    # sayfasına yüklenecek iki modülün biri boş bir bant olarak
+    # duruyordu.
+    #
+    #     Bir kapı ölçüyü denetleyip İÇERİĞİ denetlemiyorsa,
+    #     boş bir modülü yeşil yakar.
+    for r in rows:
+        rep.check(bool((r.get("headline") or "").strip()),
+                  "%s modül başlığı DOLU" % r["file"])
+        rep.check(bool((r.get("body") or "").strip()),
+                  "%s modül gövdesi DOLU" % r["file"])
+        rep.check(bool((r.get("alt") or "").strip()),
+                  "%s ALT METNİ dolu (erişilebilirlik · zorunlu)" % r["file"])
+        if r.get("panelsInModule", 1) > 1:
+            rep.check(bool((r.get("panelCopy") or "").strip()),
+                      "%s yuva başlığı DOLU" % r["file"])
+            rep.check(bool((r.get("panelBody") or "").strip()),
+                      "%s yuva gövdesi DOLU" % r["file"])
 
     print("\n  modül: %d · üretilen görsel: %d" % (len(MODULES), len(produced)))
 
@@ -385,12 +529,32 @@ def main() -> int:
         "MODÜL  →  GÖRSEL  →  BAŞLIK  →  GÖVDE",
         "```",
         "",
-        "## ⭑ METİN GÖRSELE GÖMÜLÜ DEĞİLDİR ⭑",
+        "## ⭑ METİN GÖRSELE GÖMÜLÜ DEĞİLDİR — VE BU BİLİNÇLİ BİR AYRIMDIR ⭑",
         "",
         "Aşağıdaki bütün metinler Amazon'un **kendi modül alanlarına** "
         "girilir. Arka plan görselleri metinsizdir ve öyle kalmalıdır: "
-        "gömülü metin düzeltilemez, mobilde okunmaz ve dil değişirse "
+        "gömülü metin düzeltilemez, mobilde ölçeklenmez ve dil değişirse "
         "yeniden çizim ister.",
+        "",
+        "> ### ⚠ KARDEŞ KİTAPTAN FARKLI — ALANLARI BOŞ BIRAKMAYIN",
+        ">",
+        "> *The Great Book of World Myths* A+ metinlerini **görselin "
+        "içine** bastı ve playbook'u modül alanlarını **boş bırakmayı** "
+        "söyler. Gerekçesi oydu: o projede görsel üreteci kapakta kitabın "
+        "adını **yanlış yazmıştı**, bu yüzden bütün tipografi görsele "
+        "deterministik olarak basıldı.",
+        ">",
+        "> **O gerekçe bu kitapta YOKTUR.** Buradaki metinler de "
+        "üreteçten gelmiyor: `metadata.json` ölçümlerinden türetiliyor ve "
+        "Amazon onları kendi alanlarında **duyarlı** olarak basıyor.",
+        ">",
+        "> Amazon, *Image & Text Overlay* modüllerinde arka plan "
+        "görseline metin eklenmemesini zaten tavsiye ediyor.",
+        ">",
+        "> **Bu kitapta modül alanları DOLDURULUR.** İki kitabın "
+        "sözleşmesi birbirinin tersidir; kardeş kitabın alışkanlığıyla "
+        "burada alanları boş bırakmak, ürün sayfasını **metinsiz** "
+        "bırakır.",
         "",
         "## ⚠ BU METİNLERİN İDDİA ETMEDİĞİ ŞEYLER",
         "",
@@ -446,6 +610,10 @@ def main() -> int:
                                                         r["jpegQuality"]),
                     "| sha256 | `%s` |" % r["sha256"][:32],
                     "",
+                    "**Alt text** — *zorunlu · erişilebilirlik*:",
+                    "",
+                    "> %s" % (r.get("alt") or "—"),
+                    "",
                     "**Yuva başlığı:**",
                     "",
                     "> %s" % (r["panelCopy"] or "—"),
@@ -466,6 +634,10 @@ def main() -> int:
                 "| Boyut | %.2f MB (JPEG q%d) |" % (r["bytes"] / 1e6,
                                                     r["jpegQuality"]),
                 "| sha256 | `%s` |" % r["sha256"][:32],
+                "",
+                "**Alt text** — *zorunlu · erişilebilirlik*:",
+                "",
+                "> %s" % (r.get("alt") or "—"),
                 "",
             ]
         lines += ["---", ""]
@@ -498,6 +670,10 @@ def main() -> int:
         for r in sorted(rows, key=lambda x: x["file"]):
             fh.write("%s  %s\n" % (r["sha256"], r["file"]))
 
+    if args.preview:
+        npv = render_previews(rows, OUT_DIR)
+        rep.facts["previews"] = npv
+        print("  QA önizlemesi: %d modül → 08_OUTPUT/APLUS/preview/" % npv)
     rep.facts["modules"] = len(MODULES)
     rep.facts["images"] = len(rows)
     rep.facts["droppedPanels"] = {"aplus-05-screen-free":

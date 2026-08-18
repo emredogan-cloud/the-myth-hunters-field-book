@@ -204,6 +204,13 @@ def glyph_contrast(bg, FW, FH, block, font_paths):
         Ortalama bir zemin, bir harfin altındaki zemin değildir."""
     from PIL import Image, ImageDraw, ImageFont, ImageStat
     aw, ah = bg.size
+    # Ölçüm için de küçültülmüş tuval yeterli ve çok daha hızlı; oran
+    # korunduğu için harf altındaki zemin aynı zemindir.
+    MEAS_MAX = 2200
+    ms = min(1.0, MEAS_MAX / float(aw))
+    if ms < 1.0:
+        bg = bg.resize((int(aw * ms), int(ah * ms)), Image.LANCZOS)
+        aw, ah = bg.size
     ppi = aw / FW
     mask = Image.new("L", (aw, ah), 0)
     d = ImageDraw.Draw(mask)
@@ -345,19 +352,39 @@ def halo_layer(art, FW, FH, blocks, font_paths, rep):
     base = art.convert("RGB")
     ppi = aw / FW
 
+    # ⭑ HALE DÜŞÜK ÇÖZÜNÜRLÜKTE HESAPLANIR — VE BU BİR KAYIP DEĞİLDİR ⭑
+    #
+    # Kurucunun yeni sanatı 25 MP. Işımayı tam çözünürlükte kurmak her
+    # blok için 25 MP'lik bir maske + kalın bir Gauss demek: dakikalar.
+    #
+    # Ama ışıma TANIMI GEREĞİ düşük frekanslıdır — zaten ağır bir
+    # bulanıklıktan geçiyor. Küçük tuvalde hesaplayıp büyütmek, büyük
+    # tuvalde hesaplamakla GÖRSEL OLARAK aynı sonucu verir.
+    #
+    #     Yumuşak bir alanı yüksek çözünürlükte hesaplamak,
+    #     çözünürlük kazandırmaz — yalnızca zaman harcar.
+    #
+    # ⚠ Bu YALNIZCA ışıma katmanıdır. Basılan harfler vektördür ve
+    # çözünürlükten bağımsızdır; sanat da kendi tam çözünürlüğünde kalır.
+    HALO_MAX = 2200
+    hs = min(1.0, HALO_MAX / float(aw))
+    hw, hh = max(1, int(aw * hs)), max(1, int(ah * hs))
+    rep.facts["haloComputeScale"] = round(hs, 4)
+    rep.facts["haloComputePx"] = [hw, hh]
+
     for b in blocks:
         if not b.get("glyphs"):
             continue
-        mask = Image.new("L", (aw, ah), 0)
+        mask = Image.new("L", (hw, hh), 0)
         d = ImageDraw.Draw(mask)
-        size_px = max(4, int(round(b["size"] * ppi / PT)))
+        size_px = max(4, int(round(b["size"] * ppi * hs / PT)))
         try:
             f = ImageFont.truetype(font_paths[b["font"]], size_px)
         except OSError:
             continue
         for (tx, ty, txt) in b["glyphs"]:
-            px = tx / FW * aw
-            py = (FH - ty) / FH * ah
+            px = tx / FW * hw
+            py = (FH - ty) / FH * hh
             if b.get("rotate"):
                 tmp = Image.new("L", (int(d.textlength(txt, font=f)) + 12,
                                       int(size_px * 2.0) + 12), 0)
@@ -368,10 +395,12 @@ def halo_layer(art, FW, FH, blocks, font_paths, rep):
             else:
                 anc = "ms" if b.get("align") == "centre" else "ls"
                 d.text((px, py), txt, font=f, fill=255, anchor=anc)
-        glow = mask.filter(ImageFilter.GaussianBlur(b.get("blur", 9)))
+        glow = mask.filter(ImageFilter.GaussianBlur(max(1.0, b.get("blur", 9) * hs)))
         gain = b.get("gain", 2.4)
         op = b.get("opacity", 0.80)
         glow = glow.point(lambda v: min(255, int(v * gain * op)))
+        if (hw, hh) != (aw, ah):
+            glow = glow.resize((aw, ah), Image.BILINEAR)
         wash = Image.new("RGB", (aw, ah), b["halo"])
         base = Image.composite(wash, base, glow)
     rep.facts["haloBlocks"] = sum(1 for b in blocks if b.get("glyphs"))
@@ -802,10 +831,22 @@ def main() -> int:
         rep.check(abs(F["artBindingAfter"] - tgt) < 0.004,
                   "sanatın cilt şeridi GERÇEK SIRTA hizalı")
     print("  sanat %d × %d px · etkin %.1f dpi" % (*F["artPixels"], F["effectiveDpi"]))
-    if F["effectiveDpi"] < 300:
-        rep.warn("kapak sanatı 300 dpi ALTINDA (%.0f dpi) — yukarı örnekleme "
-                 "YAPILMADI; tipografi vektör. KURUCU EYLEMİ: sanatı "
-                 "≥%d × %d px yeniden üret." % (F["effectiveDpi"], *F["requiredPixels"]))
+    # ⭑ ARTIK BİR UYARI DEĞİL, BİR KAPI ⭑
+    #
+    # Kurucu 18 Ağustos'ta gerçekten ≥300 dpi bir kapak sanatı teslim etti
+    # (6276 × 4012 · ölçülen 356,6 dpi; sırt hizalama kırpmasından SONRA
+    # 329,2 dpi). Ölçüt karşılandığı andan itibaren gevşek kalması için
+    # bir gerekçe yok.
+    #
+    #     Bir eşik, karşılanabilir hâle geldiği gün KAPIYA dönüşür.
+    #
+    # Bu kapı bir gerilemeyi yakalar: düşük çözünürlüklü bir sanat geri
+    # konursa kapak KIRMIZI yanar ve sessizce basılmaz.
+    rep.check(F["effectiveDpi"] >= 300.0,
+              "kapak sanatı KDP 300 dpi ölçütünü karşılıyor (%.1f dpi ≥ 300)"
+              % F["effectiveDpi"]
+              + ("" if F["effectiveDpi"] >= 300 else
+                 " — gereken ≥%d × %d px" % tuple(F["requiredPixels"])))
 
     print("\n── ③ tipografi · zeminden ÖLÇÜLMÜŞ mürekkep ──")
     for k in ("front-title", "front-subtitle", "front-author", "spine", "back-0"):
